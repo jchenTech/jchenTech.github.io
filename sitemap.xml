@@ -3,11 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://jchenTech.github.io/</loc>
-    <lastmod>2017-05-20T12:10:51+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://jchenTech.github.io/tags/markdown/</loc>
     <lastmod>2017-05-20T12:10:51+02:00</lastmod>
   </url>
@@ -24,6 +19,11 @@
   
   <url>
     <loc>http://jchenTech.github.io/tags/</loc>
+    <lastmod>2017-05-20T12:10:51+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://jchenTech.github.io/</loc>
     <lastmod>2017-05-20T12:10:51+02:00</lastmod>
   </url>
   
