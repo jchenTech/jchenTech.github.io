@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hugo on 陈建君的技术博客</title>
-    <link>https://jchenTech.github.io/tags/hugo/</link>
-    <description>Recent content in Hugo on 陈建君的技术博客</description>
+    <title>博客 on 陈建君的技术博客</title>
+    <link>https://jchenTech.github.io/categories/%E5%8D%9A%E5%AE%A2/</link>
+    <description>Recent content in 博客 on 陈建君的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sat, 20 May 2017 11:58:06 +0200</lastBuildDate>
     
-	<atom:link href="https://jchenTech.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jchenTech.github.io/categories/%E5%8D%9A%E5%AE%A2/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -29,16 +29,6 @@ cd /path/to/site站点目录结构：
  ▸ archetypes/▸ content/▸ layouts/▸ static/config.toml生成文章 创建一个 about 页面：
 hugo new about.mdabout.md 自动生成到了 content/about.md ，打开 about.md 看下：
 +++date = &amp;quot;2015-10-25T08:36:54-07:00&amp;quot;draft = truetitle = &amp;quot;about&amp;quot;+++正文内容内容是 Markdown 格式的，+++ 之间的内容是 TOML 格式的，根据你的喜好，你可以换成 YAML 格式（使用 &amp;mdash; 标记）或者 JSON 格式。</description>
-    </item>
-    
-    <item>
-      <title>How to add pages to the menu</title>
-      <link>https://jchenTech.github.io/2015/10/02/how-to-add-pages-to-the-menu/</link>
-      <pubDate>Fri, 02 Oct 2015 21:49:20 +0200</pubDate>
-      
-      <guid>https://jchenTech.github.io/2015/10/02/how-to-add-pages-to-the-menu/</guid>
-      <description>I&amp;rsquo;m a linked post in the menu. You can add other posts by adding the following line to the frontmatter:
-menu = &amp;quot;main&amp;quot; </description>
     </item>
     
   </channel>
