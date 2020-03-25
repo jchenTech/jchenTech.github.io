@@ -6,10 +6,157 @@
     <description>Recent content in Posts on 陈建君的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 20 May 2017 12:10:51 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 23 Mar 2020 15:41:06 +0800</lastBuildDate>
     
 	<atom:link href="https://jchenTech.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>C&#43;&#43; primer plus 第15章友元、异常和其他</title>
+      <link>https://jchenTech.github.io/2020/03/23/c-primer-plus-%E7%AC%AC15%E7%AB%A0%E5%8F%8B%E5%85%83%E5%BC%82%E5%B8%B8%E5%92%8C%E5%85%B6%E4%BB%96/</link>
+      <pubDate>Mon, 23 Mar 2020 15:41:06 +0800</pubDate>
+      
+      <guid>https://jchenTech.github.io/2020/03/23/c-primer-plus-%E7%AC%AC15%E7%AB%A0%E5%8F%8B%E5%85%83%E5%BC%82%E5%B8%B8%E5%92%8C%E5%85%B6%E4%BB%96/</guid>
+      <description>15.1 友元 15.1.1 友元类 友元函数：不是类的成员函数，但是能够访问类的私有数据成员。
+之前有个矛盾就是规定非成员函数不能直接访问类的私有数据，但是这会儿却可以，但那只是针对常规非成员函数而言，特殊的非成员函数就可以访问类的私有数据——友元函数。
+友元函数就是这么特殊，虽然在类中声明，却不是类的成员函数，这是因为加了前缀friend。
+友元不仅包含函数，类也可以当友元，也就是友元类。
+友元类的所有方法都可以访问原始类的私有成员和保护成员。
+也可以做更严格的限制，只将限定的成员函数指定为另一类的友元。
+尽管友元被授予从外部访问类的私有部分的权限，但它们并不与面向对象的编程思想相违背。
+接下来就是讨论友元类：
+假定要编写一个模拟电视机和遥控器的简单程序。
+决定定义一个Tv类和一个Remote类，来分别表示电视机和遥控器。
+很明显，这两个类之间应当存在某种关系，遥控器并非电视机，反之亦然，但是遥控器却可以改变电视机的状态。这样的关系可以将Remote类作为Tv类的一个友元来实现。
+友元类声明位置无关紧要，可以声明在公有、私有、保护部分；
+定义一个电视机类，用一些状态成员来表示电视机：
+ 开/关； 频道设置； 音量设置； 有线电视or天线调节模式； TV调谐或A/V输入。  tv.h文件，声明tv和remote的类
+#ifndef TV_H_#define TV_H_class Tv{public:friend class Remote;enum{Off, On};enum{MinVal, MaxVal=20};enum{Antenna, Cable};enum{TV,DVD};Tv():state(s),volume(5),maxchannel(mc),channel(2),mode(Cable),input(TV){}void onoff() {state=(state == On)?Off:On;}bool ison() const {return state==On;}bool volup();bool voldown();void chanup();void chandown();void set_mode() {mode=(mode == Antenna)?Cable:Antenna;}void set_input() {input=(input == TV)?</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43; primer plus 第14章C&#43;&#43;中的代码重用</title>
+      <link>https://jchenTech.github.io/2020/03/22/c-primer-plus-%E7%AC%AC14%E7%AB%A0c-%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%A0%81%E9%87%8D%E7%94%A8/</link>
+      <pubDate>Sun, 22 Mar 2020 13:30:06 +0800</pubDate>
+      
+      <guid>https://jchenTech.github.io/2020/03/22/c-primer-plus-%E7%AC%AC14%E7%AB%A0c-%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%A0%81%E9%87%8D%E7%94%A8/</guid>
+      <description>[toc]
+C++的主要目的是促进代码重用。
+公有继承是实现这一目标的机制之一；
+本身是另一个类的成员，这种方法称为包含、组合、层次化。
+另一种方法是使用私有、保护继承。
+通常包含、私有继承和保护继承用于实现has-a关系，即新的类型包含另一个类的对象。
+多重继承使得能够使用两个或更多的基类派生出新的类，将基类的功能组合在一起。
+还有类模板——另一种重用代码的方法。类模板能够使用通用术语定义类，然后使用模板来创建针对特定类型定义的特殊类。例如，可以定义一个通用的栈模板，然后使用该模板创建一个用于表示int值栈的类和一个用于表示double值栈的类。
+14.1 包含对象成员的类 对于姓名可以使用字符数组来表示，但这将限制姓名的长度。当然，还可以使用char指针和动态内存分配，但这要求提供大量的支持代码。有一个好的方法就是使用一个他人开发好的类的对象来表示。如果C++库提供了合适的类，实现起来将更简单。姓名可以采用string类。而对于考试分数，存在类似的选择，可以使用一个定长数组，还可以采用C++库提供的一个这样的类，它就是valarray。
+14.1.1 valarray类简介 valarray是一个模板类，模板类在使用时需要指定具体数据类型。
+valarray&amp;lt;int&amp;gt; q_values; //an array of intvalarray&amp;lt;double&amp;gt; weights; //an array of doublevalarray类的构造函数和其他类方法举例如下：
+double gps[5]={3.1, 3.5, 3.8, 2.9, 3.3};valarray&amp;lt;double&amp;gt; v1; //double类型的空数组valarray&amp;lt;int&amp;gt; v2(8); //长度为8的整型元素。valarray&amp;lt;int&amp;gt; v3(10,8); //长度为8的整型元素，每个长度为10。valarray&amp;lt;double&amp;gt; v4(gpa,4) //使用gpa数组的前4个元素给v4赋值。valarray&amp;lt;int&amp;gt; v5 = {20,32,17,9}; //C++11使用初始化列表进行初始化下面是这个类的一些方法：
+operator[]() 能够访问各个元素；size() 返回包含的元素数xum() 返回所有元素的总和max() 返回最大的元素min() 返回最小的元素14.1.2 Student类的设计 class Student{private:string name;valarray&amp;lt;double&amp;gt; scores;…};Student类获得了其成员对象的实现，但没有继承接口。这意味着Student类成员函数可以使用string和valarray类的公有接口来访问和修改name和scores对象。但在类外不能这样做，而只能通过Student类的公有接口访问name和scores。</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43; primer plus 第13章类继承</title>
+      <link>https://jchenTech.github.io/2020/03/20/c-primer-plus-%E7%AC%AC13%E7%AB%A0%E7%B1%BB%E7%BB%A7%E6%89%BF/</link>
+      <pubDate>Fri, 20 Mar 2020 11:01:06 +0800</pubDate>
+      
+      <guid>https://jchenTech.github.io/2020/03/20/c-primer-plus-%E7%AC%AC13%E7%AB%A0%E7%B1%BB%E7%BB%A7%E6%89%BF/</guid>
+      <description>[toc]
+13.1 一个简单得基类 从一个类派生出另一个类时，原始类称为基类，继承类称为派生类。
+13.1.1 派生一个类 class RatedPlayer :public TableTennisPlayer{}冒号指出RatedPlayer 类的基类是TableTennisPlayer类。派生类对象包含基类对象。使用公有派生，基类的公有成员将成为派生类的公有成员；基类的私有部分也将称为派生类的一部分，但是只能通过基类的公有和保护方法访问。
+ 派生类对象存储了基类得数据成员（派生类继承了积累的实现） 派生类对象可以使用基类的方法（派生类继承了基类的接口）  需要在继承特性中添加什么呢？
+ 派生类需要自己的构造函数 派生类可以根据需要添加额外的数据成员和成员函数。  13.1.2 构造函数：访问权限的考虑 派生类不能直接访问基类的私有成员，而必须通过基类方法进行访问。因此派生类构造函数必须使用基类构造函数；
+创建派生类对象时，程序首先创建基类对象。从概念上讲，这意味着基类对象应当在程序进入派生类构造函数之前被创建。C++使用成员初始化列表来完成这种工作。
+RatedPlayer::RatedPlayer(unsigned int r, const string &amp;amp; fn, const string &amp;amp; ln, bool ht):TableTennisPlayer(fn,ln,ht){rating = r;}如果省略了基类构造函数的话：
+RatedPlayer::RatedPlayer(unsigned int r, const string &amp;amp; fn, const string &amp;amp; ln, bool ht){rating = r;}首先还是创建基类对象，如果不调用基类构造函数，程序将使用默认的基类构造函数。
+因此上述代码与下面等效：
+RatedPlayer::RatedPlayer(unsigned int r, const string &amp;amp; fn, const string &amp;amp; ln, bool ht):TableTennisPlayer(){rating = r;}除非要使用默认构造函数，否则应该显式调用正确的基类构造函数。</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43; primer plus 第12章类和动态内存分配</title>
+      <link>https://jchenTech.github.io/2020/03/17/c-primer-plus-%E7%AC%AC12%E7%AB%A0%E7%B1%BB%E5%92%8C%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/</link>
+      <pubDate>Tue, 17 Mar 2020 21:02:06 +0800</pubDate>
+      
+      <guid>https://jchenTech.github.io/2020/03/17/c-primer-plus-%E7%AC%AC12%E7%AB%A0%E7%B1%BB%E5%92%8C%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/</guid>
+      <description>[toc]
+12.1 动态内存和类 C++在分配内存时是让程序在运行时决定内存分配，而不是在编译时决定。这样，可根据程序的需要，而不是根据一系列严格的存储类型规则来使用内存。C++使用new和delete运算符来动态控制内存。
+12.1.1 复习示例和静态类成员 这个程序使用了一个新的存储类型：静态类成员：
+//strngbad.h#include&amp;lt;iostream&amp;gt;#ifndef STRNGBAD_H_#define STRNGBAD_H_class StringBad{private:char * str; //指向字符串的指针int len; //字符串的长度static int num_strings; //对象个数public:StringBad(const char * s); //构造函数StringBad(); //默认构造函数~StringBad(); //析构函数//友元函数friend std::ostream &amp;amp; operator&amp;lt;&amp;lt;(std::ostream &amp;amp; os,const StringBad &amp;amp; st);};#endif首先，它使用char指针（而不是char数组）来表示姓名。这意味着类声明没有为字符串本身分配存储空间，而是在构造函数中使用new来为字符串分配空间。 这避免了在类声明中预先定义字符串的长度。
+其次，将num_strings成员声明为静态存储类。 静态类成员有一个特点：无论创建了多少对象，程序都只创建一个静态类变量副本。 也就是说，类的所有对象共享同一个静态成员。 假设创建了10个StringBad对象，将有10个str成员和10个len成员，但只有一个共享的num_strings成员。这对于所有类对象都具有相同值的类私有数据是非常方便的。 例如，num_strings成员可以记录所创建的对象数目。
+//strngbad.cpp #include&amp;lt;cstring&amp;gt;#include&amp;quot;strngbad.h&amp;quot;using std::cout;//初始化静态类成员int StringBad::num_strings = 0;//类方法//以C字符型构造StringBadStringBad::StringBad(const char * s){len = std::strlen(s); //设置长度str = new char[len + 1]; //分配内存std::strcpy(str, s); //初始化指针num_strings++; //设置对象数量cout &amp;lt;&amp;lt; num_strings &amp;lt;&amp;lt; &amp;quot;: \&amp;quot;&amp;quot; &amp;lt;&amp;lt; str&amp;lt;&amp;lt; &amp;quot;\&amp;quot; object created\n&amp;quot;;}StringBad::StringBad() //默认构造函数{len = 4;str = new char[4];std::strcpy(str, &amp;quot;C++&amp;quot;); //默认字符串num_strings++;cout &amp;lt;&amp;lt; num_strings &amp;lt;&amp;lt; &amp;quot;: \&amp;quot;&amp;quot; &amp;lt;&amp;lt; str &amp;lt;&amp;lt; &amp;quot;\&amp;quot; default object created\n&amp;quot;;}StringBad::~StringBad() //必要的析构函数{cout &amp;lt;&amp;lt; &amp;quot;\&amp;quot;&amp;quot; &amp;lt;&amp;lt; str &amp;lt;&amp;lt; &amp;quot;\&amp;quot; object deleted, &amp;quot;;--num_strings; //有要求cout &amp;lt;&amp;lt; num_strings &amp;lt;&amp;lt; &amp;quot; left\n&amp;quot;;delete[] str; //有要求}std::ostream &amp;amp; operator&amp;lt;&amp;lt;(std::ostream &amp;amp; os, const StringBad &amp;amp; st){os &amp;lt;&amp;lt; st.</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43; primer plus 第11章使用类</title>
+      <link>https://jchenTech.github.io/2020/03/16/c-primer-plus-%E7%AC%AC11%E7%AB%A0%E4%BD%BF%E7%94%A8%E7%B1%BB/</link>
+      <pubDate>Mon, 16 Mar 2020 13:18:06 +0800</pubDate>
+      
+      <guid>https://jchenTech.github.io/2020/03/16/c-primer-plus-%E7%AC%AC11%E7%AB%A0%E4%BD%BF%E7%94%A8%E7%B1%BB/</guid>
+      <description>[toc]
+11.1 运算符重载 operatorop(argumnt-list)例如，operator+()重载+运算符。
+11.2 计算时间：一个运算符重载示例 如果要计算两个时间之和，如2小时40分与1小时30分之和，可以重载运算符+，在类中的成员函数为：
+Time operator+(const Time &amp;amp; t) const;重载限制  重载后的运算符至少有一个操作数是用户定义的类型，这将防止用户为标准类型重载运算符。因此，不能将减法运算符（-）重载为两个double值的和。 使用运算符不能违反运算符原来的句法规则，例如不能将求模运算符（%）重载成使用一个操作数。 不能创建新运算符。例如operator**() 不能从在下面的运算符：  sizeof：sizeof 运算符 .: 成员运算符 .*: 成员指针运算符 ::: 作用域解析运算符 ?:: 条件运算符 typeid: 一个RTTI运算符 强制转换类型运算符   大多数运算符都可以通过成员或非成员函数进行重载，但是下面运算符只能通过成员函数进行重载  =: 赋值运算符 (): 函数调用运算符 []: 下表运算符 -&amp;gt;: 通过指针访问类成员运算符    11.3 友元 C++控制对类对象私有部分的访问时，通常共有类方法是访问的唯一途径，但是C++还提供了另外一种形式的访问权限：友元。友元有三种：
+ 友元函数 友元类 友元成员函数  创建友元函数的第一步是将其原型放在类声明总，并在原型声明前加上关键字friend：
+friend Time operator*(double m, const Time &amp;amp; t);该原型意味着下面两点:
+ 虽然operator*()函数是在类声明中声明的，但是它不是成员函数，因此不能使用成员运算符进行调用。 虽然operator*()函数不是成员函数，但是它与成员函数的访问权限相同。  在编写函数定义时，因为它不是成员函数，所以不要使用::限定符。另外，不要再定义中用关键字 friend，定义应如下：</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43; primer plus 第10章对象和类</title>
+      <link>https://jchenTech.github.io/2020/03/15/c-primer-plus-%E7%AC%AC10%E7%AB%A0%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/</link>
+      <pubDate>Sun, 15 Mar 2020 14:24:06 +0800</pubDate>
+      
+      <guid>https://jchenTech.github.io/2020/03/15/c-primer-plus-%E7%AC%AC10%E7%AB%A0%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/</guid>
+      <description>[TOC]
+10.1 过程性编程和面向对象编程 10.2 抽象和类 ifndef 文件中的#ifndef
+头件的中的#ifndef，这是一个很关键的东西。
+需要注意的是，#ifndef起到的效果是防止一个源文件两次包含同一个头文件，而不是防止两个源文件包含同一个头文件。
+而编译时，这两个C文件要一同编译成一个可运行文件，于是问题来了，大量的声明冲突。
+还是把头文件的内容都放在#ifndef和#endif中吧。不管你的头文件会不会被多个文件引用，你都要加上这个。一般格式是这样的：
+#ifndef &amp;lt;标识&amp;gt;#define &amp;lt;标识&amp;gt;............#endif访问控制 公有成员函数是程序和对象的私有成员之间的桥梁，提供了对象和程序之间的接口。防止程序直接访问数据被称为数据隐藏。
+ 类表示人们可以类方法的公有接口对类对象执行的操作，这是抽象。
+  类的数据成员可以是私有的（默认值），这意味着只能通过成员函数来访问这些数据，这是数据隐藏。
+  实现的具体细节，（如数据表示和方法的代码）都是隐藏的，这是封装。
+ 类和结构 类对象的默认访问控制是private，而结构的默认访问类型是public。
+class World{float mass;char name[20]; //默认是privatepublic:void tellall(void);}实现类成员函数 类成员函数有两个特征：
+ 定义成员函数时，使用作用域解析运算符::来标识函数所属的类 类方法可以访问类的private组件  void Stock::update(double price)10.3 类的构造函数和析构函数 每个类都分别定义了它的对象被初始化的方式，类通过一个或几个特殊的成员函数来控制其对象的初始化过程，这些函数叫构造函数。构造函数的任务是初始化类对象的数据成员，无论何时只要类的对象被创建，就会执行构造函数。
+10.3.1 声明和定义构造函数 构造函数原型（声明）：
+Stock(const &amp;amp; co, long n = 0, double pr = 0.0)构造函数定义（没有返回类型）：</description>
+    </item>
+    
+    <item>
+      <title>Markdown文件基本语法</title>
+      <link>https://jchenTech.github.io/2020/03/06/markdown%E6%96%87%E4%BB%B6%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Fri, 06 Mar 2020 12:10:51 +0800</pubDate>
+      
+      <guid>https://jchenTech.github.io/2020/03/06/markdown%E6%96%87%E4%BB%B6%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</guid>
+      <description>因为目前准备写博客，所以不可避免就要使用markdown语言写文章，所以这篇文章将对Markdown的基本语法进行介绍，方便以后查阅。
+Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。Markdown 编写的文档可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。目前常用的一些编辑器包括typora和VS Code以及vim等，目前我所使用的是VS code，使用VS Code需要安装 Markdown All in One 或 Markdown Preview Enhanced 插件从而可以进行预览。
+本文章参考了Github上的Markdown Cheatsheet 以及简书上的 Markdown 语法小指南
+分级标题 # H1## H2### H3#### H4##### H5###### H6也可使用===表示一级标题，使用---表示二级标题Alt-H1======Alt-H2------H1 H2 H3 H4 H5 H6 也可使用===表示一级标题，使用&amp;mdash;表示二级标题
+Alt-H1 Alt-H2 文字样式 文字强调 *Italics* or _Italics_ **Bold** or __Bold__ ***Bold Italics*** or ___Bold Italics___ ~~Delete~~Italics or Italics Bold or Bold Bold Italics or Bold Italics Delete</description>
+    </item>
+    
+    <item>
+      <title>我的第一次Hugo博客搭建过程（超级详细）</title>
+      <link>https://jchenTech.github.io/2020/03/05/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E8%B6%85%E7%BA%A7%E8%AF%A6%E7%BB%86/</link>
+      <pubDate>Thu, 05 Mar 2020 11:58:06 +0800</pubDate>
+      
+      <guid>https://jchenTech.github.io/2020/03/05/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E8%B6%85%E7%BA%A7%E8%AF%A6%E7%BB%86/</guid>
+      <description>最近希望搭建一个自己的技术博客，用来记录在学的一些知识和技术，在比较了一下几个目前较为流行的静态博客Jekyll、Hexo、Hugo之后，还是决定采用Hugo。
+Hugo是基于Go语言的一款静态博客，编译之后只有一个二进制文件，相比于Hexo基于nodejs、jekyll基于ruby等解释型语言而言搭建过程简单且博客编译速度非常快，所以即使文章数量和标签等很多时，Hugo也可以在几秒钟完成更新。但是Hugo目前使用率不及Hexo，所以目前可用的主题较少，并且网上的相关问题解决也不多，大多时候需要自己摸索。后面会更新Hugo博客主题的配置文章，现在先进行Hugo安装以及部署到Github Page的介绍：
+安装过程可参照Hugo中文官网：https://www.gohugo.org
+ Hugo安装 二进制安装（推荐：简单、快速）
+到Hugo Releases下载对应的操作系统版本的Hugo二进制文件（hugo或者hugo.exe），我这里时解压到了D:\hugo目录下
+上一步操作，可以看到我们把hugo.exe解压到了D:\hugo下面。所以hugo命令只能在该目录下才能识别。但是我们想要把博客目录建到其他目录下，这就需要配置环境变量，在此不再赘述。
+ 生成站点 使用Hugo快速生成站点，比如希望生成到 /path/to/site 路径：
+hugo new site /path/to/site这样就在 /path/to/site 目录里生成了初始站点，进去目录：
+cd /path/to/site站点目录结构：
+ ▸ archetypes/▸ content/▸ layouts/▸ static/config.toml 生成文章 创建一个 about 页面：
+hugo new about.mdabout.md 自动生成到了 content/about.md ，打开 about.md 看下：
++++date = &amp;quot;2015-10-25T08:36:54-07:00&amp;quot;draft = truetitle = &amp;quot;about&amp;quot;+++正文内容内容是 Markdown 格式的，+++ 之间的内容是 TOML 格式的，根据你的喜好，你可以换成 YAML 格式（使用 &amp;mdash; 标记）或者 JSON 格式。</description>
+    </item>
     
     <item>
       <title>Markdown Cheat Sheet</title>
@@ -37,26 +184,6 @@
       
       <guid>https://jchenTech.github.io/2017/05/20/formulas-with-mathjax/</guid>
       <description>&lt;p&gt;Mathematical equations in form of LaTeX or MathML code can be rendered with the support of &lt;a href=&#34;https://www.mathjax.org&#34;&gt;MathJax&lt;/a&gt;. MathML works out of the box. If you&amp;rsquo;re using LaTeX you need to wrap your equation with &lt;code&gt;$$&lt;/code&gt; as shown in the following example:&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>我的第一次Hugo博客搭建过程（超级详细）</title>
-      <link>https://jchenTech.github.io/2017/05/20/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E8%B6%85%E7%BA%A7%E8%AF%A6%E7%BB%86/</link>
-      <pubDate>Sat, 20 May 2017 11:58:06 +0200</pubDate>
-      
-      <guid>https://jchenTech.github.io/2017/05/20/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E8%B6%85%E7%BA%A7%E8%AF%A6%E7%BB%86/</guid>
-      <description>最近希望搭建一个自己的技术博客，用来记录在学的一些知识和技术，在比较了一下几个目前较为流行的静态博客Jekyll、Hexo、Hugo之后，还是决定采用Hugo。
-Hugo是基于Go语言的一款静态博客，编译之后只有一个二进制文件，相比于Hexo基于nodejs、jekyll基于ruby等解释型语言而言搭建过程简单且博客编译速度非常快，所以即使文章数量和标签等很多时，Hugo也可以在几秒钟完成更新。但是Hugo目前使用率不及Hexo，所以目前可用的主题较少，并且网上的相关问题解决也不多，大多时候需要自己摸索。后面会更新Hugo博客主题的配置文章，现在先进行Hugo安装以及部署到Github Page的介绍：
-安装过程可参照Hugo中文官网：https://www.gohugo.org/
-Hugo安装 二进制安装（推荐：简单、快速）
-到Hugo Releases下载对应的操作系统版本的Hugo二进制文件（hugo或者hugo.exe），我这里时解压到了D:\hugo目录下
-上一步操作，可以看到我们把hugo.exe解压到了D:\hugo下面。所以hugo命令只能在该目录下才能识别。但是我们想要把博客目录建到其他目录下，这就需要配置环境变量，在此不再赘述。
-生成站点 使用Hugo快速生成站点，比如希望生成到 /path/to/site 路径：
-hugo new site /path/to/site这样就在 /path/to/site 目录里生成了初始站点，进去目录：
-cd /path/to/site站点目录结构：
- ▸ archetypes/▸ content/▸ layouts/▸ static/config.toml生成文章 创建一个 about 页面：
-hugo new about.mdabout.md 自动生成到了 content/about.md ，打开 about.md 看下：
-+++date = &amp;quot;2015-10-25T08:36:54-07:00&amp;quot;draft = truetitle = &amp;quot;about&amp;quot;+++正文内容内容是 Markdown 格式的，+++ 之间的内容是 TOML 格式的，根据你的喜好，你可以换成 YAML 格式（使用 &amp;mdash; 标记）或者 JSON 格式。</description>
     </item>
     
     <item>

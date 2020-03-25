@@ -6,10 +6,23 @@
     <description>Recent content in markdown on 陈建君的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 20 May 2017 12:10:51 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 06 Mar 2020 12:10:51 +0800</lastBuildDate>
     
 	<atom:link href="https://jchenTech.github.io/tags/markdown/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Markdown文件基本语法</title>
+      <link>https://jchenTech.github.io/2020/03/06/markdown%E6%96%87%E4%BB%B6%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Fri, 06 Mar 2020 12:10:51 +0800</pubDate>
+      
+      <guid>https://jchenTech.github.io/2020/03/06/markdown%E6%96%87%E4%BB%B6%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</guid>
+      <description>因为目前准备写博客，所以不可避免就要使用markdown语言写文章，所以这篇文章将对Markdown的基本语法进行介绍，方便以后查阅。
+Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。Markdown 编写的文档可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。目前常用的一些编辑器包括typora和VS Code以及vim等，目前我所使用的是VS code，使用VS Code需要安装 Markdown All in One 或 Markdown Preview Enhanced 插件从而可以进行预览。
+本文章参考了Github上的Markdown Cheatsheet 以及简书上的 Markdown 语法小指南
+分级标题 # H1## H2### H3#### H4##### H5###### H6也可使用===表示一级标题，使用---表示二级标题Alt-H1======Alt-H2------H1 H2 H3 H4 H5 H6 也可使用===表示一级标题，使用&amp;mdash;表示二级标题
+Alt-H1 Alt-H2 文字样式 文字强调 *Italics* or _Italics_ **Bold** or __Bold__ ***Bold Italics*** or ___Bold Italics___ ~~Delete~~Italics or Italics Bold or Bold Bold Italics or Bold Italics Delete</description>
+    </item>
     
     <item>
       <title>Markdown Cheat Sheet</title>

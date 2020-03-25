@@ -6,27 +6,27 @@
     <description>Recent content in github page on 陈建君的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 20 May 2017 11:58:06 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 05 Mar 2020 11:58:06 +0800</lastBuildDate>
     
 	<atom:link href="https://jchenTech.github.io/tags/github-page/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>我的第一次Hugo博客搭建过程（超级详细）</title>
-      <link>https://jchenTech.github.io/2017/05/20/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E8%B6%85%E7%BA%A7%E8%AF%A6%E7%BB%86/</link>
-      <pubDate>Sat, 20 May 2017 11:58:06 +0200</pubDate>
+      <link>https://jchenTech.github.io/2020/03/05/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E8%B6%85%E7%BA%A7%E8%AF%A6%E7%BB%86/</link>
+      <pubDate>Thu, 05 Mar 2020 11:58:06 +0800</pubDate>
       
-      <guid>https://jchenTech.github.io/2017/05/20/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E8%B6%85%E7%BA%A7%E8%AF%A6%E7%BB%86/</guid>
+      <guid>https://jchenTech.github.io/2020/03/05/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E8%B6%85%E7%BA%A7%E8%AF%A6%E7%BB%86/</guid>
       <description>最近希望搭建一个自己的技术博客，用来记录在学的一些知识和技术，在比较了一下几个目前较为流行的静态博客Jekyll、Hexo、Hugo之后，还是决定采用Hugo。
 Hugo是基于Go语言的一款静态博客，编译之后只有一个二进制文件，相比于Hexo基于nodejs、jekyll基于ruby等解释型语言而言搭建过程简单且博客编译速度非常快，所以即使文章数量和标签等很多时，Hugo也可以在几秒钟完成更新。但是Hugo目前使用率不及Hexo，所以目前可用的主题较少，并且网上的相关问题解决也不多，大多时候需要自己摸索。后面会更新Hugo博客主题的配置文章，现在先进行Hugo安装以及部署到Github Page的介绍：
-安装过程可参照Hugo中文官网：https://www.gohugo.org/
-Hugo安装 二进制安装（推荐：简单、快速）
+安装过程可参照Hugo中文官网：https://www.gohugo.org
+ Hugo安装 二进制安装（推荐：简单、快速）
 到Hugo Releases下载对应的操作系统版本的Hugo二进制文件（hugo或者hugo.exe），我这里时解压到了D:\hugo目录下
 上一步操作，可以看到我们把hugo.exe解压到了D:\hugo下面。所以hugo命令只能在该目录下才能识别。但是我们想要把博客目录建到其他目录下，这就需要配置环境变量，在此不再赘述。
-生成站点 使用Hugo快速生成站点，比如希望生成到 /path/to/site 路径：
+ 生成站点 使用Hugo快速生成站点，比如希望生成到 /path/to/site 路径：
 hugo new site /path/to/site这样就在 /path/to/site 目录里生成了初始站点，进去目录：
 cd /path/to/site站点目录结构：
- ▸ archetypes/▸ content/▸ layouts/▸ static/config.toml生成文章 创建一个 about 页面：
+ ▸ archetypes/▸ content/▸ layouts/▸ static/config.toml 生成文章 创建一个 about 页面：
 hugo new about.mdabout.md 自动生成到了 content/about.md ，打开 about.md 看下：
 +++date = &amp;quot;2015-10-25T08:36:54-07:00&amp;quot;draft = truetitle = &amp;quot;about&amp;quot;+++正文内容内容是 Markdown 格式的，+++ 之间的内容是 TOML 格式的，根据你的喜好，你可以换成 YAML 格式（使用 &amp;mdash; 标记）或者 JSON 格式。</description>
     </item>
