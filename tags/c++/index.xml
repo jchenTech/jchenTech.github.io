@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>C&#43;&#43; on 陈建君的技术博客</title>
-    <link>https://jchenTech.github.io/tags/c&#43;&#43;/</link>
+    <link>http://jchenTech.github.io/tags/c&#43;&#43;/</link>
     <description>Recent content in C&#43;&#43; on 陈建君的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Mon, 23 Mar 2020 15:41:06 +0800</lastBuildDate>
     
-	<atom:link href="https://jchenTech.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://jchenTech.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>C&#43;&#43; primer plus 第15章友元、异常和其他</title>
-      <link>https://jchenTech.github.io/2020/03/23/c-primer-plus-%E7%AC%AC15%E7%AB%A0%E5%8F%8B%E5%85%83%E5%BC%82%E5%B8%B8%E5%92%8C%E5%85%B6%E4%BB%96/</link>
+      <link>http://jchenTech.github.io/2020/03/23/c-primer-plus-%E7%AC%AC15%E7%AB%A0%E5%8F%8B%E5%85%83%E5%BC%82%E5%B8%B8%E5%92%8C%E5%85%B6%E4%BB%96/</link>
       <pubDate>Mon, 23 Mar 2020 15:41:06 +0800</pubDate>
       
-      <guid>https://jchenTech.github.io/2020/03/23/c-primer-plus-%E7%AC%AC15%E7%AB%A0%E5%8F%8B%E5%85%83%E5%BC%82%E5%B8%B8%E5%92%8C%E5%85%B6%E4%BB%96/</guid>
+      <guid>http://jchenTech.github.io/2020/03/23/c-primer-plus-%E7%AC%AC15%E7%AB%A0%E5%8F%8B%E5%85%83%E5%BC%82%E5%B8%B8%E5%92%8C%E5%85%B6%E4%BB%96/</guid>
       <description>15.1 友元 15.1.1 友元类 友元函数：不是类的成员函数，但是能够访问类的私有数据成员。
 之前有个矛盾就是规定非成员函数不能直接访问类的私有数据，但是这会儿却可以，但那只是针对常规非成员函数而言，特殊的非成员函数就可以访问类的私有数据——友元函数。
 友元函数就是这么特殊，虽然在类中声明，却不是类的成员函数，这是因为加了前缀friend。
@@ -36,10 +36,10 @@
     
     <item>
       <title>C&#43;&#43; primer plus 第14章C&#43;&#43;中的代码重用</title>
-      <link>https://jchenTech.github.io/2020/03/22/c-primer-plus-%E7%AC%AC14%E7%AB%A0c-%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%A0%81%E9%87%8D%E7%94%A8/</link>
+      <link>http://jchenTech.github.io/2020/03/22/c-primer-plus-%E7%AC%AC14%E7%AB%A0c-%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%A0%81%E9%87%8D%E7%94%A8/</link>
       <pubDate>Sun, 22 Mar 2020 13:30:06 +0800</pubDate>
       
-      <guid>https://jchenTech.github.io/2020/03/22/c-primer-plus-%E7%AC%AC14%E7%AB%A0c-%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%A0%81%E9%87%8D%E7%94%A8/</guid>
+      <guid>http://jchenTech.github.io/2020/03/22/c-primer-plus-%E7%AC%AC14%E7%AB%A0c-%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%A0%81%E9%87%8D%E7%94%A8/</guid>
       <description>[toc]
 C++的主要目的是促进代码重用。
 公有继承是实现这一目标的机制之一；
@@ -57,10 +57,10 @@ operator[]() 能够访问各个元素；size() 返回包含的元素数xum() �
     
     <item>
       <title>C&#43;&#43; primer plus 第13章类继承</title>
-      <link>https://jchenTech.github.io/2020/03/20/c-primer-plus-%E7%AC%AC13%E7%AB%A0%E7%B1%BB%E7%BB%A7%E6%89%BF/</link>
+      <link>http://jchenTech.github.io/2020/03/20/c-primer-plus-%E7%AC%AC13%E7%AB%A0%E7%B1%BB%E7%BB%A7%E6%89%BF/</link>
       <pubDate>Fri, 20 Mar 2020 11:01:06 +0800</pubDate>
       
-      <guid>https://jchenTech.github.io/2020/03/20/c-primer-plus-%E7%AC%AC13%E7%AB%A0%E7%B1%BB%E7%BB%A7%E6%89%BF/</guid>
+      <guid>http://jchenTech.github.io/2020/03/20/c-primer-plus-%E7%AC%AC13%E7%AB%A0%E7%B1%BB%E7%BB%A7%E6%89%BF/</guid>
       <description>[toc]
 13.1 一个简单得基类 从一个类派生出另一个类时，原始类称为基类，继承类称为派生类。
 13.1.1 派生一个类 class RatedPlayer :public TableTennisPlayer{}冒号指出RatedPlayer 类的基类是TableTennisPlayer类。派生类对象包含基类对象。使用公有派生，基类的公有成员将成为派生类的公有成员；基类的私有部分也将称为派生类的一部分，但是只能通过基类的公有和保护方法访问。
@@ -75,10 +75,10 @@ RatedPlayer::RatedPlayer(unsigned int r, const string &amp;amp; fn, const string
     
     <item>
       <title>C&#43;&#43; primer plus 第12章类和动态内存分配</title>
-      <link>https://jchenTech.github.io/2020/03/17/c-primer-plus-%E7%AC%AC12%E7%AB%A0%E7%B1%BB%E5%92%8C%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/</link>
+      <link>http://jchenTech.github.io/2020/03/17/c-primer-plus-%E7%AC%AC12%E7%AB%A0%E7%B1%BB%E5%92%8C%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/</link>
       <pubDate>Tue, 17 Mar 2020 21:02:06 +0800</pubDate>
       
-      <guid>https://jchenTech.github.io/2020/03/17/c-primer-plus-%E7%AC%AC12%E7%AB%A0%E7%B1%BB%E5%92%8C%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/</guid>
+      <guid>http://jchenTech.github.io/2020/03/17/c-primer-plus-%E7%AC%AC12%E7%AB%A0%E7%B1%BB%E5%92%8C%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/</guid>
       <description>[toc]
 12.1 动态内存和类 C++在分配内存时是让程序在运行时决定内存分配，而不是在编译时决定。这样，可根据程序的需要，而不是根据一系列严格的存储类型规则来使用内存。C++使用new和delete运算符来动态控制内存。
 12.1.1 复习示例和静态类成员 这个程序使用了一个新的存储类型：静态类成员：
@@ -89,10 +89,10 @@ RatedPlayer::RatedPlayer(unsigned int r, const string &amp;amp; fn, const string
     
     <item>
       <title>C&#43;&#43; primer plus 第11章使用类</title>
-      <link>https://jchenTech.github.io/2020/03/16/c-primer-plus-%E7%AC%AC11%E7%AB%A0%E4%BD%BF%E7%94%A8%E7%B1%BB/</link>
+      <link>http://jchenTech.github.io/2020/03/16/c-primer-plus-%E7%AC%AC11%E7%AB%A0%E4%BD%BF%E7%94%A8%E7%B1%BB/</link>
       <pubDate>Mon, 16 Mar 2020 13:18:06 +0800</pubDate>
       
-      <guid>https://jchenTech.github.io/2020/03/16/c-primer-plus-%E7%AC%AC11%E7%AB%A0%E4%BD%BF%E7%94%A8%E7%B1%BB/</guid>
+      <guid>http://jchenTech.github.io/2020/03/16/c-primer-plus-%E7%AC%AC11%E7%AB%A0%E4%BD%BF%E7%94%A8%E7%B1%BB/</guid>
       <description>[toc]
 11.1 运算符重载 operatorop(argumnt-list)例如，operator+()重载+运算符。
 11.2 计算时间：一个运算符重载示例 如果要计算两个时间之和，如2小时40分与1小时30分之和，可以重载运算符+，在类中的成员函数为：
@@ -104,10 +104,10 @@ friend Time operator*(double m, const Time &amp;amp; t);该原型意味着下�
     
     <item>
       <title>C&#43;&#43; primer plus 第10章对象和类</title>
-      <link>https://jchenTech.github.io/2020/03/15/c-primer-plus-%E7%AC%AC10%E7%AB%A0%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/</link>
+      <link>http://jchenTech.github.io/2020/03/15/c-primer-plus-%E7%AC%AC10%E7%AB%A0%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/</link>
       <pubDate>Sun, 15 Mar 2020 14:24:06 +0800</pubDate>
       
-      <guid>https://jchenTech.github.io/2020/03/15/c-primer-plus-%E7%AC%AC10%E7%AB%A0%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/</guid>
+      <guid>http://jchenTech.github.io/2020/03/15/c-primer-plus-%E7%AC%AC10%E7%AB%A0%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/</guid>
       <description>[TOC]
 10.1 过程性编程和面向对象编程 10.2 抽象和类 ifndef 文件中的#ifndef
 头件的中的#ifndef，这是一个很关键的东西。

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on 陈建君的技术博客</title>
-    <link>https://jchenTech.github.io/post/</link>
+    <link>http://jchenTech.github.io/post/</link>
     <description>Recent content in Posts on 陈建君的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Mon, 23 Mar 2020 15:41:06 +0800</lastBuildDate>
     
-	<atom:link href="https://jchenTech.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://jchenTech.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>C&#43;&#43; primer plus 第15章友元、异常和其他</title>
-      <link>https://jchenTech.github.io/2020/03/23/c-primer-plus-%E7%AC%AC15%E7%AB%A0%E5%8F%8B%E5%85%83%E5%BC%82%E5%B8%B8%E5%92%8C%E5%85%B6%E4%BB%96/</link>
+      <link>http://jchenTech.github.io/2020/03/23/c-primer-plus-%E7%AC%AC15%E7%AB%A0%E5%8F%8B%E5%85%83%E5%BC%82%E5%B8%B8%E5%92%8C%E5%85%B6%E4%BB%96/</link>
       <pubDate>Mon, 23 Mar 2020 15:41:06 +0800</pubDate>
       
-      <guid>https://jchenTech.github.io/2020/03/23/c-primer-plus-%E7%AC%AC15%E7%AB%A0%E5%8F%8B%E5%85%83%E5%BC%82%E5%B8%B8%E5%92%8C%E5%85%B6%E4%BB%96/</guid>
+      <guid>http://jchenTech.github.io/2020/03/23/c-primer-plus-%E7%AC%AC15%E7%AB%A0%E5%8F%8B%E5%85%83%E5%BC%82%E5%B8%B8%E5%92%8C%E5%85%B6%E4%BB%96/</guid>
       <description>15.1 友元 15.1.1 友元类 友元函数：不是类的成员函数，但是能够访问类的私有数据成员。
 之前有个矛盾就是规定非成员函数不能直接访问类的私有数据，但是这会儿却可以，但那只是针对常规非成员函数而言，特殊的非成员函数就可以访问类的私有数据——友元函数。
 友元函数就是这么特殊，虽然在类中声明，却不是类的成员函数，这是因为加了前缀friend。
@@ -36,10 +36,10 @@
     
     <item>
       <title>C&#43;&#43; primer plus 第14章C&#43;&#43;中的代码重用</title>
-      <link>https://jchenTech.github.io/2020/03/22/c-primer-plus-%E7%AC%AC14%E7%AB%A0c-%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%A0%81%E9%87%8D%E7%94%A8/</link>
+      <link>http://jchenTech.github.io/2020/03/22/c-primer-plus-%E7%AC%AC14%E7%AB%A0c-%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%A0%81%E9%87%8D%E7%94%A8/</link>
       <pubDate>Sun, 22 Mar 2020 13:30:06 +0800</pubDate>
       
-      <guid>https://jchenTech.github.io/2020/03/22/c-primer-plus-%E7%AC%AC14%E7%AB%A0c-%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%A0%81%E9%87%8D%E7%94%A8/</guid>
+      <guid>http://jchenTech.github.io/2020/03/22/c-primer-plus-%E7%AC%AC14%E7%AB%A0c-%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%A0%81%E9%87%8D%E7%94%A8/</guid>
       <description>[toc]
 C++的主要目的是促进代码重用。
 公有继承是实现这一目标的机制之一；
@@ -57,10 +57,10 @@ operator[]() 能够访问各个元素；size() 返回包含的元素数xum() �
     
     <item>
       <title>C&#43;&#43; primer plus 第13章类继承</title>
-      <link>https://jchenTech.github.io/2020/03/20/c-primer-plus-%E7%AC%AC13%E7%AB%A0%E7%B1%BB%E7%BB%A7%E6%89%BF/</link>
+      <link>http://jchenTech.github.io/2020/03/20/c-primer-plus-%E7%AC%AC13%E7%AB%A0%E7%B1%BB%E7%BB%A7%E6%89%BF/</link>
       <pubDate>Fri, 20 Mar 2020 11:01:06 +0800</pubDate>
       
-      <guid>https://jchenTech.github.io/2020/03/20/c-primer-plus-%E7%AC%AC13%E7%AB%A0%E7%B1%BB%E7%BB%A7%E6%89%BF/</guid>
+      <guid>http://jchenTech.github.io/2020/03/20/c-primer-plus-%E7%AC%AC13%E7%AB%A0%E7%B1%BB%E7%BB%A7%E6%89%BF/</guid>
       <description>[toc]
 13.1 一个简单得基类 从一个类派生出另一个类时，原始类称为基类，继承类称为派生类。
 13.1.1 派生一个类 class RatedPlayer :public TableTennisPlayer{}冒号指出RatedPlayer 类的基类是TableTennisPlayer类。派生类对象包含基类对象。使用公有派生，基类的公有成员将成为派生类的公有成员；基类的私有部分也将称为派生类的一部分，但是只能通过基类的公有和保护方法访问。
@@ -75,10 +75,10 @@ RatedPlayer::RatedPlayer(unsigned int r, const string &amp;amp; fn, const string
     
     <item>
       <title>C&#43;&#43; primer plus 第12章类和动态内存分配</title>
-      <link>https://jchenTech.github.io/2020/03/17/c-primer-plus-%E7%AC%AC12%E7%AB%A0%E7%B1%BB%E5%92%8C%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/</link>
+      <link>http://jchenTech.github.io/2020/03/17/c-primer-plus-%E7%AC%AC12%E7%AB%A0%E7%B1%BB%E5%92%8C%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/</link>
       <pubDate>Tue, 17 Mar 2020 21:02:06 +0800</pubDate>
       
-      <guid>https://jchenTech.github.io/2020/03/17/c-primer-plus-%E7%AC%AC12%E7%AB%A0%E7%B1%BB%E5%92%8C%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/</guid>
+      <guid>http://jchenTech.github.io/2020/03/17/c-primer-plus-%E7%AC%AC12%E7%AB%A0%E7%B1%BB%E5%92%8C%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/</guid>
       <description>[toc]
 12.1 动态内存和类 C++在分配内存时是让程序在运行时决定内存分配，而不是在编译时决定。这样，可根据程序的需要，而不是根据一系列严格的存储类型规则来使用内存。C++使用new和delete运算符来动态控制内存。
 12.1.1 复习示例和静态类成员 这个程序使用了一个新的存储类型：静态类成员：
@@ -89,10 +89,10 @@ RatedPlayer::RatedPlayer(unsigned int r, const string &amp;amp; fn, const string
     
     <item>
       <title>C&#43;&#43; primer plus 第11章使用类</title>
-      <link>https://jchenTech.github.io/2020/03/16/c-primer-plus-%E7%AC%AC11%E7%AB%A0%E4%BD%BF%E7%94%A8%E7%B1%BB/</link>
+      <link>http://jchenTech.github.io/2020/03/16/c-primer-plus-%E7%AC%AC11%E7%AB%A0%E4%BD%BF%E7%94%A8%E7%B1%BB/</link>
       <pubDate>Mon, 16 Mar 2020 13:18:06 +0800</pubDate>
       
-      <guid>https://jchenTech.github.io/2020/03/16/c-primer-plus-%E7%AC%AC11%E7%AB%A0%E4%BD%BF%E7%94%A8%E7%B1%BB/</guid>
+      <guid>http://jchenTech.github.io/2020/03/16/c-primer-plus-%E7%AC%AC11%E7%AB%A0%E4%BD%BF%E7%94%A8%E7%B1%BB/</guid>
       <description>[toc]
 11.1 运算符重载 operatorop(argumnt-list)例如，operator+()重载+运算符。
 11.2 计算时间：一个运算符重载示例 如果要计算两个时间之和，如2小时40分与1小时30分之和，可以重载运算符+，在类中的成员函数为：
@@ -104,10 +104,10 @@ friend Time operator*(double m, const Time &amp;amp; t);该原型意味着下�
     
     <item>
       <title>C&#43;&#43; primer plus 第10章对象和类</title>
-      <link>https://jchenTech.github.io/2020/03/15/c-primer-plus-%E7%AC%AC10%E7%AB%A0%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/</link>
+      <link>http://jchenTech.github.io/2020/03/15/c-primer-plus-%E7%AC%AC10%E7%AB%A0%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/</link>
       <pubDate>Sun, 15 Mar 2020 14:24:06 +0800</pubDate>
       
-      <guid>https://jchenTech.github.io/2020/03/15/c-primer-plus-%E7%AC%AC10%E7%AB%A0%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/</guid>
+      <guid>http://jchenTech.github.io/2020/03/15/c-primer-plus-%E7%AC%AC10%E7%AB%A0%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/</guid>
       <description>[TOC]
 10.1 过程性编程和面向对象编程 10.2 抽象和类 ifndef 文件中的#ifndef
 头件的中的#ifndef，这是一个很关键的东西。
@@ -127,10 +127,10 @@ Stock(const &amp;amp; co, long n = 0, double pr = 0.0)构造函数定义（没�
     
     <item>
       <title>Markdown文件基本语法</title>
-      <link>https://jchenTech.github.io/2020/03/06/markdown%E6%96%87%E4%BB%B6%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</link>
+      <link>http://jchenTech.github.io/2020/03/06/markdown%E6%96%87%E4%BB%B6%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</link>
       <pubDate>Fri, 06 Mar 2020 12:10:51 +0800</pubDate>
       
-      <guid>https://jchenTech.github.io/2020/03/06/markdown%E6%96%87%E4%BB%B6%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</guid>
+      <guid>http://jchenTech.github.io/2020/03/06/markdown%E6%96%87%E4%BB%B6%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</guid>
       <description>因为目前准备写博客，所以不可避免就要使用markdown语言写文章，所以这篇文章将对Markdown的基本语法进行介绍，方便以后查阅。
 Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。Markdown 编写的文档可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。目前常用的一些编辑器包括typora和VS Code以及vim等，目前我所使用的是VS code，使用VS Code需要安装 Markdown All in One 或 Markdown Preview Enhanced 插件从而可以进行预览。
 本文章参考了Github上的Markdown Cheatsheet 以及简书上的 Markdown 语法小指南
@@ -140,10 +140,10 @@ Alt-H1 Alt-H2 文字样式 文字强调 *Italics* or _Italics_ **Bold** or __Bol
     
     <item>
       <title>我的第一次Hugo博客搭建过程（超级详细）</title>
-      <link>https://jchenTech.github.io/2020/03/05/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E8%B6%85%E7%BA%A7%E8%AF%A6%E7%BB%86/</link>
+      <link>http://jchenTech.github.io/2020/03/05/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E8%B6%85%E7%BA%A7%E8%AF%A6%E7%BB%86/</link>
       <pubDate>Thu, 05 Mar 2020 11:58:06 +0800</pubDate>
       
-      <guid>https://jchenTech.github.io/2020/03/05/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E8%B6%85%E7%BA%A7%E8%AF%A6%E7%BB%86/</guid>
+      <guid>http://jchenTech.github.io/2020/03/05/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E8%B6%85%E7%BA%A7%E8%AF%A6%E7%BB%86/</guid>
       <description>最近希望搭建一个自己的技术博客，用来记录在学的一些知识和技术，在比较了一下几个目前较为流行的静态博客Jekyll、Hexo、Hugo之后，还是决定采用Hugo。
 Hugo是基于Go语言的一款静态博客，编译之后只有一个二进制文件，相比于Hexo基于nodejs、jekyll基于ruby等解释型语言而言搭建过程简单且博客编译速度非常快，所以即使文章数量和标签等很多时，Hugo也可以在几秒钟完成更新。但是Hugo目前使用率不及Hexo，所以目前可用的主题较少，并且网上的相关问题解决也不多，大多时候需要自己摸索。后面会更新Hugo博客主题的配置文章，现在先进行Hugo安装以及部署到Github Page的介绍：
 安装过程可参照Hugo中文官网：https://www.gohugo.org
@@ -160,38 +160,38 @@ hugo new about.mdabout.md 自动生成到了 content/about.md ，打开 about.m
     
     <item>
       <title>Markdown Cheat Sheet</title>
-      <link>https://jchenTech.github.io/2017/05/20/markdown-cheat-sheet/</link>
+      <link>http://jchenTech.github.io/2017/05/20/markdown-cheat-sheet/</link>
       <pubDate>Sat, 20 May 2017 12:10:51 +0200</pubDate>
       
-      <guid>https://jchenTech.github.io/2017/05/20/markdown-cheat-sheet/</guid>
+      <guid>http://jchenTech.github.io/2017/05/20/markdown-cheat-sheet/</guid>
       <description>&lt;p&gt;This note demonstrates some of what &lt;a href=&#34;http://daringfireball.net/projects/markdown/&#34;&gt;Markdown&lt;/a&gt; is capable of doing.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Note: Feel free to play with this page. Unlike regular notes, this doesn&amp;rsquo;t automatically save itself.&lt;/em&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Using the gallery shortcode</title>
-      <link>https://jchenTech.github.io/2017/05/20/using-the-gallery-shortcode/</link>
+      <link>http://jchenTech.github.io/2017/05/20/using-the-gallery-shortcode/</link>
       <pubDate>Sat, 20 May 2017 12:00:23 +0200</pubDate>
       
-      <guid>https://jchenTech.github.io/2017/05/20/using-the-gallery-shortcode/</guid>
+      <guid>http://jchenTech.github.io/2017/05/20/using-the-gallery-shortcode/</guid>
       <description>&lt;p&gt;This way you can easily include a gallery into your page. Copy the code below into your content file and enter the relative paths to your images.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Formulas with MathJax</title>
-      <link>https://jchenTech.github.io/2017/05/20/formulas-with-mathjax/</link>
+      <link>http://jchenTech.github.io/2017/05/20/formulas-with-mathjax/</link>
       <pubDate>Sat, 20 May 2017 11:58:06 +0200</pubDate>
       
-      <guid>https://jchenTech.github.io/2017/05/20/formulas-with-mathjax/</guid>
+      <guid>http://jchenTech.github.io/2017/05/20/formulas-with-mathjax/</guid>
       <description>&lt;p&gt;Mathematical equations in form of LaTeX or MathML code can be rendered with the support of &lt;a href=&#34;https://www.mathjax.org&#34;&gt;MathJax&lt;/a&gt;. MathML works out of the box. If you&amp;rsquo;re using LaTeX you need to wrap your equation with &lt;code&gt;$$&lt;/code&gt; as shown in the following example:&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>How to add pages to the menu</title>
-      <link>https://jchenTech.github.io/2015/10/02/how-to-add-pages-to-the-menu/</link>
+      <link>http://jchenTech.github.io/2015/10/02/how-to-add-pages-to-the-menu/</link>
       <pubDate>Fri, 02 Oct 2015 21:49:20 +0200</pubDate>
       
-      <guid>https://jchenTech.github.io/2015/10/02/how-to-add-pages-to-the-menu/</guid>
+      <guid>http://jchenTech.github.io/2015/10/02/how-to-add-pages-to-the-menu/</guid>
       <description>I&amp;rsquo;m a linked post in the menu. You can add other posts by adding the following line to the frontmatter:
 menu = &amp;quot;main&amp;quot; </description>
     </item>

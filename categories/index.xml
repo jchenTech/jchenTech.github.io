@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on 陈建君的技术博客</title>
-    <link>https://jchenTech.github.io/categories/</link>
+    <link>http://jchenTech.github.io/categories/</link>
     <description>Recent content in Categories on 陈建君的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Mon, 23 Mar 2020 15:41:06 +0800</lastBuildDate>
     
-	<atom:link href="https://jchenTech.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://jchenTech.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>C&#43;&#43;</title>
-      <link>https://jchenTech.github.io/categories/c&#43;&#43;/</link>
+      <link>http://jchenTech.github.io/categories/c&#43;&#43;/</link>
       <pubDate>Mon, 23 Mar 2020 15:41:06 +0800</pubDate>
       
-      <guid>https://jchenTech.github.io/categories/c&#43;&#43;/</guid>
+      <guid>http://jchenTech.github.io/categories/c&#43;&#43;/</guid>
       <description></description>
     </item>
     
     <item>
       <title>博客</title>
-      <link>https://jchenTech.github.io/categories/%E5%8D%9A%E5%AE%A2/</link>
+      <link>http://jchenTech.github.io/categories/%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Fri, 06 Mar 2020 12:10:51 +0800</pubDate>
       
-      <guid>https://jchenTech.github.io/categories/%E5%8D%9A%E5%AE%A2/</guid>
+      <guid>http://jchenTech.github.io/categories/%E5%8D%9A%E5%AE%A2/</guid>
       <description></description>
     </item>
     
     <item>
       <title>programming</title>
-      <link>https://jchenTech.github.io/categories/programming/</link>
+      <link>http://jchenTech.github.io/categories/programming/</link>
       <pubDate>Fri, 02 Oct 2015 21:49:20 +0200</pubDate>
       
-      <guid>https://jchenTech.github.io/categories/programming/</guid>
+      <guid>http://jchenTech.github.io/categories/programming/</guid>
       <description></description>
     </item>
     
