@@ -3,6 +3,41 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://jchenTech.github.io/categories/</loc>
+    <lastmod>2020-03-29T13:58:06+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://jchenTech.github.io/post/</loc>
+    <lastmod>2020-03-29T13:58:06+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://jchenTech.github.io/tags/</loc>
+    <lastmod>2020-03-29T13:58:06+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://jchenTech.github.io/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2020-03-29T13:58:06+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://jchenTech.github.io/2020/03/29/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2020-03-29T13:58:06+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://jchenTech.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2020-03-29T13:58:06+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://jchenTech.github.io/</loc>
+    <lastmod>2020-03-29T13:58:06+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://jchenTech.github.io/tags/c&#43;&#43;/</loc>
     <lastmod>2020-03-23T15:41:06+08:00</lastmod>
   </url>
@@ -14,21 +49,6 @@
   
   <url>
     <loc>http://jchenTech.github.io/2020/03/23/c-primer-plus-%E7%AC%AC15%E7%AB%A0%E5%8F%8B%E5%85%83%E5%BC%82%E5%B8%B8%E5%92%8C%E5%85%B6%E4%BB%96/</loc>
-    <lastmod>2020-03-23T15:41:06+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://jchenTech.github.io/categories/</loc>
-    <lastmod>2020-03-23T15:41:06+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://jchenTech.github.io/post/</loc>
-    <lastmod>2020-03-23T15:41:06+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://jchenTech.github.io/tags/</loc>
     <lastmod>2020-03-23T15:41:06+08:00</lastmod>
   </url>
   
@@ -104,11 +124,6 @@
   
   <url>
     <loc>http://jchenTech.github.io/about/</loc>
-    <lastmod>2017-05-19T21:49:20+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://jchenTech.github.io/</loc>
     <lastmod>2017-05-19T21:49:20+02:00</lastmod>
   </url>
   
