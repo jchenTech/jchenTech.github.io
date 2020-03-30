@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>深度学习 on 陈建君的技术博客</title>
@@ -17,7 +17,11 @@
       <pubDate>Sun, 29 Mar 2020 13:58:06 +0800</pubDate>
       
       <guid>http://jchenTech.github.io/2020/03/29/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</guid>
-      <description></description>
+      <description>&lt;p&gt;本篇为Hexo示例文档.  # 这里是摘要部分,写1~2句话,就实现不全显示博文了..&lt;/p&gt;
+
+&lt;p&gt;Mathematical equations in form of LaTeX or MathML code can be rendered with the support of &lt;a href=&#34;https://www.mathjax.org&#34;&gt;MathJax&lt;/a&gt;. MathML works out of the box. If you&amp;rsquo;re using LaTeX you need to wrap your equation with &lt;code&gt;$$&lt;/code&gt; as shown in the following example:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://jchenTech.github.io/images/卷积神经网络/2.png&#34; alt=&#34;dsa&#34; /&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

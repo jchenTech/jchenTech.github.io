@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>theme on 陈建君的技术博客</title>
+    <title>Theme on 陈建君的技术博客</title>
     <link>http://jchenTech.github.io/tags/theme/</link>
-    <description>Recent content in theme on 陈建君的技术博客</description>
+    <description>Recent content in Theme on 陈建君的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 02 Oct 2015 21:49:20 +0200</lastBuildDate>
@@ -18,7 +18,7 @@
       
       <guid>http://jchenTech.github.io/2015/10/02/how-to-add-pages-to-the-menu/</guid>
       <description>I&amp;rsquo;m a linked post in the menu. You can add other posts by adding the following line to the frontmatter:
-menu = &amp;quot;main&amp;quot; </description>
+menu = &amp;quot;main&amp;quot;  </description>
     </item>
     
   </channel>

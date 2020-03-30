@@ -2,7 +2,7 @@
 <html lang="zh-cn">
 <head>
     <title>C&#43;&#43; primer plus 第10章对象和类 &middot; 陈建君的技术博客</title>
-    <meta name="generator" content="Hugo 0.65.3" />
+    <meta name="generator" content="Hugo 0.54.0" />
     <meta charset="utf-8">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -22,67 +22,29 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
     <meta property="og:title" content="C&#43;&#43; primer plus 第10章对象和类" />
-<meta property="og:description" content="[TOC]
-10.1 过程性编程和面向对象编程 10.2 抽象和类 ifndef 文件中的#ifndef
-头件的中的#ifndef，这是一个很关键的东西。
-需要注意的是，#ifndef起到的效果是防止一个源文件两次包含同一个头文件，而不是防止两个源文件包含同一个头文件。
-而编译时，这两个C文件要一同编译成一个可运行文件，于是问题来了，大量的声明冲突。
-还是把头文件的内容都放在#ifndef和#endif中吧。不管你的头文件会不会被多个文件引用，你都要加上这个。一般格式是这样的：
-#ifndef &lt;标识&gt;#define &lt;标识&gt;............#endif访问控制 公有成员函数是程序和对象的私有成员之间的桥梁，提供了对象和程序之间的接口。防止程序直接访问数据被称为数据隐藏。
- 类表示人们可以类方法的公有接口对类对象执行的操作，这是抽象。
-  类的数据成员可以是私有的（默认值），这意味着只能通过成员函数来访问这些数据，这是数据隐藏。
-  实现的具体细节，（如数据表示和方法的代码）都是隐藏的，这是封装。
- 类和结构 类对象的默认访问控制是private，而结构的默认访问类型是public。
-class World{float mass;char name[20]; //默认是privatepublic:void tellall(void);}实现类成员函数 类成员函数有两个特征：
- 定义成员函数时，使用作用域解析运算符::来标识函数所属的类 类方法可以访问类的private组件  void Stock::update(double price)10.3 类的构造函数和析构函数 每个类都分别定义了它的对象被初始化的方式，类通过一个或几个特殊的成员函数来控制其对象的初始化过程，这些函数叫构造函数。构造函数的任务是初始化类对象的数据成员，无论何时只要类的对象被创建，就会执行构造函数。
-10.3.1 声明和定义构造函数 构造函数原型（声明）：
-Stock(const &amp; co, long n = 0, double pr = 0.0)构造函数定义（没有返回类型）：" />
+<meta property="og:description" content="C&#43;&#43; primer plus 第10章对象和类" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://jchenTech.github.io/2020/03/15/c-primer-plus-%E7%AC%AC10%E7%AB%A0%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/" />
-<meta property="article:published_time" content="2020-03-15T14:24:06+08:00" />
-<meta property="article:modified_time" content="2020-03-15T14:24:06+08:00" />
+<meta property="article:published_time" content="2020-03-15T14:24:06&#43;08:00"/>
+<meta property="article:modified_time" content="2020-03-15T14:24:06&#43;08:00"/>
 
     
-    <meta itemprop="name" content="C&#43;&#43; primer plus 第10章对象和类">
-<meta itemprop="description" content="[TOC]
-10.1 过程性编程和面向对象编程 10.2 抽象和类 ifndef 文件中的#ifndef
-头件的中的#ifndef，这是一个很关键的东西。
-需要注意的是，#ifndef起到的效果是防止一个源文件两次包含同一个头文件，而不是防止两个源文件包含同一个头文件。
-而编译时，这两个C文件要一同编译成一个可运行文件，于是问题来了，大量的声明冲突。
-还是把头文件的内容都放在#ifndef和#endif中吧。不管你的头文件会不会被多个文件引用，你都要加上这个。一般格式是这样的：
-#ifndef &lt;标识&gt;#define &lt;标识&gt;............#endif访问控制 公有成员函数是程序和对象的私有成员之间的桥梁，提供了对象和程序之间的接口。防止程序直接访问数据被称为数据隐藏。
- 类表示人们可以类方法的公有接口对类对象执行的操作，这是抽象。
-  类的数据成员可以是私有的（默认值），这意味着只能通过成员函数来访问这些数据，这是数据隐藏。
-  实现的具体细节，（如数据表示和方法的代码）都是隐藏的，这是封装。
- 类和结构 类对象的默认访问控制是private，而结构的默认访问类型是public。
-class World{float mass;char name[20]; //默认是privatepublic:void tellall(void);}实现类成员函数 类成员函数有两个特征：
- 定义成员函数时，使用作用域解析运算符::来标识函数所属的类 类方法可以访问类的private组件  void Stock::update(double price)10.3 类的构造函数和析构函数 每个类都分别定义了它的对象被初始化的方式，类通过一个或几个特殊的成员函数来控制其对象的初始化过程，这些函数叫构造函数。构造函数的任务是初始化类对象的数据成员，无论何时只要类的对象被创建，就会执行构造函数。
-10.3.1 声明和定义构造函数 构造函数原型（声明）：
-Stock(const &amp; co, long n = 0, double pr = 0.0)构造函数定义（没有返回类型）：">
+    
+<meta itemprop="name" content="C&#43;&#43; primer plus 第10章对象和类">
+<meta itemprop="description" content="C&#43;&#43; primer plus 第10章对象和类">
+
+
 <meta itemprop="datePublished" content="2020-03-15T14:24:06&#43;08:00" />
 <meta itemprop="dateModified" content="2020-03-15T14:24:06&#43;08:00" />
-<meta itemprop="wordCount" content="330">
+<meta itemprop="wordCount" content="335">
 
 
 
 <meta itemprop="keywords" content="C&#43;&#43;," />
+
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="C&#43;&#43; primer plus 第10章对象和类"/>
-<meta name="twitter:description" content="[TOC]
-10.1 过程性编程和面向对象编程 10.2 抽象和类 ifndef 文件中的#ifndef
-头件的中的#ifndef，这是一个很关键的东西。
-需要注意的是，#ifndef起到的效果是防止一个源文件两次包含同一个头文件，而不是防止两个源文件包含同一个头文件。
-而编译时，这两个C文件要一同编译成一个可运行文件，于是问题来了，大量的声明冲突。
-还是把头文件的内容都放在#ifndef和#endif中吧。不管你的头文件会不会被多个文件引用，你都要加上这个。一般格式是这样的：
-#ifndef &lt;标识&gt;#define &lt;标识&gt;............#endif访问控制 公有成员函数是程序和对象的私有成员之间的桥梁，提供了对象和程序之间的接口。防止程序直接访问数据被称为数据隐藏。
- 类表示人们可以类方法的公有接口对类对象执行的操作，这是抽象。
-  类的数据成员可以是私有的（默认值），这意味着只能通过成员函数来访问这些数据，这是数据隐藏。
-  实现的具体细节，（如数据表示和方法的代码）都是隐藏的，这是封装。
- 类和结构 类对象的默认访问控制是private，而结构的默认访问类型是public。
-class World{float mass;char name[20]; //默认是privatepublic:void tellall(void);}实现类成员函数 类成员函数有两个特征：
- 定义成员函数时，使用作用域解析运算符::来标识函数所属的类 类方法可以访问类的private组件  void Stock::update(double price)10.3 类的构造函数和析构函数 每个类都分别定义了它的对象被初始化的方式，类通过一个或几个特殊的成员函数来控制其对象的初始化过程，这些函数叫构造函数。构造函数的任务是初始化类对象的数据成员，无论何时只要类的对象被创建，就会执行构造函数。
-10.3.1 声明和定义构造函数 构造函数原型（声明）：
-Stock(const &amp; co, long n = 0, double pr = 0.0)构造函数定义（没有返回类型）："/>
+<meta name="twitter:description" content="C&#43;&#43; primer plus 第10章对象和类"/>
 <meta name="twitter:site" content="@spf13"/>
 
     
@@ -209,12 +171,12 @@ Stock(const &amp; co, long n = 0, double pr = 0.0)构造函数定义（没有�
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        13
+        14
         <span>文章</span>
       </div>
       <div class="article-info-block">
         
-          8
+          9
         
         <span>
             标签
@@ -309,7 +271,7 @@ Stock(const &amp; co, long n = 0, double pr = 0.0)构造函数定义（没有�
             <i class="fa fa-calendar"></i>
             <time datetime="2020-03-15 14:24:06 &#43;0800 CST" itemprop="datePublished">2020-03-15</time>
             &middot;
-            330
+            335
             字
             &middot;
             2
@@ -347,15 +309,26 @@ Stock(const &amp; co, long n = 0, double pr = 0.0)构造函数定义（没有�
 </header>
 
         <div class="article-entry" itemprop="articleBody">
-            <p>[TOC]</p>
-<h2 id="101-过程性编程和面向对象编程">10.1 过程性编程和面向对象编程</h2>
-<h2 id="102-抽象和类">10.2 抽象和类</h2>
+            <p>C++ primer plus 第10章对象和类</p>
+
+<p>[TOC]</p>
+
+<h2 id="10-1-过程性编程和面向对象编程">10.1 过程性编程和面向对象编程</h2>
+
+<h2 id="10-2-抽象和类">10.2 抽象和类</h2>
+
 <h3 id="ifndef">ifndef</h3>
+
 <p>文件中的#ifndef</p>
+
 <p>头件的中的#ifndef，这是一个很关键的东西。</p>
+
 <p>需要注意的是，#ifndef起到的效果是防止一个源文件两次包含同一个头文件，而不是防止两个源文件包含同一个头文件。</p>
+
 <p>而编译时，这两个C文件要一同编译成一个可运行文件，于是问题来了，大量的声明冲突。</p>
+
 <p>还是把头文件的内容都放在#ifndef和#endif中吧。不管你的头文件会不会被多个文件引用，你都要加上这个。一般格式是这样的：</p>
+
 <pre><code>#ifndef &lt;标识&gt;
 #define &lt;标识&gt;
 
@@ -363,19 +336,24 @@ Stock(const &amp; co, long n = 0, double pr = 0.0)构造函数定义（没有�
 ......
 
 #endif
-</code></pre><h3 id="访问控制">访问控制</h3>
+</code></pre>
+
+<h3 id="访问控制">访问控制</h3>
+
 <p>公有成员函数是程序和对象的私有成员之间的桥梁，提供了对象和程序之间的接口。防止程序直接访问数据被称为<strong>数据隐藏</strong>。</p>
+
 <blockquote>
 <p>类表示人们可以类方法的公有接口对类对象执行的操作，这是<strong>抽象</strong>。</p>
-</blockquote>
-<blockquote>
+
 <p>类的数据成员可以是私有的（默认值），这意味着只能通过成员函数来访问这些数据，这是<strong>数据隐藏</strong>。</p>
-</blockquote>
-<blockquote>
+
 <p>实现的具体细节，（如数据表示和方法的代码）都是隐藏的，这是<strong>封装</strong>。</p>
 </blockquote>
+
 <h3 id="类和结构">类和结构</h3>
+
 <p>类对象的默认访问控制是<code>private</code>，而结构的默认访问类型是<code>public</code>。</p>
+
 <pre><code>class World
 {
     float mass;
@@ -383,19 +361,33 @@ Stock(const &amp; co, long n = 0, double pr = 0.0)构造函数定义（没有�
 public:
     void tellall(void);
 }
-</code></pre><h3 id="实现类成员函数">实现类成员函数</h3>
+</code></pre>
+
+<h3 id="实现类成员函数">实现类成员函数</h3>
+
 <p>类成员函数有两个特征：</p>
+
 <ul>
 <li>定义成员函数时，使用作用域解析运算符<code>::</code>来标识函数所属的类</li>
 <li>类方法可以访问类的private组件</li>
 </ul>
+
 <pre><code>void Stock::update(double price)
-</code></pre><h2 id="103-类的构造函数和析构函数">10.3 类的构造函数和析构函数</h2>
+</code></pre>
+
+<h2 id="10-3-类的构造函数和析构函数">10.3 类的构造函数和析构函数</h2>
+
 <p>每个类都分别定义了它的对象被初始化的方式，类通过一个或几个特殊的成员函数来控制其对象的初始化过程，这些函数叫<strong>构造函数</strong>。构造函数的任务是初始化类对象的数据成员，无论何时只要类的对象被创建，就会执行构造函数。</p>
-<h3 id="1031-声明和定义构造函数">10.3.1 声明和定义构造函数</h3>
+
+<h3 id="10-3-1-声明和定义构造函数">10.3.1 声明和定义构造函数</h3>
+
 <p>构造函数原型（声明）：</p>
+
 <pre><code>Stock(const &amp; co, long n = 0, double pr = 0.0)
-</code></pre><p>构造函数定义（没有返回类型）：</p>
+</code></pre>
+
+<p>构造函数定义（没有返回类型）：</p>
+
 <pre><code>Stock::Stock(const &amp; co, long n = 0, double pr = 0.0)
 {
     company = co;
@@ -403,22 +395,37 @@ public:
     share_val = pr;
     set_tot();
 }
-</code></pre><p><strong>成员名和参数名不能相同！！！</strong></p>
-<h3 id="1032-使用构造函数">10.3.2 使用构造函数</h3>
+</code></pre>
+
+<p><strong>成员名和参数名不能相同！！！</strong></p>
+
+<h3 id="10-3-2-使用构造函数">10.3.2 使用构造函数</h3>
+
 <pre><code>Stock food = Stock(&quot;World Cabbage&quot;, 50, 2.5);
 或
 Stock food(&quot;World Cabbage&quot;, 50, 2.5);
-</code></pre><h3 id="1033-默认构造函数">10.3.3 默认构造函数</h3>
+</code></pre>
+
+<h3 id="10-3-3-默认构造函数">10.3.3 默认构造函数</h3>
+
 <p>定义默认构造函数有两种方法：</p>
+
 <ul>
 <li>一种是给已有构造函数的所有参数提供默认值：</li>
 </ul>
+
 <pre><code>Stock(const &amp; co, long n = 0, double pr = 0.0)
-</code></pre><ul>
+</code></pre>
+
+<ul>
 <li>另一种是通过函数重载来定义另一个构造函数——一个没有参数的构造函数</li>
 </ul>
+
 <pre><code>Stock();
-</code></pre><p>用户定义的默认构造函数通常给所有成员<strong>提供隐式初始值</strong>。例如，下面是Stock类定义的一个默认构造函数：</p>
+</code></pre>
+
+<p>用户定义的默认构造函数通常给所有成员<strong>提供隐式初始值</strong>。例如，下面是Stock类定义的一个默认构造函数：</p>
+
 <pre><code>Stock::Stock()
 {
     company = &quot;no name&quot;;
@@ -426,16 +433,26 @@ Stock food(&quot;World Cabbage&quot;, 50, 2.5);
     share_val = 0.0;
     set_tot();
 }
-</code></pre><p><strong>提示</strong>： 在设计类时，通常应该提供对所有类成员做隐式初始化的默认构造函数。</p>
+</code></pre>
+
+<p><strong>提示</strong>： 在设计类时，通常应该提供对所有类成员做隐式初始化的默认构造函数。</p>
+
 <p>声明对象变量时，初始化方式可以为：</p>
+
 <pre><code>Stock first(&quot;Concrete Conlomerate&quot;); //调用构造函数
 Stock second();  //声明一个返回Stock对象的函数
 Stock third;  //隐式的调用默认构造函数
 Stock *fourth = new Stock(&quot;popo&quot;); //动态对象
-</code></pre><h3 id="1034-析构函数">10.3.4 析构函数</h3>
+</code></pre>
+
+<h3 id="10-3-4-析构函数">10.3.4 析构函数</h3>
+
 <p>类的析构函数是类的一种特殊的成员函数，它会在每次删除所创建的对象时执行。</p>
+
 <p>析构函数的名称与类的名称是完全相同的，只是在前面加了个波浪号（~）作为前缀，它不会返回任何值，也不能带有任何参数。析构函数有助于在跳出程序（比如关闭文件、释放内存等）前释放资源。</p>
+
 <p>如果构造函数使用了new，则必须提供使用delete的析构函数，如：</p>
+
 <pre><code>class Student{
 public:
 　　Student(){m_name=new char[20];}     //即在堆上定义----故在释放对象时必须要释放掉内存
@@ -452,15 +469,26 @@ Student::~Student()
     delete m_name;
     m_name=NULL;
 }
-</code></pre><h3 id="1035-改进stock类">10.3.5 改进Stock类</h3>
-<h2 id="104-this指针">10.4 this指针</h2>
+</code></pre>
+
+<h3 id="10-3-5-改进stock类">10.3.5 改进Stock类</h3>
+
+<h2 id="10-4-this指针">10.4 this指针</h2>
+
 <p>当需要比较两个类中数据成员的大小，并返回变量值较大的类时，函数原型为：</p>
+
 <pre><code>const Stock &amp; topval(const Stock &amp; s) const
-</code></pre><p>函数调用为：</p>
+</code></pre>
+
+<p>函数调用为：</p>
+
 <pre><code>top = stock1.topval(stock2);
 或
 top = stock2.topval(stock1);
-</code></pre><p>但是在函数实现中会有一个问题：</p>
+</code></pre>
+
+<p>但是在函数实现中会有一个问题：</p>
+
 <pre><code>const Stock &amp; Stock::topval(const Stock &amp; s) const
 {
     if (s.total_val &gt; total_val)
@@ -468,8 +496,12 @@ top = stock2.topval(stock1);
     else
         return ???????????; //函数无法返回调用该方法的对象
 }
-</code></pre><p>在 C++ 中，每一个对象都能通过 this 指针来访问自己的地址。每个成员函数（包括构造函数和析构函数）都有一个this指针。this指针指向调用对象。可以通过<code>this-&gt;total_val(类成员)</code>来访问类成员。如果方法需要引用整个调用对象，则可以使用表达式<code>*this</code>。在函数的括号后面使用const限定符将this限定为const，这样不能使用this指针来修改对象的值。</p>
+</code></pre>
+
+<p>在 C++ 中，每一个对象都能通过 this 指针来访问自己的地址。每个成员函数（包括构造函数和析构函数）都有一个this指针。this指针指向调用对象。可以通过<code>this-&gt;total_val(类成员)</code>来访问类成员。如果方法需要引用整个调用对象，则可以使用表达式<code>*this</code>。在函数的括号后面使用const限定符将this限定为const，这样不能使用this指针来修改对象的值。</p>
+
 <p>于是，可以使用this指针返回调用该方法的对象：</p>
+
 <pre><code>const Stock &amp; Stock::topval(const Stock &amp; s) const
 {
     if (s.total_val &gt; total_val)
@@ -477,10 +509,17 @@ top = stock2.topval(stock1);
     else
         return *this;
 }
-</code></pre><h2 id="105-对象数组">10.5 对象数组</h2>
+</code></pre>
+
+<h2 id="10-5-对象数组">10.5 对象数组</h2>
+
 <p>声明对象数组的方法和标准类型数组方法相同：</p>
+
 <pre><code>Stock mystuff[4]; //创建一个含有四个Stock对象的数组
-</code></pre><p>使用构造函数来初始化数组元素时，必须为每一个元素调用构造函数。</p>
+</code></pre>
+
+<p>使用构造函数来初始化数组元素时，必须为每一个元素调用构造函数。</p>
+
 <pre><code>const int STKS = 4;
 Stock stocks[STKS] = {
     Stock(&quot;Nono&quot;, 12.5, 20),
@@ -488,8 +527,12 @@ Stock stocks[STKS] = {
     Stock(&quot;Mono&quot;, 130, 20.25),
     Stock(&quot;Fleep&quot;, 60, 6.5),
 }
-</code></pre><h2 id="106-类作用域">10.6 类作用域</h2>
+</code></pre>
+
+<h2 id="10-6-类作用域">10.6 类作用域</h2>
+
 <p>当我们要创建一个由所有对象共享的常量是个不错的主意，我们可能认为下面做法是可行的：</p>
+
 <pre><code>class Bakery()
 {
 private:
@@ -497,11 +540,13 @@ private:
     double costs[Months];
     ...
 }
-</code></pre><p>声明类只是描述了对象的形式，并没有创建对象，在创建对象之前，将没有用于存储值的空间。</p>
-<p>此时有两种方法：</p>
-<ul>
-<li>第一种为在类中声明一个枚举，在类声明中声明的枚举的作用域为整个类，因此可以用枚举为整型常量提供作用域为整个类的符号名称。</li>
-</ul>
+</code></pre>
+
+<p>声明类只是描述了对象的形式，并没有创建对象，在创建对象之前，将没有用于存储值的空间。</p>
+
+<p>此时有两种方法：
+* 第一种为在类中声明一个枚举，在类声明中声明的枚举的作用域为整个类，因此可以用枚举为整型常量提供作用域为整个类的符号名称。</p>
+
 <pre><code>class Bakery()
 {
 private:
@@ -509,9 +554,12 @@ private:
     double costs[Months];
     ...
 }
-</code></pre><ul>
+</code></pre>
+
+<ul>
 <li>第二种方法为在类中定义常量的方式——使用关键字static</li>
 </ul>
+
 <pre><code>class Bakery()
 {
 private:
@@ -519,10 +567,16 @@ private:
     double costs[Months];
     ...
 }
-</code></pre><p>将常量与其他静态变量存储在一起，而不是存储在对象中。</p>
-<h2 id="127-抽象数据类型">12.7 抽象数据类型</h2>
+</code></pre>
+
+<p>将常量与其他静态变量存储在一起，而不是存储在对象中。</p>
+
+<h2 id="12-7-抽象数据类型">12.7 抽象数据类型</h2>
+
 <p>ADT以通用的方式描述数据类型，而没有引入语言或实现细节。</p>
+
 <p>下面简要介绍一下栈的特征，首先，栈存储了多个数据项（该特征使得栈成为了一个容器——一种更通用的抽象）；其次栈由可对他执行的操作来描述。</p>
+
 <ul>
 <li>可创建空栈</li>
 <li>可将数据项添加到栈顶（压入）</li>
@@ -530,8 +584,8 @@ private:
 <li>可查看栈是否填满</li>
 <li>可查看栈是否为空</li>
 </ul>
-<p>可以将上述描述转换为一个类声明，其中共有函数提供了表示栈操作的接口，而私有数据成员负责存储栈数据。类概念特别适合于ADT方法。</p>
 
+<p>可以将上述描述转换为一个类声明，其中共有函数提供了表示栈操作的接口，而私有数据成员负责存储栈数据。类概念特别适合于ADT方法。</p>
         </div>
         <footer class="article-footer">
     <a data-url="http://jchenTech.github.io/2020/03/15/c-primer-plus-%E7%AC%AC10%E7%AB%A0%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/" data-id="7f7807e52919a591ab29c3dccd8fc864" class="article-share-link">
@@ -677,6 +731,32 @@ private:
             
             <li>
                 <div class="item-thumbnail">
+                    <a href="http://jchenTech.github.io/2020/03/30/hugo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="http://jchenTech.github.io/categories/%E5%8D%9A%E5%AE%A2">
+                        博客
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="http://jchenTech.github.io/2020/03/30/hugo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/" class="title">Hugo插入图片</a></p>
+                    <p class="item-date">
+                        <time datetime="2020-03-30 13:25:06 &#43;0800 CST" itemprop="datePublished">2020-03-30</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
                     <a href="http://jchenTech.github.io/2020/03/29/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="thumbnail">
                     
                         <span class="thumbnail-image thumbnail-none"></span>
@@ -779,32 +859,6 @@ private:
                 </div>
             </li>
             
-            <li>
-                <div class="item-thumbnail">
-                    <a href="http://jchenTech.github.io/2020/03/17/c-primer-plus-%E7%AC%AC12%E7%AB%A0%E7%B1%BB%E5%92%8C%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/" class="thumbnail">
-                    
-                        <span class="thumbnail-image thumbnail-none"></span>
-                    
-                    </a>
-                </div>
-                <div class="item-inner">
-                    
-                    
-                    <p class="item-category">
-                        
-                        <a class="article-category-link" href="http://jchenTech.github.io/categories/c&#43;&#43;">
-                        C&#43;&#43;
-                        </a>
-                    </p>
-                    
-                    
-                    <p class="item-title"><a href="http://jchenTech.github.io/2020/03/17/c-primer-plus-%E7%AC%AC12%E7%AB%A0%E7%B1%BB%E5%92%8C%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/" class="title">C&#43;&#43; primer plus 第12章类和动态内存分配</a></p>
-                    <p class="item-date">
-                        <time datetime="2020-03-17 21:02:06 &#43;0800 CST" itemprop="datePublished">2020-03-17</time>
-                    </p>
-                </div>
-            </li>
-            
         </ul>
     </div>
 </div>
@@ -839,7 +893,7 @@ private:
                 <a class="category-list-link" href="http://jchenTech.github.io/categories/%E5%8D%9A%E5%AE%A2">
                     博客
                 </a>
-                <span class="category-list-count">2</span>
+                <span class="category-list-count">3</span>
             </li>
             
             <li class="category-list-item">
@@ -896,7 +950,7 @@ private:
                 <a class="category-list-link" href="http://jchenTech.github.io/tags/hugo">
                     hugo
                 </a>
-                <span class="category-list-count">2</span>
+                <span class="category-list-count">3</span>
             </li>
             
             <li class="category-list-item">
@@ -927,6 +981,14 @@ private:
                 
                 <a class="category-list-link" href="http://jchenTech.github.io/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C">
                     卷积神经网络
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="http://jchenTech.github.io/tags/%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5">
+                    图片插入
                 </a>
                 <span class="category-list-count">1</span>
             </li>
@@ -970,6 +1032,9 @@ private:
         
         
         <a href="http://jchenTech.github.io/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" style="font-size: 12px;">卷积神经网络</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5" style="font-size: 12px;">图片插入</a>
         
     </div>
 </div>

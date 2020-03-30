@@ -2,7 +2,7 @@
 <html lang="zh-cn">
 <head>
     <title>C&#43;&#43; primer plus 第14章C&#43;&#43;中的代码重用 &middot; 陈建君的技术博客</title>
-    <meta name="generator" content="Hugo 0.65.3" />
+    <meta name="generator" content="Hugo 0.54.0" />
     <meta charset="utf-8">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -22,39 +22,18 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
     <meta property="og:title" content="C&#43;&#43; primer plus 第14章C&#43;&#43;中的代码重用" />
-<meta property="og:description" content="[toc]
-C&#43;&#43;的主要目的是促进代码重用。
-公有继承是实现这一目标的机制之一；
-本身是另一个类的成员，这种方法称为包含、组合、层次化。
-另一种方法是使用私有、保护继承。
-通常包含、私有继承和保护继承用于实现has-a关系，即新的类型包含另一个类的对象。
-多重继承使得能够使用两个或更多的基类派生出新的类，将基类的功能组合在一起。
-还有类模板——另一种重用代码的方法。类模板能够使用通用术语定义类，然后使用模板来创建针对特定类型定义的特殊类。例如，可以定义一个通用的栈模板，然后使用该模板创建一个用于表示int值栈的类和一个用于表示double值栈的类。
-14.1 包含对象成员的类 对于姓名可以使用字符数组来表示，但这将限制姓名的长度。当然，还可以使用char指针和动态内存分配，但这要求提供大量的支持代码。有一个好的方法就是使用一个他人开发好的类的对象来表示。如果C&#43;&#43;库提供了合适的类，实现起来将更简单。姓名可以采用string类。而对于考试分数，存在类似的选择，可以使用一个定长数组，还可以采用C&#43;&#43;库提供的一个这样的类，它就是valarray。
-14.1.1 valarray类简介 valarray是一个模板类，模板类在使用时需要指定具体数据类型。
-valarray&lt;int&gt; q_values; //an array of intvalarray&lt;double&gt; weights; //an array of doublevalarray类的构造函数和其他类方法举例如下：
-double gps[5]={3.1, 3.5, 3.8, 2.9, 3.3};valarray&lt;double&gt; v1; //double类型的空数组valarray&lt;int&gt; v2(8); //长度为8的整型元素。valarray&lt;int&gt; v3(10,8); //长度为8的整型元素，每个长度为10。valarray&lt;double&gt; v4(gpa,4) //使用gpa数组的前4个元素给v4赋值。valarray&lt;int&gt; v5 = {20,32,17,9}; //C&#43;&#43;11使用初始化列表进行初始化下面是这个类的一些方法：
-operator[]() 能够访问各个元素；size() 返回包含的元素数xum() 返回所有元素的总和max() 返回最大的元素min() 返回最小的元素14.1.2 Student类的设计 class Student{private:string name;valarray&lt;double&gt; scores;…};Student类获得了其成员对象的实现，但没有继承接口。这意味着Student类成员函数可以使用string和valarray类的公有接口来访问和修改name和scores对象。但在类外不能这样做，而只能通过Student类的公有接口访问name和scores。" />
+<meta property="og:description" content="C&#43;&#43; primer plus 第14章C&#43;&#43;中的代码重用" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://jchenTech.github.io/2020/03/22/c-primer-plus-%E7%AC%AC14%E7%AB%A0c-%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%A0%81%E9%87%8D%E7%94%A8/" />
-<meta property="article:published_time" content="2020-03-22T13:30:06+08:00" />
-<meta property="article:modified_time" content="2020-03-22T13:30:06+08:00" />
+<meta property="article:published_time" content="2020-03-22T13:30:06&#43;08:00"/>
+<meta property="article:modified_time" content="2020-03-22T13:30:06&#43;08:00"/>
 
     
-    <meta itemprop="name" content="C&#43;&#43; primer plus 第14章C&#43;&#43;中的代码重用">
-<meta itemprop="description" content="[toc]
-C&#43;&#43;的主要目的是促进代码重用。
-公有继承是实现这一目标的机制之一；
-本身是另一个类的成员，这种方法称为包含、组合、层次化。
-另一种方法是使用私有、保护继承。
-通常包含、私有继承和保护继承用于实现has-a关系，即新的类型包含另一个类的对象。
-多重继承使得能够使用两个或更多的基类派生出新的类，将基类的功能组合在一起。
-还有类模板——另一种重用代码的方法。类模板能够使用通用术语定义类，然后使用模板来创建针对特定类型定义的特殊类。例如，可以定义一个通用的栈模板，然后使用该模板创建一个用于表示int值栈的类和一个用于表示double值栈的类。
-14.1 包含对象成员的类 对于姓名可以使用字符数组来表示，但这将限制姓名的长度。当然，还可以使用char指针和动态内存分配，但这要求提供大量的支持代码。有一个好的方法就是使用一个他人开发好的类的对象来表示。如果C&#43;&#43;库提供了合适的类，实现起来将更简单。姓名可以采用string类。而对于考试分数，存在类似的选择，可以使用一个定长数组，还可以采用C&#43;&#43;库提供的一个这样的类，它就是valarray。
-14.1.1 valarray类简介 valarray是一个模板类，模板类在使用时需要指定具体数据类型。
-valarray&lt;int&gt; q_values; //an array of intvalarray&lt;double&gt; weights; //an array of doublevalarray类的构造函数和其他类方法举例如下：
-double gps[5]={3.1, 3.5, 3.8, 2.9, 3.3};valarray&lt;double&gt; v1; //double类型的空数组valarray&lt;int&gt; v2(8); //长度为8的整型元素。valarray&lt;int&gt; v3(10,8); //长度为8的整型元素，每个长度为10。valarray&lt;double&gt; v4(gpa,4) //使用gpa数组的前4个元素给v4赋值。valarray&lt;int&gt; v5 = {20,32,17,9}; //C&#43;&#43;11使用初始化列表进行初始化下面是这个类的一些方法：
-operator[]() 能够访问各个元素；size() 返回包含的元素数xum() 返回所有元素的总和max() 返回最大的元素min() 返回最小的元素14.1.2 Student类的设计 class Student{private:string name;valarray&lt;double&gt; scores;…};Student类获得了其成员对象的实现，但没有继承接口。这意味着Student类成员函数可以使用string和valarray类的公有接口来访问和修改name和scores对象。但在类外不能这样做，而只能通过Student类的公有接口访问name和scores。">
+    
+<meta itemprop="name" content="C&#43;&#43; primer plus 第14章C&#43;&#43;中的代码重用">
+<meta itemprop="description" content="C&#43;&#43; primer plus 第14章C&#43;&#43;中的代码重用">
+
+
 <meta itemprop="datePublished" content="2020-03-22T13:30:06&#43;08:00" />
 <meta itemprop="dateModified" content="2020-03-22T13:30:06&#43;08:00" />
 <meta itemprop="wordCount" content="614">
@@ -62,21 +41,10 @@ operator[]() 能够访问各个元素；size() 返回包含的元素数xum() �
 
 
 <meta itemprop="keywords" content="C&#43;&#43;," />
+
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="C&#43;&#43; primer plus 第14章C&#43;&#43;中的代码重用"/>
-<meta name="twitter:description" content="[toc]
-C&#43;&#43;的主要目的是促进代码重用。
-公有继承是实现这一目标的机制之一；
-本身是另一个类的成员，这种方法称为包含、组合、层次化。
-另一种方法是使用私有、保护继承。
-通常包含、私有继承和保护继承用于实现has-a关系，即新的类型包含另一个类的对象。
-多重继承使得能够使用两个或更多的基类派生出新的类，将基类的功能组合在一起。
-还有类模板——另一种重用代码的方法。类模板能够使用通用术语定义类，然后使用模板来创建针对特定类型定义的特殊类。例如，可以定义一个通用的栈模板，然后使用该模板创建一个用于表示int值栈的类和一个用于表示double值栈的类。
-14.1 包含对象成员的类 对于姓名可以使用字符数组来表示，但这将限制姓名的长度。当然，还可以使用char指针和动态内存分配，但这要求提供大量的支持代码。有一个好的方法就是使用一个他人开发好的类的对象来表示。如果C&#43;&#43;库提供了合适的类，实现起来将更简单。姓名可以采用string类。而对于考试分数，存在类似的选择，可以使用一个定长数组，还可以采用C&#43;&#43;库提供的一个这样的类，它就是valarray。
-14.1.1 valarray类简介 valarray是一个模板类，模板类在使用时需要指定具体数据类型。
-valarray&lt;int&gt; q_values; //an array of intvalarray&lt;double&gt; weights; //an array of doublevalarray类的构造函数和其他类方法举例如下：
-double gps[5]={3.1, 3.5, 3.8, 2.9, 3.3};valarray&lt;double&gt; v1; //double类型的空数组valarray&lt;int&gt; v2(8); //长度为8的整型元素。valarray&lt;int&gt; v3(10,8); //长度为8的整型元素，每个长度为10。valarray&lt;double&gt; v4(gpa,4) //使用gpa数组的前4个元素给v4赋值。valarray&lt;int&gt; v5 = {20,32,17,9}; //C&#43;&#43;11使用初始化列表进行初始化下面是这个类的一些方法：
-operator[]() 能够访问各个元素；size() 返回包含的元素数xum() 返回所有元素的总和max() 返回最大的元素min() 返回最小的元素14.1.2 Student类的设计 class Student{private:string name;valarray&lt;double&gt; scores;…};Student类获得了其成员对象的实现，但没有继承接口。这意味着Student类成员函数可以使用string和valarray类的公有接口来访问和修改name和scores对象。但在类外不能这样做，而只能通过Student类的公有接口访问name和scores。"/>
+<meta name="twitter:description" content="C&#43;&#43; primer plus 第14章C&#43;&#43;中的代码重用"/>
 <meta name="twitter:site" content="@spf13"/>
 
     
@@ -203,12 +171,12 @@ operator[]() 能够访问各个元素；size() 返回包含的元素数xum() �
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        13
+        14
         <span>文章</span>
       </div>
       <div class="article-info-block">
         
-          8
+          9
         
         <span>
             标签
@@ -341,34 +309,57 @@ operator[]() 能够访问各个元素；size() 返回包含的元素数xum() �
 </header>
 
         <div class="article-entry" itemprop="articleBody">
-            <p>[toc]</p>
+            <p>C++ primer plus 第14章C++中的代码重用</p>
+
+<p>[toc]</p>
+
 <p>C++的主要目的是促进<strong>代码重用</strong>。</p>
+
 <p>公有继承是实现这一目标的机制之一；</p>
+
 <p>本身是另一个类的成员，这种方法称为包含、组合、层次化。</p>
+
 <p>另一种方法是使用私有、保护继承。</p>
+
 <p>通常包含、私有继承和保护继承用于实现has-a关系，即新的类型包含另一个类的对象。</p>
+
 <p>多重继承使得能够使用两个或更多的基类派生出新的类，将基类的功能组合在一起。</p>
+
 <p>还有类模板——另一种重用代码的方法。类模板能够使用通用术语定义类，然后使用模板来创建针对特定类型定义的特殊类。例如，可以定义一个通用的栈模板，然后使用该模板创建一个用于表示int值栈的类和一个用于表示double值栈的类。</p>
-<h2 id="141-包含对象成员的类">14.1 包含对象成员的类</h2>
+
+<h2 id="14-1-包含对象成员的类">14.1 包含对象成员的类</h2>
+
 <p>对于姓名可以使用字符数组来表示，但这将限制姓名的长度。当然，还可以使用char指针和动态内存分配，但这要求提供大量的支持代码。有一个好的方法就是使用一个他人开发好的类的对象来表示。如果C++库提供了合适的类，实现起来将更简单。姓名可以采用string类。而对于考试分数，存在类似的选择，可以使用一个定长数组，还可以采用C++库提供的一个这样的类，它就是valarray。</p>
-<h3 id="1411-valarray类简介">14.1.1 valarray类简介</h3>
+
+<h3 id="14-1-1-valarray类简介">14.1.1 valarray类简介</h3>
+
 <p>valarray是一个模板类，模板类在使用时需要指定具体数据类型。</p>
+
 <pre><code>valarray&lt;int&gt;  q_values; //an array of int
 valarray&lt;double&gt; weights; //an array of double
-</code></pre><p>valarray类的构造函数和其他类方法举例如下：</p>
+</code></pre>
+
+<p>valarray类的构造函数和其他类方法举例如下：</p>
+
 <pre><code>double gps[5]={3.1, 3.5, 3.8, 2.9, 3.3};
 valarray&lt;double&gt; v1;   //double类型的空数组
 valarray&lt;int&gt; v2(8);   //长度为8的整型元素。
 valarray&lt;int&gt; v3(10,8);    //长度为8的整型元素，每个长度为10。
 valarray&lt;double&gt; v4(gpa,4)  //使用gpa数组的前4个元素给v4赋值。
 valarray&lt;int&gt; v5 = {20,32,17,9};  //C++11使用初始化列表进行初始化
-</code></pre><p>下面是这个类的一些方法：</p>
+</code></pre>
+
+<p>下面是这个类的一些方法：</p>
+
 <pre><code>operator[]()  能够访问各个元素；
 size()  返回包含的元素数
 xum()  返回所有元素的总和
 max()  返回最大的元素
 min()  返回最小的元素
-</code></pre><h3 id="1412-student类的设计">14.1.2 Student类的设计</h3>
+</code></pre>
+
+<h3 id="14-1-2-student类的设计">14.1.2 Student类的设计</h3>
+
 <pre><code>class Student
 {
 private:
@@ -376,12 +367,20 @@ private:
     valarray&lt;double&gt; scores;
 …
 };
-</code></pre><p>Student类获得了其成员对象的实现，但没有继承接口。这意味着Student类成员函数可以使用string和valarray类的公有接口来访问和修改name和scores对象。但在类外不能这样做，而只能通过Student类的公有接口访问name和scores。</p>
+</code></pre>
+
+<p>Student类获得了其成员对象的实现，但没有继承接口。这意味着Student类成员函数可以使用string和valarray类的公有接口来访问和修改name和scores对象。但在类外不能这样做，而只能通过Student类的公有接口访问name和scores。</p>
+
 <p><strong>接口与实现的概念</strong></p>
+
 <p>获得接口是is-a关系的组成部分。</p>
+
 <p>而使用组合，类可以获得实现，但不能获得接口。不继承接口是has-a关系的组成部分。</p>
+
 <p>对于has-a关系而言，类对象不能获得包含对象的接口是一件好事。</p>
-<h3 id="1413-student类示例">14.1.3 Student类示例</h3>
+
+<h3 id="14-1-3-student类示例">14.1.3 Student类示例</h3>
+
 <pre><code>//studentc.h--defining a Student class using containment
 #ifndef STUDENTC_H_
 #define STUDENTC_H_
@@ -416,45 +415,82 @@ public:
     friend std::ostream &amp; operator&lt;&lt;(std::ostream &amp; os, const Student &amp; stu);
 }
 #endif
-</code></pre><p>注意：如果不使用explicit，可以编写如下的代码：</p>
+</code></pre>
+
+<p>注意：如果不使用explicit，可以编写如下的代码：</p>
+
 <pre><code>Student doh(&quot;Homer&quot;,10);
 doh = 5; 
-</code></pre><p>粗心的程序员键入了doh而不是doh[0]，这会导致使用构造函数调用Student（5）将5替换为一个临时Student对象，并使用<code>&quot;Nully&quot;</code>来设置成员name的值。因此赋值操作将使用临时对象来替换原来doh值，使用了explicit之后，编译器将认为上述运算符是错误的。</p>
+</code></pre>
+
+<p>粗心的程序员键入了doh而不是doh[0]，这会导致使用构造函数调用Student（5）将5替换为一个临时Student对象，并使用<code>&quot;Nully&quot;</code>来设置成员name的值。因此赋值操作将使用临时对象来替换原来doh值，使用了explicit之后，编译器将认为上述运算符是错误的。</p>
+
 <p><strong>C++和约束</strong></p>
+
 <p>使用explict防止但参数构造函数的隐式转换，使用const限制方法修改数据。这样做的根本原因是：在编译阶段出现错误优于在运行阶段出现错误。</p>
+
 <ol>
 <li>初始化被包含的对象</li>
 </ol>
+
 <p>构造函数使用您熟悉的成员初始化列表来初始化name和score成员对象。</p>
+
 <pre><code>Queue::Queue(int qs) : qsize(qs) {…}
-</code></pre><p>还可以使用成员初始化列表来初始化派生对象的基类部分：</p>
+</code></pre>
+
+<p>还可以使用成员初始化列表来初始化派生对象的基类部分：</p>
+
 <pre><code>hasDMA::hasDMA(): baseDMA(hs) {…}
-</code></pre><p>初始化列表中的每一项都调用与之匹配的构造函数。</p>
+</code></pre>
+
+<p>初始化列表中的每一项都调用与之匹配的构造函数。</p>
+
 <p>初始化顺序：当初始化列表包含多个项目时，这些项目被初始化的顺序为它们被声明的顺序，而不是它们在初始化列表中的顺序。</p>
-<ol start="2">
+
+<ol>
 <li>使用被包含对象的接口</li>
 </ol>
+
 <p>被包含对象的接口不是公有的，但可以在类方法中使用它。</p>
-<h2 id="142-私有继承">14.2 私有继承</h2>
+
+<h2 id="14-2-私有继承">14.2 私有继承</h2>
+
 <p>使用包含：易于理解，类声明中包含表示被包含类的显式命名对象，代码可以通过名称引用这些对象；</p>
+
 <p>使用继承：将使关系更抽象，且继承会引起很多问题，尤其是从多个基类继承时。</p>
+
 <p>私有继承所提供的特性确实比包含多。</p>
+
 <p>通常，应使用包含来建立has-a关系；如果新类需要访问原有类的保护成员，或需要重新定义虚函数，则应使用私有继承。</p>
-<h3 id="1422-使用包含还是私有继承">14.2.2 使用包含还是私有继承</h3>
+
+<h3 id="14-2-2-使用包含还是私有继承">14.2.2 使用包含还是私有继承</h3>
+
 <p>通常，应使用包含来建立has-a关系；如果新类需要访问原有类的保护乘员，或需要重新定义虚函数，则应使用私有继承。</p>
-<h3 id="1423-保护继承">14.2.3 保护继承</h3>
+
+<h3 id="14-2-3-保护继承">14.2.3 保护继承</h3>
+
 <p>保护继承：基类的公有成员和保护成员都将成为派生类的保护成员。</p>
+
 <p>私有继承与保护继承的区别，在第三代继承中就体现出来了。使用私有继承时，第三代类不能使用基类的接口，因为公有方法在派生类中将变成私有方法；使用保护继承时，基类的公有方法在第二代中将变成受保护的，因此第三代派生类可以使用它们。</p>
-<h3 id="1424-使用using重新定义访问权限">14.2.4 使用using重新定义访问权限</h3>
+
+<h3 id="14-2-4-使用using重新定义访问权限">14.2.4 使用using重新定义访问权限</h3>
+
 <p>（在继承提供了一种机制来对基类公有方法的访问权限的控制，属性的改变）：使用保护派生或私有派生时，基类的公有成员将成为保护成员或私有成员。</p>
+
 <p>假设要让基类的方法在派生类中可用，可以有两种方法：</p>
+
 <p>1）定义一个使用该基类方法的派生类方法：</p>
+
 <pre><code>double Student::sum() const
 {
     return std::valarray&lt;double&gt;::sum();
 }
-</code></pre><p>2）将函数调用包装在另一个函数调用中：</p>
+</code></pre>
+
+<p>2）将函数调用包装在另一个函数调用中：</p>
+
 <p>在类声明中使用using；</p>
+
 <pre><code>class Student:private std::string, private std::valarray&lt;double&gt;
 {
 …
@@ -463,90 +499,149 @@ public:
     using std::valarray&lt;double&gt;::max;
     ...
 }
-</code></pre><p>using声明使得valarray类的min，max方法可用，就像是Student类的公有方法一样；</p>
+</code></pre>
+
+<p>using声明使得valarray类的min，max方法可用，就像是Student类的公有方法一样；</p>
+
 <p>而且注意使用using声明时，<strong>只使用成员名，没有圆括号，函数特征标，返回类型</strong>。</p>
+
 <p>Using声明只适用于继承，而不适用与包含。</p>
-<h2 id="143-多重继承">14.3 多重继承</h2>
+
+<h2 id="14-3-多重继承">14.3 多重继承</h2>
+
 <p>继承使用时要注意，默认是私有派生。所以要公有派生时必须记得加关键字Public来限定每一个基类。</p>
+
 <pre><code>class SingingWaiter : public Waiter, Singer {...}; //Singer是私有派生
-</code></pre><p>MI（Multi Inheritance）会带来哪些问题？以及如何解决它们？</p>
+</code></pre>
+
+<p>MI（Multi Inheritance）会带来哪些问题？以及如何解决它们？</p>
+
 <p>两个主要问题：</p>
+
 <ul>
 <li>从两个不同的基类继承同名方法；</li>
 <li>从两个或更多相关基类那里继承同一个类的多个实例；</li>
 </ul>
-<h3 id="1431-有多少worker">14.3.1 有多少Worker</h3>
+
+<h3 id="14-3-1-有多少worker">14.3.1 有多少Worker</h3>
+
 <p>Worker公有派生出Singer和Waiter；</p>
+
 <p>然后Singer和Waiter公有派生出SingingWaiter（即多重继承）；</p>
+
 <p>这样会导致一个问题，就是SingingWaiter中有两个Worker组件。通常可以将派生类对象的地址赋值给基类指针。但是在这样的情况下这么做的话，将出现二义性。所以必须使用类型转换来指定对象。但这又增加了指针引用的复杂度。C++在引入多重继承的同时，也引入新技术——虚基类，来解决该问题。</p>
+
 <ol>
 <li>虚基类</li>
 </ol>
+
 <p>虚基类也用关键字virtual，虚基类与虚函数之间并不存在明显的联系。这么做是为了给程序员减少压力，类似于关键字的重载。</p>
+
 <p>虚基类使得从多个类（他们的基类相同）派生出的对象只继承一个基类对象。例如使用关键字virtual，可以使Worker被用作Singer和Waiter的虚基类。</p>
+
 <pre><code>class Singer: virtual public Worker{…};
 class Waiter: public virtual Worker{…};
 (virtual和public的次序无关紧要)
-</code></pre><p>现在SingingWaiter对象将只包含Worker对象的一个副本，从本质上说，继承的Singer和Waiter对象共享一个Worker对象。</p>
+</code></pre>
+
+<p>现在SingingWaiter对象将只包含Worker对象的一个副本，从本质上说，继承的Singer和Waiter对象共享一个Worker对象。</p>
+
 <p>那么为什么不使虚行为成为MI的默认准则呢？</p>
+
 <p>在一些情况下，可能需要基类的多个拷贝；</p>
+
 <p>将基类作为虚的要求程序完成额外的计算，为不需要的程序付出代价是不应当的；</p>
-<ol start="2">
+
+<ol>
 <li>新的构造函数规则</li>
 </ol>
+
 <p>使用虚基类时，必须对构造函数采用新的方法；</p>
+
 <p>对于非虚基类，唯一可以出现在初始化列表中的构造函数是即时基类构造函数。</p>
+
 <p>A派生B，B派生C；&mdash;&gt;C类的构造函数只能调用B类的构造函数，B类的构造函数只能调用A类构造函数。</p>
+
 <p>但对于虚基类而言，这种信息自动传递方式不可用。这是因为对于多重继承而言，信息传递将通过两条不同的途径。为避免这种冲突，当基类是虚的，将禁止信息通过中间类自动传递给基类。</p>
+
 <p>这就要求显式地调用所需的基类构造函数：</p>
+
 <pre><code>SingingWaiter(参数列表):Worker(wk),Waiter(wk,p),Singer(wk,v) { }
-</code></pre><p>上述格式对虚基类来说是合法的，对非虚基类来说是非法的。</p>
+</code></pre>
+
+<p>上述格式对虚基类来说是合法的，对非虚基类来说是非法的。</p>
+
 <p>警告：如果类有间接虚基类，则除非只需使用该虚基类的默认构造函数，否则必须显式地调用该虚基类的某个构造函数。</p>
-<h3 id="1432-哪个方法">14.3.2 哪个方法</h3>
+
+<h3 id="14-3-2-哪个方法">14.3.2 哪个方法</h3>
+
 <p>对于单继承，如果没有重新定义show，将调用最近祖先中的show定义。对于多重继承，如果每个祖先都有一个Show函数，那么会导致函数调用的二义性。</p>
+
 <p>有几种解决方法：</p>
+
 <ol>
 <li>使用作用域解析运算符来澄清编程者的意图；</li>
 <li>或是在多重继承的类中重新定义show方法，并指出要使用哪个show；</li>
 </ol>
+
 <p>这种递增的方法对于单继承来说是有效的；</p>
+
 <p>但是对于多重继承来说，还是有问题：</p>
+
 <pre><code>SingingWaiter：：Show
 {
     Singer::Show();
     Waiter::Show();
 } //这将显示姓名和ID两次。
-</code></pre><p>该如何解决呢？使用模块化方法，而不是递增的方法；即提供一个只显示worker组件的方法，提供一个只显示waiter组件及singer组件的方法。</p>
+</code></pre>
+
+<p>该如何解决呢？使用模块化方法，而不是递增的方法；即提供一个只显示worker组件的方法，提供一个只显示waiter组件及singer组件的方法。</p>
+
 <p>将所有数据组件都设置为保护的方法，而不是私有的，可以更严格地控制对数据的访问；</p>
+
 <p>如果数据组件的方法是保护的，则只能在继承层次结构中的类中使用它，在其他地方则不能使用。</p>
-<h3 id="1433-mi小结">14.3.3 MI小结</h3>
+
+<h3 id="14-3-3-mi小结">14.3.3 MI小结</h3>
+
 <p>MI会增加编程的复杂度。然而，这种复杂度主要是由于派生类通过多条途径继承同一个基类引起的。</p>
+
 <ul>
-<li>
-<p>当派生类使用关键字virtual来指示派生时，基类就称为了虚基类。其构造函数的规则有所变化，不会自动进行信息不换传递，需要显式地调用基类构造函数。</p>
-</li>
-<li>
-<p>通过优先规则解决名称二义性。如果一个类从两个不同的类那里继承了两个同名的成员，则需要在派生类中使用类限定符来区分它们。否则，编译器将指出二义性。</p>
-</li>
-<li>
-<p>有间接虚基类的派生类包含直接调用间接基类构造函数的构造函数，这对于间接非虚基类来说是非法的。</p>
-</li>
+<li><p>当派生类使用关键字virtual来指示派生时，基类就称为了虚基类。其构造函数的规则有所变化，不会自动进行信息不换传递，需要显式地调用基类构造函数。</p></li>
+
+<li><p>通过优先规则解决名称二义性。如果一个类从两个不同的类那里继承了两个同名的成员，则需要在派生类中使用类限定符来区分它们。否则，编译器将指出二义性。</p></li>
+
+<li><p>有间接虚基类的派生类包含直接调用间接基类构造函数的构造函数，这对于间接非虚基类来说是非法的。</p></li>
 </ul>
-<h2 id="144-类模板">14.4 类模板</h2>
+
+<h2 id="14-4-类模板">14.4 类模板</h2>
+
 <p>如果两种类只是数据类型不同，而其他代码是相同的，与其编写新的类声明，不如编写一种泛型（独立于类型的）栈。然后将具体的类型作为参数传递给这个类。这样就可以使用通用的代码生成存储不同类型值的栈。</p>
+
 <p>可以使用typedef处理这样的需求，但是有两个问题，一、每次修改类型都必须重新编辑头文件；二、在每个程序中都只能使用这种技术生成一种栈。</p>
+
 <p>C++的类模板为生成通用的类声明提供了一种更好的方法；模板提供参数化类型，能够将类型名作为参数传递给接收方来建立类或函数。</p>
+
 <p>C++标准模板库（STL）提供了几种功能强大而灵活的容器类模板。</p>
-<h3 id="1441-定义类模板">14.4.1 定义类模板</h3>
+
+<h3 id="14-4-1-定义类模板">14.4.1 定义类模板</h3>
+
 <pre><code>template &lt;class Type&gt;
-</code></pre><p>template告诉编译器，将要定义一个模板。尖括号内容相当于函数的参数列表。</p>
+</code></pre>
+
+<p>template告诉编译器，将要定义一个模板。尖括号内容相当于函数的参数列表。</p>
+
 <p>也可以这么写：</p>
+
 <pre><code>template &lt;typename Type&gt;
 或是：
 template &lt;class T&gt;
 template &lt;typename T&gt;
-</code></pre><p>当模板被调用时，Type将被具体的类型值（int或string）取代。</p>
+</code></pre>
+
+<p>当模板被调用时，Type将被具体的类型值（int或string）取代。</p>
+
 <p>原来类的声明：</p>
+
 <pre><code>typedef unsigned long Item;
 class Stack
 {
@@ -561,8 +656,12 @@ public:
        bool push (const Item &amp; item);
        bool pop(Item &amp; item);
 }
-</code></pre><p>类模板信息必须都放在头文件中，不能把模板成员函数放到独立的实现文件中。因为模板不是函数，不能单独编译。在要使用这些模板的文件中包含该头文件。</p>
+</code></pre>
+
+<p>类模板信息必须都放在头文件中，不能把模板成员函数放到独立的实现文件中。因为模板不是函数，不能单独编译。在要使用这些模板的文件中包含该头文件。</p>
+
 <p>类模板：</p>
+
 <pre><code>template&lt;class Type&gt;
 Stack&lt;Type&gt;::Stack()
 {
@@ -592,36 +691,68 @@ bool Stack&lt;Type&gt;::pop(Type &amp; item)
 {
 
 }
-</code></pre><h3 id="1442-使用模板类">14.4.2 使用模板类</h3>
+</code></pre>
+
+<h3 id="14-4-2-使用模板类">14.4.2 使用模板类</h3>
+
 <p>仅在程序包含模板并不能生成模板类，而必须请求实例化。需要声明一个类型为模板类的对象，并且使用所需的具体类型替换泛型名。</p>
+
 <pre><code>Stack&lt;int&gt; kernels;
 Stack&lt;string&gt; colonels;
-</code></pre><p>看到上述两个声明后，编译器将按<code>Stack&lt;Type&gt;</code>模板来生成两个独立的类声明和两组独立的类方法。</p>
+</code></pre>
+
+<p>看到上述两个声明后，编译器将按<code>Stack&lt;Type&gt;</code>模板来生成两个独立的类声明和两组独立的类方法。</p>
+
 <p>泛型标识符——Type——被称为类型参数，这意味着它类似于变量，但是赋给它们的不能是数字，而只能是类型。</p>
+
 <p>必须，显式地提供所需的类型，这与常规的函数模板是不同的。</p>
-<h3 id="1443-深入探讨模板类">14.4.3 深入探讨模板类</h3>
+
+<h3 id="14-4-3-深入探讨模板类">14.4.3 深入探讨模板类</h3>
+
 <p>可以将内置类型或对象作为类模板<code>Stack&lt;Type&gt;</code>的类型。指针也是可以的。但是如果不对程序做重大修改，将无法很好地工作。</p>
+
 <p>创建不同的指针是调用程序的职责，而不是栈的职责。栈的任务是管理指针，而不是创建指针。</p>
+
 <p>字符串本身永远不会移动，把字符串压入栈实际上是新建一个指向该字符串的指针，即创建一个指针，该指针的值是现有字符串的地址。</p>
+
 <p>构造函数使用new创建一个用于保存指针的数组，析构函数删除该数组，而不是数组元素指向的字符串。</p>
-<h3 id="1444-数组模板示例和非类型参数">14.4.4 数组模板示例和非类型参数</h3>
+
+<h3 id="14-4-4-数组模板示例和非类型参数">14.4.4 数组模板示例和非类型参数</h3>
+
 <p>常用作容器类，这是因为类型参数的概念非常适合于将相同的存储方案用于不同的类型。引入模板的主要动机是：容器类可提供重用的代码。</p>
+
 <p>深入探讨模板设计和使用的其他几个方面。</p>
+
 <p>具体来说，探讨一些非类型（或表达式）参数以及如何使用数组来处理继承族。</p>
+
 <p>实现一种允许指定数组大小的简单数组模板：</p>
+
 <p>方法一：在类中使用动态数组和构造函数参数来提供元素数目(旧方法)</p>
+
 <p>方法二：使用模板参数来提供数组的大小；</p>
-<p>模板头：template&lt;class T, int n&gt;</p>
+
+<p>模板头：template<class T, int n></p>
+
 <p>class 关键字标识这是类型参数，int指出n的类型为int，这是非类型参数，或表达式参数；</p>
+
 <p>表达式参数有一些限制：可以是整型，枚举，引用或指针。</p>
+
 <p>表达式参数的优点：使用自动变量维护内存栈，而不是用构造函数方法使用的new，delete来管理内存。</p>
+
 <p>表达式参数的缺点：下面的声明将生成两个独立的类声明；</p>
+
 <pre><code>ArrayTP&lt;double, 12&gt; eggweights;
 ArrayTP&lt; double, 13&gt; eggweights;
-</code></pre><p>而构造函数的方法，就只要一份类声明。</p>
+</code></pre>
+
+<p>而构造函数的方法，就只要一份类声明。</p>
+
 <p>另一个区别是：构造函数的方法更通用。数组大小是作为类数据成员存储在定义中。</p>
-<h3 id="1445-模板多功能性">14.4.5 模板多功能性</h3>
+
+<h3 id="14-4-5-模板多功能性">14.4.5 模板多功能性</h3>
+
 <p>模板的作用：</p>
+
 <ul>
 <li>用作基类</li>
 <li>用作组件类</li>
@@ -629,83 +760,139 @@ ArrayTP&lt; double, 13&gt; eggweights;
 <li>数组模板实现栈模板</li>
 <li>数组模板来构造数组</li>
 </ul>
+
 <ol>
-<li>
-<p>递归使用模板</p>
-</li>
-<li>
-<p>使用多个类型参数</p>
-</li>
+<li><p>递归使用模板</p></li>
+
+<li><p>使用多个类型参数</p></li>
 </ol>
+
 <pre><code>template&lt;class T1, class T2&gt;
-</code></pre><ol start="3">
+</code></pre>
+
+<ol>
 <li>默认类型模板参数</li>
 </ol>
+
 <p>可以为类型参数提供默认值；</p>
+
 <pre><code>template&lt;class T1, class T2=int&gt;
-</code></pre><p>类模板：类型参数可提供默认值；</p>
+</code></pre>
+
+<p>类模板：类型参数可提供默认值；</p>
+
 <p>函数模板的类型参数不可提供默认值；</p>
+
 <p>非类型参数：类模板，函数模板都可以提供默认值；</p>
-<h3 id="1446-模板的具体化">14.4.6 模板的具体化</h3>
+
+<h3 id="14-4-6-模板的具体化">14.4.6 模板的具体化</h3>
+
 <p>模板以泛型的方式描述类；</p>
+
 <p>而具体化是使用具体的类型生成类声明；</p>
+
 <p>1、 隐式实例化</p>
+
 <p>是指在需要对象之前，不会生成类；</p>
+
 <pre><code>ArrayTP&lt;double,30&gt; * pt;  //一个指针，还没有对象被创建
 pt = new ArrayTP&lt;double,30&gt;;  //创建一个对象
-</code></pre><p>2、 显式实例化</p>
+</code></pre>
+
+<p>2、 显式实例化</p>
+
 <pre><code>template class ArrayTP&lt;string,100&gt;; //会产生一个类的实例，声明一个类；
-</code></pre><p>虽然没有创建或提及类对象，编译器也将生成类声明。</p>
+</code></pre>
+
+<p>虽然没有创建或提及类对象，编译器也将生成类声明。</p>
+
 <p>3、 显式具体化</p>
+
 <p>指的是特定类型的定义。</p>
+
 <p>4、部分具体化</p>
-<h3 id="1447-成员模板">14.4.7 成员模板</h3>
+
+<h3 id="14-4-7-成员模板">14.4.7 成员模板</h3>
+
 <p>模板可用作结构、类或模板类的成员。</p>
+
 <p>类的成员（数据，方法）都可以用模板表示；</p>
+
 <p>而不仅仅是类用模板表示；</p>
+
 <p>模板之中有模板，嵌套的；还可以在模板之外定义方法模板，成员模板；</p>
-<h3 id="1448-将模板用作参数">14.4.8 将模板用作参数</h3>
+
+<h3 id="14-4-8-将模板用作参数">14.4.8 将模板用作参数</h3>
+
 <p>将模板用作模板的参数；</p>
+
 <p>模板包含类型参数和非类型参数：</p>
+
 <pre><code>template &lt;template &lt;typename T&gt; class Thing&gt;
-</code></pre><p>其中<code>template &lt;typename T&gt; class Thing</code>是模板的参数；</p>
+</code></pre>
+
+<p>其中<code>template &lt;typename T&gt; class Thing</code>是模板的参数；</p>
+
 <p>其中<code>template &lt;typename T&gt; class</code>是参数模板（把模板作为参数用）的类型；</p>
+
 <p>假设有以下声明：</p>
+
 <pre><code>Crab&lt;King&gt; legs;
-</code></pre><p><code>Crab&lt;King&gt;</code>是模板Crab具体的类型；模板参数是King，King也必须是一个模板类。</p>
+</code></pre>
+
+<p><code>Crab&lt;King&gt;</code>是模板Crab具体的类型；模板参数是King，King也必须是一个模板类。</p>
+
 <pre><code>template &lt;typename T&gt;
 class King {…};
-</code></pre><h3 id="1449-模板类和友元">14.4.9 模板类和友元</h3>
+</code></pre>
+
+<h3 id="14-4-9-模板类和友元">14.4.9 模板类和友元</h3>
+
 <p>模板类声明也可以有友元。（友元：模板or非模板， 约束or非约束）</p>
+
 <ul>
 <li>非模板友元；</li>
 <li>约束模板友元，即友元的类型取决于类被实例化时的类型；</li>
 <li>非约束模板友元，即友元的所有具体化都是类的每一个具体化的友元；</li>
 </ul>
+
 <p>1、 模板类的非模板友元函数</p>
+
 <p>在模板类中将一个常规函数声明为友元：</p>
+
 <pre><code>template &lt;class T&gt;
 class HasFriend
 {
 public:
     friend void counts();
 };
-</code></pre><p>counts()函数成为模板所有实例化的友元。例如，它将是类<code>HasFriend&lt;int&gt;</code>和<code>HasFriend&lt;string&gt;</code>的友元。该友元与所有模板实例化的对象都具有友元关系（一对多）。该函数不是通过对象调用，没有对象参数。</p>
+</code></pre>
+
+<p>counts()函数成为模板所有实例化的友元。例如，它将是类<code>HasFriend&lt;int&gt;</code>和<code>HasFriend&lt;string&gt;</code>的友元。该友元与所有模板实例化的对象都具有友元关系（一对多）。该函数不是通过对象调用，没有对象参数。</p>
+
 <pre><code>template &lt;class T&gt;
 class HasFriend
 {
 public:
     friend void report(HasFriend&lt;T&gt; &amp;);
 };
-</code></pre><p>这一种带模板类参数的友元。这是一种一对一的友元关系，即该友元只是某个具体类型的模板的友元函数。</p>
-<p>2、 模板类的约束模板友元函数</p>
-<p>3、 模板类的非约束模板友元函数</p>
-<p>普通类+普通友元 （一对一）友元-类而言</p>
-<p>普通类+模板友元 （多对一）友元-类而言</p>
-<p>模板类+普通友元 （一对多）友元-类而言</p>
-<p>模板类+模板友元 （多对多）友元-类而言</p>
-<h3 id="14410-模板别名c11">14.4.10 模板别名（C++11）</h3>
+</code></pre>
 
+<p>这一种带模板类参数的友元。这是一种一对一的友元关系，即该友元只是某个具体类型的模板的友元函数。</p>
+
+<p>2、 模板类的约束模板友元函数</p>
+
+<p>3、 模板类的非约束模板友元函数</p>
+
+<p>普通类+普通友元 （一对一）友元-类而言</p>
+
+<p>普通类+模板友元 （多对一）友元-类而言</p>
+
+<p>模板类+普通友元 （一对多）友元-类而言</p>
+
+<p>模板类+模板友元 （多对多）友元-类而言</p>
+
+<h3 id="14-4-10-模板别名-c-11">14.4.10 模板别名（C++11）</h3>
         </div>
         <footer class="article-footer">
     <a data-url="http://jchenTech.github.io/2020/03/22/c-primer-plus-%E7%AC%AC14%E7%AB%A0c-%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%A0%81%E9%87%8D%E7%94%A8/" data-id="ae94dcb5a6c1cd0b8afef8688744f97b" class="article-share-link">
@@ -851,6 +1038,32 @@ public:
             
             <li>
                 <div class="item-thumbnail">
+                    <a href="http://jchenTech.github.io/2020/03/30/hugo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="http://jchenTech.github.io/categories/%E5%8D%9A%E5%AE%A2">
+                        博客
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="http://jchenTech.github.io/2020/03/30/hugo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/" class="title">Hugo插入图片</a></p>
+                    <p class="item-date">
+                        <time datetime="2020-03-30 13:25:06 &#43;0800 CST" itemprop="datePublished">2020-03-30</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
                     <a href="http://jchenTech.github.io/2020/03/29/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="thumbnail">
                     
                         <span class="thumbnail-image thumbnail-none"></span>
@@ -953,32 +1166,6 @@ public:
                 </div>
             </li>
             
-            <li>
-                <div class="item-thumbnail">
-                    <a href="http://jchenTech.github.io/2020/03/17/c-primer-plus-%E7%AC%AC12%E7%AB%A0%E7%B1%BB%E5%92%8C%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/" class="thumbnail">
-                    
-                        <span class="thumbnail-image thumbnail-none"></span>
-                    
-                    </a>
-                </div>
-                <div class="item-inner">
-                    
-                    
-                    <p class="item-category">
-                        
-                        <a class="article-category-link" href="http://jchenTech.github.io/categories/c&#43;&#43;">
-                        C&#43;&#43;
-                        </a>
-                    </p>
-                    
-                    
-                    <p class="item-title"><a href="http://jchenTech.github.io/2020/03/17/c-primer-plus-%E7%AC%AC12%E7%AB%A0%E7%B1%BB%E5%92%8C%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/" class="title">C&#43;&#43; primer plus 第12章类和动态内存分配</a></p>
-                    <p class="item-date">
-                        <time datetime="2020-03-17 21:02:06 &#43;0800 CST" itemprop="datePublished">2020-03-17</time>
-                    </p>
-                </div>
-            </li>
-            
         </ul>
     </div>
 </div>
@@ -1013,7 +1200,7 @@ public:
                 <a class="category-list-link" href="http://jchenTech.github.io/categories/%E5%8D%9A%E5%AE%A2">
                     博客
                 </a>
-                <span class="category-list-count">2</span>
+                <span class="category-list-count">3</span>
             </li>
             
             <li class="category-list-item">
@@ -1070,7 +1257,7 @@ public:
                 <a class="category-list-link" href="http://jchenTech.github.io/tags/hugo">
                     hugo
                 </a>
-                <span class="category-list-count">2</span>
+                <span class="category-list-count">3</span>
             </li>
             
             <li class="category-list-item">
@@ -1101,6 +1288,14 @@ public:
                 
                 <a class="category-list-link" href="http://jchenTech.github.io/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C">
                     卷积神经网络
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="http://jchenTech.github.io/tags/%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5">
+                    图片插入
                 </a>
                 <span class="category-list-count">1</span>
             </li>
@@ -1144,6 +1339,9 @@ public:
         
         
         <a href="http://jchenTech.github.io/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" style="font-size: 12px;">卷积神经网络</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5" style="font-size: 12px;">图片插入</a>
         
     </div>
 </div>

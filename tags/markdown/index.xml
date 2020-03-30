@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>markdown on 陈建君的技术博客</title>
+    <title>Markdown on 陈建君的技术博客</title>
     <link>http://jchenTech.github.io/tags/markdown/</link>
-    <description>Recent content in markdown on 陈建君的技术博客</description>
+    <description>Recent content in Markdown on 陈建君的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 06 Mar 2020 12:10:51 +0800</lastBuildDate>
@@ -17,11 +17,7 @@
       <pubDate>Fri, 06 Mar 2020 12:10:51 +0800</pubDate>
       
       <guid>http://jchenTech.github.io/2020/03/06/markdown%E6%96%87%E4%BB%B6%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</guid>
-      <description>因为目前准备写博客，所以不可避免就要使用markdown语言写文章，所以这篇文章将对Markdown的基本语法进行介绍，方便以后查阅。
-Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。Markdown 编写的文档可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。目前常用的一些编辑器包括typora和VS Code以及vim等，目前我所使用的是VS code，使用VS Code需要安装 Markdown All in One 或 Markdown Preview Enhanced 插件从而可以进行预览。
-本文章参考了Github上的Markdown Cheatsheet 以及简书上的 Markdown 语法小指南
-分级标题 # H1## H2### H3#### H4##### H5###### H6也可使用===表示一级标题，使用---表示二级标题Alt-H1======Alt-H2------H1 H2 H3 H4 H5 H6 也可使用===表示一级标题，使用&amp;mdash;表示二级标题
-Alt-H1 Alt-H2 文字样式 文字强调 *Italics* or _Italics_ **Bold** or __Bold__ ***Bold Italics*** or ___Bold Italics___ ~~Delete~~Italics or Italics Bold or Bold Bold Italics or Bold Italics Delete</description>
+      <description>&lt;p&gt;因为目前准备写博客，所以不可避免就要使用markdown语言写文章，所以这篇文章将对Markdown的基本语法进行介绍，方便以后查阅。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -31,6 +27,7 @@ Alt-H1 Alt-H2 文字样式 文字强调 *Italics* or _Italics_ **Bold** or __Bol
       
       <guid>http://jchenTech.github.io/2017/05/20/markdown-cheat-sheet/</guid>
       <description>&lt;p&gt;This note demonstrates some of what &lt;a href=&#34;http://daringfireball.net/projects/markdown/&#34;&gt;Markdown&lt;/a&gt; is capable of doing.&lt;/p&gt;
+
 &lt;p&gt;&lt;em&gt;Note: Feel free to play with this page. Unlike regular notes, this doesn&amp;rsquo;t automatically save itself.&lt;/em&gt;&lt;/p&gt;</description>
     </item>
     

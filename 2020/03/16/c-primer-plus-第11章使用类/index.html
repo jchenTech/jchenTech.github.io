@@ -2,7 +2,7 @@
 <html lang="zh-cn">
 <head>
     <title>C&#43;&#43; primer plus 第11章使用类 &middot; 陈建君的技术博客</title>
-    <meta name="generator" content="Hugo 0.65.3" />
+    <meta name="generator" content="Hugo 0.54.0" />
     <meta charset="utf-8">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -22,43 +22,29 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
     <meta property="og:title" content="C&#43;&#43; primer plus 第11章使用类" />
-<meta property="og:description" content="[toc]
-11.1 运算符重载 operatorop(argumnt-list)例如，operator&#43;()重载&#43;运算符。
-11.2 计算时间：一个运算符重载示例 如果要计算两个时间之和，如2小时40分与1小时30分之和，可以重载运算符&#43;，在类中的成员函数为：
-Time operator&#43;(const Time &amp; t) const;重载限制  重载后的运算符至少有一个操作数是用户定义的类型，这将防止用户为标准类型重载运算符。因此，不能将减法运算符（-）重载为两个double值的和。 使用运算符不能违反运算符原来的句法规则，例如不能将求模运算符（%）重载成使用一个操作数。 不能创建新运算符。例如operator**() 不能从在下面的运算符：  sizeof：sizeof 运算符 .: 成员运算符 .*: 成员指针运算符 ::: 作用域解析运算符 ?:: 条件运算符 typeid: 一个RTTI运算符 强制转换类型运算符   大多数运算符都可以通过成员或非成员函数进行重载，但是下面运算符只能通过成员函数进行重载  =: 赋值运算符 (): 函数调用运算符 []: 下表运算符 -&gt;: 通过指针访问类成员运算符    11.3 友元 C&#43;&#43;控制对类对象私有部分的访问时，通常共有类方法是访问的唯一途径，但是C&#43;&#43;还提供了另外一种形式的访问权限：友元。友元有三种：
- 友元函数 友元类 友元成员函数  创建友元函数的第一步是将其原型放在类声明总，并在原型声明前加上关键字friend：
-friend Time operator*(double m, const Time &amp; t);该原型意味着下面两点:
- 虽然operator*()函数是在类声明中声明的，但是它不是成员函数，因此不能使用成员运算符进行调用。 虽然operator*()函数不是成员函数，但是它与成员函数的访问权限相同。  在编写函数定义时，因为它不是成员函数，所以不要使用::限定符。另外，不要再定义中用关键字 friend，定义应如下：" />
+<meta property="og:description" content="C&#43;&#43; primer plus 第11章使用类" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://jchenTech.github.io/2020/03/16/c-primer-plus-%E7%AC%AC11%E7%AB%A0%E4%BD%BF%E7%94%A8%E7%B1%BB/" />
-<meta property="article:published_time" content="2020-03-16T13:18:06+08:00" />
-<meta property="article:modified_time" content="2020-03-16T13:18:06+08:00" />
+<meta property="article:published_time" content="2020-03-16T13:18:06&#43;08:00"/>
+<meta property="article:modified_time" content="2020-03-16T13:18:06&#43;08:00"/>
 
     
-    <meta itemprop="name" content="C&#43;&#43; primer plus 第11章使用类">
-<meta itemprop="description" content="[toc]
-11.1 运算符重载 operatorop(argumnt-list)例如，operator&#43;()重载&#43;运算符。
-11.2 计算时间：一个运算符重载示例 如果要计算两个时间之和，如2小时40分与1小时30分之和，可以重载运算符&#43;，在类中的成员函数为：
-Time operator&#43;(const Time &amp; t) const;重载限制  重载后的运算符至少有一个操作数是用户定义的类型，这将防止用户为标准类型重载运算符。因此，不能将减法运算符（-）重载为两个double值的和。 使用运算符不能违反运算符原来的句法规则，例如不能将求模运算符（%）重载成使用一个操作数。 不能创建新运算符。例如operator**() 不能从在下面的运算符：  sizeof：sizeof 运算符 .: 成员运算符 .*: 成员指针运算符 ::: 作用域解析运算符 ?:: 条件运算符 typeid: 一个RTTI运算符 强制转换类型运算符   大多数运算符都可以通过成员或非成员函数进行重载，但是下面运算符只能通过成员函数进行重载  =: 赋值运算符 (): 函数调用运算符 []: 下表运算符 -&gt;: 通过指针访问类成员运算符    11.3 友元 C&#43;&#43;控制对类对象私有部分的访问时，通常共有类方法是访问的唯一途径，但是C&#43;&#43;还提供了另外一种形式的访问权限：友元。友元有三种：
- 友元函数 友元类 友元成员函数  创建友元函数的第一步是将其原型放在类声明总，并在原型声明前加上关键字friend：
-friend Time operator*(double m, const Time &amp; t);该原型意味着下面两点:
- 虽然operator*()函数是在类声明中声明的，但是它不是成员函数，因此不能使用成员运算符进行调用。 虽然operator*()函数不是成员函数，但是它与成员函数的访问权限相同。  在编写函数定义时，因为它不是成员函数，所以不要使用::限定符。另外，不要再定义中用关键字 friend，定义应如下：">
+    
+<meta itemprop="name" content="C&#43;&#43; primer plus 第11章使用类">
+<meta itemprop="description" content="C&#43;&#43; primer plus 第11章使用类">
+
+
 <meta itemprop="datePublished" content="2020-03-16T13:18:06&#43;08:00" />
 <meta itemprop="dateModified" content="2020-03-16T13:18:06&#43;08:00" />
-<meta itemprop="wordCount" content="699">
+<meta itemprop="wordCount" content="705">
 
 
 
 <meta itemprop="keywords" content="C&#43;&#43;," />
+
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="C&#43;&#43; primer plus 第11章使用类"/>
-<meta name="twitter:description" content="[toc]
-11.1 运算符重载 operatorop(argumnt-list)例如，operator&#43;()重载&#43;运算符。
-11.2 计算时间：一个运算符重载示例 如果要计算两个时间之和，如2小时40分与1小时30分之和，可以重载运算符&#43;，在类中的成员函数为：
-Time operator&#43;(const Time &amp; t) const;重载限制  重载后的运算符至少有一个操作数是用户定义的类型，这将防止用户为标准类型重载运算符。因此，不能将减法运算符（-）重载为两个double值的和。 使用运算符不能违反运算符原来的句法规则，例如不能将求模运算符（%）重载成使用一个操作数。 不能创建新运算符。例如operator**() 不能从在下面的运算符：  sizeof：sizeof 运算符 .: 成员运算符 .*: 成员指针运算符 ::: 作用域解析运算符 ?:: 条件运算符 typeid: 一个RTTI运算符 强制转换类型运算符   大多数运算符都可以通过成员或非成员函数进行重载，但是下面运算符只能通过成员函数进行重载  =: 赋值运算符 (): 函数调用运算符 []: 下表运算符 -&gt;: 通过指针访问类成员运算符    11.3 友元 C&#43;&#43;控制对类对象私有部分的访问时，通常共有类方法是访问的唯一途径，但是C&#43;&#43;还提供了另外一种形式的访问权限：友元。友元有三种：
- 友元函数 友元类 友元成员函数  创建友元函数的第一步是将其原型放在类声明总，并在原型声明前加上关键字friend：
-friend Time operator*(double m, const Time &amp; t);该原型意味着下面两点:
- 虽然operator*()函数是在类声明中声明的，但是它不是成员函数，因此不能使用成员运算符进行调用。 虽然operator*()函数不是成员函数，但是它与成员函数的访问权限相同。  在编写函数定义时，因为它不是成员函数，所以不要使用::限定符。另外，不要再定义中用关键字 friend，定义应如下："/>
+<meta name="twitter:description" content="C&#43;&#43; primer plus 第11章使用类"/>
 <meta name="twitter:site" content="@spf13"/>
 
     
@@ -185,12 +171,12 @@ friend Time operator*(double m, const Time &amp; t);该原型意味着下面两
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        13
+        14
         <span>文章</span>
       </div>
       <div class="article-info-block">
         
-          8
+          9
         
         <span>
             标签
@@ -285,7 +271,7 @@ friend Time operator*(double m, const Time &amp; t);该原型意味着下面两
             <i class="fa fa-calendar"></i>
             <time datetime="2020-03-16 13:18:06 &#43;0800 CST" itemprop="datePublished">2020-03-16</time>
             &middot;
-            699
+            705
             字
             &middot;
             4
@@ -323,19 +309,32 @@ friend Time operator*(double m, const Time &amp; t);该原型意味着下面两
 </header>
 
         <div class="article-entry" itemprop="articleBody">
-            <p>[toc]</p>
-<h2 id="111-运算符重载">11.1 运算符重载</h2>
+            <p>C++ primer plus 第11章使用类</p>
+
+<p>[toc]</p>
+
+<h2 id="11-1-运算符重载">11.1 运算符重载</h2>
+
 <pre><code>operatorop(argumnt-list)
-</code></pre><p>例如，<code>operator+()</code>重载<code>+</code>运算符。</p>
-<h2 id="112-计算时间一个运算符重载示例">11.2 计算时间：一个运算符重载示例</h2>
+</code></pre>
+
+<p>例如，<code>operator+()</code>重载<code>+</code>运算符。</p>
+
+<h2 id="11-2-计算时间-一个运算符重载示例">11.2 计算时间：一个运算符重载示例</h2>
+
 <p>如果要计算两个时间之和，如2小时40分与1小时30分之和，可以重载运算符<code>+</code>，在类中的成员函数为：</p>
+
 <pre><code>Time operator+(const Time &amp; t) const;
-</code></pre><h3 id="重载限制">重载限制</h3>
+</code></pre>
+
+<h3 id="重载限制">重载限制</h3>
+
 <ul>
 <li>重载后的运算符至少有一个操作数是用户定义的类型，这将防止用户为标准类型重载运算符。因此，不能将减法运算符（-）重载为两个double值的和。</li>
 <li>使用运算符不能违反运算符原来的句法规则，例如不能将求模运算符（%）重载成使用一个操作数。</li>
 <li>不能创建新运算符。例如<code>operator**()</code></li>
 <li>不能从在下面的运算符：
+
 <ol>
 <li><code>sizeof</code>：sizeof 运算符</li>
 <li><code>.</code>: 成员运算符</li>
@@ -344,43 +343,56 @@ friend Time operator*(double m, const Time &amp; t);该原型意味着下面两
 <li><code>?:</code>: 条件运算符</li>
 <li><code>typeid</code>: 一个RTTI运算符</li>
 <li>强制转换类型运算符</li>
-</ol>
-</li>
+</ol></li>
 <li>大多数运算符都可以通过成员或非成员函数进行重载，但是下面运算符只能通过成员函数进行重载
+
 <ol>
 <li><code>=</code>: 赋值运算符</li>
 <li><code>()</code>: 函数调用运算符</li>
 <li><code>[]</code>: 下表运算符</li>
 <li><code>-&gt;</code>: 通过指针访问类成员运算符</li>
-</ol>
-</li>
+</ol></li>
 </ul>
-<h2 id="113-友元">11.3 友元</h2>
+
+<h2 id="11-3-友元">11.3 友元</h2>
+
 <p>C++控制对类对象私有部分的访问时，通常共有类方法是访问的唯一途径，但是C++还提供了另外一种形式的访问权限：友元。友元有三种：</p>
+
 <ul>
 <li>友元函数</li>
 <li>友元类</li>
 <li>友元成员函数</li>
 </ul>
+
 <p>创建友元函数的第一步是将其原型放在类声明总，并在原型声明前加上关键字<code>friend</code>：</p>
+
 <pre><code>friend Time operator*(double m, const Time &amp; t);
-</code></pre><p>该原型意味着下面两点:</p>
-<ul>
-<li>虽然operator*()函数是在类声明中声明的，但是它不是成员函数，因此不能使用成员运算符进行调用。</li>
-<li>虽然operator*()函数不是成员函数，但是它与成员函数的访问权限相同。</li>
-</ul>
+</code></pre>
+
+<p>该原型意味着下面两点:
+* 虽然operator*()函数是在类声明中声明的，但是它不是成员函数，因此不能使用成员运算符进行调用。
+* 虽然operator*()函数不是成员函数，但是它与成员函数的访问权限相同。</p>
+
 <p>在编写函数定义时，因为它不是成员函数，所以不要使用<code>::</code>限定符。另外，不要再定义中用关键字 <code>friend</code>，定义应如下：</p>
+
 <pre><code>Time operator*(double m, const Time &amp; t)
 {
     ...
     ...
     ...
 }
-</code></pre><p>提示：如果要为类重载运算符，并将非类的项作为其第一个操作数，则可以使用友元函数来反转操作数的顺序。</p>
-<h2 id="114-重载运算符作为成员函数或非成员函数">11.4 重载运算符：作为成员函数或非成员函数</h2>
+</code></pre>
+
+<p>提示：如果要为类重载运算符，并将非类的项作为其第一个操作数，则可以使用友元函数来反转操作数的顺序。</p>
+
+<h2 id="11-4-重载运算符-作为成员函数或非成员函数">11.4 重载运算符：作为成员函数或非成员函数</h2>
+
 <p>对于很多运算符，可以选择使用成员函数和非成员函数来实现运算符重载。一般来说非成员函数应该是友元函数，这样才可以访问类的私有数据。</p>
-<h2 id="115-再谈重载一个矢量类">11.5 再谈重载：一个矢量类</h2>
+
+<h2 id="11-5-再谈重载-一个矢量类">11.5 再谈重载：一个矢量类</h2>
+
 <p>可以为Vector类重载运算符，实现矢量的加法和乘法，同时还可以使用Vector类来模拟<strong>随机游走</strong></p>
+
 <pre><code>// randwalk.cpp -- using the Vector class
 // compile with the vect.cpp file
 #include &lt;iostream&gt;
@@ -432,21 +444,39 @@ int main()
 */
     return 0; 
 }
-</code></pre><h2 id="116-类的自动转换和强制类型转换">11.6 类的自动转换和强制类型转换</h2>
+</code></pre>
+
+<h2 id="11-6-类的自动转换和强制类型转换">11.6 类的自动转换和强制类型转换</h2>
+
 <p>分为三种情况：</p>
+
 <p>（1）如果要进行的转换之间是兼容的，C++自动将值转换为接收变量的类型：</p>
+
 <pre><code>int count = 8.8;
 double time= 3; 
 long day = 8;
-</code></pre><p>（2）C++不自动转换不兼容的类型：</p>
+</code></pre>
+
+<p>（2）C++不自动转换不兼容的类型：</p>
+
 <pre><code>int * pr = 10;
-</code></pre><p>（3）强制类型转换：</p>
+</code></pre>
+
+<p>（3）强制类型转换：</p>
+
 <pre><code>int *pr = （int *） 10;
-</code></pre><p>这条语句通过类型的强制转换的结果是这条语句可以正常进行。表示：定义一个地址为10 的指针。（这种赋值是没有什么意义的）</p>
+</code></pre>
+
+<p>这条语句通过类型的强制转换的结果是这条语句可以正常进行。表示：定义一个地址为10 的指针。（这种赋值是没有什么意义的）</p>
+
 <h3 id="将别的数据类型转换为类对象">将别的数据类型转换为类对象</h3>
+
 <p>将类定义成与基本类型相关或者是与另一个类相关，使得从一个类到另一个类的转换时有意义的。在这种情况下可以指示C++如何进行自动类型转换，或者通过强制类型转换来完成：</p>
+
 <p>下面我们通过一个例子来详细介绍：</p>
+
 <p>需求：计量单位磅转换为英石：</p>
+
 <pre><code>// stonewt.h -- definition for the Stonewt class
 #ifndef STONEWT_H_
 #define STONEWT_H_
@@ -466,7 +496,9 @@ public:
     void show_stn() const;        // show weight in stone format
 };
 #endif
-</code></pre><pre><code>// stonewt.cpp -- Stonewt methods
+</code></pre>
+
+<pre><code>// stonewt.cpp -- Stonewt methods
 #include &lt;iostream&gt;
 using std::cout;
 #include &quot;stonewt.h&quot;
@@ -507,26 +539,48 @@ void Stonewt::show_lbs() const
 {
     cout &lt;&lt; pounds &lt;&lt; &quot; pounds\n&quot;;
 }
-</code></pre><p>Stonewt类有三个构造函数，可以允许将Stonewt对象初始化为一个浮点数或者两个浮点数，也可以不进行初始化。</p>
+</code></pre>
+
+<p>Stonewt类有三个构造函数，可以允许将Stonewt对象初始化为一个浮点数或者两个浮点数，也可以不进行初始化。</p>
+
 <h4 id="隐式的自动类型转换">隐式的自动类型转换</h4>
+
 <p>下面我们先来看一下这个构造函数：</p>
+
 <p>Stonewt(double lbs);</p>
+
 <p>这个构造函数允许将double类型的值转化为Stonewt类型，因此可以编写：</p>
+
 <pre><code>CStonewt myCat;
 myCat = 19.6;
-</code></pre><p>原理：程序使用Stonewt(double lbs)，来创建一个临时的Stonewt对象，然后将19.6赋值给它，随后，采用逐成员赋值的方式将该对象的内容赋值到myCat中，这一过程成为隐式转换，因为他是自动进行的。而不需要显示强制类型转换。</p>
+</code></pre>
+
+<p>原理：程序使用Stonewt(double lbs)，来创建一个临时的Stonewt对象，然后将19.6赋值给它，随后，采用逐成员赋值的方式将该对象的内容赋值到myCat中，这一过程成为隐式转换，因为他是自动进行的。而不需要显示强制类型转换。</p>
+
 <p><strong>只有接受一个参数的构造函数才能作为转换函数</strong>，例如：Stonewt(int stn, double lbs);不能作为转换类型。<strong>但是如果给第二个参数提供默认值，它便可以转换int</strong>：</p>
+
 <pre><code>Stonewt(int stn,double lbs = 0);
-</code></pre><h4 id="显式类型强制转换">显式类型强制转换</h4>
+</code></pre>
+
+<h4 id="显式类型强制转换">显式类型强制转换</h4>
+
 <p>将构造函数用作自动类型转换函数似乎是一种非常好的特性，但是这种自动类型转换并不是总是合乎需要的，因为这可能导致意外的类型转换：</p>
+
 <p>解决方法：C++新增了 关键字explicit用于关闭这种自动特性，也就是说可以这样声明构造函数:</p>
+
 <pre><code>explicit Stonewt(double lbs);
-</code></pre><p>这将关闭隐式类型转换，但仍然允许显示类型转换，即显式类型转换：</p>
+</code></pre>
+
+<p>这将关闭隐式类型转换，但仍然允许显示类型转换，即显式类型转换：</p>
+
 <pre><code>Stonewt myCat;
 myCat = 19.6;  //(这种方式是错的)
 myCat = Stonewt(19.6);     //(允许的)
 myCat = (Stonewt) 19.6;   //（允许的）
-</code></pre><p>那么问题来了，编译器都在什么时候调用Stonewt(double lbs)函数呢？（如果声明为explict，则只能显式类型转换，不支持以下几点）：</p>
+</code></pre>
+
+<p>那么问题来了，编译器都在什么时候调用Stonewt(double lbs)函数呢？（如果声明为explict，则只能显式类型转换，不支持以下几点）：</p>
+
 <ul>
 <li>将Stonewt对象初始化为double值时；</li>
 <li>将double值传递给接受Stonewt参数的函数时；</li>
@@ -534,29 +588,48 @@ myCat = (Stonewt) 19.6;   //（允许的）
 <li>将double值赋给Stonewt对象时；</li>
 <li>在上述任一一种情况下，使用可转换为double类型的内置类型时；</li>
 </ul>
+
 <p><strong>最重要的一点</strong>：</p>
+
 <p>函数原型化提供的参数匹配过程中，允许使用Stonewt(double)构造函数来转换其他数值类型。</p>
+
 <pre><code>stonewt  Jumb(7000);
 Jumb = 7300;
-</code></pre><p>这两条语句都是先将int 转化为double，然后使用Stonewt(double)构造函数。然而这是有前提性的：</p>
+</code></pre>
+
+<p>这两条语句都是先将int 转化为double，然后使用Stonewt(double)构造函数。然而这是有前提性的：</p>
+
 <p>即不存在二义性。如果还存在Stonewt(long)，则编译器将拒绝执行这些语句，因为int可以转为long 或者double，一次调用会出现<strong>二义性</strong>。</p>
-<h3 id="将类类型转换为别的类型转换函数">将类类型转换为别的类型（转换函数）</h3>
+
+<h3 id="将类类型转换为别的类型-转换函数">将类类型转换为别的类型（转换函数）</h3>
+
 <p>构造函数只用于从某种类型到类类型的转换，要进行相应的反转，必须使用特殊的C++运算符函数&ndash;转换函数</p>
+
 <p>转换函数是用户自定义的强制类型转换，可以像使用强制类型转换那样使用它们。</p>
+
 <pre><code>Stonewt wolfe =(285.7); 
 double host = double (wolfe); 
 double thinker = (double) wolfe; 
-</code></pre><p>注意点：</p>
+</code></pre>
+
+<p>注意点：</p>
+
 <ul>
 <li>转换函数必须是类方法</li>
 <li>转换函数不能指定返回类型</li>
 <li>转换函数不能有参数</li>
 </ul>
+
 <p>要将类类型转换为double和int类型，则：</p>
+
 <p>1.在Stonewt.h文件中声明类方法：</p>
+
 <pre><code>operator double () const;  
 operator int () const;  
-</code></pre><p>2.在cpp文件中完成定义：</p>
+</code></pre>
+
+<p>2.在cpp文件中完成定义：</p>
+
 <pre><code>Stonewt::operator int() const  
 {  
   erturn pounds;  
@@ -565,23 +638,40 @@ Stonewt::operator double () const
 {  
   cout &lt;&lt; int(pounds + 0.5);  
 }  
-</code></pre><p>3.此时，我们就可以在main函数中将Stonewt赋值给int、double 了</p>
+</code></pre>
+
+<p>3.此时，我们就可以在main函数中将Stonewt赋值给int、double 了</p>
+
 <pre><code>CStonewt poppins(9, 2.8);  
 double p_wt = poppins;  
 cout &lt;&lt;(int) poppins&lt;&lt;endl;
-</code></pre><p>还有一种情况需要注意：</p>
+</code></pre>
+
+<p>还有一种情况需要注意：</p>
+
 <p><code>long temp = popins;</code> 这条语句是不正确的，因为存在二义性，因为int、double都可以转换为long 类型。如果删除一个int或者double的转换函数，则这条语句将可以执行。</p>
+
 <h3 id="总结">总结</h3>
+
 <p>1.要谨慎的使用隐式转换函数，通常最好的选择是仅在被显示的调用时才会执行。</p>
+
 <p>2.只有一个参数的类构造函数将用于类型与该参数相同的值转换为类类型。
 例如：将int类型转换为CStonewt对象是，接受int 参数的CStonewt类构造函数将自动被调用，然而在构造函数声明中使用explicit可防止隐式转换，而只允许显式转换。</p>
+
 <p>3.被称为转换函数的特殊类成员运算符函数，用于将类对象转换为其他类型。</p>
+
 <p>转换函数是类成员，没有返回类型，没有参数名为 <code>operator typeName();</code></p>
+
 <p>其中 typeName是对象将被转换为的类型，将类对象赋给typeName变量或者将其强制转换为typeName类型时，该转换函数将会被自动调用。</p>
+
 <p>4.尤其要注意过多的转换函数将导致出现二义性的几率变大，要谨慎防止二义性的出现。</p>
+
 <h3 id="转换函数和友元函数">转换函数和友元函数</h3>
+
 <p>普通成员函数和友元函数都能实现操作符的重载，如重载<code>+</code>运算符实现两个类对象的相加。有的时候你声明的操作符重载函数的形参是两个对象，但是实参中有一个类型兼容类型变量，这个时候如果你的类中存在类型转换函数，它就可能把原来是对象的那个实参通过类型转换函数转换成类型兼容类型。</p>
+
 <p>成员函数和友元函数都可以实现：</p>
+
 <pre><code>Stonewt jennySt(9, 12);
 double kennyD = 146.0;
 Stonewt total;
@@ -590,7 +680,10 @@ total = jennySt + kennyD;
 total = operator+(jennySt + kennyD);
 或
 total = jennySt.operator+(kennyD);
-</code></pre><p>但是只有友元函数才能实现：</p>
+</code></pre>
+
+<p>但是只有友元函数才能实现：</p>
+
 <pre><code>Stonewt jennySt(9, 12);
 double pennyD = 146.0;
 Stonewt total;
@@ -599,8 +692,9 @@ total = pennyD + jennySt；
 total = operator+(pennyD, jennySt);
 不能转换为
 total = pennyD.operator+(jennySt);
-</code></pre><p>这是因为当你使用一个成员函数版的操作符重载函数时，原本的调用者应该是该类的对象，但实际上调用者是一个类型兼容类型的变量，它显然不能成为成员重载函数的调用者，于是调用失败了。而一个友元函数却不会出现此状况，并且友元函数在接受实参时会使用构造函数将一个类型兼容类型转换为类类型。</p>
+</code></pre>
 
+<p>这是因为当你使用一个成员函数版的操作符重载函数时，原本的调用者应该是该类的对象，但实际上调用者是一个类型兼容类型的变量，它显然不能成为成员重载函数的调用者，于是调用失败了。而一个友元函数却不会出现此状况，并且友元函数在接受实参时会使用构造函数将一个类型兼容类型转换为类类型。</p>
         </div>
         <footer class="article-footer">
     <a data-url="http://jchenTech.github.io/2020/03/16/c-primer-plus-%E7%AC%AC11%E7%AB%A0%E4%BD%BF%E7%94%A8%E7%B1%BB/" data-id="e4abf90a64b53bdbfe3dcaa090e9cbc1" class="article-share-link">
@@ -746,6 +840,32 @@ total = pennyD.operator+(jennySt);
             
             <li>
                 <div class="item-thumbnail">
+                    <a href="http://jchenTech.github.io/2020/03/30/hugo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="http://jchenTech.github.io/categories/%E5%8D%9A%E5%AE%A2">
+                        博客
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="http://jchenTech.github.io/2020/03/30/hugo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/" class="title">Hugo插入图片</a></p>
+                    <p class="item-date">
+                        <time datetime="2020-03-30 13:25:06 &#43;0800 CST" itemprop="datePublished">2020-03-30</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
                     <a href="http://jchenTech.github.io/2020/03/29/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="thumbnail">
                     
                         <span class="thumbnail-image thumbnail-none"></span>
@@ -848,32 +968,6 @@ total = pennyD.operator+(jennySt);
                 </div>
             </li>
             
-            <li>
-                <div class="item-thumbnail">
-                    <a href="http://jchenTech.github.io/2020/03/17/c-primer-plus-%E7%AC%AC12%E7%AB%A0%E7%B1%BB%E5%92%8C%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/" class="thumbnail">
-                    
-                        <span class="thumbnail-image thumbnail-none"></span>
-                    
-                    </a>
-                </div>
-                <div class="item-inner">
-                    
-                    
-                    <p class="item-category">
-                        
-                        <a class="article-category-link" href="http://jchenTech.github.io/categories/c&#43;&#43;">
-                        C&#43;&#43;
-                        </a>
-                    </p>
-                    
-                    
-                    <p class="item-title"><a href="http://jchenTech.github.io/2020/03/17/c-primer-plus-%E7%AC%AC12%E7%AB%A0%E7%B1%BB%E5%92%8C%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/" class="title">C&#43;&#43; primer plus 第12章类和动态内存分配</a></p>
-                    <p class="item-date">
-                        <time datetime="2020-03-17 21:02:06 &#43;0800 CST" itemprop="datePublished">2020-03-17</time>
-                    </p>
-                </div>
-            </li>
-            
         </ul>
     </div>
 </div>
@@ -908,7 +1002,7 @@ total = pennyD.operator+(jennySt);
                 <a class="category-list-link" href="http://jchenTech.github.io/categories/%E5%8D%9A%E5%AE%A2">
                     博客
                 </a>
-                <span class="category-list-count">2</span>
+                <span class="category-list-count">3</span>
             </li>
             
             <li class="category-list-item">
@@ -965,7 +1059,7 @@ total = pennyD.operator+(jennySt);
                 <a class="category-list-link" href="http://jchenTech.github.io/tags/hugo">
                     hugo
                 </a>
-                <span class="category-list-count">2</span>
+                <span class="category-list-count">3</span>
             </li>
             
             <li class="category-list-item">
@@ -996,6 +1090,14 @@ total = pennyD.operator+(jennySt);
                 
                 <a class="category-list-link" href="http://jchenTech.github.io/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C">
                     卷积神经网络
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="http://jchenTech.github.io/tags/%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5">
+                    图片插入
                 </a>
                 <span class="category-list-count">1</span>
             </li>
@@ -1039,6 +1141,9 @@ total = pennyD.operator+(jennySt);
         
         
         <a href="http://jchenTech.github.io/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" style="font-size: 12px;">卷积神经网络</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5" style="font-size: 12px;">图片插入</a>
         
     </div>
 </div>

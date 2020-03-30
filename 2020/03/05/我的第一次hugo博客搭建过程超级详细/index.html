@@ -2,7 +2,7 @@
 <html lang="zh-cn">
 <head>
     <title>我的第一次Hugo博客搭建过程（超级详细） &middot; 陈建君的技术博客</title>
-    <meta name="generator" content="Hugo 0.65.3" />
+    <meta name="generator" content="Hugo 0.54.0" />
     <meta charset="utf-8">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -22,58 +22,29 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
     <meta property="og:title" content="我的第一次Hugo博客搭建过程（超级详细）" />
-<meta property="og:description" content="最近希望搭建一个自己的技术博客，用来记录在学的一些知识和技术，在比较了一下几个目前较为流行的静态博客Jekyll、Hexo、Hugo之后，还是决定采用Hugo。
-Hugo是基于Go语言的一款静态博客，编译之后只有一个二进制文件，相比于Hexo基于nodejs、jekyll基于ruby等解释型语言而言搭建过程简单且博客编译速度非常快，所以即使文章数量和标签等很多时，Hugo也可以在几秒钟完成更新。但是Hugo目前使用率不及Hexo，所以目前可用的主题较少，并且网上的相关问题解决也不多，大多时候需要自己摸索。后面会更新Hugo博客主题的配置文章，现在先进行Hugo安装以及部署到Github Page的介绍：
-安装过程可参照Hugo中文官网：https://www.gohugo.org
- Hugo安装 二进制安装（推荐：简单、快速）
-到Hugo Releases下载对应的操作系统版本的Hugo二进制文件（hugo或者hugo.exe），我这里时解压到了D:\hugo目录下
-上一步操作，可以看到我们把hugo.exe解压到了D:\hugo下面。所以hugo命令只能在该目录下才能识别。但是我们想要把博客目录建到其他目录下，这就需要配置环境变量，在此不再赘述。
- 生成站点 使用Hugo快速生成站点，比如希望生成到 /path/to/site 路径：
-hugo new site /path/to/site这样就在 /path/to/site 目录里生成了初始站点，进去目录：
-cd /path/to/site站点目录结构：
- ▸ archetypes/▸ content/▸ layouts/▸ static/config.toml 生成文章 创建一个 about 页面：
-hugo new about.mdabout.md 自动生成到了 content/about.md ，打开 about.md 看下：
-&#43;&#43;&#43;date = &quot;2015-10-25T08:36:54-07:00&quot;draft = truetitle = &quot;about&quot;&#43;&#43;&#43;正文内容内容是 Markdown 格式的，&#43;&#43;&#43; 之间的内容是 TOML 格式的，根据你的喜好，你可以换成 YAML 格式（使用 &mdash; 标记）或者 JSON 格式。" />
+<meta property="og:description" content="最近希望搭建一个自己的技术博客，用来记录在学的一些知识和技术，在比较了一下几个目前较为流行的静态博客Jekyll、Hexo、Hugo之后，还是决定采用Hugo。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://jchenTech.github.io/2020/03/05/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E8%B6%85%E7%BA%A7%E8%AF%A6%E7%BB%86/" />
-<meta property="article:published_time" content="2020-03-05T11:58:06+08:00" />
-<meta property="article:modified_time" content="2020-03-05T11:58:06+08:00" />
+<meta property="article:published_time" content="2020-03-05T11:58:06&#43;08:00"/>
+<meta property="article:modified_time" content="2020-03-05T11:58:06&#43;08:00"/>
 
     
-    <meta itemprop="name" content="我的第一次Hugo博客搭建过程（超级详细）">
-<meta itemprop="description" content="最近希望搭建一个自己的技术博客，用来记录在学的一些知识和技术，在比较了一下几个目前较为流行的静态博客Jekyll、Hexo、Hugo之后，还是决定采用Hugo。
-Hugo是基于Go语言的一款静态博客，编译之后只有一个二进制文件，相比于Hexo基于nodejs、jekyll基于ruby等解释型语言而言搭建过程简单且博客编译速度非常快，所以即使文章数量和标签等很多时，Hugo也可以在几秒钟完成更新。但是Hugo目前使用率不及Hexo，所以目前可用的主题较少，并且网上的相关问题解决也不多，大多时候需要自己摸索。后面会更新Hugo博客主题的配置文章，现在先进行Hugo安装以及部署到Github Page的介绍：
-安装过程可参照Hugo中文官网：https://www.gohugo.org
- Hugo安装 二进制安装（推荐：简单、快速）
-到Hugo Releases下载对应的操作系统版本的Hugo二进制文件（hugo或者hugo.exe），我这里时解压到了D:\hugo目录下
-上一步操作，可以看到我们把hugo.exe解压到了D:\hugo下面。所以hugo命令只能在该目录下才能识别。但是我们想要把博客目录建到其他目录下，这就需要配置环境变量，在此不再赘述。
- 生成站点 使用Hugo快速生成站点，比如希望生成到 /path/to/site 路径：
-hugo new site /path/to/site这样就在 /path/to/site 目录里生成了初始站点，进去目录：
-cd /path/to/site站点目录结构：
- ▸ archetypes/▸ content/▸ layouts/▸ static/config.toml 生成文章 创建一个 about 页面：
-hugo new about.mdabout.md 自动生成到了 content/about.md ，打开 about.md 看下：
-&#43;&#43;&#43;date = &quot;2015-10-25T08:36:54-07:00&quot;draft = truetitle = &quot;about&quot;&#43;&#43;&#43;正文内容内容是 Markdown 格式的，&#43;&#43;&#43; 之间的内容是 TOML 格式的，根据你的喜好，你可以换成 YAML 格式（使用 &mdash; 标记）或者 JSON 格式。">
+    
+<meta itemprop="name" content="我的第一次Hugo博客搭建过程（超级详细）">
+<meta itemprop="description" content="最近希望搭建一个自己的技术博客，用来记录在学的一些知识和技术，在比较了一下几个目前较为流行的静态博客Jekyll、Hexo、Hugo之后，还是决定采用Hugo。">
+
+
 <meta itemprop="datePublished" content="2020-03-05T11:58:06&#43;08:00" />
 <meta itemprop="dateModified" content="2020-03-05T11:58:06&#43;08:00" />
-<meta itemprop="wordCount" content="175">
+<meta itemprop="wordCount" content="183">
 
 
 
 <meta itemprop="keywords" content="Hugo,github page," />
+
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="我的第一次Hugo博客搭建过程（超级详细）"/>
-<meta name="twitter:description" content="最近希望搭建一个自己的技术博客，用来记录在学的一些知识和技术，在比较了一下几个目前较为流行的静态博客Jekyll、Hexo、Hugo之后，还是决定采用Hugo。
-Hugo是基于Go语言的一款静态博客，编译之后只有一个二进制文件，相比于Hexo基于nodejs、jekyll基于ruby等解释型语言而言搭建过程简单且博客编译速度非常快，所以即使文章数量和标签等很多时，Hugo也可以在几秒钟完成更新。但是Hugo目前使用率不及Hexo，所以目前可用的主题较少，并且网上的相关问题解决也不多，大多时候需要自己摸索。后面会更新Hugo博客主题的配置文章，现在先进行Hugo安装以及部署到Github Page的介绍：
-安装过程可参照Hugo中文官网：https://www.gohugo.org
- Hugo安装 二进制安装（推荐：简单、快速）
-到Hugo Releases下载对应的操作系统版本的Hugo二进制文件（hugo或者hugo.exe），我这里时解压到了D:\hugo目录下
-上一步操作，可以看到我们把hugo.exe解压到了D:\hugo下面。所以hugo命令只能在该目录下才能识别。但是我们想要把博客目录建到其他目录下，这就需要配置环境变量，在此不再赘述。
- 生成站点 使用Hugo快速生成站点，比如希望生成到 /path/to/site 路径：
-hugo new site /path/to/site这样就在 /path/to/site 目录里生成了初始站点，进去目录：
-cd /path/to/site站点目录结构：
- ▸ archetypes/▸ content/▸ layouts/▸ static/config.toml 生成文章 创建一个 about 页面：
-hugo new about.mdabout.md 自动生成到了 content/about.md ，打开 about.md 看下：
-&#43;&#43;&#43;date = &quot;2015-10-25T08:36:54-07:00&quot;draft = truetitle = &quot;about&quot;&#43;&#43;&#43;正文内容内容是 Markdown 格式的，&#43;&#43;&#43; 之间的内容是 TOML 格式的，根据你的喜好，你可以换成 YAML 格式（使用 &mdash; 标记）或者 JSON 格式。"/>
+<meta name="twitter:description" content="最近希望搭建一个自己的技术博客，用来记录在学的一些知识和技术，在比较了一下几个目前较为流行的静态博客Jekyll、Hexo、Hugo之后，还是决定采用Hugo。"/>
 <meta name="twitter:site" content="@spf13"/>
 
     
@@ -200,12 +171,12 @@ hugo new about.mdabout.md 自动生成到了 content/about.md ，打开 about.m
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        13
+        14
         <span>文章</span>
       </div>
       <div class="article-info-block">
         
-          8
+          9
         
         <span>
             标签
@@ -300,7 +271,7 @@ hugo new about.mdabout.md 自动生成到了 content/about.md ，打开 about.m
             <i class="fa fa-calendar"></i>
             <time datetime="2020-03-05 11:58:06 &#43;0800 CST" itemprop="datePublished">2020-03-05</time>
             &middot;
-            175
+            183
             字
             &middot;
             1
@@ -343,30 +314,55 @@ hugo new about.mdabout.md 自动生成到了 content/about.md ，打开 about.m
 
         <div class="article-entry" itemprop="articleBody">
             <p>最近希望搭建一个自己的技术博客，用来记录在学的一些知识和技术，在比较了一下几个目前较为流行的静态博客Jekyll、Hexo、Hugo之后，还是决定采用Hugo。</p>
+
 <p>Hugo是基于Go语言的一款静态博客，编译之后只有一个二进制文件，相比于Hexo基于nodejs、jekyll基于ruby等解释型语言而言搭建过程简单且博客编译速度非常快，所以即使文章数量和标签等很多时，Hugo也可以在几秒钟完成更新。但是Hugo目前使用率不及Hexo，所以目前可用的主题较少，并且网上的相关问题解决也不多，大多时候需要自己摸索。后面会更新Hugo博客主题的配置文章，现在先进行Hugo安装以及部署到Github Page的介绍：</p>
+
 <p>安装过程可参照Hugo中文官网：<a href="https://www.gohugo.org">https://www.gohugo.org</a></p>
-<hr>
-<h2 id="hugo安装">Hugo安装</h2>
+
+<hr />
+
+<h2 id="1-hugo安装">1.Hugo安装</h2>
+
 <p>二进制安装（推荐：简单、快速）</p>
+
 <p>到<a href="https://github.com/gohugoio/hugo/releases">Hugo Releases</a>下载对应的操作系统版本的Hugo二进制文件（hugo或者hugo.exe），我这里时解压到了D:\hugo目录下</p>
+
 <p>上一步操作，可以看到我们把hugo.exe解压到了D:\hugo下面。所以hugo命令只能在该目录下才能识别。但是我们想要把博客目录建到其他目录下，这就需要配置环境变量，在此不再赘述。</p>
-<hr>
-<h2 id="生成站点">生成站点</h2>
+
+<hr />
+
+<h2 id="2-生成站点">2.生成站点</h2>
+
 <p>使用Hugo快速生成站点，比如希望生成到 /path/to/site 路径：</p>
+
 <pre><code>hugo new site /path/to/site
-</code></pre><p>这样就在 /path/to/site 目录里生成了初始站点，进去目录：</p>
+</code></pre>
+
+<p>这样就在 /path/to/site 目录里生成了初始站点，进去目录：</p>
+
 <pre><code>cd /path/to/site
-</code></pre><p>站点目录结构：</p>
+</code></pre>
+
+<p>站点目录结构：</p>
+
 <pre><code>  ▸ archetypes/
   ▸ content/
   ▸ layouts/
   ▸ static/
     config.toml
-</code></pre><hr>
-<h2 id="生成文章">生成文章</h2>
+</code></pre>
+
+<hr />
+
+<h2 id="3-生成文章">3.生成文章</h2>
+
 <p>创建一个 about 页面：</p>
+
 <pre><code>hugo new about.md
-</code></pre><p>about.md 自动生成到了 content/about.md ，打开 about.md 看下：</p>
+</code></pre>
+
+<p>about.md 自动生成到了 content/about.md ，打开 about.md 看下：</p>
+
 <pre><code>+++
 date = &quot;2015-10-25T08:36:54-07:00&quot;
 draft = true
@@ -375,10 +371,17 @@ title = &quot;about&quot;
 +++
 
 正文内容
-</code></pre><p>内容是 Markdown 格式的，+++ 之间的内容是 TOML 格式的，根据你的喜好，你可以换成 YAML 格式（使用 &mdash; 标记）或者 JSON 格式。</p>
+</code></pre>
+
+<p>内容是 Markdown 格式的，+++ 之间的内容是 TOML 格式的，根据你的喜好，你可以换成 YAML 格式（使用 &mdash; 标记）或者 JSON 格式。</p>
+
 <p>创建第一篇文章，放到 post 目录，方便之后生成聚合页面。</p>
+
 <pre><code>hugo new post/first.md
-</code></pre><p>打开编辑 post/first.md ：</p>
+</code></pre>
+
+<p>打开编辑 post/first.md ：</p>
+
 <pre><code>---
 date: &quot;2015-10-25T08:36:54-07:00&quot;
 title: &quot;first&quot;
@@ -390,42 +393,82 @@ title: &quot;first&quot;
  1. aaa
  1. bbb
  1. ccc
-</code></pre><p>注意当md文件中的第四行<code>drafts=true</code>时，该文件为草稿，不会生成文章。应把改行删掉或者改为<code>drafts=false</code>。</p>
-<hr>
-<h2 id="安装主题">安装主题</h2>
+</code></pre>
+
+<p>注意当md文件中的第四行<code>drafts=true</code>时，该文件为草稿，不会生成文章。应把改行删掉或者改为<code>drafts=false</code>。</p>
+
+<hr />
+
+<h2 id="4-安装主题">4.安装主题</h2>
+
 <p>在<a href="https://themes.gohugo.io/">官网主题列表</a>中选择主题进行安装，我的博客时采用<a href="https://github.com/digitalcraftsman/hugo-icarus-theme">icarus</a>主题进行安装的，具体的主题配置按照该主题的说明文件进行配置。</p>
+
 <pre><code># 创建 themes 目录
 cd themes
 git clone https://github.com/digitalcraftsman/hugo-icarus-theme.git
-</code></pre><hr>
-<h2 id="运行hugo">运行hugo</h2>
+</code></pre>
+
+<hr />
+
+<h2 id="5-运行hugo">5.运行hugo</h2>
+
 <p>在你的站点根目录执行 Hugo 命令进行调试：</p>
+
 <pre><code>hugo server --theme=icarus --buildDrafts
-</code></pre><p>浏览器里打开：<code>http://localhost:1313</code></p>
-<hr>
-<h2 id="将hugo部署到github-page">将Hugo部署到Github Page</h2>
-<h3 id="安装git">安装git</h3>
+</code></pre>
+
+<p>浏览器里打开：<code>http://localhost:1313</code></p>
+
+<hr />
+
+<h2 id="6-将hugo部署到github-page">6.将Hugo部署到Github Page</h2>
+
+<h3 id="6-1-安装git">6.1 安装git</h3>
+
 <p>根据该博客链接进行git的下载安装和环境配置：</p>
+
 <p><a href="https://blog.csdn.net/huangqqdy/article/details/83032408">https://blog.csdn.net/huangqqdy/article/details/83032408</a></p>
-<h3 id="部署">部署</h3>
+
+<h3 id="6-2-部署">6.2 部署</h3>
+
 <p>假设你需要部署在 GitHub Pages 上，首先在GitHub上创建一个Repository，命名为：jchenTech.github.io （jchenTech替换为你的github用户名）。</p>
+
 <p>在站点根目录执行 Hugo 命令生成最终页面：</p>
+
 <pre><code>hugo --theme=icarus --baseUrl=&quot;http://jchenTech.github.io/&quot;
-</code></pre><p>如果一切顺利，所有静态页面都会生成到<strong>public</strong>目录，将<strong>pubilc</strong>目录里所有文件push到刚创建的Repository的master分支。</p>
+</code></pre>
+
+<p>如果一切顺利，所有静态页面都会生成到<strong>public</strong>目录，将<strong>pubilc</strong>目录里所有文件push到刚创建的Repository的master分支。</p>
+
 <pre><code>cd public
 git init
 git remote add origin https://github.com/jchenTech/jchenTech.github.io.git
 git add -A
 git commit -m &quot;first commit&quot;
 git push -u origin master
-</code></pre><p>当输入 <code>git remote rm origin https://github.com/jchenTech/jchenTech.github.io.git</code>提示：<code>fatal: remote origin already exists.</code>时，需要删除远程地址。</p>
+</code></pre>
+
+<p>当输入 <code>git remote rm origin https://github.com/jchenTech/jchenTech.github.io.git</code>提示：<code>fatal: remote origin already exists.</code>时，需要删除远程地址。</p>
+
 <pre><code>git remote rm origin
-</code></pre><p>浏览器里访问：<a href="http://jchenTech.github.io">http://jchenTech.github.io</a></p>
-<hr>
-<h2 id="部署过程中遇到的问题">部署过程中遇到的问题</h2>
+</code></pre>
+
+<p>浏览器里访问：<a href="http://jchenTech.github.io">http://jchenTech.github.io</a></p>
+
+<hr />
+
+<h2 id="7-部署过程中遇到的问题">7.部署过程中遇到的问题</h2>
+
+<h3 id="7-1-页面加载过程中请求了http资源">7.1 页面加载过程中请求了http资源</h3>
+
 <p>在我安装icarus主题的过程中，在将博客部署到github上时，会导致页面不能正常显示，在页面F12显示Https的页面加载了http的js和css，提示Mixed Content错误，阻止了加载。因此，需要在<code>E:\hugo\jchenBlog\themes\icarus\layouts\partials\head.html</code>文件中加入下语句，将会把http请求转化为https请求：</p>
+
 <pre><code>&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;upgrade-insecure-requests&quot;&gt;
 </code></pre>
+
+<h3 id="7-2-出现博客首页无法加载出文章列表问题">7.2 出现博客首页无法加载出文章列表问题</h3>
+
+<p>困扰了很久的问题，这是因为在安装hugo时选择的是当前最新版本0.65，但是hugo icarus这个主题是之前发布的，在hugo进行版本更新后，从0.57版本后，该主题有一些不兼容，并且目前该主题没有像其他主题一样针对hugo版本进行更新，所以需要下载老版本，如今的版本号为0.54，下载该版本然后替换掉该路径下的hugo二进制文件即可。</p>
         </div>
         <footer class="article-footer">
     <a data-url="http://jchenTech.github.io/2020/03/05/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E8%B6%85%E7%BA%A7%E8%AF%A6%E7%BB%86/" data-id="5d019a041835717a63dc6fee6fb86f30" class="article-share-link">
@@ -571,6 +614,32 @@ git push -u origin master
             
             <li>
                 <div class="item-thumbnail">
+                    <a href="http://jchenTech.github.io/2020/03/30/hugo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="http://jchenTech.github.io/categories/%E5%8D%9A%E5%AE%A2">
+                        博客
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="http://jchenTech.github.io/2020/03/30/hugo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/" class="title">Hugo插入图片</a></p>
+                    <p class="item-date">
+                        <time datetime="2020-03-30 13:25:06 &#43;0800 CST" itemprop="datePublished">2020-03-30</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
                     <a href="http://jchenTech.github.io/2020/03/29/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="thumbnail">
                     
                         <span class="thumbnail-image thumbnail-none"></span>
@@ -673,32 +742,6 @@ git push -u origin master
                 </div>
             </li>
             
-            <li>
-                <div class="item-thumbnail">
-                    <a href="http://jchenTech.github.io/2020/03/17/c-primer-plus-%E7%AC%AC12%E7%AB%A0%E7%B1%BB%E5%92%8C%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/" class="thumbnail">
-                    
-                        <span class="thumbnail-image thumbnail-none"></span>
-                    
-                    </a>
-                </div>
-                <div class="item-inner">
-                    
-                    
-                    <p class="item-category">
-                        
-                        <a class="article-category-link" href="http://jchenTech.github.io/categories/c&#43;&#43;">
-                        C&#43;&#43;
-                        </a>
-                    </p>
-                    
-                    
-                    <p class="item-title"><a href="http://jchenTech.github.io/2020/03/17/c-primer-plus-%E7%AC%AC12%E7%AB%A0%E7%B1%BB%E5%92%8C%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/" class="title">C&#43;&#43; primer plus 第12章类和动态内存分配</a></p>
-                    <p class="item-date">
-                        <time datetime="2020-03-17 21:02:06 &#43;0800 CST" itemprop="datePublished">2020-03-17</time>
-                    </p>
-                </div>
-            </li>
-            
         </ul>
     </div>
 </div>
@@ -733,7 +776,7 @@ git push -u origin master
                 <a class="category-list-link" href="http://jchenTech.github.io/categories/%E5%8D%9A%E5%AE%A2">
                     博客
                 </a>
-                <span class="category-list-count">2</span>
+                <span class="category-list-count">3</span>
             </li>
             
             <li class="category-list-item">
@@ -790,7 +833,7 @@ git push -u origin master
                 <a class="category-list-link" href="http://jchenTech.github.io/tags/hugo">
                     hugo
                 </a>
-                <span class="category-list-count">2</span>
+                <span class="category-list-count">3</span>
             </li>
             
             <li class="category-list-item">
@@ -821,6 +864,14 @@ git push -u origin master
                 
                 <a class="category-list-link" href="http://jchenTech.github.io/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C">
                     卷积神经网络
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="http://jchenTech.github.io/tags/%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5">
+                    图片插入
                 </a>
                 <span class="category-list-count">1</span>
             </li>
@@ -864,6 +915,9 @@ git push -u origin master
         
         
         <a href="http://jchenTech.github.io/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" style="font-size: 12px;">卷积神经网络</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5" style="font-size: 12px;">图片插入</a>
         
     </div>
 </div>
