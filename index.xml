@@ -12,15 +12,6 @@
     
     
     <item>
-      <title>归档</title>
-      <link>http://jchenTech.github.io/archive/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://jchenTech.github.io/archive/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Hugo插入图片</title>
       <link>http://jchenTech.github.io/2020/03/30/hugo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/</link>
       <pubDate>Mon, 30 Mar 2020 13:25:06 +0800</pubDate>
@@ -151,6 +142,15 @@
       <guid>http://jchenTech.github.io/2015/10/02/how-to-add-pages-to-the-menu/</guid>
       <description>I&amp;rsquo;m a linked post in the menu. You can add other posts by adding the following line to the frontmatter:
 menu = &amp;quot;main&amp;quot;  </description>
+    </item>
+    
+    <item>
+      <title>归档</title>
+      <link>http://jchenTech.github.io/archives/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/archives/</guid>
+      <description></description>
     </item>
     
   </channel>
