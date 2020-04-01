@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>深度学习 on 陈建君的技术博客</title>
-    <link>https://jchenTech.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</link>
+    <link>http://jchenTech.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</link>
     <description>Recent content in 深度学习 on 陈建君的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sun, 29 Mar 2020 13:58:06 +0800</lastBuildDate>
     
-	<atom:link href="https://jchenTech.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://jchenTech.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>卷积神经网络</title>
-      <link>https://jchenTech.github.io/2020/03/29/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</link>
+      <link>http://jchenTech.github.io/2020/03/29/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</link>
       <pubDate>Sun, 29 Mar 2020 13:58:06 +0800</pubDate>
       
-      <guid>https://jchenTech.github.io/2020/03/29/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</guid>
+      <guid>http://jchenTech.github.io/2020/03/29/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</guid>
       <description>&lt;p&gt;卷积神经网络（CNN）是一种深层神经网络，已被证明在计算机视觉任务中表现出色，例如图像分类，目标检测，目标定位和神经样式转换。 在这篇文章中，我将介绍构成卷积神经网络的不同层：卷积层，池化层和完全连接层。卷积神经网络（CNN）是一种深层神经网络，已被证明在计算机视觉任务中表现出色，例如图像分类，目标检测，目标定位和神经样式转换。 在这篇文章中，我将介绍构成卷积神经网络的不同层：卷积层，池化层和完全连接层。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://jchenTech.github.io/images/卷积神经网络/1.png&#34; alt=&#34;图像卷积&#34; /&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://jchenTech.github.io/images/卷积神经网络/1.png&#34; alt=&#34;图像卷积&#34; /&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>
