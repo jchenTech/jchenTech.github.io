@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://jchenTech.github.io/2020/03/31/hugo%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%8B%E5%BD%92%E6%A1%A3%E9%A1%B5%E9%9D%A2/</loc>
+    <lastmod>2020-03-31T10:42:06+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://jchenTech.github.io/2020/03/30/hugo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/</loc>
     <lastmod>2020-03-30T13:25:06+08:00</lastmod>
   </url>
@@ -109,7 +114,7 @@
   
   <url>
     <loc>http://jchenTech.github.io/tags/hugo/</loc>
-    <lastmod>2020-03-30T13:25:06+08:00</lastmod>
+    <lastmod>2020-03-31T10:42:06+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -121,7 +126,7 @@
   
   <url>
     <loc>http://jchenTech.github.io/post/</loc>
-    <lastmod>2020-03-30T13:25:06+08:00</lastmod>
+    <lastmod>2020-03-31T10:42:06+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -151,7 +156,7 @@
   
   <url>
     <loc>http://jchenTech.github.io/categories/%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2020-03-30T13:25:06+08:00</lastmod>
+    <lastmod>2020-03-31T10:42:06+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -172,6 +177,12 @@
   </url>
   
   <url>
+    <loc>http://jchenTech.github.io/tags/%E5%BD%92%E6%A1%A3%E9%A1%B5%E9%9D%A2/</loc>
+    <lastmod>2020-03-31T10:42:06+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://jchenTech.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2020-03-29T13:58:06+08:00</lastmod>
     <priority>0</priority>
@@ -179,7 +190,7 @@
   
   <url>
     <loc>http://jchenTech.github.io/</loc>
-    <lastmod>2020-03-30T13:25:06+08:00</lastmod>
+    <lastmod>2020-03-31T10:42:06+08:00</lastmod>
     <priority>0</priority>
   </url>
   

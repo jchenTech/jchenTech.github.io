@@ -22,9 +22,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
     <meta property="og:title" content="卷积神经网络" />
-<meta property="og:description" content="本篇为Hexo示例文档.  # 这里是摘要部分,写1~2句话,就实现不全显示博文了..
-
-Mathematical equations in form of LaTeX or MathML code can be rendered with the support of MathJax. MathML works out of the box. If you&rsquo;re using LaTeX you need to wrap your equation with $$ as shown in the following example:
+<meta property="og:description" content="卷积神经网络（CNN）是一种深层神经网络，已被证明在计算机视觉任务中表现出色，例如图像分类，目标检测，目标定位和神经样式转换。 在这篇文章中，我将介绍构成卷积神经网络的不同层：卷积层，池化层和完全连接层。卷积神经网络（CNN）是一种深层神经网络，已被证明在计算机视觉任务中表现出色，例如图像分类，目标检测，目标定位和神经样式转换。 在这篇文章中，我将介绍构成卷积神经网络的不同层：卷积层，池化层和完全连接层。
 
 " />
 <meta property="og:type" content="article" />
@@ -35,16 +33,14 @@ Mathematical equations in form of LaTeX or MathML code can be rendered with the 
     
     
 <meta itemprop="name" content="卷积神经网络">
-<meta itemprop="description" content="本篇为Hexo示例文档.  # 这里是摘要部分,写1~2句话,就实现不全显示博文了..
-
-Mathematical equations in form of LaTeX or MathML code can be rendered with the support of MathJax. MathML works out of the box. If you&rsquo;re using LaTeX you need to wrap your equation with $$ as shown in the following example:
+<meta itemprop="description" content="卷积神经网络（CNN）是一种深层神经网络，已被证明在计算机视觉任务中表现出色，例如图像分类，目标检测，目标定位和神经样式转换。 在这篇文章中，我将介绍构成卷积神经网络的不同层：卷积层，池化层和完全连接层。卷积神经网络（CNN）是一种深层神经网络，已被证明在计算机视觉任务中表现出色，例如图像分类，目标检测，目标定位和神经样式转换。 在这篇文章中，我将介绍构成卷积神经网络的不同层：卷积层，池化层和完全连接层。
 
 ">
 
 
 <meta itemprop="datePublished" content="2020-03-29T13:58:06&#43;08:00" />
 <meta itemprop="dateModified" content="2020-03-29T13:58:06&#43;08:00" />
-<meta itemprop="wordCount" content="50">
+<meta itemprop="wordCount" content="43">
 
 
 
@@ -52,9 +48,7 @@ Mathematical equations in form of LaTeX or MathML code can be rendered with the 
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="卷积神经网络"/>
-<meta name="twitter:description" content="本篇为Hexo示例文档.  # 这里是摘要部分,写1~2句话,就实现不全显示博文了..
-
-Mathematical equations in form of LaTeX or MathML code can be rendered with the support of MathJax. MathML works out of the box. If you&rsquo;re using LaTeX you need to wrap your equation with $$ as shown in the following example:
+<meta name="twitter:description" content="卷积神经网络（CNN）是一种深层神经网络，已被证明在计算机视觉任务中表现出色，例如图像分类，目标检测，目标定位和神经样式转换。 在这篇文章中，我将介绍构成卷积神经网络的不同层：卷积层，池化层和完全连接层。卷积神经网络（CNN）是一种深层神经网络，已被证明在计算机视觉任务中表现出色，例如图像分类，目标检测，目标定位和神经样式转换。 在这篇文章中，我将介绍构成卷积神经网络的不同层：卷积层，池化层和完全连接层。
 
 "/>
 <meta name="twitter:site" content="@spf13"/>
@@ -187,12 +181,12 @@ Mathematical equations in form of LaTeX or MathML code can be rendered with the 
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        14
+        15
         <span>文章</span>
       </div>
       <div class="article-info-block">
         
-          9
+          10
         
         <span>
             标签
@@ -287,7 +281,7 @@ Mathematical equations in form of LaTeX or MathML code can be rendered with the 
             <i class="fa fa-calendar"></i>
             <time datetime="2020-03-29 13:58:06 &#43;0800 CST" itemprop="datePublished">2020-03-29</time>
             &middot;
-            50
+            43
             字
             &middot;
             1
@@ -325,19 +319,55 @@ Mathematical equations in form of LaTeX or MathML code can be rendered with the 
 </header>
 
         <div class="article-entry" itemprop="articleBody">
-            <p>本篇为Hexo示例文档.  # 这里是摘要部分,写1~2句话,就实现不全显示博文了..</p>
+            <p>卷积神经网络（CNN）是一种深层神经网络，已被证明在计算机视觉任务中表现出色，例如图像分类，目标检测，目标定位和神经样式转换。 在这篇文章中，我将介绍构成卷积神经网络的不同层：卷积层，池化层和完全连接层。卷积神经网络（CNN）是一种深层神经网络，已被证明在计算机视觉任务中表现出色，例如图像分类，目标检测，目标定位和神经样式转换。 在这篇文章中，我将介绍构成卷积神经网络的不同层：卷积层，池化层和完全连接层。</p>
 
-<p>Mathematical equations in form of LaTeX or MathML code can be rendered with the support of <a href="https://www.mathjax.org">MathJax</a>. MathML works out of the box. If you&rsquo;re using LaTeX you need to wrap your equation with <code>$$</code> as shown in the following example:</p>
-
-<p><img src="/images/卷积神经网络/2.png" alt="dsa" /></p>
+<p><img src="/images/卷积神经网络/1.png" alt="图像卷积" /></p>
 
 <hr />
 
-<p>本篇为Hexo示例文档.  # 这里是摘要部分,写1~2句话,就实现不全显示博文了..</p>
+<h2 id="卷积层">卷积层</h2>
 
-<h2 id="下面是正常的-markdown-博客-就可以了">下面是正常的 markdown 博客,就可以了&hellip;&hellip;.</h2>
+<p>卷积层对输入图像进行转换，以从中提取特征。 在这种转换中，图像与内核（或过滤器）卷积。</p>
 
-<p><img src="/images/卷积神经网络/2.png" alt="dsa" /></p>
+<p><img src="/images/卷积神经网络/1.png" alt="图像卷积" /></p>
+
+<p>核是一个小的矩阵，其高度和宽度小于要卷积的图像。 它也被称为卷积矩阵或卷积掩码。 该核在图像输入的高度和宽度上滑动，并且核的点积和图像在每个空间位置处进行计算。 籽粒滑动的长度称为步幅长度。 在下面的图像中，输入图像的大小为5X5，内核的大小为3X3，步幅为1。输出图像也称为卷积特征。</p>
+
+<p><img src="/images/卷积神经网络/2.gif" alt="卷积过程" /></p>
+
+<p>当使用通道3卷积彩色图像（RGB图像）时，滤镜的通道也必须为3。 换句话说，在卷积中，内核中的通道数必须与输入图像中的通道数相同。</p>
+
+<p><img src="/images/卷积神经网络/3.png" alt="RGB图像卷积过程" /></p>
+
+<p>当我们想使用卷积从一个图像中提取多个特征时，我们可以使用多个内核而不是仅使用一个。 在这种情况下，所有内核的大小必须相同。 输入图像和输出图像的卷积特征一个接一个地堆叠在一起以创建输出，因此通道数等于使用的滤镜数。 请参阅下图以供参考。</p>
+
+<p><img src="/images/卷积神经网络/4.png" alt="多个内核或滤波器的卷积过程" /></p>
+
+<h2 id="激活函数">激活函数</h2>
+
+<p>激活函数是卷积层的最后一个组成部分，可增加输出中的非线性。 通常，在卷积层中将ReLu函数或Tanh函数用作激活函数。 这是一个简单卷积层的图像，其中将6X6X3输入图像与大小为4X4X3的两个内核卷积以得到大小为3X3X2的卷积特征，对其应用激活函数以获取输出，这也称为特征 地图。</p>
+
+<p><img src="/images/卷积神经网络/5.png" alt="一个卷积层" /></p>
+
+<h2 id="池化层">池化层</h2>
+
+<p>池化层用于减小输入图像的大小。 在卷积神经网络中，通常在卷积层之后是池化层。 通常添加池层以加快计算速度，并使某些检测到的功能更健壮。
+池操作也使用内核和跨步。 在下面的示例图像中，使用2X2过滤器合并大小为4，跨度为2的4X4输入图像。
+有不同类型的池。 最大池和平均池是卷积神经网络中最常用的池方法。</p>
+
+<p>最大池化：在最大池化中，从要素图的每个面片中选择最大值以创建缩小图。
+平均池化：在平均池化中，从要素图的每个面片中选择平均值以创建缩小图。</p>
+
+<p><img src="/images/卷积神经网络/6.png" alt="最大池化和平均池化" /></p>
+
+<h2 id="全连接层">全连接层</h2>
+
+<p>完全连接的层位于卷积神经网络的末端。 由较早层产生的特征图将展平为矢量。 然后，此向量被馈送到完全连接的层，以便它捕获高级要素之间的复杂关系。 该层的外面是一维特征向量。</p>
+
+<p>上面是用于二进制图像分类的卷积神经网络的简单架构。 该网络将两个不同类别之间的输入分类。 该网络接收大小为32x32x3的RBG图像，输出大小为2（等于分类的类数）。 该网络的第一层是具有5x5x3内核的卷积层，第二层是具有2x2内核大小的最大池化层，第三层是具有5x5x3内核的卷积层，第四层是最大池化层 如果内核大小为2x2，则将输出展平为一个向量，并馈入最后两个都是完全连接的层。
+现在，您知道什么是卷积神经网络以及组成卷积神经网络的不同层，即卷积层，池化层和完全连接的层。</p>
+
+<p><img src="/images/卷积神经网络/7.png" alt="用于二进制图像分类的CNN的简单架构" /></p>
         </div>
         <footer class="article-footer">
     <a data-url="http://jchenTech.github.io/2020/03/29/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" data-id="cb3c05cb90013f3a87d5a65dea4ff653" class="article-share-link">
@@ -483,6 +513,32 @@ Mathematical equations in form of LaTeX or MathML code can be rendered with the 
             
             <li>
                 <div class="item-thumbnail">
+                    <a href="http://jchenTech.github.io/2020/03/31/hugo%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%8B%E5%BD%92%E6%A1%A3%E9%A1%B5%E9%9D%A2/" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="http://jchenTech.github.io/categories/%E5%8D%9A%E5%AE%A2">
+                        博客
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="http://jchenTech.github.io/2020/03/31/hugo%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%8B%E5%BD%92%E6%A1%A3%E9%A1%B5%E9%9D%A2/" class="title">hugo博客建立归档页面</a></p>
+                    <p class="item-date">
+                        <time datetime="2020-03-31 10:42:06 &#43;0800 CST" itemprop="datePublished">2020-03-31</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
                     <a href="http://jchenTech.github.io/2020/03/30/hugo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/" class="thumbnail">
                     
                         <span class="thumbnail-image thumbnail-none"></span>
@@ -585,32 +641,6 @@ Mathematical equations in form of LaTeX or MathML code can be rendered with the 
                 </div>
             </li>
             
-            <li>
-                <div class="item-thumbnail">
-                    <a href="http://jchenTech.github.io/2020/03/20/c-primer-plus-%E7%AC%AC13%E7%AB%A0%E7%B1%BB%E7%BB%A7%E6%89%BF/" class="thumbnail">
-                    
-                        <span class="thumbnail-image thumbnail-none"></span>
-                    
-                    </a>
-                </div>
-                <div class="item-inner">
-                    
-                    
-                    <p class="item-category">
-                        
-                        <a class="article-category-link" href="http://jchenTech.github.io/categories/c&#43;&#43;">
-                        C&#43;&#43;
-                        </a>
-                    </p>
-                    
-                    
-                    <p class="item-title"><a href="http://jchenTech.github.io/2020/03/20/c-primer-plus-%E7%AC%AC13%E7%AB%A0%E7%B1%BB%E7%BB%A7%E6%89%BF/" class="title">C&#43;&#43; primer plus 第13章类继承</a></p>
-                    <p class="item-date">
-                        <time datetime="2020-03-20 11:01:06 &#43;0800 CST" itemprop="datePublished">2020-03-20</time>
-                    </p>
-                </div>
-            </li>
-            
         </ul>
     </div>
 </div>
@@ -645,7 +675,7 @@ Mathematical equations in form of LaTeX or MathML code can be rendered with the 
                 <a class="category-list-link" href="http://jchenTech.github.io/categories/%E5%8D%9A%E5%AE%A2">
                     博客
                 </a>
-                <span class="category-list-count">3</span>
+                <span class="category-list-count">4</span>
             </li>
             
             <li class="category-list-item">
@@ -702,7 +732,7 @@ Mathematical equations in form of LaTeX or MathML code can be rendered with the 
                 <a class="category-list-link" href="http://jchenTech.github.io/tags/hugo">
                     hugo
                 </a>
-                <span class="category-list-count">3</span>
+                <span class="category-list-count">4</span>
             </li>
             
             <li class="category-list-item">
@@ -741,6 +771,14 @@ Mathematical equations in form of LaTeX or MathML code can be rendered with the 
                 
                 <a class="category-list-link" href="http://jchenTech.github.io/tags/%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5">
                     图片插入
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="http://jchenTech.github.io/tags/%E5%BD%92%E6%A1%A3%E9%A1%B5%E9%9D%A2">
+                    归档页面
                 </a>
                 <span class="category-list-count">1</span>
             </li>
@@ -787,6 +825,9 @@ Mathematical equations in form of LaTeX or MathML code can be rendered with the 
         
         
         <a href="http://jchenTech.github.io/tags/%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5" style="font-size: 12px;">图片插入</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/%E5%BD%92%E6%A1%A3%E9%A1%B5%E9%9D%A2" style="font-size: 12px;">归档页面</a>
         
     </div>
 </div>

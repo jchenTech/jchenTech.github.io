@@ -17,7 +17,7 @@
       <pubDate>Mon, 30 Mar 2020 13:25:06 +0800</pubDate>
       
       <guid>http://jchenTech.github.io/2020/03/30/hugo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/</guid>
-      <description></description>
+      <description>&lt;p&gt;在写博客时，常常需要在文章中插入图片，Hugo有多种图片插入方式，可以将图片存在本地引用、将图片放在CDN引用或建立图床。&lt;/p&gt;</description>
     </item>
     
   </channel>
