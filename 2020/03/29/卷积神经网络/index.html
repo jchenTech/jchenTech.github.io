@@ -40,7 +40,7 @@
 
 <meta itemprop="datePublished" content="2020-03-29T13:58:06&#43;08:00" />
 <meta itemprop="dateModified" content="2020-03-29T13:58:06&#43;08:00" />
-<meta itemprop="wordCount" content="200">
+<meta itemprop="wordCount" content="242">
 
 
 
@@ -181,12 +181,12 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        16
+        17
         <span>文章</span>
       </div>
       <div class="article-info-block">
         
-          11
+          17
         
         <span>
             标签
@@ -281,10 +281,10 @@
             <i class="fa fa-calendar"></i>
             <time datetime="2020-03-29 13:58:06 &#43;0800 CST" itemprop="datePublished">2020-03-29</time>
             &middot;
-            200
+            242
             字
             &middot;
-            1
+            2
             分钟读完
         </div>
         
@@ -657,12 +657,31 @@ CNN，无非就是把FC改成了CONV和POOL，就是把传统的由一个个神�
 
 <p><strong>正是由于上面这两大优势，使得CNN超越了传统的NN，开启了神经网络的新时代。</strong></p>
 
+<h2 id="5-案例学习">5. 案例学习</h2>
+
+<p>下面是卷积神经网络领域中比较有名的几种结构：</p>
+
+<ul>
+<li><p><strong>LeNet</strong> ，第一个成功的卷积神经网络应用，是Yann LeCun在上世纪90年代实现的。当然，最著名还是被应用在识别数字和邮政编码等的LeNet结构。</p></li>
+
+<li><p><strong>AlexNet</strong> ，AlexNet卷积神经网络在计算机视觉领域中受到欢迎，它由Alex Krizhevsky，Ilya Sutskever和Geoff Hinton实现。AlexNet在2012年的ImageNet ILSVRC 竞赛中夺冠，性能远远超出第二名（16%的top5错误率，第二名是26%的top5错误率）。这个网络的结构和LeNet非常类似，但是更深更大，并且使用了<strong>层叠的卷积层</strong>来获取特征（<strong>之前通常是只用一个卷积层并且在其后马上跟着一个汇聚层）</strong>。</p></li>
+
+<li><p><strong>ZF Net</strong> ，Matthew Zeiler和Rob Fergus发明的网络在ILSVRC 2013比赛中夺冠，它被称为 ZFNet（Zeiler &amp; Fergus Net的简称）。它通过修改结构中的超参数来实现对AlexNet的改良，具体说来就是增<strong>加了中间卷积层的尺寸，让第一层的步长和滤波器尺寸更小</strong>。</p></li>
+
+<li><p><strong>GoogLeNet</strong> ，ILSVRC 2014的胜利者是谷歌的Szeged等实现的卷积神经网络。它主要的贡献就是实现了一个奠基模块，它能够<strong>显著地减少网络中参数的数量</strong>（AlexNet中有60M，该网络中只有4M）。还有，这个论文中<strong>没有使用卷积神经网络顶部使用全连接层</strong>，而是使用了一个平均汇聚，把大量不是很重要的参数都去除掉了。GooLeNet还有几种改进的版本，<strong>最新的一个是Inception-v4</strong>。</p></li>
+
+<li><p><strong>VGGNet</strong> ，ILSVRC 2014的第二名是Karen Simonyan和 Andrew Zisserman实现的卷积神经网络，现在称其为VGGNet。它主要的贡献是展示出网络的<strong>深度是算法优良性能的关键部分</strong>。他们最好的网络包含了16个卷积/全连接层。网络的结构非常一致，<strong>从头到尾全部使用的是3x3的卷积和2x2的汇聚</strong>。他们的预训练模型是可以在网络上获得并在Caffe中使用的。VGGNet不好的一点是它耗费更多计算资源，并且使用了更多的参数，导致更多的内存占用（140M）。<strong>其中绝大多数的参数都是来自于第一个全连接层</strong>。后来发现这些全连接层即使被去除，对于性能也没有什么影响，这样就显著降低了参数数量。</p></li>
+
+<li><p><strong>ResNet</strong> ，残差网络（Residual Network）是ILSVRC2015的胜利者，由何恺明等实现。它使用了特殊的<strong>跳跃链接</strong>，大量使用了<strong>批量归一化</strong>（batch normalization）。这个结构同样在最后没有使用全连接层。读者可以查看何恺明的的演讲（视频，PPT），以及一些使用Torch重现网络的实验。ResNet当前最好的卷积神经网络模型（2016年五月）。何开明等最近的工作是对原始结构做一些优化，可以看论文Identity Mappings in Deep Residual Networks，2016年3月发表。</p></li>
+</ul>
+
 <h2 id="参考文章">参考文章：</h2>
 
 <ul>
 <li><a href="https://medium.com/@paulxiong/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%88%9D%E5%AD%A6%E8%80%85%E6%8C%87%E5%8D%97-31e177fdded2">卷积神经网络初学者指南</a></li>
 <li><a href="https://www.jianshu.com/p/c0215d26d20a">【DL笔记6】从此明白了卷积神经网络（CNN）</a></li>
 <li><a href="https://zhuanlan.zhihu.com/p/78353973">【专题知识】—详解卷积神经网络CNN</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/47184529">卷积神经网络（CNN）详解</a></li>
 </ul>
         </div>
         <footer class="article-footer">
@@ -809,6 +828,32 @@ CNN，无非就是把FC改成了CONV和POOL，就是把传统的由一个个神�
             
             <li>
                 <div class="item-thumbnail">
+                    <a href="http://jchenTech.github.io/2020/04/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8Br-cnn-sspnet-fast-r-cnn-faster-r-cnn-yolo-ssd/" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="http://jchenTech.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0">
+                        深度学习
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="http://jchenTech.github.io/2020/04/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8Br-cnn-sspnet-fast-r-cnn-faster-r-cnn-yolo-ssd/" class="title">深度学习目标检测：R-CNN, SSPNet, Fast R-CNN, Faster R-CNN, YOLO, SSD</a></p>
+                    <p class="item-date">
+                        <time datetime="2020-04-03 16:28:06 &#43;0800 CST" itemprop="datePublished">2020-04-03</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
                     <a href="http://jchenTech.github.io/2020/04/01/%E5%9B%A7%E4%BA%8B%E4%B8%80%E5%A4%A7%E5%A0%86/" class="thumbnail">
                     
                         <span class="thumbnail-image thumbnail-none"></span>
@@ -911,32 +956,6 @@ CNN，无非就是把FC改成了CONV和POOL，就是把传统的由一个个神�
                 </div>
             </li>
             
-            <li>
-                <div class="item-thumbnail">
-                    <a href="http://jchenTech.github.io/2020/03/23/c-primer-plus-%E7%AC%AC15%E7%AB%A0%E5%8F%8B%E5%85%83%E5%BC%82%E5%B8%B8%E5%92%8C%E5%85%B6%E4%BB%96/" class="thumbnail">
-                    
-                        <span class="thumbnail-image thumbnail-none"></span>
-                    
-                    </a>
-                </div>
-                <div class="item-inner">
-                    
-                    
-                    <p class="item-category">
-                        
-                        <a class="article-category-link" href="http://jchenTech.github.io/categories/c&#43;&#43;">
-                        C&#43;&#43;
-                        </a>
-                    </p>
-                    
-                    
-                    <p class="item-title"><a href="http://jchenTech.github.io/2020/03/23/c-primer-plus-%E7%AC%AC15%E7%AB%A0%E5%8F%8B%E5%85%83%E5%BC%82%E5%B8%B8%E5%92%8C%E5%85%B6%E4%BB%96/" class="title">C&#43;&#43; primer plus 第15章友元、异常和其他</a></p>
-                    <p class="item-date">
-                        <time datetime="2020-03-23 15:41:06 &#43;0800 CST" itemprop="datePublished">2020-03-23</time>
-                    </p>
-                </div>
-            </li>
-            
         </ul>
     </div>
 </div>
@@ -987,7 +1006,7 @@ CNN，无非就是把FC改成了CONV和POOL，就是把传统的由一个个神�
                 <a class="category-list-link" href="http://jchenTech.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0">
                     深度学习
                 </a>
-                <span class="category-list-count">1</span>
+                <span class="category-list-count">2</span>
             </li>
             
         </ul>
@@ -998,109 +1017,6 @@ CNN，无非就是把FC改成了CONV和POOL，就是把传统的由一个个神�
 
 
     
-
-
-<div class="widget-wrap">
-    <h3 class="widget-title">
-        标签
-    </h3>
-    <div class="widget">
-        <ul class="category-list">
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="http://jchenTech.github.io/tags/c&#43;&#43;">
-                    c&#43;&#43;
-                </a>
-                <span class="category-list-count">6</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="http://jchenTech.github.io/tags/github-page">
-                    github-page
-                </a>
-                <span class="category-list-count">1</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="http://jchenTech.github.io/tags/golang">
-                    golang
-                </a>
-                <span class="category-list-count">1</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="http://jchenTech.github.io/tags/hugo">
-                    hugo
-                </a>
-                <span class="category-list-count">4</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="http://jchenTech.github.io/tags/markdown">
-                    markdown
-                </a>
-                <span class="category-list-count">2</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="http://jchenTech.github.io/tags/programming">
-                    programming
-                </a>
-                <span class="category-list-count">1</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="http://jchenTech.github.io/tags/theme">
-                    theme
-                </a>
-                <span class="category-list-count">1</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="http://jchenTech.github.io/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C">
-                    卷积神经网络
-                </a>
-                <span class="category-list-count">1</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="http://jchenTech.github.io/tags/%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5">
-                    图片插入
-                </a>
-                <span class="category-list-count">1</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="http://jchenTech.github.io/tags/%E5%BD%92%E6%A1%A3%E9%A1%B5%E9%9D%A2">
-                    归档页面
-                </a>
-                <span class="category-list-count">1</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="http://jchenTech.github.io/tags/%E7%94%9F%E6%B4%BB%E8%BF%91%E5%86%B5">
-                    生活近况
-                </a>
-                <span class="category-list-count">1</span>
-            </li>
-            
-        </ul>
-    </div>
-</div>
-
-
-
 
     
 
@@ -1113,6 +1029,12 @@ CNN，无非就是把FC改成了CONV和POOL，就是把传统的由一个个神�
         
         
         <a href="http://jchenTech.github.io/tags/c&#43;&#43;" style="font-size: 12px;">c&#43;&#43;</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/fast-r-cnn" style="font-size: 12px;">fast-r-cnn</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/faster-r-cnn" style="font-size: 12px;">faster-r-cnn</a>
         
         
         <a href="http://jchenTech.github.io/tags/github-page" style="font-size: 12px;">github-page</a>
@@ -1130,7 +1052,19 @@ CNN，无非就是把FC改成了CONV和POOL，就是把传统的由一个个神�
         <a href="http://jchenTech.github.io/tags/programming" style="font-size: 12px;">programming</a>
         
         
+        <a href="http://jchenTech.github.io/tags/r-cnn" style="font-size: 12px;">r-cnn</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/ssd" style="font-size: 12px;">ssd</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/sspnet" style="font-size: 12px;">sspnet</a>
+        
+        
         <a href="http://jchenTech.github.io/tags/theme" style="font-size: 12px;">theme</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/yolo" style="font-size: 12px;">yolo</a>
         
         
         <a href="http://jchenTech.github.io/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" style="font-size: 12px;">卷积神经网络</a>

@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://jchenTech.github.io/2020/04/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8Br-cnn-sspnet-fast-r-cnn-faster-r-cnn-yolo-ssd/</loc>
+    <lastmod>2020-04-03T16:28:06+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://jchenTech.github.io/2020/04/01/%E5%9B%A7%E4%BA%8B%E4%B8%80%E5%A4%A7%E5%A0%86/</loc>
     <lastmod>2020-04-01T10:17:06+08:00</lastmod>
   </url>
@@ -112,6 +117,18 @@
   </url>
   
   <url>
+    <loc>http://jchenTech.github.io/tags/fast-r-cnn/</loc>
+    <lastmod>2020-04-03T16:28:06+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jchenTech.github.io/tags/faster-r-cnn/</loc>
+    <lastmod>2020-04-03T16:28:06+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://jchenTech.github.io/tags/github-page/</loc>
     <lastmod>2020-03-05T11:58:06+08:00</lastmod>
     <priority>0</priority>
@@ -137,7 +154,7 @@
   
   <url>
     <loc>http://jchenTech.github.io/post/</loc>
-    <lastmod>2020-04-01T10:17:06+08:00</lastmod>
+    <lastmod>2020-04-03T16:28:06+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -154,6 +171,24 @@
   </url>
   
   <url>
+    <loc>http://jchenTech.github.io/tags/r-cnn/</loc>
+    <lastmod>2020-04-03T16:28:06+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jchenTech.github.io/tags/ssd/</loc>
+    <lastmod>2020-04-03T16:28:06+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jchenTech.github.io/tags/sspnet/</loc>
+    <lastmod>2020-04-03T16:28:06+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://jchenTech.github.io/tags/</loc>
     <lastmod>2020-03-23T15:41:06+08:00</lastmod>
     <priority>0</priority>
@@ -162,6 +197,12 @@
   <url>
     <loc>http://jchenTech.github.io/tags/theme/</loc>
     <lastmod>2015-10-02T21:49:20+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jchenTech.github.io/tags/yolo/</loc>
+    <lastmod>2020-04-03T16:28:06+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -195,7 +236,7 @@
   
   <url>
     <loc>http://jchenTech.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2020-03-29T13:58:06+08:00</lastmod>
+    <lastmod>2020-04-03T16:28:06+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -207,7 +248,7 @@
   
   <url>
     <loc>http://jchenTech.github.io/</loc>
-    <lastmod>2020-04-01T10:17:06+08:00</lastmod>
+    <lastmod>2020-04-03T16:28:06+08:00</lastmod>
     <priority>0</priority>
   </url>
   
