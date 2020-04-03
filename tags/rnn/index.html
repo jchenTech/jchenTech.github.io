@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>Rnn &middot; 陈建君的技术博客</title>
+    <meta name="generator" content="Hugo 0.54.0" />
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="陈建君">
+    
+      <meta name="description" content="Better late than never">
+    
+    
+      <link href="http://jchenTech.github.io/tags/rnn/index.xml" rel="alternate" type="application/rss+xml" title="陈建君的技术博客" />
+      <link href="http://jchenTech.github.io/tags/rnn/index.xml" rel="feed" type="application/rss+xml" title="陈建君的技术博客" />
+    
+    <link rel="canonical" href="http://jchenTech.github.io/tags/rnn/"/>
+    <link rel="icon" href="http://jchenTech.github.io/favicon.ico">
+    <link rel="apple-touch-icon" href="http://jchenTech.github.io/apple-touch-icon.png"/>
+    <link rel="stylesheet" href="http://jchenTech.github.io/css/style.css">
+    <link rel="stylesheet" href="http://jchenTech.github.io/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://jchenTech.github.io/css/monokai.css">
+    <link rel="stylesheet" href="http://jchenTech.github.io/fancybox/jquery.fancybox.css">
+    
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <meta property="og:title" content="Rnn" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://jchenTech.github.io/tags/rnn/" />
+
+<meta property="og:updated_time" content="2020-04-03T17:57:06&#43;08:00"/>
+
+    
+    
+<meta itemprop="name" content="Rnn">
+<meta itemprop="description" content="">
+
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Rnn"/>
+<meta name="twitter:description" content=""/>
+<meta name="twitter:site" content="@spf13"/>
+
+    
+
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+<div class="container">
+
+
+<div id="container">
+	<header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="http://jchenTech.github.io/" id="logo">
+          
+          <i class="logo" style="background-image: url('http://jchenTech.github.io/css/images/logo.png')"></i>
+          
+          <span class="site-title">陈建君的技术博客</span>
+      </a>
+      <nav id="main-nav">
+          
+          
+          <a class="main-nav-link" href="http://jchenTech.github.io/">主页</a>
+          
+          
+          
+          
+          
+          
+
+          
+          <a class="main-nav-link" href="/about/">关于我</a>
+          
+          <a class="main-nav-link" href="/archives/">归档</a>
+          
+
+          
+          
+          
+          
+          <a class="main-nav-link" href="http://jchenTech.github.io/tags/">标签</a>
+          
+          
+          
+          <a class="main-nav-link" href="http://jchenTech.github.io/categories/">分类</a>
+          
+          
+      </nav>
+        <nav id="sub-nav">
+          <div class="profile" id="profile-nav">
+            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="http://jchenTech.github.io/css/images/avatar.png"><i class="fa fa-caret-down"></i></a>
+          </div>
+        </nav>
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+              <input type="search" name="q" class="search-form-input" placeholder="搜索">
+              <button type="submit" class="search-form-submit">
+              </button>
+              <input type="hidden" name="sitesearch" value="http://jchenTech.github.io/" />
+         </form>
+        </div>
+    </div>
+  </div>
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tbody>
+          <tr>
+          
+          
+          <td><a class="main-nav-link" href="http://jchenTech.github.io/">主页</a></td>
+          
+          
+          
+          
+          
+          
+
+          
+          <td><a class="main-nav-link" href="/about/">关于我</a></td>
+          
+          <td><a class="main-nav-link" href="/archives/">归档</a></td>
+          
+
+          
+          
+          
+          
+          <td><a class="main-nav-link" href="http://jchenTech.github.io/tags/">标签</a></td>
+          
+          
+          
+          <td><a class="main-nav-link" href="http://jchenTech.github.io/categories/">分类</a></td>
+          
+          
+          <td>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+          <input type="search" name="q" class="search-form-input" placeholder="Search">
+          <input type="hidden" name="sitesearch" value="http://jchenTech.github.io/" />
+          </form>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</header>
+
+   	
+   	<div class="outer">
+   	
+    	<aside id="profile">
+  <div class="inner profile-inner">
+    <div class="base-info profile-block">
+      
+      <img id="avatar" src="http://jchenTech.github.io/css/images/avatar.png">
+      
+      <h2 id="name">陈建君</h2>
+      <h3 id="title">练习时长两年半的程序猿</h3>
+      <span id="location"><i class="fa fa-map-marker"></i>重庆渝中</span>
+      
+          <a id="follow" href="https://github.com/jchenTech">
+              关注
+          </a>
+      
+    </div>
+    <div class="article-info profile-block">
+      <div class="article-info-block">
+        18
+        <span>文章</span>
+      </div>
+      <div class="article-info-block">
+        
+          19
+        
+        <span>
+            标签
+        </span>
+      </div>
+    </div>
+    <div class="profile-block social-links">
+      <table>
+        <tr>
+          
+<td><a href="//github.com/jchenTech" target="_blank" title="GitHub"><i class="fa fa-github"></i></a></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<td><a href="//twitter.com/spf13" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></td>
+
+
+          <td><a href="http://jchenTech.github.io/index.xml" target="_blank" title="RSS"><i class="fa fa-rss"></i></a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</aside>
+
+    
+
+    <section id="main">
+    
+    
+    
+    
+    <section class="archives-wrap">
+        <div class="archive-category-wrap">
+            <span class="archive-category">Rnn</span>
+        </div>
+        <div class="archives">
+            
+            
+                <article class="archive-article archive-type-post">
+    <div class="archive-article-inner">
+        <div class="archive-article-thumbnail">
+            
+            <a href="http://jchenTech.github.io/2020/04/03/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Crnn%E4%BB%8B%E7%BB%8D/" class="thumbnail">
+                <span style="background-image:url(http://jchenTech.github.io/)" alt="循环神经网络RNN介绍" class="thumbnail-image"></span>
+            </a>
+            
+        </div>
+        <header class="archive-article-header">
+            <h1 itemprop="name">
+            <a class="archive-article-title" href="http://jchenTech.github.io/2020/04/03/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Crnn%E4%BB%8B%E7%BB%8D/">循环神经网络RNN介绍</a>
+            </h1>
+            <div class="archive-article-date">
+                <i class="fa fa-calendar"></i>
+                <time datetime="2020-04-03 17:57:06 &#43;0800 CST" itemprop="datePublished">2020-04-03</time>
+            </div>
+        </header>
+    </div>
+</article>
+ 
+            
+        </div>
+    </section>
+    <nav id="page-nav">
+
+</nav>
+
+    
+
+    </section>
+
+   	
+    	<aside id="sidebar">
+    
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        最近的文章
+    </h3>
+    <div class="widget">
+        <ul id="recent-post">
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="http://jchenTech.github.io/2020/04/03/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Crnn%E4%BB%8B%E7%BB%8D/" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="http://jchenTech.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0">
+                        深度学习
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="http://jchenTech.github.io/2020/04/03/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Crnn%E4%BB%8B%E7%BB%8D/" class="title">循环神经网络RNN介绍</a></p>
+                    <p class="item-date">
+                        <time datetime="2020-04-03 17:57:06 &#43;0800 CST" itemprop="datePublished">2020-04-03</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="http://jchenTech.github.io/2020/04/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8Br-cnn-sspnet-fast-r-cnn-faster-r-cnn-yolo-ssd/" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="http://jchenTech.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0">
+                        深度学习
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="http://jchenTech.github.io/2020/04/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8Br-cnn-sspnet-fast-r-cnn-faster-r-cnn-yolo-ssd/" class="title">深度学习目标检测：R-CNN, SSPNet, Fast R-CNN, Faster R-CNN, YOLO, SSD</a></p>
+                    <p class="item-date">
+                        <time datetime="2020-04-03 16:28:06 &#43;0800 CST" itemprop="datePublished">2020-04-03</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="http://jchenTech.github.io/2020/04/01/%E5%9B%A7%E4%BA%8B%E4%B8%80%E5%A4%A7%E5%A0%86/" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="http://jchenTech.github.io/categories/">
+                        
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="http://jchenTech.github.io/2020/04/01/%E5%9B%A7%E4%BA%8B%E4%B8%80%E5%A4%A7%E5%A0%86/" class="title">囧事一大堆</a></p>
+                    <p class="item-date">
+                        <time datetime="2020-04-01 10:17:06 &#43;0800 CST" itemprop="datePublished">2020-04-01</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="http://jchenTech.github.io/2020/03/31/hugo%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%8B%E5%BD%92%E6%A1%A3%E9%A1%B5%E9%9D%A2/" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="http://jchenTech.github.io/categories/%E5%8D%9A%E5%AE%A2">
+                        博客
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="http://jchenTech.github.io/2020/03/31/hugo%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%8B%E5%BD%92%E6%A1%A3%E9%A1%B5%E9%9D%A2/" class="title">hugo博客建立归档页面</a></p>
+                    <p class="item-date">
+                        <time datetime="2020-03-31 10:42:06 &#43;0800 CST" itemprop="datePublished">2020-03-31</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="http://jchenTech.github.io/2020/03/30/hugo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="http://jchenTech.github.io/categories/%E5%8D%9A%E5%AE%A2">
+                        博客
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="http://jchenTech.github.io/2020/03/30/hugo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/" class="title">Hugo插入图片</a></p>
+                    <p class="item-date">
+                        <time datetime="2020-03-30 13:25:06 &#43;0800 CST" itemprop="datePublished">2020-03-30</time>
+                    </p>
+                </div>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+        <ul class="category-list">
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="http://jchenTech.github.io/categories/">
+                    
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="http://jchenTech.github.io/categories/c&#43;&#43;">
+                    c&#43;&#43;
+                </a>
+                <span class="category-list-count">6</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="http://jchenTech.github.io/categories/programming">
+                    programming
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="http://jchenTech.github.io/categories/%E5%8D%9A%E5%AE%A2">
+                    博客
+                </a>
+                <span class="category-list-count">4</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="http://jchenTech.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0">
+                    深度学习
+                </a>
+                <span class="category-list-count">3</span>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+    
+
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        标签云
+    </h3>
+    <div class="widget tagcloud">
+        
+        
+        <a href="http://jchenTech.github.io/tags/c&#43;&#43;" style="font-size: 12px;">c&#43;&#43;</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/fast-r-cnn" style="font-size: 12px;">fast-r-cnn</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/faster-r-cnn" style="font-size: 12px;">faster-r-cnn</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/github-page" style="font-size: 12px;">github-page</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/golang" style="font-size: 12px;">golang</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/hugo" style="font-size: 12px;">hugo</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/markdown" style="font-size: 12px;">markdown</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/programming" style="font-size: 12px;">programming</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/r-cnn" style="font-size: 12px;">r-cnn</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/rnn" style="font-size: 12px;">rnn</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/ssd" style="font-size: 12px;">ssd</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/sspnet" style="font-size: 12px;">sspnet</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/theme" style="font-size: 12px;">theme</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/yolo" style="font-size: 12px;">yolo</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" style="font-size: 12px;">卷积神经网络</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5" style="font-size: 12px;">图片插入</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/%E5%BD%92%E6%A1%A3%E9%A1%B5%E9%9D%A2" style="font-size: 12px;">归档页面</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" style="font-size: 12px;">循环神经网络</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/%E7%94%9F%E6%B4%BB%E8%BF%91%E5%86%B5" style="font-size: 12px;">生活近况</a>
+        
+    </div>
+</div>
+
+
+
+
+
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+    
+	</div>
+</div>
+
+<footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020
+      Powered by <a href="//gohugo.io">Hugo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>.
+    </div>
+  </div>
+</footer>
+
+
+<script src="http://jchenTech.github.io/fancybox/jquery.fancybox.pack.js"></script>
+<script src="http://jchenTech.github.io/js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+</body>
+</html>

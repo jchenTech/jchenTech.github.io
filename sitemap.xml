@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://jchenTech.github.io/2020/04/03/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Crnn%E4%BB%8B%E7%BB%8D/</loc>
+    <lastmod>2020-04-03T17:57:06+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://jchenTech.github.io/2020/04/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8Br-cnn-sspnet-fast-r-cnn-faster-r-cnn-yolo-ssd/</loc>
     <lastmod>2020-04-03T16:28:06+08:00</lastmod>
   </url>
@@ -154,7 +159,7 @@
   
   <url>
     <loc>http://jchenTech.github.io/post/</loc>
-    <lastmod>2020-04-03T16:28:06+08:00</lastmod>
+    <lastmod>2020-04-03T17:57:06+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -173,6 +178,12 @@
   <url>
     <loc>http://jchenTech.github.io/tags/r-cnn/</loc>
     <lastmod>2020-04-03T16:28:06+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jchenTech.github.io/tags/rnn/</loc>
+    <lastmod>2020-04-03T17:57:06+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -235,8 +246,14 @@
   </url>
   
   <url>
+    <loc>http://jchenTech.github.io/tags/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2020-04-03T17:57:06+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://jchenTech.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2020-04-03T16:28:06+08:00</lastmod>
+    <lastmod>2020-04-03T17:57:06+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -248,7 +265,7 @@
   
   <url>
     <loc>http://jchenTech.github.io/</loc>
-    <lastmod>2020-04-03T16:28:06+08:00</lastmod>
+    <lastmod>2020-04-03T17:57:06+08:00</lastmod>
     <priority>0</priority>
   </url>
   

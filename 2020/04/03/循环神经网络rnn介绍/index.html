@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>循环神经网络RNN介绍 &middot; 陈建君的技术博客</title>
+    <meta name="generator" content="Hugo 0.54.0" />
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="陈建君">
+    
+      <meta name="description" content="Better late than never">
+    
+    
+    <link rel="canonical" href="http://jchenTech.github.io/2020/04/03/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Crnn%E4%BB%8B%E7%BB%8D/"/>
+    <link rel="icon" href="http://jchenTech.github.io/favicon.ico">
+    <link rel="apple-touch-icon" href="http://jchenTech.github.io/apple-touch-icon.png"/>
+    <link rel="stylesheet" href="http://jchenTech.github.io/css/style.css">
+    <link rel="stylesheet" href="http://jchenTech.github.io/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://jchenTech.github.io/css/monokai.css">
+    <link rel="stylesheet" href="http://jchenTech.github.io/fancybox/jquery.fancybox.css">
+    
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <meta property="og:title" content="循环神经网络RNN介绍" />
+<meta property="og:description" content="循环神经网络(Recurrent Neural Networks，RNN)已经在众多自然语言处理(Natural Language Processing, NLP)中取得了巨大成功以及广泛应用。本文将对RNN进行简单介绍。
+1. 神经网络基础 神经网络可以当做是能够拟合任意函数的黑盒子，只要训练数据足够，给定特定的x，就能得到希望的y，结构图如下：
+将神经网络模型训练好之后，在输入层给定一个x，通过网络之后就能够在输出层得到特定的y，那么既然有了这么强大的模型，为什么还需要RNN（循环神经网络）呢？
+2. 为什么需要RNN 他们都只能单独的取处理一个个的输入，前一个输入和后一个输入是完全没有关系的。但是，某些任务需要能够更好的处理序列的信息，即前面的输入和后面的输入是有关系的。
+ 比如，当我们在理解一句话意思时，孤立的理解这句话的每个词是不够的，我们需要处理这些词连接起来的整个序列； 当我们处理视频的时候，我们也不能只单独的去分析每一帧，而要分析这些帧连接起来的整个序列。
+ 以nlp的一个最简单词性标注任务来说，将我 吃 苹果 三个单词标注词性为 我/nn 吃/v 苹果/nn。
+那么这个任务的输入就是：
+我 吃 苹果 （已经分词好的句子）
+这个任务的输出是：
+我/nn 吃/v 苹果/nn(词性标注好的句子)
+对于这个任务来说，我们当然可以直接用普通的神经网络来做，给网络的训练数据格式了就是我-&gt; 我/nn 这样的多个单独的单词-&gt;词性标注好的单词。
+但是很明显，一个句子中，前一个单词其实对于当前单词的词性预测是有很大影响的，比如预测苹果的时候，由于前面的吃是一个动词，那么很显然苹果作为名词的概率就会远大于动词的概率，因为动词后面接名词很常见，而动词后面接动词很少见。
+所以为了解决一些这样类似的问题，能够更好的处理序列的信息，RNN就诞生了。
+3. RNN结构 首先看一个简单的循环神经网络如，它由输入层、一个隐藏层和一个输出层组成：
+不知道初学的同学能够理解这个图吗，反正我刚开始学习的时候是懵逼的，每个结点到底代表的是一个值的输入，还是说一层的向量结点集合，如何隐藏层又可以连接到自己，等等这些疑惑~这个图是一个比较抽象的图。
+我们现在这样来理解，如果把上面有W的那个带箭头的圈去掉，它就变成了最普通的全连接神经网络。x是一个向量，它表示输入层的值（这里面没有画出来表示神经元节点的圆圈）；s是一个向量，它表示隐藏层的值（这里隐藏层面画了一个节点，你也可以想象这一层其实是多个节点，节点数与向量s的维度相同）；
+U是输入层到隐藏层的权重矩阵，o也是一个向量，它表示输出层的值；V是隐藏层到输出层的权重矩阵。
+那么，现在我们来看看W是什么。循环神经网络的隐藏层的值s不仅仅取决于当前这次的输入x，还取决于上一次隐藏层的值s。权重矩阵 W就是隐藏层上一次的值作为这一次的输入的权重。
+我们给出这个抽象图对应的具体图：
+我们从上图就能够很清楚的看到，上一时刻的隐藏层是如何影响当前时刻的隐藏层的。
+如果我们把上面的图展开，循环神经网络也可以画成下面这个样子：
+我们可以用下面的公式来表示循环神经网络的计算方法：
+4. 总结 好了，到这里大概讲解了RNN最基本的几个知识点，能够帮助大家直观的感受RNN和了解为什么需要RNN，后续总结它的反向求导知识点。
+注意：为了简单说明问题，偏置都没有包含在公式里面。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://jchenTech.github.io/2020/04/03/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Crnn%E4%BB%8B%E7%BB%8D/" />
+<meta property="article:published_time" content="2020-04-03T17:57:06&#43;08:00"/>
+<meta property="article:modified_time" content="2020-04-03T17:57:06&#43;08:00"/>
+
+    
+    
+<meta itemprop="name" content="循环神经网络RNN介绍">
+<meta itemprop="description" content="循环神经网络(Recurrent Neural Networks，RNN)已经在众多自然语言处理(Natural Language Processing, NLP)中取得了巨大成功以及广泛应用。本文将对RNN进行简单介绍。
+1. 神经网络基础 神经网络可以当做是能够拟合任意函数的黑盒子，只要训练数据足够，给定特定的x，就能得到希望的y，结构图如下：
+将神经网络模型训练好之后，在输入层给定一个x，通过网络之后就能够在输出层得到特定的y，那么既然有了这么强大的模型，为什么还需要RNN（循环神经网络）呢？
+2. 为什么需要RNN 他们都只能单独的取处理一个个的输入，前一个输入和后一个输入是完全没有关系的。但是，某些任务需要能够更好的处理序列的信息，即前面的输入和后面的输入是有关系的。
+ 比如，当我们在理解一句话意思时，孤立的理解这句话的每个词是不够的，我们需要处理这些词连接起来的整个序列； 当我们处理视频的时候，我们也不能只单独的去分析每一帧，而要分析这些帧连接起来的整个序列。
+ 以nlp的一个最简单词性标注任务来说，将我 吃 苹果 三个单词标注词性为 我/nn 吃/v 苹果/nn。
+那么这个任务的输入就是：
+我 吃 苹果 （已经分词好的句子）
+这个任务的输出是：
+我/nn 吃/v 苹果/nn(词性标注好的句子)
+对于这个任务来说，我们当然可以直接用普通的神经网络来做，给网络的训练数据格式了就是我-&gt; 我/nn 这样的多个单独的单词-&gt;词性标注好的单词。
+但是很明显，一个句子中，前一个单词其实对于当前单词的词性预测是有很大影响的，比如预测苹果的时候，由于前面的吃是一个动词，那么很显然苹果作为名词的概率就会远大于动词的概率，因为动词后面接名词很常见，而动词后面接动词很少见。
+所以为了解决一些这样类似的问题，能够更好的处理序列的信息，RNN就诞生了。
+3. RNN结构 首先看一个简单的循环神经网络如，它由输入层、一个隐藏层和一个输出层组成：
+不知道初学的同学能够理解这个图吗，反正我刚开始学习的时候是懵逼的，每个结点到底代表的是一个值的输入，还是说一层的向量结点集合，如何隐藏层又可以连接到自己，等等这些疑惑~这个图是一个比较抽象的图。
+我们现在这样来理解，如果把上面有W的那个带箭头的圈去掉，它就变成了最普通的全连接神经网络。x是一个向量，它表示输入层的值（这里面没有画出来表示神经元节点的圆圈）；s是一个向量，它表示隐藏层的值（这里隐藏层面画了一个节点，你也可以想象这一层其实是多个节点，节点数与向量s的维度相同）；
+U是输入层到隐藏层的权重矩阵，o也是一个向量，它表示输出层的值；V是隐藏层到输出层的权重矩阵。
+那么，现在我们来看看W是什么。循环神经网络的隐藏层的值s不仅仅取决于当前这次的输入x，还取决于上一次隐藏层的值s。权重矩阵 W就是隐藏层上一次的值作为这一次的输入的权重。
+我们给出这个抽象图对应的具体图：
+我们从上图就能够很清楚的看到，上一时刻的隐藏层是如何影响当前时刻的隐藏层的。
+如果我们把上面的图展开，循环神经网络也可以画成下面这个样子：
+我们可以用下面的公式来表示循环神经网络的计算方法：
+4. 总结 好了，到这里大概讲解了RNN最基本的几个知识点，能够帮助大家直观的感受RNN和了解为什么需要RNN，后续总结它的反向求导知识点。
+注意：为了简单说明问题，偏置都没有包含在公式里面。">
+
+
+<meta itemprop="datePublished" content="2020-04-03T17:57:06&#43;08:00" />
+<meta itemprop="dateModified" content="2020-04-03T17:57:06&#43;08:00" />
+<meta itemprop="wordCount" content="52">
+
+
+
+<meta itemprop="keywords" content="循环神经网络,RNN," />
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="循环神经网络RNN介绍"/>
+<meta name="twitter:description" content="循环神经网络(Recurrent Neural Networks，RNN)已经在众多自然语言处理(Natural Language Processing, NLP)中取得了巨大成功以及广泛应用。本文将对RNN进行简单介绍。
+1. 神经网络基础 神经网络可以当做是能够拟合任意函数的黑盒子，只要训练数据足够，给定特定的x，就能得到希望的y，结构图如下：
+将神经网络模型训练好之后，在输入层给定一个x，通过网络之后就能够在输出层得到特定的y，那么既然有了这么强大的模型，为什么还需要RNN（循环神经网络）呢？
+2. 为什么需要RNN 他们都只能单独的取处理一个个的输入，前一个输入和后一个输入是完全没有关系的。但是，某些任务需要能够更好的处理序列的信息，即前面的输入和后面的输入是有关系的。
+ 比如，当我们在理解一句话意思时，孤立的理解这句话的每个词是不够的，我们需要处理这些词连接起来的整个序列； 当我们处理视频的时候，我们也不能只单独的去分析每一帧，而要分析这些帧连接起来的整个序列。
+ 以nlp的一个最简单词性标注任务来说，将我 吃 苹果 三个单词标注词性为 我/nn 吃/v 苹果/nn。
+那么这个任务的输入就是：
+我 吃 苹果 （已经分词好的句子）
+这个任务的输出是：
+我/nn 吃/v 苹果/nn(词性标注好的句子)
+对于这个任务来说，我们当然可以直接用普通的神经网络来做，给网络的训练数据格式了就是我-&gt; 我/nn 这样的多个单独的单词-&gt;词性标注好的单词。
+但是很明显，一个句子中，前一个单词其实对于当前单词的词性预测是有很大影响的，比如预测苹果的时候，由于前面的吃是一个动词，那么很显然苹果作为名词的概率就会远大于动词的概率，因为动词后面接名词很常见，而动词后面接动词很少见。
+所以为了解决一些这样类似的问题，能够更好的处理序列的信息，RNN就诞生了。
+3. RNN结构 首先看一个简单的循环神经网络如，它由输入层、一个隐藏层和一个输出层组成：
+不知道初学的同学能够理解这个图吗，反正我刚开始学习的时候是懵逼的，每个结点到底代表的是一个值的输入，还是说一层的向量结点集合，如何隐藏层又可以连接到自己，等等这些疑惑~这个图是一个比较抽象的图。
+我们现在这样来理解，如果把上面有W的那个带箭头的圈去掉，它就变成了最普通的全连接神经网络。x是一个向量，它表示输入层的值（这里面没有画出来表示神经元节点的圆圈）；s是一个向量，它表示隐藏层的值（这里隐藏层面画了一个节点，你也可以想象这一层其实是多个节点，节点数与向量s的维度相同）；
+U是输入层到隐藏层的权重矩阵，o也是一个向量，它表示输出层的值；V是隐藏层到输出层的权重矩阵。
+那么，现在我们来看看W是什么。循环神经网络的隐藏层的值s不仅仅取决于当前这次的输入x，还取决于上一次隐藏层的值s。权重矩阵 W就是隐藏层上一次的值作为这一次的输入的权重。
+我们给出这个抽象图对应的具体图：
+我们从上图就能够很清楚的看到，上一时刻的隐藏层是如何影响当前时刻的隐藏层的。
+如果我们把上面的图展开，循环神经网络也可以画成下面这个样子：
+我们可以用下面的公式来表示循环神经网络的计算方法：
+4. 总结 好了，到这里大概讲解了RNN最基本的几个知识点，能够帮助大家直观的感受RNN和了解为什么需要RNN，后续总结它的反向求导知识点。
+注意：为了简单说明问题，偏置都没有包含在公式里面。"/>
+<meta name="twitter:site" content="@spf13"/>
+
+    
+
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+<div class="container">
+
+
+<div id="container">
+	<header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="http://jchenTech.github.io/" id="logo">
+          
+          <i class="logo" style="background-image: url('http://jchenTech.github.io/css/images/logo.png')"></i>
+          
+          <span class="site-title">陈建君的技术博客</span>
+      </a>
+      <nav id="main-nav">
+          
+          
+          <a class="main-nav-link" href="http://jchenTech.github.io/">主页</a>
+          
+          
+          
+          
+          
+          
+
+          
+          <a class="main-nav-link" href="/about/">关于我</a>
+          
+          <a class="main-nav-link" href="/archives/">归档</a>
+          
+
+          
+          
+          
+          
+          <a class="main-nav-link" href="http://jchenTech.github.io/tags/">标签</a>
+          
+          
+          
+          <a class="main-nav-link" href="http://jchenTech.github.io/categories/">分类</a>
+          
+          
+      </nav>
+        <nav id="sub-nav">
+          <div class="profile" id="profile-nav">
+            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="http://jchenTech.github.io/css/images/avatar.png"><i class="fa fa-caret-down"></i></a>
+          </div>
+        </nav>
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+              <input type="search" name="q" class="search-form-input" placeholder="搜索">
+              <button type="submit" class="search-form-submit">
+              </button>
+              <input type="hidden" name="sitesearch" value="http://jchenTech.github.io/" />
+         </form>
+        </div>
+    </div>
+  </div>
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tbody>
+          <tr>
+          
+          
+          <td><a class="main-nav-link" href="http://jchenTech.github.io/">主页</a></td>
+          
+          
+          
+          
+          
+          
+
+          
+          <td><a class="main-nav-link" href="/about/">关于我</a></td>
+          
+          <td><a class="main-nav-link" href="/archives/">归档</a></td>
+          
+
+          
+          
+          
+          
+          <td><a class="main-nav-link" href="http://jchenTech.github.io/tags/">标签</a></td>
+          
+          
+          
+          <td><a class="main-nav-link" href="http://jchenTech.github.io/categories/">分类</a></td>
+          
+          
+          <td>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+          <input type="search" name="q" class="search-form-input" placeholder="Search">
+          <input type="hidden" name="sitesearch" value="http://jchenTech.github.io/" />
+          </form>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</header>
+
+   	
+   	<div class="outer">
+   	
+    	<aside id="profile">
+  <div class="inner profile-inner">
+    <div class="base-info profile-block">
+      
+      <img id="avatar" src="http://jchenTech.github.io/css/images/avatar.png">
+      
+      <h2 id="name">陈建君</h2>
+      <h3 id="title">练习时长两年半的程序猿</h3>
+      <span id="location"><i class="fa fa-map-marker"></i>重庆渝中</span>
+      
+          <a id="follow" href="https://github.com/jchenTech">
+              关注
+          </a>
+      
+    </div>
+    <div class="article-info profile-block">
+      <div class="article-info-block">
+        18
+        <span>文章</span>
+      </div>
+      <div class="article-info-block">
+        
+          19
+        
+        <span>
+            标签
+        </span>
+      </div>
+    </div>
+    <div class="profile-block social-links">
+      <table>
+        <tr>
+          
+<td><a href="//github.com/jchenTech" target="_blank" title="GitHub"><i class="fa fa-github"></i></a></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<td><a href="//twitter.com/spf13" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></td>
+
+
+          <td><a href="http://jchenTech.github.io/index.xml" target="_blank" title="RSS"><i class="fa fa-rss"></i></a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</aside>
+
+    
+
+    <section id="main">
+    
+    <article id="page-undefined" class="article article-type-page" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+
+        <header class="article-header">
+    <a href="http://jchenTech.github.io/2020/04/03/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Crnn%E4%BB%8B%E7%BB%8D/">
+    <h1 class="article-title" itemprop="name">
+        循环神经网络RNN介绍
+    </h1>
+    </a>
+    <div class="article-meta">
+
+        
+        <div class="article-date">
+            <i class="fa fa-calendar"></i>
+            <time datetime="2020-04-03 17:57:06 &#43;0800 CST" itemprop="datePublished">2020-04-03</time>
+            &middot;
+            52
+            字
+            &middot;
+            1
+            分钟读完
+        </div>
+        
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-folder"></i>
+                
+                
+                <a class="article-category-link" href="http://jchenTech.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0">深度学习</a>
+                
+                
+            </div>
+            
+        
+
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-tags"></i>
+                
+                
+                <a class="article-category-link" href="http://jchenTech.github.io/tags/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C">循环神经网络</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="http://jchenTech.github.io/tags/rnn">RNN</a>
+                
+                
+            </div>
+            
+        
+    </div>
+</header>
+
+        <div class="article-entry" itemprop="articleBody">
+            
+
+<p>循环神经网络(Recurrent Neural Networks，RNN)已经在众多自然语言处理(Natural Language Processing, NLP)中取得了巨大成功以及广泛应用。本文将对RNN进行简单介绍。</p>
+
+<h2 id="1-神经网络基础">1. 神经网络基础</h2>
+
+<p>神经网络可以当做是能够拟合任意函数的黑盒子，只要训练数据足够，给定特定的x，就能得到希望的y，结构图如下：</p>
+
+<p><img src="/images/循环神经网络RNN介绍/神经网络.jpg" alt="神经网络" /></p>
+
+<p>将神经网络模型训练好之后，在输入层给定一个x，通过网络之后就能够在输出层得到特定的y，那么既然有了这么强大的模型，为什么还需要RNN（循环神经网络）呢？</p>
+
+<h2 id="2-为什么需要rnn">2. 为什么需要RNN</h2>
+
+<p>他们都只能单独的取处理一个个的输入，前一个输入和后一个输入是完全没有关系的。但是，某些任务需要能够更好的处理序列的信息，即前面的输入和后面的输入是有关系的。</p>
+
+<blockquote>
+<p>比如，当我们在理解一句话意思时，孤立的理解这句话的每个词是不够的，我们需要处理这些词连接起来的整个序列； 当我们处理视频的时候，我们也不能只单独的去分析每一帧，而要分析这些帧连接起来的整个序列。</p>
+</blockquote>
+
+<p><strong>以nlp的一个最简单词性标注任务来说，将我 吃 苹果 三个单词标注词性为 我/nn 吃/v 苹果/nn。</strong></p>
+
+<p>那么这个任务的输入就是：</p>
+
+<p>我 吃 苹果 （已经分词好的句子）</p>
+
+<p>这个任务的输出是：</p>
+
+<p>我/nn 吃/v 苹果/nn(词性标注好的句子)</p>
+
+<p>对于这个任务来说，我们当然可以直接用普通的神经网络来做，给网络的训练数据格式了就是我-&gt; 我/nn 这样的多个单独的单词-&gt;词性标注好的单词。</p>
+
+<p><strong><em>但是很明显，一个句子中，前一个单词其实对于当前单词的词性预测是有很大影响的，比如预测苹果的时候，由于前面的吃是一个动词，那么很显然苹果作为名词的概率就会远大于动词的概率，因为动词后面接名词很常见，而动词后面接动词很少见。</em></strong></p>
+
+<p>所以为了解决一些这样类似的问题，能够更好的处理序列的信息，RNN就诞生了。</p>
+
+<h2 id="3-rnn结构">3. RNN结构</h2>
+
+<p>首先看一个简单的循环神经网络如，它由输入层、一个隐藏层和一个输出层组成：</p>
+
+<p><img src="/images/循环神经网络RNN介绍/简单循环神经网络.jpg" alt="简单循环神经网络" /></p>
+
+<p>不知道初学的同学能够理解这个图吗，反正我刚开始学习的时候是懵逼的，每个结点到底代表的是一个值的输入，还是说一层的向量结点集合，如何隐藏层又可以连接到自己，<strong>等等这些疑惑~这个图是一个比较抽象的图</strong>。</p>
+
+<p>我们现在这样来理解，如果把上面有W的那个带箭头的圈去掉，它就变成了最普通的<strong>全连接神经网络</strong>。x是一个向量，它表示<strong>输入层</strong>的值（这里面没有画出来表示神经元节点的圆圈）；s是一个向量，它表示<strong>隐藏层</strong>的值（这里隐藏层面画了一个节点，你也可以想象这一层其实是多个节点，节点数与向量s的维度相同）；</p>
+
+<p>U是输入层到隐藏层的<strong>权重矩阵</strong>，o也是一个向量，它表示<strong>输出层</strong>的值；V是隐藏层到输出层的权重矩阵。</p>
+
+<p>那么，现在我们来看看W是什么。<strong>循环神经网络的隐藏层</strong>的值s不仅仅取决于当前这次的输入x，还取决于上一次<strong>隐藏层</strong>的值s。<strong>权重矩阵</strong> W就是<strong>隐藏层</strong>上一次的值作为这一次的输入的权重。</p>
+
+<p>我们给出这个抽象图对应的具体图：</p>
+
+<p><img src="/images/循环神经网络RNN介绍/循环神经网络具体图.jpg" alt="循环神经网络具体图" /></p>
+
+<p><strong>我们从上图就能够很清楚的看到，上一时刻的隐藏层是如何影响当前时刻的隐藏层的。</strong></p>
+
+<p>如果我们把上面的图展开，循环神经网络也可以画成下面这个样子：</p>
+
+<p><img src="/images/循环神经网络RNN介绍/RNN时间线展开图.jpg" alt="RNN时间线展开图" /></p>
+
+<p>我们可以用下面的公式来表示循环神经网络的计算方法：</p>
+
+<p><img src="/images/循环神经网络RNN介绍/RNN公式.jpg" alt="RNN公式" /></p>
+
+<h2 id="4-总结">4. 总结</h2>
+
+<p>好了，到这里大概讲解了RNN最基本的几个知识点，能够帮助大家直观的感受RNN和了解为什么需要RNN，后续总结它的反向求导知识点。</p>
+
+<p>注意：为了简单说明问题，偏置都没有包含在公式里面。</p>
+
+        </div>
+        <footer class="article-footer">
+    <a data-url="http://jchenTech.github.io/2020/04/03/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Crnn%E4%BB%8B%E7%BB%8D/" data-id="28ba07120149a683a04f8a3aff9661a1" class="article-share-link">
+        <i class="fa fa-share"></i>
+        分享
+    </a>
+    
+    <a href="http://jchenTech.github.io/2020/04/03/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Crnn%E4%BB%8B%E7%BB%8D/#disqus_thread" class="article-comment-link">
+        评论
+    </a>
+    
+
+    <script>
+    (function ($) {
+        
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+    </script>
+</footer>
+
+    </div>
+
+    
+<nav id="article-nav">
+    
+    <a href="http://jchenTech.github.io/2020/04/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8Br-cnn-sspnet-fast-r-cnn-faster-r-cnn-yolo-ssd/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          上一篇
+      </strong>
+      <div class="article-nav-title">深度学习目标检测：R-CNN, SSPNet, Fast R-CNN, Faster R-CNN, YOLO, SSD</div>
+    </a>
+    
+
+    
+</nav>
+
+
+</article>
+
+
+<section id="comments">
+    <div id="disqus_thread">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "spf13" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+</section>
+
+
+    </section>
+
+   	
+    	<aside id="sidebar">
+    
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        最近的文章
+    </h3>
+    <div class="widget">
+        <ul id="recent-post">
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="http://jchenTech.github.io/2020/04/03/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Crnn%E4%BB%8B%E7%BB%8D/" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="http://jchenTech.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0">
+                        深度学习
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="http://jchenTech.github.io/2020/04/03/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Crnn%E4%BB%8B%E7%BB%8D/" class="title">循环神经网络RNN介绍</a></p>
+                    <p class="item-date">
+                        <time datetime="2020-04-03 17:57:06 &#43;0800 CST" itemprop="datePublished">2020-04-03</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="http://jchenTech.github.io/2020/04/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8Br-cnn-sspnet-fast-r-cnn-faster-r-cnn-yolo-ssd/" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="http://jchenTech.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0">
+                        深度学习
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="http://jchenTech.github.io/2020/04/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8Br-cnn-sspnet-fast-r-cnn-faster-r-cnn-yolo-ssd/" class="title">深度学习目标检测：R-CNN, SSPNet, Fast R-CNN, Faster R-CNN, YOLO, SSD</a></p>
+                    <p class="item-date">
+                        <time datetime="2020-04-03 16:28:06 &#43;0800 CST" itemprop="datePublished">2020-04-03</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="http://jchenTech.github.io/2020/04/01/%E5%9B%A7%E4%BA%8B%E4%B8%80%E5%A4%A7%E5%A0%86/" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="http://jchenTech.github.io/categories/">
+                        
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="http://jchenTech.github.io/2020/04/01/%E5%9B%A7%E4%BA%8B%E4%B8%80%E5%A4%A7%E5%A0%86/" class="title">囧事一大堆</a></p>
+                    <p class="item-date">
+                        <time datetime="2020-04-01 10:17:06 &#43;0800 CST" itemprop="datePublished">2020-04-01</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="http://jchenTech.github.io/2020/03/31/hugo%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%8B%E5%BD%92%E6%A1%A3%E9%A1%B5%E9%9D%A2/" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="http://jchenTech.github.io/categories/%E5%8D%9A%E5%AE%A2">
+                        博客
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="http://jchenTech.github.io/2020/03/31/hugo%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%8B%E5%BD%92%E6%A1%A3%E9%A1%B5%E9%9D%A2/" class="title">hugo博客建立归档页面</a></p>
+                    <p class="item-date">
+                        <time datetime="2020-03-31 10:42:06 &#43;0800 CST" itemprop="datePublished">2020-03-31</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="http://jchenTech.github.io/2020/03/30/hugo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="http://jchenTech.github.io/categories/%E5%8D%9A%E5%AE%A2">
+                        博客
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="http://jchenTech.github.io/2020/03/30/hugo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/" class="title">Hugo插入图片</a></p>
+                    <p class="item-date">
+                        <time datetime="2020-03-30 13:25:06 &#43;0800 CST" itemprop="datePublished">2020-03-30</time>
+                    </p>
+                </div>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+        <ul class="category-list">
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="http://jchenTech.github.io/categories/">
+                    
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="http://jchenTech.github.io/categories/c&#43;&#43;">
+                    c&#43;&#43;
+                </a>
+                <span class="category-list-count">6</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="http://jchenTech.github.io/categories/programming">
+                    programming
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="http://jchenTech.github.io/categories/%E5%8D%9A%E5%AE%A2">
+                    博客
+                </a>
+                <span class="category-list-count">4</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="http://jchenTech.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0">
+                    深度学习
+                </a>
+                <span class="category-list-count">3</span>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+    
+
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        标签云
+    </h3>
+    <div class="widget tagcloud">
+        
+        
+        <a href="http://jchenTech.github.io/tags/c&#43;&#43;" style="font-size: 12px;">c&#43;&#43;</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/fast-r-cnn" style="font-size: 12px;">fast-r-cnn</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/faster-r-cnn" style="font-size: 12px;">faster-r-cnn</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/github-page" style="font-size: 12px;">github-page</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/golang" style="font-size: 12px;">golang</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/hugo" style="font-size: 12px;">hugo</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/markdown" style="font-size: 12px;">markdown</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/programming" style="font-size: 12px;">programming</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/r-cnn" style="font-size: 12px;">r-cnn</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/rnn" style="font-size: 12px;">rnn</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/ssd" style="font-size: 12px;">ssd</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/sspnet" style="font-size: 12px;">sspnet</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/theme" style="font-size: 12px;">theme</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/yolo" style="font-size: 12px;">yolo</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" style="font-size: 12px;">卷积神经网络</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5" style="font-size: 12px;">图片插入</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/%E5%BD%92%E6%A1%A3%E9%A1%B5%E9%9D%A2" style="font-size: 12px;">归档页面</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" style="font-size: 12px;">循环神经网络</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/%E7%94%9F%E6%B4%BB%E8%BF%91%E5%86%B5" style="font-size: 12px;">生活近况</a>
+        
+    </div>
+</div>
+
+
+
+
+
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+    
+	</div>
+</div>
+
+<footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020
+      Powered by <a href="//gohugo.io">Hugo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>.
+    </div>
+  </div>
+</footer>
+
+
+<script src="http://jchenTech.github.io/fancybox/jquery.fancybox.pack.js"></script>
+<script src="http://jchenTech.github.io/js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+</body>
+</html>
