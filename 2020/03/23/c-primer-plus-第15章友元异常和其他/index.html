@@ -36,7 +36,7 @@
 
 <meta itemprop="datePublished" content="2020-03-23T15:41:06&#43;08:00" />
 <meta itemprop="dateModified" content="2020-03-23T15:41:06&#43;08:00" />
-<meta itemprop="wordCount" content="1463">
+<meta itemprop="wordCount" content="1848">
 
 
 
@@ -175,12 +175,12 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        18
+        20
         <span>文章</span>
       </div>
       <div class="article-info-block">
         
-          19
+          21
         
         <span>
             标签
@@ -275,10 +275,10 @@
             <i class="fa fa-calendar"></i>
             <time datetime="2020-03-23 15:41:06 &#43;0800 CST" itemprop="datePublished">2020-03-23</time>
             &middot;
-            1463
+            1848
             字
             &middot;
-            7
+            9
             分钟读完
         </div>
         
@@ -1207,6 +1207,391 @@ double harm(double a) throw();    //doesn't throw an exception
 <p>而throw语句则处理try块和throw之间整个函数调用序列放在栈中的对象。</p>
 
 <h3 id="15-3-7-其他异常特性">15.3.7 其他异常特性</h3>
+
+<p>throw-catch机制类似于函数参数和函数返回返回机制，但还是有些不同：</p>
+
+<ol>
+<li><p>函数func()中的返回语句将控制权返回到调用func()的函数，但throw语句将控制权向上返回到第一个这样的函数：包含能够捕获相应异常的try-catch组合。</p></li>
+
+<li><p>引发异常时，编译器总是创建一个临时拷贝，即使异常规范和catch块中指定的是引用。</p></li>
+</ol>
+
+<pre><code>class problem {...};
+...
+void super() throw(problem)
+{
+    ...
+    if (1)
+    {
+        problem opps; //construct object
+        throw opps; // throw it
+        //or use this func
+        throw problem(); //construct and throw default problem object 
+    }
+    ...
+}
+ 
+try
+{
+    super();
+};
+catch(problem &amp; p)
+{
+    //statements
+}
+</code></pre>
+
+<p>此处p将指向opp的副本，而不是p本身。这是件好事，因为函数super()执行完毕后，opps将不复存在。</p>
+
+<p>同时此处catch捕捉异常对象的引用还有一个重要特征：基类引用可以执行派生类对象。假设有一组通过继承关联起来的异常类型，则在异常规范中只需列出一个基类引用，它将于任何派生类对象匹配。由于这个特性，当如果有一个异常类继承层次结构，应当这样排列catch块：将捕获位于层次结构最下面的异常类的catch语句放在最前面，将捕获基类异常的catch语句放在最后面。</p>
+
+<p>也可以创建捕获对象而不是引用的处理程序。在catch语句中使用基类对象时，将捕获所有的派生类对象，但派生特性将被剥去，因此将统一使用虚方法的基类版本。</p>
+
+<p>可以在不知道异常类型的情况下，捕获异常，方法是：使用省略号来表示异常类型，从而捕获任何异常。</p>
+
+<pre><code>catch(...){//statements}
+</code></pre>
+
+<p>如果知道一些异常的类型，可以将捕获所有异常的catch块放在最后面，这一点优点类似于switch语句中的default：</p>
+
+<pre><code>try
+{
+    super();
+};
+catch(bad_case1 &amp;be)
+{//...}
+catch(bad_case2 &amp;be)
+{//...}
+catch(bad_case3 &amp;be)
+{//...}
+catch(...)
+{//statements}
+</code></pre>
+
+<h3 id="15-3-8-exception类">15.3.8 exception类</h3>
+
+<p>exception头文件定义了exception类，C++可以把它用作其他异常的基类。代码可以引发exception异常，也可以将exception类作为基类。</p>
+
+<p>有一个名为what()的虚拟成员函数，它返回一个字符串，该字符串的特征随实现而异。然而，由于这是一个虚方法，因此可以再exception派生类中重新定义它。</p>
+
+<ol>
+<li>stdexcept异常类</li>
+</ol>
+
+<p>定义了，logic_error和runtime_error类，他们都是从exception类公有派生出来的。</p>
+
+<p>这些类的构造函数接受一个string对象作为参数，作为方法what()的返回数据。</p>
+
+<p><strong>logic_error公有派生出4个类：</strong></p>
+
+<ul>
+<li>domain_error;</li>
+<li>invalid_argument;</li>
+<li>length_error;</li>
+<li>out_of_bounds;</li>
+</ul>
+
+<p><strong>runtime_error公有派生出3个类：</strong></p>
+
+<ul>
+<li>range_error;</li>
+<li>overflow_error;</li>
+<li>underflow_error;</li>
+</ul>
+
+<p>他们之间的主要区别在于：可以根据不同的类名分别处理每种异常。另一方面，由于是继承关系也可以一起处理它们(如果愿意的话)。</p>
+
+<ol>
+<li>bad_alloc异常和new</li>
+</ol>
+
+<p>new导致的内存分配问题，C++的处理方式是让new引发bad_alloc异常。头文件new包含bad_alloc类的声明，它是exception类公有派生而来的。但在以前，当无法分配请求的内存量时，new返回一个空指针。</p>
+
+<ol>
+<li>空指针和new</li>
+</ol>
+
+<p>很多代码都是在new失败时返回空指针时编写的。</p>
+
+<p>为处理new的变化，有些编译器提供了一个标记（开关），让用户选择所需的行为。</p>
+
+<p>当前，C++标准提供了一种在失败时返回空指针的new，其用法如下</p>
+
+<pre><code>int * pi = new (std::nothrow) int;
+int * pa = new (std::nowthrow) int[500];
+</code></pre>
+
+<p>使用这种new，可将上面程序的核心代码修改如下：</p>
+
+<pre><code>Big * pb;
+pb = new(std::nothrow) Big [10000];
+if(pb ==0)
+{
+    cout&lt;&lt;&quot;Could not allocate memory. Bye.\n&quot;;
+    exit(EXIT_FAILURE);
+}
+</code></pre>
+
+<h3 id="15-3-9-异常-类和继承">15.3.9 异常、类和继承</h3>
+
+<p>异常、类和继承以3种方式向关联：</p>
+
+<ol>
+<li><p>可以像C++库那样，从一个异常类派生出另一个；</p></li>
+
+<li><p>可以在类定义中嵌套异常类声明，来组合异常；</p></li>
+
+<li><p>这种嵌套声明本身可以被继承，还可以用作基类。</p></li>
+</ol>
+
+<h3 id="15-3-10-异常何时会迷失方向">15.3.10 异常何时会迷失方向</h3>
+
+<p>异常被引发后，在两种情况下会引发问题：</p>
+
+<p>如果它是在带异常规范的函数中引发的，则必须与规范列表中的某种异常匹配，否则称为意外异常。</p>
+
+<p>如果异常不是在函数中引发的(或者函数没有异常规范)，则必须捕获它。如果没有捕获，则异常被称为未捕获异常。</p>
+
+<p>总之，如果要捕获所有的异常(不管事预期异常还是意外异常)，则可以这样做：</p>
+
+<p>首先确保异常头文件的声明可用：</p>
+
+<pre><code>#include &lt;exception&gt;
+using namespace std
+</code></pre>
+
+<p>然后设计一个替代函数，将异常转换为bad_exception异常，该函数的原型如下：</p>
+
+<pre><code>void myUnexpected()
+{
+    throw std::bad_exception();
+}
+</code></pre>
+
+<p>接下来在程序的开始位置，将意外异常操作指定为调用该函数：</p>
+
+<pre><code>set_unexpected(myUnexpected);
+</code></pre>
+
+<p>最后，将bad_exception类型包括在异常规范中，并添加如下catch块序列：</p>
+
+<pre><code>double Argh(double,double)throw(out_of_range,bad_exception);
+...
+try
+{
+    x = Argh(a,b);
+}
+catch (out_of_range&amp; e)
+{
+    ...
+}
+catch (bad_exception&amp; e)
+{
+    ...
+}
+</code></pre>
+
+<h3 id="15-3-11-有关异常的处理事项">15.3.11 有关异常的处理事项</h3>
+
+<h2 id="15-4-rtti">15.4 RTTI</h2>
+
+<h3 id="15-4-1-rtti的用途">15.4.1 RTTI的用途</h3>
+
+<p>假如，有一个类层次结构，其中的类都是从同一个基类派生而来的，利用多态性，则基类指针或者引用可以指向任意一个派生类对象。但如何知道指针指向的是哪种对象呢？可能有三种情况：</p>
+
+<ol>
+<li><p>该类层次结构中所有的成员都拥有虚函数，则基类指针可以根据所指对象的类型，调用相应派生类的方法。</p></li>
+
+<li><p>派生对象可能包含不是继承而来的方法，这种情况下，只有某些类型的对象可以使用该方法。</p></li>
+
+<li><p>也可能是出于调试的目的，想跟踪生成的对象的类型。</p></li>
+</ol>
+
+<p>对于后两种情况，RTTI提供解决方案。</p>
+
+<h3 id="15-4-2-rtti工作原理">15.4.2 RTTI工作原理</h3>
+
+<p>C++有3个支持RTTI的元素：</p>
+
+<ol>
+<li><p>如果可能的话，dynamic_cast运算符将使用一个指向基类的指针来生成一个指向派生类的指针；否则该运算符返回0&mdash;空指针。</p></li>
+
+<li><p>typeid运算符返回一个指出对象的类型的值。</p></li>
+
+<li><p>type_info结构存储了有关特定类型的信息。</p></li>
+</ol>
+
+<p>只能将RTTI用于包含虚函数的类层次结构，原因在于只有对这种类层次结构，才应该将派生对象的地址赋给基类指针。</p>
+
+<ol>
+<li>dynamic_cast运算符</li>
+</ol>
+
+<p>dynamic_cast不能回答“指针指向的是哪类对象”，但能够回答“是否可以安全地将对象的地址赋给特定类型的指针”这样的问题。</p>
+
+<p>通常，如果指向的对象(*pt)的类型为Type或者是从Type直接或者间接派生而来的类型，则下面的表达式将指针pt转换为类型为Type类型的指针：</p>
+
+<pre><code>dynamic_cast&lt;Type *&gt; (pt)
+</code></pre>
+
+<p>否则，结果为0，即空指针。</p>
+
+<p>也可以将dynamic_cast用于引用，其用法稍微有点不同：没有与空指针对应的引用值，因此无法使用特殊的引用值来只是失败。当请求不准确时，dynamic_cast将引发类型为bad_cast的异常，这种异常是从exception类派生而来的，它是在头文件typeinfo中定义的。因此可以像下面这样使用该运算符，其中rg是对Grand对象的引用，Superb是从Grand派生出的对象：</p>
+
+<pre><code>#include &lt;typeinfo&gt;
+...
+try
+{
+    Superb &amp; rs = dynamic_cast&lt;Superb &amp;&gt; (rg);
+}
+catch (bad_cast &amp;)
+{
+    ...
+};
+</code></pre>
+
+<ol>
+<li>typeid运算符和type_info类</li>
+</ol>
+
+<p>typeid运算符是的能够确定两个对象是否为同种类型。它与sizeof有些相似，可以接受两种参数：</p>
+
+<ul>
+<li>类名</li>
+<li>结果为对象的表达式</li>
+</ul>
+
+<p>typeid运算符返回一个type_info对象的引用，其中，type_info是在头文件type_info中定义的一个类。type_info重载了==和！=运算符，以便可以使用这些运算符来对类型进行判断。例如，如果pg执行的是一个Superb对象，则下述表达式的结果为bool值true，否则为false：</p>
+
+<pre><code>typeid(Superb) == typeid(*pg)
+</code></pre>
+
+<p>如果pg是一个空指针，程序将引发bad_typeid异常。该异常类型是从exception类派生而来的，是在头文件typeinfo中声明的。</p>
+
+<p>type_info类实现随厂商而异，但包含一个name()成员，该函数返回一个随实现而异的字符串：通常(但并非一定)是类名。例如，下面的语句显示指针pg指向的对象所属类定义的字符串：</p>
+
+<pre><code>cout::typeid(*pg).name()&lt;&lt;&quot;\n&quot;;
+</code></pre>
+
+<h2 id="15-5-类型转换运算符">15.5 类型转换运算符</h2>
+
+<p>四种类型转换运算符，他们的语法相同：</p>
+
+<ul>
+<li>dynamic_cast，语法：dynamic_cast<type-name> (expression)</li>
+<li>const_cast，语法：const_cast<type-name> (expression)</li>
+<li>static_cast，语法：static_cast<type-name> (expression)</li>
+<li>reinterpret_cast，语法：reinterpret_cast<type-name> (expression)</li>
+</ul>
+
+<h3 id="15-5-1-dynamic-cast运算符">15.5.1 dynamic_cast运算符</h3>
+
+<p>dynamic_cast运算符在前面已经介绍过了，假设High和Low是两个类，而ph和pl的类型分别为High *和Low *。</p>
+
+<p>则仅当Low是High的可访问基类时，下面的语句才将一个Low*指针赋给pl：</p>
+
+<pre><code>pl = dynamic_cast&lt;Low *&gt; ph;
+</code></pre>
+
+<p>该运算符的用途是，使得能够在<strong>类层次结构中进行向上转换</strong>（由于是is-a关系，这种转换是安全的），而不允许其他转换。</p>
+
+<p>（1）其他三种都是编译时完成的，dynamic_cast是运行时处理的，运行时要进行类型检查。</p>
+
+<p>（2）不能用于内置的基本数据类型的强制转换。</p>
+
+<p>（3）dynamic_cast转换如果成功的话返回的是指向类的指针或引用，转换失败的话则会返回NULL。</p>
+
+<p>（4）使用dynamic_cast进行转换的，基类中一定要有虚函数，否则编译不通过。</p>
+
+<p>基类中需要检测有虚函数的原因：类中存在虚函数，就说明它有想要让基类指针或引用指向派生类对象的情况，此时转换才有意义。</p>
+
+<p>这是由于运行时类型检查需要运行时类型信息，而这个信息存储在类的虚函数表（关于虚函数表的概念，详细可见<Inside c++ object model>）中，只有定义了虚函数的类才有虚函数表。</p>
+
+<p>（5）在类的转换时，在类层次间进行上行转换时，dynamic_cast和static_cast的效果是一样的。在进行下行转换时，dynamic_cast具有类型检查的功能，比static_cast更安全。</p>
+
+<p>向上转换，即为子类指针指向父类指针（一般不会出问题）；</p>
+
+<p>向下转换，即将父类指针转化子类指针。向下转换的成功与否还与将要转换的类型有关，即要转换的指针指向的对象的实际类型与转换以后的对象类型一定要相同，否则转换失败。</p>
+
+<p>在C++中，编译期的类型转换有可能会在运行时出现错误，特别是涉及到类对象的指针或引用操作时，更容易产生错误。Dynamic_cast操作符则可以在运行期对可能产生问题的类型转换进行测试。</p>
+
+<h3 id="15-5-2-const-cast运算符">15.5.2 const_cast运算符</h3>
+
+<p>const运算符用于执行只有一种用途的类型转换。即改变值为const或volatile，其语法与dynamic_cast运算符相同：</p>
+
+<p>如果类型的其他方面也被修改，则上述类型的转换将出错。</p>
+
+<p>也就是说除了const和volatile特征可以不同外，type_name和expression的类型必须相同。</p>
+
+<p>再次假设High和Low是两个类：</p>
+
+<pre><code>High bar;
+const High * pbar = &amp;bar;
+...
+
+High * pb = const_cast&lt;High *&gt; (pbar);                     //valid
+const  Low * pl = const_cast&lt;const Low *&gt; (pbar);   //invalid
+</code></pre>
+
+<p>第一个类型转换使得<code>*pb</code>成为一个可用于修改bar对象值的指针，它删除const标签。</p>
+
+<p>第二个类型转换是非法的，因为它同时尝试将类型从<code>const High*</code>改为<code>const Low*</code>。</p>
+
+<p>提供该运算符的原因是，有时候可能需要这样一个值，它在大多数时候是常量，而有时又是可修改的。</p>
+
+<p>在这种情况下，<strong>可以将这个值声明为const，并在需要修改它的时候，使用const_cast</strong>。</p>
+
+<p><strong>需注意const_cast可以修改指向一个值的指针，但不可以修改const值。</strong></p>
+
+<pre><code>void change(const int * pt)
+{
+    int * pc;
+    pc = const_cast&lt;int *&gt;(pt);
+    *pc = 100;
+}
+ 
+int main()
+{
+    int pop1 = 38383;
+    const int pop2 = 2000;
+    
+    change(&amp;pop1);
+    change(&amp;pop2);
+ 
+    return 0;
+}
+</code></pre>
+
+<p>在change()中，指针pt被声明为const int *，因此不能用来修改指向的int。指针pc删除了const特诊，因此可以用来修改指针指向的值，但仅当指向的不是const时才行，因此，pc可用于修改pop1的值，但不能修改pop2的值。</p>
+
+<h3 id="15-5-3-static-cast运算符">15.5.3 static_cast运算符</h3>
+
+<p>static_cast运算符仅当type_name可被隐式转换为expression所属的类型或expression可被隐式转换为type_name所属的类型时，上述转换才是合法的，否则将会出错。</p>
+
+<p>假设High是Low的基类，而Pond是一个无关的类，则从High到Low的转换，从Low到High的转换都是合法的，而从Low到Pond的转换时不允许的。</p>
+
+<pre><code>High bar;
+Low blow;
+...
+High *pb = static_cast&lt;High *&gt;(&amp;blow); //valid
+Low *pl = static_cast&lt;Low *&gt;(&amp;bar); //valid
+Pond *pb = static_cast&lt;Pond *&gt;(&amp;blow); //invalid,Pond unrelated
+</code></pre>
+
+<p><strong>它主要有如下几种用法：</strong>
+* 用于类层次结构中基类和派生类之间指针或引用的转换
+进行上行转换（把派生类的指针或引用转换成基类表示）是安全的
+进行下行转换（把基类的指针或引用转换为派生类表示），由于没有动态类型检查，所以是不安全的
+* 用于基本数据类型之间的转换，如把int转换成char。这种转换的安全也要开发人员来保证
+* 把空指针转换成目标类型的空指针
+* 把任何类型的表达式转换为void类型
+注意：static_cast不能转换掉expression的const、volitale或者__unaligned属性。</p>
+
+<h3 id="15-5-4-reinterpret-cast运算符">15.5.4 reinterpret_cast运算符</h3>
+
+<p>reinterpret_cast用于天生危险的类型转换,主要有三种强制转换用途：改变指针或引用的类型、将指针或引用转换为一个足够长度的整形、将整型转换为指针或引用类型。</p>
+
+<p>reinterpret_cast不支持所有类型的转换，如<strong>不能将指针类型转换为更小的整型或浮点型</strong>，<strong>不能将函数指针转换为数据指针</strong>，反之亦然。</p>
         </div>
         <footer class="article-footer">
     <a data-url="http://jchenTech.github.io/2020/03/23/c-primer-plus-%E7%AC%AC15%E7%AB%A0%E5%8F%8B%E5%85%83%E5%BC%82%E5%B8%B8%E5%92%8C%E5%85%B6%E4%BB%96/" data-id="1c37ecef13d96788239b6dae587d5baa" class="article-share-link">
@@ -1352,6 +1737,58 @@ double harm(double a) throw();    //doesn't throw an exception
             
             <li>
                 <div class="item-thumbnail">
+                    <a href="http://jchenTech.github.io/2020/04/13/python%E4%B9%8Bmatplotlib%E7%BB%98%E5%9B%BE%E5%9F%BA%E7%A1%80/" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="http://jchenTech.github.io/categories/python">
+                        Python
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="http://jchenTech.github.io/2020/04/13/python%E4%B9%8Bmatplotlib%E7%BB%98%E5%9B%BE%E5%9F%BA%E7%A1%80/" class="title">Python之Matplotlib绘图基础</a></p>
+                    <p class="item-date">
+                        <time datetime="2020-04-13 18:56:06 &#43;0800 CST" itemprop="datePublished">2020-04-13</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="http://jchenTech.github.io/2020/04/04/c-primer-plus-%E7%AC%AC16%E7%AB%A0string%E7%B1%BB%E5%92%8C%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="http://jchenTech.github.io/categories/c&#43;&#43;">
+                        C&#43;&#43;
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="http://jchenTech.github.io/2020/04/04/c-primer-plus-%E7%AC%AC16%E7%AB%A0string%E7%B1%BB%E5%92%8C%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/" class="title">C&#43;&#43; primer plus 第16章String类和标准模板库</a></p>
+                    <p class="item-date">
+                        <time datetime="2020-04-04 15:59:06 &#43;0800 CST" itemprop="datePublished">2020-04-04</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
                     <a href="http://jchenTech.github.io/2020/04/03/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Crnn%E4%BB%8B%E7%BB%8D/" class="thumbnail">
                     
                         <span class="thumbnail-image thumbnail-none"></span>
@@ -1428,58 +1865,6 @@ double harm(double a) throw();    //doesn't throw an exception
                 </div>
             </li>
             
-            <li>
-                <div class="item-thumbnail">
-                    <a href="http://jchenTech.github.io/2020/03/31/hugo%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%8B%E5%BD%92%E6%A1%A3%E9%A1%B5%E9%9D%A2/" class="thumbnail">
-                    
-                        <span class="thumbnail-image thumbnail-none"></span>
-                    
-                    </a>
-                </div>
-                <div class="item-inner">
-                    
-                    
-                    <p class="item-category">
-                        
-                        <a class="article-category-link" href="http://jchenTech.github.io/categories/%E5%8D%9A%E5%AE%A2">
-                        博客
-                        </a>
-                    </p>
-                    
-                    
-                    <p class="item-title"><a href="http://jchenTech.github.io/2020/03/31/hugo%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%8B%E5%BD%92%E6%A1%A3%E9%A1%B5%E9%9D%A2/" class="title">hugo博客建立归档页面</a></p>
-                    <p class="item-date">
-                        <time datetime="2020-03-31 10:42:06 &#43;0800 CST" itemprop="datePublished">2020-03-31</time>
-                    </p>
-                </div>
-            </li>
-            
-            <li>
-                <div class="item-thumbnail">
-                    <a href="http://jchenTech.github.io/2020/03/30/hugo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/" class="thumbnail">
-                    
-                        <span class="thumbnail-image thumbnail-none"></span>
-                    
-                    </a>
-                </div>
-                <div class="item-inner">
-                    
-                    
-                    <p class="item-category">
-                        
-                        <a class="article-category-link" href="http://jchenTech.github.io/categories/%E5%8D%9A%E5%AE%A2">
-                        博客
-                        </a>
-                    </p>
-                    
-                    
-                    <p class="item-title"><a href="http://jchenTech.github.io/2020/03/30/hugo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/" class="title">Hugo插入图片</a></p>
-                    <p class="item-date">
-                        <time datetime="2020-03-30 13:25:06 &#43;0800 CST" itemprop="datePublished">2020-03-30</time>
-                    </p>
-                </div>
-            </li>
-            
         </ul>
     </div>
 </div>
@@ -1506,13 +1891,21 @@ double harm(double a) throw();    //doesn't throw an exception
                 <a class="category-list-link" href="http://jchenTech.github.io/categories/c&#43;&#43;">
                     c&#43;&#43;
                 </a>
-                <span class="category-list-count">6</span>
+                <span class="category-list-count">7</span>
             </li>
             
             <li class="category-list-item">
                 
                 <a class="category-list-link" href="http://jchenTech.github.io/categories/programming">
                     programming
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="http://jchenTech.github.io/categories/python">
+                    python
                 </a>
                 <span class="category-list-count">1</span>
             </li>
@@ -1573,7 +1966,13 @@ double harm(double a) throw();    //doesn't throw an exception
         <a href="http://jchenTech.github.io/tags/markdown" style="font-size: 12px;">markdown</a>
         
         
+        <a href="http://jchenTech.github.io/tags/matplotlib" style="font-size: 12px;">matplotlib</a>
+        
+        
         <a href="http://jchenTech.github.io/tags/programming" style="font-size: 12px;">programming</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/python" style="font-size: 12px;">python</a>
         
         
         <a href="http://jchenTech.github.io/tags/r-cnn" style="font-size: 12px;">r-cnn</a>

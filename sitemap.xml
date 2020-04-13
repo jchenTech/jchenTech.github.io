@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://jchenTech.github.io/2020/04/13/python%E4%B9%8Bmatplotlib%E7%BB%98%E5%9B%BE%E5%9F%BA%E7%A1%80/</loc>
+    <lastmod>2020-04-13T18:56:06+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://jchenTech.github.io/2020/04/04/c-primer-plus-%E7%AC%AC16%E7%AB%A0string%E7%B1%BB%E5%92%8C%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/</loc>
+    <lastmod>2020-04-04T15:59:06+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://jchenTech.github.io/2020/04/03/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Crnn%E4%BB%8B%E7%BB%8D/</loc>
     <lastmod>2020-04-03T17:57:06+08:00</lastmod>
   </url>
@@ -105,13 +115,13 @@
   
   <url>
     <loc>http://jchenTech.github.io/tags/c&#43;&#43;/</loc>
-    <lastmod>2020-03-23T15:41:06+08:00</lastmod>
+    <lastmod>2020-04-04T15:59:06+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://jchenTech.github.io/categories/c&#43;&#43;/</loc>
-    <lastmod>2020-03-23T15:41:06+08:00</lastmod>
+    <lastmod>2020-04-04T15:59:06+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -158,8 +168,14 @@
   </url>
   
   <url>
+    <loc>http://jchenTech.github.io/tags/matplotlib/</loc>
+    <lastmod>2020-04-13T18:56:06+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://jchenTech.github.io/post/</loc>
-    <lastmod>2020-04-03T17:57:06+08:00</lastmod>
+    <lastmod>2020-04-13T18:56:06+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -172,6 +188,18 @@
   <url>
     <loc>http://jchenTech.github.io/categories/programming/</loc>
     <lastmod>2015-10-02T21:49:20+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jchenTech.github.io/tags/python/</loc>
+    <lastmod>2020-04-13T18:56:06+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jchenTech.github.io/categories/python/</loc>
+    <lastmod>2020-04-13T18:56:06+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -201,7 +229,7 @@
   
   <url>
     <loc>http://jchenTech.github.io/tags/</loc>
-    <lastmod>2020-03-23T15:41:06+08:00</lastmod>
+    <lastmod>2020-04-04T15:59:06+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -265,7 +293,7 @@
   
   <url>
     <loc>http://jchenTech.github.io/</loc>
-    <lastmod>2020-04-03T17:57:06+08:00</lastmod>
+    <lastmod>2020-04-13T18:56:06+08:00</lastmod>
     <priority>0</priority>
   </url>
   
