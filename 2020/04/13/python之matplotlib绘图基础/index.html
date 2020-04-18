@@ -22,7 +22,9 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
     <meta property="og:title" content="Python之Matplotlib绘图基础" />
-<meta property="og:description" content="Python十分适合用来进行数据分析，因为它有“四板斧”，分别是Matplotlib、NumPy、SciPy/Pandas。Matplotlib是画图工具，NumPy是矩阵运算库，SciPy是数学运算工具，Pandas是数据处理的工具。本篇文章将介绍python的绘图工具Matplotlib，它是一个风格类似Matlab的基于Python的绘图库。它提供了一整套和matlab相似的命令API，十分适合交互式地进行制图。" />
+<meta property="og:description" content="Python十分适合用来进行数据分析，因为它有“四板斧”，分别是Matplotlib、NumPy、SciPy/Pandas。Matplotlib是画图工具，NumPy是矩阵运算库，SciPy是数学运算工具，Pandas是数据处理的工具。本篇文章将介绍python的绘图工具Matplotlib，它是一个风格类似Matlab的基于Python的绘图库。它提供了一整套和matlab相似的命令API，十分适合交互式地进行制图。
+
+" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://jchenTech.github.io/2020/04/13/python%E4%B9%8Bmatplotlib%E7%BB%98%E5%9B%BE%E5%9F%BA%E7%A1%80/" />
 <meta property="article:published_time" content="2020-04-13T18:56:06&#43;08:00"/>
@@ -31,12 +33,14 @@
     
     
 <meta itemprop="name" content="Python之Matplotlib绘图基础">
-<meta itemprop="description" content="Python十分适合用来进行数据分析，因为它有“四板斧”，分别是Matplotlib、NumPy、SciPy/Pandas。Matplotlib是画图工具，NumPy是矩阵运算库，SciPy是数学运算工具，Pandas是数据处理的工具。本篇文章将介绍python的绘图工具Matplotlib，它是一个风格类似Matlab的基于Python的绘图库。它提供了一整套和matlab相似的命令API，十分适合交互式地进行制图。">
+<meta itemprop="description" content="Python十分适合用来进行数据分析，因为它有“四板斧”，分别是Matplotlib、NumPy、SciPy/Pandas。Matplotlib是画图工具，NumPy是矩阵运算库，SciPy是数学运算工具，Pandas是数据处理的工具。本篇文章将介绍python的绘图工具Matplotlib，它是一个风格类似Matlab的基于Python的绘图库。它提供了一整套和matlab相似的命令API，十分适合交互式地进行制图。
+
+">
 
 
 <meta itemprop="datePublished" content="2020-04-13T18:56:06&#43;08:00" />
 <meta itemprop="dateModified" content="2020-04-13T18:56:06&#43;08:00" />
-<meta itemprop="wordCount" content="1">
+<meta itemprop="wordCount" content="565">
 
 
 
@@ -44,7 +48,9 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Python之Matplotlib绘图基础"/>
-<meta name="twitter:description" content="Python十分适合用来进行数据分析，因为它有“四板斧”，分别是Matplotlib、NumPy、SciPy/Pandas。Matplotlib是画图工具，NumPy是矩阵运算库，SciPy是数学运算工具，Pandas是数据处理的工具。本篇文章将介绍python的绘图工具Matplotlib，它是一个风格类似Matlab的基于Python的绘图库。它提供了一整套和matlab相似的命令API，十分适合交互式地进行制图。"/>
+<meta name="twitter:description" content="Python十分适合用来进行数据分析，因为它有“四板斧”，分别是Matplotlib、NumPy、SciPy/Pandas。Matplotlib是画图工具，NumPy是矩阵运算库，SciPy是数学运算工具，Pandas是数据处理的工具。本篇文章将介绍python的绘图工具Matplotlib，它是一个风格类似Matlab的基于Python的绘图库。它提供了一整套和matlab相似的命令API，十分适合交互式地进行制图。
+
+"/>
 <meta name="twitter:site" content="@spf13"/>
 
     
@@ -175,12 +181,12 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        20
+        21
         <span>文章</span>
       </div>
       <div class="article-info-block">
         
-          21
+          23
         
         <span>
             标签
@@ -275,10 +281,10 @@
             <i class="fa fa-calendar"></i>
             <time datetime="2020-04-13 18:56:06 &#43;0800 CST" itemprop="datePublished">2020-04-13</time>
             &middot;
-            1
+            565
             字
             &middot;
-            1
+            3
             分钟读完
         </div>
         
@@ -318,6 +324,509 @@
 
         <div class="article-entry" itemprop="articleBody">
             <p>Python十分适合用来进行数据分析，因为它有“四板斧”，分别是Matplotlib、NumPy、SciPy/Pandas。Matplotlib是画图工具，NumPy是矩阵运算库，SciPy是数学运算工具，Pandas是数据处理的工具。本篇文章将介绍python的绘图工具Matplotlib，它是一个风格类似Matlab的基于Python的绘图库。它提供了一整套和matlab相似的命令API，十分适合交互式地进行制图。</p>
+
+<p><img src="/images/Python之Matplotlib绘图基础/matplotlib.png" alt="matplotlib" /></p>
+
+<hr />
+
+<p>matplotlib是一个python 2D绘图库，利用它可以画出许多高质量的图像。只需几行代码即可生成直方图，条形图，饼图，散点图等。</p>
+
+<p>Matplotlib可用于Python脚本，Python和IPython shell，Jupyter笔记本，Web应用程序服务器和四个图形用户界面工具包。希望本文能帮助大家了解如何将matplotlib用于自己的可视化。</p>
+
+<h2 id="1-matplotlib-pyplot和pylab">1. Matplotlib，pyplot和pylab？</h2>
+
+<p>Matplotlib是整个包，pyplot是Matplotlib中的一个模块，并且pylab是一个安装在一起的模块。</p>
+
+<p>pylab和pyplot的区别是，前者将numpy导入了其命名空间中，这样会使pylab表现的和matlab更加相似。现在来说我们经常使用pyplot，因为pyplot相比pylab更加纯粹。</p>
+
+<h2 id="2-numpy-pandas">2. numpy，pandas？</h2>
+
+<p>matplotlib是可视化的表达，那么在图形的绘制中肯定会涉及一些数据处理。pandas和numpy则是python中最好用的两个数据分析库，使用它们，能够解决超过90%的数据分析问题。</p>
+
+<h2 id="3-matplotlib-绘图上手">3. matplotlib 绘图上手</h2>
+
+<h3 id="3-1-安装matplotlib">3.1 安装Matplotlib</h3>
+
+<pre><code>python -m pip install matplotlib
+</code></pre>
+
+<p>然后打开Jupyter Notebook（安装好 Anaconda 后，Jupyter 也已装好，在应用窗口中可以找到），我们就可以直接上手了。</p>
+
+<h3 id="3-2-图的构成">3.2 图的构成</h3>
+
+<p><img src="https://pic1.zhimg.com/v2-d260b686b5fdff0ef48735257dc261fc_b.jpg" alt="" /></p>
+
+<p>以上图片来自matplotlib官网，它向我们展示了matplotlib的图的构成元素。</p>
+
+<p>大多数元素都比较好理解：</p>
+
+<p>坐标轴(axis)、坐标轴名称(axis label)、坐标轴刻度(tick)、坐标轴刻度标签(tick label)、网格线(grid)、图例(legend)、标题(title)&hellip;&hellip;</p>
+
+<h4 id="3-2-1-title设置">3.2.1 title设置</h4>
+
+<pre><code>import matplotlib.pyplot as plt
+plt.title(&quot;title&quot;)#括号当中输入标题的名称
+plt.show()
+</code></pre>
+
+<p><img src="https://pic1.zhimg.com/v2-9c74cfcbff2d2194e7545451662b27f4_b.jpg" alt="" /></p>
+
+<p>如果title是中文，matplotlib会乱码，这时需要加上下面这段代码：</p>
+
+<pre><code>plt.rcParams['font.sans-serif']=['SimHei']
+</code></pre>
+
+<p><img src="https://pic2.zhimg.com/v2-53f69bc322bbd2809aee87eee0b1d3d9_b.jpg" alt="" /></p>
+
+<h4 id="3-2-2-figure对象">3.2.2 Figure对象</h4>
+
+<p>在matplotlib中，整个图像为一个Figure对象。在Figure对象中可以包含一个或者多个Axes对象。每个Axes(ax)对象都是一个拥有自己坐标系统的<strong>绘图区域</strong>。</p>
+
+<pre><code>plt.figure(figsize=(6, 3))
+plt.plot(6, 3)
+plt.plot(3, 3 * 2)
+plt.show()
+</code></pre>
+
+<p><img src="https://pic3.zhimg.com/v2-757ecd9bde16cf561c9e4056c1de4eae_b.jpg" alt="" /></p>
+
+<h4 id="3-2-3-坐标轴及标签">3.2.3 坐标轴及标签</h4>
+
+<pre><code>plt.xlim(0,6) #x轴坐标轴
+plt.ylim((0, 3))#y轴坐标轴
+plt.xlabel('X')#x轴标签
+plt.ylabel('Y')#y轴标签
+plt.show()
+</code></pre>
+
+<p><img src="https://pic1.zhimg.com/v2-44e1b181a7ced1747639e4004bf4c5e4_b.jpg" alt="" /></p>
+
+<p>如果需要将数字设为负数，也可能出现乱码的情况，这时候可以加下面的代码：</p>
+
+<pre><code>plt.rcParams['axes.unicode_minus']=False
+</code></pre>
+
+<p><img src="https://pic4.zhimg.com/v2-82778a67b3a9d0081852c9c46b30597b_b.jpg" alt="" /></p>
+
+<h4 id="3-2-4-设置label和legend">3.2.4 设置label和legend</h4>
+
+<p>设置 label 和 legend 的目的就是为了区分出每个数据对应的图形名称,legend的loc参数用于设置图例位置。</p>
+
+<pre><code>plt.plot(2, 3, label=&quot;123&quot;)#第一个label
+plt.plot(2, 3* 2, label=&quot;456&quot;)#第二个label
+plt.legend(loc='best')#图列位置，可选best，center等
+plt.show()
+</code></pre>
+
+<p><img src="https://pic3.zhimg.com/v2-c5daccacab7f146466e666f8cc40bbfa_b.jpg" alt="" /></p>
+
+<h4 id="3-2-5-添加注释">3.2.5 添加注释</h4>
+
+<p>有时候我们需要对特定的点进行标注，我们可以使用 plt.annotate 函数来实现:</p>
+
+<p>s: 注释信息内容<br />
+xy:箭头点所在的坐标位置<br />
+xytext:注释内容的坐标位置</p>
+
+<p>arrowprops：设置指向箭头的参数</p>
+
+<pre><code>x=np.linspace(0,10,200)#从0到10之间等距产生200个值
+y=np.sin(x)
+
+plt.plot(x,y,linestyle=':',color='b')
+plt.annotate(s='标记点',xy=(3,np.sin(3)),xytext=(4,-0.5),weight='bold',color='b',\arrowprops=dict(arrowstyle='-|&gt;',color='k'))
+plt.show()
+</code></pre>
+
+<p><img src="https://pic4.zhimg.com/v2-04181787aa3f2d0f9451bb9be706b74f_b.jpg" alt="" /></p>
+
+<h4 id="3-2-6-使用子图">3.2.6 使用子图</h4>
+
+<p>如果需要将多张子图展示在一起，可以使用 subplot() 实现。即在调用 plot()函数之前需要先调用 subplot() 函数。该函数的第一个参数代表子图的总行数，第二个参数代表子图的总列数，第三个参数代表活跃区域。</p>
+
+<pre><code>ax1 = plt.subplot(2, 2, 1)
+plt.plot(x,np.sin(x), 'k')
+
+ax2 = plt.subplot(2, 2, 2, sharey=ax1) # 与 ax1 共享y轴
+plt.plot(x, np.cos(x), 'g')
+
+ax3 = plt.subplot(2, 2, 3)
+plt.plot(x,x, 'r')
+
+ax4 = plt.subplot(2, 2, 4, sharey=ax3) # 与 ax3 共享y轴
+plt.plot(x, 2*x, 'y')
+</code></pre>
+
+<p><img src="https://pic3.zhimg.com/v2-a31c13b45edb08bf1bf3ded74a8359aa_b.jpg" alt="" /></p>
+
+<h3 id="3-3-matplotlib绘图">3.3 matplotlib绘图</h3>
+
+<p>matplotlib画图可以总结为3个步骤：获取数据——画出基本图形——设置细节。获取的数据一般包括横坐标和纵坐标的数据，这个数据可以是读取的，也可以自己生成，本文为了方便演示，使用numpy和pandas生成随机数。</p>
+
+<p>matplotlib所提供的图形非常丰富，除了基本的柱状图、饼图、散点图等，还提供了极坐标图、3D图等高级图形，并且你可以自由选择和组合。每个图形函数下都有许多参数可设置，matplotlib提供的不仅仅是图形，还有更为精细的图像表达，你可以通过细节的设置来丰富你的可视化。</p>
+
+<h4 id="3-3-1-bar-柱状图">3.3.1 bar 柱状图</h4>
+
+<p>生成一个单系列的柱状图比较简单，只要确定x轴及y轴的数据，利用bar（）函数就能生成：</p>
+
+<pre><code>x = np.arange(10)
+y = np.random.randint(0,20,10)
+plt.bar(x, y)
+plt.show()
+</code></pre>
+
+<p><img src="https://pic4.zhimg.com/v2-259129dd7b7e68b4fe441e5cc467ae4b_b.jpg" alt="" /></p>
+
+<p>除了单系列柱状图，matplotlib还提供了其它类型的柱状图，如多系列柱状图，堆叠图，水平向的条纹图等。plt.plot()适用于基本图表的绘制，kind可选类型有线形图、柱状图、密度图、堆叠图、面积图等，以横纵坐标两个维度为主。grid是显示网格，colormap是颜色展示，括号中可填颜色参数，如不填则会展示默认颜色。</p>
+
+<pre><code># 多系列柱状图
+df = pd.DataFrame(np.random.rand(10, 3), columns = ['a', 'b', 'c'])
+df.plot(kind = 'bar'， grid = True, colormap = 'summer_r')
+</code></pre>
+
+<p><img src="https://pic3.zhimg.com/v2-94abf2bee173ab06eea65f8b9e1ce212_b.jpg" alt="" /></p>
+
+<p>想要实现堆叠效果，一定要加上stacked=true，否则输出图形就是一般的柱状图。</p>
+
+<pre><code># 多系列堆叠图
+df.plot(kind = 'bar',  grid = True, colormap = 'Blues_r', stacked = True)
+</code></pre>
+
+<p><img src="https://pic1.zhimg.com/v2-88eb42f1e0d463e89ecbd9adead2723c_b.jpg" alt="" /></p>
+
+<p>水平向的条形图调用的是barh（）:</p>
+
+<pre><code># 水平向
+df.plot.barh( grid = True, colormap = 'BuGn_r')
+</code></pre>
+
+<p><img src="https://pic3.zhimg.com/v2-1ec88245e3a074d4bf682d9cc2d39426_b.jpg" alt="" /></p>
+
+<p>与垂直柱状图一样，如果想要柱状图实现堆叠效果，则加上：stacked=true</p>
+
+<p><img src="https://pic1.zhimg.com/v2-7955e1aa759c6c22cfeac3b8c85275b4_b.jpg" alt="" /></p>
+
+<h4 id="3-3-2-scatter-散点图">3.3.2 scatter 散点图</h4>
+
+<p>绘制散点图，主要用到plt.scatter（）这个函数。</p>
+
+<p>x,y是必填参数；</p>
+
+<p>c(颜色：b&ndash;blue, c&ndash;cyan,g&ndash;green,k&ndash;black,m&ndash;magenta,r&ndash;red,w&ndash;white,y&ndash;yellow)；</p>
+
+<p>s：控制点的大小，默认为20)；</p>
+
+<p>marker：指定散点图点的形状，默认为圆形；</p>
+
+<p>alpha：指定对象的透明度；</p>
+
+<p>&hellip;&hellip;</p>
+
+<p>绘制简单的散点图：</p>
+
+<pre><code>x = np.random.rand(10)
+y = np.random.rand(10)
+plt.scatter(x,y)
+plt.show()
+</code></pre>
+
+<p><img src="https://pic4.zhimg.com/v2-98bc4d4387faa115aba7b90b6c5d13ab_b.jpg" alt="" /></p>
+
+<p>进行简单的一些参数设置：</p>
+
+<pre><code>x = np.random.rand(50)
+y = np.random.rand(50)
+colors = np.random.rand(50)
+s = (30 * np.random.rand(n))**2
+plt.scatter(x, y,s, c=colors, alpha=0.5)
+plt.show()
+</code></pre>
+
+<p><img src="https://pic2.zhimg.com/v2-15e41d2a734f7919d2a5553c089e8465_b.jpg" alt="" /></p>
+
+<p>散点矩阵图scatter_matrix，diagonal = &ldquo;为每个指标的频率图，有kde及hist两个参数可选；range_padding 是图像在x轴，y轴原点附近的留白，值越大，图像离坐标原点的距离越大。</p>
+
+<pre><code>df = pd.DataFrame(np.random.randn(100, 4), columns = list('abcd'))
+pd.scatter_matrix(df, figsize = (8,6),marker = 'o',diagonal = 'kde',alpha = 0.4,range_padding = 0.05)
+</code></pre>
+
+<p><img src="https://pic1.zhimg.com/v2-3f642c4fc038dda767c12c56e1863ab0_b.jpg" alt="" /></p>
+
+<h4 id="3-3-3-pie-饼图">3.3.3 pie 饼图</h4>
+
+<pre><code>matplotlib中饼图的实现用的是pie（）函数，必须输入的参数是饼图每个部分的值。
+x = np.random.randint(1, 10, 3)
+plt.pie(x)
+plt.show()
+</code></pre>
+
+<p><img src="https://pic4.zhimg.com/v2-a678a6d7bca177c73df04cf93ea17c0f_b.jpg" alt="" /></p>
+
+<p>部分参数解释:</p>
+
+<p>使用labels为饼图加标签；</p>
+
+<p>autopct 控制饼图内百分比设置</p>
+
+<p>&rsquo;%1.1f&rsquo;指小数点前后位数(没有用空格补齐)，</p>
+
+<p>shadow是在饼图下画一个阴影，False即不画</p>
+
+<pre><code>sizes = [2,5,12]
+labels = ['娱乐','育儿','饮食']
+plt.pie(sizes,labels=labels,autopct='%1.1f%%',shadow=False,startangle=100)
+plt.show()
+</code></pre>
+
+<p><img src="https://pic3.zhimg.com/v2-70f8e7e1fe94b314c5ca0c55fca94f32_b.jpg" alt="" /></p>
+
+<h4 id="3-3-4-hist-直方图">3.3.4 hist 直方图</h4>
+
+<p>直方图绘制为hist（）函数，参数如下：</p>
+
+<p>data:必选参数，绘图数据</p>
+
+<p>bins:直方图的长条形数目，可选项，默认为10</p>
+
+<p>normed:是否将得到的直方图向量归一化，可选项，默认为0，代表不归一化，显示频数。normed=1，表示归一化，显示频率。</p>
+
+<p>facecolor:长条形的颜色</p>
+
+<p>edgecolor:长条形边框的颜色</p>
+
+<p>alpha:透明度</p>
+
+<p>&hellip;&hellip;</p>
+
+<pre><code>s = pd.Series(np.random.randn(1000))
+s.hist(bins = 20,histtype = 'bar',align = 'mid',orientation = 'vertical',alpha = 0.5,normed = True)
+</code></pre>
+
+<p><img src="https://pic4.zhimg.com/v2-f9db256e0bfbe0f5d52b6fb77753a7b3_b.jpg" alt="" /></p>
+
+<pre><code>密度图，加上：
+
+s.plot(kind = 'kde', style = 'k--')
+</code></pre>
+
+<p><img src="https://pic2.zhimg.com/v2-fb89f767f7ef51ad734607f814e81cc9_b.jpg" alt="" /></p>
+
+<pre><code>柱状图能够实现堆叠，直方图也能实现堆叠,重点语句同样是stacked = True
+
+df = pd.DataFrame({'a':np.random.randn(500) + 1, 'b':np.random.randn(500),
+'c':np.random.randn(500) - 1, 'd':np.random.randn(500)},
+columns = list('abcd'))
+df.plot.hist(stacked = True,bins = 10,colormap = 'Blues_r',alpha = 0.5,grid = True)
+</code></pre>
+
+<p><img src="https://pic2.zhimg.com/v2-fba7f9ce9b49be7b44b935f679a860c1_b.jpg" alt="" /></p>
+
+<h4 id="3-3-5-polar-极坐标图">3.3.5 polar 极坐标图</h4>
+
+<p>matplotlib的pyplot子库提供了绘制极坐标图的方法。在调用subplot()创建子图时通过设置projection=&lsquo;polar&rsquo;,便可创建一个极坐标子图，然后调用plot()在极坐标子图中绘图。</p>
+
+<pre><code>ax1 = plt.subplot(121, projection='polar')
+</code></pre>
+
+<p><img src="https://pic3.zhimg.com/v2-fb51e0fb313f5423cd54a51fa2d1a166_b.jpg" alt="" /></p>
+
+<p>部分参数意义：</p>
+
+<p>theta：角度数据</p>
+
+<p>radii ：极径数据</p>
+
+<p>theta_direction方法用于设置极坐标的正方向</p>
+
+<p>theta_zero_location方法用于设置极坐标0°位置，0°可设置在八个位置，分别为N, NW, W, SW, S, SE, E, NE</p>
+
+<p>thetagrids方法用于设置极坐标角度网格线显示</p>
+
+<p>theta_offset方法用于设置角度偏离</p>
+
+<p>&hellip;&hellip;</p>
+
+<p>极区图：</p>
+
+<pre><code>N = 20
+theta = np.linspace(0, 2 * np.pi, N, endpoint = False)
+radii = 10 * np.random.rand(N)
+width = np.pi / 4 * np.random.rand(N)
+
+ax = plt.subplot(111, projection = 'polar')
+bars = ax.bar(theta, radii, width = width, bottom = 0.0)
+</code></pre>
+
+<p><img src="https://pic4.zhimg.com/v2-13d463c2d65bd4ebd783e73c16ec88eb_b.jpg" alt="" /></p>
+
+<p>极散点图：</p>
+
+<pre><code>theta = np.arange(0,2*np.pi, np.pi/4) # 数据角度
+r = np.arange(1,9,1) #数据极径
+area = 100*np.arange(1,9,1) # 数据散点面积
+colors = theta
+ax2 = plt.subplot(111,projection='polar')
+ax2.scatter(theta, r, c=colors, s=area, cmap='hsv', alpha =0.75)
+</code></pre>
+
+<p><img src="https://pic1.zhimg.com/v2-fa03b2491032831aa78f0fc4d8a2dffc_b.jpg" alt="" /></p>
+
+<h4 id="3-3-6-boxplot-箱型图">3.3.6 boxplot 箱型图</h4>
+
+<p>绘制箱线图，用plt.boxplot()这个函数。箱型图是利用数据中的五个统计量：最小值、第一四分位数、中位数、第三四分位数与最大值来描述数据的一种方法。它也可以粗略地看出数据是否具有有对称性，分布的分散程度等信息，特别可以用于对几个样本的比较。</p>
+
+<p><img src="https://pic3.zhimg.com/v2-2aed06ee0846456cbdf84adbf96b6216_b.jpg" alt="" /></p>
+
+<p>箱线图各部分含义</p>
+
+<p>部分参数：sym：异常值的形状 ；whis：用于调节上下垂直线的长度</p>
+
+<p>生成单个箱型图：</p>
+
+<pre><code>np.random.seed(100)#生成随机数
+data=np.random.normal(size=1000,loc=0,scale=1)
+plt.boxplot(data,sym='o',whis=1.5)
+plt.show()
+</code></pre>
+
+<p><img src="https://pic1.zhimg.com/v2-df69d30327e1affb376606033db09128_b.jpg" alt="" /></p>
+
+<p>多个箱型图：</p>
+
+<pre><code>np.random.seed(100)#生成随机数
+data=np.random.normal(size=(1000,4),loc=0,scale=1) #1000个值得4维数组
+lables = ['A','B','C','D']
+plt.boxplot(data,labels=lables)
+plt.show()
+</code></pre>
+
+<p><img src="https://pic1.zhimg.com/v2-b9d9728c5376c42182b8807dd0bd8904_b.jpg" alt="" /></p>
+
+<p>箱型图也可以是横向的，加上vert=False即可：</p>
+
+<p><img src="https://pic2.zhimg.com/v2-186bef80b453202251bda408167139fd_b.jpg" alt="" /></p>
+
+<h4 id="3-3-7-heatmap-热图">3.3.7 heatmap 热图</h4>
+
+<p>热图是数据分析的常用方法，通过色差、亮度来展示数据的差异、易于理解。matplotlib中生成热图是调用的函数imshow（）。</p>
+
+<pre><code>X = [[1,2],[3,4],[5,6]]
+plt.imshow(X)
+plt.show()
+</code></pre>
+
+<p><img src="https://pic1.zhimg.com/v2-8fade0b6a1485c6ba59eac007216003c_b.jpg" alt="" /></p>
+
+<p>增加颜色类标的代码是plt.colorbar()：</p>
+
+<p><img src="https://pic1.zhimg.com/v2-072b7476da718b61882799a0271763d8_b.jpg" alt="" /></p>
+
+<h2 id="4-可视化控制">4. 可视化控制</h2>
+
+<p>前面我们用matplotlib绘制了许多不同类型的图像，对于基本的数据分析已经完全掌握。但在一些细节的调节、颜色、美观度上我们没有做过多强调，matplotlib所提供的不仅仅是图形的基本绘制，它也提供了让图像展示更精细的工具。</p>
+
+<h3 id="4-1-颜色表示">4.1 颜色表示</h3>
+
+<pre><code>八种内件颜色缩写：
+b:blue
+g:green
+r:red
+c:cyan
+m:magenta
+y:yellow
+k:black
+w:white
+
+先用numpy生成四条线，再对四条线的颜色进行设置：
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+y=np.arange(1,5)
+</code></pre>
+
+<h4 id="4-1-1-简单颜色展示">4.1.1 简单颜色展示</h4>
+
+<pre><code>plt.plot(y,color='b')
+</code></pre>
+
+<h4 id="4-1-2-灰色度">4.1.2 灰色度</h4>
+
+<pre><code>plt.plot(y+1,color='0.5') #灰色 程度为0.5
+</code></pre>
+
+<h4 id="4-1-3十六进制颜色表示">4.1.3十六进制颜色表示</h4>
+
+<p>十六进制颜色代码可通过百度颜色代码（对照表查找）</p>
+
+<pre><code>plt.plot(y+2,color='#FFEC8B')
+</code></pre>
+
+<h4 id="4-1-4-rgb-表示">4.1.4 RGB 表示</h4>
+
+<p>此时注意要将R，G，B每个值除以255，使其属于0~1之间，如下为红色:</p>
+
+<pre><code>plt.plot(y+3,color=(1,0,0))
+</code></pre>
+
+<p>效果图：</p>
+
+<p><img src="https://pic4.zhimg.com/v2-c906c3d5f97cbaa0ce6c3f49a8569e97_b.jpg" alt="" /></p>
+
+<h3 id="4-2-点-线样式">4.2 点、线样式</h3>
+
+<h4 id="4-2-1-四种线型">4.2.1 四种线型</h4>
+
+<pre><code>plt.plot(y,'-') #实线
+plt.plot(y+1,'--')#虚线
+plt.plot(y+2,'-.')#点划线
+plt.plot(y+3,':')#点线
+</code></pre>
+
+<p><img src="https://pic1.zhimg.com/v2-b9e5b4fecb0caa8eb157b57643d9af40_b.jpg" alt="" /></p>
+
+<h4 id="4-2-2-点样式">4.2.2 点样式</h4>
+
+<pre><code>plt.plot(y,'o')
+plt.plot(y+1,'D')
+plt.plot(y+2,'^')
+plt.plot(y+3,'p')
+</code></pre>
+
+<p><img src="https://pic2.zhimg.com/v2-6960c4fce9184c6b4ab2ae79d5f87f51_b.jpg" alt="" /></p>
+
+<p>指定marker时，会画出线段：</p>
+
+<pre><code>plt.plot(y,marker='o')
+plt.plot(y+1,marker='D')
+</code></pre>
+
+<p><img src="https://pic1.zhimg.com/v2-9dc5f6e56ccef371a54794b12901b8ec_b.jpg" alt="" /></p>
+
+<h4 id="4-2-3-样式字符串">4.2.3 样式字符串</h4>
+
+<p>将颜色，点型，线型写成一个字符串，如:gx：，mo&ndash;等</p>
+
+<pre><code>plt.plot(y,'gx:')
+plt.plot(y+1,'mo--')
+plt.plot(y+2,'bp-')
+</code></pre>
+
+<p><img src="https://pic4.zhimg.com/v2-f080941f1b88bdeabbbf71b344163cf7_b.jpg" alt="" /></p>
+
+<h3 id="5-保存图片">5. 保存图片</h3>
+
+<pre><code>plt.savefig() # 保存
+</code></pre>
+
+<p>关于 matplotlib，基本的图形绘制到这里就差不多了，虽然只是最常规的图形，但是足够让你开始尝试探索数据，快速绘图并获得分析结果。</p>
+
+<h2 id="参考文献">参考文献</h2>
+
+<ul>
+<li><a href="https://matplotlib.org/">matplotlib官方文档</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/70835617">十分钟|matplotlib上手，开启你的python可视化</a></li>
+</ul>
         </div>
         <footer class="article-footer">
     <a data-url="http://jchenTech.github.io/2020/04/13/python%E4%B9%8Bmatplotlib%E7%BB%98%E5%9B%BE%E5%9F%BA%E7%A1%80/" data-id="6ba9ed889789e4f136d11a3d1147b201" class="article-share-link">
@@ -410,6 +919,13 @@
     
 
     
+    <a href="http://jchenTech.github.io/2020/04/14/%E7%BD%91%E7%BB%9C%E6%8C%96%E6%8E%98%E5%8F%8A%E5%85%B6%E7%9B%B8%E5%85%B3%E5%BA%94%E7%94%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          下一篇
+      </strong>
+      <div class="article-nav-title">网络挖掘及其相关应用</div>
+    </a>
+    
 </nav>
 
 
@@ -453,6 +969,32 @@
     </h3>
     <div class="widget">
         <ul id="recent-post">
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="http://jchenTech.github.io/2020/04/14/%E7%BD%91%E7%BB%9C%E6%8C%96%E6%8E%98%E5%8F%8A%E5%85%B6%E7%9B%B8%E5%85%B3%E5%BA%94%E7%94%A8/" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="http://jchenTech.github.io/categories/%E7%BD%91%E7%BB%9C%E6%8C%96%E6%8E%98">
+                        网络挖掘
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="http://jchenTech.github.io/2020/04/14/%E7%BD%91%E7%BB%9C%E6%8C%96%E6%8E%98%E5%8F%8A%E5%85%B6%E7%9B%B8%E5%85%B3%E5%BA%94%E7%94%A8/" class="title">网络挖掘及其相关应用</a></p>
+                    <p class="item-date">
+                        <time datetime="2020-04-14 13:44:06 &#43;0800 CST" itemprop="datePublished">2020-04-14</time>
+                    </p>
+                </div>
+            </li>
             
             <li>
                 <div class="item-thumbnail">
@@ -558,32 +1100,6 @@
                 </div>
             </li>
             
-            <li>
-                <div class="item-thumbnail">
-                    <a href="http://jchenTech.github.io/2020/04/01/%E5%9B%A7%E4%BA%8B%E4%B8%80%E5%A4%A7%E5%A0%86/" class="thumbnail">
-                    
-                        <span class="thumbnail-image thumbnail-none"></span>
-                    
-                    </a>
-                </div>
-                <div class="item-inner">
-                    
-                    
-                    <p class="item-category">
-                        
-                        <a class="article-category-link" href="http://jchenTech.github.io/categories/">
-                        
-                        </a>
-                    </p>
-                    
-                    
-                    <p class="item-title"><a href="http://jchenTech.github.io/2020/04/01/%E5%9B%A7%E4%BA%8B%E4%B8%80%E5%A4%A7%E5%A0%86/" class="title">囧事一大堆</a></p>
-                    <p class="item-date">
-                        <time datetime="2020-04-01 10:17:06 &#43;0800 CST" itemprop="datePublished">2020-04-01</time>
-                    </p>
-                </div>
-            </li>
-            
         </ul>
     </div>
 </div>
@@ -643,6 +1159,14 @@
                     深度学习
                 </a>
                 <span class="category-list-count">3</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="http://jchenTech.github.io/categories/%E7%BD%91%E7%BB%9C%E6%8C%96%E6%8E%98">
+                    网络挖掘
+                </a>
+                <span class="category-list-count">1</span>
             </li>
             
         </ul>
@@ -718,6 +1242,9 @@
         <a href="http://jchenTech.github.io/tags/%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5" style="font-size: 12px;">图片插入</a>
         
         
+        <a href="http://jchenTech.github.io/tags/%E5%A4%8D%E6%9D%82%E7%BD%91%E7%BB%9C" style="font-size: 12px;">复杂网络</a>
+        
+        
         <a href="http://jchenTech.github.io/tags/%E5%BD%92%E6%A1%A3%E9%A1%B5%E9%9D%A2" style="font-size: 12px;">归档页面</a>
         
         
@@ -725,6 +1252,9 @@
         
         
         <a href="http://jchenTech.github.io/tags/%E7%94%9F%E6%B4%BB%E8%BF%91%E5%86%B5" style="font-size: 12px;">生活近况</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/%E7%A4%BE%E4%BA%A4%E7%BD%91%E7%BB%9C%E6%8C%96%E6%8E%98" style="font-size: 12px;">社交网络挖掘</a>
         
     </div>
 </div>
