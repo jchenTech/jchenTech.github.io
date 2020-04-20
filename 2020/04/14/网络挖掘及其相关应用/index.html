@@ -40,7 +40,7 @@
 
 <meta itemprop="datePublished" content="2020-04-14T13:44:06&#43;08:00" />
 <meta itemprop="dateModified" content="2020-04-14T13:44:06&#43;08:00" />
-<meta itemprop="wordCount" content="150">
+<meta itemprop="wordCount" content="170">
 
 
 
@@ -281,7 +281,7 @@
             <i class="fa fa-calendar"></i>
             <time datetime="2020-04-14 13:44:06 &#43;0800 CST" itemprop="datePublished">2020-04-14</time>
             &middot;
-            150
+            170
             字
             &middot;
             1
@@ -421,7 +421,38 @@
 
 <p>计算经过一个点的最短路径的数量。经过一个点的最短路径的数量越多，就说明它的中介中心度越高。</p>
 
-<p>$$C<em>B(v)= \sum</em>{s \neq v \neq t \in V}\frac{\sigma<em>{st}(v)}{\sigma</em>{st}}$$</p>
+<math display='block'>
+ <mrow>
+  <msub>
+   <mi>C</mi>
+   <mi>B</mi>
+  </msub>
+  <mo stretchy='false'>(</mo><mi>v</mi><mo stretchy='false'>)</mo><mo>=</mo><mstyle displaystyle='true'>
+   <munder>
+    <mo>&#x2211;</mo>
+    <mrow>
+     <mi>s</mi><mo>&#x2260;</mo><mi>v</mi><mo>&#x2260;</mo><mi>t</mi><mo>&#x2208;</mo><mi>V</mi></mrow>
+   </munder>
+   <mrow>
+    <mfrac>
+     <mrow>
+      <msub>
+       <mi>&#x03C3;</mi>
+       <mrow>
+        <mi>s</mi><mi>t</mi></mrow>
+      </msub>
+      <mo stretchy='false'>(</mo><mi>v</mi><mo stretchy='false'>)</mo></mrow>
+     <mrow>
+      <msub>
+       <mi>&#x03C3;</mi>
+       <mrow>
+        <mi>s</mi><mi>t</mi></mrow>
+      </msub>
+      </mrow>
+    </mfrac>
+    </mrow>
+  </mstyle></mrow>
+</math>
 
 <p>假设想知道的人是A。但是后来我们发现在这个26人的圈子里面，度中心性最高的人A，却不一定是活跃的，这里就需要用到中介中心度（betweenness centrality）来进行计算。很多节点之间的最短路径都经过C这个点，那么就说C有高的中介中心度。也就是说这个点处在其他点对相互之间的捷径上。</p>
 
@@ -429,7 +460,53 @@
 
 <h3 id="2-4-特征向量中心性">2.4 特征向量中心性</h3>
 
-<p>一个节点的重要性既取决于其邻居节点的数量（即该节点的度），也取决于其邻居节点的重要性,记 $x_i$ 为节点 $v_i$ 的重要性度量值，则：</p>
+<p>一个节点的重要性既取决于其邻居节点的数量（即该节点的度），也取决于其邻居节点的重要性,记 $x_t$ 为节点 $v_t$ 的重要性度量值，则：</p>
+
+<math display='block'>
+ <mrow>
+  <msub>
+   <mi>x</mi>
+   <mi>v</mi>
+  </msub>
+  <mo>=</mo><mfrac>
+   <mn>1</mn>
+   <mi>&#x03BB;</mi>
+  </mfrac>
+  <mstyle displaystyle='true'>
+   <munder>
+    <mo>&#x2211;</mo>
+    <mrow>
+     <mi>t</mi><mo>&#x2208;</mo><mi>M</mi><mo stretchy='false'>(</mo><mi>v</mi><mo stretchy='false'>)</mo></mrow>
+   </munder>
+   <mrow>
+    <msub>
+     <mi>x</mi>
+     <mi>t</mi>
+    </msub>
+    </mrow>
+  </mstyle><mo>=</mo><mfrac>
+   <mn>1</mn>
+   <mi>&#x03BB;</mi>
+  </mfrac>
+  <mstyle displaystyle='true'>
+   <munder>
+    <mo>&#x2211;</mo>
+    <mrow>
+     <mi>t</mi><mo>&#x2208;</mo><mi>G</mi></mrow>
+   </munder>
+   <mrow>
+    <msub>
+     <mi>a</mi>
+     <mrow>
+      <mi>v</mi><mo>,</mo><mi>t</mi></mrow>
+    </msub>
+    </mrow>
+  </mstyle><msub>
+   <mi>x</mi>
+   <mi>t</mi>
+  </msub>
+  </mrow>
+</math>
 
 <h3 id="1-3-网络可视化与分析工具">1.3 网络可视化与分析工具</h3>
 
