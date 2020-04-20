@@ -119,13 +119,13 @@
   </url>
   
   <url>
-    <loc>http://jchenTech.github.io/tags/c&#43;&#43;/</loc>
+    <loc>http://jchenTech.github.io/categories/c&#43;&#43;/</loc>
     <lastmod>2020-04-04T15:59:06+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://jchenTech.github.io/categories/c&#43;&#43;/</loc>
+    <loc>http://jchenTech.github.io/tags/c&#43;&#43;/</loc>
     <lastmod>2020-04-04T15:59:06+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -185,25 +185,25 @@
   </url>
   
   <url>
-    <loc>http://jchenTech.github.io/tags/programming/</loc>
-    <lastmod>2015-10-02T21:49:20+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>http://jchenTech.github.io/categories/programming/</loc>
     <lastmod>2015-10-02T21:49:20+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://jchenTech.github.io/tags/python/</loc>
-    <lastmod>2020-04-13T18:56:06+08:00</lastmod>
+    <loc>http://jchenTech.github.io/tags/programming/</loc>
+    <lastmod>2015-10-02T21:49:20+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://jchenTech.github.io/categories/python/</loc>
+    <lastmod>2020-04-13T18:56:06+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jchenTech.github.io/tags/python/</loc>
     <lastmod>2020-04-13T18:56:06+08:00</lastmod>
     <priority>0</priority>
   </url>
