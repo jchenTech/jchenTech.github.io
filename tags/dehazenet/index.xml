@@ -12,11 +12,11 @@
     
     
     <item>
-      <title>DehazeNet: An End-to-End System for Single Image Haze Removal</title>
-      <link>http://jchenTech.github.io/2020/07/07/dehazenet-an-end-to-end-system-for-single-image-haze-removal/</link>
+      <title>【论文笔记】DehazeNet: An End-to-End System for Single Image Haze Removal</title>
+      <link>http://jchenTech.github.io/2020/07/07/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0dehazenet-an-end-to-end-system-for-single-image-haze-removal/</link>
       <pubDate>Tue, 07 Jul 2020 16:50:00 +0800</pubDate>
       
-      <guid>http://jchenTech.github.io/2020/07/07/dehazenet-an-end-to-end-system-for-single-image-haze-removal/</guid>
+      <guid>http://jchenTech.github.io/2020/07/07/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0dehazenet-an-end-to-end-system-for-single-image-haze-removal/</guid>
       <description>&lt;p&gt;该文章提出一种名为DehazeNet的可训练的端到端系统，用于传输值估计。 DehazeNet将模糊图像作为输入，并输出其中间透射图，随后用于通过大气散射模型恢复无雾图像。 DehazeNet采用基于卷积神经网络的深层架构，&lt;strong&gt;其层专门设计用于体现图像去雾中已建立的假设/先验&lt;/strong&gt;。具体而言，Maxout单位的图层用于特征提取，这可以生成几乎所有与雾相关的特征。我们还在DehazeNet中提出了一种新的非线性激活函数，称为&lt;strong&gt;双边整流线性单元&lt;/strong&gt;，它能够提高恢复的无雾图像的质量。我们在提议的&lt;strong&gt;DehazeNet的组件与现有方法中使用的组件之间建立连接&lt;/strong&gt;。基准图像的实验表明，DehazeNet比现有方法具有更高的性能，同时保持高效和易用。&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://jchenTech.github.io/images/DehazeNet/DehazeNet架构图.png&#34; alt=&#34;DehazeNet架构图&#34; /&gt;&lt;/p&gt;</description>

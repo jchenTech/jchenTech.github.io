@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>DehazeZoo：图像&amp;视频去雾清晰化资源大全（论文/数据集/开源项目） &middot; 陈建君的技术博客</title>
+    <meta name="generator" content="Hugo 0.54.0" />
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="陈建君">
+    
+      <meta name="description" content="Better late than never">
+    
+    
+    <link rel="canonical" href="http://jchenTech.github.io/2020/07/18/dehazezoo%E5%9B%BE%E5%83%8F%E8%A7%86%E9%A2%91%E5%8E%BB%E9%9B%BE%E6%B8%85%E6%99%B0%E5%8C%96%E8%B5%84%E6%BA%90%E5%A4%A7%E5%85%A8%E8%AE%BA%E6%96%87/%E6%95%B0%E6%8D%AE%E9%9B%86/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
+    <link rel="icon" href="http://jchenTech.github.io/favicon.ico">
+    <link rel="apple-touch-icon" href="http://jchenTech.github.io/apple-touch-icon.png"/>
+    <link rel="stylesheet" href="http://jchenTech.github.io/css/style.css">
+    <link rel="stylesheet" href="http://jchenTech.github.io/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://jchenTech.github.io/css/monokai.css">
+    <link rel="stylesheet" href="http://jchenTech.github.io/fancybox/jquery.fancybox.css">
+    
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <meta property="og:title" content="DehazeZoo：图像&amp;视频去雾清晰化资源大全（论文/数据集/开源项目）" />
+<meta property="og:description" content="图像去雾的目的是消除雾霾环境对图像质量的影响，增加图像的可视度，是图像处理和计算机视觉领域共同关切的前沿课题，吸引了国内外研究人员的广泛关注。在github上 cxtalk列举了图像去雾近年来经典论文、评估指标与数据集，在此转载以便记录。
+
+转载自：DehazeZoo (Single Image vs. Video Based) https://github.com/cxtalk/DehazeZoo" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://jchenTech.github.io/2020/07/18/dehazezoo%E5%9B%BE%E5%83%8F%E8%A7%86%E9%A2%91%E5%8E%BB%E9%9B%BE%E6%B8%85%E6%99%B0%E5%8C%96%E8%B5%84%E6%BA%90%E5%A4%A7%E5%85%A8%E8%AE%BA%E6%96%87/%E6%95%B0%E6%8D%AE%E9%9B%86/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" />
+<meta property="article:published_time" content="2020-07-18T16:38:00&#43;08:00"/>
+<meta property="article:modified_time" content="2020-07-18T16:38:00&#43;08:00"/>
+
+    
+    
+<meta itemprop="name" content="DehazeZoo：图像&amp;视频去雾清晰化资源大全（论文/数据集/开源项目）">
+<meta itemprop="description" content="图像去雾的目的是消除雾霾环境对图像质量的影响，增加图像的可视度，是图像处理和计算机视觉领域共同关切的前沿课题，吸引了国内外研究人员的广泛关注。在github上 cxtalk列举了图像去雾近年来经典论文、评估指标与数据集，在此转载以便记录。
+
+转载自：DehazeZoo (Single Image vs. Video Based) https://github.com/cxtalk/DehazeZoo">
+
+
+<meta itemprop="datePublished" content="2020-07-18T16:38:00&#43;08:00" />
+<meta itemprop="dateModified" content="2020-07-18T16:38:00&#43;08:00" />
+<meta itemprop="wordCount" content="595">
+
+
+
+<meta itemprop="keywords" content="图像去雾," />
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="DehazeZoo：图像&amp;视频去雾清晰化资源大全（论文/数据集/开源项目）"/>
+<meta name="twitter:description" content="图像去雾的目的是消除雾霾环境对图像质量的影响，增加图像的可视度，是图像处理和计算机视觉领域共同关切的前沿课题，吸引了国内外研究人员的广泛关注。在github上 cxtalk列举了图像去雾近年来经典论文、评估指标与数据集，在此转载以便记录。
+
+转载自：DehazeZoo (Single Image vs. Video Based) https://github.com/cxtalk/DehazeZoo"/>
+<meta name="twitter:site" content="@spf13"/>
+
+    
+
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+<div class="container">
+
+
+<div id="container">
+	<header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="http://jchenTech.github.io/" id="logo">
+          
+          <i class="logo" style="background-image: url('http://jchenTech.github.io/css/images/logo.png')"></i>
+          
+          <span class="site-title">陈建君的技术博客</span>
+      </a>
+      <nav id="main-nav">
+          
+          
+          <a class="main-nav-link" href="http://jchenTech.github.io/">主页</a>
+          
+          
+          
+          
+          
+          
+
+          
+          <a class="main-nav-link" href="/about/">关于我</a>
+          
+          <a class="main-nav-link" href="/archives/">归档</a>
+          
+
+          
+          
+          
+          
+          <a class="main-nav-link" href="http://jchenTech.github.io/tags/">标签</a>
+          
+          
+          
+          <a class="main-nav-link" href="http://jchenTech.github.io/categories/">分类</a>
+          
+          
+      </nav>
+        <nav id="sub-nav">
+          <div class="profile" id="profile-nav">
+            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="http://jchenTech.github.io/css/images/avatar.png"><i class="fa fa-caret-down"></i></a>
+          </div>
+        </nav>
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+              <input type="search" name="q" class="search-form-input" placeholder="搜索">
+              <button type="submit" class="search-form-submit">
+              </button>
+              <input type="hidden" name="sitesearch" value="http://jchenTech.github.io/" />
+         </form>
+        </div>
+    </div>
+  </div>
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tbody>
+          <tr>
+          
+          
+          <td><a class="main-nav-link" href="http://jchenTech.github.io/">主页</a></td>
+          
+          
+          
+          
+          
+          
+
+          
+          <td><a class="main-nav-link" href="/about/">关于我</a></td>
+          
+          <td><a class="main-nav-link" href="/archives/">归档</a></td>
+          
+
+          
+          
+          
+          
+          <td><a class="main-nav-link" href="http://jchenTech.github.io/tags/">标签</a></td>
+          
+          
+          
+          <td><a class="main-nav-link" href="http://jchenTech.github.io/categories/">分类</a></td>
+          
+          
+          <td>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+          <input type="search" name="q" class="search-form-input" placeholder="Search">
+          <input type="hidden" name="sitesearch" value="http://jchenTech.github.io/" />
+          </form>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</header>
+
+   	
+   	<div class="outer">
+   	
+    	<aside id="profile">
+  <div class="inner profile-inner">
+    <div class="base-info profile-block">
+      
+      <img id="avatar" src="http://jchenTech.github.io/css/images/avatar.png">
+      
+      <h2 id="name">陈建君</h2>
+      <h3 id="title">练习时长两年半的程序猿</h3>
+      <span id="location"><i class="fa fa-map-marker"></i>重庆渝中</span>
+      
+          <a id="follow" href="https://github.com/jchenTech">
+              关注
+          </a>
+      
+    </div>
+    <div class="article-info profile-block">
+      <div class="article-info-block">
+        25
+        <span>文章</span>
+      </div>
+      <div class="article-info-block">
+        
+          27
+        
+        <span>
+            标签
+        </span>
+      </div>
+    </div>
+    <div class="profile-block social-links">
+      <table>
+        <tr>
+          
+<td><a href="//github.com/jchenTech" target="_blank" title="GitHub"><i class="fa fa-github"></i></a></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<td><a href="//twitter.com/spf13" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></td>
+
+
+          <td><a href="http://jchenTech.github.io/index.xml" target="_blank" title="RSS"><i class="fa fa-rss"></i></a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</aside>
+
+    
+
+    <section id="main">
+    
+    <article id="page-undefined" class="article article-type-page" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+
+        <header class="article-header">
+    <a href="http://jchenTech.github.io/2020/07/18/dehazezoo%E5%9B%BE%E5%83%8F%E8%A7%86%E9%A2%91%E5%8E%BB%E9%9B%BE%E6%B8%85%E6%99%B0%E5%8C%96%E8%B5%84%E6%BA%90%E5%A4%A7%E5%85%A8%E8%AE%BA%E6%96%87/%E6%95%B0%E6%8D%AE%E9%9B%86/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/">
+    <h1 class="article-title" itemprop="name">
+        DehazeZoo：图像&amp;视频去雾清晰化资源大全（论文/数据集/开源项目）
+    </h1>
+    </a>
+    <div class="article-meta">
+
+        
+        <div class="article-date">
+            <i class="fa fa-calendar"></i>
+            <time datetime="2020-07-18 16:38:00 &#43;0800 CST" itemprop="datePublished">2020-07-18</time>
+            &middot;
+            595
+            字
+            &middot;
+            3
+            分钟读完
+        </div>
+        
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-folder"></i>
+                
+                
+                <a class="article-category-link" href="http://jchenTech.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0">深度学习</a>
+                
+                
+            </div>
+            
+        
+
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-tags"></i>
+                
+                
+                <a class="article-category-link" href="http://jchenTech.github.io/tags/%E5%9B%BE%E5%83%8F%E5%8E%BB%E9%9B%BE">图像去雾</a>
+                
+                
+            </div>
+            
+        
+    </div>
+</header>
+
+        <div class="article-entry" itemprop="articleBody">
+            <p>图像去雾的目的是消除雾霾环境对图像质量的影响，增加图像的可视度，是图像处理和计算机视觉领域共同关切的前沿课题，吸引了国内外研究人员的广泛关注。在github上 cxtalk列举了图像去雾近年来经典论文、评估指标与数据集，在此转载以便记录。</p>
+
+<p>转载自：DehazeZoo (Single Image vs. Video Based) <a href="https://github.com/cxtalk/DehazeZoo">https://github.com/cxtalk/DehazeZoo</a></p>
+
+<h1 id="dehazezoo-single-image-vs-video-based">DehazeZoo (Single Image vs. Video Based)</h1>
+
+<p><a href="https://cxtalk.github.io/">Xiang Chen</a>, Yufeng Li, Yufeng Huang</p>
+
+<h2 id="1-description">1 Description</h2>
+
+<ul>
+<li><p>DehazeZoo: A survey on haze removal from video and single image. Papers, codes and datasets are maintained.</p></li>
+
+<li><p>Thanks for the sharing of <a href="https://github.com/nnUyi/DerainZoo">DerainZoo</a> by <a href="https://github.com/nnuyi">Youzhao Yang</a>.</p></li>
+
+<li><p>More details about image dehazing and deraining are available <a href="https://zhuanlan.zhihu.com/dehaze-derain">here</a>.</p></li>
+</ul>
+
+<h2 id="2-image-quality-metrics">2 Image Quality Metrics</h2>
+
+<ul>
+<li>PSNR (Peak Signal-to-Noise Ratio) <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=4550695">[paper]</a> <a href="https://www.mathworks.com/help/images/ref/psnr.html">[matlab code]</a> <a href="https://github.com/aizvorski/video-quality">[python code]</a></li>
+<li>SSIM (Structural Similarity) <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=1284395">[paper]</a> <a href="http://www.cns.nyu.edu/~lcv/ssim/ssim_index.m">[matlab code]</a> <a href="https://github.com/aizvorski/video-quality/blob/master/ssim.py">[python code]</a></li>
+<li>VIF (Visual Quality) <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=1576816">[paper]</a> <a href="http://sse.tongji.edu.cn/linzhang/IQA/Evalution_VIF/eva-VIF.htm">[matlab code]</a></li>
+<li>FSIM (Feature Similarity) <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=5705575">[paper]</a> <a href="http://sse.tongji.edu.cn/linzhang/IQA/FSIM/FSIM.htm">[matlab code]</a></li>
+<li>NIQE (Naturalness Image Quality Evaluator) <a href="http://live.ece.utexas.edu/research/Quality/niqe_spl.pdf">[paper]</a><a href="http://live.ece.utexas.edu/research/Quality/index_algorithms.htm">[matlab code]</a><a href="https://github.com/aizvorski/video-quality/blob/master/niqe.py">[python code]</a></li>
+</ul>
+
+<h2 id="3-dehazing-research">3 Dehazing Research</h2>
+
+<h3 id="3-1-datasets">3.1 Datasets</h3>
+
+<hr />
+
+<ul>
+<li>KITTI [paper][<a href="http://www.cvlibs.net/datasets/kitti/eval_depth_all.php">dataset</a>]</li>
+<li>RESIDE [<a href="https://arxiv.org/pdf/1712.04143.pdf">paper</a>][<a href="https://sites.google.com/view/reside-dehaze-datasets">dataset</a>]</li>
+<li>SceneNet [paper][<a href="https://robotvault.bitbucket.io/scenenet-rgbd.html">dataset</a>]</li>
+<li>I-HAZE [<a href="https://data.vision.ee.ethz.ch/cvl/ntire18//o-haze/O-HAZE.pdf">paper</a>][<a href="http://www.vision.ee.ethz.ch/ntire18/i-haze/">dataset</a>]</li>
+<li>O-HAZE [<a href="https://data.vision.ee.ethz.ch/cvl/ntire18//o-haze/O-HAZE.pdf">paper</a>][<a href="http://www.vision.ee.ethz.ch/ntire18/o-haze/">dataset</a>]</li>
+<li>D-HAZY [<a href="http://www.meo.etc.upt.ro/AncutiProjectPages/D_Hazzy_ICIP2016/D_HAZY_ICIP2016.pdf">paper</a>][<a href="https://www.researchgate.net/publication/307516141_D-HAZY_A_dataset_to_evaluate_quantitatively_dehazing_algorithms">dataset</a>]</li>
+<li>Middlebury [<a href="http://www.cs.middlebury.edu/~schar/papers/datasets-gcpr2014.pdf">paper</a>][<a href="http://vision.middlebury.edu/stereo/data/scenes2014/">dataset</a>]</li>
+<li>NYU Depth Dataset V2 [<a href="https://cs.nyu.edu/~silberman/papers/indoor_seg_support.pdf">paper</a>][<a href="https://cs.nyu.edu/~silberman/datasets/nyu_depth_v2.html">dataset</a>]</li>
+</ul>
+
+<h3 id="3-2-papers">3.2 Papers</h3>
+
+<hr />
+
+<h3 id="2020">2020</h3>
+
+<ul>
+<li>Shen et al, Implicit Euler ODE Networks for Single-Image Dehazing. [<a href="https://arxiv.org/abs/2007.06443">paper</a>][code]</li>
+<li>Liu et al, Efficient Unpaired Image Dehazing with Cyclic Perceptual-Depth Supervision. [<a href="https://arxiv.org/abs/2007.05220">paper</a>][code]</li>
+<li>Li et al, You Only Look Yourself: Unsupervised and Untrained Single Image Dehazing Neural Network. [<a href="https://arxiv.org/abs/2006.16829">paper</a>][code]</li>
+<li>Pang et al, BidNet: Binocular Image Dehazing without Explicit Disparity Estimation. (CVPR) [<a href="http://openaccess.thecvf.com/content_CVPR_2020/papers/Pang_BidNet_Binocular_Image_Dehazing_Without_Explicit_Disparity_Estimation_CVPR_2020_paper.pdf">paper</a>][code]</li>
+<li>Sourya et al, Fast Deep Multi-patch Hierarchical Network for Nonhomogeneous Image Dehazing. [<a href="https://arxiv.org/abs/2005.05999">paper</a>][code]</li>
+<li>Dong et al, Multi-Scale Boosted Dehazing Network with Dense Feature Fusion. (CVPR) [<a href="https://arxiv.org/abs/2004.13388">paper</a>][<a href="https://github.com/BookerDeWitt/MSBDN-DFF">code</a>]</li>
+<li>Li et al, Learning to Dehaze From Realistic Scene with A Fast Physics Based Dehazing Network. [<a href="https://arxiv.org/abs/2004.08554">paper</a>][<a href="https://github.com/liruoteng/3DRealisticSceneDehaze">code</a>]</li>
+<li>Shao et al, Domain Adaptation for Image Dehazing. (CVPR) [<a href="https://arxiv.org/abs/2005.04668">paper</a>][<a href="https://github.com/HUSTSYJ/DA_dahazing">code</a>][<a href="https://sites.google.com/site/renwenqi888">web</a>]</li>
+<li>Wu et al, Accurate Transmission Estimation for Removing Haze and Noise from a Single Image. (TIP) [<a href="https://ieeexplore.ieee.org/document/8891906">paper</a>][code]</li>
+<li>Ren et al, Single Image Dehazing via Multi-Scale Convolutional Neural Networks with Holistic Edges. (IJCV) [<a href="https://link.springer.com/article/10.1007%2Fs11263-019-01235-8">paper</a>][code]</li>
+<li>Dong et al, FD-GAN: Generative Adversarial Networks with Fusion-discriminator for Single Image Dehazing. [<a href="https://arxiv.org/abs/2001.06968">paper</a>][<a href="https://github.com/WeilanAnnn/FD-GAN">code</a>]</li>
+<li>Qin et al, FFA-Net: Feature Fusion Attention Network for Single Image Dehazing. (AAAI) [<a href="https://arxiv.org/abs/1911.07559">paper</a>][<a href="https://github.com/zhilin007/FFA-Net">code</a>]</li>
+</ul>
+
+<h3 id="2019">2019</h3>
+
+<ul>
+<li>Wu et al, Learning Interleaved Cascade of Shrinkage Fields for Joint Image Dehazing and Denoising. (TIP) [<a href="https://ieeexplore.ieee.org/document/8852852">paper</a>][code]</li>
+<li>Li et al, Semi-Supervised Image Dehazing. (TIP) [<a href="https://ieeexplore.ieee.org/abstract/document/8902220/">paper</a>][code]</li>
+<li>Li et al, Benchmarking Single Image Dehazing and Beyond. (TIP) [<a href="https://arxiv.org/abs/1712.04143">paper</a>][code][<a href="https://sites.google.com/site/boyilics/website-builder/reside">web</a>]</li>
+<li>Pei et al, Classification-driven Single Image Dehazing. [<a href="https://arxiv.org/abs/1911.09389">paper</a>][code]</li>
+<li>Liu et al, GridDehazeNet: Attention-Based Multi-Scale Network for Image Dehazing. (ICCV) [<a href="https://arxiv.org/abs/1908.03245">paper</a>][<a href="https://github.com/proteus1991/GridDehazeNet">code</a>]</li>
+<li>Li et al, Joint haze image synthesis and dehazing with mmd-vae losses. [<a href="https://arxiv.org/abs/1905.05947">paper</a>][code]</li>
+<li>Peter et al, Feature Forwarding for Efficient Single Image Dehazing. [<a href="https://arxiv.org/abs/1904.09059">paper</a>][code]</li>
+<li>Shu et al, Variational Regularized Transmission Refinement for Image Dehazing. [<a href="https://arxiv.org/abs/1902.07069">paper</a>][code]</li>
+<li>Liu et al, End-to-End Single Image Fog Removal using Enhanced Cycle Consistent Adversarial Networks. [<a href="https://arxiv.org/abs/1902.01374">paper</a>][code]</li>
+<li>Chen et al, Gated Context Aggregation Network for Image Dehazing and Deraining. (WACV) [<a href="https://arxiv.org/abs/1811.08747">paper</a>][<a href="https://github.com/cddlyf/GCANet">code</a>]</li>
+<li>Ren et al, Deep Video Dehazing with Semantic Segmentation. (TIP) [<a href="https://ieeexplore.ieee.org/document/8492451">paper</a>][code]</li>
+</ul>
+
+<h3 id="2018">2018</h3>
+
+<ul>
+<li>Ren et al, Gated Fusion Network for Single Image Dehazing. (CVPR) [<a href="https://arxiv.org/abs/1804.00213">paper</a>][<a href="https://github.com/rwenqi/GFN-dehazing">code</a>][<a href="https://sites.google.com/site/renwenqi888/research/dehazing/gfn">web</a>]</li>
+<li>Zhang et al, FEED-Net: Fully End-To-End Dehazing. (ICME) [paper][code]</li>
+<li>Zhang et al, Densely Connected Pyramid Dehazing Network. (CVPR) [<a href="https://arxiv.org/abs/1803.08396">paper</a>][<a href="https://github.com/hezhangsprinter/DCPDN">code</a>]</li>
+<li>Yang et al, Towards Perceptual Image Dehazing by Physics-based Disentanglement and Adversarial Training. (AAAI) [paper][code]</li>
+<li>Deniz et al, Cycle-Dehaze: Enhanced CycleGAN for Single Image Dehazing. (CVPRW) [<a href="https://arxiv.org/abs/1805.05308v1">paper</a>][code]</li>
+</ul>
+
+<h3 id="before">Before</h3>
+
+<ul>
+<li>Ren et al, An All-in-One Network for Dehazing and Beyond. (ICCV) [<a href="https://arxiv.org/pdf/1707.06543.pdf">paper</a>][<a href="https://github.com/MayankSingal/PyTorch-Image-Dehazing">code</a>][<a href="https://sites.google.com/site/boyilics/website-builder/project-page">web</a>]</li>
+<li>Zhu et al, Single Image Dehazing via Multi-Scale Convolutional Neural Networks. (ECCV) [<a href="https://drive.google.com/open?id=0B7PPbXPJRQp3TUJ0VjFaU1pIa28">paper</a>][<a href="https://sites.google.com/site/renwenqi888/research/dehazing/mscnndehazing/MSCNN_dehazing.zip?attredirects=0&amp;d=1">code</a>][<a href="https://sites.google.com/site/renwenqi888/research/dehazing/mscnndehazing">web</a>]</li>
+<li>Cai et al, DehazeNet: An end-to-end system for single image haze removal. (TIP) [<a href="http://caibolun.github.io/papers/DehazeNet.pdf">paper</a>][<a href="https://github.com/caibolun/DehazeNet">code</a>][<a href="http://caibolun.github.io/DehazeNet/">web</a>]</li>
+<li>Ren et al, A fast single image haze removal algorithm using color attenuation prior. (TIP) [<a href="https://ieeexplore.ieee.org/document/7128396">paper</a>][code]</li>
+<li>He et al, Single Image Haze Removal Using Dark Channel Prior. (CVPR) [<a href="http://www.jiansun.org/papers/Dehaze_CVPR2009.pdf">paper</a>][code]</li>
+</ul>
+
+<h2 id="4-note">4 Note</h2>
+
+<ul>
+<li>The above content is constantly updated, welcome continuous attention!</li>
+</ul>
+
+<h2 id="5-acknowledgement">5 Acknowledgement</h2>
+
+<ul>
+<li>Thanks for the sharing of codes of image quality metrics by <a href="https://github.com/hongwang01/Video-and-Single-Image-Deraining">Wang, Hong</a>.</li>
+</ul>
+
+<h2 id="6-contact">6 Contact</h2>
+
+<ul>
+<li>If you have any question, please feel free to contact Xiang Chen (Email: cx@cvgpu.com).</li>
+</ul>
+        </div>
+        <footer class="article-footer">
+    <a data-url="http://jchenTech.github.io/2020/07/18/dehazezoo%E5%9B%BE%E5%83%8F%E8%A7%86%E9%A2%91%E5%8E%BB%E9%9B%BE%E6%B8%85%E6%99%B0%E5%8C%96%E8%B5%84%E6%BA%90%E5%A4%A7%E5%85%A8%E8%AE%BA%E6%96%87/%E6%95%B0%E6%8D%AE%E9%9B%86/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" data-id="afa569c85675be0b105e41f3ddb654c6" class="article-share-link">
+        <i class="fa fa-share"></i>
+        分享
+    </a>
+    
+    <a href="http://jchenTech.github.io/2020/07/18/dehazezoo%E5%9B%BE%E5%83%8F%E8%A7%86%E9%A2%91%E5%8E%BB%E9%9B%BE%E6%B8%85%E6%99%B0%E5%8C%96%E8%B5%84%E6%BA%90%E5%A4%A7%E5%85%A8%E8%AE%BA%E6%96%87/%E6%95%B0%E6%8D%AE%E9%9B%86/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/#disqus_thread" class="article-comment-link">
+        评论
+    </a>
+    
+
+    <script>
+    (function ($) {
+        
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+    </script>
+</footer>
+
+    </div>
+
+    
+<nav id="article-nav">
+    
+    <a href="http://jchenTech.github.io/2020/07/18/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0mscnn-single-image-dehazing-via-multi-scale-convolutional-neural-networks/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          上一篇
+      </strong>
+      <div class="article-nav-title">【论文笔记】MSCNN: Single Image Dehazing via Multi-Scale Convolutional Neural Networks</div>
+    </a>
+    
+
+    
+</nav>
+
+
+</article>
+
+
+<section id="comments">
+    <div id="disqus_thread">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "spf13" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+</section>
+
+
+    </section>
+
+   	
+    	<aside id="sidebar">
+    
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        最近的文章
+    </h3>
+    <div class="widget">
+        <ul id="recent-post">
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="http://jchenTech.github.io/2020/07/18/dehazezoo%E5%9B%BE%E5%83%8F%E8%A7%86%E9%A2%91%E5%8E%BB%E9%9B%BE%E6%B8%85%E6%99%B0%E5%8C%96%E8%B5%84%E6%BA%90%E5%A4%A7%E5%85%A8%E8%AE%BA%E6%96%87/%E6%95%B0%E6%8D%AE%E9%9B%86/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="http://jchenTech.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0">
+                        深度学习
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="http://jchenTech.github.io/2020/07/18/dehazezoo%E5%9B%BE%E5%83%8F%E8%A7%86%E9%A2%91%E5%8E%BB%E9%9B%BE%E6%B8%85%E6%99%B0%E5%8C%96%E8%B5%84%E6%BA%90%E5%A4%A7%E5%85%A8%E8%AE%BA%E6%96%87/%E6%95%B0%E6%8D%AE%E9%9B%86/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" class="title">DehazeZoo：图像&amp;视频去雾清晰化资源大全（论文/数据集/开源项目）</a></p>
+                    <p class="item-date">
+                        <time datetime="2020-07-18 16:38:00 &#43;0800 CST" itemprop="datePublished">2020-07-18</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="http://jchenTech.github.io/2020/07/18/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0mscnn-single-image-dehazing-via-multi-scale-convolutional-neural-networks/" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="http://jchenTech.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0">
+                        深度学习
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="http://jchenTech.github.io/2020/07/18/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0mscnn-single-image-dehazing-via-multi-scale-convolutional-neural-networks/" class="title">【论文笔记】MSCNN: Single Image Dehazing via Multi-Scale Convolutional Neural Networks</a></p>
+                    <p class="item-date">
+                        <time datetime="2020-07-18 16:38:00 &#43;0800 CST" itemprop="datePublished">2020-07-18</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="http://jchenTech.github.io/2020/07/18/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0aod-net-an-all-in-one-network-for-dehazing-and-beyond/" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="http://jchenTech.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0">
+                        深度学习
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="http://jchenTech.github.io/2020/07/18/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0aod-net-an-all-in-one-network-for-dehazing-and-beyond/" class="title">【论文笔记】AOD-Net: An All-in-One Network for Dehazing and Beyond</a></p>
+                    <p class="item-date">
+                        <time datetime="2020-07-18 14:17:00 &#43;0800 CST" itemprop="datePublished">2020-07-18</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="http://jchenTech.github.io/2020/07/07/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0dehazenet-an-end-to-end-system-for-single-image-haze-removal/" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="http://jchenTech.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0">
+                        深度学习
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="http://jchenTech.github.io/2020/07/07/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0dehazenet-an-end-to-end-system-for-single-image-haze-removal/" class="title">【论文笔记】DehazeNet: An End-to-End System for Single Image Haze Removal</a></p>
+                    <p class="item-date">
+                        <time datetime="2020-07-07 16:50:00 &#43;0800 CST" itemprop="datePublished">2020-07-07</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="http://jchenTech.github.io/2020/07/07/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0%E6%9A%97%E9%80%9A%E9%81%93%E5%85%88%E9%AA%8C%E5%8E%BB%E9%9B%BE%E7%AE%97%E6%B3%95/" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="http://jchenTech.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0">
+                        深度学习
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="http://jchenTech.github.io/2020/07/07/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0%E6%9A%97%E9%80%9A%E9%81%93%E5%85%88%E9%AA%8C%E5%8E%BB%E9%9B%BE%E7%AE%97%E6%B3%95/" class="title">【论文笔记】暗通道先验去雾算法</a></p>
+                    <p class="item-date">
+                        <time datetime="2020-07-07 13:58:06 &#43;0800 CST" itemprop="datePublished">2020-07-07</time>
+                    </p>
+                </div>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+        <ul class="category-list">
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="http://jchenTech.github.io/categories/c&#43;&#43;">
+                    c&#43;&#43;
+                </a>
+                <span class="category-list-count">7</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="http://jchenTech.github.io/categories/programming">
+                    programming
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="http://jchenTech.github.io/categories/python">
+                    python
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="http://jchenTech.github.io/categories/%E5%8D%9A%E5%AE%A2">
+                    博客
+                </a>
+                <span class="category-list-count">4</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="http://jchenTech.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0">
+                    深度学习
+                </a>
+                <span class="category-list-count">8</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="http://jchenTech.github.io/categories/%E7%BD%91%E7%BB%9C%E6%8C%96%E6%8E%98">
+                    网络挖掘
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+    
+
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        标签云
+    </h3>
+    <div class="widget tagcloud">
+        
+        
+        <a href="http://jchenTech.github.io/tags/aod-net" style="font-size: 12px;">aod-net</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/c&#43;&#43;" style="font-size: 12px;">c&#43;&#43;</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/dehazenet" style="font-size: 12px;">dehazenet</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/fast-r-cnn" style="font-size: 12px;">fast-r-cnn</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/faster-r-cnn" style="font-size: 12px;">faster-r-cnn</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/github-page" style="font-size: 12px;">github-page</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/golang" style="font-size: 12px;">golang</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/hugo" style="font-size: 12px;">hugo</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/markdown" style="font-size: 12px;">markdown</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/matplotlib" style="font-size: 12px;">matplotlib</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/mscnn%E5%8E%BB%E9%9B%BE" style="font-size: 12px;">mscnn去雾</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/programming" style="font-size: 12px;">programming</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/python" style="font-size: 12px;">python</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/r-cnn" style="font-size: 12px;">r-cnn</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/rnn" style="font-size: 12px;">rnn</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/ssd" style="font-size: 12px;">ssd</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/sspnet" style="font-size: 12px;">sspnet</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/theme" style="font-size: 12px;">theme</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/yolo" style="font-size: 12px;">yolo</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" style="font-size: 12px;">卷积神经网络</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/%E5%9B%BE%E5%83%8F%E5%8E%BB%E9%9B%BE" style="font-size: 12px;">图像去雾</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5" style="font-size: 12px;">图片插入</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/%E5%A4%8D%E6%9D%82%E7%BD%91%E7%BB%9C" style="font-size: 12px;">复杂网络</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/%E5%BD%92%E6%A1%A3%E9%A1%B5%E9%9D%A2" style="font-size: 12px;">归档页面</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" style="font-size: 12px;">循环神经网络</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/%E6%9A%97%E9%80%9A%E9%81%93" style="font-size: 12px;">暗通道</a>
+        
+        
+        <a href="http://jchenTech.github.io/tags/%E7%A4%BE%E4%BA%A4%E7%BD%91%E7%BB%9C%E6%8C%96%E6%8E%98" style="font-size: 12px;">社交网络挖掘</a>
+        
+    </div>
+</div>
+
+
+
+
+
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+    
+	</div>
+</div>
+
+<footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020
+      Powered by <a href="//gohugo.io">Hugo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>.
+    </div>
+  </div>
+</footer>
+
+
+<script src="http://jchenTech.github.io/fancybox/jquery.fancybox.pack.js"></script>
+<script src="http://jchenTech.github.io/js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+</body>
+</html>
