@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mrp夜间去雾 on 陈建君的技术博客</title>
+    <link>http://jchenTech.github.io/tags/mrp%E5%A4%9C%E9%97%B4%E5%8E%BB%E9%9B%BE/</link>
+    <description>Recent content in Mrp夜间去雾 on 陈建君的技术博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 27 Jul 2020 16:32:00 +0800</lastBuildDate>
+    
+	<atom:link href="http://jchenTech.github.io/tags/mrp%E5%A4%9C%E9%97%B4%E5%8E%BB%E9%9B%BE/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>【论文笔记】MRP: Fast Haze Removal for Nighttime Image Using Maximum Reflectance Prior</title>
+      <link>http://jchenTech.github.io/2020/07/27/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0mrp-fast-haze-removal-for-nighttime-image-using-maximum-reflectance-prior/</link>
+      <pubDate>Mon, 27 Jul 2020 16:32:00 +0800</pubDate>
+      
+      <guid>http://jchenTech.github.io/2020/07/27/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0mrp-fast-haze-removal-for-nighttime-image-using-maximum-reflectance-prior/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Abstract&lt;/p&gt;
+
+&lt;p&gt;在本文中，我们解决了单个夜间图像中的雾霾去除问题，即使存在杂色和非均匀照明。核心思想在于先前的新型最大反射率。我们首先介绍&lt;strong&gt;夜间朦胧成像模型&lt;/strong&gt;，其中包括直接衰减项和散射项中的局部环境照明项目。然后，我们提出一个简单但有效的图像先验，&lt;strong&gt;最大反射先验，以估计变化的环境照明&lt;/strong&gt;。最大反射率先验基于关键观察：对于大多数白天无雾图像块，每个颜色通道在某些像素处具有非常高的强度。对于夜间雾度图像，每个颜色通道的局部最大强度主要由环境照明贡献。因此，我们可以&lt;strong&gt;直接估计环境照度和透射图，从而恢复高质量的雾状图像&lt;/strong&gt;。各种夜间图像的实验结果证明了所提出方法的有效性。特别是，我们的方法具有计算效率的优势，比现有技术方法快10-100倍。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
