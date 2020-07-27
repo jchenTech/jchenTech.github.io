@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://jchenTech.github.io/2020/07/27/ubuntu18.04%E5%AE%89%E8%A3%85nvida%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/</loc>
+    <lastmod>2020-07-27T21:30:00+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://jchenTech.github.io/2020/07/27/ubuntu18.04%E6%A1%8C%E9%9D%A2%E7%89%88%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2020-07-27T17:01:00+08:00</lastmod>
   </url>
@@ -149,13 +154,13 @@
   </url>
   
   <url>
-    <loc>http://jchenTech.github.io/categories/c&#43;&#43;/</loc>
+    <loc>http://jchenTech.github.io/tags/c&#43;&#43;/</loc>
     <lastmod>2020-04-04T15:59:06+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://jchenTech.github.io/tags/c&#43;&#43;/</loc>
+    <loc>http://jchenTech.github.io/categories/c&#43;&#43;/</loc>
     <lastmod>2020-04-04T15:59:06+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -203,14 +208,14 @@
   </url>
   
   <url>
-    <loc>http://jchenTech.github.io/categories/linux/</loc>
-    <lastmod>2020-07-27T17:01:00+08:00</lastmod>
+    <loc>http://jchenTech.github.io/tags/linux/</loc>
+    <lastmod>2020-07-27T21:30:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://jchenTech.github.io/tags/linux/</loc>
-    <lastmod>2020-07-27T17:01:00+08:00</lastmod>
+    <loc>http://jchenTech.github.io/categories/linux/</loc>
+    <lastmod>2020-07-27T21:30:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -240,13 +245,7 @@
   
   <url>
     <loc>http://jchenTech.github.io/post/</loc>
-    <lastmod>2020-07-27T17:01:00+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://jchenTech.github.io/categories/programming/</loc>
-    <lastmod>2015-10-02T21:49:20+02:00</lastmod>
+    <lastmod>2020-07-27T21:30:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -257,13 +256,19 @@
   </url>
   
   <url>
-    <loc>http://jchenTech.github.io/categories/python/</loc>
-    <lastmod>2020-04-13T18:56:06+08:00</lastmod>
+    <loc>http://jchenTech.github.io/categories/programming/</loc>
+    <lastmod>2015-10-02T21:49:20+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://jchenTech.github.io/tags/python/</loc>
+    <lastmod>2020-04-13T18:56:06+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jchenTech.github.io/categories/python/</loc>
     <lastmod>2020-04-13T18:56:06+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -306,7 +311,7 @@
   
   <url>
     <loc>http://jchenTech.github.io/tags/ubuntu/</loc>
-    <lastmod>2020-07-27T17:01:00+08:00</lastmod>
+    <lastmod>2020-07-27T21:30:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -388,7 +393,7 @@
   
   <url>
     <loc>http://jchenTech.github.io/</loc>
-    <lastmod>2020-07-27T17:01:00+08:00</lastmod>
+    <lastmod>2020-07-27T21:30:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   

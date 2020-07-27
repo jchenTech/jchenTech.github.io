@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="author" content="陈建君">
     
-      <meta name="description" content="啊实打实">
+      <meta name="description" content="Better late than never">
     
     
     <link rel="canonical" href="http://jchenTech.github.io/2020/07/27/ubuntu18.04%E6%A1%8C%E9%9D%A2%E7%89%88%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"/>
@@ -22,7 +22,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
     <meta property="og:title" content="Ubuntu18.04桌面版双系统安装教程" />
-<meta property="og:description" content="啊实打实" />
+<meta property="og:description" content="由于后面将要在linux系统上进行图像处理相关工作，所以需要安装Linux操作系统，目前采用的是Ubuntu18.04桌面版本方便个人使用，由于在虚拟机上较慢，采取双系统安装方式。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://jchenTech.github.io/2020/07/27/ubuntu18.04%E6%A1%8C%E9%9D%A2%E7%89%88%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" />
 <meta property="article:published_time" content="2020-07-27T17:01:00&#43;08:00"/>
@@ -31,12 +31,12 @@
     
     
 <meta itemprop="name" content="Ubuntu18.04桌面版双系统安装教程">
-<meta itemprop="description" content="啊实打实">
+<meta itemprop="description" content="由于后面将要在linux系统上进行图像处理相关工作，所以需要安装Linux操作系统，目前采用的是Ubuntu18.04桌面版本方便个人使用，由于在虚拟机上较慢，采取双系统安装方式。">
 
 
 <meta itemprop="datePublished" content="2020-07-27T17:01:00&#43;08:00" />
 <meta itemprop="dateModified" content="2020-07-27T17:01:00&#43;08:00" />
-<meta itemprop="wordCount" content="2">
+<meta itemprop="wordCount" content="162">
 
 
 
@@ -44,7 +44,7 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Ubuntu18.04桌面版双系统安装教程"/>
-<meta name="twitter:description" content="啊实打实"/>
+<meta name="twitter:description" content="由于后面将要在linux系统上进行图像处理相关工作，所以需要安装Linux操作系统，目前采用的是Ubuntu18.04桌面版本方便个人使用，由于在虚拟机上较慢，采取双系统安装方式。"/>
 <meta name="twitter:site" content="@spf13"/>
 
     
@@ -175,7 +175,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        27
+        28
         <span>文章</span>
       </div>
       <div class="article-info-block">
@@ -275,7 +275,7 @@
             <i class="fa fa-calendar"></i>
             <time datetime="2020-07-27 17:01:00 &#43;0800 CST" itemprop="datePublished">2020-07-27</time>
             &middot;
-            2
+            162
             字
             &middot;
             1
@@ -317,9 +317,148 @@
 </header>
 
         <div class="article-entry" itemprop="articleBody">
-            <p>是的还真的是</p>
+            <p>由于后面将要在linux系统上进行图像处理相关工作，所以需要安装Linux操作系统，目前采用的是Ubuntu18.04桌面版本方便个人使用，由于在虚拟机上较慢，采取双系统安装方式。</p>
 
-<p>啊实打实</p>
+<h2 id="1-准备工作">1 准备工作</h2>
+
+<p>注：本篇文章以 Ubuntu18.04.1 的安装为例。
+准备工作在其他系统上进行，我这里在 Windows10 上进行以下的三步。</p>
+
+<h3 id="1-1-下载-ubuntu-镜像">1.1 下载 Ubuntu 镜像</h3>
+
+<p>打开<a href="https://ubuntu.com/download/desktop">ubuntu18.04的下载地址</a>，进入页面后点击右边的Download按钮开始下载。</p>
+
+<p><img src="/images/Ubuntu18.04桌面版双系统安装教程/Ubuntu18.04官网.png" alt="" /></p>
+
+<h3 id="1-2-制作u盘启动盘">1.2 制作U盘启动盘</h3>
+
+<p>1）安装制作工具：UltraISO，下载完成后安装<br />
+2）插入用来做启动盘的U盘（最好是usb3.0接口，16GB或以上），并清空里面的文件<br />
+3）打开安装好的UltraISO，点击<strong>继续试用</strong>按钮工作界面<br />
+4）进入工作界面后，点击菜单栏<strong>文件(F)</strong>，在弹出的选项卡里点击<strong>打开</strong></p>
+
+<p><img src="/images/Ubuntu18.04桌面版双系统安装教程/2.png" alt="" /></p>
+
+<p>5）在弹出的文件选择对话框中找到下载好的 Ubuntu18.04.1 LTS 镜像文件，打开后如下图所示：</p>
+
+<p><img src="/images/Ubuntu18.04桌面版双系统安装教程/3.png" alt="" /></p>
+
+<p>6）点击菜单栏上的启动，在弹出的选项卡里点击写入硬盘映像</p>
+
+<p><img src="/images/Ubuntu18.04桌面版双系统安装教程/4.png" alt="" /></p>
+
+<p>7）在弹出的新窗口中，<br />
+硬盘驱动器：选择<strong>刚刚插入的U盘</strong><br />
+写入方式：设置为<strong>USB-HDD+</strong><br />
+其余需要勾选的不管，采用默认的设置就行<br />
+然后可以<strong>格式化</strong>一下<br />
+最后点击最下面一栏的<strong>写入</strong>按钮</p>
+
+<p><img src="/images/Ubuntu18.04桌面版双系统安装教程/5.png" alt="" /></p>
+
+<p>8）写入过程大概会持续4～5分钟，完成后界面如下图所示，接着点击返回按钮。</p>
+
+<p><img src="/images/Ubuntu18.04桌面版双系统安装教程/6.png" alt="" /></p>
+
+<p>至此，启动盘制作完成！</p>
+
+<h3 id="1-3-给-ubuntu-分配硬盘空间">1.3 给 Ubuntu 分配硬盘空间</h3>
+
+<h2 id="2-安装-ubuntu18-04">2 安装 Ubuntu18.04</h2>
+
+<p>这一步也可以在安装过程中分区的时候执行，不过最好安装前弄好，省得到时候出岔子需要从头开始。</p>
+
+<p>1）鼠标右键<strong>计算机</strong>，在弹出来选项卡中选择<strong>管理</strong>，接着在弹出来的窗口左侧点击 <strong>存储/磁盘管理</strong>，进入磁盘管理界面，如下图所示：</p>
+
+<p><img src="/images/Ubuntu18.04桌面版双系统安装教程/7.png" alt="" /></p>
+
+<p>2）在你要安装的目标磁盘中，通过删除卷和删除分区操作腾出一块未分配的磁盘空间作为安装区。由于我的电脑是单硬盘，所以选择最后一个磁盘进行压缩卷，即我的电脑有C、D、E盘，所以在我的E盘拿150GB 的空间用来安装 Ubuntu18.04.1（安装区的大小依磁盘总的空间以及你的需要而定）。</p>
+
+<h3 id="2-1-设置启动项">2.1 设置启动项</h3>
+
+<p>关闭你要安装 Ubuntu18.04.1 的目标主机，然后插入启动盘，接着开机，迅速的按住 <strong>F12</strong>直到进入 bios 设置界面（不同的电脑进入 bios 的按键不同，一般为 F12 或者 Delete 键），通过方向键选择<strong>Boot Menu</strong>，然后回车</p>
+
+<p><img src="/images/Ubuntu18.04桌面版双系统安装教程/8.png" alt="" /></p>
+
+<p>进入Boot Manager后，选择 <strong>EFI USB</strong> 作为启动项，回车</p>
+
+<p><img src="/images/Ubuntu18.04桌面版双系统安装教程/9.png" alt="" /></p>
+
+<p>至此我们就进入了安装程序，选择 <strong>Install Ubuntu</strong>， 回车直接安装</p>
+
+<p><img src="/images/Ubuntu18.04桌面版双系统安装教程/10.png" alt="" /></p>
+
+<h3 id="2-2-正式安装">2.2 正式安装</h3>
+
+<h4 id="2-2-1选择语言">2.2.1选择语言</h4>
+
+<p><img src="/images/Ubuntu18.04桌面版双系统安装教程/11.png" alt="" /></p>
+
+<h4 id="2-2-2键盘布局">2.2.2键盘布局</h4>
+
+<p><img src="/images/Ubuntu18.04桌面版双系统安装教程/12.png" alt="" /></p>
+
+<h4 id="2-2-3-无线连网">2.2.3 无线连网</h4>
+
+<p>连不连都可以，不影响最终安装</p>
+
+<p><img src="/images/Ubuntu18.04桌面版双系统安装教程/13.png" alt="" /></p>
+
+<h4 id="2-2-4-更新选项">2.2.4 更新选项</h4>
+
+<p>一般我们用仅仅用 Ubuntu 来编程或者部署项目，娱乐一般用 Windows, 所以选择 <strong>最小安装</strong><br />
+最下面的两个选项会拖慢安装的速度，这些工作可以放到安装完成后集中处理，所以也不勾选。</p>
+
+<p><img src="/images/Ubuntu18.04桌面版双系统安装教程/14.png" alt="" /></p>
+
+<h4 id="2-2-5-选择安装类型">2.2.5 选择安装类型</h4>
+
+<p>第一和第二个选项安装的时候更省事，安装程序会自动分区，第三个选项需要自己手动分区，安装的时候会麻烦一点，但是因为是手动分区，你对系统的分区情况也更加熟悉，方便系统后期的管理。我们选择第三个选项 <strong>其他选项</strong> ，然后点击 <strong>继续</strong></p>
+
+<p><img src="/images/Ubuntu18.04桌面版双系统安装教程/15.png" alt="" /></p>
+
+<h4 id="手动分区-重点">手动分区(重点)</h4>
+
+<p>接下来需要我们手动分区，前面我们给在E磁盘给 Ubuntu18.04 预留了 150GB 的磁盘空间，下面对这 150GB 的空间进行分区。</p>
+
+<p>/home        逻辑分区        Ext4        80GB<br />
+/boot        主分区        Ext4        1GB<br />
+swap        逻辑分区        交换空间        12GB<br />
+/         主分区         Ext4        剩余所有内存</p>
+
+<p>如上图，选中之前预留的空先区，鼠标左键双击或者点击左下角 “+” 按钮，依次按照上面的分区表手动分区。
+（如果在给 /boot 分完区后空闲区变为不可用，则点击 “-” 按钮删除 /boot 分区，然后先给其他挂载点分区，最后再给 /boot 分区）</p>
+
+<p>对于交换空间 swap ，根据你电脑的内存情况来分：<br />
+如果内存小，就分配 2～3 倍内存的空间；<br />
+如果内存中等，就分配 1～2 倍内存的空间；<br />
+如果内存大，就分配 1 倍内存的空。</p>
+
+<p>按照上面的分区表分完区后，每个区的信息如下图所示，这时还需要注意到最下面一栏 <strong>安装启动引导器的设备</strong>，你在哪个磁盘上安装的 ubuntu（在哪个磁盘上分区），就选择那一个磁盘。然后点击右下角<strong>现在安装</strong> 按钮，在弹出来的对话框中点击 <strong>继续</strong> 按钮。此处由于我是在win10系统基础上进行安装Ubuntu并且没有分EFI分区，所以选择Win10系统的EFI分区，即名字带有<strong>Windows Boot Manager</strong>的那一个。</p>
+
+<h4 id="2-2-6-选择时区">2.2.6 选择时区</h4>
+
+<p><img src="/images/Ubuntu18.04桌面版双系统安装教程/16.png" alt="" /></p>
+
+<h4 id="2-2-7-创建用户名">2.2.7 创建用户名</h4>
+
+<p><img src="/images/Ubuntu18.04桌面版双系统安装教程/17.png" alt="" /></p>
+
+<h4 id="2-2-8-安装系统软件">2.2.8 安装系统软件</h4>
+
+<p><img src="/images/Ubuntu18.04桌面版双系统安装教程/18.png" alt="" /></p>
+
+<h2 id="3-安装完成后的优化工作">3 安装完成后的优化工作</h2>
+
+<h3 id="3-1-更换软件源">3.1 更换软件源</h3>
+
+<h2 id="参考文章">参考文章：</h2>
+
+<ul>
+<li><a href="https://blog.csdn.net/baidu_36602427/article/details/86548203">https://blog.csdn.net/baidu_36602427/article/details/86548203</a></li>
+<li><a href="https://www.cnblogs.com/masbay/p/11627727.html">https://www.cnblogs.com/masbay/p/11627727.html</a></li>
+<li><a href="https://www.jianshu.com/p/54d9a3a695cc">https://www.jianshu.com/p/54d9a3a695cc</a></li>
+</ul>
         </div>
         <footer class="article-footer">
     <a data-url="http://jchenTech.github.io/2020/07/27/ubuntu18.04%E6%A1%8C%E9%9D%A2%E7%89%88%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" data-id="8b07dabe904667b920b0d853c5f88648" class="article-share-link">
@@ -412,6 +551,13 @@
     
 
     
+    <a href="http://jchenTech.github.io/2020/07/27/ubuntu18.04%E5%AE%89%E8%A3%85nvida%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          下一篇
+      </strong>
+      <div class="article-nav-title">Ubuntu18.04安装NVIDA显卡驱动</div>
+    </a>
+    
 </nav>
 
 
@@ -455,6 +601,32 @@
     </h3>
     <div class="widget">
         <ul id="recent-post">
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="http://jchenTech.github.io/2020/07/27/ubuntu18.04%E5%AE%89%E8%A3%85nvida%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="http://jchenTech.github.io/categories/linux">
+                        Linux
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="http://jchenTech.github.io/2020/07/27/ubuntu18.04%E5%AE%89%E8%A3%85nvida%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/" class="title">Ubuntu18.04安装NVIDA显卡驱动</a></p>
+                    <p class="item-date">
+                        <time datetime="2020-07-27 21:30:00 &#43;0800 CST" itemprop="datePublished">2020-07-27</time>
+                    </p>
+                </div>
+            </li>
             
             <li>
                 <div class="item-thumbnail">
@@ -560,32 +732,6 @@
                 </div>
             </li>
             
-            <li>
-                <div class="item-thumbnail">
-                    <a href="http://jchenTech.github.io/2020/07/18/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0aod-net-an-all-in-one-network-for-dehazing-and-beyond/" class="thumbnail">
-                    
-                        <span class="thumbnail-image thumbnail-none"></span>
-                    
-                    </a>
-                </div>
-                <div class="item-inner">
-                    
-                    
-                    <p class="item-category">
-                        
-                        <a class="article-category-link" href="http://jchenTech.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0">
-                        深度学习
-                        </a>
-                    </p>
-                    
-                    
-                    <p class="item-title"><a href="http://jchenTech.github.io/2020/07/18/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0aod-net-an-all-in-one-network-for-dehazing-and-beyond/" class="title">【论文笔记】AOD-Net: An All-in-One Network for Dehazing and Beyond</a></p>
-                    <p class="item-date">
-                        <time datetime="2020-07-18 14:17:00 &#43;0800 CST" itemprop="datePublished">2020-07-18</time>
-                    </p>
-                </div>
-            </li>
-            
         </ul>
     </div>
 </div>
@@ -612,7 +758,7 @@
                 <a class="category-list-link" href="http://jchenTech.github.io/categories/linux">
                     linux
                 </a>
-                <span class="category-list-count">1</span>
+                <span class="category-list-count">2</span>
             </li>
             
             <li class="category-list-item">
