@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Java on 陈建君的技术博客</title>
+    <link>http://jchenTech.github.io/tags/java/</link>
+    <description>Recent content in Java on 陈建君的技术博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 30 Jul 2020 21:17:00 +0800</lastBuildDate>
+    
+	<atom:link href="http://jchenTech.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>【CS61B】利用Github管理课程代码并搭建Auto Grade环境</title>
+      <link>http://jchenTech.github.io/cs61b%E5%88%A9%E7%94%A8github%E7%AE%A1%E7%90%86%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%B9%B6%E6%90%AD%E5%BB%BAauto-grade%E7%8E%AF%E5%A2%83/</link>
+      <pubDate>Thu, 30 Jul 2020 21:17:00 +0800</pubDate>
+      
+      <guid>http://jchenTech.github.io/cs61b%E5%88%A9%E7%94%A8github%E7%AE%A1%E7%90%86%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%B9%B6%E6%90%AD%E5%BB%BAauto-grade%E7%8E%AF%E5%A2%83/</guid>
+      <description>&lt;p&gt;学习CS61B的一个挑战便是需要学习使用Git and github。由于非伯克利注册的学生不能够得到instructional number,因此我们需要在自己的github上创建一个专有的repository，我将自己的命名为cs61b-sp18，有了这个repo，我们就可以把本地的课程代码/作业代码/项目代码推送到这个远程库中，然后上传到autograder进行评分。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>【CS61B】LEC1 Intro, Hello World </title>
+      <link>http://jchenTech.github.io/2020/07/30/cs61blec1-intro-hello-world/</link>
+      <pubDate>Thu, 30 Jul 2020 10:17:00 +0800</pubDate>
+      
+      <guid>http://jchenTech.github.io/2020/07/30/cs61blec1-intro-hello-world/</guid>
+      <description>&lt;p&gt;从今天开始，将follow数据结构的一门经典课程，UC Berkeley的CS61B。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

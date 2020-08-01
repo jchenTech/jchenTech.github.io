@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 陈建君的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 27 Jul 2020 21:30:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 30 Jul 2020 10:17:00 +0800</lastBuildDate>
     
 	<atom:link href="http://jchenTech.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【CS61B】LEC1 Intro, Hello World </title>
+      <link>http://jchenTech.github.io/2020/07/30/cs61blec1-intro-hello-world/</link>
+      <pubDate>Thu, 30 Jul 2020 10:17:00 +0800</pubDate>
+      
+      <guid>http://jchenTech.github.io/2020/07/30/cs61blec1-intro-hello-world/</guid>
+      <description>&lt;p&gt;从今天开始，将follow数据结构的一门经典课程，UC Berkeley的CS61B。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Ubuntu18.04安装NVIDA显卡驱动</title>

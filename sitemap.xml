@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://jchenTech.github.io/cs61b%E5%88%A9%E7%94%A8github%E7%AE%A1%E7%90%86%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%B9%B6%E6%90%AD%E5%BB%BAauto-grade%E7%8E%AF%E5%A2%83/</loc>
+    <lastmod>2020-07-30T21:17:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://jchenTech.github.io/2020/07/30/cs61blec1-intro-hello-world/</loc>
+    <lastmod>2020-07-30T10:17:00+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://jchenTech.github.io/2020/07/27/ubuntu18.04%E5%AE%89%E8%A3%85nvida%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/</loc>
     <lastmod>2020-07-27T21:30:00+08:00</lastmod>
   </url>
@@ -172,6 +182,12 @@
   </url>
   
   <url>
+    <loc>http://jchenTech.github.io/tags/cs61b/</loc>
+    <lastmod>2020-07-30T21:17:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://jchenTech.github.io/tags/dehazenet/</loc>
     <lastmod>2020-07-07T16:50:00+08:00</lastmod>
     <priority>0</priority>
@@ -204,6 +220,12 @@
   <url>
     <loc>http://jchenTech.github.io/tags/hugo/</loc>
     <lastmod>2020-03-31T10:42:06+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jchenTech.github.io/tags/java/</loc>
+    <lastmod>2020-07-30T21:17:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -245,7 +267,7 @@
   
   <url>
     <loc>http://jchenTech.github.io/post/</loc>
-    <lastmod>2020-07-27T21:30:00+08:00</lastmod>
+    <lastmod>2020-07-30T10:17:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -368,6 +390,18 @@
   </url>
   
   <url>
+    <loc>http://jchenTech.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
+    <lastmod>2020-07-30T21:17:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
+    <lastmod>2020-07-30T21:17:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://jchenTech.github.io/tags/%E6%9A%97%E9%80%9A%E9%81%93/</loc>
     <lastmod>2020-07-07T13:58:06+08:00</lastmod>
     <priority>0</priority>
@@ -393,7 +427,7 @@
   
   <url>
     <loc>http://jchenTech.github.io/</loc>
-    <lastmod>2020-07-27T21:30:00+08:00</lastmod>
+    <lastmod>2020-07-30T21:17:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
