@@ -170,7 +170,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        29
+        30
         <span>文章</span>
       </div>
       <div class="article-info-block">
@@ -253,6 +253,159 @@
     <section id="main">
     
     
+
+<article class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        </a>
+
+        <header class="article-header">
+    <a href="http://jchenTech.github.io/2020/07/30/cs61b%E5%88%A9%E7%94%A8github%E7%AE%A1%E7%90%86%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%B9%B6%E6%90%AD%E5%BB%BAauto-grade%E7%8E%AF%E5%A2%83/">
+    <h1 class="article-title" itemprop="name">
+        【CS61B】利用Github管理课程代码并搭建Auto Grade环境
+    </h1>
+    </a>
+    <div class="article-meta">
+
+        
+        <div class="article-date">
+            <i class="fa fa-calendar"></i>
+            <time datetime="2020-07-30 21:17:00 &#43;0800 CST" itemprop="datePublished">2020-07-30</time>
+            &middot;
+            45
+            字
+            &middot;
+            1
+            分钟读完
+        </div>
+        
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-folder"></i>
+                
+                
+                <a class="article-category-link" href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
+                
+                
+            </div>
+            
+        
+
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-tags"></i>
+                
+                
+                <a class="article-category-link" href="http://jchenTech.github.io/tags/java">Java</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="http://jchenTech.github.io/tags/cs61b">CS61B</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="http://jchenTech.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
+                
+                
+            </div>
+            
+        
+    </div>
+</header>
+
+        <div class="article-entry" itemprop="articleBody">
+            <p>
+                <p>学习CS61B的一个挑战便是需要学习使用Git and github。由于非伯克利注册的学生不能够得到instructional number,因此我们需要在自己的github上创建一个专有的repository，我将自己的命名为cs61b-sp18，有了这个repo，我们就可以把本地的课程代码/作业代码/项目代码推送到这个远程库中，然后上传到autograder进行评分。</p>
+            </p>
+            <p class="article-more-link">
+                <a href="http://jchenTech.github.io/2020/07/30/cs61b%E5%88%A9%E7%94%A8github%E7%AE%A1%E7%90%86%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%B9%B6%E6%90%AD%E5%BB%BAauto-grade%E7%8E%AF%E5%A2%83/">
+                    查看更多
+                </a>
+            </p>
+        </div>
+        <footer class="article-footer">
+    <a data-url="http://jchenTech.github.io/2020/07/30/cs61b%E5%88%A9%E7%94%A8github%E7%AE%A1%E7%90%86%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%B9%B6%E6%90%AD%E5%BB%BAauto-grade%E7%8E%AF%E5%A2%83/" data-id="377194009835afac14b89afe0dd375b8" class="article-share-link">
+        <i class="fa fa-share"></i>
+        分享
+    </a>
+    
+    <a href="http://jchenTech.github.io/2020/07/30/cs61b%E5%88%A9%E7%94%A8github%E7%AE%A1%E7%90%86%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%B9%B6%E6%90%AD%E5%BB%BAauto-grade%E7%8E%AF%E5%A2%83/#disqus_thread" class="article-comment-link">
+        评论
+    </a>
+    
+
+    <script>
+    (function ($) {
+        
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+    </script>
+</footer>
+
+    </div>
+</article>
 
 <article class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
@@ -1619,157 +1772,6 @@
     </div>
 </article>
 
-<article class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        </a>
-
-        <header class="article-header">
-    <a href="http://jchenTech.github.io/2020/04/14/%E7%BD%91%E7%BB%9C%E6%8C%96%E6%8E%98%E5%8F%8A%E5%85%B6%E7%9B%B8%E5%85%B3%E5%BA%94%E7%94%A8/">
-    <h1 class="article-title" itemprop="name">
-        网络挖掘及其相关应用
-    </h1>
-    </a>
-    <div class="article-meta">
-
-        
-        <div class="article-date">
-            <i class="fa fa-calendar"></i>
-            <time datetime="2020-04-14 13:44:06 &#43;0800 CST" itemprop="datePublished">2020-04-14</time>
-            &middot;
-            471
-            字
-            &middot;
-            3
-            分钟读完
-        </div>
-        
-        
-            
-            
-            <div class="article-category">
-                <i class="fa fa-folder"></i>
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/categories/%E7%BD%91%E7%BB%9C%E6%8C%96%E6%8E%98">网络挖掘</a>
-                
-                
-            </div>
-            
-        
-
-        
-            
-            
-            <div class="article-category">
-                <i class="fa fa-tags"></i>
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/tags/%E5%A4%8D%E6%9D%82%E7%BD%91%E7%BB%9C">复杂网络</a>
-                &middot;
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/tags/%E7%A4%BE%E4%BA%A4%E7%BD%91%E7%BB%9C%E6%8C%96%E6%8E%98">社交网络挖掘</a>
-                
-                
-            </div>
-            
-        
-    </div>
-</header>
-
-        <div class="article-entry" itemprop="articleBody">
-            <p>
-                <p>网络挖掘及其相关应用</p>
-
-<p><img src="/images/网络挖掘及其相关应用/复杂网络.jpg" alt="复杂网络" /></p>
-            </p>
-            <p class="article-more-link">
-                <a href="http://jchenTech.github.io/2020/04/14/%E7%BD%91%E7%BB%9C%E6%8C%96%E6%8E%98%E5%8F%8A%E5%85%B6%E7%9B%B8%E5%85%B3%E5%BA%94%E7%94%A8/">
-                    查看更多
-                </a>
-            </p>
-        </div>
-        <footer class="article-footer">
-    <a data-url="http://jchenTech.github.io/2020/04/14/%E7%BD%91%E7%BB%9C%E6%8C%96%E6%8E%98%E5%8F%8A%E5%85%B6%E7%9B%B8%E5%85%B3%E5%BA%94%E7%94%A8/" data-id="c88da82213ee95a5c15a4cb99d6c8107" class="article-share-link">
-        <i class="fa fa-share"></i>
-        分享
-    </a>
-    
-    <a href="http://jchenTech.github.io/2020/04/14/%E7%BD%91%E7%BB%9C%E6%8C%96%E6%8E%98%E5%8F%8A%E5%85%B6%E7%9B%B8%E5%85%B3%E5%BA%94%E7%94%A8/#disqus_thread" class="article-comment-link">
-        评论
-    </a>
-    
-
-    <script>
-    (function ($) {
-        
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-    </script>
-</footer>
-
-    </div>
-</article>
-
 
 <nav id="page-nav">
 
@@ -1794,6 +1796,32 @@
     </h3>
     <div class="widget">
         <ul id="recent-post">
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="http://jchenTech.github.io/2020/07/30/cs61b%E5%88%A9%E7%94%A8github%E7%AE%A1%E7%90%86%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%B9%B6%E6%90%AD%E5%BB%BAauto-grade%E7%8E%AF%E5%A2%83/" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">
+                        数据结构
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="http://jchenTech.github.io/2020/07/30/cs61b%E5%88%A9%E7%94%A8github%E7%AE%A1%E7%90%86%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%B9%B6%E6%90%AD%E5%BB%BAauto-grade%E7%8E%AF%E5%A2%83/" class="title">【CS61B】利用Github管理课程代码并搭建Auto Grade环境</a></p>
+                    <p class="item-date">
+                        <time datetime="2020-07-30 21:17:00 &#43;0800 CST" itemprop="datePublished">2020-07-30</time>
+                    </p>
+                </div>
+            </li>
             
             <li>
                 <div class="item-thumbnail">
@@ -1895,32 +1923,6 @@
                     <p class="item-title"><a href="http://jchenTech.github.io/2020/07/27/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0mrp-fast-haze-removal-for-nighttime-image-using-maximum-reflectance-prior/" class="title">【论文笔记】MRP: Fast Haze Removal for Nighttime Image Using Maximum Reflectance Prior</a></p>
                     <p class="item-date">
                         <time datetime="2020-07-27 16:32:00 &#43;0800 CST" itemprop="datePublished">2020-07-27</time>
-                    </p>
-                </div>
-            </li>
-            
-            <li>
-                <div class="item-thumbnail">
-                    <a href="http://jchenTech.github.io/2020/07/18/dehazezoo%E5%9B%BE%E5%83%8F%E8%A7%86%E9%A2%91%E5%8E%BB%E9%9B%BE%E6%B8%85%E6%99%B0%E5%8C%96%E8%B5%84%E6%BA%90%E5%A4%A7%E5%85%A8%E8%AE%BA%E6%96%87/%E6%95%B0%E6%8D%AE%E9%9B%86/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" class="thumbnail">
-                    
-                        <span class="thumbnail-image thumbnail-none"></span>
-                    
-                    </a>
-                </div>
-                <div class="item-inner">
-                    
-                    
-                    <p class="item-category">
-                        
-                        <a class="article-category-link" href="http://jchenTech.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0">
-                        深度学习
-                        </a>
-                    </p>
-                    
-                    
-                    <p class="item-title"><a href="http://jchenTech.github.io/2020/07/18/dehazezoo%E5%9B%BE%E5%83%8F%E8%A7%86%E9%A2%91%E5%8E%BB%E9%9B%BE%E6%B8%85%E6%99%B0%E5%8C%96%E8%B5%84%E6%BA%90%E5%A4%A7%E5%85%A8%E8%AE%BA%E6%96%87/%E6%95%B0%E6%8D%AE%E9%9B%86/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" class="title">DehazeZoo：图像&amp;视频去雾清晰化资源大全（论文/数据集/开源项目）</a></p>
-                    <p class="item-date">
-                        <time datetime="2020-07-18 16:38:00 &#43;0800 CST" itemprop="datePublished">2020-07-18</time>
                     </p>
                 </div>
             </li>
