@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 陈建君的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 30 Jul 2020 21:17:00 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 01 Aug 2020 21:57:00 +0800</lastBuildDate>
     
 	<atom:link href="http://jchenTech.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【CS61B】LEC2 Defining and Using Classes </title>
+      <link>http://jchenTech.github.io/2020/08/01/cs61blec2-defining-and-using-classes/</link>
+      <pubDate>Sat, 01 Aug 2020 21:57:00 +0800</pubDate>
+      
+      <guid>http://jchenTech.github.io/2020/08/01/cs61blec2-defining-and-using-classes/</guid>
+      <description>&lt;p&gt;Defining and Using Classes&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>【CS61B】利用Github管理课程代码并搭建Auto Grade环境</title>

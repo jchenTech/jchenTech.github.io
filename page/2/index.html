@@ -29,7 +29,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://jchenTech.github.io/" />
 
-<meta property="og:updated_time" content="2020-04-14T13:44:06&#43;08:00"/>
+<meta property="og:updated_time" content="2020-07-07T13:58:06&#43;08:00"/>
 
     
     
@@ -170,7 +170,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        30
+        31
         <span>文章</span>
       </div>
       <div class="article-info-block">
@@ -253,6 +253,157 @@
     <section id="main">
     
     
+
+<article class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        </a>
+
+        <header class="article-header">
+    <a href="http://jchenTech.github.io/2020/07/07/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0%E6%9A%97%E9%80%9A%E9%81%93%E5%85%88%E9%AA%8C%E5%8E%BB%E9%9B%BE%E7%AE%97%E6%B3%95/">
+    <h1 class="article-title" itemprop="name">
+        【论文笔记】暗通道先验去雾算法
+    </h1>
+    </a>
+    <div class="article-meta">
+
+        
+        <div class="article-date">
+            <i class="fa fa-calendar"></i>
+            <time datetime="2020-07-07 13:58:06 &#43;0800 CST" itemprop="datePublished">2020-07-07</time>
+            &middot;
+            190
+            字
+            &middot;
+            1
+            分钟读完
+        </div>
+        
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-folder"></i>
+                
+                
+                <a class="article-category-link" href="http://jchenTech.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0">深度学习</a>
+                
+                
+            </div>
+            
+        
+
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-tags"></i>
+                
+                
+                <a class="article-category-link" href="http://jchenTech.github.io/tags/%E5%9B%BE%E5%83%8F%E5%8E%BB%E9%9B%BE">图像去雾</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="http://jchenTech.github.io/tags/%E6%9A%97%E9%80%9A%E9%81%93">暗通道</a>
+                
+                
+            </div>
+            
+        
+    </div>
+</header>
+
+        <div class="article-entry" itemprop="articleBody">
+            <p>
+                <p>雾霾是由空气中的灰尘和烟雾等小的漂浮颗粒产生的常见大气现象。这些漂浮的颗粒极大地吸收和散射光，导致图像质量下降。在雾霾影响下，视频监控，远程感应，自动驾驶等许多实际应用很容易受到威胁，检测和识别等高级计算机视觉任务很难完成。因此，图像去雾（除雾）成为一种越来越重要的技术。在图像去雾领域，不得不学习何凯明在2009CVPR上获最佳论文的文章。</p>
+
+<p><img src="/images/暗通道先验去雾算法/Dark Channel Prior.png" alt="Single Image Haze Removal Using Dark Channel Prior" /></p>
+            </p>
+            <p class="article-more-link">
+                <a href="http://jchenTech.github.io/2020/07/07/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0%E6%9A%97%E9%80%9A%E9%81%93%E5%85%88%E9%AA%8C%E5%8E%BB%E9%9B%BE%E7%AE%97%E6%B3%95/">
+                    查看更多
+                </a>
+            </p>
+        </div>
+        <footer class="article-footer">
+    <a data-url="http://jchenTech.github.io/2020/07/07/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0%E6%9A%97%E9%80%9A%E9%81%93%E5%85%88%E9%AA%8C%E5%8E%BB%E9%9B%BE%E7%AE%97%E6%B3%95/" data-id="7e698b9eab8725c12a92ca6279712288" class="article-share-link">
+        <i class="fa fa-share"></i>
+        分享
+    </a>
+    
+    <a href="http://jchenTech.github.io/2020/07/07/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0%E6%9A%97%E9%80%9A%E9%81%93%E5%85%88%E9%AA%8C%E5%8E%BB%E9%9B%BE%E7%AE%97%E6%B3%95/#disqus_thread" class="article-comment-link">
+        评论
+    </a>
+    
+
+    <script>
+    (function ($) {
+        
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+    </script>
+</footer>
+
+    </div>
+</article>
 
 <article class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
@@ -1616,151 +1767,6 @@
     </div>
 </article>
 
-<article class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        </a>
-
-        <header class="article-header">
-    <a href="http://jchenTech.github.io/2020/03/22/c-primer-plus-%E7%AC%AC14%E7%AB%A0c-%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%A0%81%E9%87%8D%E7%94%A8/">
-    <h1 class="article-title" itemprop="name">
-        C&#43;&#43; primer plus 第14章C&#43;&#43;中的代码重用
-    </h1>
-    </a>
-    <div class="article-meta">
-
-        
-        <div class="article-date">
-            <i class="fa fa-calendar"></i>
-            <time datetime="2020-03-22 13:30:06 &#43;0800 CST" itemprop="datePublished">2020-03-22</time>
-            &middot;
-            614
-            字
-            &middot;
-            3
-            分钟读完
-        </div>
-        
-        
-            
-            
-            <div class="article-category">
-                <i class="fa fa-folder"></i>
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/categories/c&#43;&#43;">C&#43;&#43;</a>
-                
-                
-            </div>
-            
-        
-
-        
-            
-            
-            <div class="article-category">
-                <i class="fa fa-tags"></i>
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/tags/c&#43;&#43;">C&#43;&#43;</a>
-                
-                
-            </div>
-            
-        
-    </div>
-</header>
-
-        <div class="article-entry" itemprop="articleBody">
-            <p>
-                <p>C++ primer plus 第14章C++中的代码重用</p>
-            </p>
-            <p class="article-more-link">
-                <a href="http://jchenTech.github.io/2020/03/22/c-primer-plus-%E7%AC%AC14%E7%AB%A0c-%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%A0%81%E9%87%8D%E7%94%A8/">
-                    查看更多
-                </a>
-            </p>
-        </div>
-        <footer class="article-footer">
-    <a data-url="http://jchenTech.github.io/2020/03/22/c-primer-plus-%E7%AC%AC14%E7%AB%A0c-%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%A0%81%E9%87%8D%E7%94%A8/" data-id="ae94dcb5a6c1cd0b8afef8688744f97b" class="article-share-link">
-        <i class="fa fa-share"></i>
-        分享
-    </a>
-    
-    <a href="http://jchenTech.github.io/2020/03/22/c-primer-plus-%E7%AC%AC14%E7%AB%A0c-%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%A0%81%E9%87%8D%E7%94%A8/#disqus_thread" class="article-comment-link">
-        评论
-    </a>
-    
-
-    <script>
-    (function ($) {
-        
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-    </script>
-</footer>
-
-    </div>
-</article>
-
 
 <nav id="page-nav">
 
@@ -1789,6 +1795,32 @@
     </h3>
     <div class="widget">
         <ul id="recent-post">
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="http://jchenTech.github.io/2020/08/01/cs61blec2-defining-and-using-classes/" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">
+                        数据结构
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="http://jchenTech.github.io/2020/08/01/cs61blec2-defining-and-using-classes/" class="title">【CS61B】LEC2 Defining and Using Classes </a></p>
+                    <p class="item-date">
+                        <time datetime="2020-08-01 21:57:00 &#43;0800 CST" itemprop="datePublished">2020-08-01</time>
+                    </p>
+                </div>
+            </li>
             
             <li>
                 <div class="item-thumbnail">
@@ -1894,32 +1926,6 @@
                 </div>
             </li>
             
-            <li>
-                <div class="item-thumbnail">
-                    <a href="http://jchenTech.github.io/2020/07/27/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0mrp-fast-haze-removal-for-nighttime-image-using-maximum-reflectance-prior/" class="thumbnail">
-                    
-                        <span class="thumbnail-image thumbnail-none"></span>
-                    
-                    </a>
-                </div>
-                <div class="item-inner">
-                    
-                    
-                    <p class="item-category">
-                        
-                        <a class="article-category-link" href="http://jchenTech.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0">
-                        深度学习
-                        </a>
-                    </p>
-                    
-                    
-                    <p class="item-title"><a href="http://jchenTech.github.io/2020/07/27/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0mrp-fast-haze-removal-for-nighttime-image-using-maximum-reflectance-prior/" class="title">【论文笔记】MRP: Fast Haze Removal for Nighttime Image Using Maximum Reflectance Prior</a></p>
-                    <p class="item-date">
-                        <time datetime="2020-07-27 16:32:00 &#43;0800 CST" itemprop="datePublished">2020-07-27</time>
-                    </p>
-                </div>
-            </li>
-            
         </ul>
     </div>
 </div>
@@ -1978,7 +1984,7 @@
                 <a class="category-list-link" href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">
                     数据结构
                 </a>
-                <span class="category-list-count">2</span>
+                <span class="category-list-count">3</span>
             </li>
             
             <li class="category-list-item">

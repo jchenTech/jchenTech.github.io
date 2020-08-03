@@ -36,7 +36,7 @@
 
 <meta itemprop="datePublished" content="2020-07-30T21:17:00&#43;08:00" />
 <meta itemprop="dateModified" content="2020-07-30T21:17:00&#43;08:00" />
-<meta itemprop="wordCount" content="45">
+<meta itemprop="wordCount" content="74">
 
 
 
@@ -175,7 +175,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        30
+        31
         <span>文章</span>
       </div>
       <div class="article-info-block">
@@ -275,7 +275,7 @@
             <i class="fa fa-calendar"></i>
             <time datetime="2020-07-30 21:17:00 &#43;0800 CST" itemprop="datePublished">2020-07-30</time>
             &middot;
-            45
+            74
             字
             &middot;
             1
@@ -323,9 +323,10 @@
         <div class="article-entry" itemprop="articleBody">
             <p>学习CS61B的一个挑战便是需要学习使用Git and github。由于非伯克利注册的学生不能够得到instructional number,因此我们需要在自己的github上创建一个专有的repository，我将自己的命名为cs61b-sp18，有了这个repo，我们就可以把本地的课程代码/作业代码/项目代码推送到这个远程库中，然后上传到autograder进行评分。</p>
 
+<h2 id="配置github环境">配置github环境</h2>
+
 <ul>
-<li>首先在本地创建一个文件夹 <code>cs61b-sp18</code></li>
-<li>在 GitHub 创建一个仓库，这里为了方便起见，建议将 <code>仓库名称</code> 和 <code>本地的文件夹命名</code>为相同的名字，我都命名为了 <code>cs61b-sp18</code>
+<li>在 GitHub 创建一个仓库，这里为了方便起见，建议将 <code>仓库名称</code> 和 <code>本地的文件夹命名</code>为相同的名字，我都命名为了 <code>cs61b</code>
 将远程的仓库 <code>clone</code> 到本地</li>
 </ul>
 
@@ -336,9 +337,9 @@
 <li>clone能够把GitHub上的repo复制到本地，并关联这两个repo，而且remote repository自动会变为origin (means origin remote repo). 需要注意的是，此时无论是本地的还是远程的repo上我们都还在master branch.</li>
 </ul>
 
-<p>然后通过git bash进入本地的repo：</p>
+<p>然后进入本地的repo：</p>
 
-<pre><code>cd cs61b-sp18
+<pre><code>cd cs61b
 </code></pre>
 
 <ul>
@@ -352,8 +353,23 @@
 <li>这时候skeleton就是官方repo中的starter code远程库。然后</li>
 </ul>
 
-<pre><code>git pull skeleton
+<pre><code>git pull skeleton master
 </code></pre>
+
+<h2 id="提交代码">提交代码</h2>
+
+<p>以lab1为例，将之前写的 <code>HelloWorld.java</code> 和 <code>HelloNumbers.java</code> 文件放到本地的 <code>./cs61b/lab1</code> 中，然后暂存并提交这两个文件：</p>
+
+<pre><code>git add lab1/*
+git commit -m &quot;completed first part of lab1&quot;
+</code></pre>
+
+<p>然后将这些更改推送到 <code>origin</code> 远程仓库上的 <code>master</code> 分支：</p>
+
+<pre><code>git push origin master
+</code></pre>
+
+<p>此时代码就提交到github上去了，然后就通过auto grade选择github上repo里的文件进行打分就可以了。</p>
         </div>
         <footer class="article-footer">
     <a data-url="http://jchenTech.github.io/2020/07/30/cs61b%E5%88%A9%E7%94%A8github%E7%AE%A1%E7%90%86%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%B9%B6%E6%90%AD%E5%BB%BAauto-grade%E7%8E%AF%E5%A2%83/" data-id="377194009835afac14b89afe0dd375b8" class="article-share-link">
@@ -446,6 +462,13 @@
     
 
     
+    <a href="http://jchenTech.github.io/2020/08/01/cs61blec2-defining-and-using-classes/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          下一篇
+      </strong>
+      <div class="article-nav-title">【CS61B】LEC2 Defining and Using Classes </div>
+    </a>
+    
 </nav>
 
 
@@ -489,6 +512,32 @@
     </h3>
     <div class="widget">
         <ul id="recent-post">
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="http://jchenTech.github.io/2020/08/01/cs61blec2-defining-and-using-classes/" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">
+                        数据结构
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="http://jchenTech.github.io/2020/08/01/cs61blec2-defining-and-using-classes/" class="title">【CS61B】LEC2 Defining and Using Classes </a></p>
+                    <p class="item-date">
+                        <time datetime="2020-08-01 21:57:00 &#43;0800 CST" itemprop="datePublished">2020-08-01</time>
+                    </p>
+                </div>
+            </li>
             
             <li>
                 <div class="item-thumbnail">
@@ -594,32 +643,6 @@
                 </div>
             </li>
             
-            <li>
-                <div class="item-thumbnail">
-                    <a href="http://jchenTech.github.io/2020/07/27/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0mrp-fast-haze-removal-for-nighttime-image-using-maximum-reflectance-prior/" class="thumbnail">
-                    
-                        <span class="thumbnail-image thumbnail-none"></span>
-                    
-                    </a>
-                </div>
-                <div class="item-inner">
-                    
-                    
-                    <p class="item-category">
-                        
-                        <a class="article-category-link" href="http://jchenTech.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0">
-                        深度学习
-                        </a>
-                    </p>
-                    
-                    
-                    <p class="item-title"><a href="http://jchenTech.github.io/2020/07/27/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0mrp-fast-haze-removal-for-nighttime-image-using-maximum-reflectance-prior/" class="title">【论文笔记】MRP: Fast Haze Removal for Nighttime Image Using Maximum Reflectance Prior</a></p>
-                    <p class="item-date">
-                        <time datetime="2020-07-27 16:32:00 &#43;0800 CST" itemprop="datePublished">2020-07-27</time>
-                    </p>
-                </div>
-            </li>
-            
         </ul>
     </div>
 </div>
@@ -678,7 +701,7 @@
                 <a class="category-list-link" href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">
                     数据结构
                 </a>
-                <span class="category-list-count">2</span>
+                <span class="category-list-count">3</span>
             </li>
             
             <li class="category-list-item">
