@@ -6,10 +6,43 @@
     <description>Recent content in 数据结构 on 陈建君的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 01 Aug 2020 21:57:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 16 Aug 2020 09:30:00 +0800</lastBuildDate>
     
 	<atom:link href="http://jchenTech.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【CS61B】LEC5 DLLists, Arrays </title>
+      <link>http://jchenTech.github.io/2020/08/16/cs61blec5-dllists-arrays/</link>
+      <pubDate>Sun, 16 Aug 2020 09:30:00 +0800</pubDate>
+      
+      <guid>http://jchenTech.github.io/2020/08/16/cs61blec5-dllists-arrays/</guid>
+      <description>&lt;p&gt;DLLists, Arrays&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://sp18.datastructur.es/&#34;&gt;https://sp18.datastructur.es/&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>【CS61B】LEC4 SLLists, Nested Classes, Sentinel Nodes </title>
+      <link>http://jchenTech.github.io/2020/08/14/cs61blec4-sllists-nested-classes-sentinel-nodes/</link>
+      <pubDate>Fri, 14 Aug 2020 15:30:00 +0800</pubDate>
+      
+      <guid>http://jchenTech.github.io/2020/08/14/cs61blec4-sllists-nested-classes-sentinel-nodes/</guid>
+      <description>&lt;p&gt;SLLists, Nested Classes, Sentinel Nodes&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://sp18.datastructur.es/&#34;&gt;https://sp18.datastructur.es/&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>【CS61B】LEC3 References, Recursion, and Lists </title>
+      <link>http://jchenTech.github.io/2020/08/11/cs61blec3-references-recursion-and-lists/</link>
+      <pubDate>Tue, 11 Aug 2020 15:46:00 +0800</pubDate>
+      
+      <guid>http://jchenTech.github.io/2020/08/11/cs61blec3-references-recursion-and-lists/</guid>
+      <description>&lt;p&gt;References, Recursion, and Lists&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://sp18.datastructur.es/&#34;&gt;https://sp18.datastructur.es/&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>【CS61B】LEC2 Defining and Using Classes </title>

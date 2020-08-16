@@ -3,6 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://jchenTech.github.io/2020/08/16/cs61blec5-dllists-arrays/</loc>
+    <lastmod>2020-08-16T09:30:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://jchenTech.github.io/2020/08/14/cs61blec4-sllists-nested-classes-sentinel-nodes/</loc>
+    <lastmod>2020-08-14T15:30:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://jchenTech.github.io/2020/08/11/cs61blec3-references-recursion-and-lists/</loc>
+    <lastmod>2020-08-11T15:46:00+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://jchenTech.github.io/2020/08/01/cs61blec2-defining-and-using-classes/</loc>
     <lastmod>2020-08-01T21:57:00+08:00</lastmod>
   </url>
@@ -188,7 +203,7 @@
   
   <url>
     <loc>http://jchenTech.github.io/tags/cs61b/</loc>
-    <lastmod>2020-08-01T21:57:00+08:00</lastmod>
+    <lastmod>2020-08-16T09:30:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -230,7 +245,7 @@
   
   <url>
     <loc>http://jchenTech.github.io/tags/java/</loc>
-    <lastmod>2020-08-01T21:57:00+08:00</lastmod>
+    <lastmod>2020-08-16T09:30:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -272,7 +287,7 @@
   
   <url>
     <loc>http://jchenTech.github.io/post/</loc>
-    <lastmod>2020-08-01T21:57:00+08:00</lastmod>
+    <lastmod>2020-08-16T09:30:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -396,13 +411,13 @@
   
   <url>
     <loc>http://jchenTech.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
-    <lastmod>2020-08-01T21:57:00+08:00</lastmod>
+    <lastmod>2020-08-16T09:30:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
-    <lastmod>2020-08-01T21:57:00+08:00</lastmod>
+    <lastmod>2020-08-16T09:30:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -432,7 +447,7 @@
   
   <url>
     <loc>http://jchenTech.github.io/</loc>
-    <lastmod>2020-08-01T21:57:00+08:00</lastmod>
+    <lastmod>2020-08-16T09:30:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
