@@ -3,6 +3,26 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://jchenTech.github.io/2020/08/28/cs61blec8-inheritance-implements/</loc>
+    <lastmod>2020-08-28T15:56:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://jchenTech.github.io/2020/08/28/cs61b%E9%93%BE%E8%A1%A8intlistsllistdllistalist%E6%95%B4%E7%90%86/</loc>
+    <lastmod>2020-08-28T14:01:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://jchenTech.github.io/2020/08/20/cs61bproj1a-data-structures-linkedlistdeque-and-arraydeque/</loc>
+    <lastmod>2020-08-20T15:29:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://jchenTech.github.io/2020/08/18/cs61blec6-alists-resizing-vs.-slists/</loc>
+    <lastmod>2020-08-18T12:02:00+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://jchenTech.github.io/2020/08/16/cs61blec5-dllists-arrays/</loc>
     <lastmod>2020-08-16T09:30:00+08:00</lastmod>
   </url>
@@ -203,7 +223,7 @@
   
   <url>
     <loc>http://jchenTech.github.io/tags/cs61b/</loc>
-    <lastmod>2020-08-16T09:30:00+08:00</lastmod>
+    <lastmod>2020-08-28T15:56:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -245,7 +265,7 @@
   
   <url>
     <loc>http://jchenTech.github.io/tags/java/</loc>
-    <lastmod>2020-08-16T09:30:00+08:00</lastmod>
+    <lastmod>2020-08-28T15:56:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -287,7 +307,7 @@
   
   <url>
     <loc>http://jchenTech.github.io/post/</loc>
-    <lastmod>2020-08-16T09:30:00+08:00</lastmod>
+    <lastmod>2020-08-28T15:56:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -411,13 +431,13 @@
   
   <url>
     <loc>http://jchenTech.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
-    <lastmod>2020-08-16T09:30:00+08:00</lastmod>
+    <lastmod>2020-08-28T15:56:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
-    <lastmod>2020-08-16T09:30:00+08:00</lastmod>
+    <lastmod>2020-08-28T15:56:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -447,7 +467,7 @@
   
   <url>
     <loc>http://jchenTech.github.io/</loc>
-    <lastmod>2020-08-16T09:30:00+08:00</lastmod>
+    <lastmod>2020-08-28T15:56:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   

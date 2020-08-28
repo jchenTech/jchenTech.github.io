@@ -6,10 +6,50 @@
     <description>Recent content in Cs61b on 陈建君的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 16 Aug 2020 09:30:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 28 Aug 2020 15:56:00 +0800</lastBuildDate>
     
 	<atom:link href="http://jchenTech.github.io/tags/cs61b/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【CS61B】LEC8 Inheritance, Implements</title>
+      <link>http://jchenTech.github.io/2020/08/28/cs61blec8-inheritance-implements/</link>
+      <pubDate>Fri, 28 Aug 2020 15:56:00 +0800</pubDate>
+      
+      <guid>http://jchenTech.github.io/2020/08/28/cs61blec8-inheritance-implements/</guid>
+      <description>&lt;p&gt;LEC8 Inheritance, Implements&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>【CS61B】链表IntList、SLList、DLList、AList整理</title>
+      <link>http://jchenTech.github.io/2020/08/28/cs61b%E9%93%BE%E8%A1%A8intlistsllistdllistalist%E6%95%B4%E7%90%86/</link>
+      <pubDate>Fri, 28 Aug 2020 14:01:00 +0800</pubDate>
+      
+      <guid>http://jchenTech.github.io/2020/08/28/cs61b%E9%93%BE%E8%A1%A8intlistsllistdllistalist%E6%95%B4%E7%90%86/</guid>
+      <description>&lt;p&gt;本文整理了CS61B中的链表IntList、SLList、DLList、AList实现。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque </title>
+      <link>http://jchenTech.github.io/2020/08/20/cs61bproj1a-data-structures-linkedlistdeque-and-arraydeque/</link>
+      <pubDate>Thu, 20 Aug 2020 15:29:00 +0800</pubDate>
+      
+      <guid>http://jchenTech.github.io/2020/08/20/cs61bproj1a-data-structures-linkedlistdeque-and-arraydeque/</guid>
+      <description>&lt;p&gt;项目要求：&lt;a href=&#34;https://sp18.datastructur.es/materials/proj/proj1a/proj1a&#34;&gt;https://sp18.datastructur.es/materials/proj/proj1a/proj1a&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;代码地址：&lt;a href=&#34;https://github.com/jchenTech/cs61b/tree/master/proj1a&#34;&gt;https://github.com/jchenTech/cs61b/tree/master/proj1a&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>【CS61B】LEC6 ALists, Resizing, vs. SLists </title>
+      <link>http://jchenTech.github.io/2020/08/18/cs61blec6-alists-resizing-vs.-slists/</link>
+      <pubDate>Tue, 18 Aug 2020 12:02:00 +0800</pubDate>
+      
+      <guid>http://jchenTech.github.io/2020/08/18/cs61blec6-alists-resizing-vs.-slists/</guid>
+      <description>&lt;p&gt;ALists, Resizing, vs. SLists&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://sp18.datastructur.es/&#34;&gt;https://sp18.datastructur.es/&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>【CS61B】LEC5 DLLists, Arrays </title>
