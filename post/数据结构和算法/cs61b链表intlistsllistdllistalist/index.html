@@ -1,0 +1,863 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+    <title>【CS61B】链表IntList、SLList、DLList、AList整理 - 陈建君的技术博客</title>
+    <meta name="keywords" content="蘭陵N散記,兰陵,独立,博客,程序员,架构师,个人,思考,读书,笔记,技术,分享,Golang">
+    
+    <meta property="og:title" content="【CS61B】链表IntList、SLList、DLList、AList整理">
+    <meta property="og:site_name" content="陈建君的技术博客">
+    <meta property="og:image" content="/img/author.jpg"> 
+    <meta name="title" content="【CS61B】链表IntList、SLList、DLList、AList整理 - 陈建君的技术博客" />
+    <meta name="description" content="蘭陵N散記 | 博客 | 软件 | 架构 | Java | Golang"> 
+    <link rel="shortcut icon" href="http://jchenTech.github.io/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="http://jchenTech.github.io/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="http://jchenTech.github.io/img/apple-touch-icon.png" />
+    <link href="http://jchenTech.github.io/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="http://jchenTech.github.io/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="http://jchenTech.github.io/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="http://jchenTech.github.io/css/syntax.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+     fancybox: true, 
+    motion: true
+  };
+</script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<div class="container one-collumn sidebar-position-left page-home  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-meta  custom-logo ">
+
+  <div class="custom-logo-site-title">
+    <a href="http://jchenTech.github.io/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">陈建君的技术博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">一指流沙，程序年华</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+      
+      
+        <li class="menu-item ">
+          <a href="http://jchenTech.github.io/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://jchenTech.github.io/categories/%E6%8A%80%E6%9C%AF/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />技术
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://jchenTech.github.io/categories/%E6%84%9F%E6%83%B3/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-tint"></i> <br />感想
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://jchenTech.github.io/categories/%E7%AC%94%E8%AE%B0/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />笔记
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://jchenTech.github.io/categories/%E6%9D%82%E8%AE%B0/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-leaf"></i> <br />杂记
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://jchenTech.github.io/post/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://jchenTech.github.io/about/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于
+          </a>
+        </li>
+      
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger"> <i class="menu-item-icon fa fa-search fa-fw"></i> <br /> 搜索</a>
+      </li>
+    </ul>
+    <div class="site-search">
+      <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+    </div>
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+<section id="posts" class="posts-expand">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/cs61b%E9%93%BE%E8%A1%A8intlistsllistdllistalist/" itemprop="url">
+        【CS61B】链表IntList、SLList、DLList、AList整理
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">时间：</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2020-08-28">
+    2020-08-28
+</time>
+</span> 
+      
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">分类：</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95" itemprop="url" rel="index">
+        <span itemprop="name">数据结构与算法</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">阅读：</span>
+<span class="leancloud-visitors-count">1871 字 ~4分钟</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    <p>本文整理了CS61B中的链表IntList、SLList、DLList、AList实现。</p>
+
+<h2 id="intlist">IntList</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class IntList {
+    public int first;
+    public IntList rest;
+
+    public IntList(int f, IntList r) {
+        first = f;
+        rest = r;
+    }
+
+    /** Return the size of the list using... recursion! */
+    public int size() {
+        if (this.rest == null) {/* base case */
+            return 1;
+        }
+        return 1 + this.rest.size();
+    }
+
+    /** Return the size of the list using no recursion! */
+    public int iterativeSize() {
+        /* You can not assign &#34;this&#34; in Java*/
+        IntList p = this;
+        int totalSize = 0;
+        while (p != null) {
+            totalSize += 1;
+            p = p.rest;
+        }
+        return totalSize;
+    }
+
+    /** Returns the ith value in this list.*/
+    public int get(int i) {
+        IntList p = this;
+        int nth = 0;
+        if (i &gt;= p.size()) {
+            return -1;
+        }
+        while (nth != i) {
+            p = p.rest;
+            nth += 1;
+        }
+        return p.first;
+    }
+
+    public static void main(String[] args) {
+        IntList L = new IntList(15, null);
+        L = new IntList(10, L);
+        L = new IntList(5, L);
+        System.out.println(L.size());
+        System.out.println(L.iterativeSize());
+        System.out.println(L.get(2));
+    }
+} </pre></div>
+<h2 id="sllist">SLList</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"> /** An SLList is a list of integers, which hides the terrible truth
+   * of the nakedness within. */
+public class SLList {   
+    private static class IntNode {
+        public int item;
+        public IntNode next;
+
+        public IntNode(int i, IntNode n) {
+            item = i;
+            next = n;
+            System.out.println(size);
+        }
+    } 
+
+    /* The first item (if it exists) is at sentinel.next. */
+    private IntNode sentinel;
+    private int size;
+
+    private static void lectureQuestion() {
+        SLList L = new SLList();
+        IntNode n = IntNode(5, null);
+    }
+
+    /** Creates an empty SLList. */
+    public SLList() {
+        sentinel = new IntNode(63, null);
+        size = 0;
+    }
+
+    public SLList(int x) {
+        sentinel = new IntNode(63, null);
+        sentinel.next = new IntNode(x, null);
+        size = 1;
+    }
+
+    /** Adds x to the front of the list. */
+    public void addFirst(int x) {
+        sentinel.next = new IntNode(x, sentinel.next);
+        size = size + 1;
+    }
+
+    /** Returns the first item in the list. */
+    public int getFirst() {
+        return sentinel.next.item;
+    }
+
+    /** Adds x to the end of the list. */
+    public void addLast(int x) {
+        size = size + 1;        
+
+        IntNode p = sentinel;
+
+        /* Advance p to the end of the list. */
+        while (p.next != null) {
+            p = p.next;
+        }
+
+        p.next = new IntNode(x, null);
+    }
+    
+    /** Returns the size of the list. */
+    public int size() {
+        return size;
+    }
+
+    public static void main(String[] args) {
+        /* Creates a list of one integer, namely 10 */
+        SLList L = new SLList();
+        L.addLast(20);
+        System.out.println(L.size());
+    }
+}</pre></div>
+<h2 id="dllist-linkedlistdeque链表双边队列">DLList(LinkedListDeque链表双边队列)</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">/**
+ * Created by JianjunChen on 08/16/2020
+ * This is a Linked List Doubly ended queue Data Structure using Lists!
+ * @Rule The amount of memory that your program uses at any given time must be
+ * proportional to the number of items.
+ * @Rule Do not maintain references to items that are no longer in the deque.
+ * @Rule Implement all the methods listed above in “The Deque API” section.
+ */
+
+
+public class LinkedListDeque&lt;T&gt; {
+    /**LinkedNode Nested Class*/
+    private class LinkedNode {
+        private LinkedNode prev; /* Doubly Linked List*/
+        private T item;
+        private LinkedNode next;
+
+        public LinkedNode(LinkedNode p, T i, LinkedNode n) {
+            prev = p;
+            item = i;
+            next = n;
+        }
+    }
+
+    private LinkedNode sentinel;
+    //private LinkedNode last;
+    private int size;
+
+    /** Constructor of LinkedListDeque */
+    public LinkedListDeque() {
+        sentinel = new LinkedNode(null, null, null);
+        sentinel.prev = sentinel;
+        sentinel.next = sentinel;
+        //last = sentinel;
+        size = 0;
+    }
+
+    /** Adds an item of type T to the front of the deque.*/
+    public void addFirst(T item) {
+        LinkedNode first = new LinkedNode(sentinel, item, sentinel.next);
+        /* Note that the order cannot be reversed since if we firstly write
+         * sentinel.next = first; the sentinel.next.prev will equal to first.prev!!!!*/
+        sentinel.next.prev = first;
+        sentinel.next = first;
+        size += 1;
+    }
+
+    /** Adds an item of type T to the back of the deque. */
+    public void addLast(T item) {
+        LinkedNode last = new LinkedNode(sentinel.prev, item, sentinel);
+        /* Note that the order cannot be reversed!!! */
+        sentinel.prev.next = last;
+        sentinel.prev = last;
+        size += 1;
+    }
+
+    /** Returns true if deque is empty, false otherwise. */
+    public boolean isEmpty() {
+        if (sentinel.next == sentinel) {
+            return true;
+        }
+        return false;
+    }
+
+    /** Returns the number of items in the deque. */
+    public int size() {
+        return size;
+    }
+
+    /* Prints the items in the deque from first to last, separated by a space. */
+    public void printDeque() {
+        LinkedNode p = sentinel;
+        while (p.next != sentinel) {
+            System.out.print(p.next.item + &#34; &#34;);
+            p = p.next;
+        }
+    }
+
+    /** Removes and returns the item at the front of the deque.
+    If no such item exists, returns null.*/
+    public T removeFirst() {
+        if (isEmpty()) {
+            return null;
+        }
+
+        T firstItem = sentinel.next.item;
+        /* Note that the order cannot be reversed!!!*/
+        sentinel.next.next.prev = sentinel;
+        sentinel.next = sentinel.next.next;
+
+        size -= 1;
+        return firstItem;
+    }
+
+    /** Removes and returns the item at the back of the deque.
+     * If no such item exists, returns null. */
+    public T removeLast() {
+        if (isEmpty()) {
+            return null;
+        }
+
+        T lastItem = sentinel.prev.item;
+        /* Note that the order cannot be reversed!!! */
+        sentinel.prev.prev.next = sentinel;
+        sentinel.prev = sentinel.prev.prev;
+
+        size -= 1;
+        return lastItem;
+
+    }
+
+    /** Gets the item at the given index, where 0 is the front, 1 is the next item,
+    * and so forth. If no such item exists, returns null. Must not alter the deque! */
+    public T get(int index) {
+        if (index &gt; size - 1) {
+            return null;
+        }
+
+        LinkedNode p = sentinel.next;
+        int i = 0;
+        while (i != index) {
+            p = p.next;
+            i += 1;
+        }
+        return p.item;
+    }
+
+    /** Helper method for getRecursive */
+    private T getRecursiveHelper(LinkedNode currentNode, int index) {
+        if (index == 0) {
+            return currentNode.item;
+        }
+        return getRecursiveHelper(currentNode.next, index - 1);
+    }
+
+    /** Same as get but using recursion!! */
+    public T getRecursive(int index) {
+        if (index &gt; size - 1) {
+            return null;
+        }
+
+        return getRecursiveHelper(sentinel.next, index);
+    }
+}</pre></div>
+<h2 id="alist-arraydeque数组双边队列">AList(ArrayDeque数组双边队列)</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">/**
+ * Created by JianjunChen on 08/18/2020
+ * This is a Array based Doubly Ended Queue Data Structure!!
+ * @Rule The starting size of your array should be 8.
+ * @Rule Implement all the methods listed above in “The Deque API” section.
+ * @Rule The amount of memory that at any given time must be proportional to the number
+ * of items. For arrays of length 16 or more, your usage factor should always be at least 25%.
+ *
+ */
+
+
+// Circular ArrayDeque
+public class ArrayDeque&lt;T&gt; {
+    private int initialCapacity = 8; //initial array capacity
+    private int capacity;  //current array capacity
+    private int eFactor = 2; //expanding factor
+    private double usageFactor;
+    private int mCapacity = 16; // The minimum capacity for contraction
+    private double mRatio = 0.25; //The minimum usage ratio before contraction
+    private int cFactor = 2; //contraction factor
+    private T[] items;
+    private int size;
+    private int nextFirst;
+    private int nextLast;
+
+    public ArrayDeque() {
+        capacity = initialCapacity;
+        items = (T[]) new Object[initialCapacity];
+        size = 0;
+        nextFirst = 4;
+        nextLast = 5;
+    }
+
+    /** Finding the next nextFirst and nextLast index in circle ArrayDeque. */
+    private int oneMinus(int index) {
+        if (index == 0) { // whether the index is out of bounds!
+            index = capacity - 1;
+        } else {
+            index -= 1;
+        }
+        return index;
+    }
+
+    private int onePlus(int index) {
+        if (index == capacity - 1) { // whether the index is out of bounds!
+            index = 0;
+        } else {
+            index += 1;
+        }
+        return index;
+    }
+
+    /** Resize the original array to a new array with given capacity. */
+    private void resize(int newCapacity) {
+        T[] a = (T[]) new Object[newCapacity];
+
+        int currentFirst = onePlus(nextFirst);
+        int currentLast = oneMinus(nextLast);
+
+        if (currentFirst &lt; currentLast) {
+            int length = currentLast - currentFirst + 1;
+            System.arraycopy(items, currentFirst, a, 0, length);
+            nextFirst = newCapacity - 1;
+            nextLast = length;
+        } else {
+            int firstRightCount = capacity - currentFirst;
+            int firstLeftCount = capacity - firstRightCount;
+            System.arraycopy(items, currentFirst, a, 0, firstRightCount);
+            System.arraycopy(items, 0, a, firstRightCount, firstLeftCount);
+
+            nextFirst = newCapacity - 1;
+            nextLast = capacity;
+        }
+
+        capacity = newCapacity;
+        items = a;
+
+    }
+
+    /** Adds an item of type T to the front of the deque.
+     * @Rule Must take constant time, except during resizing operations.
+     */
+    public void addFirst(T item) {
+        items[nextFirst] = item;
+        size += 1;
+        nextFirst = oneMinus(nextFirst);
+
+        //The array is full, needed resize operation!
+        if (size == capacity) {
+            resize(size * eFactor);
+        }
+    }
+
+    /** Adds an item of type T to the back of the deque.
+     * @Rule Must take constant time, except during resizing operations.
+     */
+    public void addLast(T item) {
+        items[nextLast] = item;
+        size += 1;
+        nextLast = onePlus(nextLast);
+
+        //The array is full, needed resize operation!
+        if (size == capacity) {
+            resize(size * eFactor);
+        }
+    }
+
+    /** Returns true if deque is empty, false otherwise. */
+    public boolean isEmpty() {
+        if (size == 0) {
+            return true;
+        }
+        return false;
+    }
+
+    /** Returns the number of items in the deque. */
+    public int size() {
+        return size;
+    }
+
+    /** Prints the items in the deque from first to last, separated by a space. */
+    public void printDeque() {
+        if (isEmpty()) {
+            return;
+        }
+        int index = onePlus(nextFirst);
+        while (index != nextLast) {
+            System.out.print(items[index] + &#34; &#34;);
+            index = onePlus(index);
+        }
+    }
+
+    private void contract() {
+        usageFactor = (double) size / capacity;
+        if (usageFactor &lt;= mRatio &amp;&amp; capacity &gt;= mCapacity) {
+            int newCapacity = capacity / cFactor;
+            resize(newCapacity);
+        }
+    }
+
+    /** Removes and returns the item at the back of the deque. If no such item exists, returns null.
+     * @Rule must take constant time, except during resizing operations.
+     */
+    public T removeFirst() {
+        if (isEmpty()) {
+            return null;
+        }
+
+        int currentFirst = onePlus(nextFirst);
+        T currentFirstItem = items[currentFirst];
+        nextFirst = currentFirst;
+        items[nextFirst] = null;
+        size -= 1;
+
+        contract();
+
+        return currentFirstItem;
+    }
+
+    /** Removes and returns the item at the back of the deque. If no such item
+     * exists, returns null..
+     * @Rule must take constant time, except during resizing operations.
+     */
+    public T removeLast() {
+        if (isEmpty()) {
+            return null;
+        }
+
+        int currentLast = oneMinus(nextLast);
+        T currentLastItem = items[currentLast];
+        nextLast = currentLast;
+        items[nextLast] = null;
+        size -= 1;
+
+        return currentLastItem;
+    }
+
+    /**
+     * Gets the item at the given index, where 0 is the front, 1 is the next item, and so forth.
+     * If no such item exists, returns null. Must not alter the deque!
+     * @Rule must take constant time.
+     */
+    public T get(int index) {
+        if (index &gt;= size) {
+            return null;
+        }
+
+        int indexFromFirst = nextFirst + 1 + index;
+        if (indexFromFirst &gt;= capacity) {
+            indexFromFirst -= capacity;
+        }
+
+        return items[indexFromFirst];
+    }
+}</pre></div>
+    </div>
+    <footer class="post-footer">
+     
+ 
+<div class="post-tags">     
+     
+    <a href="http://jchenTech.github.io/tags/java" rel="tag" title="Java">#Java#</a>
+    
+    <a href="http://jchenTech.github.io/tags/cs61b" rel="tag" title="CS61B">#CS61B#</a>
+    
+    <a href="http://jchenTech.github.io/tags/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84" rel="tag" title="数据结构">#数据结构#</a>
+    
+</div>
+
+
+
+     <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+    
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/cs61bproj1a/" rel="next" title="【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque ">
+        <i class="fa fa-chevron-left"></i> 【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque 
+        </a>
+    
+    </div>
+
+    <div class="post-nav-prev post-nav-item">
+    
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/cs61blec8/" rel="prev" title="【CS61B】LEC8 Inheritance, Implements">
+        【CS61B】LEC8 Inheritance, Implements <i class="fa fa-chevron-right"></i>
+        </a>
+    
+    </div>
+</div>
+      
+     
+     
+     
+
+
+
+
+    </footer>
+  </article>
+</section>
+
+          </div>
+        </div>
+        <div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      文章目录
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      站点概览
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+        src="http://jchenTech.github.io/img/author.jpg"
+        alt="陈建君" />
+    <p class="site-author-name" itemprop="name">陈建君</p>
+    <p class="site-description motion-element" itemprop="description"> 
+        Programmer &amp; Huster</p>
+</div>
+      <nav class="site-state motion-element">
+    <div class="site-state-item site-state-posts">
+      <a href="http://jchenTech.github.io/post/">
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">日志</span>
+      </a>
+    </div>
+    <div class="site-state-item site-state-categories">    
+        <a href="http://jchenTech.github.io/categories/">      
+         
+        <span class="site-state-item-count">8</span>
+        
+        <span class="site-state-item-name">分类</span>
+        
+        </a>
+    </div>
+
+    <div class="site-state-item site-state-tags">
+        <a href="http://jchenTech.github.io/tags/">
+         
+        <span class="site-state-item-count">37</span>
+        
+        <span class="site-state-item-name">标签</span>
+        </a>
+    </div>
+</nav>
+      
+      
+<div class="links-of-author motion-element">
+    
+        <span class="links-of-author-item">
+        <a href="https://github.com/xtfly/" target="_blank" title="GitHub">
+            <i class="fa fa-fw fa-github"></i>
+            GitHub
+        </a>
+        </span>
+    
+        <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/lan-ling-xin-yun" target="_blank" title="知乎">
+            <i class="fa fa-fw fa-globe"></i>
+            知乎
+        </a>
+        </span>
+    
+</div>
+
+
+      
+
+      <div class="links-of-blogroll motion-element inline">
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5b4f2ucxar6&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;bv=35" async="async"></script>
+</div>
+
+    </section>
+    
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#intlist">IntList</a></li>
+<li><a href="#sllist">SLList</a></li>
+<li><a href="#dllist-linkedlistdeque链表双边队列">DLList(LinkedListDeque链表双边队列)</a></li>
+<li><a href="#alist-arraydeque数组双边队列">AList(ArrayDeque数组双边队列)</a></li>
+</ul></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
+  </div>
+</aside>
+
+      </div>
+    </main>
+   
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <span itemprop="copyrightYear">  &copy; 
+  2009 - 2020</span>
+  <span class="with-love"><i class="fa fa-heart"></i></span>
+  <span class="author" itemprop="copyrightHolder">陈建君的技术博客</span>
+</div>
+<div class="powered-by">
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.54.0</a>
+</div>
+<div class="theme-info">
+  Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
+  </a>
+</div>
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+      <span id="scrollpercent"><span>0</span>%</span>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+<script type="text/javascript" src="http://jchenTech.github.io/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="http://jchenTech.github.io/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="http://jchenTech.github.io/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="http://jchenTech.github.io/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="http://jchenTech.github.io/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="http://jchenTech.github.io/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+
+<script src="http://jchenTech.github.io/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<script type="text/javascript" src="http://jchenTech.github.io/js/utils.js"></script>
+<script type="text/javascript" src="http://jchenTech.github.io/js/motion.js"></script>
+<script type="text/javascript" src="http://jchenTech.github.io/js/affix.js"></script>
+<script type="text/javascript" src="http://jchenTech.github.io/js/schemes/pisces.js"></script>
+
+<script type="text/javascript" src="http://jchenTech.github.io/js/scrollspy.js"></script>
+<script type="text/javascript" src="http://jchenTech.github.io/js/post-details.js"></script>
+<script type="text/javascript" src="http://jchenTech.github.io/js/toc.js"></script>
+
+<script type="text/javascript" src="http://jchenTech.github.io/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="http://jchenTech.github.io/js/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      displayMath: [ ['$$','$$'] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { fonts: ["TeX"] }
+  });
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML' async></script>
+</body>
+</html>

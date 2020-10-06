@@ -1,0 +1,461 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+    <title>循环神经网络RNN介绍 - 陈建君的技术博客</title>
+    <meta name="keywords" content="蘭陵N散記,兰陵,独立,博客,程序员,架构师,个人,思考,读书,笔记,技术,分享,Golang">
+    
+    <meta property="og:title" content="循环神经网络RNN介绍">
+    <meta property="og:site_name" content="陈建君的技术博客">
+    <meta property="og:image" content="/img/author.jpg"> 
+    <meta name="title" content="循环神经网络RNN介绍 - 陈建君的技术博客" />
+    <meta name="description" content="蘭陵N散記 | 博客 | 软件 | 架构 | Java | Golang"> 
+    <link rel="shortcut icon" href="http://jchenTech.github.io/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="http://jchenTech.github.io/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="http://jchenTech.github.io/img/apple-touch-icon.png" />
+    <link href="http://jchenTech.github.io/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="http://jchenTech.github.io/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="http://jchenTech.github.io/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="http://jchenTech.github.io/css/syntax.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+     fancybox: true, 
+    motion: true
+  };
+</script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<div class="container one-collumn sidebar-position-left page-home  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-meta  custom-logo ">
+
+  <div class="custom-logo-site-title">
+    <a href="http://jchenTech.github.io/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">陈建君的技术博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">一指流沙，程序年华</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+      
+      
+        <li class="menu-item ">
+          <a href="http://jchenTech.github.io/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://jchenTech.github.io/categories/%E6%8A%80%E6%9C%AF/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />技术
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://jchenTech.github.io/categories/%E6%84%9F%E6%83%B3/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-tint"></i> <br />感想
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://jchenTech.github.io/categories/%E7%AC%94%E8%AE%B0/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />笔记
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://jchenTech.github.io/categories/%E6%9D%82%E8%AE%B0/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-leaf"></i> <br />杂记
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://jchenTech.github.io/post/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://jchenTech.github.io/about/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于
+          </a>
+        </li>
+      
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger"> <i class="menu-item-icon fa fa-search fa-fw"></i> <br /> 搜索</a>
+      </li>
+    </ul>
+    <div class="site-search">
+      <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+    </div>
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+<section id="posts" class="posts-expand">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Crnn%E4%BB%8B%E7%BB%8D/" itemprop="url">
+        循环神经网络RNN介绍
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">时间：</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2020-04-03">
+    2020-04-03
+</time>
+</span> 
+      
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">分类：</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://jchenTech.github.io/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0" itemprop="url" rel="index">
+        <span itemprop="name">图像处理与深度学习</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">阅读：</span>
+<span class="leancloud-visitors-count">1336 字 ~3分钟</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    <p>循环神经网络(Recurrent Neural Networks，RNN)已经在众多自然语言处理(Natural Language Processing, NLP)中取得了巨大成功以及广泛应用。本文将对RNN进行简单介绍。</p>
+
+<p><img src="http://jchenTech.github.io/images/循环神经网络RNN介绍/循环神经网络具体图.jpg" alt="循环神经网络具体图" /></p>
+
+<h2 id="神经网络基础">神经网络基础</h2>
+
+<p>神经网络可以当做是能够拟合任意函数的黑盒子，只要训练数据足够，给定特定的x，就能得到希望的y，结构图如下：</p>
+
+<p><img src="http://jchenTech.github.io/images/循环神经网络RNN介绍/神经网络.jpg" alt="神经网络" /></p>
+
+<p>将神经网络模型训练好之后，在输入层给定一个x，通过网络之后就能够在输出层得到特定的y，那么既然有了这么强大的模型，为什么还需要RNN（循环神经网络）呢？</p>
+
+<h2 id="为什么需要rnn">为什么需要RNN</h2>
+
+<p>他们都只能单独的取处理一个个的输入，前一个输入和后一个输入是完全没有关系的。但是，某些任务需要能够更好的处理序列的信息，即前面的输入和后面的输入是有关系的。</p>
+
+<blockquote>
+<p>比如，当我们在理解一句话意思时，孤立的理解这句话的每个词是不够的，我们需要处理这些词连接起来的整个序列； 当我们处理视频的时候，我们也不能只单独的去分析每一帧，而要分析这些帧连接起来的整个序列。</p>
+</blockquote>
+
+<p><strong>以nlp的一个最简单词性标注任务来说，将我 吃 苹果 三个单词标注词性为 我/nn 吃/v 苹果/nn。</strong></p>
+
+<p>那么这个任务的输入就是：</p>
+
+<p>我 吃 苹果 （已经分词好的句子）</p>
+
+<p>这个任务的输出是：</p>
+
+<p>我/nn 吃/v 苹果/nn(词性标注好的句子)</p>
+
+<p>对于这个任务来说，我们当然可以直接用普通的神经网络来做，给网络的训练数据格式了就是我-&gt; 我/nn 这样的多个单独的单词-&gt;词性标注好的单词。</p>
+
+<p><strong><em>但是很明显，一个句子中，前一个单词其实对于当前单词的词性预测是有很大影响的，比如预测苹果的时候，由于前面的吃是一个动词，那么很显然苹果作为名词的概率就会远大于动词的概率，因为动词后面接名词很常见，而动词后面接动词很少见。</em></strong></p>
+
+<p>所以为了解决一些这样类似的问题，能够更好的处理序列的信息，RNN就诞生了。</p>
+
+<h2 id="rnn结构">RNN结构</h2>
+
+<p>首先看一个简单的循环神经网络如，它由输入层、一个隐藏层和一个输出层组成：</p>
+
+<p><img src="http://jchenTech.github.io/images/循环神经网络RNN介绍/简单循环神经网络.jpg" alt="简单循环神经网络" /></p>
+
+<p>不知道初学的同学能够理解这个图吗，反正我刚开始学习的时候是懵逼的，每个结点到底代表的是一个值的输入，还是说一层的向量结点集合，如何隐藏层又可以连接到自己，<strong>等等这些疑惑~这个图是一个比较抽象的图</strong>。</p>
+
+<p>我们现在这样来理解，如果把上面有W的那个带箭头的圈去掉，它就变成了最普通的<strong>全连接神经网络</strong>。x是一个向量，它表示<strong>输入层</strong>的值（这里面没有画出来表示神经元节点的圆圈）；s是一个向量，它表示<strong>隐藏层</strong>的值（这里隐藏层面画了一个节点，你也可以想象这一层其实是多个节点，节点数与向量s的维度相同）；</p>
+
+<p>U是输入层到隐藏层的<strong>权重矩阵</strong>，o也是一个向量，它表示<strong>输出层</strong>的值；V是隐藏层到输出层的权重矩阵。</p>
+
+<p>那么，现在我们来看看W是什么。<strong>循环神经网络的隐藏层</strong>的值s不仅仅取决于当前这次的输入x，还取决于上一次<strong>隐藏层</strong>的值s。<strong>权重矩阵</strong> W就是<strong>隐藏层</strong>上一次的值作为这一次的输入的权重。</p>
+
+<p>我们给出这个抽象图对应的具体图：</p>
+
+<p><img src="http://jchenTech.github.io/images/循环神经网络RNN介绍/循环神经网络具体图.jpg" alt="循环神经网络具体图" /></p>
+
+<p><strong>我们从上图就能够很清楚的看到，上一时刻的隐藏层是如何影响当前时刻的隐藏层的。</strong></p>
+
+<p>如果我们把上面的图展开，循环神经网络也可以画成下面这个样子：</p>
+
+<p><img src="http://jchenTech.github.io/images/循环神经网络RNN介绍/RNN时间线展开图.jpg" alt="RNN时间线展开图" /></p>
+
+<p>我们可以用下面的公式来表示循环神经网络的计算方法：</p>
+
+<p><img src="http://jchenTech.github.io/images/循环神经网络RNN介绍/RNN公式.jpg" alt="RNN公式" /></p>
+
+<h2 id="总结">总结</h2>
+
+<p>好了，到这里大概讲解了RNN最基本的几个知识点，能够帮助大家直观的感受RNN和了解为什么需要RNN，后续总结它的反向求导知识点。</p>
+
+<p>注意：为了简单说明问题，偏置都没有包含在公式里面。</p>
+    </div>
+    <footer class="post-footer">
+     
+ 
+<div class="post-tags">     
+     
+    <a href="http://jchenTech.github.io/tags/%e5%be%aa%e7%8e%af%e7%a5%9e%e7%bb%8f%e7%bd%91%e7%bb%9c" rel="tag" title="循环神经网络">#循环神经网络#</a>
+    
+    <a href="http://jchenTech.github.io/tags/rnn" rel="tag" title="RNN">#RNN#</a>
+    
+</div>
+
+
+
+     <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+    
+        <a href="http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8Br-cnn-sspnet-fast-r-cnn-faster-r-cnn-yolo-ssd/" rel="next" title="深度学习目标检测：R-CNN, SSPNet, Fast R-CNN, Faster R-CNN, YOLO, SSD">
+        <i class="fa fa-chevron-left"></i> 深度学习目标检测：R-CNN, SSPNet, Fast R-CNN, Faster R-CNN, YOLO, SSD
+        </a>
+    
+    </div>
+
+    <div class="post-nav-prev post-nav-item">
+    
+        <a href="http://jchenTech.github.io/post/c&#43;&#43;/c&#43;&#43;-primer-plus-%E7%AC%AC16%E7%AB%A0string%E7%B1%BB%E5%92%8C%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/" rel="prev" title="C&#43;&#43; primer plus 第16章String类和标准模板库">
+        C&#43;&#43; primer plus 第16章String类和标准模板库 <i class="fa fa-chevron-right"></i>
+        </a>
+    
+    </div>
+</div>
+      
+     
+     
+     
+
+
+
+
+    </footer>
+  </article>
+</section>
+
+          </div>
+        </div>
+        <div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      文章目录
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      站点概览
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+        src="http://jchenTech.github.io/img/author.jpg"
+        alt="陈建君" />
+    <p class="site-author-name" itemprop="name">陈建君</p>
+    <p class="site-description motion-element" itemprop="description"> 
+        Programmer &amp; Huster</p>
+</div>
+      <nav class="site-state motion-element">
+    <div class="site-state-item site-state-posts">
+      <a href="http://jchenTech.github.io/post/">
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">日志</span>
+      </a>
+    </div>
+    <div class="site-state-item site-state-categories">    
+        <a href="http://jchenTech.github.io/categories/">      
+         
+        <span class="site-state-item-count">8</span>
+        
+        <span class="site-state-item-name">分类</span>
+        
+        </a>
+    </div>
+
+    <div class="site-state-item site-state-tags">
+        <a href="http://jchenTech.github.io/tags/">
+         
+        <span class="site-state-item-count">37</span>
+        
+        <span class="site-state-item-name">标签</span>
+        </a>
+    </div>
+</nav>
+      
+      
+<div class="links-of-author motion-element">
+    
+        <span class="links-of-author-item">
+        <a href="https://github.com/xtfly/" target="_blank" title="GitHub">
+            <i class="fa fa-fw fa-github"></i>
+            GitHub
+        </a>
+        </span>
+    
+        <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/lan-ling-xin-yun" target="_blank" title="知乎">
+            <i class="fa fa-fw fa-globe"></i>
+            知乎
+        </a>
+        </span>
+    
+</div>
+
+
+      
+
+      <div class="links-of-blogroll motion-element inline">
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5b4f2ucxar6&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;bv=35" async="async"></script>
+</div>
+
+    </section>
+    
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#神经网络基础">神经网络基础</a></li>
+<li><a href="#为什么需要rnn">为什么需要RNN</a></li>
+<li><a href="#rnn结构">RNN结构</a></li>
+<li><a href="#总结">总结</a></li>
+</ul></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
+  </div>
+</aside>
+
+      </div>
+    </main>
+   
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <span itemprop="copyrightYear">  &copy; 
+  2009 - 2020</span>
+  <span class="with-love"><i class="fa fa-heart"></i></span>
+  <span class="author" itemprop="copyrightHolder">陈建君的技术博客</span>
+</div>
+<div class="powered-by">
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.54.0</a>
+</div>
+<div class="theme-info">
+  Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
+  </a>
+</div>
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+      <span id="scrollpercent"><span>0</span>%</span>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+<script type="text/javascript" src="http://jchenTech.github.io/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="http://jchenTech.github.io/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="http://jchenTech.github.io/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="http://jchenTech.github.io/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="http://jchenTech.github.io/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="http://jchenTech.github.io/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+
+<script src="http://jchenTech.github.io/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<script type="text/javascript" src="http://jchenTech.github.io/js/utils.js"></script>
+<script type="text/javascript" src="http://jchenTech.github.io/js/motion.js"></script>
+<script type="text/javascript" src="http://jchenTech.github.io/js/affix.js"></script>
+<script type="text/javascript" src="http://jchenTech.github.io/js/schemes/pisces.js"></script>
+
+<script type="text/javascript" src="http://jchenTech.github.io/js/scrollspy.js"></script>
+<script type="text/javascript" src="http://jchenTech.github.io/js/post-details.js"></script>
+<script type="text/javascript" src="http://jchenTech.github.io/js/toc.js"></script>
+
+<script type="text/javascript" src="http://jchenTech.github.io/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="http://jchenTech.github.io/js/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      displayMath: [ ['$$','$$'] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { fonts: ["TeX"] }
+  });
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML' async></script>
+</body>
+</html>

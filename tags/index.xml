@@ -6,26 +6,341 @@
     <description>Recent content in Tags on 陈建君的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 02 Jun 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 18 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://jchenTech.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Programing</title>
-      <link>http://jchenTech.github.io/tags/programing/</link>
-      <pubDate>Sat, 02 Jun 2018 00:00:00 +0000</pubDate>
+      <title>Aod Net</title>
+      <link>http://jchenTech.github.io/tags/aod-net/</link>
+      <pubDate>Sat, 18 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://jchenTech.github.io/tags/programing/</guid>
+      <guid>http://jchenTech.github.io/tags/aod-net/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Rust</title>
-      <link>http://jchenTech.github.io/tags/rust/</link>
-      <pubDate>Sat, 02 Jun 2018 00:00:00 +0000</pubDate>
+      <title>C&#43;&#43;</title>
+      <link>http://jchenTech.github.io/tags/c&#43;&#43;/</link>
+      <pubDate>Sat, 04 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://jchenTech.github.io/tags/rust/</guid>
+      <guid>http://jchenTech.github.io/tags/c&#43;&#43;/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cs61b</title>
+      <link>http://jchenTech.github.io/tags/cs61b/</link>
+      <pubDate>Tue, 08 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/cs61b/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dehazenet</title>
+      <link>http://jchenTech.github.io/tags/dehazenet/</link>
+      <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/dehazenet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fast R Cnn</title>
+      <link>http://jchenTech.github.io/tags/fast-r-cnn/</link>
+      <pubDate>Fri, 03 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/fast-r-cnn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Faster R Cnn</title>
+      <link>http://jchenTech.github.io/tags/faster-r-cnn/</link>
+      <pubDate>Fri, 03 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/faster-r-cnn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>http://jchenTech.github.io/tags/git/</link>
+      <pubDate>Tue, 08 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Github</title>
+      <link>http://jchenTech.github.io/tags/github/</link>
+      <pubDate>Tue, 08 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Github Page</title>
+      <link>http://jchenTech.github.io/tags/github-page/</link>
+      <pubDate>Thu, 05 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/github-page/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Golang</title>
+      <link>http://jchenTech.github.io/tags/golang/</link>
+      <pubDate>Fri, 02 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>http://jchenTech.github.io/tags/hugo/</link>
+      <pubDate>Tue, 31 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Java</title>
+      <link>http://jchenTech.github.io/tags/java/</link>
+      <pubDate>Tue, 06 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>http://jchenTech.github.io/tags/linux/</link>
+      <pubDate>Mon, 27 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Markdown</title>
+      <link>http://jchenTech.github.io/tags/markdown/</link>
+      <pubDate>Fri, 06 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/markdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Matplotlib</title>
+      <link>http://jchenTech.github.io/tags/matplotlib/</link>
+      <pubDate>Mon, 13 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/matplotlib/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mrp夜间去雾</title>
+      <link>http://jchenTech.github.io/tags/mrp%E5%A4%9C%E9%97%B4%E5%8E%BB%E9%9B%BE/</link>
+      <pubDate>Mon, 27 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/mrp%E5%A4%9C%E9%97%B4%E5%8E%BB%E9%9B%BE/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mscnn去雾</title>
+      <link>http://jchenTech.github.io/tags/mscnn%E5%8E%BB%E9%9B%BE/</link>
+      <pubDate>Sat, 18 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/mscnn%E5%8E%BB%E9%9B%BE/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Programming</title>
+      <link>http://jchenTech.github.io/tags/programming/</link>
+      <pubDate>Fri, 02 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>http://jchenTech.github.io/tags/python/</link>
+      <pubDate>Mon, 13 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R Cnn</title>
+      <link>http://jchenTech.github.io/tags/r-cnn/</link>
+      <pubDate>Fri, 03 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/r-cnn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rnn</title>
+      <link>http://jchenTech.github.io/tags/rnn/</link>
+      <pubDate>Fri, 03 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/rnn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ssd</title>
+      <link>http://jchenTech.github.io/tags/ssd/</link>
+      <pubDate>Fri, 03 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/ssd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sspnet</title>
+      <link>http://jchenTech.github.io/tags/sspnet/</link>
+      <pubDate>Fri, 03 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/sspnet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Theme</title>
+      <link>http://jchenTech.github.io/tags/theme/</link>
+      <pubDate>Fri, 02 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/theme/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ubuntu</title>
+      <link>http://jchenTech.github.io/tags/ubuntu/</link>
+      <pubDate>Mon, 27 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/ubuntu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Yolo</title>
+      <link>http://jchenTech.github.io/tags/yolo/</link>
+      <pubDate>Fri, 03 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/yolo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>卷积神经网络</title>
+      <link>http://jchenTech.github.io/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</link>
+      <pubDate>Sun, 29 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>图像去雾</title>
+      <link>http://jchenTech.github.io/tags/%E5%9B%BE%E5%83%8F%E5%8E%BB%E9%9B%BE/</link>
+      <pubDate>Mon, 27 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/%E5%9B%BE%E5%83%8F%E5%8E%BB%E9%9B%BE/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>图片插入</title>
+      <link>http://jchenTech.github.io/tags/%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5/</link>
+      <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>复杂网络</title>
+      <link>http://jchenTech.github.io/tags/%E5%A4%8D%E6%9D%82%E7%BD%91%E7%BB%9C/</link>
+      <pubDate>Tue, 14 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/%E5%A4%8D%E6%9D%82%E7%BD%91%E7%BB%9C/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>常用方法</title>
+      <link>http://jchenTech.github.io/tags/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Tue, 06 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>归档页面</title>
+      <link>http://jchenTech.github.io/tags/%E5%BD%92%E6%A1%A3%E9%A1%B5%E9%9D%A2/</link>
+      <pubDate>Tue, 31 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/%E5%BD%92%E6%A1%A3%E9%A1%B5%E9%9D%A2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>循环神经网络</title>
+      <link>http://jchenTech.github.io/tags/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</link>
+      <pubDate>Fri, 03 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>排序算法</title>
+      <link>http://jchenTech.github.io/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>数据结构</title>
+      <link>http://jchenTech.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+      <pubDate>Tue, 08 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>暗通道</title>
+      <link>http://jchenTech.github.io/tags/%E6%9A%97%E9%80%9A%E9%81%93/</link>
+      <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/%E6%9A%97%E9%80%9A%E9%81%93/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>社交网络挖掘</title>
+      <link>http://jchenTech.github.io/tags/%E7%A4%BE%E4%BA%A4%E7%BD%91%E7%BB%9C%E6%8C%96%E6%8E%98/</link>
+      <pubDate>Tue, 14 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/%E7%A4%BE%E4%BA%A4%E7%BD%91%E7%BB%9C%E6%8C%96%E6%8E%98/</guid>
       <description></description>
     </item>
     

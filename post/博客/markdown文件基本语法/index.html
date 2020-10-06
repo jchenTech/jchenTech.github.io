@@ -1,0 +1,712 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+    <title>Markdown文件基本语法 - 陈建君的技术博客</title>
+    <meta name="keywords" content="蘭陵N散記,兰陵,独立,博客,程序员,架构师,个人,思考,读书,笔记,技术,分享,Golang">
+    
+    <meta property="og:title" content="Markdown文件基本语法">
+    <meta property="og:site_name" content="陈建君的技术博客">
+    <meta property="og:image" content="/img/author.jpg"> 
+    <meta name="title" content="Markdown文件基本语法 - 陈建君的技术博客" />
+    <meta name="description" content="蘭陵N散記 | 博客 | 软件 | 架构 | Java | Golang"> 
+    <link rel="shortcut icon" href="http://jchenTech.github.io/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="http://jchenTech.github.io/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="http://jchenTech.github.io/img/apple-touch-icon.png" />
+    <link href="http://jchenTech.github.io/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="http://jchenTech.github.io/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="http://jchenTech.github.io/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="http://jchenTech.github.io/css/syntax.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+     fancybox: true, 
+    motion: true
+  };
+</script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<div class="container one-collumn sidebar-position-left page-home  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-meta  custom-logo ">
+
+  <div class="custom-logo-site-title">
+    <a href="http://jchenTech.github.io/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">陈建君的技术博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">一指流沙，程序年华</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+      
+      
+        <li class="menu-item ">
+          <a href="http://jchenTech.github.io/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://jchenTech.github.io/categories/%E6%8A%80%E6%9C%AF/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />技术
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://jchenTech.github.io/categories/%E6%84%9F%E6%83%B3/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-tint"></i> <br />感想
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://jchenTech.github.io/categories/%E7%AC%94%E8%AE%B0/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />笔记
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://jchenTech.github.io/categories/%E6%9D%82%E8%AE%B0/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-leaf"></i> <br />杂记
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://jchenTech.github.io/post/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://jchenTech.github.io/about/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于
+          </a>
+        </li>
+      
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger"> <i class="menu-item-icon fa fa-search fa-fw"></i> <br /> 搜索</a>
+      </li>
+    </ul>
+    <div class="site-search">
+      <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+    </div>
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+<section id="posts" class="posts-expand">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://jchenTech.github.io/post/%E5%8D%9A%E5%AE%A2/markdown%E6%96%87%E4%BB%B6%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" itemprop="url">
+        Markdown文件基本语法
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">时间：</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2020-03-06">
+    2020-03-06
+</time>
+</span> 
+      
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">分类：</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://jchenTech.github.io/categories/%E5%8D%9A%E5%AE%A2" itemprop="url" rel="index">
+        <span itemprop="name">博客</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">阅读：</span>
+<span class="leancloud-visitors-count">1814 字 ~4分钟</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    <p>因为目前准备写博客，所以不可避免就要使用markdown语言写文章，所以这篇文章将对Markdown的基本语法进行介绍，方便以后查阅。</p>
+
+<p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。Markdown 编写的文档可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。目前常用的一些编辑器包括typora和VS Code以及vim等，目前我所使用的是VS code，使用VS Code需要安装 Markdown All in One 或 Markdown Preview Enhanced 插件从而可以进行预览。</p>
+
+<p>本文章参考了Github上的<a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown Cheatsheet</a> 以及简书上的 <a href="https://www.jianshu.com/p/bb1c4fb0fbc4#fn1">Markdown 语法小指南</a></p>
+
+<h2 id="分级标题">分级标题</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># H1
+## H2
+### H3
+#### H4
+##### H5
+###### H6
+
+也可使用===表示一级标题，使用---表示二级标题
+
+Alt-H1
+======
+
+Alt-H2
+------</pre></div>
+<h1 id="h1">H1</h1>
+
+<h2 id="h2">H2</h2>
+
+<h3 id="h3">H3</h3>
+
+<h4 id="h4">H4</h4>
+
+<h5 id="h5">H5</h5>
+
+<h6 id="h6">H6</h6>
+
+<p>也可使用===表示一级标题，使用&mdash;表示二级标题</p>
+
+<h1 id="alt-h1">Alt-H1</h1>
+
+<h2 id="alt-h2">Alt-H2</h2>
+
+<h2 id="文字样式">文字样式</h2>
+
+<h3 id="文字强调">文字强调</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">*Italics* or _Italics_ 
+**Bold** or __Bold__ 
+***Bold Italics*** or ___Bold Italics___ 
+~~Delete~~</pre></div>
+<p><em>Italics</em> or <em>Italics</em>
+<strong>Bold</strong> or <strong>Bold</strong>
+<strong><em>Bold Italics</em></strong> or <strong><em>Bold Italics</em></strong>
+<del>Delete</del></p>
+
+<h3 id="文字上下标-superscript-and-subscript">文字上下标（superscript and subscript）</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">这是^上标文字^
+这是~下标文字~</pre></div>
+<p>这是^上标文字^
+这是~下标文字~</p>
+
+<h3 id="字体下划线">字体下划线</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;u&gt;Underline&lt;/u&gt;</pre></div>
+<p><u>Underline</u></p>
+
+<h3 id="字体背景高亮">字体背景高亮</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">==Highlight==</pre></div>
+<p>==Highlight==</p>
+
+<h2 id="列表">列表</h2>
+
+<h3 id="有序列表">有序列表</h3>
+
+<p>==数字不能省略但可无序==，点号之后的空格不能少。建立多级列表时，每个子级别都要比上个级别前面多打2个以上空格。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">1. Item-1
+ 1.1. Item-1-1
+    1.1.1. Item-1-1-1
+      1.1.1.1. Item-1-1-1-1
+  1.2. Item-1-2
+2. Item-2
+6. Item-3</pre></div>
+<ol>
+<li>Item-1
+1.1. Item-1-1
+1.1.1. Item-1-1-1
+  1.1.1.1. Item-1-1-1-1
+1.2. Item-1-2</li>
+<li>Item-2</li>
+<li>Item-3</li>
+</ol>
+
+<h3 id="无序列表">无序列表</h3>
+
+<p>符号之后的空格不能少，-、+、*效果一样，在嵌套列表中可以循环使用。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">- Item-1
+  * Item-1-1
+    + Item-1-1-1
+      * Item-1-1-1-1
+  * Item-1-2
++ Item-2
+* Item-3</pre></div>
+<ul>
+<li>Item-1
+
+<ul>
+<li>Item-1-1</li>
+<li>Item-1-1-1
+
+<ul>
+<li>Item-1-1-1-1</li>
+</ul></li>
+<li>Item-1-2</li>
+</ul></li>
+<li>Item-2</li>
+<li>Item-3</li>
+</ul>
+
+<h2 id="添加链接-links">添加链接（Links）</h2>
+
+<p>有两种添加链接的方式，分别为内联（inline）和引用（reference）</p>
+
+<h3 id="内联-inline">内联（inline）</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">[I&#39;m an inline-style link](https://www.google.com)
+
+[I&#39;m an inline-style link with title](https://www.google.com &#34;Google&#39;s Homepage&#34;)</pre></div>
+<p><a href="https://www.google.com">I&rsquo;m an inline-style link</a></p>
+
+<p><a href="https://www.google.com" title="Google's Homepage">I&rsquo;m an inline-style link with title</a></p>
+
+<h3 id="引用-reference">引用（reference）</h3>
+
+<p>引用（Reference）：一般应用于多个不同位置使用相同链接。通常分为两个部分：</p>
+
+<p>调用部分格式为：<a href="http://slashdot.org" title="Optional Title Here">链接文本</a></p>
+
+<p>定义部分可以出现在文本中的其他位置，格式为：<a href="http://slashdot.org" title="Optional Title Here">ref</a>: <a href="http://some/link/address">http://some/link/address</a> (可选的标题)。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">This is [an example][ref] reference-style link.</pre></div>
+<p>This is <a href="http://slashdot.org" title="Optional Title Here">an example</a> reference-style link.</p>
+
+<h3 id="自动创建链接">自动创建链接</h3>
+
+<p>使用尖括号&lt;&gt;，可以为输入的URL或者邮箱自动创建链接，如<a href="https://www.baidu.com。">https://www.baidu.com。</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;https://www.baidu.com&gt;</pre></div>
+<p><a href="https://www.baidu.com">https://www.baidu.com</a></p>
+
+<h2 id="添加图片-images">添加图片（Images）</h2>
+
+<p>添加图片的使用方法基本上和链接类似，只是在中括号前加叹号!，即<code>![alt text](URL &quot;Image Title&quot;)</code>。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">内联法: 
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png &#34;Logo Title Text 1&#34;)
+
+引用法: 
+![alt text][logo]</pre></div>
+<p>内联法:
+<img src="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" alt="alt text" title="Logo Title Text 1" /></p>
+
+<p>引用法:
+<img src="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" alt="alt text" title="Logo Title Text 2" /></p>
+
+<h2 id="文字引用-blockquotes">文字引用（Blockquotes）</h2>
+
+<p>使用<code>&gt;</code>表示文字引用。可以多级引用。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&gt; Quote 1
+&gt; &gt; Quote 2
+&gt; &gt; &gt; Quote 3</pre></div>
+<blockquote>
+<p>Quote 1
+&gt; Quote 2
+&gt; &gt; Quote 3</p>
+</blockquote>
+
+<p>想在列表项里面使用区块引用，定界符<code>&gt;</code>必须得缩进：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">* Item
+  &gt; Quote 1
+  &gt; Quote 2</pre></div>
+<ul>
+<li>Item
+&gt; Quote 1
+&gt; Quote 2</li>
+</ul>
+
+<h2 id="转义字符-backslash-escapes">转义字符（Backslash Escapes）</h2>
+
+<p>Markdown 可以利用反斜杠<code>\</code>来插入一些在语法中有其它意义的符号，例如：如果想要用星号加在文字旁边的方式来做出强调效果，可以在星号的前面加上反斜杠：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">\*literal asterisks\*</pre></div>
+<p>*literal asterisks*</p>
+
+<h2 id="代码块引用-fenced-code-blocks">代码块引用（Fenced Code Blocks）</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">s</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;JavaScript syntax highlighting&#34;</span>;
+<span style="color:#a6e22e">alert</span>(<span style="color:#a6e22e">s</span>);
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">s <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Python syntax highlighting&#34;</span>
+<span style="color:#66d9ef">print</span> s</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">No language indicated, so no syntax highlighting. 
+But let&#39;s throw in a &lt;b&gt;tag&lt;/b&gt;.</pre></div>
+<p>注：代码缩进请使用四个空格，不要使用 Tab。</p>
+
+<h2 id="表格-tables">表格（Tables）</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">| Tables | Are | Cool  |
+| ------ |:---:| -----:|
+| col 3 is | right-aligned | $1600 |
+| col 2 is | centered | $12 |
+| zebra stripes | are neat | $1 |</pre></div>
+<table>
+<thead>
+<tr>
+<th>Tables</th>
+<th align="center">Are</th>
+<th align="right">Cool</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>col 3 is</td>
+<td align="center">right-aligned</td>
+<td align="right">$1600</td>
+</tr>
+
+<tr>
+<td>col 2 is</td>
+<td align="center">centered</td>
+<td align="right">$12</td>
+</tr>
+
+<tr>
+<td>zebra stripes</td>
+<td align="center">are neat</td>
+<td align="right">$1</td>
+</tr>
+</tbody>
+</table>
+
+<p><code>|</code>、<code>-</code>、<code>:</code> 之间的多余空格会被忽略，不影响布局。
+默认标题栏居中对齐，内容居左对齐。
+<code>-:</code> 表示内容和标题栏居右对齐，<code>:-</code> 表示内容和标题栏居左对齐，<code>:-:</code> 表示内容和标题栏居中对齐。
+内容和 <code>|</code> 之间的多余空格会被忽略，每行第一个 <code>|</code> 和最后一个|可以省略，<code>-</code> 的数量至少有一个。</p>
+
+<h2 id="分隔线">分隔线</h2>
+
+<p>在一行中使用三个或三个以上的 <code>*</code>、<code>-</code> 或 <code>_</code> 可以添加分隔线，中间插入空格，但是不能有其他字符。下面每种写法都可以建立分隔线：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">* * *
+
+***
+
+*****
+
+- - -
+
+------</pre></div>
+<h2 id="添加脚注-footnotes">添加脚注（Footnotes）</h2>
+
+<p>脚注是在需要标记脚注文字的后面增加一个方括号，方括号中的内容必须以 ^ 开头，再接着是数字、字符串标记：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Footnotes[^1] have a label[^label] and a definition[^!DEF].</pre></div>
+<p>接着，在文件的任意地方，可以把这个脚注的内容定义出来。脚注内容定义的形式就是前面引用脚注的内容，接着一个冒号，再接着一个以上的空格或制表符，最后是脚注定义的内容：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"></pre></div>
+<p>Footnotes<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> have a label<sup class="footnote-ref" id="fnref:label"><a href="#fn:label">2</a></sup> and a definition<sup class="footnote-ref" id="fnref:DEF"><a href="#fn:DEF">3</a></sup>.</p>
+
+<p>脚注定义的内容可以包含多行、段落、代码区块、区块引用和大多数其他 markdown 格式的内容。对于多行的内容只需要简单缩进至少4个空格。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">        Paragraph two of the definition.
+
+        &gt; A blockquote with
+        &gt; multiple lines.
+
+                a code block
+
+        A final paragraph.</pre></div>
+<p>默认情况下，脚注内容位于生成的 HTML 文档末尾。</p>
+
+<h2 id="目录-table-of-contents">目录（Table of Contents）</h2>
+
+<p>在需要目录出现的地方放置一个标记，这样会自动生成一个嵌套的包含所有标题的列表。默认的标记是 <code>[TOC]</code>。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">[TOC]</pre></div><div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">The first paragraph of the definition.
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:label">A footnote on &ldquo;label&rdquo;
+ <a class="footnote-return" href="#fnref:label"><sup>[return]</sup></a></li>
+<li id="fn:DEF">The definition of a footnote.
+ <a class="footnote-return" href="#fnref:DEF"><sup>[return]</sup></a></li>
+</ol>
+</div>
+    </div>
+    <footer class="post-footer">
+     
+ 
+<div class="post-tags">     
+     
+    <a href="http://jchenTech.github.io/tags/markdown" rel="tag" title="markdown">#markdown#</a>
+    
+</div>
+
+
+
+     <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+    
+        <a href="http://jchenTech.github.io/post/%E5%8D%9A%E5%AE%A2/hugo&#43;github-page%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" rel="next" title="我的第一次Hugo博客搭建过程（超级详细）">
+        <i class="fa fa-chevron-left"></i> 我的第一次Hugo博客搭建过程（超级详细）
+        </a>
+    
+    </div>
+
+    <div class="post-nav-prev post-nav-item">
+    
+        <a href="http://jchenTech.github.io/post/c&#43;&#43;/c&#43;&#43;-primer-plus-%E7%AC%AC10%E7%AB%A0%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/" rel="prev" title="C&#43;&#43; primer plus 第10章对象和类">
+        C&#43;&#43; primer plus 第10章对象和类 <i class="fa fa-chevron-right"></i>
+        </a>
+    
+    </div>
+</div>
+      
+     
+     
+     
+
+
+
+
+    </footer>
+  </article>
+</section>
+
+          </div>
+        </div>
+        <div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      文章目录
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      站点概览
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+        src="http://jchenTech.github.io/img/author.jpg"
+        alt="陈建君" />
+    <p class="site-author-name" itemprop="name">陈建君</p>
+    <p class="site-description motion-element" itemprop="description"> 
+        Programmer &amp; Huster</p>
+</div>
+      <nav class="site-state motion-element">
+    <div class="site-state-item site-state-posts">
+      <a href="http://jchenTech.github.io/post/">
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">日志</span>
+      </a>
+    </div>
+    <div class="site-state-item site-state-categories">    
+        <a href="http://jchenTech.github.io/categories/">      
+         
+        <span class="site-state-item-count">8</span>
+        
+        <span class="site-state-item-name">分类</span>
+        
+        </a>
+    </div>
+
+    <div class="site-state-item site-state-tags">
+        <a href="http://jchenTech.github.io/tags/">
+         
+        <span class="site-state-item-count">37</span>
+        
+        <span class="site-state-item-name">标签</span>
+        </a>
+    </div>
+</nav>
+      
+      
+<div class="links-of-author motion-element">
+    
+        <span class="links-of-author-item">
+        <a href="https://github.com/xtfly/" target="_blank" title="GitHub">
+            <i class="fa fa-fw fa-github"></i>
+            GitHub
+        </a>
+        </span>
+    
+        <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/lan-ling-xin-yun" target="_blank" title="知乎">
+            <i class="fa fa-fw fa-globe"></i>
+            知乎
+        </a>
+        </span>
+    
+</div>
+
+
+      
+
+      <div class="links-of-blogroll motion-element inline">
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5b4f2ucxar6&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;bv=35" async="async"></script>
+</div>
+
+    </section>
+    
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#分级标题">分级标题</a></li>
+</ul></li>
+<li><a href="#h1">H1</a>
+<ul>
+<li><a href="#h2">H2</a>
+<ul>
+<li><a href="#h3">H3</a>
+<ul>
+<li><a href="#h4">H4</a>
+<ul>
+<li><a href="#h5">H5</a>
+<ul>
+<li><a href="#h6">H6</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="#alt-h1">Alt-H1</a>
+<ul>
+<li><a href="#alt-h2">Alt-H2</a></li>
+<li><a href="#文字样式">文字样式</a>
+<ul>
+<li><a href="#文字强调">文字强调</a></li>
+<li><a href="#文字上下标-superscript-and-subscript">文字上下标（superscript and subscript）</a></li>
+<li><a href="#字体下划线">字体下划线</a></li>
+<li><a href="#字体背景高亮">字体背景高亮</a></li>
+</ul></li>
+<li><a href="#列表">列表</a>
+<ul>
+<li><a href="#有序列表">有序列表</a></li>
+<li><a href="#无序列表">无序列表</a></li>
+</ul></li>
+<li><a href="#添加链接-links">添加链接（Links）</a>
+<ul>
+<li><a href="#内联-inline">内联（inline）</a></li>
+<li><a href="#引用-reference">引用（reference）</a></li>
+<li><a href="#自动创建链接">自动创建链接</a></li>
+</ul></li>
+<li><a href="#添加图片-images">添加图片（Images）</a></li>
+<li><a href="#文字引用-blockquotes">文字引用（Blockquotes）</a></li>
+<li><a href="#转义字符-backslash-escapes">转义字符（Backslash Escapes）</a></li>
+<li><a href="#代码块引用-fenced-code-blocks">代码块引用（Fenced Code Blocks）</a></li>
+<li><a href="#表格-tables">表格（Tables）</a></li>
+<li><a href="#分隔线">分隔线</a></li>
+<li><a href="#添加脚注-footnotes">添加脚注（Footnotes）</a></li>
+<li><a href="#目录-table-of-contents">目录（Table of Contents）</a></li>
+</ul></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
+  </div>
+</aside>
+
+      </div>
+    </main>
+   
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <span itemprop="copyrightYear">  &copy; 
+  2009 - 2020</span>
+  <span class="with-love"><i class="fa fa-heart"></i></span>
+  <span class="author" itemprop="copyrightHolder">陈建君的技术博客</span>
+</div>
+<div class="powered-by">
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.54.0</a>
+</div>
+<div class="theme-info">
+  Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
+  </a>
+</div>
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+      <span id="scrollpercent"><span>0</span>%</span>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+<script type="text/javascript" src="http://jchenTech.github.io/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="http://jchenTech.github.io/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="http://jchenTech.github.io/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="http://jchenTech.github.io/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="http://jchenTech.github.io/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="http://jchenTech.github.io/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+
+<script src="http://jchenTech.github.io/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<script type="text/javascript" src="http://jchenTech.github.io/js/utils.js"></script>
+<script type="text/javascript" src="http://jchenTech.github.io/js/motion.js"></script>
+<script type="text/javascript" src="http://jchenTech.github.io/js/affix.js"></script>
+<script type="text/javascript" src="http://jchenTech.github.io/js/schemes/pisces.js"></script>
+
+<script type="text/javascript" src="http://jchenTech.github.io/js/scrollspy.js"></script>
+<script type="text/javascript" src="http://jchenTech.github.io/js/post-details.js"></script>
+<script type="text/javascript" src="http://jchenTech.github.io/js/toc.js"></script>
+
+<script type="text/javascript" src="http://jchenTech.github.io/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="http://jchenTech.github.io/js/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      displayMath: [ ['$$','$$'] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { fonts: ["TeX"] }
+  });
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML' async></script>
+</body>
+</html>
