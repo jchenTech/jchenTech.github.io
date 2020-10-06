@@ -1,2197 +1,429 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
+<!DOCTYPE HTML>
+<html lang="zh-CN">
 <head>
-    <title>陈建君的技术博客</title>
-    <meta name="generator" content="Hugo 0.54.0" />
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="author" content="陈建君">
+	<meta name="generator" content="Hugo 0.54.0" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+    <title>陈建君的技术博客 - 陈建君的技术博客</title>
+    <meta name="keywords" content="蘭陵N散記,兰陵,独立,博客,程序员,架构师,个人,思考,读书,笔记,技术,分享,Golang">
     
-      <meta name="description" content="Better late than never">
+    <meta property="og:title" content="陈建君的技术博客">
+    <meta property="og:site_name" content="陈建君的技术博客">
+    <meta property="og:image" content="/img/author.jpg"> 
+    <meta name="title" content="陈建君的技术博客 - 陈建君的技术博客" />
+    <meta name="description" content="蘭陵N散記 | 博客 | 软件 | 架构 | Java | Golang"> 
+    <link rel="shortcut icon" href="http://jchenTech.github.io/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="http://jchenTech.github.io/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="http://jchenTech.github.io/img/apple-touch-icon.png" />
+    <link href="http://jchenTech.github.io/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
     
-    
-      <link href="http://jchenTech.github.io/index.xml" rel="alternate" type="application/rss+xml" title="陈建君的技术博客" />
-      <link href="http://jchenTech.github.io/index.xml" rel="feed" type="application/rss+xml" title="陈建君的技术博客" />
-    
-    <link rel="canonical" href="http://jchenTech.github.io/"/>
-    <link rel="icon" href="http://jchenTech.github.io/favicon.ico">
-    <link rel="apple-touch-icon" href="http://jchenTech.github.io/apple-touch-icon.png"/>
-    <link rel="stylesheet" href="http://jchenTech.github.io/css/style.css">
-    <link rel="stylesheet" href="http://jchenTech.github.io/css/font-awesome.min.css">
-    <link rel="stylesheet" href="http://jchenTech.github.io/css/monokai.css">
-    <link rel="stylesheet" href="http://jchenTech.github.io/fancybox/jquery.fancybox.css">
-    
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
-    <meta property="og:title" content="陈建君的技术博客" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://jchenTech.github.io/" />
-
-<meta property="og:updated_time" content="2020-09-08T10:19:00&#43;08:00"/>
-
-    
-    
-<meta itemprop="name" content="陈建君的技术博客">
-<meta itemprop="description" content="">
-
-
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="陈建君的技术博客"/>
-<meta name="twitter:description" content=""/>
-<meta name="twitter:site" content="@spf13"/>
-
-    
-
-    
-
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link href="http://jchenTech.github.io/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="http://jchenTech.github.io/css/syntax.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: false, 
+    motion: true
+  };
+</script>
 </head>
-<body>
-<div class="container">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<div class="container one-collumn sidebar-position-left page-home  ">
+    <div class="headband"></div>
 
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-meta  custom-logo ">
 
-<div id="container">
-	<header id="header">
-  <div id="header-main" class="header-inner">
-    <div class="outer">
-      <a href="http://jchenTech.github.io/" id="logo">
-          
-          <i class="logo" style="background-image: url('http://jchenTech.github.io/css/images/logo.png')"></i>
-          
-          <span class="site-title">陈建君的技术博客</span>
-      </a>
-      <nav id="main-nav">
-          
-          
-          <a class="main-nav-link" href="http://jchenTech.github.io/">主页</a>
-          
-          
-          
-          
-          
-          
-
-          
-          <a class="main-nav-link" href="/about/">关于我</a>
-          
-          <a class="main-nav-link" href="/archives/">归档</a>
-          
-
-          
-          
-          
-          
-          <a class="main-nav-link" href="http://jchenTech.github.io/tags/">标签</a>
-          
-          
-          
-          <a class="main-nav-link" href="http://jchenTech.github.io/categories/">分类</a>
-          
-          
-      </nav>
-        <nav id="sub-nav">
-          <div class="profile" id="profile-nav">
-            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="http://jchenTech.github.io/css/images/avatar.png"><i class="fa fa-caret-down"></i></a>
-          </div>
-        </nav>
-        <div id="search-form-wrap">
-          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
-              <input type="search" name="q" class="search-form-input" placeholder="搜索">
-              <button type="submit" class="search-form-submit">
-              </button>
-              <input type="hidden" name="sitesearch" value="http://jchenTech.github.io/" />
-         </form>
-        </div>
-    </div>
+  <div class="custom-logo-site-title">
+    <a href="http://jchenTech.github.io/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">陈建君的技术博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
   </div>
-  <div id="main-nav-mobile" class="header-sub header-inner">
-    <table class="menu outer">
-      <tbody>
-          <tr>
-          
-          
-          <td><a class="main-nav-link" href="http://jchenTech.github.io/">主页</a></td>
-          
-          
-          
-          
-          
-          
+  <p class="site-subtitle">一指流沙，程序年华</p>
+</div>
 
-          
-          <td><a class="main-nav-link" href="/about/">关于我</a></td>
-          
-          <td><a class="main-nav-link" href="/archives/">归档</a></td>
-          
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
 
-          
-          
-          
-          
-          <td><a class="main-nav-link" href="http://jchenTech.github.io/tags/">标签</a></td>
-          
-          
-          
-          <td><a class="main-nav-link" href="http://jchenTech.github.io/categories/">分类</a></td>
-          
-          
-          <td>
-          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
-          <input type="search" name="q" class="search-form-input" placeholder="Search">
-          <input type="hidden" name="sitesearch" value="http://jchenTech.github.io/" />
-          </form>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-</header>
-
-   	
-   	<div class="outer">
-   	
-    	<aside id="profile">
-  <div class="inner profile-inner">
-    <div class="base-info profile-block">
+<nav class="site-nav">
+    <ul id="menu" class="menu">
       
-      <img id="avatar" src="http://jchenTech.github.io/css/images/avatar.png">
       
-      <h2 id="name">陈建君</h2>
-      <h3 id="title">练习时长两年半的程序猿</h3>
-      <span id="location"><i class="fa fa-map-marker"></i>重庆渝中</span>
-      
-          <a id="follow" href="https://github.com/jchenTech">
-              关注
+        <li class="menu-item menu-item-active">
+          <a href="http://jchenTech.github.io/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页
           </a>
+        </li>
       
+        <li class="menu-item ">
+          <a href="http://jchenTech.github.io/categories/%E6%8A%80%E6%9C%AF/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />技术
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://jchenTech.github.io/categories/%E6%84%9F%E6%83%B3/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-tint"></i> <br />感想
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://jchenTech.github.io/categories/%E7%AC%94%E8%AE%B0/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />笔记
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://jchenTech.github.io/categories/%E6%9D%82%E8%AE%B0/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-leaf"></i> <br />杂记
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://jchenTech.github.io/post/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://jchenTech.github.io/about/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于
+          </a>
+        </li>
+      
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger"> <i class="menu-item-icon fa fa-search fa-fw"></i> <br /> 搜索</a>
+      </li>
+    </ul>
+    <div class="site-search">
+      <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
     </div>
-    <div class="article-info profile-block">
-      <div class="article-info-block">
-        39
-        <span>文章</span>
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+    
+ <section id="posts" class="posts-expand">
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://jchenTech.github.io/post/java/test/" itemprop="url">
+        发射点发射点使得
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">时间：</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2018-06-02">
+    2018-06-02
+</time>
+</span> 
+      
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">分类：</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://jchenTech.github.io/categories/%E6%8A%80%E6%9C%AF" itemprop="url" rel="index">
+        <span itemprop="name">技术</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">阅读：</span>
+<span class="leancloud-visitors-count">13 字 ~1分钟</span>
+</span>
       </div>
-      <div class="article-info-block">
-        
-          33
-        
-        <span>
-            标签
-        </span>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    这是我的test文件 实打实
+    </div>
+    
+    <footer class="post-footer"><div class="post-eof"></div></footer>
+  </article>
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/test2/" itemprop="url">
+        发射点发射点使得
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">时间：</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2018-06-02">
+    2018-06-02
+</time>
+</span> 
+      
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">分类：</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95" itemprop="url" rel="index">
+        <span itemprop="name">数据结构与算法</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">阅读：</span>
+<span class="leancloud-visitors-count">17 字 ~1分钟</span>
+</span>
       </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    这是我的test文件 实打实 das = dasd as;
     </div>
-    <div class="profile-block social-links">
-      <table>
-        <tr>
-          
-<td><a href="//github.com/jchenTech" target="_blank" title="GitHub"><i class="fa fa-github"></i></a></td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<td><a href="//twitter.com/spf13" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></td>
-
-
-          <td><a href="http://jchenTech.github.io/index.xml" target="_blank" title="RSS"><i class="fa fa-rss"></i></a></td>
-        </tr>
-      </table>
-    </div>
-  </div>
-</aside>
-
     
+    <footer class="post-footer"><div class="post-eof"></div></footer>
+  </article>
 
-    <section id="main">
+</section>
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+  
+  
+
+
+
+<nav class="pagination">
     
     
-
-<article class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
         
-        <a href="http://jchenTech.github.io/2020/09/08/cs61blec9-inheritance-implements/" itemprop="url">
-            <img src="http://jchenTech.github.io/banners/LEC8.png" class="article-banner">
         
-        </a>
-
-        <header class="article-header">
-    <a href="http://jchenTech.github.io/2020/09/08/cs61blec9-inheritance-implements/">
-    <h1 class="article-title" itemprop="name">
-        【CS61B】LEC9 Inheritance, Implements
-    </h1>
-    </a>
-    <div class="article-meta">
-
+          <span class="page-number current">1</span>
         
-        <div class="article-date">
-            <i class="fa fa-calendar"></i>
-            <time datetime="2020-09-08 10:19:00 &#43;0800 CST" itemprop="datePublished">2020-09-08</time>
-            &middot;
-            3
-            字
-            &middot;
-            1
-            分钟读完
-        </div>
         
-        
-            
-            
-            <div class="article-category">
-                <i class="fa fa-folder"></i>
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
-                
-                
-            </div>
-            
-        
-
-        
-            
-            
-            <div class="article-category">
-                <i class="fa fa-tags"></i>
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/tags/java">Java</a>
-                &middot;
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/tags/cs61b">CS61B</a>
-                &middot;
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
-                
-                
-            </div>
-            
-        
-    </div>
-</header>
-
-        <div class="article-entry" itemprop="articleBody">
-            <p>
-                <p>LEC8 Inheritance, Implements</p>
-
-<p><img src="/images/【CS61B】课程总结思维导图/LEC8.png" alt="" /></p>
-            </p>
-            <p class="article-more-link">
-                <a href="http://jchenTech.github.io/2020/09/08/cs61blec9-inheritance-implements/">
-                    查看更多
-                </a>
-            </p>
-        </div>
-        <footer class="article-footer">
-    <a data-url="http://jchenTech.github.io/2020/09/08/cs61blec9-inheritance-implements/" data-id="c7471cb6fca2f5f419e3ae726ea8ce9c" class="article-share-link">
-        <i class="fa fa-share"></i>
-        分享
-    </a>
-    
-    <a href="http://jchenTech.github.io/2020/09/08/cs61blec9-inheritance-implements/#disqus_thread" class="article-comment-link">
-        评论
-    </a>
-    
-
-    <script>
-    (function ($) {
-        
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-    </script>
-</footer>
-
-    </div>
-</article>
-
-<article class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        </a>
-
-        <header class="article-header">
-    <a href="http://jchenTech.github.io/2020/08/28/cs61blec8-inheritance-implements/">
-    <h1 class="article-title" itemprop="name">
-        【CS61B】LEC8 Inheritance, Implements
-    </h1>
-    </a>
-    <div class="article-meta">
-
-        
-        <div class="article-date">
-            <i class="fa fa-calendar"></i>
-            <time datetime="2020-08-28 15:56:00 &#43;0800 CST" itemprop="datePublished">2020-08-28</time>
-            &middot;
-            259
-            字
-            &middot;
-            2
-            分钟读完
-        </div>
-        
-        
-            
-            
-            <div class="article-category">
-                <i class="fa fa-folder"></i>
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
-                
-                
-            </div>
-            
-        
-
-        
-            
-            
-            <div class="article-category">
-                <i class="fa fa-tags"></i>
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/tags/java">Java</a>
-                &middot;
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/tags/cs61b">CS61B</a>
-                &middot;
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
-                
-                
-            </div>
-            
-        
-    </div>
-</header>
-
-        <div class="article-entry" itemprop="articleBody">
-            <p>
-                <p>LEC8 Inheritance, Implements</p>
-
-<p><img src="/images/【CS61B】课程总结思维导图/LEC8.png" alt="" /></p>
-            </p>
-            <p class="article-more-link">
-                <a href="http://jchenTech.github.io/2020/08/28/cs61blec8-inheritance-implements/">
-                    查看更多
-                </a>
-            </p>
-        </div>
-        <footer class="article-footer">
-    <a data-url="http://jchenTech.github.io/2020/08/28/cs61blec8-inheritance-implements/" data-id="b97e791387660541b96fc00f9a14b483" class="article-share-link">
-        <i class="fa fa-share"></i>
-        分享
-    </a>
-    
-    <a href="http://jchenTech.github.io/2020/08/28/cs61blec8-inheritance-implements/#disqus_thread" class="article-comment-link">
-        评论
-    </a>
-    
-
-    <script>
-    (function ($) {
-        
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-    </script>
-</footer>
-
-    </div>
-</article>
-
-<article class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        </a>
-
-        <header class="article-header">
-    <a href="http://jchenTech.github.io/2020/08/28/cs61b%E9%93%BE%E8%A1%A8intlistsllistdllistalist%E6%95%B4%E7%90%86/">
-    <h1 class="article-title" itemprop="name">
-        【CS61B】链表IntList、SLList、DLList、AList整理
-    </h1>
-    </a>
-    <div class="article-meta">
-
-        
-        <div class="article-date">
-            <i class="fa fa-calendar"></i>
-            <time datetime="2020-08-28 14:01:00 &#43;0800 CST" itemprop="datePublished">2020-08-28</time>
-            &middot;
-            1770
-            字
-            &middot;
-            9
-            分钟读完
-        </div>
-        
-        
-            
-            
-            <div class="article-category">
-                <i class="fa fa-folder"></i>
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
-                
-                
-            </div>
-            
-        
-
-        
-            
-            
-            <div class="article-category">
-                <i class="fa fa-tags"></i>
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/tags/java">Java</a>
-                &middot;
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/tags/cs61b">CS61B</a>
-                &middot;
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
-                
-                
-            </div>
-            
-        
-    </div>
-</header>
-
-        <div class="article-entry" itemprop="articleBody">
-            <p>
-                <p>本文整理了CS61B中的链表IntList、SLList、DLList、AList实现。</p>
-            </p>
-            <p class="article-more-link">
-                <a href="http://jchenTech.github.io/2020/08/28/cs61b%E9%93%BE%E8%A1%A8intlistsllistdllistalist%E6%95%B4%E7%90%86/">
-                    查看更多
-                </a>
-            </p>
-        </div>
-        <footer class="article-footer">
-    <a data-url="http://jchenTech.github.io/2020/08/28/cs61b%E9%93%BE%E8%A1%A8intlistsllistdllistalist%E6%95%B4%E7%90%86/" data-id="7f5c4a950f63cd273fdf8e20310ef6ce" class="article-share-link">
-        <i class="fa fa-share"></i>
-        分享
-    </a>
-    
-    <a href="http://jchenTech.github.io/2020/08/28/cs61b%E9%93%BE%E8%A1%A8intlistsllistdllistalist%E6%95%B4%E7%90%86/#disqus_thread" class="article-comment-link">
-        评论
-    </a>
-    
-
-    <script>
-    (function ($) {
-        
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-    </script>
-</footer>
-
-    </div>
-</article>
-
-<article class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        </a>
-
-        <header class="article-header">
-    <a href="http://jchenTech.github.io/2020/08/20/cs61bproj1a-data-structures-linkedlistdeque-and-arraydeque/">
-    <h1 class="article-title" itemprop="name">
-        【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque 
-    </h1>
-    </a>
-    <div class="article-meta">
-
-        
-        <div class="article-date">
-            <i class="fa fa-calendar"></i>
-            <time datetime="2020-08-20 15:29:00 &#43;0800 CST" itemprop="datePublished">2020-08-20</time>
-            &middot;
-            2
-            字
-            &middot;
-            1
-            分钟读完
-        </div>
-        
-        
-            
-            
-            <div class="article-category">
-                <i class="fa fa-folder"></i>
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
-                
-                
-            </div>
-            
-        
-
-        
-            
-            
-            <div class="article-category">
-                <i class="fa fa-tags"></i>
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/tags/java">Java</a>
-                &middot;
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/tags/cs61b">CS61B</a>
-                &middot;
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
-                
-                
-            </div>
-            
-        
-    </div>
-</header>
-
-        <div class="article-entry" itemprop="articleBody">
-            <p>
-                <p>项目要求：<a href="https://sp18.datastructur.es/materials/proj/proj1a/proj1a">https://sp18.datastructur.es/materials/proj/proj1a/proj1a</a></p>
-
-<p>代码地址：<a href="https://github.com/jchenTech/cs61b/tree/master/proj1a">https://github.com/jchenTech/cs61b/tree/master/proj1a</a></p>
-            </p>
-            <p class="article-more-link">
-                <a href="http://jchenTech.github.io/2020/08/20/cs61bproj1a-data-structures-linkedlistdeque-and-arraydeque/">
-                    查看更多
-                </a>
-            </p>
-        </div>
-        <footer class="article-footer">
-    <a data-url="http://jchenTech.github.io/2020/08/20/cs61bproj1a-data-structures-linkedlistdeque-and-arraydeque/" data-id="4d7ea93bd7df5635da107f6939ed4557" class="article-share-link">
-        <i class="fa fa-share"></i>
-        分享
-    </a>
-    
-    <a href="http://jchenTech.github.io/2020/08/20/cs61bproj1a-data-structures-linkedlistdeque-and-arraydeque/#disqus_thread" class="article-comment-link">
-        评论
-    </a>
-    
-
-    <script>
-    (function ($) {
-        
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-    </script>
-</footer>
-
-    </div>
-</article>
-
-<article class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        </a>
-
-        <header class="article-header">
-    <a href="http://jchenTech.github.io/2020/08/18/cs61blec6-alists-resizing-vs.-slists/">
-    <h1 class="article-title" itemprop="name">
-        【CS61B】LEC6 ALists, Resizing, vs. SLists 
-    </h1>
-    </a>
-    <div class="article-meta">
-
-        
-        <div class="article-date">
-            <i class="fa fa-calendar"></i>
-            <time datetime="2020-08-18 12:02:00 &#43;0800 CST" itemprop="datePublished">2020-08-18</time>
-            &middot;
-            93
-            字
-            &middot;
-            1
-            分钟读完
-        </div>
-        
-        
-            
-            
-            <div class="article-category">
-                <i class="fa fa-folder"></i>
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
-                
-                
-            </div>
-            
-        
-
-        
-            
-            
-            <div class="article-category">
-                <i class="fa fa-tags"></i>
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/tags/java">Java</a>
-                &middot;
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/tags/cs61b">CS61B</a>
-                &middot;
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
-                
-                
-            </div>
-            
-        
-    </div>
-</header>
-
-        <div class="article-entry" itemprop="articleBody">
-            <p>
-                <p>ALists, Resizing, vs. SLists</p>
-
-<p><a href="https://sp18.datastructur.es/">https://sp18.datastructur.es/</a></p>
-            </p>
-            <p class="article-more-link">
-                <a href="http://jchenTech.github.io/2020/08/18/cs61blec6-alists-resizing-vs.-slists/">
-                    查看更多
-                </a>
-            </p>
-        </div>
-        <footer class="article-footer">
-    <a data-url="http://jchenTech.github.io/2020/08/18/cs61blec6-alists-resizing-vs.-slists/" data-id="98e9565fed5dc7894a94b39ac3cddd1e" class="article-share-link">
-        <i class="fa fa-share"></i>
-        分享
-    </a>
-    
-    <a href="http://jchenTech.github.io/2020/08/18/cs61blec6-alists-resizing-vs.-slists/#disqus_thread" class="article-comment-link">
-        评论
-    </a>
-    
-
-    <script>
-    (function ($) {
-        
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-    </script>
-</footer>
-
-    </div>
-</article>
-
-<article class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        </a>
-
-        <header class="article-header">
-    <a href="http://jchenTech.github.io/2020/08/16/cs61blec5-dllists-arrays/">
-    <h1 class="article-title" itemprop="name">
-        【CS61B】LEC5 DLLists, Arrays 
-    </h1>
-    </a>
-    <div class="article-meta">
-
-        
-        <div class="article-date">
-            <i class="fa fa-calendar"></i>
-            <time datetime="2020-08-16 09:30:00 &#43;0800 CST" itemprop="datePublished">2020-08-16</time>
-            &middot;
-            189
-            字
-            &middot;
-            1
-            分钟读完
-        </div>
-        
-        
-            
-            
-            <div class="article-category">
-                <i class="fa fa-folder"></i>
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
-                
-                
-            </div>
-            
-        
-
-        
-            
-            
-            <div class="article-category">
-                <i class="fa fa-tags"></i>
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/tags/java">Java</a>
-                &middot;
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/tags/cs61b">CS61B</a>
-                &middot;
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
-                
-                
-            </div>
-            
-        
-    </div>
-</header>
-
-        <div class="article-entry" itemprop="articleBody">
-            <p>
-                <p>DLLists, Arrays</p>
-
-<p><a href="https://sp18.datastructur.es/">https://sp18.datastructur.es/</a></p>
-            </p>
-            <p class="article-more-link">
-                <a href="http://jchenTech.github.io/2020/08/16/cs61blec5-dllists-arrays/">
-                    查看更多
-                </a>
-            </p>
-        </div>
-        <footer class="article-footer">
-    <a data-url="http://jchenTech.github.io/2020/08/16/cs61blec5-dllists-arrays/" data-id="7f012a621779114d5a155ade11e7cf7a" class="article-share-link">
-        <i class="fa fa-share"></i>
-        分享
-    </a>
-    
-    <a href="http://jchenTech.github.io/2020/08/16/cs61blec5-dllists-arrays/#disqus_thread" class="article-comment-link">
-        评论
-    </a>
-    
-
-    <script>
-    (function ($) {
-        
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-    </script>
-</footer>
-
-    </div>
-</article>
-
-<article class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        </a>
-
-        <header class="article-header">
-    <a href="http://jchenTech.github.io/2020/08/14/cs61blec4-sllists-nested-classes-sentinel-nodes/">
-    <h1 class="article-title" itemprop="name">
-        【CS61B】LEC4 SLLists, Nested Classes, Sentinel Nodes 
-    </h1>
-    </a>
-    <div class="article-meta">
-
-        
-        <div class="article-date">
-            <i class="fa fa-calendar"></i>
-            <time datetime="2020-08-14 15:30:00 &#43;0800 CST" itemprop="datePublished">2020-08-14</time>
-            &middot;
-            110
-            字
-            &middot;
-            1
-            分钟读完
-        </div>
-        
-        
-            
-            
-            <div class="article-category">
-                <i class="fa fa-folder"></i>
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
-                
-                
-            </div>
-            
-        
-
-        
-            
-            
-            <div class="article-category">
-                <i class="fa fa-tags"></i>
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/tags/java">Java</a>
-                &middot;
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/tags/cs61b">CS61B</a>
-                &middot;
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
-                
-                
-            </div>
-            
-        
-    </div>
-</header>
-
-        <div class="article-entry" itemprop="articleBody">
-            <p>
-                <p>SLLists, Nested Classes, Sentinel Nodes</p>
-
-<p><a href="https://sp18.datastructur.es/">https://sp18.datastructur.es/</a></p>
-            </p>
-            <p class="article-more-link">
-                <a href="http://jchenTech.github.io/2020/08/14/cs61blec4-sllists-nested-classes-sentinel-nodes/">
-                    查看更多
-                </a>
-            </p>
-        </div>
-        <footer class="article-footer">
-    <a data-url="http://jchenTech.github.io/2020/08/14/cs61blec4-sllists-nested-classes-sentinel-nodes/" data-id="40164417a95ef67352d3197f5f236676" class="article-share-link">
-        <i class="fa fa-share"></i>
-        分享
-    </a>
-    
-    <a href="http://jchenTech.github.io/2020/08/14/cs61blec4-sllists-nested-classes-sentinel-nodes/#disqus_thread" class="article-comment-link">
-        评论
-    </a>
-    
-
-    <script>
-    (function ($) {
-        
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-    </script>
-</footer>
-
-    </div>
-</article>
-
-<article class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        </a>
-
-        <header class="article-header">
-    <a href="http://jchenTech.github.io/2020/08/11/cs61blec3-references-recursion-and-lists/">
-    <h1 class="article-title" itemprop="name">
-        【CS61B】LEC3 References, Recursion, and Lists 
-    </h1>
-    </a>
-    <div class="article-meta">
-
-        
-        <div class="article-date">
-            <i class="fa fa-calendar"></i>
-            <time datetime="2020-08-11 15:46:00 &#43;0800 CST" itemprop="datePublished">2020-08-11</time>
-            &middot;
-            58
-            字
-            &middot;
-            1
-            分钟读完
-        </div>
-        
-        
-            
-            
-            <div class="article-category">
-                <i class="fa fa-folder"></i>
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
-                
-                
-            </div>
-            
-        
-
-        
-            
-            
-            <div class="article-category">
-                <i class="fa fa-tags"></i>
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/tags/java">Java</a>
-                &middot;
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/tags/cs61b">CS61B</a>
-                &middot;
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
-                
-                
-            </div>
-            
-        
-    </div>
-</header>
-
-        <div class="article-entry" itemprop="articleBody">
-            <p>
-                <p>References, Recursion, and Lists</p>
-
-<p><a href="https://sp18.datastructur.es/">https://sp18.datastructur.es/</a></p>
-            </p>
-            <p class="article-more-link">
-                <a href="http://jchenTech.github.io/2020/08/11/cs61blec3-references-recursion-and-lists/">
-                    查看更多
-                </a>
-            </p>
-        </div>
-        <footer class="article-footer">
-    <a data-url="http://jchenTech.github.io/2020/08/11/cs61blec3-references-recursion-and-lists/" data-id="da688ec86cd0374e6989ffc4ccdb5672" class="article-share-link">
-        <i class="fa fa-share"></i>
-        分享
-    </a>
-    
-    <a href="http://jchenTech.github.io/2020/08/11/cs61blec3-references-recursion-and-lists/#disqus_thread" class="article-comment-link">
-        评论
-    </a>
-    
-
-    <script>
-    (function ($) {
-        
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-    </script>
-</footer>
-
-    </div>
-</article>
-
-<article class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        </a>
-
-        <header class="article-header">
-    <a href="http://jchenTech.github.io/2020/08/01/cs61blec2-defining-and-using-classes/">
-    <h1 class="article-title" itemprop="name">
-        【CS61B】LEC2 Defining and Using Classes 
-    </h1>
-    </a>
-    <div class="article-meta">
-
-        
-        <div class="article-date">
-            <i class="fa fa-calendar"></i>
-            <time datetime="2020-08-01 21:57:00 &#43;0800 CST" itemprop="datePublished">2020-08-01</time>
-            &middot;
-            600
-            字
-            &middot;
-            3
-            分钟读完
-        </div>
-        
-        
-            
-            
-            <div class="article-category">
-                <i class="fa fa-folder"></i>
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
-                
-                
-            </div>
-            
-        
-
-        
-            
-            
-            <div class="article-category">
-                <i class="fa fa-tags"></i>
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/tags/java">Java</a>
-                &middot;
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/tags/cs61b">CS61B</a>
-                &middot;
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
-                
-                
-            </div>
-            
-        
-    </div>
-</header>
-
-        <div class="article-entry" itemprop="articleBody">
-            <p>
-                <p>Defining and Using Classes</p>
-            </p>
-            <p class="article-more-link">
-                <a href="http://jchenTech.github.io/2020/08/01/cs61blec2-defining-and-using-classes/">
-                    查看更多
-                </a>
-            </p>
-        </div>
-        <footer class="article-footer">
-    <a data-url="http://jchenTech.github.io/2020/08/01/cs61blec2-defining-and-using-classes/" data-id="c570ade91a579ca5998f79e9b6fe705e" class="article-share-link">
-        <i class="fa fa-share"></i>
-        分享
-    </a>
-    
-    <a href="http://jchenTech.github.io/2020/08/01/cs61blec2-defining-and-using-classes/#disqus_thread" class="article-comment-link">
-        评论
-    </a>
-    
-
-    <script>
-    (function ($) {
-        
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-    </script>
-</footer>
-
-    </div>
-</article>
-
-<article class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        </a>
-
-        <header class="article-header">
-    <a href="http://jchenTech.github.io/2020/07/30/cs61b%E5%88%A9%E7%94%A8github%E7%AE%A1%E7%90%86%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%B9%B6%E6%90%AD%E5%BB%BAauto-grade%E7%8E%AF%E5%A2%83/">
-    <h1 class="article-title" itemprop="name">
-        【CS61B】利用Github管理课程代码并搭建Auto Grade环境
-    </h1>
-    </a>
-    <div class="article-meta">
-
-        
-        <div class="article-date">
-            <i class="fa fa-calendar"></i>
-            <time datetime="2020-07-30 21:17:00 &#43;0800 CST" itemprop="datePublished">2020-07-30</time>
-            &middot;
-            74
-            字
-            &middot;
-            1
-            分钟读完
-        </div>
-        
-        
-            
-            
-            <div class="article-category">
-                <i class="fa fa-folder"></i>
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
-                
-                
-            </div>
-            
-        
-
-        
-            
-            
-            <div class="article-category">
-                <i class="fa fa-tags"></i>
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/tags/java">Java</a>
-                &middot;
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/tags/cs61b">CS61B</a>
-                &middot;
-                
-                
-                <a class="article-category-link" href="http://jchenTech.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
-                
-                
-            </div>
-            
-        
-    </div>
-</header>
-
-        <div class="article-entry" itemprop="articleBody">
-            <p>
-                <p>学习CS61B的一个挑战便是需要学习使用Git and github。由于非伯克利注册的学生不能够得到instructional number,因此我们需要在自己的github上创建一个专有的repository，我将自己的命名为cs61b-sp18，有了这个repo，我们就可以把本地的课程代码/作业代码/项目代码推送到这个远程库中，然后上传到autograder进行评分。</p>
-            </p>
-            <p class="article-more-link">
-                <a href="http://jchenTech.github.io/2020/07/30/cs61b%E5%88%A9%E7%94%A8github%E7%AE%A1%E7%90%86%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%B9%B6%E6%90%AD%E5%BB%BAauto-grade%E7%8E%AF%E5%A2%83/">
-                    查看更多
-                </a>
-            </p>
-        </div>
-        <footer class="article-footer">
-    <a data-url="http://jchenTech.github.io/2020/07/30/cs61b%E5%88%A9%E7%94%A8github%E7%AE%A1%E7%90%86%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%B9%B6%E6%90%AD%E5%BB%BAauto-grade%E7%8E%AF%E5%A2%83/" data-id="377194009835afac14b89afe0dd375b8" class="article-share-link">
-        <i class="fa fa-share"></i>
-        分享
-    </a>
-    
-    <a href="http://jchenTech.github.io/2020/07/30/cs61b%E5%88%A9%E7%94%A8github%E7%AE%A1%E7%90%86%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%B9%B6%E6%90%AD%E5%BB%BAauto-grade%E7%8E%AF%E5%A2%83/#disqus_thread" class="article-comment-link">
-        评论
-    </a>
-    
-
-    <script>
-    (function ($) {
-        
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-    </script>
-</footer>
-
-    </div>
-</article>
-
-
-<nav id="page-nav">
-
     
     
-        <a class="extend next" rel="next" href="http://jchenTech.github.io/page/2/">
-            下一页 »
-        </a>
-    
-
 </nav>
 
 
+
+
+          </div>
+        </div>
+        <div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+    <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+        src="http://jchenTech.github.io/img/author.jpg"
+        alt="陈建君" />
+    <p class="site-author-name" itemprop="name">陈建君</p>
+    <p class="site-description motion-element" itemprop="description"> 
+        Programmer &amp; Huster</p>
+</div>
+      <nav class="site-state motion-element">
+    <div class="site-state-item site-state-posts">
+      <a href="http://jchenTech.github.io/post/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">日志</span>
+      </a>
+    </div>
+    <div class="site-state-item site-state-categories">    
+        <a href="http://jchenTech.github.io/categories/">      
+         
+        <span class="site-state-item-count">2</span>
+        
+        <span class="site-state-item-name">分类</span>
+        
+        </a>
+    </div>
+
+    <div class="site-state-item site-state-tags">
+        <a href="http://jchenTech.github.io/tags/">
+         
+        <span class="site-state-item-count">2</span>
+        
+        <span class="site-state-item-name">标签</span>
+        </a>
+    </div>
+</nav>
+      
+<div class="feed-link motion-element">
+<a href="http://jchenTech.github.io/index.xml" rel="alternate" type="application/rss+xml" target="_blank">
+    <i class="fa fa-rss"></i>
+    RSS 订阅
+</a>
+</div>
+
+      
+<div class="links-of-author motion-element">
+    
+        <span class="links-of-author-item">
+        <a href="https://github.com/xtfly/" target="_blank" title="GitHub">
+            <i class="fa fa-fw fa-github"></i>
+            GitHub
+        </a>
+        </span>
+    
+        <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/lan-ling-xin-yun" target="_blank" title="知乎">
+            <i class="fa fa-fw fa-globe"></i>
+            知乎
+        </a>
+        </span>
+    
+</div>
+
+
+      
+
+      <div class="links-of-blogroll motion-element inline">
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5b4f2ucxar6&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;bv=35" async="async"></script>
+</div>
+
     </section>
-
-   	
-    	<aside id="sidebar">
     
-<div class="widget-wrap">
-    <h3 class="widget-title">
-        最近的文章
-    </h3>
-    <div class="widget">
-        <ul id="recent-post">
-            
-            <li>
-                <div class="item-thumbnail">
-                    <a href="http://jchenTech.github.io/2020/09/08/cs61blec9-inheritance-implements/" class="thumbnail">
-                    
-                        <span style="background-image:url(http://jchenTech.github.io/banners/LEC8.png)" alt="陈建君的技术博客" class="thumbnail-image"></span>
-                    
-                    </a>
-                </div>
-                <div class="item-inner">
-                    
-                    
-                    <p class="item-category">
-                        
-                        <a class="article-category-link" href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">
-                        数据结构
-                        </a>
-                    </p>
-                    
-                    
-                    <p class="item-title"><a href="http://jchenTech.github.io/2020/09/08/cs61blec9-inheritance-implements/" class="title">【CS61B】LEC9 Inheritance, Implements</a></p>
-                    <p class="item-date">
-                        <time datetime="2020-09-08 10:19:00 &#43;0800 CST" itemprop="datePublished">2020-09-08</time>
-                    </p>
-                </div>
-            </li>
-            
-            <li>
-                <div class="item-thumbnail">
-                    <a href="http://jchenTech.github.io/2020/08/28/cs61blec8-inheritance-implements/" class="thumbnail">
-                    
-                        <span class="thumbnail-image thumbnail-none"></span>
-                    
-                    </a>
-                </div>
-                <div class="item-inner">
-                    
-                    
-                    <p class="item-category">
-                        
-                        <a class="article-category-link" href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">
-                        数据结构
-                        </a>
-                    </p>
-                    
-                    
-                    <p class="item-title"><a href="http://jchenTech.github.io/2020/08/28/cs61blec8-inheritance-implements/" class="title">【CS61B】LEC8 Inheritance, Implements</a></p>
-                    <p class="item-date">
-                        <time datetime="2020-08-28 15:56:00 &#43;0800 CST" itemprop="datePublished">2020-08-28</time>
-                    </p>
-                </div>
-            </li>
-            
-            <li>
-                <div class="item-thumbnail">
-                    <a href="http://jchenTech.github.io/2020/08/28/cs61b%E9%93%BE%E8%A1%A8intlistsllistdllistalist%E6%95%B4%E7%90%86/" class="thumbnail">
-                    
-                        <span class="thumbnail-image thumbnail-none"></span>
-                    
-                    </a>
-                </div>
-                <div class="item-inner">
-                    
-                    
-                    <p class="item-category">
-                        
-                        <a class="article-category-link" href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">
-                        数据结构
-                        </a>
-                    </p>
-                    
-                    
-                    <p class="item-title"><a href="http://jchenTech.github.io/2020/08/28/cs61b%E9%93%BE%E8%A1%A8intlistsllistdllistalist%E6%95%B4%E7%90%86/" class="title">【CS61B】链表IntList、SLList、DLList、AList整理</a></p>
-                    <p class="item-date">
-                        <time datetime="2020-08-28 14:01:00 &#43;0800 CST" itemprop="datePublished">2020-08-28</time>
-                    </p>
-                </div>
-            </li>
-            
-            <li>
-                <div class="item-thumbnail">
-                    <a href="http://jchenTech.github.io/2020/08/20/cs61bproj1a-data-structures-linkedlistdeque-and-arraydeque/" class="thumbnail">
-                    
-                        <span class="thumbnail-image thumbnail-none"></span>
-                    
-                    </a>
-                </div>
-                <div class="item-inner">
-                    
-                    
-                    <p class="item-category">
-                        
-                        <a class="article-category-link" href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">
-                        数据结构
-                        </a>
-                    </p>
-                    
-                    
-                    <p class="item-title"><a href="http://jchenTech.github.io/2020/08/20/cs61bproj1a-data-structures-linkedlistdeque-and-arraydeque/" class="title">【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque </a></p>
-                    <p class="item-date">
-                        <time datetime="2020-08-20 15:29:00 &#43;0800 CST" itemprop="datePublished">2020-08-20</time>
-                    </p>
-                </div>
-            </li>
-            
-            <li>
-                <div class="item-thumbnail">
-                    <a href="http://jchenTech.github.io/2020/08/18/cs61blec6-alists-resizing-vs.-slists/" class="thumbnail">
-                    
-                        <span class="thumbnail-image thumbnail-none"></span>
-                    
-                    </a>
-                </div>
-                <div class="item-inner">
-                    
-                    
-                    <p class="item-category">
-                        
-                        <a class="article-category-link" href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">
-                        数据结构
-                        </a>
-                    </p>
-                    
-                    
-                    <p class="item-title"><a href="http://jchenTech.github.io/2020/08/18/cs61blec6-alists-resizing-vs.-slists/" class="title">【CS61B】LEC6 ALists, Resizing, vs. SLists </a></p>
-                    <p class="item-date">
-                        <time datetime="2020-08-18 12:02:00 &#43;0800 CST" itemprop="datePublished">2020-08-18</time>
-                    </p>
-                </div>
-            </li>
-            
-        </ul>
-    </div>
-</div>
-
-
-    
-
-
-<div class="widget-wrap">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget">
-        <ul class="category-list">
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="http://jchenTech.github.io/categories/c&#43;&#43;">
-                    c&#43;&#43;
-                </a>
-                <span class="category-list-count">7</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="http://jchenTech.github.io/categories/linux">
-                    linux
-                </a>
-                <span class="category-list-count">2</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="http://jchenTech.github.io/categories/programming">
-                    programming
-                </a>
-                <span class="category-list-count">1</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="http://jchenTech.github.io/categories/python">
-                    python
-                </a>
-                <span class="category-list-count">1</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="http://jchenTech.github.io/categories/%E5%8D%9A%E5%AE%A2">
-                    博客
-                </a>
-                <span class="category-list-count">4</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">
-                    数据结构
-                </a>
-                <span class="category-list-count">11</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="http://jchenTech.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0">
-                    深度学习
-                </a>
-                <span class="category-list-count">9</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="http://jchenTech.github.io/categories/%E7%BD%91%E7%BB%9C%E6%8C%96%E6%8E%98">
-                    网络挖掘
-                </a>
-                <span class="category-list-count">1</span>
-            </li>
-            
-        </ul>
-    </div>
-</div>
-
-
-
-
-    
-
-    
-
-
-<div class="widget-wrap">
-    <h3 class="widget-title">
-        标签云
-    </h3>
-    <div class="widget tagcloud">
-        
-        
-        <a href="http://jchenTech.github.io/tags/aod-net" style="font-size: 12px;">aod-net</a>
-        
-        
-        <a href="http://jchenTech.github.io/tags/c&#43;&#43;" style="font-size: 12px;">c&#43;&#43;</a>
-        
-        
-        <a href="http://jchenTech.github.io/tags/cs61b" style="font-size: 12px;">cs61b</a>
-        
-        
-        <a href="http://jchenTech.github.io/tags/dehazenet" style="font-size: 12px;">dehazenet</a>
-        
-        
-        <a href="http://jchenTech.github.io/tags/fast-r-cnn" style="font-size: 12px;">fast-r-cnn</a>
-        
-        
-        <a href="http://jchenTech.github.io/tags/faster-r-cnn" style="font-size: 12px;">faster-r-cnn</a>
-        
-        
-        <a href="http://jchenTech.github.io/tags/github-page" style="font-size: 12px;">github-page</a>
-        
-        
-        <a href="http://jchenTech.github.io/tags/golang" style="font-size: 12px;">golang</a>
-        
-        
-        <a href="http://jchenTech.github.io/tags/hugo" style="font-size: 12px;">hugo</a>
-        
-        
-        <a href="http://jchenTech.github.io/tags/java" style="font-size: 12px;">java</a>
-        
-        
-        <a href="http://jchenTech.github.io/tags/linux" style="font-size: 12px;">linux</a>
-        
-        
-        <a href="http://jchenTech.github.io/tags/markdown" style="font-size: 12px;">markdown</a>
-        
-        
-        <a href="http://jchenTech.github.io/tags/matplotlib" style="font-size: 12px;">matplotlib</a>
-        
-        
-        <a href="http://jchenTech.github.io/tags/mrp%E5%A4%9C%E9%97%B4%E5%8E%BB%E9%9B%BE" style="font-size: 12px;">mrp夜间去雾</a>
-        
-        
-        <a href="http://jchenTech.github.io/tags/mscnn%E5%8E%BB%E9%9B%BE" style="font-size: 12px;">mscnn去雾</a>
-        
-        
-        <a href="http://jchenTech.github.io/tags/programming" style="font-size: 12px;">programming</a>
-        
-        
-        <a href="http://jchenTech.github.io/tags/python" style="font-size: 12px;">python</a>
-        
-        
-        <a href="http://jchenTech.github.io/tags/r-cnn" style="font-size: 12px;">r-cnn</a>
-        
-        
-        <a href="http://jchenTech.github.io/tags/rnn" style="font-size: 12px;">rnn</a>
-        
-        
-        <a href="http://jchenTech.github.io/tags/ssd" style="font-size: 12px;">ssd</a>
-        
-        
-        <a href="http://jchenTech.github.io/tags/sspnet" style="font-size: 12px;">sspnet</a>
-        
-        
-        <a href="http://jchenTech.github.io/tags/theme" style="font-size: 12px;">theme</a>
-        
-        
-        <a href="http://jchenTech.github.io/tags/ubuntu" style="font-size: 12px;">ubuntu</a>
-        
-        
-        <a href="http://jchenTech.github.io/tags/yolo" style="font-size: 12px;">yolo</a>
-        
-        
-        <a href="http://jchenTech.github.io/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" style="font-size: 12px;">卷积神经网络</a>
-        
-        
-        <a href="http://jchenTech.github.io/tags/%E5%9B%BE%E5%83%8F%E5%8E%BB%E9%9B%BE" style="font-size: 12px;">图像去雾</a>
-        
-        
-        <a href="http://jchenTech.github.io/tags/%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5" style="font-size: 12px;">图片插入</a>
-        
-        
-        <a href="http://jchenTech.github.io/tags/%E5%A4%8D%E6%9D%82%E7%BD%91%E7%BB%9C" style="font-size: 12px;">复杂网络</a>
-        
-        
-        <a href="http://jchenTech.github.io/tags/%E5%BD%92%E6%A1%A3%E9%A1%B5%E9%9D%A2" style="font-size: 12px;">归档页面</a>
-        
-        
-        <a href="http://jchenTech.github.io/tags/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" style="font-size: 12px;">循环神经网络</a>
-        
-        
-        <a href="http://jchenTech.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" style="font-size: 12px;">数据结构</a>
-        
-        
-        <a href="http://jchenTech.github.io/tags/%E6%9A%97%E9%80%9A%E9%81%93" style="font-size: 12px;">暗通道</a>
-        
-        
-        <a href="http://jchenTech.github.io/tags/%E7%A4%BE%E4%BA%A4%E7%BD%91%E7%BB%9C%E6%8C%96%E6%8E%98" style="font-size: 12px;">社交网络挖掘</a>
-        
-    </div>
-</div>
-
-
-
-
-
-    <div id="toTop" class="fa fa-angle-up"></div>
+  </div>
 </aside>
 
-    
-	</div>
+      </div>
+    </main>
+   
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <span itemprop="copyrightYear">  &copy; 
+  2009 - 2020</span>
+  <span class="with-love"><i class="fa fa-heart"></i></span>
+  <span class="author" itemprop="copyrightHolder">陈建君的技术博客</span>
+</div>
+<div class="powered-by">
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.54.0</a>
+</div>
+<div class="theme-info">
+  Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
+  </a>
 </div>
 
-<footer id="footer">
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2020
-      Powered by <a href="//gohugo.io">Hugo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>.
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+      <span id="scrollpercent"><span>0</span>%</span>
     </div>
   </div>
-</footer>
 
+  
 
-<script src="http://jchenTech.github.io/fancybox/jquery.fancybox.pack.js"></script>
-<script src="http://jchenTech.github.io/js/script.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+<script type="text/javascript" src="http://jchenTech.github.io/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="http://jchenTech.github.io/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="http://jchenTech.github.io/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="http://jchenTech.github.io/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="http://jchenTech.github.io/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="http://jchenTech.github.io/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
 
+<script type="text/javascript" src="http://jchenTech.github.io/js/utils.js"></script>
+<script type="text/javascript" src="http://jchenTech.github.io/js/motion.js"></script>
+<script type="text/javascript" src="http://jchenTech.github.io/js/affix.js"></script>
+<script type="text/javascript" src="http://jchenTech.github.io/js/schemes/pisces.js"></script>
 
-<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript" src="http://jchenTech.github.io/js/bootstrap.js"></script>
 
+<script type="text/javascript" id="motion.page.archive">
+  $('.archive-year').velocity('transition.slideLeftIn');
+</script>
 
+<script type="text/javascript" src="http://jchenTech.github.io/js/search.js"></script>
 <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']]}
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      displayMath: [ ['$$','$$'] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { fonts: ["TeX"] }
   });
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-
-
-
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML' async></script>
 </body>
 </html>

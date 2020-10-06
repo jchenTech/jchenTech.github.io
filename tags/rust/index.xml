@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rust on 陈建君的技术博客</title>
+    <link>http://jchenTech.github.io/tags/rust/</link>
+    <description>Recent content in Rust on 陈建君的技术博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 02 Jun 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://jchenTech.github.io/tags/rust/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>发射点发射点使得</title>
+      <link>http://jchenTech.github.io/post/java/test/</link>
+      <pubDate>Sat, 02 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/post/java/test/</guid>
+      <description>这是我的test文件 实打实</description>
+    </item>
+    
+    <item>
+      <title>发射点发射点使得</title>
+      <link>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/test2/</link>
+      <pubDate>Sat, 02 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/test2/</guid>
+      <description>这是我的test文件 实打实 das = dasd as;</description>
+    </item>
+    
+  </channel>
+</rss>
