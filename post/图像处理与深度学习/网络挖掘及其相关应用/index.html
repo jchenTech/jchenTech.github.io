@@ -173,7 +173,7 @@
     <div class="post-body" itemprop="articleBody">
     <p>网络挖掘及其相关应用</p>
 
-<p><img src="http://jchenTech.github.io/images/网络挖掘及其相关应用/复杂网络.jpg" alt="复杂网络" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170456.jpg" alt="复杂网络" /></p>
 
 <h2 id="1-网络结构">1 网络结构</h2>
 
@@ -195,7 +195,7 @@
 
 <p>网络通常是采用邻接矩阵和邻接表的形式进行存储，节点之间存在连边则对应为1，若不存在连边则为0。</p>
 
-<p><img src="http://jchenTech.github.io/images/网络挖掘及其相关应用/邻接矩阵存储网络.png" alt="邻接矩阵存储网络" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170457.png" alt="邻接矩阵存储网络" /></p>
 
 <p>参考文献：
 <a href="https://zhuanlan.zhihu.com/p/30595241">一文读懂社交网络分析：学术研究、应用、前沿与学习资源</a></p>
@@ -216,7 +216,7 @@
 <li>无标度特性：大多数真实的大规模社交网络都存在着大多数节点有少量边，少数节点有大量边的特点，其网络缺乏一个统一的衡量尺度而呈现出异质性，我们将这种节点度分布不存在有限衡量分布范围的性质称为无标度。无标度网络表现出来的度分布特征为幂律分布，这就是此类网络的无标度特性。</li>
 </ul>
 
-<p><img src="http://jchenTech.github.io/images/网络挖掘及其相关应用/Scale-free无标度网络.png" alt="Scale-free无标度网络" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170458.png" alt="Scale-free无标度网络" /></p>
 
 <p>＊ 我们平时听说的听说的「小世界网络」，网络上的「马太效应」，「强连接」和「弱连接」，甚至「肥胖是可以传染的」到底是什么意思？</p>
 
@@ -239,13 +239,13 @@
 <li><p>小世界网络：规则的最近邻耦合网络具有高聚类特性，但并不是小世界网络。另一方面，ER随机网络虽然具有小的平均路径长度但却没有高聚类特性。因此，这两类网络模型都不能再现真实网络的一些重要特征，毕竟大部分实际网络既不是完全规则的，也不是完全随机的。作为从完全规则网络向完全随机网络的过渡，Watts和Strogtz于1998年引入了一个小世界网络模型，称为WS小世界模型。</p></li>
 </ul>
 
-<p><img src="http://jchenTech.github.io/images/网络挖掘及其相关应用/规则网络、小世界网络、随机网络演变.png" alt="规则网络、小世界网络、随机网络演变" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170459.png" alt="规则网络、小世界网络、随机网络演变" /></p>
 
 <ul>
 <li>BA网络: BA模型考虑到现实网络中节点的幂律分布特性，生成无标度网络。</li>
 </ul>
 
-<p><img src="http://jchenTech.github.io/images/网络挖掘及其相关应用/BA网络.png" alt="BA网络" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170500.png" alt="BA网络" /></p>
 
 <h2 id="2-网络节点中心性-centrality">2 网络节点中心性（Centrality）</h2>
 
@@ -413,8 +413,7 @@
 
 <h4 id="2-5-1-pagerank概述">2.5.1 PageRank概述</h4>
 
-<p> 
-PageRank，又称网页排名、谷歌左侧排名、PR，是Google公司所使用的对其搜索引擎搜索结果中的网页进行排名的一种算法。</p>
+<p>PageRank，又称网页排名、谷歌左侧排名、PR，是Google公司所使用的对其搜索引擎搜索结果中的网页进行排名的一种算法。</p>
 
 <p>佩奇排名本质上是一种以网页之间的超链接个数和质量作为主要因素粗略地分析网页的重要性的算法。其基本假设是：更重要的页面往往更多地被其他页面引用（或称其他页面中会更多地加入通向该页面的超链接）。其将从A页面到B页面的链接解释为“A页面给B页面投票”，并根据投票来源（甚至来源的来源，即链接到A页面的页面）和投票对象的等级来决定被投票页面的等级。简单的说，一个高等级的页面可以提升其他低等级的页面。</p>
 
@@ -448,13 +447,13 @@ PageRank，又称网页排名、谷歌左侧排名、PR，是Google公司所使�
 <p>需要注意的是，在Sergey Brin和Lawrence Page的1998年原版论文中给每一个页面设定的最小值是 $1-d$ ，而不是这里的 $(1-d)/N$ ，这将导致集合中所有网页的PR值之和为N（N为集合中网页的数目）而非所期待的1。
 因此，一个页面的PR值直接取决于指向它的的页面。如果在最初给每个网页一个随机且非零的PR值，经过重复计算，这些页面的PR值会趋向于某个定值，也就是处于收敛的状态，即最终结果。这就是搜索引擎使用该算法的原因。</p>
 
-<p><img src="http://jchenTech.github.io/images/网络挖掘及其相关应用/pagerank.png" alt="PageRank" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170501.png" alt="PageRank" /></p>
 
 <h3 id="2-6-各个中心性指标的联系和区别">2.6 各个中心性指标的联系和区别</h3>
 
 <p>其实在现实世界的不同网络结构中，不同定义的中心性指标的着重点不同，所以在实际的网络中各个节点的不同中心性指标可能差异很大，因该结合自身需求来寻找网络中中心性大的节点。</p>
 
-<p><img src="http://jchenTech.github.io/images/网络挖掘及其相关应用/同一幅图中不同中心性指标示例.png" alt="同一幅图中不同中心性指标示例：A) Betweenness centrality, B) Closeness centrality, C) Eigenvector centrality, D) Degree centrality, E) Harmonic centrality and F) Katz centrality" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170502.png" alt="同一幅图中不同中心性指标示例：A) Betweenness centrality, B) Closeness centrality, C) Eigenvector centrality, D) Degree centrality, E) Harmonic centrality and F) Katz centrality" /></p>
 
 <p>参考文献：
 <a href="https://en.wikipedia.org/wiki/Centrality#Degree_centrality">wiki：网络中心性指标</a></p>
@@ -469,7 +468,7 @@ PageRank，又称网页排名、谷歌左侧排名、PR，是Google公司所使�
 
 <p>这是一款Python的软件包，用于创造、操作复杂网络，以及学习复杂网络的结构、动力学及其功能。 有了NetworkX你就可以用标准或者不标准的数据格式加载或者存储网络，它可以产生许多种类的随机网络或经典网络，也可以分析网络结构，建立网络模型，设计新的网络算法，绘制网络等等。可以查看官方文档</p>
 
-<p><img src="http://jchenTech.github.io/images/网络挖掘及其相关应用/networkx.png" alt="NetworkX" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170503.png" alt="NetworkX" /></p>
 
 <ul>
 <li>Gephi</li>
@@ -479,7 +478,7 @@ PageRank，又称网页排名、谷歌左侧排名、PR，是Google公司所使�
 
 <p>Gephi 的优势在于操作简便，而且出图的效果真的非常好，还有很多的插件可以使用，可以说是做可视化分析、和后期出图的利器。</p>
 
-<p><img src="http://jchenTech.github.io/images/网络挖掘及其相关应用/Gephi.png" alt="Gephi" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170504.png" alt="Gephi" /></p>
 
 <ul>
 <li>Visualcomplexity</li>
@@ -487,7 +486,7 @@ PageRank，又称网页排名、谷歌左侧排名、PR，是Google公司所使�
 
 <p>一个很好的网络可视化网站，涉及因特网、生物网络、社会网络、交通网络等十余个大类，最关键的是，每一张图都给出了背景项目的简介和链接。</p>
 
-<p><img src="http://jchenTech.github.io/images/网络挖掘及其相关应用/Visualcomplexity.png" alt="Visualcomplexity" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170505.png" alt="Visualcomplexity" /></p>
 
 <ul>
 <li>MuxViz</li>
@@ -495,7 +494,7 @@ PageRank，又称网页排名、谷歌左侧排名、PR，是Google公司所使�
 
 <p>一个用R语言搭建的很好的多层网络可视化分析工具</p>
 
-<p><img src="http://jchenTech.github.io/images/网络挖掘及其相关应用/muxviz.png" alt="MuxViz" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170506.png" alt="MuxViz" /></p>
 
 <h2 id="4-社团结构">4 社团结构</h2>
 
@@ -511,7 +510,7 @@ PageRank，又称网页排名、谷歌左侧排名、PR，是Google公司所使�
 
 <p>说到这里，大家可能已经明白了：这里的Q群就相当于一个社团，是社交网络中一部分人（顶点）的集合。在这样的一个社团里，其中的成员（群员）就可以进行更加密切的交流，或是会互加一波好友，因为他们有着共同的目标或话题。这样一来，我们就可以说这个Q群之中的人的相互关系更加紧密了。而实际上，在一个网络中的社团里，用来定义一个顶点是否在某个社团之中的方法，其实就是看它与该社团中的其他顶点的关联是否密切。或者说，正是这一簇互相关联紧密的顶点，才构造出了网络中的一个社团。</p>
 
-<p><img src="http://jchenTech.github.io/images/网络挖掘及其相关应用/社团结构.png" alt="社团结构" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170507.png" alt="社团结构" /></p>
 
 <h3 id="4-2-什么是社团检测">4.2 什么是社团检测</h3>
 
@@ -547,13 +546,13 @@ PageRank，又称网页排名、谷歌左侧排名、PR，是Google公司所使�
 
 <p>事实上，重叠社团可不仅仅是一个点重叠这么简单。在实际情况下，往往有多个这样的结点，也就是网络中的一部分子图会处在这个重叠区域之中。根据重叠部分的顶点数量以及与其他顶点的联系，我们可以判断其重叠的稠密程度，并用图像来表示这些社团之间的重叠情况。</p>
 
-<p><img src="http://jchenTech.github.io/images/网络挖掘及其相关应用/重叠社团.png" alt="重叠社团" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170508.png" alt="重叠社团" /></p>
 
 <h3 id="4-5-社团检测方法">4.5 社团检测方法</h3>
 
 <p>上面已经说明了社团检测的定义、难点以及应用价值，目前社团检测的方法非常多，主要研究方向如下图所示，接下来只会介绍一些比较知名的社团检测方法。</p>
 
-<p><img src="http://jchenTech.github.io/images/网络挖掘及其相关应用/社团检测研究方向思维导图.png" alt="社团检测研究方向思维导图" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170509.png" alt="社团检测研究方向思维导图" /></p>
 
 <h4 id="4-5-1-infomap">4.5.1 Infomap</h4>
 
@@ -565,7 +564,7 @@ PageRank，又称网页排名、谷歌左侧排名、PR，是Google公司所使�
 
 <p>除了信息量以外，还有很多别的方式来区分网络中的社团，其中一种方法就是网格。简单来说，就是用大小、形状相同的格子来划分整个网络，然后看哪些格子里面的结点数量更多。显然，结点数量越多的网格，其存在社团的可能性也就越高。对应一个网格，Clique算法会首先判断其是不是密集网格，如果是密集网格。那么对其相邻的网格进行遍历，看是否是密集网格，如果是的话，那么属于同一个簇。该方法可以划分出重叠的社团，但对于高维数据，基于网格的聚类倾向于效果很差。</p>
 
-<p><img src="http://jchenTech.github.io/images/网络挖掘及其相关应用/基于clique的社团检测算法.png" alt="基于clique的社团检测算法" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170510.png" alt="基于clique的社团检测算法" /></p>
 
 <h4 id="4-5-2-社团检测结果评估指标">4.5.2 社团检测结果评估指标</h4>
 
@@ -645,7 +644,7 @@ SI 模型只考虑了传染病爆发和传播的过程。SIR模型进一步考�
 
 <p>这里 $\beta$ 为传染率, $\gamma$ 为康复概率。总人数 S(t) + I(t) + R(t) = 常数。这里假设病人康复后就获得了永久免疫，因而可以移出系统。对于致死性的传染病，死亡的病人也可以归入 R 类。因此 SIR 模型只有两个独立的动力学变量 I 和 S。</p>
 
-<p><img src="http://jchenTech.github.io/images/网络挖掘及其相关应用/SIR模型传播.png" alt="SIR模型传播" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170511.png" alt="SIR模型传播" /></p>
 
 <h3 id="3-2-节点影响力评估-关键节点挖掘-传播影响力最大化">3.2 节点影响力评估（关键节点挖掘）、传播影响力最大化</h3>
 
@@ -675,7 +674,7 @@ SI 模型只考虑了传染病爆发和传播的过程。SIR模型进一步考�
 
 <h2 id="4-链路预测">4 链路预测</h2>
 
-<p><img src="http://jchenTech.github.io/images/网络挖掘及其相关应用/链路预测研究方向思维导图.png" alt="链路预测研究方向思维导图" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170512.png" alt="链路预测研究方向思维导图" /></p>
 
 <h2 id="5-深度学习与图网络">5 深度学习与图网络</h2>
 
@@ -685,7 +684,7 @@ SI 模型只考虑了传染病爆发和传播的过程。SIR模型进一步考�
 
 <p>对于Graph的研究可以解决下面的一些问题：比如社交网络中新的关系的预测，在QQ上看到的推荐的可能认识的人；生物分子中蛋白质功能、相互作用的预测；通信网络中，异常事件的预测和监控以及网络流量的预测。如果要解决以上的问题，我们首先需要做的是对图进行表示，graph embedding 是中非常有效的技术。</p>
 
-<p><img src="http://jchenTech.github.io/images/网络挖掘及其相关应用/图嵌入研究方法思维脑图.png" alt="图嵌入研究方法思维脑图" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170513.png" alt="图嵌入研究方法思维脑图" /></p>
 
 <h4 id="5-1-1-什么是图嵌入">5.1.1 什么是图嵌入？</h4>
 
@@ -723,7 +722,7 @@ SI 模型只考虑了传染病爆发和传播的过程。SIR模型进一步考�
 
 <p>节点的嵌入借鉴了word2vec的方法，该方法能够成立的原因是：图中的节点和语料库中的单词的分布都遵循幂定律。</p>
 
-<p><img src="http://jchenTech.github.io/images/网络挖掘及其相关应用/节点分布和词分布都遵循幂律分布.png" alt="节点分布和词分布都遵循幂律分布" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170514.png" alt="节点分布和词分布都遵循幂律分布" /></p>
 
 <p>在介绍图嵌入的方法之前首先简单回顾一下在文本领域的Word2Vec和skip-gram模型，如果比较熟悉，可以直接跳过。</p>
 
@@ -753,13 +752,13 @@ SI 模型只考虑了传染病爆发和传播的过程。SIR模型进一步考�
 
 <p>DeepWalk通过随机游走去可以获图中点的局部上下文信息，因此学到的表示向量反映的是该点在图中的局部结构，两个点在图中共有的邻近点（或者高阶邻近点）越多，则对应的两个向量之间的距离就越短。但是DeepWalk方法随机执行随机游走，这意味着嵌入不能很好地保留节点的局部关系，Node2vec方法可以解决此问题。</p>
 
-<p><img src="http://jchenTech.github.io/images/网络挖掘及其相关应用/deepwalk.png" alt="deepwalk" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170515.png" alt="deepwalk" /></p>
 
 <h4 id="5-1-5-node2vec">5.1.5 Node2vec</h4>
 
 <p>Node2vec是DeepWalk的改进版，Node2Vec认为，现有的方法无法很好的保留网络的结构信息，例如下图所示，有一些点之间的连接非常紧密(比如u, s1, s2, s3, s4)，他们之间就组成了一个社区(community)。网络中可能存在着各种各样的社区，而有的结点在社区中可能又扮演着相似的角色(比如u与s6)。Node2Vec的优化目标为以下两个：让同一个社区内的结点表示能够相互接近，或在不同社区内扮演相似角色的结点表示也要相互接近。</p>
 
-<p><img src="http://jchenTech.github.io/images/网络挖掘及其相关应用/node2vec游走策略.png" alt="node2vec游走策略" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170516.png" alt="node2vec游走策略" /></p>
 
 <p>为此，Node2Vec就要在DeepWalk现有的基础上，对随机游走的策略进行优化。Node2Vec提出了两种游走策略：</p>
 
@@ -774,11 +773,11 @@ SI 模型只考虑了传染病爆发和传播的过程。SIR模型进一步考�
 
 <p>那么如何达到这样的两种随机游走策略呢，这里需要用到两个超参数p和q用来控制深度优先策略和广度优先策略的比重，如下图所示。</p>
 
-<p><img src="http://jchenTech.github.io/images/网络挖掘及其相关应用/node2vec通过超参数p和q控制游走.png" alt="node2vec通过超参数p和q控制游走" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170517.png" alt="node2vec通过超参数p和q控制游走" /></p>
 
 <p>假设现在游走序列从t走到v，这时候需要算出三个系数，分别作为控制下一步走向方向的偏置α</p>
 
-<p><img src="http://jchenTech.github.io/images/网络挖掘及其相关应用/node2vec游走偏置.png" alt="node2vec游走偏置" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170518.png" alt="node2vec游走偏置" /></p>
 
 <p>其中d(t, x)代表t结点到下一步结点x的最短路，最多为2。</p>
 
@@ -790,7 +789,7 @@ SI 模型只考虑了传染病爆发和传播的过程。SIR模型进一步考�
 
 <p>而Node2Vec同时还考虑了边权w的影响，所以最终的偏置系数以及游走策略为：</p>
 
-<p><img src="http://jchenTech.github.io/images/网络挖掘及其相关应用/node2vec考虑了边权重后.png" alt="node2vec考虑了边权重后" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170519.png" alt="node2vec考虑了边权重后" /></p>
 
 <p>这样一来，就可以看出，超参数p控制的是重新访问原来结点的概率，也就是保守探索系数，而超参数q控制的是游走向更远方向的概率，也就是激进探索系数。如果q较大，那么游走策略则更偏向于广度优先策略，若q较小，则偏向于深度优先策略。</p>
 
@@ -808,7 +807,7 @@ SI 模型只考虑了传染病爆发和传播的过程。SIR模型进一步考�
 <li><p>二阶相似度：二阶相似度用一句俗话来概括就是“我朋友的朋友也可能是我的朋友”。他所比较的是两个结点邻居的相似程度。若两个结点拥有相同的邻居，他们也更加的相似。如果将邻居看作context，那么两个二阶相似度高的结点之间拥有相似的context。这一点与DeepWalk的目标一致。例如下图中的5、6两点拥有很高的二阶相似度。</p></li>
 </ul>
 
-<p><img src="http://jchenTech.github.io/images/网络挖掘及其相关应用/LINE.png" alt="LINE" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170520.png" alt="LINE" /></p>
 
 <p>最终要获得同时包含有一阶相似度和二阶相似度的embedding，只需要将通过一阶相似度获得的embedding与通过二阶相似度获得的embedding拼接即可。</p>
 
@@ -826,7 +825,7 @@ SI 模型只考虑了传染病爆发和传播的过程。SIR模型进一步考�
 
 <h3 id="6-1-其他相关研究领域">6.1 其他相关研究领域</h3>
 
-<p><img src="http://jchenTech.github.io/images/网络挖掘及其相关应用/网络研究方向思维导图.png" alt="网络研究方向思维导图" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170521.png" alt="网络研究方向思维导图" /></p>
 
 <h3 id="6-2-网络挖掘相关资料和大牛">6.2 网络挖掘相关资料和大牛</h3>
     </div>
@@ -933,7 +932,7 @@ SI 模型只考虑了传染病爆发和传播的过程。SIR模型进一步考�
 <div class="links-of-author motion-element">
     
         <span class="links-of-author-item">
-        <a href="https://github.com/xtfly/" target="_blank" title="GitHub">
+        <a href="https://github.com/jchenTech/" target="_blank" title="GitHub">
             <i class="fa fa-fw fa-github"></i>
             GitHub
         </a>

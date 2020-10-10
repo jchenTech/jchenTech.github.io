@@ -180,28 +180,28 @@
 <h4 id="static-methods">Static Methods</h4>
 
 <p>Java中的所有代码都必须是类class中的一部分，大多数代码在方法methods中：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class Dog {
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class Dog {
     public static void makeNoise() {
         System.out.println(&#34;Bark!&#34;);
     }
 }</pre></div>
 <p>如果运行 <code>Dog</code> 类，将会报错：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">$ java Dog
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">$ java Dog
 Error: Main method not found in class Dog, please define the main method as:
        public static void main(String[] args)</pre></div>
 <p>为了执行Dog类，我们需要添加一个main方法。或者，我们也可以单独创建一个 <code>DogLauncher</code> 类来执行 <code>Dog</code> 类：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class DogLauncher {
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class DogLauncher {
     public static void main(String[] args) {
         Dog.makeNoise();
     }
-}</pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">$ java DogLauncher
+}</pre></div><div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">$ java DogLauncher
 Bark!</pre></div>
 <p>一个类使用另一个类也叫做这个类的 <code>client</code>客户， 所以 <code>DogLauncher</code> 是 <code>Dog</code> 的client</p>
 
 <h4 id="instance-variables-and-object-instantiation-实例变量和对象初始化">Instance Variables and Object Instantiation 实例变量和对象初始化</h4>
 
 <p>狗的叫声不是都是一样的，其中一种方法是为不同类型的Dog创建不同的类。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class TinyDog {
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class TinyDog {
     public static void makeNoise() {
         System.out.println(&#34;yip yip yip yip&#34;);
     }
@@ -213,7 +213,7 @@ public class MalamuteDog {
     }
 }</pre></div>
 <p>另一种方法是，类可以被实例化，而示例可以包含数据，所以我们创建Dog类的实例，并使Dog方法的行为取决于特定Dog的属性。为了更加具体，我们可以考虑以下的类：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class Dog {
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class Dog {
     public int weightInPounds;
 
     public void makeNoise() {
@@ -227,7 +227,7 @@ public class MalamuteDog {
     }    
 }</pre></div>
 <p>该方法使用Dog的方式为：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class DogLauncher {
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class DogLauncher {
     public static void main(String[] args) {
         Dog d;
         d = new Dog();
@@ -252,14 +252,14 @@ public class MalamuteDog {
 <h4 id="constructors-in-java-java中的构造函数">Constructors in Java (Java中的构造函数)</h4>
 
 <p>我们通常通过<strong>构造函数</strong>在面向对象语言中构造对象</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class DogLauncher {
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class DogLauncher {
     public static void main(String[] args) {
         Dog d = new Dog(20);
         d.makeNoise();
     }
 }</pre></div>
 <p>这里的实例化是由参数的，为了使得该实例化符合语法，我们需要添加一个构造函数：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class Dog {
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class Dog {
     public int weightInPounds;
 
     public Dog(int w) {
@@ -281,7 +281,7 @@ public class MalamuteDog {
 <h4 id="数组实例化-对象数组">数组实例化、对象数组</h4>
 
 <p>Java中使用 <code>new</code> 来实例化数组：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class ArrayDemo {
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class ArrayDemo {
     public static void main(String[] args) {
         /* Create an array of five integers. */
         int[] someArray = new int[5];
@@ -290,7 +290,7 @@ public class MalamuteDog {
     }
 }</pre></div>
 <p>相似的，我们可以在Java中创建实例化对象数组：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class DogArrayDemo {
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class DogArrayDemo {
     public static void main(String[] args) {
         /* Create an array of two dogs. */
         Dog[] dogs = new Dog[2];
@@ -313,28 +313,28 @@ public class MalamuteDog {
 </ul>
 
 <p>实例化方法只能被一个特定的类的实例调用，静态方法只能被类本身调用。举个静态方法的例子，<code>Math</code> 类提供了一个 <code>sqrt</code> 方法，因为他是静态的，所以它允许：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">x = Math.sqrt(100);</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">x = Math.sqrt(100);</pre></div>
 <p>如果sqrt是实例方法，则下面将具有尴尬的语法。 幸运的是，sqrt是静态方法，因此我们不必在实际程序中执行此操作。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Math m = new Math();
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Math m = new Math();
 x = m.sqrt(100);</pre></div>
 <p>有时，类中既有实例化方法也有静态方法，比如，我们想比较两条狗，我们可以用静态方法进行比较：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public static Dog maxDog(Dog d1, Dog d2) {
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public static Dog maxDog(Dog d1, Dog d2) {
     if (d1.weightInPounds &gt; d2.weightInPounds) {
         return d1;
     }
     return d2;
 }</pre></div>
 <p>该方法可以被调用：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Dog d = new Dog(15);
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Dog d = new Dog(15);
 Dog d2 = new Dog(100);
 Dog.maxDog(d, d2);</pre></div>
 <p>另外还可以用非静态方法：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public Dog maxDog(Dog d2) {
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public Dog maxDog(Dog d2) {
     if (this.weightInPounds &gt; d2.weightInPounds) {
         return this;
     }
     return d2;
-}</pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Dog d = new Dog(15);
+}</pre></div><div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Dog d = new Dog(15);
 Dog d2 = new Dog(100);
 d.maxDog(d2);</pre></div>
 <p>这里我们是用的特定的实例化变量进行调用方法。</p>
@@ -342,7 +342,7 @@ d.maxDog(d2);</pre></div>
 <h4 id="静态变量">静态变量</h4>
 
 <p>对于类而言，具有静态变量有时会很有用。 这些是类本身而非实例的固有属性。 例如，我们可能会记录到“狗”的学名是“ Canis handsomeis”：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class Dog {
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class Dog {
     public int weightInPounds;
     public static String binomen = &#34;Canis familiaris&#34;;
     ...
@@ -362,11 +362,11 @@ d.maxDog(d2);</pre></div>
 </ul>
 
 <h4 id="command-line-arguments-命令行参数">Command Line Arguments 命令行参数</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class ArgsDemo {
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class ArgsDemo {
     public static void main(String[] args) {
         System.out.println(args[0]);
     }
-}</pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">$ java ArgsDemo these are command line arguments
+}</pre></div><div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">$ java ArgsDemo these are command line arguments
 these</pre></div>
 <h4 id="1-3-2-summing-command-line-arguments">1.3.2 Summing Command Line Arguments</h4>
 
@@ -516,7 +516,7 @@ these</pre></div>
 <div class="links-of-author motion-element">
     
         <span class="links-of-author-item">
-        <a href="https://github.com/xtfly/" target="_blank" title="GitHub">
+        <a href="https://github.com/jchenTech/" target="_blank" title="GitHub">
             <i class="fa fa-fw fa-github"></i>
             GitHub
         </a>

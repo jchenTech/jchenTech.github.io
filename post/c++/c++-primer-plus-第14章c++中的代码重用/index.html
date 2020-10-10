@@ -196,23 +196,23 @@
 <h3 id="valarray类简介">valarray类简介</h3>
 
 <p>valarray是一个模板类，模板类在使用时需要指定具体数据类型。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">valarray&lt;int&gt;  q_values; //an array of int
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">valarray&lt;int&gt;  q_values; //an array of int
 valarray&lt;double&gt; weights; //an array of double</pre></div>
 <p>valarray类的构造函数和其他类方法举例如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">double gps[5]={3.1, 3.5, 3.8, 2.9, 3.3};
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">double gps[5]={3.1, 3.5, 3.8, 2.9, 3.3};
 valarray&lt;double&gt; v1;   //double类型的空数组
 valarray&lt;int&gt; v2(8);   //长度为8的整型元素。
 valarray&lt;int&gt; v3(10,8);    //长度为8的整型元素，每个长度为10。
 valarray&lt;double&gt; v4(gpa,4)  //使用gpa数组的前4个元素给v4赋值。
 valarray&lt;int&gt; v5 = {20,32,17,9};  //C++11使用初始化列表进行初始化</pre></div>
 <p>下面是这个类的一些方法：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">operator[]()  能够访问各个元素；
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">operator[]()  能够访问各个元素；
 size()  返回包含的元素数
 xum()  返回所有元素的总和
 max()  返回最大的元素
 min()  返回最小的元素</pre></div>
 <h3 id="student类的设计">Student类的设计</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Student
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Student
 {
 private:
     string name;
@@ -230,7 +230,7 @@ private:
 <p>对于has-a关系而言，类对象不能获得包含对象的接口是一件好事。</p>
 
 <h3 id="student类示例">Student类示例</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">//studentc.h--defining a Student class using containment
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">//studentc.h--defining a Student class using containment
 #ifndef STUDENTC_H_
 #define STUDENTC_H_
 
@@ -265,7 +265,7 @@ public:
 }
 #endif</pre></div>
 <p>注意：如果不使用explicit，可以编写如下的代码：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Student doh(&#34;Homer&#34;,10);
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Student doh(&#34;Homer&#34;,10);
 doh = 5; </pre></div>
 <p>粗心的程序员键入了doh而不是doh[0]，这会导致使用构造函数调用Student（5）将5替换为一个临时Student对象，并使用<code>&quot;Nully&quot;</code>来设置成员name的值。因此赋值操作将使用临时对象来替换原来doh值，使用了explicit之后，编译器将认为上述运算符是错误的。</p>
 
@@ -278,9 +278,9 @@ doh = 5; </pre></div>
 </ol>
 
 <p>构造函数使用您熟悉的成员初始化列表来初始化name和score成员对象。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Queue::Queue(int qs) : qsize(qs) {…}</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Queue::Queue(int qs) : qsize(qs) {…}</pre></div>
 <p>还可以使用成员初始化列表来初始化派生对象的基类部分：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">hasDMA::hasDMA(): baseDMA(hs) {…}</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">hasDMA::hasDMA(): baseDMA(hs) {…}</pre></div>
 <p>初始化列表中的每一项都调用与之匹配的构造函数。</p>
 
 <p>初始化顺序：当初始化列表包含多个项目时，这些项目被初始化的顺序为它们被声明的顺序，而不是它们在初始化列表中的顺序。</p>
@@ -318,14 +318,14 @@ doh = 5; </pre></div>
 <p>假设要让基类的方法在派生类中可用，可以有两种方法：</p>
 
 <p>1）定义一个使用该基类方法的派生类方法：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">double Student::sum() const
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">double Student::sum() const
 {
     return std::valarray&lt;double&gt;::sum();
 }</pre></div>
 <p>2）将函数调用包装在另一个函数调用中：</p>
 
 <p>在类声明中使用using；</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Student:private std::string, private std::valarray&lt;double&gt;
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Student:private std::string, private std::valarray&lt;double&gt;
 {
 …
 public:
@@ -342,7 +342,7 @@ public:
 <h2 id="多重继承">多重继承</h2>
 
 <p>继承使用时要注意，默认是私有派生。所以要公有派生时必须记得加关键字Public来限定每一个基类。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class SingingWaiter : public Waiter, Singer {...}; //Singer是私有派生</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class SingingWaiter : public Waiter, Singer {...}; //Singer是私有派生</pre></div>
 <p>MI（Multi Inheritance）会带来哪些问题？以及如何解决它们？</p>
 
 <p>两个主要问题：</p>
@@ -367,7 +367,7 @@ public:
 <p>虚基类也用关键字virtual，虚基类与虚函数之间并不存在明显的联系。这么做是为了给程序员减少压力，类似于关键字的重载。</p>
 
 <p>虚基类使得从多个类（他们的基类相同）派生出的对象只继承一个基类对象。例如使用关键字virtual，可以使Worker被用作Singer和Waiter的虚基类。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Singer: virtual public Worker{…};
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Singer: virtual public Worker{…};
 class Waiter: public virtual Worker{…};
 (virtual和public的次序无关紧要)</pre></div>
 <p>现在SingingWaiter对象将只包含Worker对象的一个副本，从本质上说，继承的Singer和Waiter对象共享一个Worker对象。</p>
@@ -391,7 +391,7 @@ class Waiter: public virtual Worker{…};
 <p>但对于虚基类而言，这种信息自动传递方式不可用。这是因为对于多重继承而言，信息传递将通过两条不同的途径。为避免这种冲突，当基类是虚的，将禁止信息通过中间类自动传递给基类。</p>
 
 <p>这就要求显式地调用所需的基类构造函数：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">SingingWaiter(参数列表):Worker(wk),Waiter(wk,p),Singer(wk,v) { }</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">SingingWaiter(参数列表):Worker(wk),Waiter(wk,p),Singer(wk,v) { }</pre></div>
 <p>上述格式对虚基类来说是合法的，对非虚基类来说是非法的。</p>
 
 <p>警告：如果类有间接虚基类，则除非只需使用该虚基类的默认构造函数，否则必须显式地调用该虚基类的某个构造函数。</p>
@@ -410,7 +410,7 @@ class Waiter: public virtual Worker{…};
 <p>这种递增的方法对于单继承来说是有效的；</p>
 
 <p>但是对于多重继承来说，还是有问题：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">SingingWaiter：：Show
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">SingingWaiter：：Show
 {
     Singer::Show();
     Waiter::Show();
@@ -444,18 +444,18 @@ class Waiter: public virtual Worker{…};
 <p>C++标准模板库（STL）提供了几种功能强大而灵活的容器类模板。</p>
 
 <h3 id="定义类模板">定义类模板</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">template &lt;class Type&gt;</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">template &lt;class Type&gt;</pre></div>
 <p>template告诉编译器，将要定义一个模板。尖括号内容相当于函数的参数列表。</p>
 
 <p>也可以这么写：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">template &lt;typename Type&gt;
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">template &lt;typename Type&gt;
 或是：
 template &lt;class T&gt;
 template &lt;typename T&gt;</pre></div>
 <p>当模板被调用时，Type将被具体的类型值（int或string）取代。</p>
 
 <p>原来类的声明：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">typedef unsigned long Item;
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">typedef unsigned long Item;
 class Stack
 {
 private:
@@ -472,7 +472,7 @@ public:
 <p>类模板信息必须都放在头文件中，不能把模板成员函数放到独立的实现文件中。因为模板不是函数，不能单独编译。在要使用这些模板的文件中包含该头文件。</p>
 
 <p>类模板：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">template&lt;class Type&gt;
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">template&lt;class Type&gt;
 Stack&lt;Type&gt;::Stack()
 {
 
@@ -504,7 +504,7 @@ bool Stack&lt;Type&gt;::pop(Type &amp; item)
 <h3 id="使用模板类">使用模板类</h3>
 
 <p>仅在程序包含模板并不能生成模板类，而必须请求实例化。需要声明一个类型为模板类的对象，并且使用所需的具体类型替换泛型名。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Stack&lt;int&gt; kernels;
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Stack&lt;int&gt; kernels;
 Stack&lt;string&gt; colonels;</pre></div>
 <p>看到上述两个声明后，编译器将按<code>Stack&lt;Type&gt;</code>模板来生成两个独立的类声明和两组独立的类方法。</p>
 
@@ -545,7 +545,7 @@ Stack&lt;string&gt; colonels;</pre></div>
 <p>表达式参数的优点：使用自动变量维护内存栈，而不是用构造函数方法使用的new，delete来管理内存。</p>
 
 <p>表达式参数的缺点：下面的声明将生成两个独立的类声明；</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">ArrayTP&lt;double, 12&gt; eggweights;
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">ArrayTP&lt;double, 12&gt; eggweights;
 ArrayTP&lt; double, 13&gt; eggweights;</pre></div>
 <p>而构造函数的方法，就只要一份类声明。</p>
 
@@ -568,13 +568,13 @@ ArrayTP&lt; double, 13&gt; eggweights;</pre></div>
 
 <li><p>使用多个类型参数</p></li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">template&lt;class T1, class T2&gt;</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">template&lt;class T1, class T2&gt;</pre></div>
 <ol>
 <li>默认类型模板参数</li>
 </ol>
 
 <p>可以为类型参数提供默认值；</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">template&lt;class T1, class T2=int&gt;</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">template&lt;class T1, class T2=int&gt;</pre></div>
 <p>类模板：类型参数可提供默认值；</p>
 
 <p>函数模板的类型参数不可提供默认值；</p>
@@ -590,10 +590,10 @@ ArrayTP&lt; double, 13&gt; eggweights;</pre></div>
 <p>1、 隐式实例化</p>
 
 <p>是指在需要对象之前，不会生成类；</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">ArrayTP&lt;double,30&gt; * pt;  //一个指针，还没有对象被创建
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">ArrayTP&lt;double,30&gt; * pt;  //一个指针，还没有对象被创建
 pt = new ArrayTP&lt;double,30&gt;;  //创建一个对象</pre></div>
 <p>2、 显式实例化</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">template class ArrayTP&lt;string,100&gt;; //会产生一个类的实例，声明一个类；</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">template class ArrayTP&lt;string,100&gt;; //会产生一个类的实例，声明一个类；</pre></div>
 <p>虽然没有创建或提及类对象，编译器也将生成类声明。</p>
 
 <p>3、 显式具体化</p>
@@ -617,15 +617,15 @@ pt = new ArrayTP&lt;double,30&gt;;  //创建一个对象</pre></div>
 <p>将模板用作模板的参数；</p>
 
 <p>模板包含类型参数和非类型参数：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">template &lt;template &lt;typename T&gt; class Thing&gt;</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">template &lt;template &lt;typename T&gt; class Thing&gt;</pre></div>
 <p>其中<code>template &lt;typename T&gt; class Thing</code>是模板的参数；</p>
 
 <p>其中<code>template &lt;typename T&gt; class</code>是参数模板（把模板作为参数用）的类型；</p>
 
 <p>假设有以下声明：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Crab&lt;King&gt; legs;</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Crab&lt;King&gt; legs;</pre></div>
 <p><code>Crab&lt;King&gt;</code>是模板Crab具体的类型；模板参数是King，King也必须是一个模板类。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">template &lt;typename T&gt;
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">template &lt;typename T&gt;
 class King {…};</pre></div>
 <h3 id="模板类和友元">模板类和友元</h3>
 
@@ -640,14 +640,14 @@ class King {…};</pre></div>
 <p>1、 模板类的非模板友元函数</p>
 
 <p>在模板类中将一个常规函数声明为友元：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">template &lt;class T&gt;
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">template &lt;class T&gt;
 class HasFriend
 {
 public:
     friend void counts();
 };</pre></div>
 <p>counts()函数成为模板所有实例化的友元。例如，它将是类<code>HasFriend&lt;int&gt;</code>和<code>HasFriend&lt;string&gt;</code>的友元。该友元与所有模板实例化的对象都具有友元关系（一对多）。该函数不是通过对象调用，没有对象参数。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">template &lt;class T&gt;
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">template &lt;class T&gt;
 class HasFriend
 {
 public:
@@ -770,7 +770,7 @@ public:
 <div class="links-of-author motion-element">
     
         <span class="links-of-author-item">
-        <a href="https://github.com/xtfly/" target="_blank" title="GitHub">
+        <a href="https://github.com/jchenTech/" target="_blank" title="GitHub">
             <i class="fa fa-fw fa-github"></i>
             GitHub
         </a>

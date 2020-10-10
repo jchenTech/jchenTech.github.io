@@ -176,13 +176,13 @@
 <h3 id="接口和实现-interface-and-implement">接口和实现 Interface and Implement</h3>
 
 <p>早先我们介绍了类和接口，我们意识到在编写类时，有时会编写很多冗余代码。 这将我们引向继承，即某个对象不需要重新定义其父对象的所有性质。我们可以从接口和类继承，语法略有不同。 对于要继承接口性质的类，语法如下（其中SLList是一个类，而List61B是一个接口）：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">SLList&lt;Blorp&gt; implements List61B&lt;Blorp&gt;</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#111">SLList</span><span style="color:#f92672">&lt;</span><span style="color:#111">Blorp</span><span style="color:#f92672">&gt;</span> <span style="color:#00a8c8">implements</span> <span style="color:#111">List61B</span><span style="color:#f92672">&lt;</span><span style="color:#111">Blorp</span><span style="color:#f92672">&gt;</span></code></pre></div>
 <p>类似地，一个类实现另一类性质的方法的语法如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Class_Name extends Class_Name</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Class_Name extends Class_Name</pre></div>
 <h3 id="继承的用法">继承的用法</h3>
 
 <p>假设我们要创建一种特殊的<code>SLList</code>类型，称为<code>RotatingSLList</code>。 <code>RotatingSLList</code>应该能够执行<code>SLList</code>可以做的所有事情； 但是，它也应该能够向右旋转。 我们应该怎么做？ 好吧，这只是继承的应用！ 执行以下操作将使<code>RotatingSLList</code>具有<code>SLList</code>的所有性质以及它自己的方法<code>rotateRight</code>。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class RotatingSLList&lt;Blorp&gt; extends SLList&lt;Blorp&gt;{
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class RotatingSLList&lt;Blorp&gt; extends SLList&lt;Blorp&gt;{
     public void rotateRight() {...}
 }</pre></div>
 <h3 id="什么会被继承">什么会被继承？</h3>
@@ -198,21 +198,21 @@
 <h3 id="构造函数的特殊情况">构造函数的特殊情况？</h3>
 
 <p>即使没有继承构造函数，我们仍然会使用它们。 我们可以使用关键字<code>super()</code>显式调用构造函数。 在每个构造函数的开始，已经有一个对其父类的构造函数的隐式调用。 结果是</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public VengefulSLList() {
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public VengefulSLList() {
     deletedItems = new SLList&lt;Item&gt;();
 }</pre></div>
 <p>等同于</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public VengefulSLList() {
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public VengefulSLList() {
   super();
   deletedItems = new SLList&lt;Item&gt;();
 }</pre></div>
 <p>然而，带参数的构造函数不能被隐式调用。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public VengefulSLList() {
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public VengefulSLList() {
     super(x);
     deletedItems = new SLList&lt;Item&gt;();
   }</pre></div>
 <p>不等同于：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public VengefulSLList() {
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public VengefulSLList() {
     deletedItems = new SLList&lt;Item&gt;();
   }</pre></div>
 <p>这是因为这里仅调用了空参数<code>super()</code>。</p>
@@ -232,16 +232,16 @@
 <h3 id="强制类型转换casting">强制类型转换Casting</h3>
 
 <p>在Java中，每个对象都有一个静态类型（在编译时定义）和一个动态类型（在运行时定义）。我们的代码可能基于这样一个事实，即某些变量可能比静态类型更具体。例如，如果我们具有以下定义：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Poodle frank  = new Poodle(&#34;Frank&#34;, 5);
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Poodle frank  = new Poodle(&#34;Frank&#34;, 5);
 Poodle frankJr = new Poodle(&#34;Frank Jr.&#34;, 15);</pre></div>
 <p>这个表达是合理的：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Dog largerDog = maxDog(frank, frankJr);</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Dog largerDog = maxDog(frank, frankJr);</pre></div>
 <p>但是这个就不合理：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Poodle largerPoodle = maxDog(frank, frankJr);</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Poodle largerPoodle = maxDog(frank, frankJr);</pre></div>
 <p>前一条语句有效的原因是因为编译器知道一个事实，即从maxDog函数调用返回的任何东西都是Dog。 但是，在后一种情况下，即使两个<code>Dog</code>参数都是<code>Poodles</code>，编译器也不知道<code>maxDog</code>的返回值是否会返回<code>Poodle</code>。</p>
 
 <p>除了拥有通用的<code>Dog</code>之外，我们可能会有些冒险并且使用一种称为<code>Casting</code>的技术。 强制转换允许我们强制变量的静态类型，从根本上诱骗编译器让我们强制表达式的静态类型。 为了使<code>largePoodle</code>成为静态类型的<code>Poodle</code>，我们将使用以下代码：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Poodle largerPoodle = (Poodle) maxDog(frank, frankJr);</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Poodle largerPoodle = (Poodle) maxDog(frank, frankJr);</pre></div>
 <p>请注意，我们并没有改变<code>maxDog</code>的实际动态类型-我们只是告诉编译器<code>maxDog</code>会产生的是Poodle。这意味着任何对<code>LargePoodle</code>的引用都将具有与之关联的静态<code>Poodle</code>类型。</p>
 
 <p><code>Casting</code>虽然功能强大，但也很危险。您需要确保要<code>casting</code>的内容能够并且将实际发生。可以使用一些规则：</p>
@@ -359,7 +359,7 @@ Poodle frankJr = new Poodle(&#34;Frank Jr.&#34;, 15);</pre></div>
 <div class="links-of-author motion-element">
     
         <span class="links-of-author-item">
-        <a href="https://github.com/xtfly/" target="_blank" title="GitHub">
+        <a href="https://github.com/jchenTech/" target="_blank" title="GitHub">
             <i class="fa fa-fw fa-github"></i>
             GitHub
         </a>

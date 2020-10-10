@@ -173,7 +173,7 @@
     <div class="post-body" itemprop="articleBody">
     <p>卷积神经网络（CNN）是一种深层神经网络，已被证明在计算机视觉任务中表现出色，例如图像分类，目标检测，目标定位和神经样式转换。 在这篇文章中，我将详细地介绍构成卷积神经网络的不同层：卷积层，池化层和完全连接层。</p>
 
-<p><img src="http://jchenTech.github.io/images/卷积神经网络/卷积神经网络实例_汽车图像识别.jpg" alt="卷积神经网络实例-汽车图像识别" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170323.jpg" alt="卷积神经网络实例-汽车图像识别" /></p>
 
 <hr />
 
@@ -208,13 +208,13 @@
 
 <p>我们来看一个最简单的例子：“边界检测（edge detection）”，假设我们有这样的一张图片，大小8×8：</p>
 
-<p><img src="http://jchenTech.github.io/images/卷积神经网络/边界检测.webp" alt="边界检测" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170324.webp" alt="边界检测" /></p>
 
 <p>图片中的数字代表该位置的像素值，我们知道，像素值越大，颜色越亮，所以为了示意，我们把右边小像素的地方画成深色。图的中间两个颜色的分界线就是我们要检测的边界。</p>
 
 <p>怎么检测这个边界呢？我们可以设计这样的一个 滤波器（filter，也称为kernel），大小3×3：</p>
 
-<p><img src="http://jchenTech.github.io/images/卷积神经网络/滤波器.png" alt="滤波器" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170325.png" alt="滤波器" /></p>
 
 <p>然后，我们用这个filter，往我们的图片上“盖”，覆盖一块跟filter一样大的区域之后，对应元素相乘，然后求和。计算一个区域之后，就向其他区域挪动，接着计算，直到把原图片的每一个角落都覆盖到了为止。这个过程就是 “卷积”。</p>
 
@@ -224,7 +224,7 @@
 
 <p>那么，我们将这6×6个区域的卷积结果，拼成一个矩阵：</p>
 
-<p><img src="http://jchenTech.github.io/images/卷积神经网络/边界检测过程.png" alt="边界检测过程" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170326.png" alt="边界检测过程" /></p>
 
 <p>诶？！发现了什么？
 这个图片，中间颜色浅，两边颜色深，这说明咱们的原图片中间的边界，在这里被反映出来了!</p>
@@ -247,23 +247,23 @@
 
 <p>卷积层对输入图像进行转换，以从中提取特征。在这种转换中，图像与内核（或滤波器）卷积。</p>
 
-<p><img src="http://jchenTech.github.io/images/卷积神经网络/图像卷积.png" alt="图像卷积" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170327.gif" alt="图像卷积" /></p>
 
 <p>核是一个小的矩阵，其高度和宽度小于要卷积的图像。 它也被称为卷积矩阵或卷积掩码。 该核在图像输入的高度和宽度上滑动，并且核的点积和图像在每个空间位置处进行计算。 籽粒滑动的长度称为步幅长度。 在下面的图像中，输入图像的大小为5X5，内核的大小为3X3，步幅为1。输出图像也称为卷积特征。</p>
 
-<p><img src="http://jchenTech.github.io/images/卷积神经网络/单通道图像卷积过程.gif" alt="单通道图像卷积过程" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170328.png" alt="单通道图像卷积过程" /></p>
 
 <p>当使用通道3卷积彩色图像（RGB图像）时，滤镜的通道也必须为3。 换句话说，在卷积中，内核中的通道数必须与输入图像中的通道数相同。</p>
 
-<p><img src="http://jchenTech.github.io/images/卷积神经网络/RGB图像卷积过程.png" alt="RGB图像卷积过程" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170329.png" alt="RGB图像卷积过程" /></p>
 
 <p>当我们想使用卷积从一个图像中提取多个特征时，我们可以使用多个内核而不是仅使用一个。 在这种情况下，所有内核的大小必须相同。 输入图像和输出图像的卷积特征一个接一个地堆叠在一起以创建输出，因此通道数等于使用的滤波器个数。 请参阅下图以供参考。</p>
 
-<p><img src="http://jchenTech.github.io/images/卷积神经网络/多个内核或滤波器的卷积过程.png" alt="多个内核或滤波器的卷积过程" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170330.png" alt="多个内核或滤波器的卷积过程" /></p>
 
 <p>更具体的是，在加入偏置bias之后，每个filter对应每个通道有一组w权重，一个filter滑动到一个位置后计算三个通道的卷积，求和，加bias，得到这个filter在该位置的最终结果，每个filter的输出是各个通道的汇总。请参阅下图以供参考：</p>
 
-<p><img src="http://jchenTech.github.io/images/卷积神经网络/加入bias的多滤波器卷积计算.webp" alt="加入bias的多滤波器卷积计算" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170331.jpg" alt="加入bias的多滤波器卷积计算" /></p>
 
 <h3 id="非线性激活层-重点理解激活函数relu">非线性激活层——重点理解激活函数ReLu</h3>
 
@@ -277,7 +277,7 @@
 
 <p><strong>激活函数的作用</strong>是用来加入非线性因素，把卷积层输出结果做非线性映射。</p>
 
-<p><img src="http://jchenTech.github.io/images/卷积神经网络/激活函数作用过程.jpg" alt="激活函数作用过程" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170332.jpg" alt="激活函数作用过程" /></p>
 
 <p>在卷积神经网络中用到最多的非线性激活函数是Relu函数，</p>
 
@@ -287,11 +287,11 @@
 <p>即，保留大于等于0的值，其余所有小于0的数值直接改写为0,&gt;=0的值全部保持不变：</p>
 </blockquote>
 
-<p><img src="http://jchenTech.github.io/images/卷积神经网络/ReLu激活函数作用结果.jpg" alt="ReLu激活函数作用结果" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170333.jpg" alt="ReLu激活函数作用结果" /></p>
 
 <h4 id="常见的激活函数-sigmoid-tanh和relu三种非线性函数">常见的激活函数——sigmoid、tanh和relu三种非线性函数</h4>
 
-<p><img src="http://jchenTech.github.io/images/卷积神经网络/三种非线性激活函数特征.jpg" alt="三种非线性激活函数特征" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170334.png" alt="三种非线性激活函数特征" /></p>
 
 <p>隐藏层:</p>
 
@@ -328,7 +328,7 @@
 
 <p>激活函数是卷积层的最后一个组成部分，可增加输出中的非线性。通常，在卷积层中将ReLu函数或Tanh函数用作激活函数。 这是一个简单卷积层的图像，其中将6X6X3输入图像与大小为4X4X3的两个内核卷积以得到大小为3X3X2的卷积特征，对其应用激活函数以获取输出，这也称为特征地图feature map。</p>
 
-<p><img src="http://jchenTech.github.io/images/卷积神经网络/一个卷积层.png" alt="一个卷积层" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170335.png" alt="一个卷积层" /></p>
 
 <h3 id="池化层pooling">池化层pooling</h3>
 
@@ -363,7 +363,7 @@
 
 <p>平均池化：在平均池化中，从要素图的每个面片中选择平均值以创建缩小图。</p>
 
-<p><img src="http://jchenTech.github.io/images/卷积神经网络/最大池化和平均池化.png" alt="最大池化和平均池化" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170336.jpg" alt="最大池化和平均池化" /></p>
 
 <h4 id="总结">总结</h4>
 
@@ -385,7 +385,7 @@
 
 <p>比如：</p>
 
-<p><img src="http://jchenTech.github.io/images/卷积神经网络/堆叠卷积激活与池化层.jpg" alt="堆叠卷积激活与池化层" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170337.jpg" alt="堆叠卷积激活与池化层" /></p>
 
 <h3 id="全连接层">全连接层</h3>
 
@@ -423,13 +423,13 @@
 
 <p>（2）将三个特征图改变维度直接变成一维的数据，展开的数据即为属于类别X的概率值，值大小也在对应X的线条粗细中表现出来了。</p>
 
-<p><img src="http://jchenTech.github.io/images/卷积神经网络/全连接层分类.jpg" alt="全连接层分类" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170338.webp" alt="全连接层分类" /></p>
 
 <p>现在，您知道什么是卷积神经网络以及组成卷积神经网络的不同层，即卷积层，池化层和完全连接的层。</p>
 
 <p>下面是用于二进制图像分类的卷积神经网络的简单架构。该网络将两个不同类别之间的输入分类。 该网络接收大小为32x32x3的RBG图像，输出大小为2（等于分类的类数）。 该网络的第一层是具有5x5x3内核的卷积层，第二层是具有2x2内核大小的最大池化层，第三层是具有5x5x3内核的卷积层，第四层是最大池化层 如果内核大小为2x2，则将输出展平为一个向量，并馈入最后两个都是完全连接的层。</p>
 
-<p><img src="http://jchenTech.github.io/images/卷积神经网络/用于二进制图像分类的CNN的简单架构.png" alt="用于二进制图像分类的CNN的简单架构" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170339.png" alt="用于二进制图像分类的CNN的简单架构" /></p>
 
 <h2 id="cnn中一些基本概念">CNN中一些基本概念</h2>
 
@@ -448,7 +448,7 @@
 
 <p>为了解决这个问题，我们可以采用padding的方法。我们每次卷积前，先给图片周围都补一圈空白，让卷积之后图片跟原来一样大，同时，原来的边缘也被计算了更多次。</p>
 
-<p><img src="http://jchenTech.github.io/images/卷积神经网络/padding填白.png" alt="padding填白" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170340.png" alt="padding填白" /></p>
 
 <p>比如，我们把(8,8)的图片给补成(10,10)，那么经过(3,3)的filter之后，就是(8,8)，没有变。</p>
 
@@ -481,13 +481,13 @@ CNN，无非就是把FC改成了CONV和POOL，就是把传统的由一个个神�
 假设我们的图像是8×8大小，也就是64个像素，假设我们用一个有9个单元的全连接层：</li>
 </ol>
 
-<p><img src="http://jchenTech.github.io/images/卷积神经网络/全连接神经网络参数个数.png" alt="全连接神经网络参数个数" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170341.png" alt="全连接神经网络参数个数" /></p>
 
 <p>那这一层我们需要多少个参数呢？需要 64×9 = 576个参数（先不考虑偏置项b）。因为每一个链接都需要一个权重w。</p>
 
 <p>那我们看看 同样有9个单元的filter是怎么样的：</p>
 
-<p><img src="http://jchenTech.github.io/images/卷积神经网络/CNN参数个数.png" alt="CNN参数个数" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170342.png" alt="CNN参数个数" /></p>
 
 <p>其实不用看就知道，<strong>有几个单元就几个参数，所以总共就9个参数！</strong></p>
 
@@ -503,7 +503,7 @@ CNN，无非就是把FC改成了CONV和POOL，就是把传统的由一个个神�
 
 <p>由卷积的操作可知，输出图像中的任何一个单元，只跟输入图像的一部分有关系。</p>
 
-<p><img src="http://jchenTech.github.io/images/卷积神经网络/连接的稀疏性.png" alt="连接的稀疏性" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170343.png" alt="连接的稀疏性" /></p>
 
 <p>而传统神经网络中，由于都是全连接，所以输出的任何一个单元，都要受输入的所有的单元的影响。这样无形中会对图像的识别效果大打折扣。比较，每一个区域都有自己的专属特征，我们不希望它受到其他区域的影响。</p>
 
@@ -637,7 +637,7 @@ CNN，无非就是把FC改成了CONV和POOL，就是把传统的由一个个神�
 <div class="links-of-author motion-element">
     
         <span class="links-of-author-item">
-        <a href="https://github.com/xtfly/" target="_blank" title="GitHub">
+        <a href="https://github.com/jchenTech/" target="_blank" title="GitHub">
             <i class="fa fa-fw fa-github"></i>
             GitHub
         </a>

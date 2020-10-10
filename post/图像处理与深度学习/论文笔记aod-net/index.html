@@ -177,7 +177,7 @@
 <p>关键词:去雾，图像恢复，深度学习，联合训练，物体检测。</p>
 </blockquote>
 
-<p><img src="http://jchenTech.github.io/images/AOD-Net/网络框架图.png" alt="网络框架图" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010163129.png" alt="网络框架图" /></p>
 
 <p>论文下载：<a href="https://arxiv.org/pdf/1707.06543.pdf">https://arxiv.org/pdf/1707.06543.pdf</a></p>
 
@@ -251,7 +251,7 @@
 
 <p>大气光散射模型已经是雾霾图像生成的经典描述模型[19], [21], [22]，</p>
 
-<p><img src="http://jchenTech.github.io/images/AOD-Net/公式1.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010163150.png" alt="" /></p>
 
 <p>其中I(x)是雾霾图像，J(x)是场景辐射（即待恢复的清晰图像），这里有两个关键的参数：A代表大气光值，t(x)代表传输矩阵：</p>
 
@@ -273,17 +273,17 @@
 
 <p><strong>我们的核心思想是将两个参数t（x）和A统一为一个公式，即（4）中的K（x），并直接最小化像素域重建误差。为此，将（3）中的公式重新表示为下面的转换公式：</strong></p>
 
-<p><img src="http://jchenTech.github.io/images/AOD-Net/公式4.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165650.png" alt="" /></p>
 
 <h3 id="网络设计">网络设计</h3>
 
-<p><img src="http://jchenTech.github.io/images/AOD-Net/网络框架图.png" alt="网络框架图" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165655.png" alt="网络框架图" /></p>
 
 <p>提出的aod-net包含两个模块：</p>
 
 <p>（a）k-estimation模块：从输入图像I(x)估计k（x）;</p>
 
-<p><img src="http://jchenTech.github.io/images/AOD-Net/k-estimation模块.png" alt="k-estimation模块" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165700.png" alt="k-estimation模块" /></p>
 
 <p>（b）清晰图像生成模型：k（x）再去估计J（x）</p>
 
@@ -314,7 +314,7 @@
 
 <p>在之前的实验中，由于在真实模糊图像上进行测试时没有无雾霾的真实性，因此报告了很少有关于恢复质量的定量结果。 我们合成的模糊图像伴随着地面实况图像，使我们能够根据PSNR和SSIM比较这些去噪结果。</p>
 
-<p><img src="http://jchenTech.github.io/images/AOD-Net/Table1.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165705.png" alt="" /></p>
 
 <p>表I和III-B分别显示了测试集A和B上的平均PSNR和SSIM结果。 由于AOD-Net在MSE损失下从端到端进行了优化，因此看到其PSNR性能高于其他方法并不令人惊讶。 更有吸引力的是观察到AOD-Net比所有竞争对手获得更大的SSIM优势，尽管SSIM并未直接被称为优化标准。 由于SSIM的测量超出了像素方面的误差，并且众所周知，它更忠实地反映了人类的感知，因此我们对AOD-Net的哪一部分实现了这种持续改进感到好奇。</p>
 
@@ -326,23 +326,23 @@
 
 <p>a）合成图像：图5显示了来自TestSet A的合成图像的去雾结果。我们观察到AOD-Net结果通常具有更清晰的轮廓和更丰富的颜色，并且在视觉上更忠实于地面实况。</p>
 
-<p><img src="http://jchenTech.github.io/images/AOD-Net/Fig5.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165713.png" alt="" /></p>
 
 <p>b）具有挑战性的自然图像：虽然通过室内图像合成训练，但ADO-Net可以很好地泛化为室外图像。我们根据一些自然图像示例的最新方法对其进行评估，这些示例比[9]，[8]，[3]的作者发现的一般室外图像更具挑战性。挑战在于高度杂乱的物体，精细纹理或照明变化的主导地位。如图6所示，FVR遭受过度增强的视觉伪影。 DCP，BCCR，ATM，NLD和MSCNN在一个或多个图像上产生不切实际的色调，例如第二行上的DCP，BCCR和ATM结果（注意天空颜色），或第四行上的BCCR，NLD和MSCNN结果（注意石头颜色）。 CAP，DehazeNet和AOD-Net拥有最具竞争力的视觉效果，具有合理的细节。然而，仔细观察，我们仍然观察到CAP有时会模糊图像纹理，而DehazeNet会使某些区域变暗。 AOD-Net恢复更丰富和更饱和的颜色（在第三和第四行结果之间进行比较），同时抑制大多数伪像。</p>
 
-<p><img src="http://jchenTech.github.io/images/AOD-Net/Fig6.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165719.png" alt="" /></p>
 
 <p>c）白色风景自然图像：白色场景或物体一直是去除雾霾的主要障碍。许多有效的先验如[9]在白色物体上失效，因为对于与大气光相似颜色的物体，透射值接近于零。 DehazeNet [3]和MSCNN [27]都依赖于精心挑选的过滤操作进行后处理，这提高了它们对白色物体的稳健性，但不可避免地牺牲了更多的视觉细节。虽然AOD-Net没有明确考虑处理白色场景，但我们的端到端优化方案似乎在这里提供了更强的鲁棒性。图7显示了白色场景的两个模糊图像以及通过各种方法的去雾结果。很容易注意到DCP结果的无法忍受的瑕疵，特别是在第一行的天空区域。这个问题得到缓解，但仍然存在CAP，DehazeNet和MSCNN结果，而AOD-Net几乎没有人工制品。此外，CAP似乎模糊了白色物体的纹理细节，而MSCNN创建了过度增强的相反效果：请参阅猫头部区域进行比较。 AOD-Net设法消除雾霾，而不会引入假色调或扭曲的物体轮廓。</p>
 
-<p><img src="http://jchenTech.github.io/images/AOD-Net/Fig7.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165729.png" alt="" /></p>
 
 <p>d）对无雾图像的小影响：虽然经过模糊的图像训练，AOD-Net被证实具有非常理想的特性，如果它没有雾度，它对输入图像几乎没有负面影响。这赞同我们的K估计模块的稳健性和有效性。图8显示了来自Colorlines的两个具有挑战性的清晰图像的结果[8]。</p>
 
-<p><img src="http://jchenTech.github.io/images/AOD-Net/Fig8.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165737.png" alt="" /></p>
 
 <p>e）图像反光晕：我们在另一个图像增强任务上尝试AOD-Net，称为图像反光晕，无需重新训练。光晕是光线超出适当边界的扩散，在照片的明亮区域形成不希望的雾化效果。与去雾相关但遵循不同的物理模型，AOD-Net的反光晕结果也是不错的：参见图9的一些例子。</p>
 
-<p><img src="http://jchenTech.github.io/images/AOD-Net/Fig9.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165744.png" alt="" /></p>
 
 <h3 id="多尺度特征的有效性">多尺度特征的有效性</h3>
 
@@ -352,7 +352,7 @@
 
 <p>AOD-Net的轻质结构导致更快的除雾。 我们在同一台机器（Intel（R）Core（TM）i7-6700 CPU@3.40GHz和16GB内存）上为所有型号选择了来自TestSet A的50个图像，没有GPU加速。 所有型号的每图像平均运行时间如表IV所示。 尽管其他Matlab实现较慢，但比较DehazeNet（Pycaffe版本）和我们的[11]是公平的。 结果表明AOD-Net具有很高的效率，每张图像仅占DehazeNet的1/10</p>
 
-<p><img src="http://jchenTech.github.io/images/AOD-Net/Table4.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165809.png" alt="" /></p>
 
 <h2 id="高层视觉任务-评估和提升目标检测任务中的去雾">高层视觉任务：评估和提升目标检测任务中的去雾</h2>
 
@@ -381,7 +381,7 @@
 
 <p>由于我们的一体化设计，AOD-Net + Faster R-CNN的流水线可以从头到尾联合优化，以提高对模糊图像的物体检测性能。我们分别为三个雾霾的训练集调整AOD-Net + Faster R-CNN，并将此调谐版称为JAOD-Faster R-CNN。我们在前35,000次迭代中使用0.0001的学习率，在接下来的65,000次迭代中使用0.00001，两者的动量均为0.9，重量衰减为0.0005。由于这种联合调整，重雾度情况下mAP从0.5794增加到0.6819，这显示了这种端到端优化的主要优势和我们独特设计的价值。为了比较，我们还在雾霾数据集上重新训练faster R-CNN作为比较。我们使用0.0001的学习率来微调预训练的更快的R-CNN（在清晰的自然图像上训练）。在重新训练以适应雾霾数据集之后，在重度雾度下，再训练的快速R-CNN的mAP从0.5155增加到0.6756，同时仍然比JAOD-faster R-CNN更差。此外，由于实际上希望获得一个适用于任意雾度水平的统一模型，我们生成包括各种雾度水平的训练集，其中β从[0,0.1]随机采样。我们在这个训练集上重新调整和评估JAOD-Faster R-CNN和Retrained Faster R-CNN，其结果在表V的最后一行进行比较。尽管两者的表现都略逊于他们训练和申请的“专用”对应物。在特定的雾度水平下，它们在所有三种雾度水平下都表现良好，而JAOD-Faster R-CNN再次优于Retrained Faster R-CNN。图11描绘了在各种雾度条件下，在JAOD-Faster R-CNN和再培训更快的R-CNN方案之间每5,000次迭代的mAP比较。</p>
 
-<p><img src="http://jchenTech.github.io/images/AOD-Net/Table5.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165911.png" alt="" /></p>
 
 <h3 id="自然雾霾图像的质量评估">自然雾霾图像的质量评估</h3>
 
@@ -389,7 +389,7 @@
 
 <p>请注意，AOD-Net + Faster R-CNN从联合优化中获益双重：AOD-Net本身共同估算所有参数，整个流水线共同调整低水平（去雾）和高水平（检测）和认可）端到端的任务。端到端的管道调整是由AOD-Net独特实现的，AOD-Net是迄今为止唯一的一体化除雾模型。</p>
 
-<p><img src="http://jchenTech.github.io/images/AOD-Net/Fig11.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165917.png" alt="" /></p>
 
 <h3 id="到底那个起到实际帮助-特定任务的除雾网络或只是添加更多参数">到底那个起到实际帮助：特定任务的除雾网络或只是添加更多参数？</h3>
 
@@ -506,7 +506,7 @@
 <div class="links-of-author motion-element">
     
         <span class="links-of-author-item">
-        <a href="https://github.com/xtfly/" target="_blank" title="GitHub">
+        <a href="https://github.com/jchenTech/" target="_blank" title="GitHub">
             <i class="fa fa-fw fa-github"></i>
             GitHub
         </a>

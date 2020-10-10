@@ -190,7 +190,7 @@
 <p>而编译时，这两个C文件要一同编译成一个可运行文件，于是问题来了，大量的声明冲突。</p>
 
 <p>还是把头文件的内容都放在#ifndef和#endif中吧。不管你的头文件会不会被多个文件引用，你都要加上这个。一般格式是这样的：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">#ifndef &lt;标识&gt;
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">#ifndef &lt;标识&gt;
 #define &lt;标识&gt;
 
 ......
@@ -212,7 +212,7 @@
 <h3 id="类和结构">类和结构</h3>
 
 <p>类对象的默认访问控制是<code>private</code>，而结构的默认访问类型是<code>public</code>。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class World
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class World
 {
     float mass;
     char name[20];  //默认是private
@@ -227,7 +227,7 @@ public:
 <li>定义成员函数时，使用作用域解析运算符<code>::</code>来标识函数所属的类</li>
 <li>类方法可以访问类的private组件</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">void Stock::update(double price)</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">void Stock::update(double price)</pre></div>
 <h2 id="类的构造函数和析构函数">类的构造函数和析构函数</h2>
 
 <p>每个类都分别定义了它的对象被初始化的方式，类通过一个或几个特殊的成员函数来控制其对象的初始化过程，这些函数叫<strong>构造函数</strong>。构造函数的任务是初始化类对象的数据成员，无论何时只要类的对象被创建，就会执行构造函数。</p>
@@ -235,9 +235,9 @@ public:
 <h3 id="声明和定义构造函数">声明和定义构造函数</h3>
 
 <p>构造函数原型（声明）：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Stock(const &amp; co, long n = 0, double pr = 0.0)</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Stock(const &amp; co, long n = 0, double pr = 0.0)</pre></div>
 <p>构造函数定义（没有返回类型）：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Stock::Stock(const &amp; co, long n = 0, double pr = 0.0)
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Stock::Stock(const &amp; co, long n = 0, double pr = 0.0)
 {
     company = co;
     shares = n;
@@ -247,7 +247,7 @@ public:
 <p><strong>成员名和参数名不能相同！！！</strong></p>
 
 <h3 id="使用构造函数">使用构造函数</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Stock food = Stock(&#34;World Cabbage&#34;, 50, 2.5);
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Stock food = Stock(&#34;World Cabbage&#34;, 50, 2.5);
 或
 Stock food(&#34;World Cabbage&#34;, 50, 2.5);</pre></div>
 <h3 id="默认构造函数">默认构造函数</h3>
@@ -257,13 +257,13 @@ Stock food(&#34;World Cabbage&#34;, 50, 2.5);</pre></div>
 <ul>
 <li>一种是给已有构造函数的所有参数提供默认值：</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Stock(const &amp; co, long n = 0, double pr = 0.0)</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Stock(const &amp; co, long n = 0, double pr = 0.0)</pre></div>
 <ul>
 <li>另一种是通过函数重载来定义另一个构造函数——一个没有参数的构造函数</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Stock();</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Stock();</pre></div>
 <p>用户定义的默认构造函数通常给所有成员<strong>提供隐式初始值</strong>。例如，下面是Stock类定义的一个默认构造函数：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Stock::Stock()
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Stock::Stock()
 {
     company = &#34;no name&#34;;
     shares = 0;
@@ -273,7 +273,7 @@ Stock food(&#34;World Cabbage&#34;, 50, 2.5);</pre></div>
 <p><strong>提示</strong>： 在设计类时，通常应该提供对所有类成员做隐式初始化的默认构造函数。</p>
 
 <p>声明对象变量时，初始化方式可以为：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Stock first(&#34;Concrete Conlomerate&#34;); //调用构造函数
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Stock first(&#34;Concrete Conlomerate&#34;); //调用构造函数
 Stock second();  //声明一个返回Stock对象的函数
 Stock third;  //隐式的调用默认构造函数
 Stock *fourth = new Stock(&#34;popo&#34;); //动态对象</pre></div>
@@ -284,7 +284,7 @@ Stock *fourth = new Stock(&#34;popo&#34;); //动态对象</pre></div>
 <p>析构函数的名称与类的名称是完全相同的，只是在前面加了个波浪号（~）作为前缀，它不会返回任何值，也不能带有任何参数。析构函数有助于在跳出程序（比如关闭文件、释放内存等）前释放资源。</p>
 
 <p>如果构造函数使用了new，则必须提供使用delete的析构函数，如：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Student{
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Student{
 public:
 　　Student(){m_name=new char[20];}     //即在堆上定义----故在释放对象时必须要释放掉内存
 
@@ -305,13 +305,13 @@ Student::~Student()
 <h2 id="this指针">this指针</h2>
 
 <p>当需要比较两个类中数据成员的大小，并返回变量值较大的类时，函数原型为：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">const Stock &amp; topval(const Stock &amp; s) const</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">const Stock &amp; topval(const Stock &amp; s) const</pre></div>
 <p>函数调用为：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">top = stock1.topval(stock2);
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">top = stock1.topval(stock2);
 或
 top = stock2.topval(stock1);</pre></div>
 <p>但是在函数实现中会有一个问题：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">const Stock &amp; Stock::topval(const Stock &amp; s) const
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">const Stock &amp; Stock::topval(const Stock &amp; s) const
 {
     if (s.total_val &gt; total_val)
         return s;
@@ -321,7 +321,7 @@ top = stock2.topval(stock1);</pre></div>
 <p>在 C++ 中，每一个对象都能通过 this 指针来访问自己的地址。每个成员函数（包括构造函数和析构函数）都有一个this指针。this指针指向调用对象。可以通过<code>this-&gt;total_val(类成员)</code>来访问类成员。如果方法需要引用整个调用对象，则可以使用表达式<code>*this</code>。在函数的括号后面使用const限定符将this限定为const，这样不能使用this指针来修改对象的值。</p>
 
 <p>于是，可以使用this指针返回调用该方法的对象：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">const Stock &amp; Stock::topval(const Stock &amp; s) const
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">const Stock &amp; Stock::topval(const Stock &amp; s) const
 {
     if (s.total_val &gt; total_val)
         return s;
@@ -331,9 +331,9 @@ top = stock2.topval(stock1);</pre></div>
 <h2 id="对象数组">对象数组</h2>
 
 <p>声明对象数组的方法和标准类型数组方法相同：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Stock mystuff[4]; //创建一个含有四个Stock对象的数组</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Stock mystuff[4]; //创建一个含有四个Stock对象的数组</pre></div>
 <p>使用构造函数来初始化数组元素时，必须为每一个元素调用构造函数。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">const int STKS = 4;
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">const int STKS = 4;
 Stock stocks[STKS] = {
     Stock(&#34;Nono&#34;, 12.5, 20),
     Stock(&#34;dsa&#34;, 200, 2.0),
@@ -343,7 +343,7 @@ Stock stocks[STKS] = {
 <h2 id="类作用域">类作用域</h2>
 
 <p>当我们要创建一个由所有对象共享的常量是个不错的主意，我们可能认为下面做法是可行的：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Bakery()
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Bakery()
 {
 private:
     const int Months = 12; //声明一个常量？这是错误的。
@@ -354,7 +354,7 @@ private:
 
 <p>此时有两种方法：
 * 第一种为在类中声明一个枚举，在类声明中声明的枚举的作用域为整个类，因此可以用枚举为整型常量提供作用域为整个类的符号名称。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Bakery()
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Bakery()
 {
 private:
     enum {Months = 12};
@@ -364,7 +364,7 @@ private:
 <ul>
 <li>第二种方法为在类中定义常量的方式——使用关键字static</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Bakery()
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Bakery()
 {
 private:
     static const int Months = 12;
@@ -490,7 +490,7 @@ private:
 <div class="links-of-author motion-element">
     
         <span class="links-of-author-item">
-        <a href="https://github.com/xtfly/" target="_blank" title="GitHub">
+        <a href="https://github.com/jchenTech/" target="_blank" title="GitHub">
             <i class="fa fa-fw fa-github"></i>
             GitHub
         </a>

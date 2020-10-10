@@ -23,7 +23,7 @@
 &lt;p&gt;提出的方法：In this paper, we propose a multi-scale deep neural network for single-image dehazing by learning the mapping between hazy images and their corresponding transmission maps. The proposed algorithm consists of a &lt;strong&gt;coarse-scale net which predicts a holistic transmission map based on the entire image&lt;/strong&gt;, and &lt;strong&gt;a fine-scale net which refines results locally. To train the multi-scale deep network&lt;/strong&gt;, we synthesize a dataset comprised of hazy images and corresponding transmission maps based on the NYU Depth dataset. Extensive experiments demonstrate that the proposed algorithm performs favorably against the state-of-the-art methods on both synthetic and real-world images in terms of quality and speed.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://jchenTech.github.io/images/MSCNN去雾/网络框架图.png&#34; alt=&#34;网络框架图&#34; /&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170215.png&#34; alt=&#34;网络框架图&#34; /&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

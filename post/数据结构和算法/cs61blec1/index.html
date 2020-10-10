@@ -178,7 +178,7 @@
 <h3 id="hello-world">Hello World</h3>
 
 <p>Let&rsquo;s look at our first Java program. When run, the program below prints &ldquo;Hello world!&rdquo; to the screen.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class HelloWorld {
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class HelloWorld {
     public static void main(String[] args) {
         System.out.println(&#34;Hello world!&#34;);
     }
@@ -196,10 +196,10 @@ Statements must end with semi-colons.</li>
 
 <p>The most common way to execute a Java program is to run it through a sequence of two programs. The first is the Java compiler, or <code>javac</code>. The second is the Java interpreter, or <code>java</code>.</p>
 
-<p><img src="http://jchenTech.github.io/images/【CS61B】LEC1/compilation_figure.svg" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170823.svg" alt="" /></p>
 
 <p>For example, to run HelloWorld.java, we&rsquo;d type the command <code>javac HelloWorld.java</code> into the terminal, followed by the command java HelloWorld. The result would look something like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">$ javac HelloWorld.java
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">$ javac HelloWorld.java
 $ java HelloWorld
 Hello World!</pre></div>
 <p>In the figure above, the <code>$</code> represents our terminal&rsquo;s command prompt. Yours is probably something longer.</p>
@@ -209,7 +209,7 @@ Hello World!</pre></div>
 <h3 id="variables-and-loops">Variables and Loops</h3>
 
 <p>The program below will print out the integers from 0 through 9.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class HelloNumbers {
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class HelloNumbers {
     public static void main(String[] args) {
         int x = 0;
         while (x &lt; 10) {
@@ -219,7 +219,7 @@ Hello World!</pre></div>
     }
 }</pre></div>
 <p>When we run this program, we see:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">$ javac HelloNumbers.java
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">$ javac HelloNumbers.java
 $ java HelloNumbers
 $ 0 1 2 3 4 5 6 7 8 9</pre></div>
 <p>Some interesting features of this program that might jump out at you:</p>
@@ -237,7 +237,7 @@ Our loop definition is contained inside of curly braces, and the boolean express
 <p>One of the most important features of Java is that all variables and expressions have a so-called static type. Java variables can contain values of that type, and only that type. Furthermore, the type of a variable can never change.</p>
 
 <p>One of the key features of the Java compiler is that it performs a static type check. For example, suppose we have the program below:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class HelloNumbers {
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class HelloNumbers {
     public static void main(String[] args) {
         int x = 0;
         while (x &lt; 10) {
@@ -248,7 +248,7 @@ Our loop definition is contained inside of curly braces, and the boolean express
     }
 }</pre></div>
 <p>Compiling this program, we see:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">$ javac HelloNumbers.java 
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">$ javac HelloNumbers.java 
 HelloNumbers.java:9: error: incompatible types: String cannot be converted to int
         x = &#34;horse&#34;;
                 ^
@@ -258,9 +258,9 @@ HelloNumbers.java:9: error: incompatible types: String cannot be converted to in
 <p>In Java, we can say <code>System.out.println(5 + &quot; &quot;)</code>;. But in Python, we can&rsquo;t say <code>print(5 + &quot;horse&quot;)</code>, like we saw above. Why is that so?</p>
 
 <p>Consider these two Java statements:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">String h = 5 + &#34;horse&#34;;</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">String h = 5 + &#34;horse&#34;;</pre></div>
 <p>and</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">int h = 5 + &#34;horse&#34;;</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">int h = 5 + &#34;horse&#34;;</pre></div>
 <p>The first one of these will succeed; the second will give a compiler error. Since Java is strongly typed, if you tell it <code>h</code> is a string, it can concatenate the elements and give you a string. But when <code>h</code> is an <code>int</code>, it can&rsquo;t concatenate a number and a string and give you a number.</p>
 
 <p>In this case, <code>System.out.println(5 + &quot;horse&quot;);</code>, Java interprets the arguments as a string concatentation, and prints out &ldquo;5horse&rdquo; as your result. Or, more usefully, <code>System.out.println(5 + &quot; &quot;);</code> will print a space after your &ldquo;5&rdquo;.</p>
@@ -268,14 +268,14 @@ HelloNumbers.java:9: error: incompatible types: String cannot be converted to in
 <h3 id="defining-functions-in-java">Defining Functions in Java</h3>
 
 <p>In languages like Python, functions can be declared anywhere, even outside of functions. For example, the code below declares a function that returns the larger of two arguments, and then uses this function to compute and print the larger of the numbers 8 and 10:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">def larger(x, y):
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">def larger(x, y):
     if x &gt; y:
         return x
     return y
 
 print(larger(8, 10))</pre></div>
 <p>Since all Java code is part of a class, we must define functions so that they belong to some class. Functions that are part of a class are commonly called &ldquo;methods&rdquo;. We will use the terms interchangably throughout the course. The equivalent Java program to the code above is as follows:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class LargerDemo {
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class LargerDemo {
     public static int larger(int x, int y) {
         if (x &gt; y) {
             return x;
@@ -300,7 +300,7 @@ Avoidance of repetitive code: You should almost never have two significant block
 Comments where appropriate. Line comments in Java use the <code>//</code> delimiter. Block (a.k.a. multi-line comments) comments use <code>/*</code> and <code>*/</code>.</p>
 
 <h3 id="comments">Comments</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class LargerDemo {
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class LargerDemo {
     /** Returns the larger of x and y. */           
     public static int larger(int x, int y) {
         if (x &gt; y) {
@@ -446,7 +446,7 @@ Comments where appropriate. Line comments in Java use the <code>//</code> delimi
 <div class="links-of-author motion-element">
     
         <span class="links-of-author-item">
-        <a href="https://github.com/xtfly/" target="_blank" title="GitHub">
+        <a href="https://github.com/jchenTech/" target="_blank" title="GitHub">
             <i class="fa fa-fw fa-github"></i>
             GitHub
         </a>

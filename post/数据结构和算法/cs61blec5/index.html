@@ -184,36 +184,36 @@
 <p><strong>结合Sentinel</strong> 回想一下，我们在 <code>SLList</code> 中添加了一个哨兵节点。对于 <code>DLList</code>，我们可以有两个哨兵（一个为前哨，一个为后哨），也可以使用圆形哨兵。使用圆形标记的 <code>DLList</code> 具有一个哨兵。哨兵通过<code>next</code>指针指向列表的第一个元素并且用 <code>prev</code> 指针指向最后一个元素。此外，列表最后一个元素的 <code>next</code> 指向哨兵，列表中第一个元素的 <code>prev</code> 指向哨兵。对于空列表，哨兵两个方向指向自身。</p>
 
 <p><strong>泛型双向链表Generic DLList</strong> 我们如何修改 <code>DLList</code>，以便它可以是我们选择的任何对象的列表？回想一下我们的类定义如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class DLList { ... }</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class DLList { ... }</pre></div>
 <p>将其变为：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class DLList&lt;T&gt; { ... }</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public class DLList&lt;T&gt; { ... }</pre></div>
 <p>其中 <code>T</code> 是占位符对象类型。 注意尖括号语法。 另请注意，我们不必使用 <code>T</code>； 任何变量名都可以。 在 <code>DLList</code> 中，我们的项目现在为 <code>T</code> 类型，并且我们的方法现在将 <code>T</code> 类型实例作为参数。 为了准确性，我们还可以将 <code>IntNode</code> 类重命名为 <code>TNode</code>。</p>
 
 <p>使用泛型双向链表 回想创建一个 <code>DLList</code>，我们输入：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">DLList list = new DLList(10);</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">DLList list = new DLList(10);</pre></div>
 <p>如果我们想创建一个支持 <code>String</code> 对象得 <code>DLList</code>，我们必须说：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">DLList&lt;String&gt; list = new DLList&lt;&gt;(&#34;bone&#34;);</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">DLList&lt;String&gt; list = new DLList&lt;&gt;(&#34;bone&#34;);</pre></div>
 <p>创建列表时，编译器将 <code>T</code> 的所有实例替换为 <code>String</code>！ 我们将在以后的课程中更详细地介绍通用类型。</p>
 
 <p><strong>数组</strong> 回想一下变量只是位盒。例如，<code>int x;</code> 创建了一个32位的存储盒。数组是一个特殊的对象，它由编号顺序的存储盒组成！要获得数组A的第i个项，请使用 <code>A[i]</code>。 数组的长度不能更改，并且数组的所有元素必须具有相同的类型（这与Python列表不同）。 这些框的索引为零，这意味着对于具有N个元素的列表，第一个元素位于 <code>A[0]</code>，最后一个元素位于 <code>A[N-1]</code>。 与常规类不同，数组没有方法！ 数组确实有一个 <code>length</code> 变量。</p>
 
 <p><strong>数组实例化</strong> 创建数组有三种有效的表示。 第一种方法指定数组的大小，并使用默认值填充数组：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">int[] y = new int[3];</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">int[] y = new int[3];</pre></div>
 <p>第二种和第三种方法向数组填充特定的值：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">int[] x = new int[]{1, 2, 3, 4, 5};
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">int[] x = new int[]{1, 2, 3, 4, 5};
 int[] w = {1, 2, 3, 4, 5};</pre></div>
 <p>我们可以使用数组索引在数组中设置一个值。 例如，我们可以说 <code>A[3] = 4;</code>。 这将访问数组A的第四个元素，并将该框的值设置为4。</p>
 
 <p><strong>Arraycopy</strong> 为了复制数组，我们可以使用 <code>System.arraycopy</code>。 它有5个参数； 语法很难记住，因此我们建议使用诸如此类的各种在线参考。</p>
 
 <p><strong>二维数组</strong> 我们可以声明多维数组，对于二维数组，我们可用以下语法：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">int[][] array = new int[4][];</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">int[][] array = new int[4][];</pre></div>
 <p>这创建了一个包含整型数组的数组，注意我们必须手动的创建内层数组如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">array[0] = new int[]{0, 1, 2, 3};</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">array[0] = new int[]{0, 1, 2, 3};</pre></div>
 <p>Java还可以使用自动创建的内部数组来创建多维数组。 为此，请使用以下语法：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">int[][] array = new int[4][4];</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">int[][] array = new int[4][4];</pre></div>
 <p>我们也可以使用这种方式：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">int[][] array = new int[][]{{1}, {1, 2}, {1, 2, 3}}</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">int[][] array = new int[][]{{1}, {1, 2}, {1, 2, 3}}</pre></div>
 <p>来得到具有具体数值的数组。</p>
 
 <p><strong>Arrays vs. Classes</strong></p>
@@ -331,7 +331,7 @@ int[] w = {1, 2, 3, 4, 5};</pre></div>
 <div class="links-of-author motion-element">
     
         <span class="links-of-author-item">
-        <a href="https://github.com/xtfly/" target="_blank" title="GitHub">
+        <a href="https://github.com/jchenTech/" target="_blank" title="GitHub">
             <i class="fa fa-fw fa-github"></i>
             GitHub
         </a>

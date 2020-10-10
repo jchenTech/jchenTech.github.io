@@ -173,7 +173,7 @@
     <div class="post-body" itemprop="articleBody">
     <p>雾霾是由空气中的灰尘和烟雾等小的漂浮颗粒产生的常见大气现象。这些漂浮的颗粒极大地吸收和散射光，导致图像质量下降。在雾霾影响下，视频监控，远程感应，自动驾驶等许多实际应用很容易受到威胁，检测和识别等高级计算机视觉任务很难完成。因此，图像去雾（除雾）成为一种越来越重要的技术。在图像去雾领域，不得不学习何凯明在2009CVPR上获最佳论文的文章。</p>
 
-<p><img src="http://jchenTech.github.io/images/暗通道先验去雾算法/Dark Channel Prior.png" alt="Single Image Haze Removal Using Dark Channel Prior" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010162449.png" alt="Dark Channel Prior" /></p>
 
 <hr />
 
@@ -219,9 +219,9 @@
 
 <p>正因为自然界总是充满了彩色和阴影，就导致了图像暗通道总是很暗。为了验证这个先验知识，作者统计了大量图片，发现基本都符合这个先验。以下是几幅680*1024的风景图在不同大小滤波窗口下的暗通道图：</p>
 
-<p><img src="http://jchenTech.github.io/images/暗通道先验去雾算法/暗通道1.png" alt="" />
-<img src="http://jchenTech.github.io/images/暗通道先验去雾算法/暗通道2.png" alt="" />
-<img src="http://jchenTech.github.io/images/暗通道先验去雾算法/暗通道3.png" alt="暗通道先验示例图" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010163033.png" alt="" />
+<img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010163010.png" alt="" />
+<img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010162934.png" alt="暗通道先验示例图" /></p>
 
 <p>以上图像基本都符合暗通道先验，由此可见暗通道的普遍性。在暗通道先验的基础上，就可以进行去雾算法的推导。</p>
 
@@ -240,7 +240,7 @@
 
 <p>可见含雾图像 $I(x)$ 的形成主要由两部分决定：第一部分是 $I(x)t(x)$ 构成的直接衰减项，用于描述景物光线在透射媒介中经衰减后的部分；第二部分是 $A[1-t(x)]$ 构成的大气光照，它由图像采集装置前方的散射引起，会导致景物色调的偏移。如图所示。</p>
 
-<p><img src="http://jchenTech.github.io/images/暗通道先验去雾算法/大气散射模型.png" alt="大气散射模型" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010162636.png" alt="大气散射模型" /></p>
 
 <h2 id="暗通道先验去雾算法">暗通道先验去雾算法</h2>
 
@@ -574,7 +574,7 @@
 <div class="links-of-author motion-element">
     
         <span class="links-of-author-item">
-        <a href="https://github.com/xtfly/" target="_blank" title="GitHub">
+        <a href="https://github.com/jchenTech/" target="_blank" title="GitHub">
             <i class="fa fa-fw fa-github"></i>
             GitHub
         </a>

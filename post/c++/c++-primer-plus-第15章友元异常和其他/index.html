@@ -209,7 +209,7 @@
 * TV调谐或A/V输入。</p>
 
 <p>tv.h文件，声明tv和remote的类</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">#ifndef TV_H_
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">#ifndef TV_H_
 #define TV_H_
 
 class Tv
@@ -257,7 +257,7 @@ public:
 };
 #endif</pre></div>
 <p>tv.cpp</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">#include &lt;iostream&gt;
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">#include &lt;iostream&gt;
 #include &#34;tv.h&#34;
 
 bool Tv::volup()
@@ -312,7 +312,7 @@ void Tv::Settings() const
     }
 }</pre></div>
 <p>use_tv.cpp</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">#include&lt;iostream&gt;
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">#include&lt;iostream&gt;
 #include &#34;tv.h&#34;
 
 int main()
@@ -354,7 +354,7 @@ int main()
 <p>这种做法稍微有点麻烦，必须小心排列各种声明和定义的顺序。</p>
 
 <p>让Remote::set_chan()成为Tv类的友元的方法是，在Tv类声明中将其声明为友元：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Tv
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Tv
 {
 　　friend void Remote::set_chan(Tv &amp; t, int c);
 }</pre></div>
@@ -367,28 +367,28 @@ int main()
 <p>这就产生了循环依赖的问题。要避免循环依赖关系，就要使用前向声明（forward declaration）。</p>
 
 <p>解决方法如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Tv;  //forward declaration  告诉编译器Tv是一个类
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Tv;  //forward declaration  告诉编译器Tv是一个类
 class Remote {...};  //然后再Remote中出现set_chan 方法时，知道其中Tv是一个类
 class Tv {...};</pre></div>
 <p>这里补充一句，让整个Remote类成为友元并不需要前向声明，因为友元语句本身已经指出Remote是一个类；</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">friend class Remote;</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">friend class Remote;</pre></div>
 <p>但是能否像下面这样排列呢？</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Remote ;  //forward declaration
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Remote ;  //forward declaration
 class Tv {...};
 class Remote {...};</pre></div>
 <p>答案是不能，因为在编译器看到Tv类的声明中看到Remote的一个方法被声明为Tv类的友元之前，应先看到Remote类的声明和set_chan()方法的声明。</p>
 
 <p>还有一个麻烦就是。Remote声明中包含了内联代码</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">void onoff(Tv &amp; t) {t.onoff();}</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">void onoff(Tv &amp; t) {t.onoff();}</pre></div>
 <p>由于这将调用Tv的一个方法，所以编译器此时必须已经看到了Tv类的声明。这样才能知道Tv有哪些方法，但正如看到的，该声明位于Remote声明的后面。</p>
 
 <p>这种问题的解决方法是，使Remote声明中只包含方法声明，并将实际的定义放在Tv类之后。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Tv;  //forward declaration
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Tv;  //forward declaration
 class Remote {...};  //Tv-using methods as prototypes only  只包含方法的声明
 class Tv {...};
 //put Remote method definitions here  定义在这里写</pre></div>
 <p>Remote方法的声明与下面类似</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">void onoff(Tv &amp; t);</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">void onoff(Tv &amp; t);</pre></div>
 <p>检查该原型时，编译器都需要知道Tv是一个类，而向前声明提供了这样的信息。</p>
 
 <p>当编译器到达真正的方法定义时，它已经读取到了Tv类的声明，并拥有编译这些方法的所需信息。</p>
@@ -396,7 +396,7 @@ class Tv {...};
 <p>通过在方法定义中使用inline关键字，仍然可以使其成为内联方法。</p>
 
 <p>//这种友元成员函数的声明、定义顺序非常微妙，令人抓狂。很容易造成错误，一旦问题复杂起来，定位bug都很困难。难怪C++是个大坑。友元的存在就是其中一个大坑。把类的关系，函数的关系搞复杂了。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">#ifndef TVFM_H_
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">#ifndef TVFM_H_
 #define TVFM_H_
 
 class Tv;  //forward declaration
@@ -479,7 +479,7 @@ inline void Remote::set_chan(Tv &amp; t, int c) {t.channel = c;}</pre></div>
 <p><strong>这里对于使用Remote对象的Tv方法，其原型可以再Remote方法类声明之前声明，但必须在Remote声明之后定义</strong>，以便编译器有足够的信息来编译该方法。</p>
 
 <p>方法如下：（两个类互为友元类）</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Tv
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Tv
 {
 frirend class Remote;
 public:
@@ -512,7 +512,7 @@ inline void Tv::buzz(Remote &amp; r)
 <p>例如，假定有一个Probe类和一个Analyzer类，前者表示某种可编程的测量设备，后者表示某种可编程的分析设备。</p>
 
 <p>这两个类中都有内部时钟，且希望它们能够同步，则应包含下述代码行：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Analyzer   //forward declaration
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Analyzer   //forward declaration
 class Probe
 {
     friend void sync(Analyzer &amp; a, const Probe &amp; p);   // sync a to p
@@ -566,7 +566,7 @@ inline void sync(Probe &amp; p, const Analyzer &amp; a)
 <p>对类进行嵌套和包含并不同, 包含意味着将类对象作为另一个类的成员, 而对类进行嵌套不创建类成员, 而是定义了一种类型, 该类型仅在包含嵌套类声明的类中有效.</p>
 
 <p>我们先看一个之前的一个例子, 自定义实现的简化版的队列:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Queue
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Queue
 {
 private:
     // 这里Node是一个嵌套的结构体定义
@@ -577,7 +577,7 @@ private:
 <p>由于结构是一种其成员在默认情况下为共有的类, 所以Node实际上是一个嵌套类.</p>
 
 <p>在之前的笔记中创建Node对象的方法是这么写的:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">bool Queue::enqueue(const Item &amp; item)
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">bool Queue::enqueue(const Item &amp; item)
 {
     if(isfull())
         return false;
@@ -587,7 +587,7 @@ private:
     ...
 }</pre></div>
 <p>现在我们将Node由struct改为嵌套类:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Queue
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Queue
 {
     // 嵌套类
     class Node
@@ -601,7 +601,7 @@ private:
     ...
 };</pre></div>
 <p>然后, 重新使用构造函数编写enqueue():</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">bool Queue::enqueue(const Item &amp; item)
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">bool Queue::enqueue(const Item &amp; item)
 {
     if(isfull())
         return false;
@@ -609,7 +609,7 @@ private:
     ...
 }</pre></div>
 <p>这个例子中是在类声明中定义了构造函数, 假设想在方法文件中定义构造函数, 则定义必须指出Node类是在Queue类中定义的, 我们可以通过两次作用域解析运算符来完成:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Queue::Node::Node(const Item &amp; i): item(i), next(0) {}</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Queue::Node::Node(const Item &amp; i): item(i), next(0) {}</pre></div>
 <h3 id="嵌套类和访问权限">嵌套类和访问权限</h3>
 
 <p>首先.嵌套类的声明位置决定了嵌套类的作用域, 即它决定了程序的那些部分可以创建这种类的对象.</p>
@@ -624,14 +624,14 @@ private:
 <p>如果嵌套类是在另一个类的共有部分声明的, 则允许后者, 后者的派生类以及外部世界使用它, 因为它是共有的. 然而, 由于嵌套类的作用域为包含它的类, 因此在外部世界使用它时, 必须使用类限定符.</p>
 
 <p>假设有如下的声明:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Team
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Team
 {
 public:
     class Coach {...};
     ...
 };</pre></div>
 <p>如果要在Team外面创建Coach对象, 可以这么写:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Team::Coach forhire;</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Team::Coach forhire;</pre></div>
 <p>表15.1 嵌套类、结构和枚举的作用域特征</p>
 
 <table>
@@ -682,7 +682,7 @@ public:
 <p>异常是相对较新的C++功能，有些老式编译器可能没有实现。另外有些编译器可能默认关闭这一特性，需要使用编译器选项来打开它。</p>
 
 <p>这里先讨论一个基本问题：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">2.0 * x * y / (x+y)</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">2.0 * x * y / (x+y)</pre></div>
 <p>如果y是x的负值，则上述公式将导致被零除。这是一种不允许的运算。很多新式编译器通过生产一个表示无穷大的特殊浮点值来处理。</p>
 
 <p>例如Inf,inf,INF等。</p>
@@ -700,7 +700,7 @@ public:
 <p>如果愿意，也可以使用exit()，该函数刷新文件缓冲区，但不显示消息。</p>
 
 <p>文件缓冲区：用于存储读写到文件的数据的内存区域。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">#error1.cpp --using the abort() function
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">#error1.cpp --using the abort() function
 #include &lt;iostream&gt;
 #include &lt;cstdlib&gt;
 double hmean(double a, double b);
@@ -745,7 +745,7 @@ double hmean(double a, double b)
 <p>iostream族重载&gt;&gt;运算符使用了这个技术的变体。通过告知调用程序是成功了还是失败了，使得程序可以采取除异常终止程序之外的其他措施。</p>
 
 <p>下列程序就是采用这种方法，它将hmean()的返回值重新定义为bool，让返回值指出成功了，还是失败了。另外还给该函数增加了第三个参数，用于提供答案。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">//error2.cpp --returning an error code
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">//error2.cpp --returning an error code
 #include&lt;iostream&gt;
 #include&lt;cfloat&gt;   //(or float.h) for DBL_MAX
 
@@ -823,7 +823,7 @@ bool mean(double a, double b, double * ans)
 <p>关键字try的后面是一个由花括号括起来的代码块，表明需要注意这些代码引发的异常。</p>
 
 <p>了解这三个关键字是如何协同工作的，最简单的方法是看下面一个例子：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">// error3.cpp -- using an exception
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">// error3.cpp -- using an exception
 #include &lt;iostream&gt;
 double hmean(double a, double b);
 
@@ -894,7 +894,7 @@ double hmean(double a, double b)
 <p>同时，catch块可以根据这些信息来决定采取什么样的措施。</p>
 
 <p>下面是针对函数引发的异常而提供的一种设计：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class bad_hmean
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class bad_hmean
 {
 private:
     double v1;
@@ -914,7 +914,7 @@ inline void bad_hmean::mesg()
 <p>可以将bad_hmean对象初始化为传递给含税hmean()的值，而方法mesg()可用于报告问题。</p>
 
 <p>函数hmean()可以使用如下代码：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if (a == -b)
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if (a == -b)
     throw bad_hmean(a,b);</pre></div>
 <p>上述代码调用构造函数bad_hmean()，以初始化对象，使其存储参数值。</p>
 
@@ -931,7 +931,7 @@ inline void bad_hmean::mesg()
 <p>异常规范的理念看似有前途，但实际的使用效果并不好。</p>
 
 <p>忽视异常规范之前，您至少应该知道它是什么样的，如下所示：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">double harm(double a) throw(bad_thing);  //may throw bad_thing exception
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">double harm(double a) throw(bad_thing);  //may throw bad_thing exception
 double harm(double a) throw();    //doesn&#39;t throw an exception</pre></div>
 <p>其中<code>throw()</code>部分就是异常规范，它可能出现在函数原型和函数定义中，可包含类型列表，也可不包含。</p>
 
@@ -992,7 +992,7 @@ double harm(double a) throw();    //doesn&#39;t throw an exception</pre></div>
 
 <li><p>引发异常时，编译器总是创建一个临时拷贝，即使异常规范和catch块中指定的是引用。</p></li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class problem {...};
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class problem {...};
 ...
 void super() throw(problem)
 {
@@ -1022,9 +1022,9 @@ catch(problem &amp; p)
 <p>也可以创建捕获对象而不是引用的处理程序。在catch语句中使用基类对象时，将捕获所有的派生类对象，但派生特性将被剥去，因此将统一使用虚方法的基类版本。</p>
 
 <p>可以在不知道异常类型的情况下，捕获异常，方法是：使用省略号来表示异常类型，从而捕获任何异常。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">catch(...){//statements}</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">catch(...){//statements}</pre></div>
 <p>如果知道一些异常的类型，可以将捕获所有异常的catch块放在最后面，这一点优点类似于switch语句中的default：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">try
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">try
 {
     super();
 };
@@ -1084,10 +1084,10 @@ catch(...)
 <p>为处理new的变化，有些编译器提供了一个标记（开关），让用户选择所需的行为。</p>
 
 <p>当前，C++标准提供了一种在失败时返回空指针的new，其用法如下</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">int * pi = new (std::nothrow) int;
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">int * pi = new (std::nothrow) int;
 int * pa = new (std::nowthrow) int[500];</pre></div>
 <p>使用这种new，可将上面程序的核心代码修改如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Big * pb;
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Big * pb;
 pb = new(std::nothrow) Big [10000];
 if(pb ==0)
 {
@@ -1117,17 +1117,17 @@ if(pb ==0)
 <p>总之，如果要捕获所有的异常(不管事预期异常还是意外异常)，则可以这样做：</p>
 
 <p>首先确保异常头文件的声明可用：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">#include &lt;exception&gt;
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">#include &lt;exception&gt;
 using namespace std</pre></div>
 <p>然后设计一个替代函数，将异常转换为bad_exception异常，该函数的原型如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">void myUnexpected()
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">void myUnexpected()
 {
     throw std::bad_exception();
 }</pre></div>
 <p>接下来在程序的开始位置，将意外异常操作指定为调用该函数：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">set_unexpected(myUnexpected);</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">set_unexpected(myUnexpected);</pre></div>
 <p>最后，将bad_exception类型包括在异常规范中，并添加如下catch块序列：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">double Argh(double,double)throw(out_of_range,bad_exception);
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">double Argh(double,double)throw(out_of_range,bad_exception);
 ...
 try
 {
@@ -1180,11 +1180,11 @@ catch (bad_exception&amp; e)
 <p>dynamic_cast不能回答“指针指向的是哪类对象”，但能够回答“是否可以安全地将对象的地址赋给特定类型的指针”这样的问题。</p>
 
 <p>通常，如果指向的对象(*pt)的类型为Type或者是从Type直接或者间接派生而来的类型，则下面的表达式将指针pt转换为类型为Type类型的指针：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">dynamic_cast&lt;Type *&gt; (pt)</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">dynamic_cast&lt;Type *&gt; (pt)</pre></div>
 <p>否则，结果为0，即空指针。</p>
 
 <p>也可以将dynamic_cast用于引用，其用法稍微有点不同：没有与空指针对应的引用值，因此无法使用特殊的引用值来只是失败。当请求不准确时，dynamic_cast将引发类型为bad_cast的异常，这种异常是从exception类派生而来的，它是在头文件typeinfo中定义的。因此可以像下面这样使用该运算符，其中rg是对Grand对象的引用，Superb是从Grand派生出的对象：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">#include &lt;typeinfo&gt;
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">#include &lt;typeinfo&gt;
 ...
 try
 {
@@ -1206,11 +1206,11 @@ catch (bad_cast &amp;)
 </ul>
 
 <p>typeid运算符返回一个type_info对象的引用，其中，type_info是在头文件type_info中定义的一个类。type_info重载了==和！=运算符，以便可以使用这些运算符来对类型进行判断。例如，如果pg执行的是一个Superb对象，则下述表达式的结果为bool值true，否则为false：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">typeid(Superb) == typeid(*pg)</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">typeid(Superb) == typeid(*pg)</pre></div>
 <p>如果pg是一个空指针，程序将引发bad_typeid异常。该异常类型是从exception类派生而来的，是在头文件typeinfo中声明的。</p>
 
 <p>type_info类实现随厂商而异，但包含一个name()成员，该函数返回一个随实现而异的字符串：通常(但并非一定)是类名。例如，下面的语句显示指针pg指向的对象所属类定义的字符串：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">cout::typeid(*pg).name()&lt;&lt;&#34;\n&#34;;</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">cout::typeid(*pg).name()&lt;&lt;&#34;\n&#34;;</pre></div>
 <h2 id="类型转换运算符">类型转换运算符</h2>
 
 <p>四种类型转换运算符，他们的语法相同：</p>
@@ -1227,7 +1227,7 @@ catch (bad_cast &amp;)
 <p>dynamic_cast运算符在前面已经介绍过了，假设High和Low是两个类，而ph和pl的类型分别为High *和Low *。</p>
 
 <p>则仅当Low是High的可访问基类时，下面的语句才将一个Low*指针赋给pl：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pl = dynamic_cast&lt;Low *&gt; ph;</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pl = dynamic_cast&lt;Low *&gt; ph;</pre></div>
 <p>该运算符的用途是，使得能够在<strong>类层次结构中进行向上转换</strong>（由于是is-a关系，这种转换是安全的），而不允许其他转换。</p>
 
 <p>（1）其他三种都是编译时完成的，dynamic_cast是运行时处理的，运行时要进行类型检查。</p>
@@ -1259,7 +1259,7 @@ catch (bad_cast &amp;)
 <p>也就是说除了const和volatile特征可以不同外，type_name和expression的类型必须相同。</p>
 
 <p>再次假设High和Low是两个类：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">High bar;
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">High bar;
 const High * pbar = &amp;bar;
 ...
 
@@ -1274,7 +1274,7 @@ const  Low * pl = const_cast&lt;const Low *&gt; (pbar);   //invalid</pre></div>
 <p>在这种情况下，<strong>可以将这个值声明为const，并在需要修改它的时候，使用const_cast</strong>。</p>
 
 <p><strong>需注意const_cast可以修改指向一个值的指针，但不可以修改const值。</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">void change(const int * pt)
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">void change(const int * pt)
 {
     int * pc;
     pc = const_cast&lt;int *&gt;(pt);
@@ -1298,7 +1298,7 @@ int main()
 <p>static_cast运算符仅当type_name可被隐式转换为expression所属的类型或expression可被隐式转换为type_name所属的类型时，上述转换才是合法的，否则将会出错。</p>
 
 <p>假设High是Low的基类，而Pond是一个无关的类，则从High到Low的转换，从Low到High的转换都是合法的，而从Low到Pond的转换时不允许的。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">High bar;
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">High bar;
 Low blow;
 ...
 High *pb = static_cast&lt;High *&gt;(&amp;blow); //valid
@@ -1420,7 +1420,7 @@ Pond *pb = static_cast&lt;Pond *&gt;(&amp;blow); //invalid,Pond unrelated</pre><
 <div class="links-of-author motion-element">
     
         <span class="links-of-author-item">
-        <a href="https://github.com/xtfly/" target="_blank" title="GitHub">
+        <a href="https://github.com/jchenTech/" target="_blank" title="GitHub">
             <i class="fa fa-fw fa-github"></i>
             GitHub
         </a>

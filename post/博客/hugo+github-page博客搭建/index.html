@@ -192,11 +192,11 @@
 <h2 id="生成站点">生成站点</h2>
 
 <p>使用Hugo快速生成站点，比如希望生成到 /path/to/site 路径：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">hugo new site /path/to/site</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">hugo new site /path/to/site</pre></div>
 <p>这样就在 /path/to/site 目录里生成了初始站点，进去目录：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">cd /path/to/site</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">cd /path/to/site</pre></div>
 <p>站点目录结构：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">  ▸ archetypes/
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">  ▸ archetypes/
   ▸ content/
   ▸ layouts/
   ▸ static/
@@ -206,9 +206,9 @@
 <h2 id="生成文章">生成文章</h2>
 
 <p>创建一个 about 页面：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">hugo new about.md</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">hugo new about.md</pre></div>
 <p>about.md 自动生成到了 content/about.md ，打开 about.md 看下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">+++
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">+++
 date = &#34;2015-10-25T08:36:54-07:00&#34;
 draft = true
 title = &#34;about&#34;
@@ -219,9 +219,9 @@ title = &#34;about&#34;
 <p>内容是 Markdown 格式的，+++ 之间的内容是 TOML 格式的，根据你的喜好，你可以换成 YAML 格式（使用 &mdash; 标记）或者 JSON 格式。</p>
 
 <p>创建第一篇文章，放到 post 目录，方便之后生成聚合页面。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">hugo new post/first.md</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">hugo new post/first.md</pre></div>
 <p>打开编辑 post/first.md ：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">---
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">---
 date: &#34;2015-10-25T08:36:54-07:00&#34;
 title: &#34;first&#34;
  
@@ -239,7 +239,7 @@ title: &#34;first&#34;
 <h2 id="安装主题">安装主题</h2>
 
 <p>在<a href="https://themes.gohugo.io/">官网主题列表</a>中选择主题进行安装，我的博客时采用<a href="https://github.com/digitalcraftsman/hugo-icarus-theme">icarus</a>主题进行安装的，具体的主题配置按照该主题的说明文件进行配置。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># 创建 themes 目录
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># 创建 themes 目录
 cd themes
 git clone https://github.com/digitalcraftsman/hugo-icarus-theme.git</pre></div>
 <hr />
@@ -247,7 +247,7 @@ git clone https://github.com/digitalcraftsman/hugo-icarus-theme.git</pre></div>
 <h2 id="运行hugo">运行hugo</h2>
 
 <p>在你的站点根目录执行 Hugo 命令进行调试：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">hugo server --theme=icarus --buildDrafts</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">hugo server --theme=icarus --buildDrafts</pre></div>
 <p>浏览器里打开：<code>http://localhost:1313</code></p>
 
 <hr />
@@ -265,16 +265,16 @@ git clone https://github.com/digitalcraftsman/hugo-icarus-theme.git</pre></div>
 <p>假设你需要部署在 GitHub Pages 上，首先在GitHub上创建一个Repository，命名为：jchenTech.github.io （jchenTech替换为你的github用户名）。</p>
 
 <p>在站点根目录执行 Hugo 命令生成最终页面：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">hugo --theme=icarus --baseUrl=&#34;http://jchenTech.github.io/&#34;</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">hugo --theme=icarus --baseUrl=&#34;http://jchenTech.github.io/&#34;</pre></div>
 <p>如果一切顺利，所有静态页面都会生成到<strong>public</strong>目录，将<strong>pubilc</strong>目录里所有文件push到刚创建的Repository的master分支。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">cd public
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">cd public
 git init
 git remote add origin https://github.com/jchenTech/jchenTech.github.io.git
 git add -A
 git commit -m &#34;first commit&#34;
 git push -u origin master</pre></div>
 <p>当输入 <code>git remote rm origin https://github.com/jchenTech/jchenTech.github.io.git</code>提示：<code>fatal: remote origin already exists.</code>时，需要删除远程地址。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">git remote rm origin</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">git remote rm origin</pre></div>
 <p>浏览器里访问：<a href="http://jchenTech.github.io">http://jchenTech.github.io</a></p>
 
 <hr />
@@ -284,7 +284,7 @@ git push -u origin master</pre></div>
 <h3 id="页面加载过程中请求了http资源">页面加载过程中请求了http资源</h3>
 
 <p>在我安装icarus主题的过程中，在将博客部署到github上时，会导致页面不能正常显示，在页面F12显示Https的页面加载了http的js和css，提示Mixed Content错误，阻止了加载。因此，需要在<code>E:\hugo\jchenBlog\themes\icarus\layouts\partials\head.html</code>文件中加入下语句，将会把http请求转化为https请求：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;meta http-equiv=&#34;Content-Security-Policy&#34; content=&#34;upgrade-insecure-requests&#34;&gt;</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;meta http-equiv=&#34;Content-Security-Policy&#34; content=&#34;upgrade-insecure-requests&#34;&gt;</pre></div>
 <h3 id="出现博客首页无法加载出文章列表问题">出现博客首页无法加载出文章列表问题</h3>
 
 <p>困扰了很久的问题，这是因为在安装hugo时选择的是当前最新版本0.65，但是hugo icarus这个主题是之前发布的，在hugo进行版本更新后，从0.57版本后，该主题有一些不兼容，并且目前该主题没有像其他主题一样针对hugo版本进行更新，所以需要下载老版本，如今的版本号为0.54，下载该版本然后替换掉该路径下的hugo二进制文件即可。</p>
@@ -392,7 +392,7 @@ git push -u origin master</pre></div>
 <div class="links-of-author motion-element">
     
         <span class="links-of-author-item">
-        <a href="https://github.com/xtfly/" target="_blank" title="GitHub">
+        <a href="https://github.com/jchenTech/" target="_blank" title="GitHub">
             <i class="fa fa-fw fa-github"></i>
             GitHub
         </a>

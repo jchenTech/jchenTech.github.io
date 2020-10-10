@@ -173,7 +173,7 @@
     <div class="post-body" itemprop="articleBody">
     <p>该文章提出一种名为DehazeNet的可训练的端到端系统，用于传输值估计。 DehazeNet将模糊图像作为输入，并输出其中间透射图，随后用于通过大气散射模型恢复无雾图像。 DehazeNet采用基于卷积神经网络的深层架构，<strong>其层专门设计用于体现图像去雾中已建立的假设/先验</strong>。具体而言，Maxout单位的图层用于特征提取，这可以生成几乎所有与雾相关的特征。我们还在DehazeNet中提出了一种新的非线性激活函数，称为<strong>双边整流线性单元</strong>，它能够提高恢复的无雾图像的质量。我们在提议的<strong>DehazeNet的组件与现有方法中使用的组件之间建立连接</strong>。基准图像的实验表明，DehazeNet比现有方法具有更高的性能，同时保持高效和易用。</p>
 
-<p><img src="http://jchenTech.github.io/images/DehazeNet/DehazeNet架构图.png" alt="DehazeNet架构图" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165931.png" alt="DehazeNet架构图" /></p>
 
 <h2 id="摘要">摘要</h2>
 
@@ -197,7 +197,7 @@
 
 <p>现有的图像去雾（Image Dehazing）技术离不开一个简单的自然模型——大气散射模型（Atmospheric Scattering Model）。大气散射模型描述了，在雾霾和光照的共同作用下的成像机制：</p>
 
-<p><img src="http://jchenTech.github.io/images/DehazeNet/大气散射模型.png" alt="大气散射模型" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170001.png" alt="大气散射模型" /></p>
 
 <p>其中，$t(x)$ 是媒介透射率（medium transmission），顾名思义表示能顺利透过雾霾到达摄像头的比率。因此，透射率跟物体与摄像头距离 $d(x)$ 成反比，离摄像头越远的物体受雾霾影响更大。当距离 $d(x)$ 趋于无穷大时，透射率 $t(x)$ 趋于零，$I(x)$ 趋近于 $\alpha$，其中：</p>
 
@@ -305,7 +305,7 @@
 
 <p>颜色衰减先验（CAP）是一种与暗通道先验（DCP）相似的先验特征。观察发现雾霾会同时导致图像饱和度的降低和亮度的增加，整体上表现为颜色的衰减。根据颜色衰减先验，亮度和饱和度的差值被应用于估计雾霾的浓度：</p>
 
-<p><img src="http://jchenTech.github.io/images/DehazeNet/颜色衰减先验.png" alt="颜色衰减先验" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170010.png" alt="颜色衰减先验" /></p>
 
 <p>（4）色度不一致(Hue Disparity)[5]</p>
 
@@ -328,7 +328,7 @@
 
 <p>人的视觉系统并不需依赖这些显式的特征变换，便可以很好地估计雾的浓度和场景的深度。DehazeNet是一个特殊设计的深度卷积网络，利用深度学习去智能地学习雾霾特征，解决手工特征设计的难点和痛点。</p>
 
-<p><img src="http://jchenTech.github.io/images/DehazeNet/DehazeNet架构图.png" alt="DehazeNet架构图" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170027.png" alt="DehazeNet架构图" /></p>
 
 <p>网络的设计</p>
 
@@ -342,7 +342,7 @@
 <li><p>通过1个4*4的卷积核，产生1*1的标量，并且使用的激活函数为BReLU。因为ReLU抑制了小于0的数，只适用于图像分类等方面，并不适合图像复原。因为最后的透射率图允许高于1或者低于0。所以提出了BReLU，既保持了局部线性，又保持了双边的限制。输出的是一个标量，即输入块中心点的透射率值。</p></li>
 </ol>
 
-<p><img src="http://jchenTech.github.io/images/DehazeNet/BReLU.png" alt="BReLU" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170027.png" alt="BReLU" /></p>
 
 <h2 id="参考文献">参考文献</h2>
 
@@ -465,7 +465,7 @@
 <div class="links-of-author motion-element">
     
         <span class="links-of-author-item">
-        <a href="https://github.com/xtfly/" target="_blank" title="GitHub">
+        <a href="https://github.com/jchenTech/" target="_blank" title="GitHub">
             <i class="fa fa-fw fa-github"></i>
             GitHub
         </a>

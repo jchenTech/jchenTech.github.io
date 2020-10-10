@@ -182,7 +182,7 @@
 <h3 id="复习示例和静态类成员">复习示例和静态类成员</h3>
 
 <p>这个程序使用了一个新的存储类型：静态类成员：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">//strngbad.h
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">//strngbad.h
 #include&lt;iostream&gt;
 #ifndef STRNGBAD_H_
 #define STRNGBAD_H_
@@ -204,7 +204,7 @@ public:
 <p>首先，它使用char指针（而不是char数组）来表示姓名。这意味着类声明没有为字符串本身分配存储空间，而是在构造函数中使用new来为字符串分配空间。 这避免了在类声明中预先定义字符串的长度。</p>
 
 <p>其次，将<code>num_strings</code>成员声明为<strong>静态存储类</strong>。 静态类成员有一个特点：无论创建了多少对象，程序都只创建一个静态类变量副本。 也就是说，类的所有对象共享同一个静态成员。 假设创建了10个StringBad对象，将有10个str成员和10个len成员，但只有一个共享的<code>num_strings</code>成员。这对于所有类对象都具有相同值的类私有数据是非常方便的。 例如，<code>num_strings</code>成员可以记录所创建的对象数目。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">//strngbad.cpp 
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">//strngbad.cpp 
 #include&lt;cstring&gt;
 #include&#34;strngbad.h&#34;
 using std::cout;
@@ -244,7 +244,7 @@ std::ostream &amp; operator&lt;&lt;(std::ostream &amp; os, const StringBad &amp;
     return os;
 }</pre></div>
 <p>程序中使用了下面语句：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">int StringBad::num_strings = 0;</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">int StringBad::num_strings = 0;</pre></div>
 <p>注意： 不能在类声明中初始化静态成员变量，这是因为声明描述了如何分配内存，但并不分配内存。 对于静态类成员，可以在类声明之外使用单独的语句来进行初始化，这是因为静态类成员是单独存储的，而不是对象的组成部分。</p>
 
 <p>注意： 静态数据成员在类声明中声明，在包含类方法的文件中初始化。初始化时使用作用域运算符来指出静态类成员所属的类。但如果静态成员是const整数类型或枚举型，则可以在类声明中初始化。</p>
@@ -254,11 +254,11 @@ std::ostream &amp; operator&lt;&lt;(std::ostream &amp; os, const StringBad &amp;
 <p>当类对象作为函数参数值传递时，析构函数将被调用。</p>
 
 <p>另外，下面的代码：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">StringBad sailor= sports;</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">StringBad sailor= sports;</pre></div>
 <p>这使用的是哪个构造函数呢？不是默认构造函数，也不是参数为const char*的构造函数。记住，这种形式的初始化等效于下面的语句：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">StringBad sailor = StringBad(sports);    //使用sports的构造函数</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">StringBad sailor = StringBad(sports);    //使用sports的构造函数</pre></div>
 <p>因为sports的类型为StringBad，因此相应的构造函数原型应该如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">StringBad(const StringBad &amp;);</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">StringBad(const StringBad &amp;);</pre></div>
 <p>当您使用一个对象来初始化另一个对象时，编译器将自动生成上述构造函数（称为<code>复制构造函数</code>，因为它创建对象的一个副本）。自动生成的构造函数不知道需要更新静态变量num_string，因此会将计数方案搞乱。 实际上，这个例子说明的所有问题都是由编译器自动生成的成员函数引起的。</p>
 
 <h3 id="特殊成员函数">特殊成员函数</h3>
@@ -278,25 +278,25 @@ std::ostream &amp; operator&lt;&lt;(std::ostream &amp; os, const StringBad &amp;
 </ol>
 
 <p>如果没有提供任何构造函数，C++将创建默认构造函数。 例如，加入定义了一个Klunk类，但没有提供任何构造函数，则编译器将提供下述默认构造函数：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Klunk::Klunk() { }               //隐式默认构造函数
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Klunk::Klunk() { }               //隐式默认构造函数
 
 Klunk lunk;                    //调用默认构造函数</pre></div>
 <p>默认构造函数使Lunk类似于一个常规的自动变量，也就是说，它的值在初始化时是未知的。</p>
 
 <p>如果定义了构造函数，C++将不会定义默认构造函数。 如果希望在创建对象时不显式地对它进行初始化，则必须显式地定义默认构造函数。这种构造函数没有参数，但可以使用它来设置特定地值：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Klunk::Klunk()               //显式默认构造函数
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Klunk::Klunk()               //显式默认构造函数
 {
 klunk_ct=0;
 …
 }</pre></div>
 <p>带参数的构造函数也可以是默认构造函数，只要所有参数都有默认值。 例如，Klunk类可以包含下述内联构造函数：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Klunk(int n = 0) {klunk_ct = n;}</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Klunk(int n = 0) {klunk_ct = n;}</pre></div>
 <p>但只能有一个默认构造函数。 也就是说，不能这样做：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Klunk()  {klunk_ct = 0;}              //构造函数#1
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Klunk()  {klunk_ct = 0;}              //构造函数#1
 
 Klunk(int n =0) {klunk_ct=n;}           //具有二义性的构造函数#2</pre></div>
 <p>例如：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Klunk kar(10);                        //明确地与#1匹配
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Klunk kar(10);                        //明确地与#1匹配
 
 Klunk bus;                           //与两个构造函数均可匹配</pre></div>
 <p>第二个声明既与构造函数#1（没有参数）匹配，也与构造函数#2（使用默认参数0）匹配。</p>
@@ -306,10 +306,10 @@ Klunk bus;                           //与两个构造函数均可匹配</pre></
 </ol>
 
 <p>复制构造函数用于将一个对象复制到新创建的对象中。 类的复制构造函数的原型如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Class_name(const Class_name &amp;);</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Class_name(const Class_name &amp;);</pre></div>
 <p>它接受一个指向类对象的常量引用作为参数。 例如，StringBad类的复制构造函数原型如下
 ：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">StringBad(const StringBad &amp;);</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">StringBad(const StringBad &amp;);</pre></div>
 <p>对于复制构造函数，需要知道两点：何时调用和有何功能。</p>
 
 <ol>
@@ -317,7 +317,7 @@ Klunk bus;                           //与两个构造函数均可匹配</pre></
 </ol>
 
 <p>新建一个对象并将其初始化为同类现有对象时，复制构造函数都将被调用。 这在很多情况下都可能发生，最常见的情况是将新对象显式地初始化为现有地对象。例如，假设motto是一个StringBad对象，则下面4种声明都将调用复制构造函数：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">StringBad ditto(motto);   //调用StringBad(const StringBad &amp;)
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">StringBad ditto(motto);   //调用StringBad(const StringBad &amp;)
 
 StringBad metoo = motto;  //调用StringBad(const StringBad &amp;)
 
@@ -332,9 +332,9 @@ StringBad * pStringBad = new StringBad(motto);
 </ol>
 
 <p>默认的复制构造函数逐个复制非静态成员（成员复制也称为浅复制），复制的是成员的值。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">StringBad sailor = sports;</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">StringBad sailor = sports;</pre></div>
 <p>与下面代码等价（由于私有成员是无法访问的，因此这些代码不能通过便于）：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">StringBad sailor;
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">StringBad sailor;
 
 sailor.str=sports.str;
 
@@ -344,13 +344,13 @@ sailor.len=sports.len;</pre></div>
 <h3 id="复制构造函数哪里出了问题">复制构造函数哪里出了问题</h3>
 
 <p>当callme2()被调用时，复制构造函数被用来初始化callme2()的形参，还被用来将对象sailor初始化为对象sports。 默认的复制构造函数不说明其行为，因此它不指出创建过程，也不增加计数器num_strings的值。但析构函数更新了计数，并且在任何对象过期时都将被调用，而不管对象是如何被创建的。 这是一个问题，因为这意味着程序无法准确地记录对象计数。 解决方法是提供一个对计数进行更新地显式复制构造函数：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">StringBad::StringBad(const StringBad &amp; s)
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">StringBad::StringBad(const StringBad &amp; s)
 {
     num_strings++;
     ...
 }</pre></div>
 <p>解决类设计种这种问题的方法时进行深度复制（deep copy）。 也就是说，复制构造函数应当复制字符串并将副本的地址赋给str成员，而不仅仅是复制字符串地址。 这样每个对象都有自己的字符串，而不是引用另一个对象的字符串。 调用析构函数时都将释放不同的字符串，而不会试图去释放已经被释放的字符串。可以这样编写String的复制构造函数：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">StringBad::StringBad(const StringBad &amp; st)
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">StringBad::StringBad(const StringBad &amp; st)
 {
     num_strings++;         //处理静态成员更新
     len= st.len;          //相同长度
@@ -364,18 +364,18 @@ sailor.len=sports.len;</pre></div>
 <h3 id="赋值运算符">赋值运算符</h3>
 
 <p>C++允许类对象赋值，这是通过自动为类重载赋值运算符实现的。 这种运算符的原型如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Class_name &amp; Class_name::operator=(const Class_name &amp;);</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Class_name &amp; Class_name::operator=(const Class_name &amp;);</pre></div>
 <p>它接受并返回一个指向类对象的引用。 例如，StringBad类的赋值运算符的原型如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">StringBad &amp; StringBad::operator=(constStringBad &amp;);</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">StringBad &amp; StringBad::operator=(constStringBad &amp;);</pre></div>
 <ol>
 <li>赋值运算符的功能以及何时使用它:</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">StringBad headline1(“Celery Stalks atMidnight”);
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">StringBad headline1(“Celery Stalks atMidnight”);
 …
 StringBad knot;
 Knot = headline1;         //赋值运算符被调用</pre></div>
 <p>初始化对象时，并不一定会使用赋值运算符：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">StringBad metoo=knot;    //可能使用复制构造函数，也可能是赋值运算符</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">StringBad metoo=knot;    //可能使用复制构造函数，也可能是赋值运算符</pre></div>
 <p>这里，metoo是一个新创建的对象，被初始化为knot的值，因此使用复制构造函数。 然而，正如前面指出的，实现时也可能分两步来处理这条语句：使用复制构造函数创建一个临时对象，然后通过赋值将临时对象的值复制到新对象中。这就是说，初始化总是会调用复制构造函数，而使用=运算符时也允许调用赋值运算符。</p>
 
 <ol>
@@ -389,7 +389,7 @@ Knot = headline1;         //赋值运算符被调用</pre></div>
 <p>函数应当避免将对象赋给自身；否则，对对象重新赋值前，释放内存操作可能删除对象的内容。</p>
 
 <p>函数返回一个指向调用对象的引用。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">StringBad &amp; StringBad::operator=(const StringBad &amp; st)
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">StringBad &amp; StringBad::operator=(const StringBad &amp; st)
 {
     if (this == &amp;st)               //对象赋值给自身
          return *this;               //结束
@@ -404,47 +404,47 @@ Knot = headline1;         //赋值运算符被调用</pre></div>
 <h2 id="改进后的新string类">改进后的新String类</h2>
 
 <h3 id="修订后的默认构造函数">修订后的默认构造函数</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">String::String()
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">String::String()
 {
     len = 0;
     str = new char[1];  //这是为了和类析构函数兼容；
     str[0] = ’\0’;
 }</pre></div>
 <p>delete[ ]与使用new[ ]初始化的指针和空指针都兼容。空指针建议用<code>nullptr</code>表示：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">str = nullptr;  //C++11的空指针表示法</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">str = nullptr;  //C++11的空指针表示法</pre></div>
 <p>以其他方式初始化的指针，使用delete[]时，结果将是不确定的。</p>
 
 <h3 id="比较成员函数">比较成员函数</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">friend bool operator==(const String &amp;st1, const String &amp;st2);</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">friend bool operator==(const String &amp;st1, const String &amp;st2);</pre></div>
 <p>将比较函数作为友元，有助于将String类对象与常规的C字符串进行比较。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if (&#34;love&#34; == answer)</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if (&#34;love&#34; == answer)</pre></div>
 <p>将被转换为</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if (operator==(&#34;love&#34;, answer));</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if (operator==(&#34;love&#34;, answer));</pre></div>
 <p>然后编译器将使用某个构造函数将代码转换为：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if (operator==(String(&#34;love&#34;), answer));</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if (operator==(String(&#34;love&#34;), answer));</pre></div>
 <h3 id="使用中括号表示法访问字符">使用中括号表示法访问字符</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">String opera(&#34;The Magic Flute&#34;);</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">String opera(&#34;The Magic Flute&#34;);</pre></div>
 <p>对于表达式opera[4]，C++将查找名称与特征标与此相同的方法；</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">String::operator[](int i)</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">String::operator[](int i)</pre></div>
 <p>如果找到匹配的原型，编译器将使用下面的函数调用来替代表达式opera[4]:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">opera.operator[ ](4)</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">opera.operator[ ](4)</pre></div>
 <p>opera对象调用该方法，数组下标4成为该函数的参数。</p>
 
 <p>有了上述定义：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">cout &lt;&lt;opera[4];</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">cout &lt;&lt;opera[4];</pre></div>
 <p>被转换为：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">cout &lt;&lt;opera.operator[4];</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">cout &lt;&lt;opera.operator[4];</pre></div>
 <p>返回值将是<code>opera.str[4]</code>。由此公有方法可以访问私有数据。</p>
 
 <p>将返回类型声明为char &amp;，便可以给特定元素赋值。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">String means(&#34;might&#34;);
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">String means(&#34;might&#34;);
 means[0] = &#39;r&#39;;</pre></div>
 <p>第二条语句被转换为一个重载运算符函数调用：</p>
 
 <p>means.operator[](0) = &lsquo;r&rsquo;;</p>
 
 <p>这里将r赋给方法的返回值，上述代码等同于：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">means.str[0] = &#39;r&#39;;</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">means.str[0] = &#39;r&#39;;</pre></div>
 <p>但在重载时，C++将区分常量和非常量函数的特征标，因此可以提供另一个仅供const String对象使用的operator[]()版本。</p>
 
 <h3 id="静态类成员函数">静态类成员函数</h3>
@@ -456,7 +456,7 @@ means[0] = &#39;r&#39;;</pre></div>
 <p>如果静态成员函数是在公有部分声明的，则可以使用类名和作用域运算符来调用它。</p>
 
 <p>例如：可以给String类添加一个名为HowMany()的静态成员函数，方法是在类声明中添加如下原型定义：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">static int HowMany() {return num_strings;}</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">static int HowMany() {return num_strings;}</pre></div>
 <p>由于静态成员函数不与特定的对象相关联，只能使用静态数据成员。</p>
 
 <p>可以使用静态成员函数设置类级标记，以控制某些类接口的行为，例如：类级标记可以控制显示类内容的方法所使用的格式。</p>
@@ -476,7 +476,7 @@ means[0] = &#39;r&#39;;</pre></div>
 
 <li><p>应定义一个复制构造函数，通过深度复制将一个对象初始化为另一个对象。通常，这种构造函数与下面类似。</p></li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">String::String(const String &amp; st)
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">String::String(const String &amp; st)
 {
     num_string++;
     len = st.len;
@@ -486,7 +486,7 @@ means[0] = &#39;r&#39;;</pre></div>
 <ul>
 <li>应当定义一个赋值运算符，通过深度复制将一个对象复制给另一个对象，</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">StringBad &amp; StringBad::operator=(const StringBad &amp; st)
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">StringBad &amp; StringBad::operator=(const StringBad &amp; st)
 {
     if(this == &amp;st)
         return *this
@@ -499,7 +499,7 @@ means[0] = &#39;r&#39;;</pre></div>
 <h3 id="应该和不应该">应该和不应该</h3>
 
 <h3 id="包含类成员的类的逐成员复制">包含类成员的类的逐成员复制</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Magazine
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Magazine
 {
 private:
     String title;
@@ -524,10 +524,10 @@ private:
 <p>使用const引用的常见原因是旨在提高效率，但对于何时可以采用这种方式存在一些限制。</p>
 
 <p>假如要编写函数Max()，它返回两个Vector对象中较大的一个，其中Vector是第11章开发的一个类。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Vector force1(50, 60);
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Vector force1(50, 60);
 Vector force2(10,70);
 Vector max;
-max = Max(force1, force2);</pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">//version 1
+max = Max(force1, force2);</pre></div><div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">//version 1
 Vector Max(const Vector &amp; v1, const Vector &amp; v2)
 {
     if (v1.magval() &gt; v2.magval())
@@ -560,7 +560,7 @@ const Vector &amp; Max(const Vector &amp; v1, const Vector &amp; v2)
 </ul>
 
 <p>Operator=()的返回值作用域连续赋值；</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">String s1(&#34;Good stuff&#34;);
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">String s1(&#34;Good stuff&#34;);
 String s2,s3;
 s3=s2=s1;</pre></div>
 <p>上述代码中，<code>s2.operator=()</code>的返回值被赋给s3。为此，返回String对象或String对象的引用都是可行的。但是通过引用可以避免调用复制构造函数，<strong>提高效率</strong>。</p>
@@ -582,7 +582,7 @@ s3=s2=s1;</pre></div>
 <p>如果被返回的对象是被调用函数的局部变量，则不应该按引用方式去返回它，因为在被调用函数执行完毕时，局部对象将调用析构函数。因此，当控制权回到调用函数时，引用指向的对象将不再存在。在这种情况下，应返回对象而不是引用。</p>
 
 <p>通常，被重载的算术运算符属于这一类。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Vector force1();
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Vector force1();
 Vector force2();
 Vector net;
 net = force1+force2;</pre></div>
@@ -593,7 +593,7 @@ net = force1+force2;</pre></div>
 <h3 id="返回const对象">返回const对象</h3>
 
 <p>前面的Vector::operator+()的定义中有一个奇异的属性</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">net = force1 +force2; //语句1
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">net = force1 +force2; //语句1
 force1 +force2 =net; //语句2</pre></div>
 <p>这种代码都可行，是因为复制构造函数将创建一个临时对象来表示返回值。因此，在前面的代码中，表达式force1+force2的结果为一个临时对象。在语句1中，该临时对象被赋给一个net；在语句2中，net被赋给该临时对象。</p>
 
@@ -616,7 +616,7 @@ force1 +force2 =net; //语句2</pre></div>
 <p>析构函数使用delete来释放这些内存。</p>
 
 <p>字符串是一个字符数组，所以析构函数使用的是带中括号的delete。使用new来为整个对象分配内存：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">String * favorite = new String(saying[choice]);</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">String * favorite = new String(saying[choice]);</pre></div>
 <p>这不是为要存储的字符串分配内存，而是为<strong>对象分配内存</strong>；也就是说，为保存字符串地址的str指针和len成员分配内存。</p>
 
 <h3 id="指针和对象小结">指针和对象小结</h3>
@@ -624,19 +624,19 @@ force1 +force2 =net; //语句2</pre></div>
 <ul>
 <li>使用常规表示法来声明指向对象的指针：</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">String * glamour;</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">String * glamour;</pre></div>
 <ul>
 <li>可以将指针初始化为指向已有的对象；</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">String * first = &amp;saying[0];</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">String * first = &amp;saying[0];</pre></div>
 <ul>
 <li>可以使用new来初始化指针，这将创建一个新的对象</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">String * favorite = new String(sayings[choice]);</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">String * favorite = new String(sayings[choice]);</pre></div>
 <ul>
 <li>对类使用new将调用相应的类构造函数来初始化新创建的对象：</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">//调用默认构造函数
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">//调用默认构造函数
 String * gleep = new String;
 
 //调用 String(const char *) 构造函数
@@ -647,18 +647,18 @@ String * favorite = new String(saying[choice]);</pre></div>
 <ul>
 <li>可以使用-&gt;运算符通过指针访问类方法：</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if (saying[i].length()&lt; shortest-&gt;length())</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if (saying[i].length()&lt; shortest-&gt;length())</pre></div>
 <ul>
 <li>可以对对象指针应用解除引用运算符（*）来获得对象</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if (saying[i]&lt;*first)
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if (saying[i]&lt;*first)
     first = &amp;saying[i];</pre></div>
 <h3 id="再谈定位new运算符">再谈定位new运算符</h3>
 
 <p>这里说的定位new运算符，是一种相对于普通的new运算符，可以指定内存地址的运算符，程序直接使用我们提供的地址，不管它是否已经被使用，而且可以看到新值直接覆盖在旧值上面。</p>
 
 <p>定位new运算符直接使用传递给它的地址，它不负责判断哪些内存单元已被使用，也不查找未使用的内存块。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">char * buffer = new char[BUF]；
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">char * buffer = new char[BUF]；
 
 JustTesting * pc1;
 
@@ -668,7 +668,7 @@ pc2 = new JustTesting(&#34;Heap&#34;, 20);
 
 pc3 = new (buffer +sizeof(JustTesting)) JustTesting(&#34;Better Idea&#34;, 6);</pre></div>
 <p>使用定位new运算符来为对象分配内存，必须确保其析构函数被调用。如何确保呢?、对于在堆中创建的对象，可以这样做。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">delete pc2;</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">delete pc2;</pre></div>
 <p>但是对于pc1却不可以，原因在于delete可以与常规new运算符配合使用，却不能与定位new运算符配合使用。</p>
 
 <p>Pc3没有收到new运算符返回的地址。因此delete pc3将导致运行阶段错误。</p>
@@ -678,7 +678,7 @@ pc3 = new (buffer +sizeof(JustTesting)) JustTesting(&#34;Better Idea&#34;, 6);</
 <p>系统没有为定位new运算符在该内存块中创建的对象调用析构函数。</p>
 
 <p>对于这种情况，需要显式地为定位new运算符创建的对象调用析构函数。这是少数几个需要显式调用析构函数的情形。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pc3-&gt;~JustTesting();
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pc3-&gt;~JustTesting();
 
 pc1-&gt;~JustTesting();//销毁对象的顺序，先销毁后创建的对象。类似于栈的先进后出顺序。</pre></div>
 <p>仅当所有对象都被销毁后，才能释放用于存储这些对象的缓冲区。</p>
@@ -729,13 +729,13 @@ pc1-&gt;~JustTesting();//销毁对象的顺序，先销毁后创建的对象。�
 <p>C++允许在类中包含结构、类和枚举定义。这些嵌套类型的作用域为整个类，这意味着它们被局限于类中，不会与其他地方定义的同名结构、类和枚举发生冲突。</p>
 
 <p>C++为类构造函数提供了一种可用来初始化数据成员的特殊语法。这种语法包括冒号和有逗号分隔的初始化列表。被放在构造函数参数的右括号后，函数体的左括号前。每个初始化器都有被初始化的成员的名称和包含初始值的括号组成。从概念上讲，这些初始化操作是在对象创建时进行的，此时函数体中的语句还没有被执行。语法如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Queue(int qs): qsize(qs), items(0), front(NULL), rear(NULL){ }</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Queue(int qs): qsize(qs), items(0), front(NULL), rear(NULL){ }</pre></div>
 <p>如果数据成员是非静态const成员或引用，则必须采用这种格式，但可将C++11新增的类内初始化用于非静态const成员。</p>
 
 <p>C++允许类内初始化，即在类定义中进行初始化：</p>
 
 <p>这与使用成员初始化列表等价。然而，使用成员初始化列表的构造函数将覆盖相应的类内初始化。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Class Queue
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Class Queue
 {
 …
 private:
@@ -848,7 +848,7 @@ private:
 <div class="links-of-author motion-element">
     
         <span class="links-of-author-item">
-        <a href="https://github.com/xtfly/" target="_blank" title="GitHub">
+        <a href="https://github.com/jchenTech/" target="_blank" title="GitHub">
             <i class="fa fa-fw fa-github"></i>
             GitHub
         </a>

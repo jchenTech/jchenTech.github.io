@@ -173,7 +173,7 @@
     <div class="post-body" itemprop="articleBody">
     <p>LEC8 Inheritance, Implements</p>
 
-<p><img src="http://jchenTech.github.io/images/【CS61B】课程总结思维导图/LEC8.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170915.png" alt="" /></p>
 
 <h3 id="方法重载-overloading">方法重载 Overloading:</h3>
 
@@ -188,19 +188,19 @@
 <h3 id="接口-interface">接口 Interface:</h3>
 
 <p>我们使用 <code>interface</code> 关键字而非 <code>class</code> 来创建 <code>List</code>。我们写：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public interface List&lt;Item&gt; { ... }</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public interface List&lt;Item&gt; { ... }</pre></div>
 <p>关键思想是接口指定此 <code>List</code> 可以执行的操作，而不是如何做。 由于所有Lists都有一个 <code>get</code> 方法，因此我们将以下方法签名添加到接口类中：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public Item get(int i);</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public Item get(int i);</pre></div>
 <p>注意，我们没有定义此方法。 我们只是简单地说，只要我们使用List接口，就应该存在此方法。</p>
 
 <p>现在，我们要指定 <code>AList</code> 为一个 <code>List</code> 。 我们将 <code>AList</code> 的类声明更改为：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public AList&lt;Item&gt; implements List&lt;Item&gt; { ... }</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public AList&lt;Item&gt; implements List&lt;Item&gt; { ... }</pre></div>
 <p>我们可以为 <code>SLList</code> 做同样的事情。 现在，回到我们的 <code>largestNumber</code> 方法，而不是为每种类型的列表创建一个方法，我们可以简单地创建一个以 <code>List</code> 为参数的方法。 只要我们的实际对象实现<code>List</code>接口，该方法就可以正常工作！</p>
 
 <h3 id="重写-overriding">重写 Overriding：</h3>
 
 <p>对于在 <code>List</code>中定义过的 <code>AList</code> 中的每个方法，我们将在方法签名上方添加一个 <code>@Override</code>。 举个例子：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">@Override
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">@Override
 public Item get(int i) { ... }</pre></div>
 <p>这不是必需的，但是是好的风格，因此我们将需要它。 此外，它还允许我们检查错别字。 如果我们键入错误的方法名称，则如果具有 <code>@Override</code> 标记，则编译器将阻止我们的编译。</p>
 
@@ -211,20 +211,20 @@ public Item get(int i) { ... }</pre></div>
 <h3 id="默认方法-default-methods">默认方法 Default Methods:</h3>
 
 <p>接口可以具有默认方法。 我们通过以下方式定义：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">default public void method() { ... }</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">default public void method() { ... }</pre></div>
 <p>我们实际上可以在接口内实现这些方法。 请注意，没有实例变量可以使用，但是我们可以自由使用接口中定义的方法，而不必担心实现。 默认方法应适用于实现该接口的任何类型的对象！ 子类不必在任何地方重新实现默认方法。 他们可以简单地免费调用它。 但是，我们仍然可以覆盖默认方法，并在子类中重新定义该方法。</p>
 
 <h3 id="静态类型与动态类型-static-vs-dynamic-type">静态类型与动态类型 Static vs. Dynamic Type：</h3>
 
 <p>Java中的每个变量都有一个静态类型。 这是在声明变量时指定的类型，并在编译时进行检查。 每个变量都有一个动态类型。 该类型在实例化变量时指定，并在运行时检查。 举个例子：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Thing a;
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Thing a;
 a = new Fox();</pre></div>
 <p>这里，<code>Thing</code> 是静态类型，<code>Fox</code> 是动态类型，这是可以的因为所有的foxes都是things。我们也可以：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Animal b = a;</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Animal b = a;</pre></div>
 <p>This is fine, because all foxes are animals too. We can do:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Fox c = b;</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Fox c = b;</pre></div>
 <p>This is fine, because <code>b</code> points to a Fox. Finally, we can do:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">a = new Squid()</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">a = new Squid()</pre></div>
 <p>This is fine, because the static type of <code>a</code> is a <code>Thing</code>, and <code>Squid</code> is a <code>thing</code>.</p>
 
 <h3 id="动态方法选择-dynamic-method-selection">动态方法选择 Dynamic Method Selection：</h3>
@@ -234,12 +234,12 @@ a = new Fox();</pre></div>
 <h3 id="重载和动态方法选择">重载和动态方法选择：</h3>
 
 <p>对于重载方法，动态方法选择不起作用。 考虑下面的代码，Fox扩展了Animal。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">1  Fox f = new Fox();
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">1  Fox f = new Fox();
 2  Animal a = f;
 3  define(f);
 4  define(a);</pre></div>
 <p>假设我们在同一个类中有以下的重载方法：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public static void define(Fox f) { ... }
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">public static void define(Fox f) { ... }
 public static void define(Animal a) { ... }</pre></div>
 <p>第3行将执行 <code>define(Fox f)</code>，而第4行将执行 <code>define(Animal a)</code>。 动态方法选择仅在我们重写方法时才适用。 这里没有重写，因此动态方法选择不适用。</p>
 
@@ -350,7 +350,7 @@ public static void define(Animal a) { ... }</pre></div>
 <div class="links-of-author motion-element">
     
         <span class="links-of-author-item">
-        <a href="https://github.com/xtfly/" target="_blank" title="GitHub">
+        <a href="https://github.com/jchenTech/" target="_blank" title="GitHub">
             <i class="fa fa-fw fa-github"></i>
             GitHub
         </a>

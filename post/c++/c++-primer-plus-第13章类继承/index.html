@@ -180,7 +180,7 @@
 <p>从一个类派生出另一个类时，原始类称为基类，继承类称为派生类。</p>
 
 <h3 id="派生一个类">派生一个类</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class RatedPlayer :public TableTennisPlayer
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class RatedPlayer :public TableTennisPlayer
 {
 
 }</pre></div>
@@ -203,26 +203,26 @@
 <p>派生类不能直接访问基类的私有成员，而必须通过基类方法进行访问。因此派生类构造函数必须使用基类构造函数；</p>
 
 <p>创建派生类对象时，程序首先创建基类对象。从概念上讲，这意味着基类对象应当在程序进入派生类构造函数之前被创建。C++使用成员初始化列表来完成这种工作。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">RatedPlayer::RatedPlayer(unsigned int r, const string &amp; fn, const string &amp; ln, bool ht):TableTennisPlayer(fn,ln,ht)
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">RatedPlayer::RatedPlayer(unsigned int r, const string &amp; fn, const string &amp; ln, bool ht):TableTennisPlayer(fn,ln,ht)
 {
     rating = r;
 }</pre></div>
 <p>如果省略了基类构造函数的话：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">RatedPlayer::RatedPlayer(unsigned int r, const string &amp; fn, const string &amp; ln, bool ht)
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">RatedPlayer::RatedPlayer(unsigned int r, const string &amp; fn, const string &amp; ln, bool ht)
 {
     rating = r;
 }</pre></div>
 <p>首先还是创建基类对象，如果不调用基类构造函数，程序将使用默认的基类构造函数。</p>
 
 <p>因此上述代码与下面等效：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">RatedPlayer::RatedPlayer(unsigned int r, const string &amp; fn, const string &amp; ln, bool ht):TableTennisPlayer()
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">RatedPlayer::RatedPlayer(unsigned int r, const string &amp; fn, const string &amp; ln, bool ht):TableTennisPlayer()
 {
     rating = r;
 }</pre></div>
 <p>除非要使用默认构造函数，否则应该显式调用正确的基类构造函数。</p>
 
 <p>还有一种构造函数代码：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">RatedPlayer::RatedPlayer(unsigned int r, const TableTennisPlayer &amp; tp):TableTennisPlayer(tp)
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">RatedPlayer::RatedPlayer(unsigned int r, const TableTennisPlayer &amp; tp):TableTennisPlayer(tp)
 {
     rating = r;
 }</pre></div>
@@ -231,7 +231,7 @@
 <p>这种方式将调用基类的复制构造函数，如果基类没有定义复制构造函数，但又要使用它，则编译器将自动生成一个。</p>
 
 <p>甚至还可以对派生类成员使用成员初始化列表语法：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">RatedPlayer::RatedPlayer(unsigned int r, const TableTennisPlayer &amp; tp):TableTennisPlayer(tp)，rating(r)
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">RatedPlayer::RatedPlayer(unsigned int r, const TableTennisPlayer &amp; tp):TableTennisPlayer(tp)，rating(r)
 {
 
 }</pre></div>
@@ -355,7 +355,7 @@
 <ol>
 <li>重新定义将隐藏方法</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Dwelling
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Dwelling
 {
 public:
     virtual void showperks(int a) const;
@@ -365,7 +365,7 @@ class Hovel :public Dwelling
 {
 public:
     virtual void showperks() const;
-}</pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Hovel trump;
+}</pre></div><div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Hovel trump;
 trump.showperks();  //valid
 trump.showperks(5);  //invalid</pre></div>
 <p>新定义将showperks()定义为一个不接受任何参数的函数。重新定义不会生成函数的两个重载版本。</p>
@@ -401,7 +401,7 @@ trump.showperks(5);  //invalid</pre></div>
 <p>例如圆和椭圆的共同点是中心坐标，Move()方法（对于这两个类来说是相同的）和Area()方法（对于这两个类来说是不同的）。Area()方法不能在ABC中实现，没有包含必要的数据成员，C++通过使用纯虚函数提供未实现的函数。在基类中不能对虚函数给出有意义的实现，而把它声明为纯虚函数，它的实现留给该基类的派生类去做。这就是纯虚函数的作用。</p>
 
 <p>纯虚函数的结尾为=0；</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class BaseEllipse
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class BaseEllipse
 {
 private:
        double x;
@@ -425,7 +425,7 @@ public:
 <p>如果基类使用动态内存分配，并重新定义赋值和复制构造函数，这将怎样影响派生类的实现？这个问题的答案取决于派生类的属性。如果派生类也使用动态内存分配，那就需要注意学习新的小技巧。</p>
 
 <h3 id="第一种情况-派生类不适用new">第一种情况：派生类不适用new</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">//Base Class Using DMA
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">//Base Class Using DMA
 class baseDMA
 {
 private:
@@ -459,7 +459,7 @@ public:
 <h3 id="第二种情况-派生类使用new">第二种情况：派生类使用new</h3>
 
 <p>这种情况下，必须为派生类定义显式析构函数，赋值构造函数和赋值运算符。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">//derived class with DMA
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">//derived class with DMA
 class hasDMA:public baseDMA
 {
 private:
@@ -468,7 +468,7 @@ public:
 ...
 }</pre></div>
 <p>派生类析构函数自动调用基类的析构函数，故其自身的职责是对派生类构造函数执行工作的进行清理。因此，hasDMA析构函数必须释放指针style管理的内存，并依赖于baseDMA的析构函数来释放指针label管理的内存。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">baseDMA::~baseDMA()  // takes care of baseDMA stuff
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">baseDMA::~baseDMA()  // takes care of baseDMA stuff
 {
     delete [] label;
 }
@@ -478,14 +478,14 @@ hasDMA::~hasDMA()   // takes care of hasDMA stuff
     delete [] style;
 }</pre></div>
 <p>接下来看复制构造函数。BaseDMA的复制构造函数遵循用于</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">baseDMA::baseDMA(const baseDMA &amp; rs)
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">baseDMA::baseDMA(const baseDMA &amp; rs)
 {
     label = new char[std::strlen(rs.label)+1];
     std::strcpy(label,rs.label);
     rating = rs.rating;
 }</pre></div>
 <p>hasDMA复制构造函数只能访问hasDMA的数据，因此它必须调用baseDMA复制构造函数来处理共享的baseDMA数据：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">hasDMA::hasDMA(const hasDMA &amp; hs)
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">hasDMA::hasDMA(const hasDMA &amp; hs)
        :baseDMA(hs)
 {
     style = new char[std::strlen(hs.style)+1];
@@ -494,7 +494,7 @@ hasDMA::~hasDMA()   // takes care of hasDMA stuff
 <p>需要注意一点是，成员初始化列表将一个hasDMA引用传递给baseDMA构造函数。</p>
 
 <p>接下来看赋值运算符。BaseDMA赋值运算符遵循下述常规模式：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">baseDMA &amp; baseDMA::operator=(const baseDMA &amp; rs)
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">baseDMA &amp; baseDMA::operator=(const baseDMA &amp; rs)
 {
     if (this == &amp;rs)
         return *this;
@@ -516,9 +516,9 @@ hasDMA &amp; hasDMA::operator=(const hasDMA &amp; hs)
     return *this;
 }</pre></div>
 <p>以下语句看起来有点奇怪：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">baseDMA::operator=(hs);</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">baseDMA::operator=(hs);</pre></div>
 <p>但通过使用函数表示法，而不是运算符表示法，可以使用作用域解析运算符。实际上该语句的含义如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">*this = hs;</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">*this = hs;</pre></div>
 <p>当基类和派生类都采用动态内存分配时，派生类的析构函数，复制构造函数，赋值运算符都必须使用相应的基类方法处理基类元素。</p>
 
 <p>但这种要求是通过三种不同的方式来满足的。</p>
@@ -546,7 +546,7 @@ hasDMA &amp; hasDMA::operator=(const hasDMA &amp; hs)
 <p>2、 复制构造函数</p>
 
 <p>复制构造函数接受其所属类的对象作为参数。例如，Star类的复制构造函数的原型如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Star(const Star &amp;);</pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Star(const Star &amp;);</pre></div>
 <p>在下述情况下，将使用复制构造函数：</p>
 
 <ul>
@@ -559,7 +559,7 @@ hasDMA &amp; hasDMA::operator=(const hasDMA &amp; hs)
 <p>3、 赋值运算符</p>
 
 <p>初始化和赋值不是一回事；</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Star sirius;
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Star sirius;
 Star alpha = sirius;  //initialization 初始化
 Star dogstar;
 dogstar = sirius;  //assignment 赋值</pre></div>
@@ -749,7 +749,7 @@ dogstar = sirius;  //assignment 赋值</pre></div>
 <div class="links-of-author motion-element">
     
         <span class="links-of-author-item">
-        <a href="https://github.com/xtfly/" target="_blank" title="GitHub">
+        <a href="https://github.com/jchenTech/" target="_blank" title="GitHub">
             <i class="fa fa-fw fa-github"></i>
             GitHub
         </a>
