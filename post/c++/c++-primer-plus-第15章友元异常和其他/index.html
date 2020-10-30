@@ -1,215 +1,279 @@
-<!DOCTYPE HTML>
+<!doctype html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
-    <title>C&#43;&#43; primer plus 第15章友元、异常和其他 - 陈建君的技术博客</title>
-    <meta name="keywords" content="蘭陵N散記,兰陵,独立,博客,程序员,架构师,个人,思考,读书,笔记,技术,分享,Golang">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <meta property="og:title" content="C&#43;&#43; primer plus 第15章友元、异常和其他">
-    <meta property="og:site_name" content="陈建君的技术博客">
-    <meta property="og:image" content="/img/author.jpg"> 
-    <meta name="title" content="C&#43;&#43; primer plus 第15章友元、异常和其他 - 陈建君的技术博客" />
-    <meta name="description" content="蘭陵N散記 | 博客 | 软件 | 架构 | Java | Golang"> 
-    <link rel="shortcut icon" href="http://jchenTech.github.io/img/favicon.ico" />
-    <link rel="apple-touch-icon" href="http://jchenTech.github.io/img/apple-touch-icon.png" />
-    <link rel="apple-touch-icon-precomposed" href="http://jchenTech.github.io/img/apple-touch-icon.png" />
-    <link href="http://jchenTech.github.io/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-    <link href="http://jchenTech.github.io/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-    <link href="http://jchenTech.github.io/css/main.css" rel="stylesheet" type="text/css" />
-    <link href="http://jchenTech.github.io/css/syntax.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" id="hexo.configuration">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post"},
-     fancybox: true, 
-    motion: true
-  };
-</script>
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+
+    <title>C&#43;&#43; primer plus 第15章友元、异常和其他 | jchen&#39;s blog</title>
+    <meta property="og:title" content="C&#43;&#43; primer plus 第15章友元、异常和其他 - jchen&#39;s blog">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2020-03-23T00:00:00&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2020-03-23T00:00:00&#43;08:00'>
+        
+    <meta name="Keywords" content="">
+    <meta name="description" content="C&#43;&#43; primer plus 第15章友元、异常和其他">
+        
+    <meta name="author" content="jchen">
+    <meta property="og:url" content="http://jchenTech.github.io/post/C&#43;&#43;/C&#43;&#43;-primer-plus-%E7%AC%AC15%E7%AB%A0%E5%8F%8B%E5%85%83%E5%BC%82%E5%B8%B8%E5%92%8C%E5%85%B6%E4%BB%96/">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+    
+    
+    
+        <link rel="stylesheet" href='/css/douban.css'>
+    
+        <link rel="stylesheet" href='/css/other.css'>
+    
 </head>
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-<div class="container one-collumn sidebar-position-left page-home  ">
-    <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"> <div class="site-meta  custom-logo ">
 
-  <div class="custom-logo-site-title">
-    <a href="http://jchenTech.github.io/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">陈建君的技术博客</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-  <p class="site-subtitle">一指流沙，程序年华</p>
-</div>
-
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
-
-<nav class="site-nav">
-    <ul id="menu" class="menu">
-      
-      
-        <li class="menu-item ">
-          <a href="http://jchenTech.github.io/" rel="section">
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页
-          </a>
-        </li>
-      
-        <li class="menu-item ">
-          <a href="http://jchenTech.github.io/categories/%E6%8A%80%E6%9C%AF/" rel="section">
-              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />技术
-          </a>
-        </li>
-      
-        <li class="menu-item ">
-          <a href="http://jchenTech.github.io/categories/%E6%84%9F%E6%83%B3/" rel="section">
-              <i class="menu-item-icon fa fa-fw fa-tint"></i> <br />感想
-          </a>
-        </li>
-      
-        <li class="menu-item ">
-          <a href="http://jchenTech.github.io/categories/%E7%AC%94%E8%AE%B0/" rel="section">
-              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />笔记
-          </a>
-        </li>
-      
-        <li class="menu-item ">
-          <a href="http://jchenTech.github.io/categories/%E6%9D%82%E8%AE%B0/" rel="section">
-              <i class="menu-item-icon fa fa-fw fa-leaf"></i> <br />杂记
-          </a>
-        </li>
-      
-        <li class="menu-item ">
-          <a href="http://jchenTech.github.io/post/" rel="section">
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档
-          </a>
-        </li>
-      
-        <li class="menu-item ">
-          <a href="http://jchenTech.github.io/about/" rel="section">
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于
-          </a>
-        </li>
-      
-      <li class="menu-item menu-item-search">
-        <a href="javascript:;" class="popup-trigger"> <i class="menu-item-icon fa fa-search fa-fw"></i> <br /> 搜索</a>
-      </li>
-    </ul>
-    <div class="site-search">
-      <div class="popup">
- <span class="search-icon fa fa-search"></span>
- <input type="text" id="local-search-input">
- <div id="local-search-result"></div>
- <span class="popup-btn-close">close</span>
-</div>
-
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://jchenTech.github.io/">
+                        jchen&#39;s blog
+                    </a>
+                
+                
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="http://jchenTech.github.io/">首页</a>
+                    
+                    <a  href="http://jchenTech.github.io/tools/" title="工具">工具</a>
+                    
+                    <a  href="http://jchenTech.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://jchenTech.github.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
     </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    <style type="text/css">
+    .post-toc {
+        position: fixed;
+        width: 200px;
+        margin-left: -210px;
+        padding: 5px 10px;
+        font-family: Athelas, STHeiti, Microsoft Yahei, serif;
+        font-size: 12px;
+        border: 1px solid rgba(0, 0, 0, .07);
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.98);
+        background-clip: padding-box;
+        -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        word-wrap: break-word;
+        white-space: nowrap;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        z-index: 999;
+        cursor: pointer;
+        max-height: 70%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+    @media print,
+    screen and (max-width:1057px) {
+        .post-toc {
+            display: none;
+        }
+    }
+</style>
+<div class="post-toc" style="position: absolute; top: 188px;">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#友元">友元</a></li>
+        <li><a href="#友元类">友元类</a></li>
+        <li><a href="#友元成员函数">友元成员函数</a></li>
+        <li><a href="#其他友元关系">其他友元关系</a></li>
+        <li><a href="#共同的友元">共同的友元</a></li>
+      </ul>
+    </li>
+    <li><a href="#嵌套类">嵌套类</a>
+      <ul>
+        <li><a href="#嵌套类和访问权限">嵌套类和访问权限</a></li>
+        <li><a href="#模板中的嵌套">模板中的嵌套</a></li>
+      </ul>
+    </li>
+    <li><a href="#异常">异常</a>
+      <ul>
+        <li><a href="#调用abort">调用abort()</a></li>
+        <li><a href="#返回错误码">返回错误码</a></li>
+        <li><a href="#异常机制">异常机制</a></li>
+        <li><a href="#将对象用作异常类型">将对象用作异常类型</a></li>
+        <li><a href="#异常规范和c11">异常规范和C++11</a></li>
+        <li><a href="#栈解退">栈解退</a></li>
+        <li><a href="#其他异常特性">其他异常特性</a></li>
+        <li><a href="#exception类">exception类</a></li>
+        <li><a href="#异常类和继承">异常、类和继承</a></li>
+        <li><a href="#异常何时会迷失方向">异常何时会迷失方向</a></li>
+        <li><a href="#有关异常的处理事项">有关异常的处理事项</a></li>
+      </ul>
+    </li>
+    <li><a href="#rtti">RTTI</a>
+      <ul>
+        <li><a href="#rtti的用途">RTTI的用途</a></li>
+        <li><a href="#rtti工作原理">RTTI工作原理</a></li>
+      </ul>
+    </li>
+    <li><a href="#类型转换运算符">类型转换运算符</a>
+      <ul>
+        <li><a href="#dynamic_cast运算符">dynamic_cast运算符</a></li>
+        <li><a href="#const_cast运算符">const_cast运算符</a></li>
+        <li><a href="#static_cast运算符">static_cast运算符</a></li>
+        <li><a href="#reinterpret_cast运算符">reinterpret_cast运算符</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var postToc = $(".post-toc");
+        if (postToc.length) {
+            var leftPos = $("#main").offset().left;
+            if(leftPos<220){
+                postToc.css({"width":leftPos-10,"margin-left":(0-leftPos)})
+            }
 
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
+            var t = postToc.offset().top - 20,
+                a = {
+                    start: {
+                        position: "absolute",
+                        top: t
+                    },
+                    process: {
+                        position: "fixed",
+                        top: 20
+                    },
+                };
+            $(window).scroll(function () {
+                var e = $(window).scrollTop();
+                e < t ? postToc.css(a.start) : postToc.css(a.process)
+            })
+        }
+    })
+</script>
+    <article class="post">
+        <header>
+            <h1 class="post-title">C&#43;&#43; primer plus 第15章友元、异常和其他</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年3月23日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
             
-<section id="posts" class="posts-expand">
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://jchenTech.github.io/post/c&#43;&#43;/c&#43;&#43;-primer-plus-%E7%AC%AC15%E7%AB%A0%E5%8F%8B%E5%85%83%E5%BC%82%E5%B8%B8%E5%92%8C%E5%85%B6%E4%BB%96/" itemprop="url">
-        C&#43;&#43; primer plus 第15章友元、异常和其他
-        </a>
-      </h1>
-      <div class="post-meta">
-      <span class="post-time">
-<span class="post-meta-item-icon">
-    <i class="fa fa-calendar-o"></i>
-</span>
-<span class="post-meta-item-text">时间：</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2020-03-23">
-    2020-03-23
-</time>
-</span> 
-      
-
-  <span class="post-category" >
-  &nbsp; | &nbsp;
-  <span class="post-meta-item-icon">
-    <i class="fa fa-folder-o"></i>
-  </span>
-  <span class="post-meta-item-text">分类：</span>
-  
-    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-      <a href="http://jchenTech.github.io/categories/c&#43;&#43;" itemprop="url" rel="index">
-        <span itemprop="name">C&#43;&#43;</span>
-      </a>
-      &nbsp; 
-    </span>
-  
-</span>
-
-
-       <span>
-&nbsp; | &nbsp;
-<span class="post-meta-item-icon">
-    <i class="fa fa-eye"></i>
-</span>
-<span class="post-meta-item-text">阅读：</span>
-<span class="leancloud-visitors-count">13209 字 ~27分钟</span>
-</span>
-      </div>
-    </header>
-    <div class="post-body" itemprop="articleBody">
-    <p>C++ primer plus 第15章友元、异常和其他</p>
-
+            <span class="meta-category"><a href='/categories/C&#43;&#43;'>C&#43;&#43;</a></span>
+            
+        </div>
+        
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span>
+                    阅读</span></span>
+        </div>
+        
+        
+        <div class="clear" style="display: none">
+            <div class="toc-article">
+                <div class="toc-title">文章目录</div>
+            </div>
+        </div>
+        
+        <div class="post-content">
+            <p>C++ primer plus 第15章友元、异常和其他</p>
 <h3 id="友元">友元</h3>
-
 <h3 id="友元类">友元类</h3>
-
 <p><strong>友元函数</strong>：不是类的成员函数，但是能够访问类的私有数据成员。</p>
-
 <p>之前有个矛盾就是规定非成员函数不能直接访问类的私有数据，但是这会儿却可以，但那只是针对常规非成员函数而言，特殊的非成员函数就可以访问类的私有数据——友元函数。</p>
-
 <p>友元函数就是这么特殊，虽然在类中声明，却不是类的成员函数，这是因为加了前缀friend。</p>
-
 <p>友元不仅包含函数，类也可以当友元，也就是友元类。</p>
-
 <p>友元类的所有方法都可以访问原始类的私有成员和保护成员。</p>
-
 <p>也可以做更严格的限制，只将限定的成员函数指定为另一类的友元。</p>
-
 <p>尽管友元被授予从外部访问类的私有部分的权限，但它们并不与面向对象的编程思想相违背。</p>
-
 <p>接下来就是讨论<strong>友元类</strong>：</p>
-
 <p>假定要编写一个模拟电视机和遥控器的简单程序。</p>
-
 <p>决定定义一个Tv类和一个Remote类，来分别表示电视机和遥控器。</p>
-
 <p>很明显，这两个类之间应当存在某种关系，遥控器并非电视机，反之亦然，但是遥控器却可以改变电视机的状态。这样的关系可以将Remote类作为Tv类的一个友元来实现。</p>
-
 <p>友元类声明位置无关紧要，可以声明在公有、私有、保护部分；</p>
-
-<p>定义一个电视机类，用一些状态成员来表示电视机：
-* 开/关；
-* 频道设置；
-* 音量设置；
-* 有线电视or天线调节模式；
-* TV调谐或A/V输入。</p>
-
+<p>定义一个电视机类，用一些状态成员来表示电视机：</p>
+<ul>
+<li>开/关；</li>
+<li>频道设置；</li>
+<li>音量设置；</li>
+<li>有线电视or天线调节模式；</li>
+<li>TV调谐或A/V输入。</li>
+</ul>
 <p>tv.h文件，声明tv和remote的类</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">#ifndef TV_H_
+<pre><code>#ifndef TV_H_
 #define TV_H_
 
 class Tv
@@ -255,10 +319,10 @@ public:
     void set_mode(Tv &amp; t) {t.set_mode();}
     void set_input(Tv &amp; t) {t.set_input();}
 };
-#endif</pre></div>
-<p>tv.cpp</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">#include &lt;iostream&gt;
-#include &#34;tv.h&#34;
+#endif
+</code></pre><p>tv.cpp</p>
+<pre><code>#include &lt;iostream&gt;
+#include &quot;tv.h&quot;
 
 bool Tv::volup()
 {
@@ -302,30 +366,30 @@ void Tv::Settings() const
 {
     using std::cout;
     using std::endl;
-    cout&lt;&lt;&#34;TV is &#34;&lt;&lt;(state==Off?&#34;Off&#34;:&#34;On&#34;)&lt;&lt;endl;
+    cout&lt;&lt;&quot;TV is &quot;&lt;&lt;(state==Off?&quot;Off&quot;:&quot;On&quot;)&lt;&lt;endl;
     if(state == On)
     {
-        cout&lt;&lt;&#34;Volume setting = &#34;&lt;&lt;volume&lt;&lt;endl;
-        cout&lt;&lt;&#34;Channel setting = &#34;&lt;&lt;channel&lt;&lt;endl;
-        cout&lt;&lt;&#34;Mode = &#34;&lt;&lt;(mode == Antenna? &#34;antenna&#34;:&#34;cable&#34;)&lt;&lt;endl;
-        cout&lt;&lt;&#34;Input = &#34;&lt;&lt;(mode == TV? &#34;TV&#34;:&#34;DVD&#34;)&lt;&lt;endl;
+        cout&lt;&lt;&quot;Volume setting = &quot;&lt;&lt;volume&lt;&lt;endl;
+        cout&lt;&lt;&quot;Channel setting = &quot;&lt;&lt;channel&lt;&lt;endl;
+        cout&lt;&lt;&quot;Mode = &quot;&lt;&lt;(mode == Antenna? &quot;antenna&quot;:&quot;cable&quot;)&lt;&lt;endl;
+        cout&lt;&lt;&quot;Input = &quot;&lt;&lt;(mode == TV? &quot;TV&quot;:&quot;DVD&quot;)&lt;&lt;endl;
     }
-}</pre></div>
-<p>use_tv.cpp</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">#include&lt;iostream&gt;
-#include &#34;tv.h&#34;
+}
+</code></pre><p>use_tv.cpp</p>
+<pre><code>#include&lt;iostream&gt;
+#include &quot;tv.h&quot;
 
 int main()
 {
     using std::cout;
     Tv s42;
-    cout&lt;&lt;&#34;Initial settings for 42\&#34; TV:\n&#34;;
+    cout&lt;&lt;&quot;Initial settings for 42\&quot; TV:\n&quot;;
     s42.settings();
     s42.onoff();
     s42.chanup();
-    cout&lt;&lt;&#34;\nAdjusted settings for 42\&#34; TV:\n&#34;;
+    cout&lt;&lt;&quot;\nAdjusted settings for 42\&quot; TV:\n&quot;;
     s42.chanup();
-    cout&lt;&lt;&#34;\nAdjusted settings for 42\&#34; TV:\n&#34;;
+    cout&lt;&lt;&quot;\nAdjusted settings for 42\&quot; TV:\n&quot;;
     s42.settings();
     
     Remote grey;
@@ -333,70 +397,56 @@ int main()
     grey.set_chan(s42, 10);
     grey.volup(s42);
     grey.volup(s42);
-    cout&lt;&lt;&#34;\n42\&#34; settings after using remote:\n&#34;;
+    cout&lt;&lt;&quot;\n42\&quot; settings after using remote:\n&quot;;
     s42.settings();
     
     Tv s58(Tv::On);
     s58.set_mode();
     grey.set_chan(s58,28);
-    cout&lt;&lt;&#34;\n58\&#34; settings:\n&#34;;
+    cout&lt;&lt;&quot;\n58\&quot; settings:\n&quot;;
     s58.settings();
     return 0;
-}</pre></div>
-<h3 id="友元成员函数">友元成员函数</h3>
-
+}
+</code></pre><h3 id="友元成员函数">友元成员函数</h3>
 <p>我们发现Remote友元类的大多数方法都是用Tv类的公有接口实现。这意味着这些方法并不是真正需要友元。</p>
-
 <p>事实上唯一直接访问Tv成员的Remote方法是Remote::set_chan()，因此它是唯一需要作为友元的方法。</p>
-
 <p>确实可以仅让特定的类成员成为另一类的友元。</p>
-
 <p>这种做法稍微有点麻烦，必须小心排列各种声明和定义的顺序。</p>
-
 <p>让Remote::set_chan()成为Tv类的友元的方法是，在Tv类声明中将其声明为友元：</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Tv
+<pre><code>class Tv
 {
 　　friend void Remote::set_chan(Tv &amp; t, int c);
-}</pre></div>
-<p>要让编译器能够处理这条语句，它必须知道Remote的定义。否则，它无法知道Remote是一个类，而set_chan是一个类方法；</p>
-
+}
+</code></pre><p>要让编译器能够处理这条语句，它必须知道Remote的定义。否则，它无法知道Remote是一个类，而set_chan是一个类方法；</p>
 <p>这就意味着要把Remote的定义放到Tv类定义之前。</p>
-
 <p>但是Remote方法提到了Tv对象，而这就意味着Tv定义应当放在Remote定义之前。</p>
-
 <p>这就产生了循环依赖的问题。要避免循环依赖关系，就要使用前向声明（forward declaration）。</p>
-
 <p>解决方法如下：</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Tv;  //forward declaration  告诉编译器Tv是一个类
+<pre><code>class Tv;  //forward declaration  告诉编译器Tv是一个类
 class Remote {...};  //然后再Remote中出现set_chan 方法时，知道其中Tv是一个类
-class Tv {...};</pre></div>
-<p>这里补充一句，让整个Remote类成为友元并不需要前向声明，因为友元语句本身已经指出Remote是一个类；</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">friend class Remote;</pre></div>
-<p>但是能否像下面这样排列呢？</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Remote ;  //forward declaration
 class Tv {...};
-class Remote {...};</pre></div>
-<p>答案是不能，因为在编译器看到Tv类的声明中看到Remote的一个方法被声明为Tv类的友元之前，应先看到Remote类的声明和set_chan()方法的声明。</p>
-
+</code></pre><p>这里补充一句，让整个Remote类成为友元并不需要前向声明，因为友元语句本身已经指出Remote是一个类；</p>
+<pre><code>friend class Remote;
+</code></pre><p>但是能否像下面这样排列呢？</p>
+<pre><code>class Remote ;  //forward declaration
+class Tv {...};
+class Remote {...};
+</code></pre><p>答案是不能，因为在编译器看到Tv类的声明中看到Remote的一个方法被声明为Tv类的友元之前，应先看到Remote类的声明和set_chan()方法的声明。</p>
 <p>还有一个麻烦就是。Remote声明中包含了内联代码</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">void onoff(Tv &amp; t) {t.onoff();}</pre></div>
-<p>由于这将调用Tv的一个方法，所以编译器此时必须已经看到了Tv类的声明。这样才能知道Tv有哪些方法，但正如看到的，该声明位于Remote声明的后面。</p>
-
+<pre><code>void onoff(Tv &amp; t) {t.onoff();}
+</code></pre><p>由于这将调用Tv的一个方法，所以编译器此时必须已经看到了Tv类的声明。这样才能知道Tv有哪些方法，但正如看到的，该声明位于Remote声明的后面。</p>
 <p>这种问题的解决方法是，使Remote声明中只包含方法声明，并将实际的定义放在Tv类之后。</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Tv;  //forward declaration
+<pre><code>class Tv;  //forward declaration
 class Remote {...};  //Tv-using methods as prototypes only  只包含方法的声明
 class Tv {...};
-//put Remote method definitions here  定义在这里写</pre></div>
-<p>Remote方法的声明与下面类似</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">void onoff(Tv &amp; t);</pre></div>
-<p>检查该原型时，编译器都需要知道Tv是一个类，而向前声明提供了这样的信息。</p>
-
+//put Remote method definitions here  定义在这里写
+</code></pre><p>Remote方法的声明与下面类似</p>
+<pre><code>void onoff(Tv &amp; t);
+</code></pre><p>检查该原型时，编译器都需要知道Tv是一个类，而向前声明提供了这样的信息。</p>
 <p>当编译器到达真正的方法定义时，它已经读取到了Tv类的声明，并拥有编译这些方法的所需信息。</p>
-
 <p>通过在方法定义中使用inline关键字，仍然可以使其成为内联方法。</p>
-
 <p>//这种友元成员函数的声明、定义顺序非常微妙，令人抓狂。很容易造成错误，一旦问题复杂起来，定位bug都很困难。难怪C++是个大坑。友元的存在就是其中一个大坑。把类的关系，函数的关系搞复杂了。</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">#ifndef TVFM_H_
+<pre><code>#ifndef TVFM_H_
 #define TVFM_H_
 
 class Tv;  //forward declaration
@@ -461,25 +511,17 @@ inline void Remote::chanup(Tv &amp; t) {t.chanup();}
 inline void Remote::chandown(Tv &amp; t) {t.chandown();}
 inline void Remote::set_mode(Tv &amp; t) {t.set_mode();}
 inline void Remote::set_input(Tv &amp; t) {t.set_input();}
-inline void Remote::set_chan(Tv &amp; t, int c) {t.channel = c;}</pre></div>
-<h3 id="其他友元关系">其他友元关系</h3>
-
+inline void Remote::set_chan(Tv &amp; t, int c) {t.channel = c;}
+</code></pre><h3 id="其他友元关系">其他友元关系</h3>
 <p>友元和类的关系还可以更复杂。</p>
-
 <p>举个例子，假设出现了交互式遥控器，交互式遥控器能够让您回答电视节目中的问题，如果回答错误，电视将在控制器上产生嗡嗡声。</p>
-
 <p>这个例子的问题，可以使用新的友元关系来解决。我把它叫做相互的友情。</p>
-
 <p>即一些Remote方法能够像前面那样访问Tv对象，而一些Tv方法也能影响Remote对象。</p>
-
 <p>这可以通过让类彼此成为对方的友元来实现。即相互的友元</p>
-
 <p>即除了Remote是Tv的友元外，Tv还是Remote的友元。</p>
-
 <p><strong>这里对于使用Remote对象的Tv方法，其原型可以再Remote方法类声明之前声明，但必须在Remote声明之后定义</strong>，以便编译器有足够的信息来编译该方法。</p>
-
 <p>方法如下：（两个类互为友元类）</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Tv
+<pre><code>class Tv
 {
 frirend class Remote;
 public:
@@ -500,19 +542,14 @@ public:
 inline void Tv::buzz(Remote &amp; r)
 {
 ...
-}</pre></div>
-<h3 id="共同的友元">共同的友元</h3>
-
+}
+</code></pre><h3 id="共同的友元">共同的友元</h3>
 <p>需要使用友元的另一种情况是，函数需要访问两个类的私有数据。</p>
-
 <p>从逻辑上看，这样的函数是每个类的成员函数，但是这是不可能的。</p>
-
 <p>它可以是一个类的成员，同时是另一个类的友元，但有时将函数作为两个类的友元更加合理。</p>
-
 <p>例如，假定有一个Probe类和一个Analyzer类，前者表示某种可编程的测量设备，后者表示某种可编程的分析设备。</p>
-
 <p>这两个类中都有内部时钟，且希望它们能够同步，则应包含下述代码行：</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Analyzer   //forward declaration
+<pre><code>class Analyzer   //forward declaration
 class Probe
 {
     friend void sync(Analyzer &amp; a, const Probe &amp; p);   // sync a to p
@@ -536,171 +573,131 @@ inline void sync(Analyzer &amp; a, const Probe &amp; p)
 inline void sync(Probe &amp; p, const Analyzer &amp; a)
 {
 ...
-}</pre></div>
-<p>前向声明使得编译器看到Probe类声明中的友元声明时，知道Analyzer是一种类型。</p>
-
+}
+</code></pre><p>前向声明使得编译器看到Probe类声明中的友元声明时，知道Analyzer是一种类型。</p>
 <p><strong>关于友元的总结</strong>：</p>
-
 <p>理解友元的产生和意义，首先要从类说起；</p>
-
 <p>类对象的私有和保护数据成员只能通过类的公有方法访问。（这里暂时不讨论类的继承）</p>
-
 <p>这样做的好处是提高了数据的安全性和封装性，接口简洁。</p>
-
 <p>但是这种对数据的访问和修改的强限制手段，有时候会在某些场景下不方便。</p>
-
 <p>有些情况可能需要直接去访问或修改类的私有数据成员。那么为了提高类修改私有数据的灵活性，引入友元的概念。</p>
-
 <p>举个例子：假如你把一个人定义成朋友，那么这个朋友也获得了进出你家的资格，而不仅仅是你的家人。</p>
-
 <p>但是你的朋友不是你的家人，是有别于你的家人。所以友元不是类的成员。</p>
-
 <p>友元可以是函数，类的成员函数，甚至类；</p>
-
 <p>其实还可以这样理解：把友元看成与类方法一样都是表达类接口的一种方式。</p>
-
 <h2 id="嵌套类">嵌套类</h2>
-
 <p>在C++中, 可以将类声明放在另一个类中. 在另一个类中声明的类被称为嵌套类(nested class), 它通过提供新的类型类作用域来避免名称混乱. 包含类的成员函数可以创建和使用被嵌套类的对象; 而仅当声明位于共有部分, 才能在包含类的外面使用嵌套类, 而且必须使用作用域解析运算符。</p>
-
 <p>对类进行嵌套和包含并不同, 包含意味着将类对象作为另一个类的成员, 而对类进行嵌套不创建类成员, 而是定义了一种类型, 该类型仅在包含嵌套类声明的类中有效.</p>
-
 <p>我们先看一个之前的一个例子, 自定义实现的简化版的队列:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Queue
+<pre><code>class Queue
 {
 private:
-    // 这里Node是一个嵌套的结构体定义
-    // Item是一个别名, 详见之前的笔记
-    struct Node {Item item; struct Node * next;}
-    ...
-};</pre></div>
-<p>由于结构是一种其成员在默认情况下为共有的类, 所以Node实际上是一个嵌套类.</p>
-
+	// 这里Node是一个嵌套的结构体定义
+	// Item是一个别名, 详见之前的笔记
+	struct Node {Item item; struct Node * next;}
+	...
+};
+</code></pre><p>由于结构是一种其成员在默认情况下为共有的类, 所以Node实际上是一个嵌套类.</p>
 <p>在之前的笔记中创建Node对象的方法是这么写的:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">bool Queue::enqueue(const Item &amp; item)
+<pre><code>bool Queue::enqueue(const Item &amp; item)
 {
-    if(isfull())
-        return false;
-    Node * add = new Node;
-    add-&gt;item = item;
-    add-&gt;next = NULL:
-    ...
-}</pre></div>
-<p>现在我们将Node由struct改为嵌套类:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Queue
+	if(isfull())
+		return false;
+	Node * add = new Node;
+	add-&gt;item = item;
+	add-&gt;next = NULL:
+	...
+}
+</code></pre><p>现在我们将Node由struct改为嵌套类:</p>
+<pre><code>class Queue
 {
-    // 嵌套类
-    class Node
-    {
-    public:
-        Item item;
-        Node * next;
-        // 构造函数, 将item赋值为i, next指针设置为0, 也就是空值指针
-        Node(const Item &amp; i): item(i), next(0) {}
-    };
-    ...
-};</pre></div>
-<p>然后, 重新使用构造函数编写enqueue():</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">bool Queue::enqueue(const Item &amp; item)
+	// 嵌套类
+	class Node
+	{
+	public:
+		Item item;
+		Node * next;
+		// 构造函数, 将item赋值为i, next指针设置为0, 也就是空值指针
+		Node(const Item &amp; i): item(i), next(0) {}
+	};
+	...
+};
+</code></pre><p>然后, 重新使用构造函数编写enqueue():</p>
+<pre><code>bool Queue::enqueue(const Item &amp; item)
 {
-    if(isfull())
-        return false;
-    Node * add = new Node(item);
-    ...
-}</pre></div>
-<p>这个例子中是在类声明中定义了构造函数, 假设想在方法文件中定义构造函数, 则定义必须指出Node类是在Queue类中定义的, 我们可以通过两次作用域解析运算符来完成:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Queue::Node::Node(const Item &amp; i): item(i), next(0) {}</pre></div>
-<h3 id="嵌套类和访问权限">嵌套类和访问权限</h3>
-
+	if(isfull())
+		return false;
+	Node * add = new Node(item);
+	...
+}
+</code></pre><p>这个例子中是在类声明中定义了构造函数, 假设想在方法文件中定义构造函数, 则定义必须指出Node类是在Queue类中定义的, 我们可以通过两次作用域解析运算符来完成:</p>
+<pre><code>Queue::Node::Node(const Item &amp; i): item(i), next(0) {}
+</code></pre><h3 id="嵌套类和访问权限">嵌套类和访问权限</h3>
 <p>首先.嵌套类的声明位置决定了嵌套类的作用域, 即它决定了程序的那些部分可以创建这种类的对象.</p>
-
 <p>其次.嵌套类的共有部分, 保护部分和私有部分控制了对类成员的访问.</p>
-
 <p>1.作用域
 如果嵌套类是在另一个类的私有部分声明的, 则只有后者知道它. 前面的例子中Node就是这种情况, 虽然Node没有明确写是private的, 但是默认就是private的. 因此Queue成员可以使用Node对象和指向Node对象的指针, 但是程序的其他部分不知道存在Node类, 对于从Queue派生而来的类, Node也是不可见的, 因为派生类不能直接访问基类的私有部分.</p>
-
 <p>如果嵌套类是在另一个类的保护部分声明的, 则它对于后者可见, 但是对于外部世界是不可见的. 但是这种情况中, 派生类是知道嵌套类的, 并可以直接创建这种类型的对象.</p>
-
 <p>如果嵌套类是在另一个类的共有部分声明的, 则允许后者, 后者的派生类以及外部世界使用它, 因为它是共有的. 然而, 由于嵌套类的作用域为包含它的类, 因此在外部世界使用它时, 必须使用类限定符.</p>
-
 <p>假设有如下的声明:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class Team
+<pre><code>class Team
 {
 public:
-    class Coach {...};
-    ...
-};</pre></div>
-<p>如果要在Team外面创建Coach对象, 可以这么写:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Team::Coach forhire;</pre></div>
-<p>表15.1 嵌套类、结构和枚举的作用域特征</p>
-
+	class Coach {...};
+	...
+};
+</code></pre><p>如果要在Team外面创建Coach对象, 可以这么写:</p>
+<pre><code>Team::Coach forhire;
+</code></pre><p>表15.1 嵌套类、结构和枚举的作用域特征</p>
 <table>
 <thead>
 <tr>
-<th align="center">声名位置</th>
-<th align="center">包含他的类是否能使用</th>
-<th align="center">从包含它的类派生而来的类</th>
-<th align="center">在外部类</th>
+<th style="text-align:center">声名位置</th>
+<th style="text-align:center">包含他的类是否能使用</th>
+<th style="text-align:center">从包含它的类派生而来的类</th>
+<th style="text-align:center">在外部类</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
-<td align="center">私有部分</td>
-<td align="center">是</td>
-<td align="center">否</td>
-<td align="center">否</td>
+<td style="text-align:center">私有部分</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">否</td>
 </tr>
-
 <tr>
-<td align="center">保护部分</td>
-<td align="center">是</td>
-<td align="center">是</td>
-<td align="center">否</td>
+<td style="text-align:center">保护部分</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">否</td>
 </tr>
-
 <tr>
-<td align="center">公有部分</td>
-<td align="center">是</td>
-<td align="center">是</td>
-<td align="center">是，通过限定符来使用</td>
+<td style="text-align:center">公有部分</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">是，通过限定符来使用</td>
 </tr>
 </tbody>
 </table>
-
 <p>2.访问控制
 对嵌套类的访问控制规则与常规类相同. 在Queue类声明中声明Node类并没有赋予Queue类的访问特权, 也没有赋予Node类任何对Queue类的访问特权. 因此Queue类对象只能显示的访问Node对象的公有成员。</p>
-
 <p>类声明的位置决定了类的作用域或可见性, 类可见后, 访问控制规则(共有, 保护, 私有, 友元)将决定程序对嵌套类成员的访问权限。</p>
-
 <h3 id="模板中的嵌套">模板中的嵌套</h3>
-
 <p>模板类中同样可以使用嵌套类</p>
-
 <h2 id="异常">异常</h2>
-
 <p>异常是相对较新的C++功能，有些老式编译器可能没有实现。另外有些编译器可能默认关闭这一特性，需要使用编译器选项来打开它。</p>
-
 <p>这里先讨论一个基本问题：</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">2.0 * x * y / (x+y)</pre></div>
-<p>如果y是x的负值，则上述公式将导致被零除。这是一种不允许的运算。很多新式编译器通过生产一个表示无穷大的特殊浮点值来处理。</p>
-
+<pre><code>2.0 * x * y / (x+y)
+</code></pre><p>如果y是x的负值，则上述公式将导致被零除。这是一种不允许的运算。很多新式编译器通过生产一个表示无穷大的特殊浮点值来处理。</p>
 <p>例如Inf,inf,INF等。</p>
-
 <h3 id="调用abort">调用abort()</h3>
-
 <p>对于这种问题，处理方式之一就是，如果其中一个参数是另一个参数的负值，则调用abort()函数。</p>
-
 <p>Abort()函数的原型位于头文件cstdlib中，其典型实现是向标准错误流发送消息abnormal program termination(程序异常终止)，然后终止程序。</p>
-
 <p>它还返回一个随实现而异的值，告诉操作系统，实现失败。</p>
-
 <p>abort()函数是否刷新文件缓冲区取决于实现。</p>
-
 <p>如果愿意，也可以使用exit()，该函数刷新文件缓冲区，但不显示消息。</p>
-
 <p>文件缓冲区：用于存储读写到文件的数据的内存区域。</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">#error1.cpp --using the abort() function
+<pre><code>#error1.cpp --using the abort() function
 #include &lt;iostream&gt;
 #include &lt;cstdlib&gt;
 double hmean(double a, double b);
@@ -708,16 +705,16 @@ double hmean(double a, double b);
 int main()
 {
     double x,y,z;
-    std::cout&lt;&lt;&#34;Enter two numbers:&#34;;
+    std::cout&lt;&lt;&quot;Enter two numbers:&quot;;
     while()
     {
         z=hmean(x,y);
-        std::cout&lt;&lt;&#34;Harmonic mean of&#34;&lt;&lt;x&lt;&lt;&#34;and&#34;&lt;&lt;y
-               &lt;&lt;&#34;is&#34;&lt;&lt;z&lt;&lt;std:endl;
-        std::cout&lt;&lt;&#34;Enter next set of numbers&lt;q to quit&gt;:&#34;;
+        std::cout&lt;&lt;&quot;Harmonic mean of&quot;&lt;&lt;x&lt;&lt;&quot;and&quot;&lt;&lt;y
+               &lt;&lt;&quot;is&quot;&lt;&lt;z&lt;&lt;std:endl;
+        std::cout&lt;&lt;&quot;Enter next set of numbers&lt;q to quit&gt;:&quot;;
 
     }
-    std::cout&lt;&lt;&#34;Bye!\n&#34;;
+    std::cout&lt;&lt;&quot;Bye!\n&quot;;
     return 0;
 }
 
@@ -725,27 +722,20 @@ double hmean(double a, double b)
 {
     if(a == -b)
     {
-        std::cout&lt;&lt;&#34;untenable arguments to hmean()\n&#34;;
+        std::cout&lt;&lt;&quot;untenable arguments to hmean()\n&quot;;
         std::abort();
     }
     return 2.0*a*b/(a+b);
-}</pre></div>
-<p>为了避免异常终止，程序应在调用hmean()函数之前检查x和y的值。然而，依靠程序员来执行这种检查是不安全的。</p>
-
+}
+</code></pre><p>为了避免异常终止，程序应在调用hmean()函数之前检查x和y的值。然而，依靠程序员来执行这种检查是不安全的。</p>
 <h3 id="返回错误码">返回错误码</h3>
-
 <p>一种比异常终止更灵活的办法是，使用函数的返回值来指出问题。</p>
-
 <p>例如，ostream类的get(void)成员通常返回下一个输入字符的ASCII码，但到达文件尾时，将返回EOF。</p>
-
 <p>对hmean()来说，这种方法不管用。任何数值都是有效的返回值，因此不存在可以指出问题的特殊值。</p>
-
 <p>在这种情况下，可以使用指针参数或引用参数来将值返回给调用程序，并使用函数的返回值来指出成功还是失败。</p>
-
-<p>iostream族重载&gt;&gt;运算符使用了这个技术的变体。通过告知调用程序是成功了还是失败了，使得程序可以采取除异常终止程序之外的其他措施。</p>
-
+<p>iostream族重载&raquo;运算符使用了这个技术的变体。通过告知调用程序是成功了还是失败了，使得程序可以采取除异常终止程序之外的其他措施。</p>
 <p>下列程序就是采用这种方法，它将hmean()的返回值重新定义为bool，让返回值指出成功了，还是失败了。另外还给该函数增加了第三个参数，用于提供答案。</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">//error2.cpp --returning an error code
+<pre><code>//error2.cpp --returning an error code
 #include&lt;iostream&gt;
 #include&lt;cfloat&gt;   //(or float.h) for DBL_MAX
 
@@ -754,17 +744,17 @@ bool hmean(double a, double b, double * ans);
 int main()
 {
     double x, y, z;
-    std::cout&lt;&lt;&#34;Enter two numbers: &#34;;
+    std::cout&lt;&lt;&quot;Enter two numbers: &quot;;
     while(std::cin&gt;&gt;x&gt;&gt;y)
     {
         if(hmean(x,y,&amp;z))
-            std::cout&lt;&lt;&#34;Harmonic mean of &#34;&lt;&lt;x&lt;&lt;&#34; and &#34;&lt;&lt; y
-                   &lt;&lt;&#34; is &#34;&lt;&lt;z&lt;&lt;std::end;
+            std::cout&lt;&lt;&quot;Harmonic mean of &quot;&lt;&lt;x&lt;&lt;&quot; and &quot;&lt;&lt; y
+                   &lt;&lt;&quot; is &quot;&lt;&lt;z&lt;&lt;std::end;
         else
-            std::cout&lt;&lt;&#34;One value should not be the negative&#34;
-                  &lt;&lt;&#34;of the other- try again.\n&#34;;
+            std::cout&lt;&lt;&quot;One value should not be the negative&quot;
+                  &lt;&lt;&quot;of the other- try again.\n&quot;;
     }    
-    std::cout&lt;&lt;&#34;Bye!\n&#34;;
+    std::cout&lt;&lt;&quot;Bye!\n&quot;;
     return 0;
 }
 
@@ -781,49 +771,31 @@ bool mean(double a, double b, double * ans)
         *ans = 2.0 * a * b / (a+b);
         return true;
     }
-}</pre></div>
-<p>这个程序设计避免了错误输入导致的恶果，让用户能够继续输入。</p>
-
+}
+</code></pre><p>这个程序设计避免了错误输入导致的恶果，让用户能够继续输入。</p>
 <p>当然，设计确实依靠用户检查函数的返回值。这项工作不是程序员经常做的。</p>
-
 <p>第三个参数可以是指针或引用。很多程序员都倾向于使用指针，因为这样可以明显看出是哪个参数用于提供答案。</p>
-
 <p>另外一种在某个地方存储返回条件的方法是使用一个全局变量。</p>
-
 <p>可能出现问题的函数可以在出现问题时将该全局变量设置为特定的值，而调用程序可以检查该变量。</p>
-
 <h3 id="异常机制">异常机制</h3>
-
 <p>下面介绍如何使用异常机制来处理错误。</p>
-
 <p>C++异常是对程序运行过程中发生的异常情况的一种响应。异常提供了将控制权从程序的一部分传递到另一部分的途径。</p>
-
 <p>对异常的处理有3个组成部分：</p>
-
 <ul>
 <li>引发异常  &mdash;-throw</li>
 <li>使用处理程序捕获异常  &mdash;- catch</li>
 <li>使用try块。  &mdash;- try</li>
 </ul>
-
 <p>程序在出现问题时将引发异常，例如之前的hmean()，使之引发异常，而不是调用abort()函数。</p>
-
 <p>throw()语句实际上是跳转，即命令程序跳到另一条语句。</p>
-
 <p>throw关键字表示引发异常，紧随其后的值指出来异常的特征。</p>
-
 <p>程序使用异常处理程序（exception handler）来捕获异常，异常处理程序位于要处理问题的程序中。catch关键字表示捕获异常。处理程序以catch关键字开头，随后是位于括号中的类型声明，它指出了异常处理程序要响应的异常类型；然后是用花括号括起来的代码段，指出要采取的措施。</p>
-
 <p>catch关键字和异常类型用作标签，指出当异常被引发时，程序应跳到这个位置执行。</p>
-
 <p>异常处理程序也被称为catch块。</p>
-
 <p>try块标识其中特定的异常可能被激活的代码块，它后面跟一个或多个catch块。try块是由关键字try指示的。</p>
-
 <p>关键字try的后面是一个由花括号括起来的代码块，表明需要注意这些代码引发的异常。</p>
-
 <p>了解这三个关键字是如何协同工作的，最简单的方法是看下面一个例子：</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">// error3.cpp -- using an exception
+<pre><code>// error3.cpp -- using an exception
 #include &lt;iostream&gt;
 double hmean(double a, double b);
 
@@ -831,7 +803,7 @@ int main()
 {
     double x, y, z;
 
-    std::cout &lt;&lt; &#34;Enter two numbers: &#34;;
+    std::cout &lt;&lt; &quot;Enter two numbers: &quot;;
     while (std::cin &gt;&gt; x &gt;&gt; y)
     {
         try {                   // start of try block
@@ -840,61 +812,45 @@ int main()
         catch (const char * s)  // start of exception handler
         {
             std::cout &lt;&lt; s &lt;&lt; std::endl;
-            std::cout &lt;&lt; &#34;Enter a new pair of numbers: &#34;;
+            std::cout &lt;&lt; &quot;Enter a new pair of numbers: &quot;;
             continue;
         }                       // end of handler
-        std::cout &lt;&lt; &#34;Harmonic mean of &#34; &lt;&lt; x &lt;&lt; &#34; and &#34; &lt;&lt; y
-            &lt;&lt; &#34; is &#34; &lt;&lt; z &lt;&lt; std::endl;
-        std::cout &lt;&lt; &#34;Enter next set of numbers &lt;q to quit&gt;: &#34;;
+        std::cout &lt;&lt; &quot;Harmonic mean of &quot; &lt;&lt; x &lt;&lt; &quot; and &quot; &lt;&lt; y
+            &lt;&lt; &quot; is &quot; &lt;&lt; z &lt;&lt; std::endl;
+        std::cout &lt;&lt; &quot;Enter next set of numbers &lt;q to quit&gt;: &quot;;
     }
-    std::cout &lt;&lt; &#34;Bye!\n&#34;;
+    std::cout &lt;&lt; &quot;Bye!\n&quot;;
     return 0;
 }
 
 double hmean(double a, double b)
 {
     if (a == -b)
-        throw &#34;bad hmean() arguments: a = -b not allowed&#34;;
+        throw &quot;bad hmean() arguments: a = -b not allowed&quot;;
     return 2.0 * a * b / (a + b); 
-}</pre></div>
-<p>上面那个程序，如果在try块中调用hmean()，将无法处理异常。</p>
-
+}
+</code></pre><p>上面那个程序，如果在try块中调用hmean()，将无法处理异常。</p>
 <p>引发异常的语句：throw &ldquo;bad hmean() arguments; a= -b not allowed&rdquo;; 这个语句异常类型是字符串。</p>
-
 <p>执行throw语句，类似于执行返回语句，因为它也将终止函数的执行；</p>
-
 <p>但throw不是讲控制权返回给调用程序，而是将程序沿函数调用序列后退，直到找到包含try块的函数。</p>
-
 <p>catch块类似于函数定义，但并不是函数定义。关键字catch表明这是一个处理程序，而 char * s 表明该处理程序与字符串的异常匹配。</p>
-
 <p>s与函数参数定义极其类似，因为匹配的引发将被赋给s。</p>
-
 <p>另外，当异常与该处理程序匹配时，程序将执行括号中的代码。</p>
-
 <p>执行完try块后，如果没有引发任何异常，将跳过后面的catch块，直接执行处理程序后面的第一条语句。</p>
-
 <p>整个过程为：</p>
-
 <ol>
 <li>程序在try块中调用hmean()</li>
 <li>hmean()引发异常，将从而执行catch块，并将异常字符串赋给s</li>
 <li>catch块返回到while循环的开始位置</li>
 </ol>
-
 <p>这里可能有个疑问，如果函数引发了异常，而没有try块或者没有匹配的处理程序时，将会发生什么情况。</p>
-
 <p>在默认情况下，程序最终会调用abort()函数，但可以修改这种行为。</p>
-
 <h3 id="将对象用作异常类型">将对象用作异常类型</h3>
-
 <p>通常，引发异常的函数将传递一个对象。这样做的重要优点之一就是，可以利用不同的异常类型来区分不同的函数在不同的情况下引发的异常。</p>
-
 <p>对象可以携带信息，程序员可以根据这些信息来确定异常的原因。</p>
-
 <p>同时，catch块可以根据这些信息来决定采取什么样的措施。</p>
-
 <p>下面是针对函数引发的异常而提供的一种设计：</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class bad_hmean
+<pre><code>class bad_hmean
 {
 private:
     double v1;
@@ -907,126 +863,91 @@ public:
 
 inline void bad_hmean::mesg()
 {
-    std::cout&lt;&lt;&#34;hmean(&#34;&lt;&lt;v1&lt;&lt;&#34;,&#34;&lt;&lt;v2&lt;&lt;&#34;):&#34;
-           &lt;&lt;&#34;invalid arguments: a = -b\n&#34;;
+    std::cout&lt;&lt;&quot;hmean(&quot;&lt;&lt;v1&lt;&lt;&quot;,&quot;&lt;&lt;v2&lt;&lt;&quot;):&quot;
+           &lt;&lt;&quot;invalid arguments: a = -b\n&quot;;
 
-}</pre></div>
-<p>可以将bad_hmean对象初始化为传递给含税hmean()的值，而方法mesg()可用于报告问题。</p>
-
+}
+</code></pre><p>可以将bad_hmean对象初始化为传递给含税hmean()的值，而方法mesg()可用于报告问题。</p>
 <p>函数hmean()可以使用如下代码：</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">if (a == -b)
-    throw bad_hmean(a,b);</pre></div>
-<p>上述代码调用构造函数bad_hmean()，以初始化对象，使其存储参数值。</p>
-
+<pre><code>if (a == -b)
+    throw bad_hmean(a,b);
+</code></pre><p>上述代码调用构造函数bad_hmean()，以初始化对象，使其存储参数值。</p>
 <p>接下来看一个新的例子：</p>
-
 <p>添加了一个新的异常类bad_gmean，类bad_gmean中的函数gmean()计算两个数的几何平均值，即乘积的平方根。</p>
-
 <p>bad_hmean()和bad_gmean()使用的技术不一样，</p>
-
 <p>bad_gmean()使用的是公有方法和公有数据，该方法返回一个C-风格字符串；</p>
-
-<h3 id="异常规范和c-11">异常规范和C++11</h3>
-
+<h3 id="异常规范和c11">异常规范和C++11</h3>
 <p>异常规范的理念看似有前途，但实际的使用效果并不好。</p>
-
 <p>忽视异常规范之前，您至少应该知道它是什么样的，如下所示：</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">double harm(double a) throw(bad_thing);  //may throw bad_thing exception
-double harm(double a) throw();    //doesn&#39;t throw an exception</pre></div>
-<p>其中<code>throw()</code>部分就是异常规范，它可能出现在函数原型和函数定义中，可包含类型列表，也可不包含。</p>
-
+<pre><code>double harm(double a) throw(bad_thing);  //may throw bad_thing exception
+double harm(double a) throw();    //doesn't throw an exception
+</code></pre><p>其中<code>throw()</code>部分就是异常规范，它可能出现在函数原型和函数定义中，可包含类型列表，也可不包含。</p>
 <p>异常规范的另一个作用是，让编译器添加执行运行阶段检查的代码，检查是否违反了异常规范。</p>
-
 <p>这很难检查；</p>
-
 <p>marm()可能不会引发异常，但它可能调用一个函数，而这个函数调用的另一个函数引发了异常。</p>
-
 <p>另外，您给函数编写代码时它不会引发异常，但库更新后它却会引发异常。</p>
-
 <p>总之，编程社区达成的意见是不要使用这个功能。</p>
-
 <h3 id="栈解退">栈解退</h3>
-
 <p>假设try块没有直接调用引发异常的函数B，而是调用了对引发异常的函数B进行调用的函数A，即A调用了B。</p>
-
 <p>则程序流程将从引发异常的函数B跳到包含try块和处理程序的函数。这涉及到栈解退。</p>
-
 <p>首先要了解C++是如何处理函数调用和返回的。C++通常通过将信息放到栈中来处理函数调用。</p>
-
 <p>具体来说，程序将调用函数的指令和地址（返回地址）放到栈中。</p>
-
 <p>当被调用的函数执行完毕后，程序将使用该地址来决定从哪里开始继续执行。</p>
-
 <p>另外函数调用将函数A参数放到栈中。在栈中这些函数参数被视为自动变量。</p>
-
 <p>如果被调用函数B创建了新的自动变量，则这些变量也将被添加到栈中。</p>
-
 <p>如果被调用函数B调用了另一个函数C，则函数C的信息也将被添加到栈中。以此类推；</p>
-
 <p>当函数C结束时，程序流程将跳到该函数C被调用时存储的地址（返回地址）处，同时栈顶的元素被释放。</p>
-
 <p>因此函数都通常返回到调用它的函数处，同时每个函数都在结束时释放器自动变量。</p>
-
 <p>如果自动变量是类对象，则类的析构函数（如果有的话）也将被调用。</p>
-
 <p>现在假设函数由于出现异常（而不是由于return）而终止，则程序也将释放栈中的内存。</p>
-
 <p>但不会在释放栈的第一个返回地址后停止，而是继续释放栈，直到找到一个位于try块中的返回地址。</p>
-
 <p>随后控制权将转移到位于try块尾的异常处理程序，而不是函数调用后面的第一条语句。</p>
-
 <p>这个过程就被称为栈解退。</p>
-
 <p>和函数返回一样，对于栈中的自动类对象，类的析构函数将被调用。</p>
-
 <p>然而函数返回仅仅处理该函数放在栈中的对象。</p>
-
 <p>而throw语句则处理try块和throw之间整个函数调用序列放在栈中的对象。</p>
-
 <h3 id="其他异常特性">其他异常特性</h3>
-
 <p>throw-catch机制类似于函数参数和函数返回返回机制，但还是有些不同：</p>
-
 <ol>
-<li><p>函数func()中的返回语句将控制权返回到调用func()的函数，但throw语句将控制权向上返回到第一个这样的函数：包含能够捕获相应异常的try-catch组合。</p></li>
-
-<li><p>引发异常时，编译器总是创建一个临时拷贝，即使异常规范和catch块中指定的是引用。</p></li>
+<li>
+<p>函数func()中的返回语句将控制权返回到调用func()的函数，但throw语句将控制权向上返回到第一个这样的函数：包含能够捕获相应异常的try-catch组合。</p>
+</li>
+<li>
+<p>引发异常时，编译器总是创建一个临时拷贝，即使异常规范和catch块中指定的是引用。</p>
+</li>
 </ol>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">class problem {...};
+<pre><code>class problem {...};
 ...
 void super() throw(problem)
 {
-    ...
-    if (1)
-    {
-        problem opps; //construct object
-        throw opps; // throw it
-        //or use this func
-        throw problem(); //construct and throw default problem object 
-    }
-    ...
+	...
+	if (1)
+	{
+		problem opps; //construct object
+		throw opps; // throw it
+		//or use this func
+		throw problem(); //construct and throw default problem object 
+	}
+	...
 }
  
 try
 {
-    super();
+	super();
 };
 catch(problem &amp; p)
 {
-    //statements
-}</pre></div>
-<p>此处p将指向opp的副本，而不是p本身。这是件好事，因为函数super()执行完毕后，opps将不复存在。</p>
-
+	//statements
+}
+</code></pre><p>此处p将指向opp的副本，而不是p本身。这是件好事，因为函数super()执行完毕后，opps将不复存在。</p>
 <p>同时此处catch捕捉异常对象的引用还有一个重要特征：基类引用可以执行派生类对象。假设有一组通过继承关联起来的异常类型，则在异常规范中只需列出一个基类引用，它将于任何派生类对象匹配。由于这个特性，当如果有一个异常类继承层次结构，应当这样排列catch块：将捕获位于层次结构最下面的异常类的catch语句放在最前面，将捕获基类异常的catch语句放在最后面。</p>
-
 <p>也可以创建捕获对象而不是引用的处理程序。在catch语句中使用基类对象时，将捕获所有的派生类对象，但派生特性将被剥去，因此将统一使用虚方法的基类版本。</p>
-
 <p>可以在不知道异常类型的情况下，捕获异常，方法是：使用省略号来表示异常类型，从而捕获任何异常。</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">catch(...){//statements}</pre></div>
-<p>如果知道一些异常的类型，可以将捕获所有异常的catch块放在最后面，这一点优点类似于switch语句中的default：</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">try
+<pre><code>catch(...){//statements}
+</code></pre><p>如果知道一些异常的类型，可以将捕获所有异常的catch块放在最后面，这一点优点类似于switch语句中的default：</p>
+<pre><code>try
 {
-    super();
+	super();
 };
 catch(bad_case1 &amp;be)
 {//...}
@@ -1035,250 +956,197 @@ catch(bad_case2 &amp;be)
 catch(bad_case3 &amp;be)
 {//...}
 catch(...)
-{//statements}</pre></div>
-<h3 id="exception类">exception类</h3>
-
+{//statements}
+</code></pre><h3 id="exception类">exception类</h3>
 <p>exception头文件定义了exception类，C++可以把它用作其他异常的基类。代码可以引发exception异常，也可以将exception类作为基类。</p>
-
 <p>有一个名为what()的虚拟成员函数，它返回一个字符串，该字符串的特征随实现而异。然而，由于这是一个虚方法，因此可以再exception派生类中重新定义它。</p>
-
 <ol>
 <li>stdexcept异常类</li>
 </ol>
-
 <p>定义了，logic_error和runtime_error类，他们都是从exception类公有派生出来的。</p>
-
 <p>这些类的构造函数接受一个string对象作为参数，作为方法what()的返回数据。</p>
-
 <p><strong>logic_error公有派生出4个类：</strong></p>
-
 <ul>
 <li>domain_error;</li>
 <li>invalid_argument;</li>
 <li>length_error;</li>
 <li>out_of_bounds;</li>
 </ul>
-
 <p><strong>runtime_error公有派生出3个类：</strong></p>
-
 <ul>
 <li>range_error;</li>
 <li>overflow_error;</li>
 <li>underflow_error;</li>
 </ul>
-
 <p>他们之间的主要区别在于：可以根据不同的类名分别处理每种异常。另一方面，由于是继承关系也可以一起处理它们(如果愿意的话)。</p>
-
-<ol>
+<ol start="2">
 <li>bad_alloc异常和new</li>
 </ol>
-
 <p>new导致的内存分配问题，C++的处理方式是让new引发bad_alloc异常。头文件new包含bad_alloc类的声明，它是exception类公有派生而来的。但在以前，当无法分配请求的内存量时，new返回一个空指针。</p>
-
-<ol>
+<ol start="3">
 <li>空指针和new</li>
 </ol>
-
 <p>很多代码都是在new失败时返回空指针时编写的。</p>
-
 <p>为处理new的变化，有些编译器提供了一个标记（开关），让用户选择所需的行为。</p>
-
 <p>当前，C++标准提供了一种在失败时返回空指针的new，其用法如下</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">int * pi = new (std::nothrow) int;
-int * pa = new (std::nowthrow) int[500];</pre></div>
-<p>使用这种new，可将上面程序的核心代码修改如下：</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Big * pb;
+<pre><code>int * pi = new (std::nothrow) int;
+int * pa = new (std::nowthrow) int[500];
+</code></pre><p>使用这种new，可将上面程序的核心代码修改如下：</p>
+<pre><code>Big * pb;
 pb = new(std::nothrow) Big [10000];
 if(pb ==0)
 {
-    cout&lt;&lt;&#34;Could not allocate memory. Bye.\n&#34;;
+    cout&lt;&lt;&quot;Could not allocate memory. Bye.\n&quot;;
     exit(EXIT_FAILURE);
-}</pre></div>
-<h3 id="异常-类和继承">异常、类和继承</h3>
-
+}
+</code></pre><h3 id="异常类和继承">异常、类和继承</h3>
 <p>异常、类和继承以3种方式向关联：</p>
-
 <ol>
-<li><p>可以像C++库那样，从一个异常类派生出另一个；</p></li>
-
-<li><p>可以在类定义中嵌套异常类声明，来组合异常；</p></li>
-
-<li><p>这种嵌套声明本身可以被继承，还可以用作基类。</p></li>
+<li>
+<p>可以像C++库那样，从一个异常类派生出另一个；</p>
+</li>
+<li>
+<p>可以在类定义中嵌套异常类声明，来组合异常；</p>
+</li>
+<li>
+<p>这种嵌套声明本身可以被继承，还可以用作基类。</p>
+</li>
 </ol>
-
 <h3 id="异常何时会迷失方向">异常何时会迷失方向</h3>
-
 <p>异常被引发后，在两种情况下会引发问题：</p>
-
 <p>如果它是在带异常规范的函数中引发的，则必须与规范列表中的某种异常匹配，否则称为意外异常。</p>
-
 <p>如果异常不是在函数中引发的(或者函数没有异常规范)，则必须捕获它。如果没有捕获，则异常被称为未捕获异常。</p>
-
 <p>总之，如果要捕获所有的异常(不管事预期异常还是意外异常)，则可以这样做：</p>
-
 <p>首先确保异常头文件的声明可用：</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">#include &lt;exception&gt;
-using namespace std</pre></div>
-<p>然后设计一个替代函数，将异常转换为bad_exception异常，该函数的原型如下：</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">void myUnexpected()
+<pre><code>#include &lt;exception&gt;
+using namespace std
+</code></pre><p>然后设计一个替代函数，将异常转换为bad_exception异常，该函数的原型如下：</p>
+<pre><code>void myUnexpected()
 {
-    throw std::bad_exception();
-}</pre></div>
-<p>接下来在程序的开始位置，将意外异常操作指定为调用该函数：</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">set_unexpected(myUnexpected);</pre></div>
-<p>最后，将bad_exception类型包括在异常规范中，并添加如下catch块序列：</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">double Argh(double,double)throw(out_of_range,bad_exception);
+	throw std::bad_exception();
+}
+</code></pre><p>接下来在程序的开始位置，将意外异常操作指定为调用该函数：</p>
+<pre><code>set_unexpected(myUnexpected);
+</code></pre><p>最后，将bad_exception类型包括在异常规范中，并添加如下catch块序列：</p>
+<pre><code>double Argh(double,double)throw(out_of_range,bad_exception);
 ...
 try
 {
-    x = Argh(a,b);
+	x = Argh(a,b);
 }
 catch (out_of_range&amp; e)
 {
-    ...
+	...
 }
 catch (bad_exception&amp; e)
 {
-    ...
-}</pre></div>
-<h3 id="有关异常的处理事项">有关异常的处理事项</h3>
-
+	...
+}
+</code></pre><h3 id="有关异常的处理事项">有关异常的处理事项</h3>
 <h2 id="rtti">RTTI</h2>
-
 <h3 id="rtti的用途">RTTI的用途</h3>
-
 <p>假如，有一个类层次结构，其中的类都是从同一个基类派生而来的，利用多态性，则基类指针或者引用可以指向任意一个派生类对象。但如何知道指针指向的是哪种对象呢？可能有三种情况：</p>
-
 <ol>
-<li><p>该类层次结构中所有的成员都拥有虚函数，则基类指针可以根据所指对象的类型，调用相应派生类的方法。</p></li>
-
-<li><p>派生对象可能包含不是继承而来的方法，这种情况下，只有某些类型的对象可以使用该方法。</p></li>
-
-<li><p>也可能是出于调试的目的，想跟踪生成的对象的类型。</p></li>
+<li>
+<p>该类层次结构中所有的成员都拥有虚函数，则基类指针可以根据所指对象的类型，调用相应派生类的方法。</p>
+</li>
+<li>
+<p>派生对象可能包含不是继承而来的方法，这种情况下，只有某些类型的对象可以使用该方法。</p>
+</li>
+<li>
+<p>也可能是出于调试的目的，想跟踪生成的对象的类型。</p>
+</li>
 </ol>
-
 <p>对于后两种情况，RTTI提供解决方案。</p>
-
 <h3 id="rtti工作原理">RTTI工作原理</h3>
-
 <p>C++有3个支持RTTI的元素：</p>
-
 <ol>
-<li><p>如果可能的话，dynamic_cast运算符将使用一个指向基类的指针来生成一个指向派生类的指针；否则该运算符返回0&mdash;空指针。</p></li>
-
-<li><p>typeid运算符返回一个指出对象的类型的值。</p></li>
-
-<li><p>type_info结构存储了有关特定类型的信息。</p></li>
+<li>
+<p>如果可能的话，dynamic_cast运算符将使用一个指向基类的指针来生成一个指向派生类的指针；否则该运算符返回0&mdash;空指针。</p>
+</li>
+<li>
+<p>typeid运算符返回一个指出对象的类型的值。</p>
+</li>
+<li>
+<p>type_info结构存储了有关特定类型的信息。</p>
+</li>
 </ol>
-
 <p>只能将RTTI用于包含虚函数的类层次结构，原因在于只有对这种类层次结构，才应该将派生对象的地址赋给基类指针。</p>
-
 <ol>
 <li>dynamic_cast运算符</li>
 </ol>
-
 <p>dynamic_cast不能回答“指针指向的是哪类对象”，但能够回答“是否可以安全地将对象的地址赋给特定类型的指针”这样的问题。</p>
-
 <p>通常，如果指向的对象(*pt)的类型为Type或者是从Type直接或者间接派生而来的类型，则下面的表达式将指针pt转换为类型为Type类型的指针：</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">dynamic_cast&lt;Type *&gt; (pt)</pre></div>
-<p>否则，结果为0，即空指针。</p>
-
+<pre><code>dynamic_cast&lt;Type *&gt; (pt)
+</code></pre><p>否则，结果为0，即空指针。</p>
 <p>也可以将dynamic_cast用于引用，其用法稍微有点不同：没有与空指针对应的引用值，因此无法使用特殊的引用值来只是失败。当请求不准确时，dynamic_cast将引发类型为bad_cast的异常，这种异常是从exception类派生而来的，它是在头文件typeinfo中定义的。因此可以像下面这样使用该运算符，其中rg是对Grand对象的引用，Superb是从Grand派生出的对象：</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">#include &lt;typeinfo&gt;
+<pre><code>#include &lt;typeinfo&gt;
 ...
 try
 {
-    Superb &amp; rs = dynamic_cast&lt;Superb &amp;&gt; (rg);
+	Superb &amp; rs = dynamic_cast&lt;Superb &amp;&gt; (rg);
 }
 catch (bad_cast &amp;)
 {
-    ...
-};</pre></div>
-<ol>
+	...
+};
+</code></pre><ol start="2">
 <li>typeid运算符和type_info类</li>
 </ol>
-
 <p>typeid运算符是的能够确定两个对象是否为同种类型。它与sizeof有些相似，可以接受两种参数：</p>
-
 <ul>
 <li>类名</li>
 <li>结果为对象的表达式</li>
 </ul>
-
 <p>typeid运算符返回一个type_info对象的引用，其中，type_info是在头文件type_info中定义的一个类。type_info重载了==和！=运算符，以便可以使用这些运算符来对类型进行判断。例如，如果pg执行的是一个Superb对象，则下述表达式的结果为bool值true，否则为false：</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">typeid(Superb) == typeid(*pg)</pre></div>
-<p>如果pg是一个空指针，程序将引发bad_typeid异常。该异常类型是从exception类派生而来的，是在头文件typeinfo中声明的。</p>
-
+<pre><code>typeid(Superb) == typeid(*pg)
+</code></pre><p>如果pg是一个空指针，程序将引发bad_typeid异常。该异常类型是从exception类派生而来的，是在头文件typeinfo中声明的。</p>
 <p>type_info类实现随厂商而异，但包含一个name()成员，该函数返回一个随实现而异的字符串：通常(但并非一定)是类名。例如，下面的语句显示指针pg指向的对象所属类定义的字符串：</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">cout::typeid(*pg).name()&lt;&lt;&#34;\n&#34;;</pre></div>
-<h2 id="类型转换运算符">类型转换运算符</h2>
-
+<pre><code>cout::typeid(*pg).name()&lt;&lt;&quot;\n&quot;;
+</code></pre><h2 id="类型转换运算符">类型转换运算符</h2>
 <p>四种类型转换运算符，他们的语法相同：</p>
-
 <ul>
-<li>dynamic_cast，语法：dynamic_cast<type-name> (expression)</li>
-<li>const_cast，语法：const_cast<type-name> (expression)</li>
-<li>static_cast，语法：static_cast<type-name> (expression)</li>
-<li>reinterpret_cast，语法：reinterpret_cast<type-name> (expression)</li>
+<li>dynamic_cast，语法：dynamic_cast<!-- raw HTML omitted --> (expression)</li>
+<li>const_cast，语法：const_cast<!-- raw HTML omitted --> (expression)</li>
+<li>static_cast，语法：static_cast<!-- raw HTML omitted --> (expression)</li>
+<li>reinterpret_cast，语法：reinterpret_cast<!-- raw HTML omitted --> (expression)</li>
 </ul>
-
-<h3 id="dynamic-cast运算符">dynamic_cast运算符</h3>
-
+<h3 id="dynamic_cast运算符">dynamic_cast运算符</h3>
 <p>dynamic_cast运算符在前面已经介绍过了，假设High和Low是两个类，而ph和pl的类型分别为High *和Low *。</p>
-
 <p>则仅当Low是High的可访问基类时，下面的语句才将一个Low*指针赋给pl：</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pl = dynamic_cast&lt;Low *&gt; ph;</pre></div>
-<p>该运算符的用途是，使得能够在<strong>类层次结构中进行向上转换</strong>（由于是is-a关系，这种转换是安全的），而不允许其他转换。</p>
-
+<pre><code>pl = dynamic_cast&lt;Low *&gt; ph;
+</code></pre><p>该运算符的用途是，使得能够在<strong>类层次结构中进行向上转换</strong>（由于是is-a关系，这种转换是安全的），而不允许其他转换。</p>
 <p>（1）其他三种都是编译时完成的，dynamic_cast是运行时处理的，运行时要进行类型检查。</p>
-
 <p>（2）不能用于内置的基本数据类型的强制转换。</p>
-
 <p>（3）dynamic_cast转换如果成功的话返回的是指向类的指针或引用，转换失败的话则会返回NULL。</p>
-
 <p>（4）使用dynamic_cast进行转换的，基类中一定要有虚函数，否则编译不通过。</p>
-
 <p>基类中需要检测有虚函数的原因：类中存在虚函数，就说明它有想要让基类指针或引用指向派生类对象的情况，此时转换才有意义。</p>
-
-<p>这是由于运行时类型检查需要运行时类型信息，而这个信息存储在类的虚函数表（关于虚函数表的概念，详细可见<Inside c++ object model>）中，只有定义了虚函数的类才有虚函数表。</p>
-
+<p>这是由于运行时类型检查需要运行时类型信息，而这个信息存储在类的虚函数表（关于虚函数表的概念，详细可见&lt;Inside c++ object model&gt;）中，只有定义了虚函数的类才有虚函数表。</p>
 <p>（5）在类的转换时，在类层次间进行上行转换时，dynamic_cast和static_cast的效果是一样的。在进行下行转换时，dynamic_cast具有类型检查的功能，比static_cast更安全。</p>
-
 <p>向上转换，即为子类指针指向父类指针（一般不会出问题）；</p>
-
 <p>向下转换，即将父类指针转化子类指针。向下转换的成功与否还与将要转换的类型有关，即要转换的指针指向的对象的实际类型与转换以后的对象类型一定要相同，否则转换失败。</p>
-
 <p>在C++中，编译期的类型转换有可能会在运行时出现错误，特别是涉及到类对象的指针或引用操作时，更容易产生错误。Dynamic_cast操作符则可以在运行期对可能产生问题的类型转换进行测试。</p>
-
-<h3 id="const-cast运算符">const_cast运算符</h3>
-
+<h3 id="const_cast运算符">const_cast运算符</h3>
 <p>const运算符用于执行只有一种用途的类型转换。即改变值为const或volatile，其语法与dynamic_cast运算符相同：</p>
-
 <p>如果类型的其他方面也被修改，则上述类型的转换将出错。</p>
-
 <p>也就是说除了const和volatile特征可以不同外，type_name和expression的类型必须相同。</p>
-
 <p>再次假设High和Low是两个类：</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">High bar;
+<pre><code>High bar;
 const High * pbar = &amp;bar;
 ...
 
 High * pb = const_cast&lt;High *&gt; (pbar);                     //valid
-const  Low * pl = const_cast&lt;const Low *&gt; (pbar);   //invalid</pre></div>
-<p>第一个类型转换使得<code>*pb</code>成为一个可用于修改bar对象值的指针，它删除const标签。</p>
-
+const  Low * pl = const_cast&lt;const Low *&gt; (pbar);   //invalid
+</code></pre><p>第一个类型转换使得<code>*pb</code>成为一个可用于修改bar对象值的指针，它删除const标签。</p>
 <p>第二个类型转换是非法的，因为它同时尝试将类型从<code>const High*</code>改为<code>const Low*</code>。</p>
-
 <p>提供该运算符的原因是，有时候可能需要这样一个值，它在大多数时候是常量，而有时又是可修改的。</p>
-
 <p>在这种情况下，<strong>可以将这个值声明为const，并在需要修改它的时候，使用const_cast</strong>。</p>
-
 <p><strong>需注意const_cast可以修改指向一个值的指针，但不可以修改const值。</strong></p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">void change(const int * pt)
+<pre><code>void change(const int * pt)
 {
-    int * pc;
-    pc = const_cast&lt;int *&gt;(pt);
-    *pc = 100;
+	int * pc;
+	pc = const_cast&lt;int *&gt;(pt);
+	*pc = 100;
 }
  
 int main()
@@ -1290,283 +1158,358 @@ int main()
     change(&amp;pop2);
  
     return 0;
-}</pre></div>
-<p>在change()中，指针pt被声明为const int *，因此不能用来修改指向的int。指针pc删除了const特诊，因此可以用来修改指针指向的值，但仅当指向的不是const时才行，因此，pc可用于修改pop1的值，但不能修改pop2的值。</p>
-
-<h3 id="static-cast运算符">static_cast运算符</h3>
-
+}
+</code></pre><p>在change()中，指针pt被声明为const int *，因此不能用来修改指向的int。指针pc删除了const特诊，因此可以用来修改指针指向的值，但仅当指向的不是const时才行，因此，pc可用于修改pop1的值，但不能修改pop2的值。</p>
+<h3 id="static_cast运算符">static_cast运算符</h3>
 <p>static_cast运算符仅当type_name可被隐式转换为expression所属的类型或expression可被隐式转换为type_name所属的类型时，上述转换才是合法的，否则将会出错。</p>
-
 <p>假设High是Low的基类，而Pond是一个无关的类，则从High到Low的转换，从Low到High的转换都是合法的，而从Low到Pond的转换时不允许的。</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">High bar;
+<pre><code>High bar;
 Low blow;
 ...
 High *pb = static_cast&lt;High *&gt;(&amp;blow); //valid
 Low *pl = static_cast&lt;Low *&gt;(&amp;bar); //valid
-Pond *pb = static_cast&lt;Pond *&gt;(&amp;blow); //invalid,Pond unrelated</pre></div>
-<p><strong>它主要有如下几种用法：</strong>
-* 用于类层次结构中基类和派生类之间指针或引用的转换
+Pond *pb = static_cast&lt;Pond *&gt;(&amp;blow); //invalid,Pond unrelated
+</code></pre><p><strong>它主要有如下几种用法：</strong></p>
+<ul>
+<li>用于类层次结构中基类和派生类之间指针或引用的转换
 进行上行转换（把派生类的指针或引用转换成基类表示）是安全的
-进行下行转换（把基类的指针或引用转换为派生类表示），由于没有动态类型检查，所以是不安全的
-* 用于基本数据类型之间的转换，如把int转换成char。这种转换的安全也要开发人员来保证
-* 把空指针转换成目标类型的空指针
-* 把任何类型的表达式转换为void类型
-注意：static_cast不能转换掉expression的const、volitale或者__unaligned属性。</p>
-
-<h3 id="reinterpret-cast运算符">reinterpret_cast运算符</h3>
-
+进行下行转换（把基类的指针或引用转换为派生类表示），由于没有动态类型检查，所以是不安全的</li>
+<li>用于基本数据类型之间的转换，如把int转换成char。这种转换的安全也要开发人员来保证</li>
+<li>把空指针转换成目标类型的空指针</li>
+<li>把任何类型的表达式转换为void类型
+注意：static_cast不能转换掉expression的const、volitale或者__unaligned属性。</li>
+</ul>
+<h3 id="reinterpret_cast运算符">reinterpret_cast运算符</h3>
 <p>reinterpret_cast用于天生危险的类型转换,主要有三种强制转换用途：改变指针或引用的类型、将指针或引用转换为一个足够长度的整形、将整型转换为指针或引用类型。</p>
-
 <p>reinterpret_cast不支持所有类型的转换，如<strong>不能将指针类型转换为更小的整型或浮点型</strong>，<strong>不能将函数指针转换为数据指针</strong>，反之亦然。</p>
-    </div>
-    <footer class="post-footer">
-     
- 
-<div class="post-tags">     
-     
-    <a href="http://jchenTech.github.io/tags/c&#43;&#43;" rel="tag" title="C&#43;&#43;">#C&#43;&#43;#</a>
-    
-</div>
-
-
-
-     <div class="post-nav">
-    <div class="post-nav-next post-nav-item">
-    
-        <a href="http://jchenTech.github.io/post/c&#43;&#43;/c&#43;&#43;-primer-plus-%E7%AC%AC14%E7%AB%A0c&#43;&#43;%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%A0%81%E9%87%8D%E7%94%A8/" rel="next" title="C&#43;&#43; primer plus 第14章C&#43;&#43;中的代码重用">
-        <i class="fa fa-chevron-left"></i> C&#43;&#43; primer plus 第14章C&#43;&#43;中的代码重用
-        </a>
-    
-    </div>
-
-    <div class="post-nav-prev post-nav-item">
-    
-        <a href="http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="prev" title="卷积神经网络">
-        卷积神经网络 <i class="fa fa-chevron-right"></i>
-        </a>
-    
-    </div>
-</div>
-      
-     
-     
-     
-
-
-
-
-    </footer>
-  </article>
-</section>
-
-          </div>
         </div>
-        <div class="sidebar-toggle">
-  <div class="sidebar-toggle-line-wrap">
-    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-  </div>
-</div>
-<aside id="sidebar" class="sidebar">
-  <div class="sidebar-inner">
 
-  <ul class="sidebar-nav motion-element">
-    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-      文章目录
-    </li>
-    <li class="sidebar-nav-overview" data-target="site-overview">
-      站点概览
-    </li>
-  </ul>
-
-    <section class="site-overview sidebar-panel ">
-      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image"
-        src="http://jchenTech.github.io/img/author.jpg"
-        alt="陈建君" />
-    <p class="site-author-name" itemprop="name">陈建君</p>
-    <p class="site-description motion-element" itemprop="description"> 
-        Programmer &amp; Huster</p>
-</div>
-      <nav class="site-state motion-element">
-    <div class="site-state-item site-state-posts">
-      <a href="http://jchenTech.github.io/post/">
-        <span class="site-state-item-count">43</span>
-        <span class="site-state-item-name">日志</span>
-      </a>
-    </div>
-    <div class="site-state-item site-state-categories">    
-        <a href="http://jchenTech.github.io/categories/">      
-         
-        <span class="site-state-item-count">8</span>
         
-        <span class="site-state-item-name">分类</span>
-        
-        </a>
-    </div>
+<div class="post-archive">
+    <ul class="post-copyright">
+        <li><strong>原文作者：</strong><a rel="author" href="http://jchenTech.github.io/">jchen</a></li>
+        <li style="word-break:break-all"><strong>原文链接：</strong><a href="http://jchenTech.github.io/post/C&#43;&#43;/C&#43;&#43;-primer-plus-%E7%AC%AC15%E7%AB%A0%E5%8F%8B%E5%85%83%E5%BC%82%E5%B8%B8%E5%92%8C%E5%85%B6%E4%BB%96/">http://jchenTech.github.io/post/C&#43;&#43;/C&#43;&#43;-primer-plus-%E7%AC%AC15%E7%AB%A0%E5%8F%8B%E5%85%83%E5%BC%82%E5%B8%B8%E5%92%8C%E5%85%B6%E4%BB%96/</a></li>
+        <li><strong>版权声明：</strong>本作品采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可，非商业转载请注明出处（作者，原文链接），商业转载请联系作者获得授权。</li>
+    </ul>
+</div>
+<br/>
 
-    <div class="site-state-item site-state-tags">
-        <a href="http://jchenTech.github.io/tags/">
-         
-        <span class="site-state-item-count">37</span>
+
+
         
-        <span class="site-state-item-name">标签</span>
-        </a>
-    </div>
-</nav>
-      
-      
-<div class="links-of-author motion-element">
-    
-        <span class="links-of-author-item">
-        <a href="https://github.com/jchenTech/" target="_blank" title="GitHub">
-            <i class="fa fa-fw fa-github"></i>
-            GitHub
-        </a>
-        </span>
-    
-        <span class="links-of-author-item">
-        <a href="https://www.zhihu.com/people/lan-ling-xin-yun" target="_blank" title="知乎">
-            <i class="fa fa-fw fa-globe"></i>
-            知乎
-        </a>
-        </span>
-    
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/C&#43;&#43;/C&#43;&#43;-primer-plus-%E7%AC%AC14%E7%AB%A0C&#43;&#43;%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%A0%81%E9%87%8D%E7%94%A8/">C&#43;&#43; primer plus 第14章C&#43;&#43;中的代码重用</a></li>
+        
+        <li><a href="/post/C&#43;&#43;/C&#43;&#43;-primer-plus-%E7%AC%AC13%E7%AB%A0%E7%B1%BB%E7%BB%A7%E6%89%BF/">C&#43;&#43; primer plus 第13章类继承</a></li>
+        
+        <li><a href="/post/C&#43;&#43;/C&#43;&#43;-primer-plus-%E7%AC%AC12%E7%AB%A0%E7%B1%BB%E5%92%8C%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/">C&#43;&#43; primer plus 第12章类和动态内存分配</a></li>
+        
+        <li><a href="/post/C&#43;&#43;/C&#43;&#43;-primer-plus-%E7%AC%AC11%E7%AB%A0%E4%BD%BF%E7%94%A8%E7%B1%BB/">C&#43;&#43; primer plus 第11章使用类</a></li>
+        
+        <li><a href="/post/C&#43;&#43;/C&#43;&#43;-primer-plus-%E7%AC%AC10%E7%AB%A0%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/">C&#43;&#43; primer plus 第10章对象和类</a></li>
+        
+    </ul>
 </div>
 
 
-      
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='/tags/C&#43;&#43;'>C&#43;&#43;</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-      <div class="links-of-blogroll motion-element inline">
-<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5b4f2ucxar6&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;bv=35" async="async"></script>
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "your github repo"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
 </div>
 
+                    <footer id="footer">
+    <div>
+        &copy; 2020 <a href="http://jchenTech.github.io/">jchen&#39;s blog By jchen</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'GA ID', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+    <script src='/js/douban.js'></script>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='http://jchenTech.github.io/search/' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://jchenTech.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
     </section>
     
-<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-    <div class="post-toc">
-        <div class="post-toc-content"><nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#友元">友元</a></li>
-<li><a href="#友元类">友元类</a></li>
-<li><a href="#友元成员函数">友元成员函数</a></li>
-<li><a href="#其他友元关系">其他友元关系</a></li>
-<li><a href="#共同的友元">共同的友元</a></li>
-</ul></li>
-<li><a href="#嵌套类">嵌套类</a>
-<ul>
-<li><a href="#嵌套类和访问权限">嵌套类和访问权限</a></li>
-<li><a href="#模板中的嵌套">模板中的嵌套</a></li>
-</ul></li>
-<li><a href="#异常">异常</a>
-<ul>
-<li><a href="#调用abort">调用abort()</a></li>
-<li><a href="#返回错误码">返回错误码</a></li>
-<li><a href="#异常机制">异常机制</a></li>
-<li><a href="#将对象用作异常类型">将对象用作异常类型</a></li>
-<li><a href="#异常规范和c-11">异常规范和C++11</a></li>
-<li><a href="#栈解退">栈解退</a></li>
-<li><a href="#其他异常特性">其他异常特性</a></li>
-<li><a href="#exception类">exception类</a></li>
-<li><a href="#异常-类和继承">异常、类和继承</a></li>
-<li><a href="#异常何时会迷失方向">异常何时会迷失方向</a></li>
-<li><a href="#有关异常的处理事项">有关异常的处理事项</a></li>
-</ul></li>
-<li><a href="#rtti">RTTI</a>
-<ul>
-<li><a href="#rtti的用途">RTTI的用途</a></li>
-<li><a href="#rtti工作原理">RTTI工作原理</a></li>
-</ul></li>
-<li><a href="#类型转换运算符">类型转换运算符</a>
-<ul>
-<li><a href="#dynamic-cast运算符">dynamic_cast运算符</a></li>
-<li><a href="#const-cast运算符">const_cast运算符</a></li>
-<li><a href="#static-cast运算符">static_cast运算符</a></li>
-<li><a href="#reinterpret-cast运算符">reinterpret_cast运算符</a></li>
-</ul></li>
-</ul></li>
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/Java/Java%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/" title="Java常用方法总结">Java常用方法总结</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8EJava%E5%AE%9E%E7%8E%B0/" title="十大经典排序算法总结（基于Java实现）">十大经典排序算法总结（基于Java实现）</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC10/" title="【CS61B】LEC10 Subtype Polymorphism vs. HoFs">【CS61B】LEC10 Subtype Polymorphism vs. HoFs</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC9/" title="【CS61B】LEC9 Extends, Casting, Higher Order Functions">【CS61B】LEC9 Extends, Casting, Higher Order Functions</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/Git/%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4Github%E4%B8%8A%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9/" title="如何删除Github上的文件夹">如何删除Github上的文件夹</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC8/" title="【CS61B】LEC8 Inheritance, Implements">【CS61B】LEC8 Inheritance, Implements</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61B%E9%93%BE%E8%A1%A8IntListSLListDLListAList/" title="【CS61B】链表IntList、SLList、DLList、AList整理">【CS61B】链表IntList、SLList、DLList、AList整理</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BProj1A/" title="【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque ">【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque </a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC6/" title="【CS61B】LEC6 ALists, Resizing, vs. SLists ">【CS61B】LEC6 ALists, Resizing, vs. SLists </a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC5/" title="【CS61B】LEC5 DLLists, Arrays ">【CS61B】LEC5 DLLists, Arrays </a>
+    </li>
+    
 </ul>
-</nav></div>
-    </div>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="http://jchenTech.github.io/categories/C&#43;&#43;/">C&#43;&#43; (7)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/Git/">Git (1)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/Java/">Java (1)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/Linux/">Linux (2)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/Python/">Python (1)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/%E5%8D%9A%E5%AE%A2/">博客 (8)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">图像处理与深度学习 (10)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法 (13)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="http://jchenTech.github.io/tags/AOD-Net/">AOD-Net</a>
+    
+    <a href="http://jchenTech.github.io/tags/C&#43;&#43;/">C&#43;&#43;</a>
+    
+    <a href="http://jchenTech.github.io/tags/CS61B/">CS61B</a>
+    
+    <a href="http://jchenTech.github.io/tags/DehazeNet/">DehazeNet</a>
+    
+    <a href="http://jchenTech.github.io/tags/Fast-R-CNN/">Fast R-CNN</a>
+    
+    <a href="http://jchenTech.github.io/tags/Faster-R-CNN/">Faster R-CNN</a>
+    
+    <a href="http://jchenTech.github.io/tags/Git/">Git</a>
+    
+    <a href="http://jchenTech.github.io/tags/Github/">Github</a>
+    
+    <a href="http://jchenTech.github.io/tags/Hugo/">Hugo</a>
+    
+    <a href="http://jchenTech.github.io/tags/Java/">Java</a>
+    
+    <a href="http://jchenTech.github.io/tags/Linux/">Linux</a>
+    
+    <a href="http://jchenTech.github.io/tags/MRP%E5%A4%9C%E9%97%B4%E5%8E%BB%E9%9B%BE/">MRP夜间去雾</a>
+    
+    <a href="http://jchenTech.github.io/tags/MSCNN%E5%8E%BB%E9%9B%BE/">MSCNN去雾</a>
+    
+    <a href="http://jchenTech.github.io/tags/Matplotlib/">Matplotlib</a>
+    
+    <a href="http://jchenTech.github.io/tags/Python/">Python</a>
+    
+    <a href="http://jchenTech.github.io/tags/R-CNN/">R-CNN</a>
+    
+    <a href="http://jchenTech.github.io/tags/RNN/">RNN</a>
+    
+    <a href="http://jchenTech.github.io/tags/SSD/">SSD</a>
+    
+    <a href="http://jchenTech.github.io/tags/SSPNet/">SSPNet</a>
+    
+    <a href="http://jchenTech.github.io/tags/Ubuntu/">Ubuntu</a>
+    
+    <a href="http://jchenTech.github.io/tags/YOLO/">YOLO</a>
+    
+    <a href="http://jchenTech.github.io/tags/github-page/">github page</a>
+    
+    <a href="http://jchenTech.github.io/tags/golang/">golang</a>
+    
+    <a href="http://jchenTech.github.io/tags/Hugo/">Hugo</a>
+    
+    <a href="http://jchenTech.github.io/tags/markdown/">markdown</a>
+    
+    <a href="http://jchenTech.github.io/tags/programming/">programming</a>
+    
+    <a href="http://jchenTech.github.io/tags/theme/">theme</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">卷积神经网络</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%9B%BE%E5%83%8F%E5%8E%BB%E9%9B%BE/">图像去雾</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5/">图片插入</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%A4%8D%E6%9D%82%E7%BD%91%E7%BB%9C/">复杂网络</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">常用方法</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%BD%92%E6%A1%A3%E9%A1%B5%E9%9D%A2/">归档页面</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">循环神经网络</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">排序算法</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E6%9A%97%E9%80%9A%E9%81%93/">暗通道</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E7%A4%BE%E4%BA%A4%E7%BD%91%E7%BB%9C%E6%8C%96%E6%8E%98/">社交网络挖掘</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://www.flysnow.org/" title="飞雪无情的博客">飞雪无情的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://yuedu.baidu.com/ebook/14a722970740be1e640e9a3e" title="Android Gradle权威指南">Android Gradle权威指南</a>
+        </li>
+        
+    </ul>
 </section>
 
-  </div>
-</aside>
 
-      </div>
-    </main>
-   
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright" >
-  <span itemprop="copyrightYear">  &copy; 
-  2009 - 2020</span>
-  <span class="with-love"><i class="fa fa-heart"></i></span>
-  <span class="author" itemprop="copyrightHolder">陈建君的技术博客</span>
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="http://jchenTech.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
 </div>
-<div class="powered-by">
-  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.54.0</a>
-</div>
-<div class="theme-info">
-  Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
-  </a>
-</div>
-
-
-      </div>
-    </footer>
-
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-      <span id="scrollpercent"><span>0</span>%</span>
+            </div>
+        </div>
     </div>
-  </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-<script type="text/javascript" src="http://jchenTech.github.io/js/vendor/jquery/index.js?v=2.1.3"></script>
-<script type="text/javascript" src="http://jchenTech.github.io/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
-<script type="text/javascript" src="http://jchenTech.github.io/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-<script type="text/javascript" src="http://jchenTech.github.io/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
-<script type="text/javascript" src="http://jchenTech.github.io/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="http://jchenTech.github.io/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-
-<script src="http://jchenTech.github.io/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-<script type="text/javascript" src="http://jchenTech.github.io/js/utils.js"></script>
-<script type="text/javascript" src="http://jchenTech.github.io/js/motion.js"></script>
-<script type="text/javascript" src="http://jchenTech.github.io/js/affix.js"></script>
-<script type="text/javascript" src="http://jchenTech.github.io/js/schemes/pisces.js"></script>
-
-<script type="text/javascript" src="http://jchenTech.github.io/js/scrollspy.js"></script>
-<script type="text/javascript" src="http://jchenTech.github.io/js/post-details.js"></script>
-<script type="text/javascript" src="http://jchenTech.github.io/js/toc.js"></script>
-
-<script type="text/javascript" src="http://jchenTech.github.io/js/bootstrap.js"></script>
-
-<script type="text/javascript" src="http://jchenTech.github.io/js/search.js"></script>
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    extensions: ["tex2jax.js"],
-    jax: ["input/TeX", "output/HTML-CSS"],
-    tex2jax: {
-      inlineMath: [ ['$','$'] ],
-      displayMath: [ ['$$','$$'] ],
-      processEscapes: true
-    },
-    "HTML-CSS": { fonts: ["TeX"] }
-  });
-</script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML' async></script>
 </body>
+
 </html>

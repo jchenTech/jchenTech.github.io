@@ -1,499 +1,584 @@
-<!DOCTYPE HTML>
+<!doctype html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
-    <title>Python之Matplotlib绘图基础 - 陈建君的技术博客</title>
-    <meta name="keywords" content="蘭陵N散記,兰陵,独立,博客,程序员,架构师,个人,思考,读书,笔记,技术,分享,Golang">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <meta property="og:title" content="Python之Matplotlib绘图基础">
-    <meta property="og:site_name" content="陈建君的技术博客">
-    <meta property="og:image" content="/img/author.jpg"> 
-    <meta name="title" content="Python之Matplotlib绘图基础 - 陈建君的技术博客" />
-    <meta name="description" content="蘭陵N散記 | 博客 | 软件 | 架构 | Java | Golang"> 
-    <link rel="shortcut icon" href="http://jchenTech.github.io/img/favicon.ico" />
-    <link rel="apple-touch-icon" href="http://jchenTech.github.io/img/apple-touch-icon.png" />
-    <link rel="apple-touch-icon-precomposed" href="http://jchenTech.github.io/img/apple-touch-icon.png" />
-    <link href="http://jchenTech.github.io/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-    <link href="http://jchenTech.github.io/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-    <link href="http://jchenTech.github.io/css/main.css" rel="stylesheet" type="text/css" />
-    <link href="http://jchenTech.github.io/css/syntax.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" id="hexo.configuration">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post"},
-     fancybox: true, 
-    motion: true
-  };
-</script>
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+
+    <title>Python之Matplotlib绘图基础 | jchen&#39;s blog</title>
+    <meta property="og:title" content="Python之Matplotlib绘图基础 - jchen&#39;s blog">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2020-04-13T00:00:00&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2020-04-13T00:00:00&#43;08:00'>
+        
+    <meta name="Keywords" content="">
+    <meta name="description" content="Python之Matplotlib绘图基础">
+        
+    <meta name="author" content="jchen">
+    <meta property="og:url" content="http://jchenTech.github.io/post/Python/python%E4%B9%8Bmatplotlib%E7%BB%98%E5%9B%BE%E5%9F%BA%E7%A1%80/">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+    
+    
+    
+        <link rel="stylesheet" href='/css/douban.css'>
+    
+        <link rel="stylesheet" href='/css/other.css'>
+    
 </head>
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-<div class="container one-collumn sidebar-position-left page-home  ">
-    <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"> <div class="site-meta  custom-logo ">
 
-  <div class="custom-logo-site-title">
-    <a href="http://jchenTech.github.io/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">陈建君的技术博客</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-  <p class="site-subtitle">一指流沙，程序年华</p>
-</div>
-
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
-
-<nav class="site-nav">
-    <ul id="menu" class="menu">
-      
-      
-        <li class="menu-item ">
-          <a href="http://jchenTech.github.io/" rel="section">
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页
-          </a>
-        </li>
-      
-        <li class="menu-item ">
-          <a href="http://jchenTech.github.io/categories/%E6%8A%80%E6%9C%AF/" rel="section">
-              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />技术
-          </a>
-        </li>
-      
-        <li class="menu-item ">
-          <a href="http://jchenTech.github.io/categories/%E6%84%9F%E6%83%B3/" rel="section">
-              <i class="menu-item-icon fa fa-fw fa-tint"></i> <br />感想
-          </a>
-        </li>
-      
-        <li class="menu-item ">
-          <a href="http://jchenTech.github.io/categories/%E7%AC%94%E8%AE%B0/" rel="section">
-              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />笔记
-          </a>
-        </li>
-      
-        <li class="menu-item ">
-          <a href="http://jchenTech.github.io/categories/%E6%9D%82%E8%AE%B0/" rel="section">
-              <i class="menu-item-icon fa fa-fw fa-leaf"></i> <br />杂记
-          </a>
-        </li>
-      
-        <li class="menu-item ">
-          <a href="http://jchenTech.github.io/post/" rel="section">
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档
-          </a>
-        </li>
-      
-        <li class="menu-item ">
-          <a href="http://jchenTech.github.io/about/" rel="section">
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于
-          </a>
-        </li>
-      
-      <li class="menu-item menu-item-search">
-        <a href="javascript:;" class="popup-trigger"> <i class="menu-item-icon fa fa-search fa-fw"></i> <br /> 搜索</a>
-      </li>
-    </ul>
-    <div class="site-search">
-      <div class="popup">
- <span class="search-icon fa fa-search"></span>
- <input type="text" id="local-search-input">
- <div id="local-search-result"></div>
- <span class="popup-btn-close">close</span>
-</div>
-
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://jchenTech.github.io/">
+                        jchen&#39;s blog
+                    </a>
+                
+                
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="http://jchenTech.github.io/">首页</a>
+                    
+                    <a  href="http://jchenTech.github.io/tools/" title="工具">工具</a>
+                    
+                    <a  href="http://jchenTech.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://jchenTech.github.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
     </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    <style type="text/css">
+    .post-toc {
+        position: fixed;
+        width: 200px;
+        margin-left: -210px;
+        padding: 5px 10px;
+        font-family: Athelas, STHeiti, Microsoft Yahei, serif;
+        font-size: 12px;
+        border: 1px solid rgba(0, 0, 0, .07);
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.98);
+        background-clip: padding-box;
+        -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        word-wrap: break-word;
+        white-space: nowrap;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        z-index: 999;
+        cursor: pointer;
+        max-height: 70%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+    @media print,
+    screen and (max-width:1057px) {
+        .post-toc {
+            display: none;
+        }
+    }
+</style>
+<div class="post-toc" style="position: absolute; top: 188px;">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#matplotlibpyplot和pylab">Matplotlib，pyplot和pylab？</a></li>
+    <li><a href="#numpypandas">numpy，pandas？</a></li>
+    <li><a href="#matplotlib-绘图上手">matplotlib 绘图上手</a>
+      <ul>
+        <li><a href="#安装matplotlib">安装Matplotlib</a></li>
+        <li><a href="#图的构成">图的构成</a></li>
+        <li><a href="#matplotlib绘图">matplotlib绘图</a></li>
+      </ul>
+    </li>
+    <li><a href="#可视化控制">可视化控制</a>
+      <ul>
+        <li><a href="#颜色表示">颜色表示</a></li>
+        <li><a href="#点线样式">点、线样式</a></li>
+        <li><a href="#保存图片">保存图片</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考文献">参考文献</a></li>
+  </ul>
 </nav>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var postToc = $(".post-toc");
+        if (postToc.length) {
+            var leftPos = $("#main").offset().left;
+            if(leftPos<220){
+                postToc.css({"width":leftPos-10,"margin-left":(0-leftPos)})
+            }
 
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
+            var t = postToc.offset().top - 20,
+                a = {
+                    start: {
+                        position: "absolute",
+                        top: t
+                    },
+                    process: {
+                        position: "fixed",
+                        top: 20
+                    },
+                };
+            $(window).scroll(function () {
+                var e = $(window).scrollTop();
+                e < t ? postToc.css(a.start) : postToc.css(a.process)
+            })
+        }
+    })
+</script>
+    <article class="post">
+        <header>
+            <h1 class="post-title">Python之Matplotlib绘图基础</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年4月13日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
             
-<section id="posts" class="posts-expand">
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://jchenTech.github.io/post/python/python%E4%B9%8Bmatplotlib%E7%BB%98%E5%9B%BE%E5%9F%BA%E7%A1%80/" itemprop="url">
-        Python之Matplotlib绘图基础
+            <span class="meta-category"><a href='/categories/Python'>Python</a></span>
+            
+        </div>
+        
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span>
+                    阅读</span></span>
+        </div>
+        
+        
+        <div class="clear" style="display: none">
+            <div class="toc-article">
+                <div class="toc-title">文章目录</div>
+            </div>
+        </div>
+        
+        <div class="post-content">
+            <p>Python十分适合用来进行数据分析，因为它有“四板斧”，分别是Matplotlib、NumPy、SciPy/Pandas。Matplotlib是画图工具，NumPy是矩阵运算库，SciPy是数学运算工具，Pandas是数据处理的工具。本篇文章将介绍python的绘图工具Matplotlib，它是一个风格类似Matlab的基于Python的绘图库。它提供了一整套和matlab相似的命令API，十分适合交互式地进行制图。</p>
+<p>
+        <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165616.png">
+            <img class="mx-auto" alt="matplotlib" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165616.png" />
         </a>
-      </h1>
-      <div class="post-meta">
-      <span class="post-time">
-<span class="post-meta-item-icon">
-    <i class="fa fa-calendar-o"></i>
-</span>
-<span class="post-meta-item-text">时间：</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2020-04-13">
-    2020-04-13
-</time>
-</span> 
-      
-
-  <span class="post-category" >
-  &nbsp; | &nbsp;
-  <span class="post-meta-item-icon">
-    <i class="fa fa-folder-o"></i>
-  </span>
-  <span class="post-meta-item-text">分类：</span>
-  
-    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-      <a href="http://jchenTech.github.io/categories/python" itemprop="url" rel="index">
-        <span itemprop="name">Python</span>
-      </a>
-      &nbsp; 
-    </span>
-  
-</span>
-
-
-       <span>
-&nbsp; | &nbsp;
-<span class="post-meta-item-icon">
-    <i class="fa fa-eye"></i>
-</span>
-<span class="post-meta-item-text">阅读：</span>
-<span class="leancloud-visitors-count">4640 字 ~10分钟</span>
-</span>
-      </div>
-    </header>
-    <div class="post-body" itemprop="articleBody">
-    <p>Python十分适合用来进行数据分析，因为它有“四板斧”，分别是Matplotlib、NumPy、SciPy/Pandas。Matplotlib是画图工具，NumPy是矩阵运算库，SciPy是数学运算工具，Pandas是数据处理的工具。本篇文章将介绍python的绘图工具Matplotlib，它是一个风格类似Matlab的基于Python的绘图库。它提供了一整套和matlab相似的命令API，十分适合交互式地进行制图。</p>
-
-<p><img src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165616.png" alt="matplotlib" /></p>
-
-<hr />
-
+    </p>
+<hr>
 <p>matplotlib是一个python 2D绘图库，利用它可以画出许多高质量的图像。只需几行代码即可生成直方图，条形图，饼图，散点图等。</p>
-
 <p>Matplotlib可用于Python脚本，Python和IPython shell，Jupyter笔记本，Web应用程序服务器和四个图形用户界面工具包。希望本文能帮助大家了解如何将matplotlib用于自己的可视化。</p>
-
-<h2 id="matplotlib-pyplot和pylab">Matplotlib，pyplot和pylab？</h2>
-
+<h2 id="matplotlibpyplot和pylab">Matplotlib，pyplot和pylab？</h2>
 <p>Matplotlib是整个包，pyplot是Matplotlib中的一个模块，并且pylab是一个安装在一起的模块。</p>
-
 <p>pylab和pyplot的区别是，前者将numpy导入了其命名空间中，这样会使pylab表现的和matlab更加相似。现在来说我们经常使用pyplot，因为pyplot相比pylab更加纯粹。</p>
-
-<h2 id="numpy-pandas">numpy，pandas？</h2>
-
+<h2 id="numpypandas">numpy，pandas？</h2>
 <p>matplotlib是可视化的表达，那么在图形的绘制中肯定会涉及一些数据处理。pandas和numpy则是python中最好用的两个数据分析库，使用它们，能够解决超过90%的数据分析问题。</p>
-
 <h2 id="matplotlib-绘图上手">matplotlib 绘图上手</h2>
-
 <h3 id="安装matplotlib">安装Matplotlib</h3>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">python -m pip install matplotlib</pre></div>
-<p>然后打开Jupyter Notebook（安装好 Anaconda 后，Jupyter 也已装好，在应用窗口中可以找到），我们就可以直接上手了。</p>
-
+<pre><code>python -m pip install matplotlib
+</code></pre><p>然后打开Jupyter Notebook（安装好 Anaconda 后，Jupyter 也已装好，在应用窗口中可以找到），我们就可以直接上手了。</p>
 <h3 id="图的构成">图的构成</h3>
-
-<p><img src="https://pic1.zhimg.com/v2-d260b686b5fdff0ef48735257dc261fc_b.jpg" alt="" /></p>
-
+<p>
+        <a data-fancybox="gallery" href="https://pic1.zhimg.com/v2-d260b686b5fdff0ef48735257dc261fc_b.jpg">
+            <img class="mx-auto" alt="" src="https://pic1.zhimg.com/v2-d260b686b5fdff0ef48735257dc261fc_b.jpg" />
+        </a>
+    </p>
 <p>以上图片来自matplotlib官网，它向我们展示了matplotlib的图的构成元素。</p>
-
 <p>大多数元素都比较好理解：</p>
-
 <p>坐标轴(axis)、坐标轴名称(axis label)、坐标轴刻度(tick)、坐标轴刻度标签(tick label)、网格线(grid)、图例(legend)、标题(title)&hellip;&hellip;</p>
-
 <h4 id="title设置">title设置</h4>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">import matplotlib.pyplot as plt
-plt.title(&#34;title&#34;)#括号当中输入标题的名称
-plt.show()</pre></div>
-<p><img src="https://pic1.zhimg.com/v2-9c74cfcbff2d2194e7545451662b27f4_b.jpg" alt="" /></p>
-
+<pre><code>import matplotlib.pyplot as plt
+plt.title(&quot;title&quot;)#括号当中输入标题的名称
+plt.show()
+</code></pre><p>
+        <a data-fancybox="gallery" href="https://pic1.zhimg.com/v2-9c74cfcbff2d2194e7545451662b27f4_b.jpg">
+            <img class="mx-auto" alt="" src="https://pic1.zhimg.com/v2-9c74cfcbff2d2194e7545451662b27f4_b.jpg" />
+        </a>
+    </p>
 <p>如果title是中文，matplotlib会乱码，这时需要加上下面这段代码：</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">plt.rcParams[&#39;font.sans-serif&#39;]=[&#39;SimHei&#39;]</pre></div>
-<p><img src="https://pic2.zhimg.com/v2-53f69bc322bbd2809aee87eee0b1d3d9_b.jpg" alt="" /></p>
-
+<pre><code>plt.rcParams['font.sans-serif']=['SimHei']
+</code></pre><p>
+        <a data-fancybox="gallery" href="https://pic2.zhimg.com/v2-53f69bc322bbd2809aee87eee0b1d3d9_b.jpg">
+            <img class="mx-auto" alt="" src="https://pic2.zhimg.com/v2-53f69bc322bbd2809aee87eee0b1d3d9_b.jpg" />
+        </a>
+    </p>
 <h4 id="figure对象">Figure对象</h4>
-
 <p>在matplotlib中，整个图像为一个Figure对象。在Figure对象中可以包含一个或者多个Axes对象。每个Axes(ax)对象都是一个拥有自己坐标系统的<strong>绘图区域</strong>。</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">plt.figure(figsize=(6, 3))
+<pre><code>plt.figure(figsize=(6, 3))
 plt.plot(6, 3)
 plt.plot(3, 3 * 2)
-plt.show()</pre></div>
-<p><img src="https://pic3.zhimg.com/v2-757ecd9bde16cf561c9e4056c1de4eae_b.jpg" alt="" /></p>
-
+plt.show()
+</code></pre><p>
+        <a data-fancybox="gallery" href="https://pic3.zhimg.com/v2-757ecd9bde16cf561c9e4056c1de4eae_b.jpg">
+            <img class="mx-auto" alt="" src="https://pic3.zhimg.com/v2-757ecd9bde16cf561c9e4056c1de4eae_b.jpg" />
+        </a>
+    </p>
 <h4 id="坐标轴及标签">坐标轴及标签</h4>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">plt.xlim(0,6) #x轴坐标轴
+<pre><code>plt.xlim(0,6) #x轴坐标轴
 plt.ylim((0, 3))#y轴坐标轴
-plt.xlabel(&#39;X&#39;)#x轴标签
-plt.ylabel(&#39;Y&#39;)#y轴标签
-plt.show()</pre></div>
-<p><img src="https://pic1.zhimg.com/v2-44e1b181a7ced1747639e4004bf4c5e4_b.jpg" alt="" /></p>
-
+plt.xlabel('X')#x轴标签
+plt.ylabel('Y')#y轴标签
+plt.show()
+</code></pre><p>
+        <a data-fancybox="gallery" href="https://pic1.zhimg.com/v2-44e1b181a7ced1747639e4004bf4c5e4_b.jpg">
+            <img class="mx-auto" alt="" src="https://pic1.zhimg.com/v2-44e1b181a7ced1747639e4004bf4c5e4_b.jpg" />
+        </a>
+    </p>
 <p>如果需要将数字设为负数，也可能出现乱码的情况，这时候可以加下面的代码：</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">plt.rcParams[&#39;axes.unicode_minus&#39;]=False</pre></div>
-<p><img src="https://pic4.zhimg.com/v2-82778a67b3a9d0081852c9c46b30597b_b.jpg" alt="" /></p>
-
+<pre><code>plt.rcParams['axes.unicode_minus']=False
+</code></pre><p>
+        <a data-fancybox="gallery" href="https://pic4.zhimg.com/v2-82778a67b3a9d0081852c9c46b30597b_b.jpg">
+            <img class="mx-auto" alt="" src="https://pic4.zhimg.com/v2-82778a67b3a9d0081852c9c46b30597b_b.jpg" />
+        </a>
+    </p>
 <h4 id="设置label和legend">设置label和legend</h4>
-
 <p>设置 label 和 legend 的目的就是为了区分出每个数据对应的图形名称,legend的loc参数用于设置图例位置。</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">plt.plot(2, 3, label=&#34;123&#34;)#第一个label
-plt.plot(2, 3* 2, label=&#34;456&#34;)#第二个label
-plt.legend(loc=&#39;best&#39;)#图列位置，可选best，center等
-plt.show()</pre></div>
-<p><img src="https://pic3.zhimg.com/v2-c5daccacab7f146466e666f8cc40bbfa_b.jpg" alt="" /></p>
-
+<pre><code>plt.plot(2, 3, label=&quot;123&quot;)#第一个label
+plt.plot(2, 3* 2, label=&quot;456&quot;)#第二个label
+plt.legend(loc='best')#图列位置，可选best，center等
+plt.show()
+</code></pre><p>
+        <a data-fancybox="gallery" href="https://pic3.zhimg.com/v2-c5daccacab7f146466e666f8cc40bbfa_b.jpg">
+            <img class="mx-auto" alt="" src="https://pic3.zhimg.com/v2-c5daccacab7f146466e666f8cc40bbfa_b.jpg" />
+        </a>
+    </p>
 <h4 id="添加注释">添加注释</h4>
-
 <p>有时候我们需要对特定的点进行标注，我们可以使用 plt.annotate 函数来实现:</p>
-
-<p>s: 注释信息内容<br />
-xy:箭头点所在的坐标位置<br />
+<p>s: 注释信息内容<br>
+xy:箭头点所在的坐标位置<br>
 xytext:注释内容的坐标位置</p>
-
 <p>arrowprops：设置指向箭头的参数</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">x=np.linspace(0,10,200)#从0到10之间等距产生200个值
+<pre><code>x=np.linspace(0,10,200)#从0到10之间等距产生200个值
 y=np.sin(x)
 
-plt.plot(x,y,linestyle=&#39;:&#39;,color=&#39;b&#39;)
-plt.annotate(s=&#39;标记点&#39;,xy=(3,np.sin(3)),xytext=(4,-0.5),weight=&#39;bold&#39;,color=&#39;b&#39;,\arrowprops=dict(arrowstyle=&#39;-|&gt;&#39;,color=&#39;k&#39;))
-plt.show()</pre></div>
-<p><img src="https://pic4.zhimg.com/v2-04181787aa3f2d0f9451bb9be706b74f_b.jpg" alt="" /></p>
-
+plt.plot(x,y,linestyle=':',color='b')
+plt.annotate(s='标记点',xy=(3,np.sin(3)),xytext=(4,-0.5),weight='bold',color='b',\arrowprops=dict(arrowstyle='-|&gt;',color='k'))
+plt.show()
+</code></pre><p>
+        <a data-fancybox="gallery" href="https://pic4.zhimg.com/v2-04181787aa3f2d0f9451bb9be706b74f_b.jpg">
+            <img class="mx-auto" alt="" src="https://pic4.zhimg.com/v2-04181787aa3f2d0f9451bb9be706b74f_b.jpg" />
+        </a>
+    </p>
 <h4 id="使用子图">使用子图</h4>
-
 <p>如果需要将多张子图展示在一起，可以使用 subplot() 实现。即在调用 plot()函数之前需要先调用 subplot() 函数。该函数的第一个参数代表子图的总行数，第二个参数代表子图的总列数，第三个参数代表活跃区域。</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">ax1 = plt.subplot(2, 2, 1)
-plt.plot(x,np.sin(x), &#39;k&#39;)
+<pre><code>ax1 = plt.subplot(2, 2, 1)
+plt.plot(x,np.sin(x), 'k')
 
 ax2 = plt.subplot(2, 2, 2, sharey=ax1) # 与 ax1 共享y轴
-plt.plot(x, np.cos(x), &#39;g&#39;)
+plt.plot(x, np.cos(x), 'g')
 
 ax3 = plt.subplot(2, 2, 3)
-plt.plot(x,x, &#39;r&#39;)
+plt.plot(x,x, 'r')
 
 ax4 = plt.subplot(2, 2, 4, sharey=ax3) # 与 ax3 共享y轴
-plt.plot(x, 2*x, &#39;y&#39;)</pre></div>
-<p><img src="https://pic3.zhimg.com/v2-a31c13b45edb08bf1bf3ded74a8359aa_b.jpg" alt="" /></p>
-
+plt.plot(x, 2*x, 'y')
+</code></pre><p>
+        <a data-fancybox="gallery" href="https://pic3.zhimg.com/v2-a31c13b45edb08bf1bf3ded74a8359aa_b.jpg">
+            <img class="mx-auto" alt="" src="https://pic3.zhimg.com/v2-a31c13b45edb08bf1bf3ded74a8359aa_b.jpg" />
+        </a>
+    </p>
 <h3 id="matplotlib绘图">matplotlib绘图</h3>
-
 <p>matplotlib画图可以总结为3个步骤：获取数据——画出基本图形——设置细节。获取的数据一般包括横坐标和纵坐标的数据，这个数据可以是读取的，也可以自己生成，本文为了方便演示，使用numpy和pandas生成随机数。</p>
-
 <p>matplotlib所提供的图形非常丰富，除了基本的柱状图、饼图、散点图等，还提供了极坐标图、3D图等高级图形，并且你可以自由选择和组合。每个图形函数下都有许多参数可设置，matplotlib提供的不仅仅是图形，还有更为精细的图像表达，你可以通过细节的设置来丰富你的可视化。</p>
-
 <h4 id="bar-柱状图">bar 柱状图</h4>
-
 <p>生成一个单系列的柱状图比较简单，只要确定x轴及y轴的数据，利用bar（）函数就能生成：</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">x = np.arange(10)
+<pre><code>x = np.arange(10)
 y = np.random.randint(0,20,10)
 plt.bar(x, y)
-plt.show()</pre></div>
-<p><img src="https://pic4.zhimg.com/v2-259129dd7b7e68b4fe441e5cc467ae4b_b.jpg" alt="" /></p>
-
+plt.show()
+</code></pre><p>
+        <a data-fancybox="gallery" href="https://pic4.zhimg.com/v2-259129dd7b7e68b4fe441e5cc467ae4b_b.jpg">
+            <img class="mx-auto" alt="" src="https://pic4.zhimg.com/v2-259129dd7b7e68b4fe441e5cc467ae4b_b.jpg" />
+        </a>
+    </p>
 <p>除了单系列柱状图，matplotlib还提供了其它类型的柱状图，如多系列柱状图，堆叠图，水平向的条纹图等。plt.plot()适用于基本图表的绘制，kind可选类型有线形图、柱状图、密度图、堆叠图、面积图等，以横纵坐标两个维度为主。grid是显示网格，colormap是颜色展示，括号中可填颜色参数，如不填则会展示默认颜色。</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># 多系列柱状图
-df = pd.DataFrame(np.random.rand(10, 3), columns = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;])
-df.plot(kind = &#39;bar&#39;， grid = True, colormap = &#39;summer_r&#39;)</pre></div>
-<p><img src="https://pic3.zhimg.com/v2-94abf2bee173ab06eea65f8b9e1ce212_b.jpg" alt="" /></p>
-
+<pre><code># 多系列柱状图
+df = pd.DataFrame(np.random.rand(10, 3), columns = ['a', 'b', 'c'])
+df.plot(kind = 'bar'， grid = True, colormap = 'summer_r')
+</code></pre><p>
+        <a data-fancybox="gallery" href="https://pic3.zhimg.com/v2-94abf2bee173ab06eea65f8b9e1ce212_b.jpg">
+            <img class="mx-auto" alt="" src="https://pic3.zhimg.com/v2-94abf2bee173ab06eea65f8b9e1ce212_b.jpg" />
+        </a>
+    </p>
 <p>想要实现堆叠效果，一定要加上stacked=true，否则输出图形就是一般的柱状图。</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># 多系列堆叠图
-df.plot(kind = &#39;bar&#39;,  grid = True, colormap = &#39;Blues_r&#39;, stacked = True)</pre></div>
-<p><img src="https://pic1.zhimg.com/v2-88eb42f1e0d463e89ecbd9adead2723c_b.jpg" alt="" /></p>
-
+<pre><code># 多系列堆叠图
+df.plot(kind = 'bar',  grid = True, colormap = 'Blues_r', stacked = True)
+</code></pre><p>
+        <a data-fancybox="gallery" href="https://pic1.zhimg.com/v2-88eb42f1e0d463e89ecbd9adead2723c_b.jpg">
+            <img class="mx-auto" alt="" src="https://pic1.zhimg.com/v2-88eb42f1e0d463e89ecbd9adead2723c_b.jpg" />
+        </a>
+    </p>
 <p>水平向的条形图调用的是barh（）:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># 水平向
-df.plot.barh( grid = True, colormap = &#39;BuGn_r&#39;)</pre></div>
-<p><img src="https://pic3.zhimg.com/v2-1ec88245e3a074d4bf682d9cc2d39426_b.jpg" alt="" /></p>
-
+<pre><code># 水平向
+df.plot.barh( grid = True, colormap = 'BuGn_r')
+</code></pre><p>
+        <a data-fancybox="gallery" href="https://pic3.zhimg.com/v2-1ec88245e3a074d4bf682d9cc2d39426_b.jpg">
+            <img class="mx-auto" alt="" src="https://pic3.zhimg.com/v2-1ec88245e3a074d4bf682d9cc2d39426_b.jpg" />
+        </a>
+    </p>
 <p>与垂直柱状图一样，如果想要柱状图实现堆叠效果，则加上：stacked=true</p>
-
-<p><img src="https://pic1.zhimg.com/v2-7955e1aa759c6c22cfeac3b8c85275b4_b.jpg" alt="" /></p>
-
+<p>
+        <a data-fancybox="gallery" href="https://pic1.zhimg.com/v2-7955e1aa759c6c22cfeac3b8c85275b4_b.jpg">
+            <img class="mx-auto" alt="" src="https://pic1.zhimg.com/v2-7955e1aa759c6c22cfeac3b8c85275b4_b.jpg" />
+        </a>
+    </p>
 <h4 id="scatter-散点图">scatter 散点图</h4>
-
 <p>绘制散点图，主要用到plt.scatter（）这个函数。</p>
-
 <p>x,y是必填参数；</p>
-
 <p>c(颜色：b&ndash;blue, c&ndash;cyan,g&ndash;green,k&ndash;black,m&ndash;magenta,r&ndash;red,w&ndash;white,y&ndash;yellow)；</p>
-
 <p>s：控制点的大小，默认为20)；</p>
-
 <p>marker：指定散点图点的形状，默认为圆形；</p>
-
 <p>alpha：指定对象的透明度；</p>
-
 <p>&hellip;&hellip;</p>
-
 <p>绘制简单的散点图：</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">x = np.random.rand(10)
+<pre><code>x = np.random.rand(10)
 y = np.random.rand(10)
 plt.scatter(x,y)
-plt.show()</pre></div>
-<p><img src="https://pic4.zhimg.com/v2-98bc4d4387faa115aba7b90b6c5d13ab_b.jpg" alt="" /></p>
-
+plt.show()
+</code></pre><p>
+        <a data-fancybox="gallery" href="https://pic4.zhimg.com/v2-98bc4d4387faa115aba7b90b6c5d13ab_b.jpg">
+            <img class="mx-auto" alt="" src="https://pic4.zhimg.com/v2-98bc4d4387faa115aba7b90b6c5d13ab_b.jpg" />
+        </a>
+    </p>
 <p>进行简单的一些参数设置：</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">x = np.random.rand(50)
+<pre><code>x = np.random.rand(50)
 y = np.random.rand(50)
 colors = np.random.rand(50)
 s = (30 * np.random.rand(n))**2
 plt.scatter(x, y,s, c=colors, alpha=0.5)
-plt.show()</pre></div>
-<p><img src="https://pic2.zhimg.com/v2-15e41d2a734f7919d2a5553c089e8465_b.jpg" alt="" /></p>
-
-<p>散点矩阵图scatter_matrix，diagonal = &ldquo;为每个指标的频率图，有kde及hist两个参数可选；range_padding 是图像在x轴，y轴原点附近的留白，值越大，图像离坐标原点的距离越大。</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">df = pd.DataFrame(np.random.randn(100, 4), columns = list(&#39;abcd&#39;))
-pd.scatter_matrix(df, figsize = (8,6),marker = &#39;o&#39;,diagonal = &#39;kde&#39;,alpha = 0.4,range_padding = 0.05)</pre></div>
-<p><img src="https://pic1.zhimg.com/v2-3f642c4fc038dda767c12c56e1863ab0_b.jpg" alt="" /></p>
-
+plt.show()
+</code></pre><p>
+        <a data-fancybox="gallery" href="https://pic2.zhimg.com/v2-15e41d2a734f7919d2a5553c089e8465_b.jpg">
+            <img class="mx-auto" alt="" src="https://pic2.zhimg.com/v2-15e41d2a734f7919d2a5553c089e8465_b.jpg" />
+        </a>
+    </p>
+<p>散点矩阵图scatter_matrix，diagonal = &lsquo;&lsquo;为每个指标的频率图，有kde及hist两个参数可选；range_padding 是图像在x轴，y轴原点附近的留白，值越大，图像离坐标原点的距离越大。</p>
+<pre><code>df = pd.DataFrame(np.random.randn(100, 4), columns = list('abcd'))
+pd.scatter_matrix(df, figsize = (8,6),marker = 'o',diagonal = 'kde',alpha = 0.4,range_padding = 0.05)
+</code></pre><p>
+        <a data-fancybox="gallery" href="https://pic1.zhimg.com/v2-3f642c4fc038dda767c12c56e1863ab0_b.jpg">
+            <img class="mx-auto" alt="" src="https://pic1.zhimg.com/v2-3f642c4fc038dda767c12c56e1863ab0_b.jpg" />
+        </a>
+    </p>
 <h4 id="pie-饼图">pie 饼图</h4>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">matplotlib中饼图的实现用的是pie（）函数，必须输入的参数是饼图每个部分的值。
+<pre><code>matplotlib中饼图的实现用的是pie（）函数，必须输入的参数是饼图每个部分的值。
 x = np.random.randint(1, 10, 3)
 plt.pie(x)
-plt.show()</pre></div>
-<p><img src="https://pic4.zhimg.com/v2-a678a6d7bca177c73df04cf93ea17c0f_b.jpg" alt="" /></p>
-
+plt.show()
+</code></pre><p>
+        <a data-fancybox="gallery" href="https://pic4.zhimg.com/v2-a678a6d7bca177c73df04cf93ea17c0f_b.jpg">
+            <img class="mx-auto" alt="" src="https://pic4.zhimg.com/v2-a678a6d7bca177c73df04cf93ea17c0f_b.jpg" />
+        </a>
+    </p>
 <p>部分参数解释:</p>
-
 <p>使用labels为饼图加标签；</p>
-
 <p>autopct 控制饼图内百分比设置</p>
-
-<p>&rsquo;%1.1f&rsquo;指小数点前后位数(没有用空格补齐)，</p>
-
+<p>&lsquo;%1.1f&rsquo;指小数点前后位数(没有用空格补齐)，</p>
 <p>shadow是在饼图下画一个阴影，False即不画</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">sizes = [2,5,12]
-labels = [&#39;娱乐&#39;,&#39;育儿&#39;,&#39;饮食&#39;]
-plt.pie(sizes,labels=labels,autopct=&#39;%1.1f%%&#39;,shadow=False,startangle=100)
-plt.show()</pre></div>
-<p><img src="https://pic3.zhimg.com/v2-70f8e7e1fe94b314c5ca0c55fca94f32_b.jpg" alt="" /></p>
-
+<pre><code>sizes = [2,5,12]
+labels = ['娱乐','育儿','饮食']
+plt.pie(sizes,labels=labels,autopct='%1.1f%%',shadow=False,startangle=100)
+plt.show()
+</code></pre><p>
+        <a data-fancybox="gallery" href="https://pic3.zhimg.com/v2-70f8e7e1fe94b314c5ca0c55fca94f32_b.jpg">
+            <img class="mx-auto" alt="" src="https://pic3.zhimg.com/v2-70f8e7e1fe94b314c5ca0c55fca94f32_b.jpg" />
+        </a>
+    </p>
 <h4 id="hist-直方图">hist 直方图</h4>
-
 <p>直方图绘制为hist（）函数，参数如下：</p>
-
 <p>data:必选参数，绘图数据</p>
-
 <p>bins:直方图的长条形数目，可选项，默认为10</p>
-
 <p>normed:是否将得到的直方图向量归一化，可选项，默认为0，代表不归一化，显示频数。normed=1，表示归一化，显示频率。</p>
-
 <p>facecolor:长条形的颜色</p>
-
 <p>edgecolor:长条形边框的颜色</p>
-
 <p>alpha:透明度</p>
-
 <p>&hellip;&hellip;</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">s = pd.Series(np.random.randn(1000))
-s.hist(bins = 20,histtype = &#39;bar&#39;,align = &#39;mid&#39;,orientation = &#39;vertical&#39;,alpha = 0.5,normed = True)</pre></div>
-<p><img src="https://pic4.zhimg.com/v2-f9db256e0bfbe0f5d52b6fb77753a7b3_b.jpg" alt="" /></p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">密度图，加上：
+<pre><code>s = pd.Series(np.random.randn(1000))
+s.hist(bins = 20,histtype = 'bar',align = 'mid',orientation = 'vertical',alpha = 0.5,normed = True)
+</code></pre><p>
+        <a data-fancybox="gallery" href="https://pic4.zhimg.com/v2-f9db256e0bfbe0f5d52b6fb77753a7b3_b.jpg">
+            <img class="mx-auto" alt="" src="https://pic4.zhimg.com/v2-f9db256e0bfbe0f5d52b6fb77753a7b3_b.jpg" />
+        </a>
+    </p>
+<pre><code>密度图，加上：
 
-s.plot(kind = &#39;kde&#39;, style = &#39;k--&#39;)</pre></div>
-<p><img src="https://pic2.zhimg.com/v2-fb89f767f7ef51ad734607f814e81cc9_b.jpg" alt="" /></p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">柱状图能够实现堆叠，直方图也能实现堆叠,重点语句同样是stacked = True
+s.plot(kind = 'kde', style = 'k--')
+</code></pre><p>
+        <a data-fancybox="gallery" href="https://pic2.zhimg.com/v2-fb89f767f7ef51ad734607f814e81cc9_b.jpg">
+            <img class="mx-auto" alt="" src="https://pic2.zhimg.com/v2-fb89f767f7ef51ad734607f814e81cc9_b.jpg" />
+        </a>
+    </p>
+<pre><code>柱状图能够实现堆叠，直方图也能实现堆叠,重点语句同样是stacked = True
 
-df = pd.DataFrame({&#39;a&#39;:np.random.randn(500) + 1, &#39;b&#39;:np.random.randn(500),
-&#39;c&#39;:np.random.randn(500) - 1, &#39;d&#39;:np.random.randn(500)},
-columns = list(&#39;abcd&#39;))
-df.plot.hist(stacked = True,bins = 10,colormap = &#39;Blues_r&#39;,alpha = 0.5,grid = True)</pre></div>
-<p><img src="https://pic2.zhimg.com/v2-fba7f9ce9b49be7b44b935f679a860c1_b.jpg" alt="" /></p>
-
+df = pd.DataFrame({'a':np.random.randn(500) + 1, 'b':np.random.randn(500),
+'c':np.random.randn(500) - 1, 'd':np.random.randn(500)},
+columns = list('abcd'))
+df.plot.hist(stacked = True,bins = 10,colormap = 'Blues_r',alpha = 0.5,grid = True)
+</code></pre><p>
+        <a data-fancybox="gallery" href="https://pic2.zhimg.com/v2-fba7f9ce9b49be7b44b935f679a860c1_b.jpg">
+            <img class="mx-auto" alt="" src="https://pic2.zhimg.com/v2-fba7f9ce9b49be7b44b935f679a860c1_b.jpg" />
+        </a>
+    </p>
 <h4 id="polar-极坐标图">polar 极坐标图</h4>
-
 <p>matplotlib的pyplot子库提供了绘制极坐标图的方法。在调用subplot()创建子图时通过设置projection=&lsquo;polar&rsquo;,便可创建一个极坐标子图，然后调用plot()在极坐标子图中绘图。</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">ax1 = plt.subplot(121, projection=&#39;polar&#39;)</pre></div>
-<p><img src="https://pic3.zhimg.com/v2-fb51e0fb313f5423cd54a51fa2d1a166_b.jpg" alt="" /></p>
-
+<pre><code>ax1 = plt.subplot(121, projection='polar')
+</code></pre><p>
+        <a data-fancybox="gallery" href="https://pic3.zhimg.com/v2-fb51e0fb313f5423cd54a51fa2d1a166_b.jpg">
+            <img class="mx-auto" alt="" src="https://pic3.zhimg.com/v2-fb51e0fb313f5423cd54a51fa2d1a166_b.jpg" />
+        </a>
+    </p>
 <p>部分参数意义：</p>
-
 <p>theta：角度数据</p>
-
 <p>radii ：极径数据</p>
-
 <p>theta_direction方法用于设置极坐标的正方向</p>
-
 <p>theta_zero_location方法用于设置极坐标0°位置，0°可设置在八个位置，分别为N, NW, W, SW, S, SE, E, NE</p>
-
 <p>thetagrids方法用于设置极坐标角度网格线显示</p>
-
 <p>theta_offset方法用于设置角度偏离</p>
-
 <p>&hellip;&hellip;</p>
-
 <p>极区图：</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">N = 20
+<pre><code>N = 20
 theta = np.linspace(0, 2 * np.pi, N, endpoint = False)
 radii = 10 * np.random.rand(N)
 width = np.pi / 4 * np.random.rand(N)
 
-ax = plt.subplot(111, projection = &#39;polar&#39;)
-bars = ax.bar(theta, radii, width = width, bottom = 0.0)</pre></div>
-<p><img src="https://pic4.zhimg.com/v2-13d463c2d65bd4ebd783e73c16ec88eb_b.jpg" alt="" /></p>
-
+ax = plt.subplot(111, projection = 'polar')
+bars = ax.bar(theta, radii, width = width, bottom = 0.0)
+</code></pre><p>
+        <a data-fancybox="gallery" href="https://pic4.zhimg.com/v2-13d463c2d65bd4ebd783e73c16ec88eb_b.jpg">
+            <img class="mx-auto" alt="" src="https://pic4.zhimg.com/v2-13d463c2d65bd4ebd783e73c16ec88eb_b.jpg" />
+        </a>
+    </p>
 <p>极散点图：</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">theta = np.arange(0,2*np.pi, np.pi/4) # 数据角度
+<pre><code>theta = np.arange(0,2*np.pi, np.pi/4) # 数据角度
 r = np.arange(1,9,1) #数据极径
 area = 100*np.arange(1,9,1) # 数据散点面积
 colors = theta
-ax2 = plt.subplot(111,projection=&#39;polar&#39;)
-ax2.scatter(theta, r, c=colors, s=area, cmap=&#39;hsv&#39;, alpha =0.75)</pre></div>
-<p><img src="https://pic1.zhimg.com/v2-fa03b2491032831aa78f0fc4d8a2dffc_b.jpg" alt="" /></p>
-
+ax2 = plt.subplot(111,projection='polar')
+ax2.scatter(theta, r, c=colors, s=area, cmap='hsv', alpha =0.75)
+</code></pre><p>
+        <a data-fancybox="gallery" href="https://pic1.zhimg.com/v2-fa03b2491032831aa78f0fc4d8a2dffc_b.jpg">
+            <img class="mx-auto" alt="" src="https://pic1.zhimg.com/v2-fa03b2491032831aa78f0fc4d8a2dffc_b.jpg" />
+        </a>
+    </p>
 <h4 id="boxplot-箱型图">boxplot 箱型图</h4>
-
 <p>绘制箱线图，用plt.boxplot()这个函数。箱型图是利用数据中的五个统计量：最小值、第一四分位数、中位数、第三四分位数与最大值来描述数据的一种方法。它也可以粗略地看出数据是否具有有对称性，分布的分散程度等信息，特别可以用于对几个样本的比较。</p>
-
-<p><img src="https://pic3.zhimg.com/v2-2aed06ee0846456cbdf84adbf96b6216_b.jpg" alt="" /></p>
-
+<p>
+        <a data-fancybox="gallery" href="https://pic3.zhimg.com/v2-2aed06ee0846456cbdf84adbf96b6216_b.jpg">
+            <img class="mx-auto" alt="" src="https://pic3.zhimg.com/v2-2aed06ee0846456cbdf84adbf96b6216_b.jpg" />
+        </a>
+    </p>
 <p>箱线图各部分含义</p>
-
 <p>部分参数：sym：异常值的形状 ；whis：用于调节上下垂直线的长度</p>
-
 <p>生成单个箱型图：</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">np.random.seed(100)#生成随机数
+<pre><code>np.random.seed(100)#生成随机数
 data=np.random.normal(size=1000,loc=0,scale=1)
-plt.boxplot(data,sym=&#39;o&#39;,whis=1.5)
-plt.show()</pre></div>
-<p><img src="https://pic1.zhimg.com/v2-df69d30327e1affb376606033db09128_b.jpg" alt="" /></p>
-
+plt.boxplot(data,sym='o',whis=1.5)
+plt.show()
+</code></pre><p>
+        <a data-fancybox="gallery" href="https://pic1.zhimg.com/v2-df69d30327e1affb376606033db09128_b.jpg">
+            <img class="mx-auto" alt="" src="https://pic1.zhimg.com/v2-df69d30327e1affb376606033db09128_b.jpg" />
+        </a>
+    </p>
 <p>多个箱型图：</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">np.random.seed(100)#生成随机数
+<pre><code>np.random.seed(100)#生成随机数
 data=np.random.normal(size=(1000,4),loc=0,scale=1) #1000个值得4维数组
-lables = [&#39;A&#39;,&#39;B&#39;,&#39;C&#39;,&#39;D&#39;]
+lables = ['A','B','C','D']
 plt.boxplot(data,labels=lables)
-plt.show()</pre></div>
-<p><img src="https://pic1.zhimg.com/v2-b9d9728c5376c42182b8807dd0bd8904_b.jpg" alt="" /></p>
-
+plt.show()
+</code></pre><p>
+        <a data-fancybox="gallery" href="https://pic1.zhimg.com/v2-b9d9728c5376c42182b8807dd0bd8904_b.jpg">
+            <img class="mx-auto" alt="" src="https://pic1.zhimg.com/v2-b9d9728c5376c42182b8807dd0bd8904_b.jpg" />
+        </a>
+    </p>
 <p>箱型图也可以是横向的，加上vert=False即可：</p>
-
-<p><img src="https://pic2.zhimg.com/v2-186bef80b453202251bda408167139fd_b.jpg" alt="" /></p>
-
+<p>
+        <a data-fancybox="gallery" href="https://pic2.zhimg.com/v2-186bef80b453202251bda408167139fd_b.jpg">
+            <img class="mx-auto" alt="" src="https://pic2.zhimg.com/v2-186bef80b453202251bda408167139fd_b.jpg" />
+        </a>
+    </p>
 <h4 id="heatmap-热图">heatmap 热图</h4>
-
 <p>热图是数据分析的常用方法，通过色差、亮度来展示数据的差异、易于理解。matplotlib中生成热图是调用的函数imshow（）。</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">X = [[1,2],[3,4],[5,6]]
+<pre><code>X = [[1,2],[3,4],[5,6]]
 plt.imshow(X)
-plt.show()</pre></div>
-<p><img src="https://pic1.zhimg.com/v2-8fade0b6a1485c6ba59eac007216003c_b.jpg" alt="" /></p>
-
+plt.show()
+</code></pre><p>
+        <a data-fancybox="gallery" href="https://pic1.zhimg.com/v2-8fade0b6a1485c6ba59eac007216003c_b.jpg">
+            <img class="mx-auto" alt="" src="https://pic1.zhimg.com/v2-8fade0b6a1485c6ba59eac007216003c_b.jpg" />
+        </a>
+    </p>
 <p>增加颜色类标的代码是plt.colorbar()：</p>
-
-<p><img src="https://pic1.zhimg.com/v2-072b7476da718b61882799a0271763d8_b.jpg" alt="" /></p>
-
+<p>
+        <a data-fancybox="gallery" href="https://pic1.zhimg.com/v2-072b7476da718b61882799a0271763d8_b.jpg">
+            <img class="mx-auto" alt="" src="https://pic1.zhimg.com/v2-072b7476da718b61882799a0271763d8_b.jpg" />
+        </a>
+    </p>
 <h2 id="可视化控制">可视化控制</h2>
-
 <p>前面我们用matplotlib绘制了许多不同类型的图像，对于基本的数据分析已经完全掌握。但在一些细节的调节、颜色、美观度上我们没有做过多强调，matplotlib所提供的不仅仅是图形的基本绘制，它也提供了让图像展示更精细的工具。</p>
-
 <h3 id="颜色表示">颜色表示</h3>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">八种内件颜色缩写：
+<pre><code>八种内件颜色缩写：
 b:blue
 g:green
 r:red
@@ -508,317 +593,400 @@ w:white
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-y=np.arange(1,5)</pre></div>
-<h4 id="简单颜色展示">简单颜色展示</h4>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">plt.plot(y,color=&#39;b&#39;)</pre></div>
-<h4 id="灰色度">灰色度</h4>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">plt.plot(y+1,color=&#39;0.5&#39;) #灰色 程度为0.5</pre></div>
-<h4 id="十六进制颜色表示">十六进制颜色表示</h4>
-
+y=np.arange(1,5)
+</code></pre><h4 id="简单颜色展示">简单颜色展示</h4>
+<pre><code>plt.plot(y,color='b')
+</code></pre><h4 id="灰色度">灰色度</h4>
+<pre><code>plt.plot(y+1,color='0.5') #灰色 程度为0.5
+</code></pre><h4 id="十六进制颜色表示">十六进制颜色表示</h4>
 <p>十六进制颜色代码可通过百度颜色代码（对照表查找）</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">plt.plot(y+2,color=&#39;#FFEC8B&#39;)</pre></div>
-<h4 id="rgb-表示">RGB 表示</h4>
-
+<pre><code>plt.plot(y+2,color='#FFEC8B')
+</code></pre><h4 id="rgb-表示">RGB 表示</h4>
 <p>此时注意要将R，G，B每个值除以255，使其属于0~1之间，如下为红色:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">plt.plot(y+3,color=(1,0,0))</pre></div>
-<p>效果图：</p>
-
-<p><img src="https://pic4.zhimg.com/v2-c906c3d5f97cbaa0ce6c3f49a8569e97_b.jpg" alt="" /></p>
-
-<h3 id="点-线样式">点、线样式</h3>
-
+<pre><code>plt.plot(y+3,color=(1,0,0))
+</code></pre><p>效果图：</p>
+<p>
+        <a data-fancybox="gallery" href="https://pic4.zhimg.com/v2-c906c3d5f97cbaa0ce6c3f49a8569e97_b.jpg">
+            <img class="mx-auto" alt="" src="https://pic4.zhimg.com/v2-c906c3d5f97cbaa0ce6c3f49a8569e97_b.jpg" />
+        </a>
+    </p>
+<h3 id="点线样式">点、线样式</h3>
 <h4 id="四种线型">四种线型</h4>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">plt.plot(y,&#39;-&#39;) #实线
-plt.plot(y+1,&#39;--&#39;)#虚线
-plt.plot(y+2,&#39;-.&#39;)#点划线
-plt.plot(y+3,&#39;:&#39;)#点线</pre></div>
-<p><img src="https://pic1.zhimg.com/v2-b9e5b4fecb0caa8eb157b57643d9af40_b.jpg" alt="" /></p>
-
+<pre><code>plt.plot(y,'-') #实线
+plt.plot(y+1,'--')#虚线
+plt.plot(y+2,'-.')#点划线
+plt.plot(y+3,':')#点线
+</code></pre><p>
+        <a data-fancybox="gallery" href="https://pic1.zhimg.com/v2-b9e5b4fecb0caa8eb157b57643d9af40_b.jpg">
+            <img class="mx-auto" alt="" src="https://pic1.zhimg.com/v2-b9e5b4fecb0caa8eb157b57643d9af40_b.jpg" />
+        </a>
+    </p>
 <h4 id="点样式">点样式</h4>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">plt.plot(y,&#39;o&#39;)
-plt.plot(y+1,&#39;D&#39;)
-plt.plot(y+2,&#39;^&#39;)
-plt.plot(y+3,&#39;p&#39;)</pre></div>
-<p><img src="https://pic2.zhimg.com/v2-6960c4fce9184c6b4ab2ae79d5f87f51_b.jpg" alt="" /></p>
-
+<pre><code>plt.plot(y,'o')
+plt.plot(y+1,'D')
+plt.plot(y+2,'^')
+plt.plot(y+3,'p')
+</code></pre><p>
+        <a data-fancybox="gallery" href="https://pic2.zhimg.com/v2-6960c4fce9184c6b4ab2ae79d5f87f51_b.jpg">
+            <img class="mx-auto" alt="" src="https://pic2.zhimg.com/v2-6960c4fce9184c6b4ab2ae79d5f87f51_b.jpg" />
+        </a>
+    </p>
 <p>指定marker时，会画出线段：</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">plt.plot(y,marker=&#39;o&#39;)
-plt.plot(y+1,marker=&#39;D&#39;)</pre></div>
-<p><img src="https://pic1.zhimg.com/v2-9dc5f6e56ccef371a54794b12901b8ec_b.jpg" alt="" /></p>
-
+<pre><code>plt.plot(y,marker='o')
+plt.plot(y+1,marker='D')
+</code></pre><p>
+        <a data-fancybox="gallery" href="https://pic1.zhimg.com/v2-9dc5f6e56ccef371a54794b12901b8ec_b.jpg">
+            <img class="mx-auto" alt="" src="https://pic1.zhimg.com/v2-9dc5f6e56ccef371a54794b12901b8ec_b.jpg" />
+        </a>
+    </p>
 <h4 id="样式字符串">样式字符串</h4>
-
 <p>将颜色，点型，线型写成一个字符串，如:gx：，mo&ndash;等</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">plt.plot(y,&#39;gx:&#39;)
-plt.plot(y+1,&#39;mo--&#39;)
-plt.plot(y+2,&#39;bp-&#39;)</pre></div>
-<p><img src="https://pic4.zhimg.com/v2-f080941f1b88bdeabbbf71b344163cf7_b.jpg" alt="" /></p>
-
+<pre><code>plt.plot(y,'gx:')
+plt.plot(y+1,'mo--')
+plt.plot(y+2,'bp-')
+</code></pre><p>
+        <a data-fancybox="gallery" href="https://pic4.zhimg.com/v2-f080941f1b88bdeabbbf71b344163cf7_b.jpg">
+            <img class="mx-auto" alt="" src="https://pic4.zhimg.com/v2-f080941f1b88bdeabbbf71b344163cf7_b.jpg" />
+        </a>
+    </p>
 <h3 id="保存图片">保存图片</h3>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">plt.savefig() # 保存</pre></div>
-<p>关于 matplotlib，基本的图形绘制到这里就差不多了，虽然只是最常规的图形，但是足够让你开始尝试探索数据，快速绘图并获得分析结果。</p>
-
+<pre><code>plt.savefig() # 保存
+</code></pre><p>关于 matplotlib，基本的图形绘制到这里就差不多了，虽然只是最常规的图形，但是足够让你开始尝试探索数据，快速绘图并获得分析结果。</p>
 <h2 id="参考文献">参考文献</h2>
-
 <ul>
 <li><a href="https://matplotlib.org/">matplotlib官方文档</a></li>
 <li><a href="https://zhuanlan.zhihu.com/p/70835617">十分钟|matplotlib上手，开启你的python可视化</a></li>
 </ul>
-    </div>
-    <footer class="post-footer">
-     
- 
-<div class="post-tags">     
-     
-    <a href="http://jchenTech.github.io/tags/python" rel="tag" title="Python">#Python#</a>
-    
-    <a href="http://jchenTech.github.io/tags/matplotlib" rel="tag" title="Matplotlib">#Matplotlib#</a>
-    
-</div>
-
-
-
-     <div class="post-nav">
-    <div class="post-nav-next post-nav-item">
-    
-        <a href="http://jchenTech.github.io/post/c&#43;&#43;/c&#43;&#43;-primer-plus-%E7%AC%AC16%E7%AB%A0string%E7%B1%BB%E5%92%8C%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/" rel="next" title="C&#43;&#43; primer plus 第16章String类和标准模板库">
-        <i class="fa fa-chevron-left"></i> C&#43;&#43; primer plus 第16章String类和标准模板库
-        </a>
-    
-    </div>
-
-    <div class="post-nav-prev post-nav-item">
-    
-        <a href="http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E7%BD%91%E7%BB%9C%E6%8C%96%E6%8E%98%E5%8F%8A%E5%85%B6%E7%9B%B8%E5%85%B3%E5%BA%94%E7%94%A8/" rel="prev" title="网络挖掘及其相关应用">
-        网络挖掘及其相关应用 <i class="fa fa-chevron-right"></i>
-        </a>
-    
-    </div>
-</div>
-      
-     
-     
-     
-
-
-
-
-    </footer>
-  </article>
-</section>
-
-          </div>
         </div>
-        <div class="sidebar-toggle">
-  <div class="sidebar-toggle-line-wrap">
-    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-  </div>
-</div>
-<aside id="sidebar" class="sidebar">
-  <div class="sidebar-inner">
 
-  <ul class="sidebar-nav motion-element">
-    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-      文章目录
-    </li>
-    <li class="sidebar-nav-overview" data-target="site-overview">
-      站点概览
-    </li>
-  </ul>
-
-    <section class="site-overview sidebar-panel ">
-      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image"
-        src="http://jchenTech.github.io/img/author.jpg"
-        alt="陈建君" />
-    <p class="site-author-name" itemprop="name">陈建君</p>
-    <p class="site-description motion-element" itemprop="description"> 
-        Programmer &amp; Huster</p>
-</div>
-      <nav class="site-state motion-element">
-    <div class="site-state-item site-state-posts">
-      <a href="http://jchenTech.github.io/post/">
-        <span class="site-state-item-count">43</span>
-        <span class="site-state-item-name">日志</span>
-      </a>
-    </div>
-    <div class="site-state-item site-state-categories">    
-        <a href="http://jchenTech.github.io/categories/">      
-         
-        <span class="site-state-item-count">8</span>
         
-        <span class="site-state-item-name">分类</span>
-        
-        </a>
-    </div>
+<div class="post-archive">
+    <ul class="post-copyright">
+        <li><strong>原文作者：</strong><a rel="author" href="http://jchenTech.github.io/">jchen</a></li>
+        <li style="word-break:break-all"><strong>原文链接：</strong><a href="http://jchenTech.github.io/post/Python/python%E4%B9%8Bmatplotlib%E7%BB%98%E5%9B%BE%E5%9F%BA%E7%A1%80/">http://jchenTech.github.io/post/Python/python%E4%B9%8Bmatplotlib%E7%BB%98%E5%9B%BE%E5%9F%BA%E7%A1%80/</a></li>
+        <li><strong>版权声明：</strong>本作品采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可，非商业转载请注明出处（作者，原文链接），商业转载请联系作者获得授权。</li>
+    </ul>
+</div>
+<br/>
 
-    <div class="site-state-item site-state-tags">
-        <a href="http://jchenTech.github.io/tags/">
-         
-        <span class="site-state-item-count">37</span>
+
+
         
-        <span class="site-state-item-name">标签</span>
-        </a>
-    </div>
-</nav>
-      
-      
-<div class="links-of-author motion-element">
-    
-        <span class="links-of-author-item">
-        <a href="https://github.com/jchenTech/" target="_blank" title="GitHub">
-            <i class="fa fa-fw fa-github"></i>
-            GitHub
-        </a>
-        </span>
-    
-        <span class="links-of-author-item">
-        <a href="https://www.zhihu.com/people/lan-ling-xin-yun" target="_blank" title="知乎">
-            <i class="fa fa-fw fa-globe"></i>
-            知乎
-        </a>
-        </span>
-    
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/C&#43;&#43;/C&#43;&#43;-primer-plus-%E7%AC%AC16%E7%AB%A0String%E7%B1%BB%E5%92%8C%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/">C&#43;&#43; primer plus 第16章String类和标准模板库</a></li>
+        
+        <li><a href="/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9CRNN%E4%BB%8B%E7%BB%8D/">循环神经网络RNN介绍</a></li>
+        
+        <li><a href="/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8BR-CNN-SSPNet-Fast-R-CNN-Faster-R-CNN-YOLO-SSD/">深度学习目标检测：R-CNN, SSPNet, Fast R-CNN, Faster R-CNN, YOLO, SSD</a></li>
+        
+        <li><a href="/post/%E5%8D%9A%E5%AE%A2/hugo%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%8B%E5%BD%92%E6%A1%A3%E9%A1%B5%E9%9D%A2/">hugo博客建立归档页面</a></li>
+        
+        <li><a href="/post/%E5%8D%9A%E5%AE%A2/Hugo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/">Hugo插入图片</a></li>
+        
+    </ul>
 </div>
 
 
-      
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='/tags/Python'>Python</a></li>
+                
+                <li><a href='/tags/Matplotlib'>Matplotlib</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-      <div class="links-of-blogroll motion-element inline">
-<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5b4f2ucxar6&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;bv=35" async="async"></script>
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "your github repo"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
 </div>
 
+                    <footer id="footer">
+    <div>
+        &copy; 2020 <a href="http://jchenTech.github.io/">jchen&#39;s blog By jchen</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'GA ID', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+    <script src='/js/douban.js'></script>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='http://jchenTech.github.io/search/' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://jchenTech.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
     </section>
     
-<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-    <div class="post-toc">
-        <div class="post-toc-content"><nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#matplotlib-pyplot和pylab">Matplotlib，pyplot和pylab？</a></li>
-<li><a href="#numpy-pandas">numpy，pandas？</a></li>
-<li><a href="#matplotlib-绘图上手">matplotlib 绘图上手</a>
-<ul>
-<li><a href="#安装matplotlib">安装Matplotlib</a></li>
-<li><a href="#图的构成">图的构成</a>
-<ul>
-<li><a href="#title设置">title设置</a></li>
-<li><a href="#figure对象">Figure对象</a></li>
-<li><a href="#坐标轴及标签">坐标轴及标签</a></li>
-<li><a href="#设置label和legend">设置label和legend</a></li>
-<li><a href="#添加注释">添加注释</a></li>
-<li><a href="#使用子图">使用子图</a></li>
-</ul></li>
-<li><a href="#matplotlib绘图">matplotlib绘图</a>
-<ul>
-<li><a href="#bar-柱状图">bar 柱状图</a></li>
-<li><a href="#scatter-散点图">scatter 散点图</a></li>
-<li><a href="#pie-饼图">pie 饼图</a></li>
-<li><a href="#hist-直方图">hist 直方图</a></li>
-<li><a href="#polar-极坐标图">polar 极坐标图</a></li>
-<li><a href="#boxplot-箱型图">boxplot 箱型图</a></li>
-<li><a href="#heatmap-热图">heatmap 热图</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#可视化控制">可视化控制</a>
-<ul>
-<li><a href="#颜色表示">颜色表示</a>
-<ul>
-<li><a href="#简单颜色展示">简单颜色展示</a></li>
-<li><a href="#灰色度">灰色度</a></li>
-<li><a href="#十六进制颜色表示">十六进制颜色表示</a></li>
-<li><a href="#rgb-表示">RGB 表示</a></li>
-</ul></li>
-<li><a href="#点-线样式">点、线样式</a>
-<ul>
-<li><a href="#四种线型">四种线型</a></li>
-<li><a href="#点样式">点样式</a></li>
-<li><a href="#样式字符串">样式字符串</a></li>
-</ul></li>
-<li><a href="#保存图片">保存图片</a></li>
-</ul></li>
-<li><a href="#参考文献">参考文献</a></li>
-</ul></li>
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/Java/Java%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/" title="Java常用方法总结">Java常用方法总结</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8EJava%E5%AE%9E%E7%8E%B0/" title="十大经典排序算法总结（基于Java实现）">十大经典排序算法总结（基于Java实现）</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC10/" title="【CS61B】LEC10 Subtype Polymorphism vs. HoFs">【CS61B】LEC10 Subtype Polymorphism vs. HoFs</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC9/" title="【CS61B】LEC9 Extends, Casting, Higher Order Functions">【CS61B】LEC9 Extends, Casting, Higher Order Functions</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/Git/%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4Github%E4%B8%8A%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9/" title="如何删除Github上的文件夹">如何删除Github上的文件夹</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC8/" title="【CS61B】LEC8 Inheritance, Implements">【CS61B】LEC8 Inheritance, Implements</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61B%E9%93%BE%E8%A1%A8IntListSLListDLListAList/" title="【CS61B】链表IntList、SLList、DLList、AList整理">【CS61B】链表IntList、SLList、DLList、AList整理</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BProj1A/" title="【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque ">【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque </a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC6/" title="【CS61B】LEC6 ALists, Resizing, vs. SLists ">【CS61B】LEC6 ALists, Resizing, vs. SLists </a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC5/" title="【CS61B】LEC5 DLLists, Arrays ">【CS61B】LEC5 DLLists, Arrays </a>
+    </li>
+    
 </ul>
-</nav></div>
-    </div>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="http://jchenTech.github.io/categories/C&#43;&#43;/">C&#43;&#43; (7)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/Git/">Git (1)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/Java/">Java (1)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/Linux/">Linux (2)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/Python/">Python (1)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/%E5%8D%9A%E5%AE%A2/">博客 (8)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">图像处理与深度学习 (10)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法 (13)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="http://jchenTech.github.io/tags/AOD-Net/">AOD-Net</a>
+    
+    <a href="http://jchenTech.github.io/tags/C&#43;&#43;/">C&#43;&#43;</a>
+    
+    <a href="http://jchenTech.github.io/tags/CS61B/">CS61B</a>
+    
+    <a href="http://jchenTech.github.io/tags/DehazeNet/">DehazeNet</a>
+    
+    <a href="http://jchenTech.github.io/tags/Fast-R-CNN/">Fast R-CNN</a>
+    
+    <a href="http://jchenTech.github.io/tags/Faster-R-CNN/">Faster R-CNN</a>
+    
+    <a href="http://jchenTech.github.io/tags/Git/">Git</a>
+    
+    <a href="http://jchenTech.github.io/tags/Github/">Github</a>
+    
+    <a href="http://jchenTech.github.io/tags/Hugo/">Hugo</a>
+    
+    <a href="http://jchenTech.github.io/tags/Java/">Java</a>
+    
+    <a href="http://jchenTech.github.io/tags/Linux/">Linux</a>
+    
+    <a href="http://jchenTech.github.io/tags/MRP%E5%A4%9C%E9%97%B4%E5%8E%BB%E9%9B%BE/">MRP夜间去雾</a>
+    
+    <a href="http://jchenTech.github.io/tags/MSCNN%E5%8E%BB%E9%9B%BE/">MSCNN去雾</a>
+    
+    <a href="http://jchenTech.github.io/tags/Matplotlib/">Matplotlib</a>
+    
+    <a href="http://jchenTech.github.io/tags/Python/">Python</a>
+    
+    <a href="http://jchenTech.github.io/tags/R-CNN/">R-CNN</a>
+    
+    <a href="http://jchenTech.github.io/tags/RNN/">RNN</a>
+    
+    <a href="http://jchenTech.github.io/tags/SSD/">SSD</a>
+    
+    <a href="http://jchenTech.github.io/tags/SSPNet/">SSPNet</a>
+    
+    <a href="http://jchenTech.github.io/tags/Ubuntu/">Ubuntu</a>
+    
+    <a href="http://jchenTech.github.io/tags/YOLO/">YOLO</a>
+    
+    <a href="http://jchenTech.github.io/tags/github-page/">github page</a>
+    
+    <a href="http://jchenTech.github.io/tags/golang/">golang</a>
+    
+    <a href="http://jchenTech.github.io/tags/Hugo/">Hugo</a>
+    
+    <a href="http://jchenTech.github.io/tags/markdown/">markdown</a>
+    
+    <a href="http://jchenTech.github.io/tags/programming/">programming</a>
+    
+    <a href="http://jchenTech.github.io/tags/theme/">theme</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">卷积神经网络</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%9B%BE%E5%83%8F%E5%8E%BB%E9%9B%BE/">图像去雾</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5/">图片插入</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%A4%8D%E6%9D%82%E7%BD%91%E7%BB%9C/">复杂网络</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">常用方法</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%BD%92%E6%A1%A3%E9%A1%B5%E9%9D%A2/">归档页面</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">循环神经网络</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">排序算法</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E6%9A%97%E9%80%9A%E9%81%93/">暗通道</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E7%A4%BE%E4%BA%A4%E7%BD%91%E7%BB%9C%E6%8C%96%E6%8E%98/">社交网络挖掘</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://www.flysnow.org/" title="飞雪无情的博客">飞雪无情的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://yuedu.baidu.com/ebook/14a722970740be1e640e9a3e" title="Android Gradle权威指南">Android Gradle权威指南</a>
+        </li>
+        
+    </ul>
 </section>
 
-  </div>
-</aside>
 
-      </div>
-    </main>
-   
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright" >
-  <span itemprop="copyrightYear">  &copy; 
-  2009 - 2020</span>
-  <span class="with-love"><i class="fa fa-heart"></i></span>
-  <span class="author" itemprop="copyrightHolder">陈建君的技术博客</span>
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="http://jchenTech.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
 </div>
-<div class="powered-by">
-  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.54.0</a>
-</div>
-<div class="theme-info">
-  Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
-  </a>
-</div>
-
-
-      </div>
-    </footer>
-
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-      <span id="scrollpercent"><span>0</span>%</span>
+            </div>
+        </div>
     </div>
-  </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-<script type="text/javascript" src="http://jchenTech.github.io/js/vendor/jquery/index.js?v=2.1.3"></script>
-<script type="text/javascript" src="http://jchenTech.github.io/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
-<script type="text/javascript" src="http://jchenTech.github.io/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-<script type="text/javascript" src="http://jchenTech.github.io/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
-<script type="text/javascript" src="http://jchenTech.github.io/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="http://jchenTech.github.io/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-
-<script src="http://jchenTech.github.io/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-<script type="text/javascript" src="http://jchenTech.github.io/js/utils.js"></script>
-<script type="text/javascript" src="http://jchenTech.github.io/js/motion.js"></script>
-<script type="text/javascript" src="http://jchenTech.github.io/js/affix.js"></script>
-<script type="text/javascript" src="http://jchenTech.github.io/js/schemes/pisces.js"></script>
-
-<script type="text/javascript" src="http://jchenTech.github.io/js/scrollspy.js"></script>
-<script type="text/javascript" src="http://jchenTech.github.io/js/post-details.js"></script>
-<script type="text/javascript" src="http://jchenTech.github.io/js/toc.js"></script>
-
-<script type="text/javascript" src="http://jchenTech.github.io/js/bootstrap.js"></script>
-
-<script type="text/javascript" src="http://jchenTech.github.io/js/search.js"></script>
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    extensions: ["tex2jax.js"],
-    jax: ["input/TeX", "output/HTML-CSS"],
-    tex2jax: {
-      inlineMath: [ ['$','$'] ],
-      displayMath: [ ['$$','$$'] ],
-      processEscapes: true
-    },
-    "HTML-CSS": { fonts: ["TeX"] }
-  });
-</script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML' async></script>
 </body>
+
 </html>

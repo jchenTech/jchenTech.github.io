@@ -1,202 +1,199 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on 陈建君的技术博客</title>
+    <title>Posts on jchen&#39;s blog</title>
     <link>http://jchenTech.github.io/post/</link>
-    <description>Recent content in Posts on 陈建君的技术博客</description>
+    <description>Recent content in Posts on jchen&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 06 Oct 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="http://jchenTech.github.io/post/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 06 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://jchenTech.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java常用方法总结</title>
-      <link>http://jchenTech.github.io/post/java/java%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/</link>
+      <link>http://jchenTech.github.io/post/Java/Java%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/</link>
       <pubDate>Tue, 06 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://jchenTech.github.io/post/java/java%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/</guid>
-      <description>String类方法 方法 描述 int length() 返回字符串的长度： return value.length char charAt(int index) 返回某索引处的字符return value[index] boolean isEmpty() 判断是否是空字符串：return value.length == 0 String toLowerCase() 使用</description>
+      <guid>http://jchenTech.github.io/post/Java/Java%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/</guid>
+      <description></description>
     </item>
     
     <item>
       <title>十大经典排序算法总结（基于Java实现）</title>
-      <link>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8Ejava%E5%AE%9E%E7%8E%B0/</link>
+      <link>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8EJava%E5%AE%9E%E7%8E%B0/</link>
       <pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8Ejava%E5%AE%9E%E7%8E%B0/</guid>
-      <description>排序算法说明 排序的定义 对一序列对象根据某个关键字进行排序。 术语说明 稳定 ：如果a原本在b前面，而a=b，排序之后a仍然在b的前面； 不稳定 ：如果</description>
+      <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8EJava%E5%AE%9E%E7%8E%B0/</guid>
+      <description></description>
     </item>
     
     <item>
       <title>【CS61B】LEC10 Subtype Polymorphism vs. HoFs</title>
-      <link>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/cs61blec10/</link>
+      <link>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC10/</link>
       <pubDate>Tue, 08 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/cs61blec10/</guid>
+      <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC10/</guid>
       <description>&lt;p&gt;LEC9 Subtype Polymorphism vs. HoFs&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170934.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;</description>
+&lt;p&gt;
+        &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170934.png&#34;&gt;
+            &lt;img class=&#34;mx-auto&#34; alt=&#34;&#34; src=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170934.png&#34; /&gt;
+        &lt;/a&gt;
+    &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>【CS61B】LEC9 Extends, Casting, Higher Order Functions</title>
-      <link>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/cs61blec9/</link>
+      <link>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC9/</link>
       <pubDate>Tue, 08 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/cs61blec9/</guid>
+      <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC9/</guid>
       <description>&lt;p&gt;LEC9 Extends, Casting, Higher Order Functions&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>如何删除Github上的文件夹</title>
-      <link>http://jchenTech.github.io/post/git/%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4github%E4%B8%8A%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9/</link>
+      <link>http://jchenTech.github.io/post/Git/%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4Github%E4%B8%8A%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9/</link>
       <pubDate>Tue, 08 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://jchenTech.github.io/post/git/%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4github%E4%B8%8A%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9/</guid>
+      <guid>http://jchenTech.github.io/post/Git/%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4Github%E4%B8%8A%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9/</guid>
       <description>&lt;p&gt;要知道在github上只能删除仓库,却无法删除文件夹或文件, 所以只能通过命令来解决，&lt;/p&gt;
-
 &lt;p&gt;（1）首先进入master文件夹下, &lt;code&gt;Git Bash Here&lt;/code&gt; ,打开命令窗口 &lt;code&gt;$ git --help&lt;/code&gt; 帮助命令&lt;/p&gt;
-
 &lt;p&gt;（2）&lt;code&gt;$ git pull origin master&lt;/code&gt; 将远程仓库里面的项目拉下来，&lt;code&gt;$ dir&lt;/code&gt;  查看有哪些文件夹&lt;/p&gt;
-
 &lt;p&gt;（3）此时&lt;code&gt;$ git rm -r --cached target&lt;/code&gt;  删除&lt;code&gt;target&lt;/code&gt;文件夹，&lt;code&gt;$ git commit -m &#39;Deleted target&#39;&lt;/code&gt;  提交。&lt;/p&gt;
-
-&lt;p&gt;（4）最后&lt;code&gt;$ git push -u origin master&lt;/code&gt;将本次更改更新到github项目上去，删除完毕。&lt;/p&gt;</description>
+&lt;p&gt;（4）最后&lt;code&gt;$ git push -u origin master &lt;/code&gt;将本次更改更新到github项目上去，删除完毕。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>【CS61B】LEC8 Inheritance, Implements</title>
-      <link>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/cs61blec8/</link>
+      <link>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC8/</link>
       <pubDate>Fri, 28 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/cs61blec8/</guid>
+      <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC8/</guid>
       <description>&lt;p&gt;LEC8 Inheritance, Implements&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170915.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;</description>
+&lt;p&gt;
+        &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170915.png&#34;&gt;
+            &lt;img class=&#34;mx-auto&#34; alt=&#34;&#34; src=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170915.png&#34; /&gt;
+        &lt;/a&gt;
+    &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>【CS61B】链表IntList、SLList、DLList、AList整理</title>
-      <link>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/cs61b%E9%93%BE%E8%A1%A8intlistsllistdllistalist/</link>
+      <link>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61B%E9%93%BE%E8%A1%A8IntListSLListDLListAList/</link>
       <pubDate>Fri, 28 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/cs61b%E9%93%BE%E8%A1%A8intlistsllistdllistalist/</guid>
+      <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61B%E9%93%BE%E8%A1%A8IntListSLListDLListAList/</guid>
       <description>&lt;p&gt;本文整理了CS61B中的链表IntList、SLList、DLList、AList实现。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque </title>
-      <link>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/cs61bproj1a/</link>
+      <link>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BProj1A/</link>
       <pubDate>Thu, 20 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/cs61bproj1a/</guid>
-      <description>&lt;p&gt;项目要求：&lt;a href=&#34;https://sp18.datastructur.es/materials/proj/proj1a/proj1a&#34;&gt;https://sp18.datastructur.es/materials/proj/proj1a/proj1a&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;代码地址：&lt;a href=&#34;https://github.com/jchenTech/cs61b/tree/master/proj1a&#34;&gt;https://github.com/jchenTech/cs61b/tree/master/proj1a&lt;/a&gt;&lt;/p&gt;</description>
+      <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BProj1A/</guid>
+      <description>&lt;p&gt;项目要求：https://sp18.datastructur.es/materials/proj/proj1a/proj1a&lt;/p&gt;
+&lt;p&gt;代码地址：https://github.com/jchenTech/cs61b/tree/master/proj1a&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>【CS61B】LEC6 ALists, Resizing, vs. SLists </title>
-      <link>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/cs61blec6/</link>
+      <link>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC6/</link>
       <pubDate>Tue, 18 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/cs61blec6/</guid>
+      <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC6/</guid>
       <description>&lt;p&gt;ALists, Resizing, vs. SLists&lt;/p&gt;
-
 &lt;p&gt;&lt;a href=&#34;https://sp18.datastructur.es/&#34;&gt;https://sp18.datastructur.es/&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>【CS61B】LEC5 DLLists, Arrays </title>
-      <link>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/cs61blec5/</link>
+      <link>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC5/</link>
       <pubDate>Sun, 16 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/cs61blec5/</guid>
+      <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC5/</guid>
       <description>&lt;p&gt;DLLists, Arrays&lt;/p&gt;
-
 &lt;p&gt;&lt;a href=&#34;https://sp18.datastructur.es/&#34;&gt;https://sp18.datastructur.es/&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>【CS61B】LEC4 SLLists, Nested Classes, Sentinel Nodes </title>
-      <link>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/cs61blec4/</link>
+      <link>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC4/</link>
       <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/cs61blec4/</guid>
+      <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC4/</guid>
       <description>&lt;p&gt;SLLists, Nested Classes, Sentinel Nodes&lt;/p&gt;
-
 &lt;p&gt;&lt;a href=&#34;https://sp18.datastructur.es/&#34;&gt;https://sp18.datastructur.es/&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>【CS61B】LEC3 References, Recursion, and Lists </title>
-      <link>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/cs61blec3/</link>
+      <link>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC3/</link>
       <pubDate>Tue, 11 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/cs61blec3/</guid>
+      <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC3/</guid>
       <description>&lt;p&gt;References, Recursion, and Lists&lt;/p&gt;
-
 &lt;p&gt;&lt;a href=&#34;https://sp18.datastructur.es/&#34;&gt;https://sp18.datastructur.es/&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>【CS61B】LEC2 Defining and Using Classes </title>
-      <link>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/cs61blec2/</link>
+      <link>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC2/</link>
       <pubDate>Sat, 01 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/cs61blec2/</guid>
+      <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC2/</guid>
       <description>&lt;p&gt;Defining and Using Classes&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>【CS61B】LEC1 Intro, Hello World </title>
-      <link>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/cs61blec1/</link>
+      <link>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC1/</link>
       <pubDate>Thu, 30 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/cs61blec1/</guid>
+      <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC1/</guid>
       <description>&lt;p&gt;从今天开始，将follow数据结构的一门经典课程，UC Berkeley的CS61B。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>【CS61B】利用Github管理课程代码并搭建Auto Grade环境</title>
-      <link>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/cs61b%E5%88%A9%E7%94%A8github%E7%AE%A1%E7%90%86%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%B9%B6%E6%90%AD%E5%BB%BAauto-grade%E7%8E%AF%E5%A2%83/</link>
+      <link>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61B%E5%88%A9%E7%94%A8Github%E7%AE%A1%E7%90%86%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%B9%B6%E6%90%AD%E5%BB%BAAuto-Grade%E7%8E%AF%E5%A2%83/</link>
       <pubDate>Thu, 30 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/cs61b%E5%88%A9%E7%94%A8github%E7%AE%A1%E7%90%86%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%B9%B6%E6%90%AD%E5%BB%BAauto-grade%E7%8E%AF%E5%A2%83/</guid>
+      <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61B%E5%88%A9%E7%94%A8Github%E7%AE%A1%E7%90%86%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%B9%B6%E6%90%AD%E5%BB%BAAuto-Grade%E7%8E%AF%E5%A2%83/</guid>
       <description>&lt;p&gt;学习CS61B的一个挑战便是需要学习使用Git and github。由于非伯克利注册的学生不能够得到instructional number,因此我们需要在自己的github上创建一个专有的repository，我将自己的命名为cs61b-sp18，有了这个repo，我们就可以把本地的课程代码/作业代码/项目代码推送到这个远程库中，然后上传到autograder进行评分。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Ubuntu18.04安装NVIDA显卡驱动</title>
-      <link>http://jchenTech.github.io/post/linux/ubuntu18.04%E5%AE%89%E8%A3%85nvida%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/</link>
+      <link>http://jchenTech.github.io/post/Linux/Ubuntu18.04%E5%AE%89%E8%A3%85Nvida%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/</link>
       <pubDate>Mon, 27 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://jchenTech.github.io/post/linux/ubuntu18.04%E5%AE%89%E8%A3%85nvida%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/</guid>
+      <guid>http://jchenTech.github.io/post/Linux/Ubuntu18.04%E5%AE%89%E8%A3%85Nvida%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/</guid>
       <description>&lt;p&gt;今天的目标是在 Ubuntu 18.04 上安装 NVIDIA 显卡驱动，请注意，显卡一定要是 NVIDIA 的显卡才能按照这篇文章的方法安装。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165602.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;</description>
+&lt;p&gt;
+        &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165602.png&#34;&gt;
+            &lt;img class=&#34;mx-auto&#34; alt=&#34;&#34; src=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165602.png&#34; /&gt;
+        &lt;/a&gt;
+    &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Ubuntu18.04桌面版双系统安装教程</title>
-      <link>http://jchenTech.github.io/post/linux/ubuntu18.04%E6%A1%8C%E9%9D%A2%E7%89%88%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</link>
+      <link>http://jchenTech.github.io/post/Linux/Ubuntu18.04%E6%A1%8C%E9%9D%A2%E7%89%88%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</link>
       <pubDate>Mon, 27 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://jchenTech.github.io/post/linux/ubuntu18.04%E6%A1%8C%E9%9D%A2%E7%89%88%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</guid>
+      <guid>http://jchenTech.github.io/post/Linux/Ubuntu18.04%E6%A1%8C%E9%9D%A2%E7%89%88%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</guid>
       <description>&lt;p&gt;由于后面将要在linux系统上进行图像处理相关工作，所以需要安装Linux操作系统，目前采用的是Ubuntu18.04桌面版本方便个人使用，由于在虚拟机上较慢，采取双系统安装方式。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>【论文笔记】MRP: Fast Haze Removal for Nighttime Image Using Maximum Reflectance Prior</title>
-      <link>http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0mrp%E5%A4%9C%E9%97%B4%E5%8E%BB%E9%9B%BE/</link>
+      <link>http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0MRP%E5%A4%9C%E9%97%B4%E5%8E%BB%E9%9B%BE/</link>
       <pubDate>Mon, 27 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0mrp%E5%A4%9C%E9%97%B4%E5%8E%BB%E9%9B%BE/</guid>
+      <guid>http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0MRP%E5%A4%9C%E9%97%B4%E5%8E%BB%E9%9B%BE/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Abstract&lt;/p&gt;
-
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
 &lt;p&gt;在本文中，我们解决了单个夜间图像中的雾霾去除问题，即使存在杂色和非均匀照明。核心思想在于先前的新型最大反射率。我们首先介绍&lt;strong&gt;夜间朦胧成像模型&lt;/strong&gt;，其中包括直接衰减项和散射项中的局部环境照明项目。然后，我们提出一个简单但有效的图像先验，&lt;strong&gt;最大反射先验，以估计变化的环境照明&lt;/strong&gt;。最大反射率先验基于关键观察：对于大多数白天无雾图像块，每个颜色通道在某些像素处具有非常高的强度。对于夜间雾度图像，每个颜色通道的局部最大强度主要由环境照明贡献。因此，我们可以&lt;strong&gt;直接估计环境照度和透射图，从而恢复高质量的雾状图像&lt;/strong&gt;。各种夜间图像的实验结果证明了所提出方法的有效性。特别是，我们的方法具有计算效率的优势，比现有技术方法快10-100倍。&lt;/p&gt;
 &lt;/blockquote&gt;</description>
     </item>
@@ -208,49 +205,59 @@
       
       <guid>http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%9B%BE%E5%83%8F%E5%8E%BB%E9%9B%BE%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E4%B8%8E%E6%95%B0%E6%8D%AE%E9%9B%86/</guid>
       <description>&lt;p&gt;图像去雾的目的是消除雾霾环境对图像质量的影响，增加图像的可视度，是图像处理和计算机视觉领域共同关切的前沿课题，吸引了国内外研究人员的广泛关注。在github上 cxtalk列举了图像去雾近年来经典论文、评估指标与数据集，在此转载以便记录。&lt;/p&gt;
-
 &lt;p&gt;转载自：DehazeZoo (Single Image vs. Video Based) &lt;a href=&#34;https://github.com/cxtalk/DehazeZoo&#34;&gt;https://github.com/cxtalk/DehazeZoo&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>【论文笔记】AOD-Net: An All-in-One Network for Dehazing and Beyond</title>
-      <link>http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0aod-net/</link>
+      <link>http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0AOD-Net/</link>
       <pubDate>Sat, 18 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0aod-net/</guid>
+      <guid>http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0AOD-Net/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;摘要:本文提出了一种用卷积神经网络（CNN）构建的图像去雾模型，称为一体化除雾网络（AOD-Net）。它是基于重新配制的大气散射模型设计的。 AOD-Net不是像大多数先前模型那样分别估算传输矩阵和大气光，而是通过轻量级CNN直接生成清晰图像。这种新颖的端到端设计使得将AOD-Net嵌入到其他深度模型（例如，faster R-CNN）中变得容易，以改善对模糊图像的高级任务性能。在合成和自然模糊图像数据集上的实验结果证明了我们在PSNR，SSIM和主观视觉质量方面优于现有技术的优越性能。此外，当将AOD-Net与faster R-CNN连接并从头到尾训练联合管道时，我们目睹了对模糊图像的对象检测性能的大幅提升。&lt;/p&gt;
-
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
 &lt;p&gt;关键词:去雾，图像恢复，深度学习，联合训练，物体检测。&lt;/p&gt;
 &lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010163129.png&#34; alt=&#34;网络框架图&#34; /&gt;&lt;/p&gt;</description>
+&lt;p&gt;
+        &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010163129.png&#34;&gt;
+            &lt;img class=&#34;mx-auto&#34; alt=&#34;网络框架图&#34; src=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010163129.png&#34; /&gt;
+        &lt;/a&gt;
+    &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>【论文笔记】MSCNN: Single Image Dehazing via Multi-Scale Convolutional Neural Networks</title>
-      <link>http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0mscnn/</link>
+      <link>http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0MSCNN/</link>
       <pubDate>Sat, 18 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0mscnn/</guid>
+      <guid>http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0MSCNN/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;现存方法缺点：The performance of existing image dehazing methods is limited by hand-designed features, such as the dark channel, color disparity and maximum contrast, with complex fusion schemes.&lt;/p&gt;
-
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
 &lt;p&gt;提出的方法：In this paper, we propose a multi-scale deep neural network for single-image dehazing by learning the mapping between hazy images and their corresponding transmission maps. The proposed algorithm consists of a &lt;strong&gt;coarse-scale net which predicts a holistic transmission map based on the entire image&lt;/strong&gt;, and &lt;strong&gt;a fine-scale net which refines results locally. To train the multi-scale deep network&lt;/strong&gt;, we synthesize a dataset comprised of hazy images and corresponding transmission maps based on the NYU Depth dataset. Extensive experiments demonstrate that the proposed algorithm performs favorably against the state-of-the-art methods on both synthetic and real-world images in terms of quality and speed.&lt;/p&gt;
 &lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170215.png&#34; alt=&#34;网络框架图&#34; /&gt;&lt;/p&gt;</description>
+&lt;p&gt;
+        &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170215.png&#34;&gt;
+            &lt;img class=&#34;mx-auto&#34; alt=&#34;网络框架图&#34; src=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170215.png&#34; /&gt;
+        &lt;/a&gt;
+    &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>【论文笔记】DehazeNet: An End-to-End System for Single Image Haze Removal</title>
-      <link>http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0dehazenet/</link>
+      <link>http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0DehazeNet/</link>
       <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0dehazenet/</guid>
+      <guid>http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0DehazeNet/</guid>
       <description>&lt;p&gt;该文章提出一种名为DehazeNet的可训练的端到端系统，用于传输值估计。 DehazeNet将模糊图像作为输入，并输出其中间透射图，随后用于通过大气散射模型恢复无雾图像。 DehazeNet采用基于卷积神经网络的深层架构，&lt;strong&gt;其层专门设计用于体现图像去雾中已建立的假设/先验&lt;/strong&gt;。具体而言，Maxout单位的图层用于特征提取，这可以生成几乎所有与雾相关的特征。我们还在DehazeNet中提出了一种新的非线性激活函数，称为&lt;strong&gt;双边整流线性单元&lt;/strong&gt;，它能够提高恢复的无雾图像的质量。我们在提议的&lt;strong&gt;DehazeNet的组件与现有方法中使用的组件之间建立连接&lt;/strong&gt;。基准图像的实验表明，DehazeNet比现有方法具有更高的性能，同时保持高效和易用。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165931.png&#34; alt=&#34;DehazeNet架构图&#34; /&gt;&lt;/p&gt;</description>
+&lt;p&gt;
+        &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165931.png&#34;&gt;
+            &lt;img class=&#34;mx-auto&#34; alt=&#34;DehazeNet架构图&#34; src=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165931.png&#34; /&gt;
+        &lt;/a&gt;
+    &lt;/p&gt;</description>
     </item>
     
     <item>
@@ -260,8 +267,11 @@
       
       <guid>http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0%E6%9A%97%E9%80%9A%E9%81%93%E5%85%88%E9%AA%8C%E5%8E%BB%E9%9B%BE%E7%AE%97%E6%B3%95/</guid>
       <description>&lt;p&gt;雾霾是由空气中的灰尘和烟雾等小的漂浮颗粒产生的常见大气现象。这些漂浮的颗粒极大地吸收和散射光，导致图像质量下降。在雾霾影响下，视频监控，远程感应，自动驾驶等许多实际应用很容易受到威胁，检测和识别等高级计算机视觉任务很难完成。因此，图像去雾（除雾）成为一种越来越重要的技术。在图像去雾领域，不得不学习何凯明在2009CVPR上获最佳论文的文章。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010162449.png&#34; alt=&#34;Dark Channel Prior&#34; /&gt;&lt;/p&gt;</description>
+&lt;p&gt;
+        &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010162449.png&#34;&gt;
+            &lt;img class=&#34;mx-auto&#34; alt=&#34;Dark Channel Prior&#34; src=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010162449.png&#34; /&gt;
+        &lt;/a&gt;
+    &lt;/p&gt;</description>
     </item>
     
     <item>
@@ -271,56 +281,62 @@
       
       <guid>http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E7%BD%91%E7%BB%9C%E6%8C%96%E6%8E%98%E5%8F%8A%E5%85%B6%E7%9B%B8%E5%85%B3%E5%BA%94%E7%94%A8/</guid>
       <description>&lt;p&gt;网络挖掘及其相关应用&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170456.jpg&#34; alt=&#34;复杂网络&#34; /&gt;&lt;/p&gt;</description>
+&lt;p&gt;
+        &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170456.jpg&#34;&gt;
+            &lt;img class=&#34;mx-auto&#34; alt=&#34;复杂网络&#34; src=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170456.jpg&#34; /&gt;
+        &lt;/a&gt;
+    &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Python之Matplotlib绘图基础</title>
-      <link>http://jchenTech.github.io/post/python/python%E4%B9%8Bmatplotlib%E7%BB%98%E5%9B%BE%E5%9F%BA%E7%A1%80/</link>
+      <link>http://jchenTech.github.io/post/Python/python%E4%B9%8Bmatplotlib%E7%BB%98%E5%9B%BE%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Mon, 13 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://jchenTech.github.io/post/python/python%E4%B9%8Bmatplotlib%E7%BB%98%E5%9B%BE%E5%9F%BA%E7%A1%80/</guid>
+      <guid>http://jchenTech.github.io/post/Python/python%E4%B9%8Bmatplotlib%E7%BB%98%E5%9B%BE%E5%9F%BA%E7%A1%80/</guid>
       <description>&lt;p&gt;Python十分适合用来进行数据分析，因为它有“四板斧”，分别是Matplotlib、NumPy、SciPy/Pandas。Matplotlib是画图工具，NumPy是矩阵运算库，SciPy是数学运算工具，Pandas是数据处理的工具。本篇文章将介绍python的绘图工具Matplotlib，它是一个风格类似Matlab的基于Python的绘图库。它提供了一整套和matlab相似的命令API，十分适合交互式地进行制图。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165616.png&#34; alt=&#34;matplotlib&#34; /&gt;&lt;/p&gt;</description>
+&lt;p&gt;
+        &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165616.png&#34;&gt;
+            &lt;img class=&#34;mx-auto&#34; alt=&#34;matplotlib&#34; src=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165616.png&#34; /&gt;
+        &lt;/a&gt;
+    &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>C&#43;&#43; primer plus 第16章String类和标准模板库</title>
-      <link>http://jchenTech.github.io/post/c&#43;&#43;/c&#43;&#43;-primer-plus-%E7%AC%AC16%E7%AB%A0string%E7%B1%BB%E5%92%8C%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/</link>
+      <link>http://jchenTech.github.io/post/C&#43;&#43;/C&#43;&#43;-primer-plus-%E7%AC%AC16%E7%AB%A0String%E7%B1%BB%E5%92%8C%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/</link>
       <pubDate>Sat, 04 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://jchenTech.github.io/post/c&#43;&#43;/c&#43;&#43;-primer-plus-%E7%AC%AC16%E7%AB%A0string%E7%B1%BB%E5%92%8C%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/</guid>
+      <guid>http://jchenTech.github.io/post/C&#43;&#43;/C&#43;&#43;-primer-plus-%E7%AC%AC16%E7%AB%A0String%E7%B1%BB%E5%92%8C%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/</guid>
       <description>&lt;p&gt;C++ primer plus 第16章String类和标准模板库&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>循环神经网络RNN介绍</title>
-      <link>http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Crnn%E4%BB%8B%E7%BB%8D/</link>
+      <link>http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9CRNN%E4%BB%8B%E7%BB%8D/</link>
       <pubDate>Fri, 03 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Crnn%E4%BB%8B%E7%BB%8D/</guid>
+      <guid>http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9CRNN%E4%BB%8B%E7%BB%8D/</guid>
       <description>&lt;p&gt;循环神经网络(Recurrent Neural Networks，RNN)已经在众多自然语言处理(Natural Language Processing, NLP)中取得了巨大成功以及广泛应用。本文将对RNN进行简单介绍。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170647.jpg&#34; alt=&#34;循环神经网络具体图&#34; /&gt;&lt;/p&gt;</description>
+&lt;p&gt;
+        &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170647.jpg&#34;&gt;
+            &lt;img class=&#34;mx-auto&#34; alt=&#34;循环神经网络具体图&#34; src=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170647.jpg&#34; /&gt;
+        &lt;/a&gt;
+    &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>深度学习目标检测：R-CNN, SSPNet, Fast R-CNN, Faster R-CNN, YOLO, SSD</title>
-      <link>http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8Br-cnn-sspnet-fast-r-cnn-faster-r-cnn-yolo-ssd/</link>
+      <link>http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8BR-CNN-SSPNet-Fast-R-CNN-Faster-R-CNN-YOLO-SSD/</link>
       <pubDate>Fri, 03 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8Br-cnn-sspnet-fast-r-cnn-faster-r-cnn-yolo-ssd/</guid>
+      <guid>http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8BR-CNN-SSPNet-Fast-R-CNN-Faster-R-CNN-YOLO-SSD/</guid>
       <description>&lt;p&gt;Object Detection，在给定的图像中，找到目标图像的位置，并标注出来。 或者是，图像中有那些目标，目标的位置在那。这个目标，是限定在数据集中包含的目标种类，比如数据集中有两种目标:狗，猫。 就在图像找出来猫，狗的位置，并标注出来 是狗还是猫。&lt;/p&gt;
-
 &lt;p&gt;这就涉及到两个问题：&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;目标识别，识别出来目标是猫还是狗，Image Classification解决了图像的识别问题。&lt;/li&gt;
 &lt;li&gt;定位，找出来猫狗的位置。&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;本文将详细介绍目前深度学习目标检测算法的几种热门算法R-CNN, SSPNet, Fast R-CNN, Faster R-CNN, YOLO, SSD的比较&lt;/p&gt;</description>
     </item>
     
@@ -335,10 +351,10 @@
     
     <item>
       <title>Hugo插入图片</title>
-      <link>http://jchenTech.github.io/post/%E5%8D%9A%E5%AE%A2/hugo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/</link>
+      <link>http://jchenTech.github.io/post/%E5%8D%9A%E5%AE%A2/Hugo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/</link>
       <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://jchenTech.github.io/post/%E5%8D%9A%E5%AE%A2/hugo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/</guid>
+      <guid>http://jchenTech.github.io/post/%E5%8D%9A%E5%AE%A2/Hugo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/</guid>
       <description>&lt;p&gt;在写博客时，常常需要在文章中插入图片，Hugo有多种图片插入方式，可以将图片存在本地引用、将图片放在CDN引用或建立图床。&lt;/p&gt;</description>
     </item>
     
@@ -349,70 +365,73 @@
       
       <guid>http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</guid>
       <description>&lt;p&gt;卷积神经网络（CNN）是一种深层神经网络，已被证明在计算机视觉任务中表现出色，例如图像分类，目标检测，目标定位和神经样式转换。 在这篇文章中，我将详细地介绍构成卷积神经网络的不同层：卷积层，池化层和完全连接层。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170323.jpg&#34; alt=&#34;卷积神经网络实例-汽车图像识别&#34; /&gt;&lt;/p&gt;</description>
+&lt;p&gt;
+        &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170323.jpg&#34;&gt;
+            &lt;img class=&#34;mx-auto&#34; alt=&#34;卷积神经网络实例-汽车图像识别&#34; src=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170323.jpg&#34; /&gt;
+        &lt;/a&gt;
+    &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>C&#43;&#43; primer plus 第15章友元、异常和其他</title>
-      <link>http://jchenTech.github.io/post/c&#43;&#43;/c&#43;&#43;-primer-plus-%E7%AC%AC15%E7%AB%A0%E5%8F%8B%E5%85%83%E5%BC%82%E5%B8%B8%E5%92%8C%E5%85%B6%E4%BB%96/</link>
+      <link>http://jchenTech.github.io/post/C&#43;&#43;/C&#43;&#43;-primer-plus-%E7%AC%AC15%E7%AB%A0%E5%8F%8B%E5%85%83%E5%BC%82%E5%B8%B8%E5%92%8C%E5%85%B6%E4%BB%96/</link>
       <pubDate>Mon, 23 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://jchenTech.github.io/post/c&#43;&#43;/c&#43;&#43;-primer-plus-%E7%AC%AC15%E7%AB%A0%E5%8F%8B%E5%85%83%E5%BC%82%E5%B8%B8%E5%92%8C%E5%85%B6%E4%BB%96/</guid>
+      <guid>http://jchenTech.github.io/post/C&#43;&#43;/C&#43;&#43;-primer-plus-%E7%AC%AC15%E7%AB%A0%E5%8F%8B%E5%85%83%E5%BC%82%E5%B8%B8%E5%92%8C%E5%85%B6%E4%BB%96/</guid>
       <description>&lt;p&gt;C++ primer plus 第15章友元、异常和其他&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>C&#43;&#43; primer plus 第14章C&#43;&#43;中的代码重用</title>
-      <link>http://jchenTech.github.io/post/c&#43;&#43;/c&#43;&#43;-primer-plus-%E7%AC%AC14%E7%AB%A0c&#43;&#43;%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%A0%81%E9%87%8D%E7%94%A8/</link>
+      <link>http://jchenTech.github.io/post/C&#43;&#43;/C&#43;&#43;-primer-plus-%E7%AC%AC14%E7%AB%A0C&#43;&#43;%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%A0%81%E9%87%8D%E7%94%A8/</link>
       <pubDate>Sun, 22 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://jchenTech.github.io/post/c&#43;&#43;/c&#43;&#43;-primer-plus-%E7%AC%AC14%E7%AB%A0c&#43;&#43;%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%A0%81%E9%87%8D%E7%94%A8/</guid>
+      <guid>http://jchenTech.github.io/post/C&#43;&#43;/C&#43;&#43;-primer-plus-%E7%AC%AC14%E7%AB%A0C&#43;&#43;%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%A0%81%E9%87%8D%E7%94%A8/</guid>
       <description>&lt;p&gt;C++ primer plus 第14章C++中的代码重用&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>C&#43;&#43; primer plus 第13章类继承</title>
-      <link>http://jchenTech.github.io/post/c&#43;&#43;/c&#43;&#43;-primer-plus-%E7%AC%AC13%E7%AB%A0%E7%B1%BB%E7%BB%A7%E6%89%BF/</link>
+      <link>http://jchenTech.github.io/post/C&#43;&#43;/C&#43;&#43;-primer-plus-%E7%AC%AC13%E7%AB%A0%E7%B1%BB%E7%BB%A7%E6%89%BF/</link>
       <pubDate>Fri, 20 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://jchenTech.github.io/post/c&#43;&#43;/c&#43;&#43;-primer-plus-%E7%AC%AC13%E7%AB%A0%E7%B1%BB%E7%BB%A7%E6%89%BF/</guid>
+      <guid>http://jchenTech.github.io/post/C&#43;&#43;/C&#43;&#43;-primer-plus-%E7%AC%AC13%E7%AB%A0%E7%B1%BB%E7%BB%A7%E6%89%BF/</guid>
       <description>&lt;p&gt;C++ primer plus 第13章类继承&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>C&#43;&#43; primer plus 第12章类和动态内存分配</title>
-      <link>http://jchenTech.github.io/post/c&#43;&#43;/c&#43;&#43;-primer-plus-%E7%AC%AC12%E7%AB%A0%E7%B1%BB%E5%92%8C%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/</link>
+      <link>http://jchenTech.github.io/post/C&#43;&#43;/C&#43;&#43;-primer-plus-%E7%AC%AC12%E7%AB%A0%E7%B1%BB%E5%92%8C%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/</link>
       <pubDate>Tue, 17 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://jchenTech.github.io/post/c&#43;&#43;/c&#43;&#43;-primer-plus-%E7%AC%AC12%E7%AB%A0%E7%B1%BB%E5%92%8C%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/</guid>
+      <guid>http://jchenTech.github.io/post/C&#43;&#43;/C&#43;&#43;-primer-plus-%E7%AC%AC12%E7%AB%A0%E7%B1%BB%E5%92%8C%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/</guid>
       <description>&lt;p&gt;C++ primer plus 第12章类和动态内存分配&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>C&#43;&#43; primer plus 第11章使用类</title>
-      <link>http://jchenTech.github.io/post/c&#43;&#43;/c&#43;&#43;-primer-plus-%E7%AC%AC11%E7%AB%A0%E4%BD%BF%E7%94%A8%E7%B1%BB/</link>
+      <link>http://jchenTech.github.io/post/C&#43;&#43;/C&#43;&#43;-primer-plus-%E7%AC%AC11%E7%AB%A0%E4%BD%BF%E7%94%A8%E7%B1%BB/</link>
       <pubDate>Mon, 16 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://jchenTech.github.io/post/c&#43;&#43;/c&#43;&#43;-primer-plus-%E7%AC%AC11%E7%AB%A0%E4%BD%BF%E7%94%A8%E7%B1%BB/</guid>
+      <guid>http://jchenTech.github.io/post/C&#43;&#43;/C&#43;&#43;-primer-plus-%E7%AC%AC11%E7%AB%A0%E4%BD%BF%E7%94%A8%E7%B1%BB/</guid>
       <description>&lt;p&gt;C++ primer plus 第11章使用类&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>C&#43;&#43; primer plus 第10章对象和类</title>
-      <link>http://jchenTech.github.io/post/c&#43;&#43;/c&#43;&#43;-primer-plus-%E7%AC%AC10%E7%AB%A0%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/</link>
+      <link>http://jchenTech.github.io/post/C&#43;&#43;/C&#43;&#43;-primer-plus-%E7%AC%AC10%E7%AB%A0%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/</link>
       <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://jchenTech.github.io/post/c&#43;&#43;/c&#43;&#43;-primer-plus-%E7%AC%AC10%E7%AB%A0%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/</guid>
+      <guid>http://jchenTech.github.io/post/C&#43;&#43;/C&#43;&#43;-primer-plus-%E7%AC%AC10%E7%AB%A0%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/</guid>
       <description>&lt;p&gt;C++ primer plus 第10章对象和类&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Markdown文件基本语法</title>
-      <link>http://jchenTech.github.io/post/%E5%8D%9A%E5%AE%A2/markdown%E6%96%87%E4%BB%B6%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</link>
+      <link>http://jchenTech.github.io/post/%E5%8D%9A%E5%AE%A2/Markdown%E6%96%87%E4%BB%B6%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</link>
       <pubDate>Fri, 06 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://jchenTech.github.io/post/%E5%8D%9A%E5%AE%A2/markdown%E6%96%87%E4%BB%B6%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</guid>
+      <guid>http://jchenTech.github.io/post/%E5%8D%9A%E5%AE%A2/Markdown%E6%96%87%E4%BB%B6%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</guid>
       <description>&lt;p&gt;因为目前准备写博客，所以不可避免就要使用markdown语言写文章，所以这篇文章将对Markdown的基本语法进行介绍，方便以后查阅。&lt;/p&gt;</description>
     </item>
     
@@ -441,7 +460,6 @@
       
       <guid>http://jchenTech.github.io/post/%E5%8D%9A%E5%AE%A2/markdown-cheat-sheet/</guid>
       <description>&lt;p&gt;This note demonstrates some of what &lt;a href=&#34;http://daringfireball.net/projects/markdown/&#34;&gt;Markdown&lt;/a&gt; is capable of doing.&lt;/p&gt;
-
 &lt;p&gt;&lt;em&gt;Note: Feel free to play with this page. Unlike regular notes, this doesn&amp;rsquo;t automatically save itself.&lt;/em&gt;&lt;/p&gt;</description>
     </item>
     
@@ -460,7 +478,7 @@
       <pubDate>Fri, 02 Oct 2015 00:00:00 +0000</pubDate>
       
       <guid>http://jchenTech.github.io/post/%E5%8D%9A%E5%AE%A2/linked-post/</guid>
-      <description>I&amp;rsquo;m a linked post in the menu. You can add other posts by adding the following line to the frontmatter: menu = &amp;#34;main&amp;#34;</description>
+      <description>I&amp;rsquo;m a linked post in the menu. You can add other posts by adding the following line to the frontmatter: menu = &amp;quot;main&amp;quot;</description>
     </item>
     
   </channel>
