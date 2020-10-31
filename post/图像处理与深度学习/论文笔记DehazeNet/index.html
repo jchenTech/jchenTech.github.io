@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+
+    <title>【论文笔记】DehazeNet: An End-to-End System for Single Image Haze Removal | jchen&#39;s blog</title>
+    <meta property="og:title" content="【论文笔记】DehazeNet: An End-to-End System for Single Image Haze Removal - jchen&#39;s blog">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2020-07-07T00:00:00&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2020-07-07T00:00:00&#43;08:00'>
+        
+    <meta name="Keywords" content="">
+    <meta name="description" content="【论文笔记】DehazeNet: An End-to-End System for Single Image Haze Removal">
+        
+    <meta name="author" content="jchen">
+    <meta property="og:url" content="http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0DehazeNet/">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+    
+    
+    
+        <link rel="stylesheet" href='/css/douban.css'>
+    
+        <link rel="stylesheet" href='/css/other.css'>
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://jchenTech.github.io/">
+                        jchen&#39;s blog
+                    </a>
+                
+                
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="http://jchenTech.github.io/">首页</a>
+                    
+                    <a  href="http://jchenTech.github.io/tools/" title="工具">工具</a>
+                    
+                    <a  href="http://jchenTech.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://jchenTech.github.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    <style type="text/css">
+    .post-toc {
+        position: fixed;
+        width: 200px;
+        margin-left: -210px;
+        padding: 5px 10px;
+        font-family: Athelas, STHeiti, Microsoft Yahei, serif;
+        font-size: 12px;
+        border: 1px solid rgba(0, 0, 0, .07);
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.98);
+        background-clip: padding-box;
+        -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        word-wrap: break-word;
+        white-space: nowrap;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        z-index: 999;
+        cursor: pointer;
+        max-height: 70%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+    @media print,
+    screen and (max-width:1057px) {
+        .post-toc {
+            display: none;
+        }
+    }
+</style>
+<div class="post-toc" style="position: absolute; top: 188px;">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#摘要">摘要</a></li>
+    <li><a href="#贡献">贡献</a></li>
+    <li><a href="#图像去雾的核心">图像去雾的核心</a></li>
+    <li><a href="#基于人工特征">基于人工特征</a></li>
+    <li><a href="#基于深度智能">基于深度智能</a></li>
+    <li><a href="#参考文献">参考文献</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var postToc = $(".post-toc");
+        if (postToc.length) {
+            var leftPos = $("#main").offset().left;
+            if(leftPos<220){
+                postToc.css({"width":leftPos-10,"margin-left":(0-leftPos)})
+            }
+
+            var t = postToc.offset().top - 20,
+                a = {
+                    start: {
+                        position: "absolute",
+                        top: t
+                    },
+                    process: {
+                        position: "fixed",
+                        top: 20
+                    },
+                };
+            $(window).scroll(function () {
+                var e = $(window).scrollTop();
+                e < t ? postToc.css(a.start) : postToc.css(a.process)
+            })
+        }
+    })
+</script>
+    <article class="post">
+        <header>
+            <h1 class="post-title">【论文笔记】DehazeNet: An End-to-End System for Single Image Haze Removal</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年7月7日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0'>图像处理与深度学习</a></span>
+            
+        </div>
+        
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span>
+                    阅读</span></span>
+        </div>
+        
+        
+        <div class="clear" style="display: none">
+            <div class="toc-article">
+                <div class="toc-title">文章目录</div>
+            </div>
+        </div>
+        
+        <div class="post-content">
+            <p>该文章提出一种名为DehazeNet的可训练的端到端系统，用于传输值估计。 DehazeNet将模糊图像作为输入，并输出其中间透射图，随后用于通过大气散射模型恢复无雾图像。 DehazeNet采用基于卷积神经网络的深层架构，<strong>其层专门设计用于体现图像去雾中已建立的假设/先验</strong>。具体而言，Maxout单位的图层用于特征提取，这可以生成几乎所有与雾相关的特征。我们还在DehazeNet中提出了一种新的非线性激活函数，称为<strong>双边整流线性单元</strong>，它能够提高恢复的无雾图像的质量。我们在提议的<strong>DehazeNet的组件与现有方法中使用的组件之间建立连接</strong>。基准图像的实验表明，DehazeNet比现有方法具有更高的性能，同时保持高效和易用。</p>
+<p>
+        <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165931.png">
+            <img class="mx-auto" alt="DehazeNet架构图" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165931.png" />
+        </a>
+    </p>
+<h2 id="摘要">摘要</h2>
+<blockquote>
+<p>背景：Single image haze removal is a challenging ill-posed problem.</p>
+</blockquote>
+<blockquote>
+<p>现存方法：Existing methods use various constraints/priors to get plausible dehazing solutions. The key to achieve haze removal is to estimate a medium transmission map for an input hazy image.</p>
+</blockquote>
+<blockquote>
+<p>提出的方法：In this paper, we propose a trainable end-to-end system called DehazeNet, for medium transmission estimation. DehazeNet takes a hazy image as input, and outputs its medium transmission map that is subsequently used to recover a haze-free image via atmospheric scattering model. DehazeNet adopts convolutional neural network-based deep architecture, whose layers are specially designed to <strong>embody the established assumptions/priors in image dehazing</strong>. Specifically, <strong>the layers of Maxout units are used for feature extraction, which can generate almost all haze-relevant features</strong>. We also propose a novel nonlinear activation function in DehazeNet, called <strong>bilateral rectified linear unit</strong>, which is able to improve the quality of recovered haze-free image. We establish connections between the components of the proposed DehazeNet and those used in existing methods. Experiments on benchmark images show that DehazeNet achieves superior performance over existing methods, yet keeps efficient and easy to use. </p>
+</blockquote>
+<h2 id="贡献">贡献</h2>
+<ul>
+<li>DehazeNet是一个端到端系统。 它直接学习和估计模糊图像patches与其传输图之间的映射关系。 这是通过其深层架构的特殊设计来实现的，以体现已建立的图像去雾原理。</li>
+<li>提出了一种新的非线性激活函数，称为双边整流线性单元1（BReLU）。 BReLU扩展了整流线性单元（ReLU）并证明了其在获得精确图像恢复方面的重要性。 从技术上讲，BReLU使用双边约束来减少搜索空间并改善收敛。</li>
+<li>在DehazeNet的组件与现有的去雾方法中使用的假设/先验之间建立联系，并解释DehazeNet通过自动从头到尾自动学习所有这些组件来改进这些方法。 </li>
+</ul>
+<h2 id="图像去雾的核心">图像去雾的核心</h2>
+<p>现有的图像去雾（Image Dehazing）技术离不开一个简单的自然模型——大气散射模型（Atmospheric Scattering Model）。大气散射模型描述了，在雾霾和光照的共同作用下的成像机制：</p>
+<p>
+        <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170001.png">
+            <img class="mx-auto" alt="大气散射模型" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170001.png" />
+        </a>
+    </p>
+<p>其中，$t(x)$ 是媒介透射率（medium transmission），顾名思义表示能顺利透过雾霾到达摄像头的比率。因此，透射率跟物体与摄像头距离 $d(x)$ 成反比，离摄像头越远的物体受雾霾影响更大。当距离 $d(x)$ 趋于无穷大时，透射率 $t(x)$ 趋于零，$I(x)$ 趋近于 $\alpha$，其中：</p>
+<!-- raw HTML omitted -->
+<p>综上所述，去雾的核心是如何更精确地估计媒介透射率 t(x)。</p>
+<h2 id="基于人工特征">基于人工特征</h2>
+<p>手工特征是传统机器视觉的基础，讲究的是熟能生巧，依赖的是实践出真知。通过“观察→经验→设计”构建各式各样的特征来满足各式各样的任务需求。图像去雾技术也是沿着手工特征逐步地发展起来。</p>
+<p>（1）暗通道先验[2]（Dark Channel Prior，DCP）</p>
+<p>说起去雾特征，不得不提起的暗通道先验（DCP）。大道之行在于简，DCP作为CVPR 2009的最佳论文，以简洁有效的先验假设解决了雾霾浓度估计问题。</p>
+<p>观察发现，清晰图像块的RGB颜色空间中有一个通道很暗（数值很低甚至接近于零）。因此基于暗通道先验，雾的浓度可由最暗通道的数值近似表示：</p>
+<!-- raw HTML omitted -->
+<p>（2）最大对比度[3]（Maximum Contrast，MC）</p>
+<p>根据大气散射模型，雾霾会降低物体成像的对比度：Σx‖ΔI(x)‖=tΣx‖ΔJ(x)‖≤Σx‖ΔJ(x)‖。因此，基于这个推论可利用局部对比度来近似估计雾霾的浓度。同时，也可以通过最大化局部对比度来还原图像的颜色和能见度。</p>
+<!-- raw HTML omitted -->
+<p>（3）颜色衰减先验[4]（Color Attenuation Prior，CAP）</p>
+<p>颜色衰减先验（CAP）是一种与暗通道先验（DCP）相似的先验特征。观察发现雾霾会同时导致图像饱和度的降低和亮度的增加，整体上表现为颜色的衰减。根据颜色衰减先验，亮度和饱和度的差值被应用于估计雾霾的浓度：</p>
+<p>
+        <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170010.png">
+            <img class="mx-auto" alt="颜色衰减先验" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170010.png" />
+        </a>
+    </p>
+<p>（4）色度不一致(Hue Disparity)[5]</p>
+<!-- raw HTML omitted -->
+<h2 id="基于深度智能">基于深度智能</h2>
+<p>人的视觉系统并不需依赖这些显式的特征变换，便可以很好地估计雾的浓度和场景的深度。DehazeNet是一个特殊设计的深度卷积网络，利用深度学习去智能地学习雾霾特征，解决手工特征设计的难点和痛点。</p>
+<p>
+        <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170027.png">
+            <img class="mx-auto" alt="DehazeNet架构图" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170027.png" />
+        </a>
+    </p>
+<p>网络的设计</p>
+<ol>
+<li>
+<p>第一层是特征提取层，即提取有雾图像特征。根据不同的假设与先验设计不同的滤波器。举的例子中有16个滤波器。其中每四个是上述一种先验特征滤波器。通过maxout unit的激活函数，每四个输出一张图。这里不padding，输入是3<em>16</em>16三通道的块。输出的是四个16<em>12</em>12,每一个代表一种特征。</p>
+</li>
+<li>
+<p>使用多尺度的平行卷积操作。由于多尺度特征被证明有利于去雾并且在inception的模型中也用到了平行卷积，即同一张图用不同尺度的卷积核进行卷积。分别用16个3<em>3、16个5</em>5和16个7<em>7的卷积核进行卷积，每一种尺度产生16个，并且通过padding每张图大小应该是一致的。总共获得48个48</em>10*10。</p>
+</li>
+<li>
+<p>Maxpooling对局部数据敏感，另外根据假设透射率有局部不变性，所以用一个7<em>7局部最大值滤波替代maxpooling。输出是48个48</em>6*6。</p>
+</li>
+<li>
+<p>通过1个4<em>4的卷积核，产生1</em>1的标量，并且使用的激活函数为BReLU。因为ReLU抑制了小于0的数，只适用于图像分类等方面，并不适合图像复原。因为最后的透射率图允许高于1或者低于0。所以提出了BReLU，既保持了局部线性，又保持了双边的限制。输出的是一个标量，即输入块中心点的透射率值。</p>
+</li>
+</ol>
+<p>
+        <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170027.png">
+            <img class="mx-auto" alt="BReLU" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170027.png" />
+        </a>
+    </p>
+<h2 id="参考文献">参考文献</h2>
+<p>[1] Cai B, Xu X, Jia K, et al. DehazeNet: An End-to-End System for Single Image Haze Removal [J]. IEEE Transactions on Image Processing, 2016, 25(11): 5187-5198.</p>
+<p>[2] He K, Sun J, Tang X. Single image haze removal using dark channel prior[J]. IEEE transactions on pattern analysis and machine intelligence, 2011, 33(12): 2341-2353.</p>
+<p>[3] Tan R T. Visibility in bad weather from a single image[C]//Computer Vision and Pattern Recognition, 2008. CVPR 2008. IEEE Conference on. IEEE, 2008: 1-8.</p>
+<p>[4] Zhu Q, Mai J, Shao L. A fast single image haze removal algorithm using color attenuation prior[J]. IEEE Transactions on Image Processing, 2015, 24(11): 3522-3533.</p>
+<p>[5] C. O. Ancuti, C. Ancuti, C. Hermans, and P. Bekaert, “A fast semiinverse approach to detect and remove the haze from a single image,” in Computer Vision–ACCV 2010, 2011, pp. 501–514.</p>
+<p>[6] Goodfellow I J, Warde-Farley D, Mirza M, et al. Maxout networks[J]. ICML (3), 2013, 28: 1319-1327.</p>
+<p>[7] DehazeNet: An End-to-End System for Single Image Haze Removal解读 <a href="https://blog.csdn.net/Julialove102123/article/details/80199276">https://blog.csdn.net/Julialove102123/article/details/80199276</a></p>
+<p>[8] 阅读笔记&mdash;-DehazeNet:An End-to-End System for Single Image Haze Removal <a href="https://blog.csdn.net/yinhou1771/article/details/82682311">https://blog.csdn.net/yinhou1771/article/details/82682311</a></p>
+        </div>
+
+        
+<div class="post-archive">
+    <ul class="post-copyright">
+        <li><strong>原文作者：</strong><a rel="author" href="http://jchenTech.github.io/">jchen</a></li>
+        <li style="word-break:break-all"><strong>原文链接：</strong><a href="http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0DehazeNet/">http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0DehazeNet/</a></li>
+        <li><strong>版权声明：</strong>本作品采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可，非商业转载请注明出处（作者，原文链接），商业转载请联系作者获得授权。</li>
+    </ul>
+</div>
+<br/>
+
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0%E6%9A%97%E9%80%9A%E9%81%93%E5%85%88%E9%AA%8C%E5%8E%BB%E9%9B%BE%E7%AE%97%E6%B3%95/">【论文笔记】暗通道先验去雾算法</a></li>
+        
+        <li><a href="/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E7%BD%91%E7%BB%9C%E6%8C%96%E6%8E%98%E5%8F%8A%E5%85%B6%E7%9B%B8%E5%85%B3%E5%BA%94%E7%94%A8/">网络挖掘及其相关应用</a></li>
+        
+        <li><a href="/post/Python/python%E4%B9%8Bmatplotlib%E7%BB%98%E5%9B%BE%E5%9F%BA%E7%A1%80/">Python之Matplotlib绘图基础</a></li>
+        
+        <li><a href="/post/C&#43;&#43;/C&#43;&#43;-primer-plus-%E7%AC%AC16%E7%AB%A0String%E7%B1%BB%E5%92%8C%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/">C&#43;&#43; primer plus 第16章String类和标准模板库</a></li>
+        
+        <li><a href="/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9CRNN%E4%BB%8B%E7%BB%8D/">循环神经网络RNN介绍</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='/tags/%E5%9B%BE%E5%83%8F%E5%8E%BB%E9%9B%BE'>图像去雾</a></li>
+                
+                <li><a href='/tags/DehazeNet'>DehazeNet</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "your github repo"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2020 <a href="http://jchenTech.github.io/">jchen&#39;s blog By jchen</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'GA ID', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+    <script src='/js/douban.js'></script>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='http://jchenTech.github.io/search/' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://jchenTech.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/Java/Java%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/" title="Java常用方法总结">Java常用方法总结</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8EJava%E5%AE%9E%E7%8E%B0/" title="十大经典排序算法总结（基于Java实现）">十大经典排序算法总结（基于Java实现）</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC10/" title="【CS61B】LEC10 Subtype Polymorphism vs. HoFs">【CS61B】LEC10 Subtype Polymorphism vs. HoFs</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC9/" title="【CS61B】LEC9 Extends, Casting, Higher Order Functions">【CS61B】LEC9 Extends, Casting, Higher Order Functions</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/Git/%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4Github%E4%B8%8A%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9/" title="如何删除Github上的文件夹">如何删除Github上的文件夹</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC8/" title="【CS61B】LEC8 Inheritance, Implements">【CS61B】LEC8 Inheritance, Implements</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61B%E9%93%BE%E8%A1%A8IntListSLListDLListAList/" title="【CS61B】链表IntList、SLList、DLList、AList整理">【CS61B】链表IntList、SLList、DLList、AList整理</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BProj1A/" title="【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque ">【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque </a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC6/" title="【CS61B】LEC6 ALists, Resizing, vs. SLists ">【CS61B】LEC6 ALists, Resizing, vs. SLists </a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC5/" title="【CS61B】LEC5 DLLists, Arrays ">【CS61B】LEC5 DLLists, Arrays </a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="http://jchenTech.github.io/categories/C&#43;&#43;/">C&#43;&#43; (7)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/Git/">Git (1)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/Golang/">Golang (3)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/Java/">Java (1)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/Linux/">Linux (2)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/Python/">Python (1)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/%E5%8D%9A%E5%AE%A2/">博客 (8)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">图像处理与深度学习 (10)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法 (13)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="http://jchenTech.github.io/tags/AOD-Net/">AOD-Net</a>
+    
+    <a href="http://jchenTech.github.io/tags/C&#43;&#43;/">C&#43;&#43;</a>
+    
+    <a href="http://jchenTech.github.io/tags/CS61B/">CS61B</a>
+    
+    <a href="http://jchenTech.github.io/tags/DehazeNet/">DehazeNet</a>
+    
+    <a href="http://jchenTech.github.io/tags/Fast-R-CNN/">Fast R-CNN</a>
+    
+    <a href="http://jchenTech.github.io/tags/Faster-R-CNN/">Faster R-CNN</a>
+    
+    <a href="http://jchenTech.github.io/tags/Git/">Git</a>
+    
+    <a href="http://jchenTech.github.io/tags/Github/">Github</a>
+    
+    <a href="http://jchenTech.github.io/tags/Hugo/">Hugo</a>
+    
+    <a href="http://jchenTech.github.io/tags/Java/">Java</a>
+    
+    <a href="http://jchenTech.github.io/tags/Linux/">Linux</a>
+    
+    <a href="http://jchenTech.github.io/tags/MRP%E5%A4%9C%E9%97%B4%E5%8E%BB%E9%9B%BE/">MRP夜间去雾</a>
+    
+    <a href="http://jchenTech.github.io/tags/MSCNN%E5%8E%BB%E9%9B%BE/">MSCNN去雾</a>
+    
+    <a href="http://jchenTech.github.io/tags/Matplotlib/">Matplotlib</a>
+    
+    <a href="http://jchenTech.github.io/tags/Python/">Python</a>
+    
+    <a href="http://jchenTech.github.io/tags/R-CNN/">R-CNN</a>
+    
+    <a href="http://jchenTech.github.io/tags/RNN/">RNN</a>
+    
+    <a href="http://jchenTech.github.io/tags/SSD/">SSD</a>
+    
+    <a href="http://jchenTech.github.io/tags/SSPNet/">SSPNet</a>
+    
+    <a href="http://jchenTech.github.io/tags/Ubuntu/">Ubuntu</a>
+    
+    <a href="http://jchenTech.github.io/tags/YOLO/">YOLO</a>
+    
+    <a href="http://jchenTech.github.io/tags/github-page/">github page</a>
+    
+    <a href="http://jchenTech.github.io/tags/golang/">golang</a>
+    
+    <a href="http://jchenTech.github.io/tags/Hugo/">Hugo</a>
+    
+    <a href="http://jchenTech.github.io/tags/markdown/">markdown</a>
+    
+    <a href="http://jchenTech.github.io/tags/programming/">programming</a>
+    
+    <a href="http://jchenTech.github.io/tags/theme/">theme</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">卷积神经网络</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%9B%BE%E5%83%8F%E5%8E%BB%E9%9B%BE/">图像去雾</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5/">图片插入</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%A4%8D%E6%9D%82%E7%BD%91%E7%BB%9C/">复杂网络</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">常用方法</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%BD%92%E6%A1%A3%E9%A1%B5%E9%9D%A2/">归档页面</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">循环神经网络</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">排序算法</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E6%9A%97%E9%80%9A%E9%81%93/">暗通道</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E7%A4%BE%E4%BA%A4%E7%BD%91%E7%BB%9C%E6%8C%96%E6%8E%98/">社交网络挖掘</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://www.flysnow.org/" title="飞雪无情的博客">飞雪无情的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://yuedu.baidu.com/ebook/14a722970740be1e640e9a3e" title="Android Gradle权威指南">Android Gradle权威指南</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="http://jchenTech.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

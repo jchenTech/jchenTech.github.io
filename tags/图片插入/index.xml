@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>图片插入 on jchen&#39;s blog</title>
+    <link>http://jchenTech.github.io/tags/%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5/</link>
+    <description>Recent content in 图片插入 on jchen&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 30 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://jchenTech.github.io/tags/%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo插入图片</title>
+      <link>http://jchenTech.github.io/post/%E5%8D%9A%E5%AE%A2/Hugo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/</link>
+      <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/post/%E5%8D%9A%E5%AE%A2/Hugo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/</guid>
+      <description>&lt;p&gt;在写博客时，常常需要在文章中插入图片，Hugo有多种图片插入方式，可以将图片存在本地引用、将图片放在CDN引用或建立图床。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

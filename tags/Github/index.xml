@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Github on jchen&#39;s blog</title>
+    <link>http://jchenTech.github.io/tags/Github/</link>
+    <description>Recent content in Github on jchen&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 08 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://jchenTech.github.io/tags/Github/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何删除Github上的文件夹</title>
+      <link>http://jchenTech.github.io/post/Git/%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4Github%E4%B8%8A%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9/</link>
+      <pubDate>Tue, 08 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/post/Git/%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4Github%E4%B8%8A%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9/</guid>
+      <description>&lt;p&gt;要知道在github上只能删除仓库,却无法删除文件夹或文件, 所以只能通过命令来解决，&lt;/p&gt;
+&lt;p&gt;（1）首先进入master文件夹下, &lt;code&gt;Git Bash Here&lt;/code&gt; ,打开命令窗口 &lt;code&gt;$ git --help&lt;/code&gt; 帮助命令&lt;/p&gt;
+&lt;p&gt;（2）&lt;code&gt;$ git pull origin master&lt;/code&gt; 将远程仓库里面的项目拉下来，&lt;code&gt;$ dir&lt;/code&gt;  查看有哪些文件夹&lt;/p&gt;
+&lt;p&gt;（3）此时&lt;code&gt;$ git rm -r --cached target&lt;/code&gt;  删除&lt;code&gt;target&lt;/code&gt;文件夹，&lt;code&gt;$ git commit -m &#39;Deleted target&#39;&lt;/code&gt;  提交。&lt;/p&gt;
+&lt;p&gt;（4）最后&lt;code&gt;$ git push -u origin master &lt;/code&gt;将本次更改更新到github项目上去，删除完毕。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

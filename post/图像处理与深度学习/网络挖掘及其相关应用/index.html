@@ -1,0 +1,1011 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+
+    <title>网络挖掘及其相关应用 | jchen&#39;s blog</title>
+    <meta property="og:title" content="网络挖掘及其相关应用 - jchen&#39;s blog">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2020-04-14T00:00:00&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2020-04-14T00:00:00&#43;08:00'>
+        
+    <meta name="Keywords" content="">
+    <meta name="description" content="网络挖掘及其相关应用">
+        
+    <meta name="author" content="jchen">
+    <meta property="og:url" content="http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E7%BD%91%E7%BB%9C%E6%8C%96%E6%8E%98%E5%8F%8A%E5%85%B6%E7%9B%B8%E5%85%B3%E5%BA%94%E7%94%A8/">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+    
+    
+    
+        <link rel="stylesheet" href='/css/douban.css'>
+    
+        <link rel="stylesheet" href='/css/other.css'>
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://jchenTech.github.io/">
+                        jchen&#39;s blog
+                    </a>
+                
+                
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="http://jchenTech.github.io/">首页</a>
+                    
+                    <a  href="http://jchenTech.github.io/tools/" title="工具">工具</a>
+                    
+                    <a  href="http://jchenTech.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://jchenTech.github.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    <style type="text/css">
+    .post-toc {
+        position: fixed;
+        width: 200px;
+        margin-left: -210px;
+        padding: 5px 10px;
+        font-family: Athelas, STHeiti, Microsoft Yahei, serif;
+        font-size: 12px;
+        border: 1px solid rgba(0, 0, 0, .07);
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.98);
+        background-clip: padding-box;
+        -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        word-wrap: break-word;
+        white-space: nowrap;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        z-index: 999;
+        cursor: pointer;
+        max-height: 70%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+    @media print,
+    screen and (max-width:1057px) {
+        .post-toc {
+            display: none;
+        }
+    }
+</style>
+<div class="post-toc" style="position: absolute; top: 188px;">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-网络结构">1 网络结构</a>
+      <ul>
+        <li><a href="#11-网络统计特征">1.1 网络统计特征</a></li>
+        <li><a href="#12-网络特征与模型">1.2 网络特征与模型</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-网络节点中心性centrality">2 网络节点中心性（Centrality）</a>
+      <ul>
+        <li><a href="#21-度中心性degree-centrality">2.1 度中心性（Degree centrality）</a></li>
+        <li><a href="#22-接近中心性closeness-centrality">2.2 接近中心性（Closeness centrality）</a></li>
+        <li><a href="#23-中介中心性">2.3 中介中心性</a></li>
+        <li><a href="#24-特征向量中心性">2.4 特征向量中心性</a></li>
+        <li><a href="#24-katz中心性">2.4 Katz中心性</a></li>
+        <li><a href="#25-pagerank中心性">2.5 PageRank中心性</a></li>
+        <li><a href="#252-pagerank实现">2.5.2 PageRank实现</a></li>
+        <li><a href="#26-各个中心性指标的联系和区别">2.6 各个中心性指标的联系和区别</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-网络可视化与分析工具">3 网络可视化与分析工具</a></li>
+    <li><a href="#4-社团结构">4 社团结构</a>
+      <ul>
+        <li><a href="#41-网络中的社团结构">4.1 网络中的社团结构</a></li>
+        <li><a href="#42-什么是社团检测">4.2 什么是社团检测</a></li>
+        <li><a href="#43-社团检测有什么用">4.3 社团检测有什么用</a></li>
+        <li><a href="#44-社团检测面临的问题">4.4 社团检测面临的问题</a></li>
+        <li><a href="#45-社团检测方法">4.5 社团检测方法</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-网络传播动力学">3 网络传播动力学</a>
+      <ul>
+        <li><a href="#31-传染病传播模型">3.1 传染病传播模型</a></li>
+        <li><a href="#32-节点影响力评估关键节点挖掘传播影响力最大化">3.2 节点影响力评估（关键节点挖掘）、传播影响力最大化</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-链路预测">4 链路预测</a></li>
+    <li><a href="#5-深度学习与图网络">5 深度学习与图网络</a>
+      <ul>
+        <li><a href="#51-图嵌入网络表示学习">5.1 图嵌入（网络表示学习）</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-知识图谱">5 知识图谱</a></li>
+    <li><a href="#6-网络挖掘的其他研究领域">6 网络挖掘的其他研究领域</a>
+      <ul>
+        <li><a href="#61-其他相关研究领域">6.1 其他相关研究领域</a></li>
+        <li><a href="#62-网络挖掘相关资料和大牛">6.2 网络挖掘相关资料和大牛</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var postToc = $(".post-toc");
+        if (postToc.length) {
+            var leftPos = $("#main").offset().left;
+            if(leftPos<220){
+                postToc.css({"width":leftPos-10,"margin-left":(0-leftPos)})
+            }
+
+            var t = postToc.offset().top - 20,
+                a = {
+                    start: {
+                        position: "absolute",
+                        top: t
+                    },
+                    process: {
+                        position: "fixed",
+                        top: 20
+                    },
+                };
+            $(window).scroll(function () {
+                var e = $(window).scrollTop();
+                e < t ? postToc.css(a.start) : postToc.css(a.process)
+            })
+        }
+    })
+</script>
+    <article class="post">
+        <header>
+            <h1 class="post-title">网络挖掘及其相关应用</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年4月14日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0'>图像处理与深度学习</a></span>
+            
+        </div>
+        
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span>
+                    阅读</span></span>
+        </div>
+        
+        
+        <div class="clear" style="display: none">
+            <div class="toc-article">
+                <div class="toc-title">文章目录</div>
+            </div>
+        </div>
+        
+        <div class="post-content">
+            <p>网络挖掘及其相关应用</p>
+<p>
+        <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170456.jpg">
+            <img class="mx-auto" alt="复杂网络" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170456.jpg" />
+        </a>
+    </p>
+<h2 id="1-网络结构">1 网络结构</h2>
+<h3 id="11-网络统计特征">1.1 网络统计特征</h3>
+<p>网络模型许多概念来自于图论，因为网络模型本质上是一个由节点和边组成的图。以下为网络模型中常用的统计概念。</p>
+<ul>
+<li>
+<p>度（Degree）：节点的度定义为与该节点相连的边的数目。在有向图中，所有指向某节点的边的数量叫作该节点的入度，所有从该节点出发指向别的节点的边的数量叫作该节点的出度。网络平均度反应了网络的疏密程度，而通过度分布则可以刻画不同节点的重要性。</p>
+</li>
+<li>
+<p>网络密度（Density）：网络密度可以用于刻画节点间相互连边的密集程度，定义为网络中实际存在边数与可容纳边数上限的比值，常用来测量社交网络中社交关系的密集程度及演化趋势。</p>
+</li>
+<li>
+<p>平均路径长度（Average path length）：两节点间的距离为连接两者的最短路径的边的数目，网络的直径为任意两点间的最大距离；网络的平均路径长度则是所有节点对之间距离的平均值，它描述了网络中节点间的分离程度，即网络有多小。</p>
+</li>
+<li>
+<p>聚类系数（Clustering Coefficient）：用于描述网络中与同一节点相连的节点间也互为相邻节点的程度。其用于刻画网络中一个人朋友们之间也互相是朋友的概率，反应了网络中的聚集性。</p>
+</li>
+<li>
+<p>介数（Betweeness）：为图中某节点承载整个图所有最短路径的数量，通常用来评价节点的重要程度，比如在连接不同社群之间的中介节点的介数相对于其他节点来说会非常大，也体现了其在社交网络信息传递中的重要程度。</p>
+</li>
+</ul>
+<p>网络通常是采用邻接矩阵和邻接表的形式进行存储，节点之间存在连边则对应为1，若不存在连边则为0。</p>
+<p>
+        <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170457.png">
+            <img class="mx-auto" alt="邻接矩阵存储网络" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170457.png" />
+        </a>
+    </p>
+<p>参考文献：
+<a href="https://zhuanlan.zhihu.com/p/30595241">一文读懂社交网络分析：学术研究、应用、前沿与学习资源</a></p>
+<h3 id="12-网络特征与模型">1.2 网络特征与模型</h3>
+<h4 id="121-网络特征">1.2.1 网络特征</h4>
+<ul>
+<li>小世界现象：小世界现象是指地理位置相距遥远的人可能具有较短的社会关系间隔。早在1967年，哈佛大学心理学教授 Stanley Milgram 通过一个信件投递实验，归纳并提出了“六度分割理论（Six Degrees of Separation）”,  即任意两个都可通过平均五个人熟人相关联起来。1998年，Duncan Watts 和 Steven Strogatz 在《自然》杂志上发表了里程碑式的文章《Collective Dynamics of “Small-World” Networks》，该文章正式提出了小世界网络的概念并建立了小世界模型。</li>
+</ul>
+<p>小世界现象在在线社交网络中得到了很好地验证，根据2011年 Facebook 数据分析小组的报告， Facebook 约7.2亿用户中任意两个用户间的平均路径长度仅为4.74，而这一指标在推特中为4.67。可以说，在五步之内，任何两个网络上的个体都可以互相连接。</p>
+<p>一般来说，小世界网络的特征是高聚类系数和低平均路径长度。复杂网络的小世界效应是指尽管网络的规模很大(网络节点数目N很大)，但是两个节点之间的距离比我们想象的要小得多。也就是网络的平均路径长度L随网络的规模呈对数增长，即L～In N。大量的实证研究表明，真实网络几乎都具有小世界效应。</p>
+<ul>
+<li>无标度特性：大多数真实的大规模社交网络都存在着大多数节点有少量边，少数节点有大量边的特点，其网络缺乏一个统一的衡量尺度而呈现出异质性，我们将这种节点度分布不存在有限衡量分布范围的性质称为无标度。无标度网络表现出来的度分布特征为幂律分布，这就是此类网络的无标度特性。</li>
+</ul>
+<p>
+        <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170458.png">
+            <img class="mx-auto" alt="Scale-free无标度网络" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170458.png" />
+        </a>
+    </p>
+<p>＊ 我们平时听说的听说的「小世界网络」，网络上的「马太效应」，「强连接」和「弱连接」，甚至「肥胖是可以传染的」到底是什么意思？</p>
+<p>＊ 研究者通常用哪些量来刻画复杂网络的整体性质（例如「小世界」特性）或者局部性质（例如用户之间的「趋同性」）？</p>
+<p>参考文献：</p>
+<ul>
+<li>
+<p><a href="https://zhuanlan.zhihu.com/p/30595241">一文读懂社交网络分析：学术研究、应用、前沿与学习资源</a></p>
+</li>
+<li>
+<p><a href="http://systems-sciences.uni-graz.at/etextbook/networks/networks_3.html">System Sciences at SIS</a></p>
+</li>
+</ul>
+<h4 id="122-网络模型">1.2.2 网络模型</h4>
+<ul>
+<li>
+<p>规则网络：最简单的网络模型为规则网络，它是指系统中各元素之间的关系可以用一些规则的结构表示，也就是说网络中任意两个节点之间的联系遵循既定的规则，通常每个节点的近邻数目都相同。常见的具有规则拓扑结构的网络包括全局耦合网络（也称为完全图）、最近邻耦合网络和星型耦合网络。</p>
+</li>
+<li>
+<p>随机网络：从某种意义上讲，规则网络和随机网络是两个极端，而复杂网络处于两者之间。节点不是按照确定的规则连线，如按纯粹的随机方式连线，所得的网络称为随机网络。如果节点按照某种自组织原则方式连线，将演化成各种不同网络。</p>
+</li>
+<li>
+<p>小世界网络：规则的最近邻耦合网络具有高聚类特性，但并不是小世界网络。另一方面，ER随机网络虽然具有小的平均路径长度但却没有高聚类特性。因此，这两类网络模型都不能再现真实网络的一些重要特征，毕竟大部分实际网络既不是完全规则的，也不是完全随机的。作为从完全规则网络向完全随机网络的过渡，Watts和Strogtz于1998年引入了一个小世界网络模型，称为WS小世界模型。</p>
+</li>
+</ul>
+<p>
+        <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170459.png">
+            <img class="mx-auto" alt="规则网络、小世界网络、随机网络演变" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170459.png" />
+        </a>
+    </p>
+<ul>
+<li>BA网络: BA模型考虑到现实网络中节点的幂律分布特性，生成无标度网络。</li>
+</ul>
+<p>
+        <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170500.png">
+            <img class="mx-auto" alt="BA网络" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170500.png" />
+        </a>
+    </p>
+<h2 id="2-网络节点中心性centrality">2 网络节点中心性（Centrality）</h2>
+<h3 id="21-度中心性degree-centrality">2.1 度中心性（Degree centrality）</h3>
+<p>度中心性是在网络分析中刻画节点中心性的最直接度量指标，定义为一个节点的连边的数量数。一个节点的节点度越大就意味着这个节点的度中心性越高。</p>
+<p>$$C_{D}(v)=\deg(v)$$</p>
+<p>设想一下，你在微信上有个账号，那么是不是意味着微信好友数量越多，那么你的社交圈子越广？（假设都是真实好友，不考虑微商神马的奇葩情况）比如我有20个好友，那么意味着20个结点与我相连。如果你有50个好友，那么意味着你的点度中心度比我高，社交圈子比我广。这个就是点度中心性的概念。</p>
+<h3 id="22-接近中心性closeness-centrality">2.2 接近中心性（Closeness centrality）</h3>
+<p>节点的接近中心性的定义为该节点到网络中其他节点的平均最短路径长度。换句话说就是该节点到其他节点越近则接近中心性越大。</p>
+<p>$${\displaystyle C(x)={\frac {1}{\sum _{y}d(y,x)}}}$$</p>
+<p>这个定义其实比Degree Centrality从几何上更符合中心度的概念，因为到其它节点的平均最短距离最小，意味着这个节点从几何角度看是出于图的中心位置。我们设想一个实际生活中的场景，比如你要建一个大型的娱乐商场，你可能会希望周围的顾客到达这个商场的距离都可以尽可能地短。</p>
+<h3 id="23-中介中心性">2.3 中介中心性</h3>
+<p>计算经过一个点的最短路径的数量。经过一个点的最短路径的数量越多，就说明它的中介中心度越高。</p>
+<!-- raw HTML omitted -->
+<p>假设想知道的人是A。但是后来我们发现在这个26人的圈子里面，度中心性最高的人A，却不一定是活跃的，这里就需要用到中介中心度（betweenness centrality）来进行计算。很多节点之间的最短路径都经过C这个点，那么就说C有高的中介中心度。也就是说这个点处在其他点对相互之间的捷径上。</p>
+<p>如果一个大的社交网络中包含了几个小组，那么中介中心度高的人就起到将这些小组连接起来的作用。比如在男生女生共同存在的网上学习网络中，比较常见的现象是女生之间互动紧密同时男生之间互动紧密，但是中介中心度高的学生将会打破这种男生女生小组织的边界，在网络中，将男生女生连接在一起，使之形成一个整体的大网络。</p>
+<h3 id="24-特征向量中心性">2.4 特征向量中心性</h3>
+<p>一个节点的重要性既取决于其邻居节点的数量（即该节点的度），也取决于其邻居节点的重要性,记 $x_t$ 为节点 $v_t$ 的重要性度量值，则：</p>
+<!-- raw HTML omitted -->
+<p>其中 $M(v)$ 是节点 $v$ 的邻居节点集合，而 $\lambda$ 是常数，这个公式经过多次迭代可以变换为：</p>
+<p>$$\mathbf{Ax} = {\lambda}\mathbf{x}$$</p>
+<p>Google的PageRank和Katz中心性也是特征向量中心性的变种。</p>
+<h3 id="24-katz中心性">2.4 Katz中心性</h3>
+<p>Katz中心性是度中心性的延伸。度中心性度量的是节点的直接邻居节点的数量，而Katz中心性度量了可以连接成为一条路径的所有节点的数量，而越远的节点的贡献度越低：</p>
+<!-- raw HTML omitted -->
+<p>其中，$\alpha$ 是一个(0,1)之间的衰减因子。</p>
+<h3 id="25-pagerank中心性">2.5 PageRank中心性</h3>
+<h4 id="251-pagerank概述">2.5.1 PageRank概述</h4>
+<p>PageRank，又称网页排名、谷歌左侧排名、PR，是Google公司所使用的对其搜索引擎搜索结果中的网页进行排名的一种算法。</p>
+<p>佩奇排名本质上是一种以网页之间的超链接个数和质量作为主要因素粗略地分析网页的重要性的算法。其基本假设是：更重要的页面往往更多地被其他页面引用（或称其他页面中会更多地加入通向该页面的超链接）。其将从A页面到B页面的链接解释为“A页面给B页面投票”，并根据投票来源（甚至来源的来源，即链接到A页面的页面）和投票对象的等级来决定被投票页面的等级。简单的说，一个高等级的页面可以提升其他低等级的页面。</p>
+<p>该算法以谷歌公司创始人之一的拉里·佩奇（Larry Page）的名字来命名。谷歌搜索引擎用它来分析网页的相关性和重要性，在搜索引擎优化中经常被用来作为评估网页优化的成效因素之一。</p>
+<p>当前，佩奇排名算法不再是谷歌公司用来给网页进行排名的唯一算法，但它是最早的，也是最著名的算法。</p>
+<h3 id="252-pagerank实现">2.5.2 PageRank实现</h3>
+<p><strong>简化版本</strong>
+假设一个由4个网页组成的集合：A，B，C和D。同一页面中多个指向相同的链接视为同一个链接，并且每个页面初始的PageRank值相同，最初的算法将每个网页的初始值设定为1。但是在后来的版本以及下面的示例中，为了满足概率值位于0到1之间的需要，我们假设这个值是0.25。</p>
+<p>在每次迭代中，给定页面的PR值（PageRank值）将均分到该页面所链接的页面上。</p>
+<p>如果所有页面都只链接至A，那么A的PR值将是B，C及D的PR值之和，即：</p>
+<p>$$PR(A)=PR(B)+PR(C)+PR(D)$$</p>
+<p>重新假设B链接到A和C，C链接到A，并且D链接到A,B,C。最初一个页面总共只有一票。所以B给A ,C每个页面半票。以此类推，D投出的票只有三分之一加到了A的PR值上：</p>
+<p>$${\displaystyle PR(A)={\frac {PR(B)}{2}}+{\frac {PR(C)}{1}}+{\frac {PR(D)}{3}}}$$</p>
+<p>换句话说，算法将根据每个页面连出总数 $L(x)$ 平分该页面的PR值，并将其加到其所指向的页面：</p>
+<p>$$PR(A)={\frac {PR(B)}{L(B)}}+{\frac {PR(C)}{L(C)}}+{\frac {PR(D)}{L(D)}}$$</p>
+<p>最后，所有这些PR值被换算成百分比形式再乘上一个修正系数 $d$。由于“没有向外链接的网页”传递出去的PR值会是0，而这会递归地导致指向它的页面的PR值的计算结果同样为零，所以赋给每个页面一个最小值</p>
+<p>$$PR(A)=\left({\frac {PR(B)}{L(B)}}+{\frac {PR(C)}{L(C)}}+{\frac {PR(D)}{L(D)}}+,\cdots \right)d+{\frac {1-d}{N}}$$</p>
+<p>需要注意的是，在Sergey Brin和Lawrence Page的1998年原版论文中给每一个页面设定的最小值是 $1-d$ ，而不是这里的 $(1-d)/N$ ，这将导致集合中所有网页的PR值之和为N（N为集合中网页的数目）而非所期待的1。
+因此，一个页面的PR值直接取决于指向它的的页面。如果在最初给每个网页一个随机且非零的PR值，经过重复计算，这些页面的PR值会趋向于某个定值，也就是处于收敛的状态，即最终结果。这就是搜索引擎使用该算法的原因。</p>
+<p>
+        <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170501.png">
+            <img class="mx-auto" alt="PageRank" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170501.png" />
+        </a>
+    </p>
+<h3 id="26-各个中心性指标的联系和区别">2.6 各个中心性指标的联系和区别</h3>
+<p>其实在现实世界的不同网络结构中，不同定义的中心性指标的着重点不同，所以在实际的网络中各个节点的不同中心性指标可能差异很大，因该结合自身需求来寻找网络中中心性大的节点。</p>
+<p>
+        <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170502.png">
+            <img class="mx-auto" alt="同一幅图中不同中心性指标示例：A) Betweenness centrality, B) Closeness centrality, C) Eigenvector centrality, D) Degree centrality, E) Harmonic centrality and F) Katz centrality" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170502.png" />
+        </a>
+    </p>
+<p>参考文献：
+<a href="https://en.wikipedia.org/wiki/Centrality#Degree_centrality">wiki：网络中心性指标</a></p>
+<h2 id="3-网络可视化与分析工具">3 网络可视化与分析工具</h2>
+<p>在这里向大家推荐几个比较常用的工具，对于单层网络一个是Python的NetworkX库，一个是Gephi软件，而对于多层网络而言，推荐使用MuxViz软件进行可视化分析。</p>
+<ul>
+<li>NetworkX</li>
+</ul>
+<p>这是一款Python的软件包，用于创造、操作复杂网络，以及学习复杂网络的结构、动力学及其功能。 有了NetworkX你就可以用标准或者不标准的数据格式加载或者存储网络，它可以产生许多种类的随机网络或经典网络，也可以分析网络结构，建立网络模型，设计新的网络算法，绘制网络等等。可以查看官方文档</p>
+<p>
+        <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170503.png">
+            <img class="mx-auto" alt="NetworkX" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170503.png" />
+        </a>
+    </p>
+<ul>
+<li>Gephi</li>
+</ul>
+<p>gephi是一款网络信息数据可视化利器，主要用于各种网络和复杂系统，动态和分层图的交互可视化。gephi的强大在于有丰富的可视化插件，足够满足你的分析需求。</p>
+<p>Gephi 的优势在于操作简便，而且出图的效果真的非常好，还有很多的插件可以使用，可以说是做可视化分析、和后期出图的利器。</p>
+<p>
+        <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170504.png">
+            <img class="mx-auto" alt="Gephi" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170504.png" />
+        </a>
+    </p>
+<ul>
+<li>Visualcomplexity</li>
+</ul>
+<p>一个很好的网络可视化网站，涉及因特网、生物网络、社会网络、交通网络等十余个大类，最关键的是，每一张图都给出了背景项目的简介和链接。</p>
+<p>
+        <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170505.png">
+            <img class="mx-auto" alt="Visualcomplexity" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170505.png" />
+        </a>
+    </p>
+<ul>
+<li>MuxViz</li>
+</ul>
+<p>一个用R语言搭建的很好的多层网络可视化分析工具</p>
+<p>
+        <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170506.png">
+            <img class="mx-auto" alt="MuxViz" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170506.png" />
+        </a>
+    </p>
+<h2 id="4-社团结构">4 社团结构</h2>
+<p>社团检测（Community Detection，又译作社区发现）是一种在网络中找出关系密切的结点的集合（社团）的技术。随着当今互联网尤其是社交网络的发展，这一研究领域也越来越被人们所重视。目前已经有多种用于进行社团检测的方法，而随着大数据时代网络规模的急剧增大，社团检测领域的发展也迎来了新的挑战和机遇。</p>
+<h3 id="41-网络中的社团结构">4.1 网络中的社团结构</h3>
+<p>以我们最熟悉的网络——互联网为例，我们所上的每一个网站里，都会有链接向其他网页的链接。这种相互链接的关系也构成了一张网络。只不过因为互联网上的网站数目众多，而链接关系又十分复杂，所以其规模自然是极为庞大的。</p>
+<p>上面已经说明了，网络可以用一个图来表示，其中顶点与顶点之间的连线即代表了它们之间的关系。那么，在这样的一个关系网中，社团又指的是什么呢？首先先下一个定义：社团（Community，又译作社区）反映的是网络中的个体行为的局部性特征以及其相互之间的关联关系。社团内的连接紧密，而社团间的连接稀疏。可能比较抽象？我们来举个例子：</p>
+<p>我们交了朋友或者与人进行合作后，肯定得要保持联系。那么要用什么方法来保持这种联系呢？没错，大家很可能马上就会想到，可以用QQ啊！什么？你说合作者或朋友不只一个？那也好办，建Q群呗！于是，一些有着共同兴趣爱好或是目的的人就被聚集在了一起。</p>
+<p>说到这里，大家可能已经明白了：这里的Q群就相当于一个社团，是社交网络中一部分人（顶点）的集合。在这样的一个社团里，其中的成员（群员）就可以进行更加密切的交流，或是会互加一波好友，因为他们有着共同的目标或话题。这样一来，我们就可以说这个Q群之中的人的相互关系更加紧密了。而实际上，在一个网络中的社团里，用来定义一个顶点是否在某个社团之中的方法，其实就是看它与该社团中的其他顶点的关联是否密切。或者说，正是这一簇互相关联紧密的顶点，才构造出了网络中的一个社团。</p>
+<p>
+        <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170507.png">
+            <img class="mx-auto" alt="社团结构" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170507.png" />
+        </a>
+    </p>
+<h3 id="42-什么是社团检测">4.2 什么是社团检测</h3>
+<p>说完了社团，我们重新来看回社团检测。顾名思义，社团检测就是要在一个网络中找到这些社团，即一批关联紧密的顶点。那么要怎么找呢？其实主要的问题就出现在这个“关联紧密”上，要怎样才能说得上是紧密呢？这里我们先从上面的图下手，总结一些直观规律出来：</p>
+<p>可以发现该社团中的每个顶点与社团内的连接都比较紧密；而相比之下，处于该社团外部的顶点就没有这么多与社团中顶点相连的边。注意到该图中有一些点是与社团中的顶点相连的，但却没有被划分到社团之中。事实上，社团的性质中就有这么一条：社团之中的成员顶点的相互关系比社团成员与非社团成员之间的关系要更加密切。还是拿Q群来比喻的话，那就是指在同一个群里的志同道合的人更有可能跟你加好友，而群外的人虽然也会有好友关系，却没有那么多。</p>
+<p>那么，直观印象已经有了。社团检测的目的，就在于通过这些局部的密切关系，来判断网络中的顶点是否属于同一个社团中，以及有多少个这样的“密集区域”。显然，社团检测的重点在于判断“是否密切”，而对于不同领域和不同的检测算法，这一判别指标也会不尽相同。</p>
+<h3 id="43-社团检测有什么用">4.3 社团检测有什么用</h3>
+<p>有人可能会问，找到这些社团有什么用呢？我们在QQ里加入Q群的时候，不是已经知道自己处于什么社团之中了吗？其实不然，因为你只知道你自己处于什么社团之中，却不知道他人的情况；而事实上，其他人可能离你的“距离”比你想象中的要近很多。什么意思呢？再度用Q群来形容的话，可以说得上是“与你同在一个群却没有和你加好友”的人吧。你们有着共同的爱好或目标，可以说是很容易就成为朋友了，但你们却又彼此不认识，怎么办？诶，这就是QQ对社团检测这一技术的现成运用了：好友推荐。</p>
+<p>想必很多人都有着这种经历：打开QQ，猛然发现好友列表那里出现了一个红圈①，而正当我们嘀咕着是谁来加好友，打开“新朋友”列表一看，却发现是一个“好友推荐”的信息。上面写着“XXX，跟你有Y名共同好友”。这句话虽然看起来简单，但其实已经是大有文章了。还记得我们上面说的社团的定义是什么吗？没错，网络图中一批相互关系密切的顶点。那么，共同好友多，显然算是评判关系密切的一种重要指标吧。这个看似不起眼的好友推荐系统，其实已经蕴含着社团检测的核心思想了。</p>
+<p>从上面的例子不难看出，社团检测的一个重要的应用就是这种社交网络中的推荐系统。通过检测与你关系密切的人的情况，来找出你可能会感兴趣的人或群组。在实际的运用中，判别信息可绝不仅仅是“有多少名共同好友”那么简单了，社交网络还会通过各种其他信息来帮助用户们“搭桥牵线”。比如，通过分析用户的住址，来寻找住在同一小区内的人，构成一个“某某小区社团”，这样就可以方便人们认识自己的邻居；又或者，视频网站可以根据用户看的视频类型，找到跟他们有着同样喜好的用户，毕竟有了共同话题，交流起来也更容易不是吗？</p>
+<p>除了“找朋友”外，社团检测还可以“抓坏人”。有句话叫“物以类聚，人以群分”，如果警察发现某个人与一些已知的坏人关系密切，那么他即使没有参与违法行动，也有很多概率知道这些坏人们的一些信息。这样一来，抓捕犯人就有了线索；此外，医疗机构也可以通过调查已经感染某种传染病的人与其他人的关系，找出有可能受到传染病影响的潜在患者，以便尽早让他们脱离危险。显然，与多名传染病患者关系密切的人最有可能成为此类。可以看到，社团检测对于社会关系这张巨大的网络有着很大的作用，如果能够实施好这项技术，就可以防患于未然，解决很多潜在的问题。</p>
+<p>那么，在社交网络以外的网络，社团检测又有什么用呢？以我们刚才所说的蛋白质相互关系网络为例，我们可以将参加同一类生命活动的蛋白质定义为一个社团，以此来分析某些特定蛋白质的作用（看它们出现在哪些社团之中），甚至是以此为基础来预测新型蛋白质的作用；而在互联网上，社团检测的应用领域也非常广泛。例如搜索引擎，可以对用户搜索的关键词进行社团检测，找出其中的“热门领域”，进而增加这方面信息的检索。可以说，社团检测技术提供了一把钥匙，让我们在面对各种实际问题之时可以打开一条“便捷通道”。</p>
+<h3 id="44-社团检测面临的问题">4.4 社团检测面临的问题</h3>
+<h4 id="441-网络规模的膨胀">4.4.1 网络规模的膨胀</h4>
+<p>随着现在大数据时代下的数据量越来越大，网络的规模也在不断膨胀。随着网络尺度的增大，网络的维数也开始急剧膨胀。所谓维数，就是指一个顶点所具有的属性。例如，如果要搞一个社交网络，可以采用的属性有用户的兴趣爱好、地点和职业等。而现在，这样的属性页变得越来越多。</p>
+<p>除了规模增大本身带来的影响以外，还有一个影响在于网络的变化速度也越来越快。还是以社交网络为例，每一天都会有大量新用户注册，并且会有新的好友关系、群组等。网络的数据量增大以及频繁变化，都迫使社团检测算法必须要快速做出应对，即要求其有着更快的计算速度。</p>
+<h4 id="442-重叠社团">4.4.2 重叠社团</h4>
+<p>什么是重叠社团呢？和之前一样，我们用Q群来作为例子。其实道理很简单：人们用QQ时会只加入一个Q群吗？想必绝大部分人的答案肯定是不会，而是有着多于一个Q群。那么，就可以说你同时属于两个Q群所对应的社团中。而同一种蛋白质也有可能会对多种生命活动产生影响。这样一来，不同的社团就会在这个特定的顶点这里“重叠”了。</p>
+<p>事实上，重叠社团可不仅仅是一个点重叠这么简单。在实际情况下，往往有多个这样的结点，也就是网络中的一部分子图会处在这个重叠区域之中。根据重叠部分的顶点数量以及与其他顶点的联系，我们可以判断其重叠的稠密程度，并用图像来表示这些社团之间的重叠情况。</p>
+<p>
+        <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170508.png">
+            <img class="mx-auto" alt="重叠社团" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170508.png" />
+        </a>
+    </p>
+<h3 id="45-社团检测方法">4.5 社团检测方法</h3>
+<p>上面已经说明了社团检测的定义、难点以及应用价值，目前社团检测的方法非常多，主要研究方向如下图所示，接下来只会介绍一些比较知名的社团检测方法。</p>
+<p>
+        <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170509.png">
+            <img class="mx-auto" alt="社团检测研究方向思维导图" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170509.png" />
+        </a>
+    </p>
+<h4 id="451-infomap">4.5.1 Infomap</h4>
+<p>Infomap是一种基于信息量的社团检测方法。你问我什么是信息量？简单来说，就是一件事情能够提供的信息的多少。这个要怎么衡量呢？还是来看一个直观例子：如果抛一枚质量均匀的硬币，那么出现正反面的概率各占50%，这意味着“知道抛这枚硬币的结果是正面”给我们所带来的信息与“知道抛这枚硬币的结果是反面”所带来的信息价值相等；现在我们对这枚硬币做些手脚，让它有着更大的可能性出现正面。这样一来，“知道抛这枚硬币的结果是正面”给我们所带来的信息就会增加吗？不，刚好相反，你已经知道了这枚硬币有更大的可能性出现正面，那知道单次为正所获得的信息不就变少了吗？相对应的，在这种正面占主导的情况下，如果出现一次反面，那么它所带来的信息就会增加，因为这是人们“难以预料到的”。通过上面这个例子，我们可以先给信息量一个粗略的结论：一个事件能够给出的信息多少有其发生概率决定，发生的概率越小获得的信息就越多。</p>
+<p>知道了这个之后，我们接下来回到Infomap上。它使用随机游走作为网络上信息传播的代理，网络上的随机游走会产生相应的数据流。随机游走产生的信息量使用平均一步随机游走产生的码字长度衡量，即平均码字长度。[5]随机游走顾名思义，就是每一次随机到一个与当前结点相连的结点上，如此反复。那么信息量在这里有什么用呢？回想一下，社团中的结点是不是更容易互相连接？那么这样一来，它们在随机过程中被选中的概率自然就会增大。如此一来，我们就可以用信息量来作为判定社团的依据。该算法思路较为创新，效果也比较好，而且该算法的改进型也可用于重叠社团检测。</p>
+<h4 id="452-clique算法">4.5.2 Clique算法</h4>
+<p>除了信息量以外，还有很多别的方式来区分网络中的社团，其中一种方法就是网格。简单来说，就是用大小、形状相同的格子来划分整个网络，然后看哪些格子里面的结点数量更多。显然，结点数量越多的网格，其存在社团的可能性也就越高。对应一个网格，Clique算法会首先判断其是不是密集网格，如果是密集网格。那么对其相邻的网格进行遍历，看是否是密集网格，如果是的话，那么属于同一个簇。该方法可以划分出重叠的社团，但对于高维数据，基于网格的聚类倾向于效果很差。</p>
+<p>
+        <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170510.png">
+            <img class="mx-auto" alt="基于clique的社团检测算法" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170510.png" />
+        </a>
+    </p>
+<h4 id="452-社团检测结果评估指标">4.5.2 社团检测结果评估指标</h4>
+<ul>
+<li>模块度(Modularity)：通过比较现有网络与基准网络在相同社区划分下的连接密度差来衡量网络社区的优劣。</li>
+<li>NMI (Normalized Mutual Information)：利用信息熵来衡量预测社区结构一直社区结构的差异，该值越大，则说明社区结构划分越好，最大值为1时，说明算法划分出的社区结构和一直社区结构一致，算法效果最好。</li>
+<li>Rand Index：表示在两个划分中都属于同一社区或者都属于不同社区的节点对的数量的比值。</li>
+<li>Jaccard Index：Jaccard 系数用来衡量样本之间的差异性，是经典的衡量指标。</li>
+</ul>
+<p>参考文献：</p>
+<ul>
+<li><a href="https://blog.csdn.net/coronia/article/details/81282446">科普论文：漫谈社团检测</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/30595241">一文读懂社交网络分析：学术研究、应用、前沿与学习资源</a></li>
+</ul>
+<h2 id="3-网络传播动力学">3 网络传播动力学</h2>
+<h3 id="31-传染病传播模型">3.1 传染病传播模型</h3>
+<p>传染病的基本数学模型，研究传染病的传播速度、空间范围、传播途径、动力学机理等问题，以指导对传染病的有效地预防和控制。常见的传染病模型按照传染病类型分为 SI、SIR、SIRS、SEIR 模型等，按照传播机理又分为基于常微分方程、偏微分方程、网络动力学的不同类型。</p>
+<p>一般把传染病流行范围内的人群分成如下几类：
+1、S 类，易感者 (Susceptible)，指未得病者，但缺乏免疫能力，与感染者接触后容易受到感染；
+2、E 类，暴露者 (Exposed)，指接触过感染者，但暂无能力传染给其他人的人，对潜伏期长的传染病适用；
+3、I 类，感病者 (Infectious)，指染上传染病的人，可以传播给 S 类成员，将其变为 E 类或 I 类成员；
+4、R 类，康复者 (Recovered)，指被隔离或因病愈而具有免疫力的人。如免疫期有限，R 类成员可以重新变为 S 类。</p>
+<p>SIR 模型：
+SI 模型只考虑了传染病爆发和传播的过程。SIR模型进一步考虑了病人的康复过程。模型的微分方程为：</p>
+<!-- raw HTML omitted -->
+<p>这里 $\beta$ 为传染率, $\gamma$ 为康复概率。总人数 S(t) + I(t) + R(t) = 常数。这里假设病人康复后就获得了永久免疫，因而可以移出系统。对于致死性的传染病，死亡的病人也可以归入 R 类。因此 SIR 模型只有两个独立的动力学变量 I 和 S。</p>
+<p>
+        <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170511.png">
+            <img class="mx-auto" alt="SIR模型传播" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170511.png" />
+        </a>
+    </p>
+<h3 id="32-节点影响力评估关键节点挖掘传播影响力最大化">3.2 节点影响力评估（关键节点挖掘）、传播影响力最大化</h3>
+<p>随着各种在线社交平台的发展，社交平台（比如QQ、微博、朋友圈等）已经不仅仅是一种用户进行沟通的社交平台，它们更是社会信息产生和传播的一种主要的媒介。影响最大化（Influence Maximization）同结构平衡一样，也是针对社会网络的研究而被提出的，它来源于经济学的市场营销。2001年，影响最大化被Domins首次以一种算法问题的形式被提出。而影响最大化受到广泛的关注是在2003年Kempe等人在当年的KDD会议上发表的一篇有关影响最大化的论文之后，随后各种影响最大化算法被迅速提出，最近的十几年里，影响最大化的相关文章达到了上千篇，可见这个问题还是很值得关注的。</p>
+<p>影响最大化问题可以这样来描述：一个商家或者企业利用一种社交平台（比如为新浪微博）为自己的新产品或者新服务进行推广，如何在资金有限的情况下雇佣微博达人来做推广可以使得推广范围达到最大？</p>
+<p>我们再给出影响最大化的一般定义：</p>
+<p>给定一个网络G和一个整数K（一般小于50），如何在G中找出K个节点，使得这K的节点组成的节点集合S的影响传播范围σ(S)达到最大。</p>
+<p>根据上述影响最大化的定义我们很容易可以知道，影响最大化本身属于一种组合优化问题。常用的影响最大化传播模型有独立级联传播模型（ICM）和线性阈值传播模型（LTM）。</p>
+<p>影响最大化方面的主要算法可以分为如下几类：</p>
+<p>（1）基于网络中心性的启发式方法：比如最大度方法、最短平均距离方法、PageRank方法等；</p>
+<p>（2）基于子模块性的贪婪方法：比如最经典的Greedy算法，CELF算法以及后来的NewGreedy和CELF++等；</p>
+<p>（3）基于社区结构的方法：比如CGA算法、CIM算法等；</p>
+<p>（4）基于目标函数优化的方法：比如模拟退火算法等。</p>
+<p>粉丝最多的不一定传播能力最强，比如存在大量的僵尸粉，如果用复杂网络的手段，可以评估粉丝或邻居的社交影响力来对其进行综合评估</p>
+<p>宣传推广策略：例如我们会想到结合信息本身的特点，去找网络上的某些具有特殊性质的节点（例如「大 V 」），利用网络特定的拓扑结构（如社区性质）来进行传播，再结合上用户的行为的特征（例如用户们的活跃时间），我们还可以对网络动力学（如信息传播）进行简单的预测。</p>
+<h2 id="4-链路预测">4 链路预测</h2>
+<p>
+        <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170512.png">
+            <img class="mx-auto" alt="链路预测研究方向思维导图" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170512.png" />
+        </a>
+    </p>
+<h2 id="5-深度学习与图网络">5 深度学习与图网络</h2>
+<h3 id="51-图嵌入网络表示学习">5.1 图嵌入（网络表示学习）</h3>
+<p>Graph广泛存在于真实世界的多种场景中，即节点和边的集合。比如社交网络中人与人之间的联系，生物中蛋白质相互作用以及通信网络中的IP地址之间的通信等等。除此之外，我们最常见的一张图片、一个句子也可以抽象地看做是一个图模型的结构，图结构可以说是无处不在。</p>
+<p>对于Graph的研究可以解决下面的一些问题：比如社交网络中新的关系的预测，在QQ上看到的推荐的可能认识的人；生物分子中蛋白质功能、相互作用的预测；通信网络中，异常事件的预测和监控以及网络流量的预测。如果要解决以上的问题，我们首先需要做的是对图进行表示，graph embedding 是中非常有效的技术。</p>
+<p>
+        <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170513.png">
+            <img class="mx-auto" alt="图嵌入研究方法思维脑图" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170513.png" />
+        </a>
+    </p>
+<h4 id="511-什么是图嵌入">5.1.1 什么是图嵌入？</h4>
+<p>图嵌入是一种将图数据（通常为高维稠密的矩阵）映射为低微稠密向量的过程，能够很好地解决图数据难以高效输入机器学习算法的问题。图嵌入需要捕捉到图的拓扑结构，顶点与顶点的关系，以及其他的信息，如子图，连边等。如果有更多的信息被表示出来，那么下游的任务将会获得更好的表现。嵌入的过程中有一种共识：向量空间中保持连接的节点彼此靠近。基于此，研究者提出了拉普拉斯特征映射（Laplacian Eigenmaps）和局部线性嵌入（Locally Linear Embedding ，LLE）。</p>
+<p>总的来说大致可以将图上的嵌入分为两种：节点嵌入和图嵌入。当需要对节点进行分类，节点相似度预测，节点分布可视化，一般采用节点的嵌入；当需要在图级别上进行预测或者预测整个图结构，我们需要将整个图表示为一个向量。</p>
+<blockquote>
+<p>后面将会介绍一下经典的方法如DeepWalk, node2vec和LINE</p>
+</blockquote>
+<h4 id="512-为什么要进行图嵌入graph-embedding">5.1.2 为什么要进行图嵌入Graph embedding?</h4>
+<p>图是数据的有意义且易于理解的表示形式，但是出于下面的原因需要对图进行嵌入表示。</p>
+<ul>
+<li>
+<p>在graph直接进行机器学习具有一定的局限性，我们都知道图是由节点和边构成的，这些向量关系一般只能使用数学，统计或者特定的子集进行表示，但是嵌入之后的向量空间具有更加灵活和丰富的计算方式；</p>
+</li>
+<li>
+<p>图嵌入能够压缩数据， 我们一般用邻接矩阵描述图中节点之间的连接。连接矩阵的维度是|V| x |V|，其中|V| 是图中节点的个数。矩阵中的每一列和每一行都代表一个节点。矩阵中的非零值表示两个节点已连接。将邻接矩阵用用大型图的特征空间几乎是不可能的。一个具有1M个节点和1Mx1M的邻接矩阵的图该怎么计算和表示呢？但是嵌入可以看做是一种压缩技术，能够起到降维的作用；</p>
+</li>
+<li>
+<p>向量计算比直接在图上操作更加的简单、快捷。</p>
+</li>
+</ul>
+<p>但是图嵌入也需要满足一定的需求</p>
+<ul>
+<li>
+<p>属性选择：确保嵌入能够很好地描述图的属性。它们需要表示图拓扑，节点连接和节点邻域。预测或可视化的性能取决于嵌入的质量；</p>
+</li>
+<li>
+<p>可扩展性：大多数真实网络都很大，包含大量节点和边。嵌入方法应具有可扩展性，能够处理大型图。定义一个可扩展的模型具有挑战性，尤其是当该模型旨在保持网络的全局属性时。网络的大小不应降低嵌入过程的速度。一个好的嵌入方法不仅在小图上高效嵌入，同时也需要在大图上能够高效地嵌入；</p>
+</li>
+<li>
+<p>嵌入的维度：实际嵌入时很难找到表示的最佳维数，维度越大能够保留的信息越多，但是通常有更高的时间和空间复杂度。较低的维度虽然时间、空间复杂度低，但无疑会损失很多图中原有的信息。</p>
+</li>
+</ul>
+<h4 id="513-图嵌入方法">5.1.3 图嵌入方法</h4>
+<p>节点的嵌入借鉴了word2vec的方法，该方法能够成立的原因是：图中的节点和语料库中的单词的分布都遵循幂定律。</p>
+<p>
+        <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170514.png">
+            <img class="mx-auto" alt="节点分布和词分布都遵循幂律分布" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170514.png" />
+        </a>
+    </p>
+<p>在介绍图嵌入的方法之前首先简单回顾一下在文本领域的Word2Vec和skip-gram模型，如果比较熟悉，可以直接跳过。</p>
+<p>Word2vec是一种将单词转换为嵌入向量的嵌入方法。相似的词应具有相似的嵌入。Word2vec使用skip-gram网络，这是具有一层隐藏层的神经网络（总共三层）。skip-gram模型是给出某一词语来预测上下文相邻的单词。下图显示了输入单词（标有绿色）和预测单词的示例。通过此任务，作者实现了两个相似的词具有相似的嵌入，因为具有相似含义的两个词可能具有相似的邻域词。</p>
+<p>下图是skip-gram模型。网络的输入为one-hot编码，长度与单词字典的长度相同，只有一个位置为1，输出为单词的嵌入表示：</p>
+<p>![skip gram模型](/images/网络挖掘及其相关应用/skip gram模型.png)</p>
+<p>下面介绍三个节点嵌入（node embedding）的方法，这些方法都类似Word2vec的嵌入原理。</p>
+<h4 id="514-deepwalk">5.1.4 Deepwalk</h4>
+<p>深度游走算法是近年来第一个有影响力的大规模网络表达学习算法，它的本质是将随机游走（Random Walk）和自然语言处理中的skip-gram算法作组合所产生的算法。</p>
+<p><strong>随机游走（Random Walk）</strong></p>
+<p>随机游走是一个非常基础的基于网络的算法。它的本质就是从一个节点出发，随机选择它的一个邻接点，再从这个邻接点出发到下一个节点，重复这个步骤然后记录下所经过的所有节点。这个算法的变种在Google搜索和金融领域应用广泛。通过随机游走我们可以得到从每个节点出发的一条路径，这条路径就代表了这个节点的结构信息。</p>
+<p><strong>深度游走算法</strong></p>
+<p>深度游走的核心思想总结成一句话就是，短的随机游走路径=句子（short random walk = sentence，quoted from Bryan Perozzi），因此我们只需要设定一个随机游走的步数r，通过随机游走我们就可以得到一个长度为r的路径（节点集），此时我们将其中每一个节点都看成单词，每个节点也都有对应的one-hot编码，这样就可以直接用skip-gram模型学出节点的表达。</p>
+<p>由于网络的节点数目可能达到百万甚至千万级，节点的one-hot编码会过于稀疏，不同于传统的skip-gram模型直接用softmax函数得到输出，deepwalk采用的是层级softmax方法，每个节点对应一个完全二叉树的叶子节点，根节点输入的是我们目标节点的表达，此时就变成一个二分类问题，我们只需要判断二叉树的左右子树就可以学出节点的表达。</p>
+<p>算法中有一个参数r，是随机游走的步长，即需要限定随机游走的长度，不要过长，有几个好处，1）可以捕获网络中局部区域的结构信息；2）易于实现并行化，多个线程，进程，甚至服务器，可以同时随机游走网络的不同部分，实现分布式计算，这个后边还会再提一下；3）能够适应网络的变化，网络局部发生变化时，可以只对局部网络进行学习和训练，而不需要对整个网络重新学习。</p>
+<p>DeepWalk通过随机游走去可以获图中点的局部上下文信息，因此学到的表示向量反映的是该点在图中的局部结构，两个点在图中共有的邻近点（或者高阶邻近点）越多，则对应的两个向量之间的距离就越短。但是DeepWalk方法随机执行随机游走，这意味着嵌入不能很好地保留节点的局部关系，Node2vec方法可以解决此问题。</p>
+<p>
+        <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170515.png">
+            <img class="mx-auto" alt="deepwalk" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170515.png" />
+        </a>
+    </p>
+<h4 id="515-node2vec">5.1.5 Node2vec</h4>
+<p>Node2vec是DeepWalk的改进版，Node2Vec认为，现有的方法无法很好的保留网络的结构信息，例如下图所示，有一些点之间的连接非常紧密(比如u, s1, s2, s3, s4)，他们之间就组成了一个社区(community)。网络中可能存在着各种各样的社区，而有的结点在社区中可能又扮演着相似的角色(比如u与s6)。Node2Vec的优化目标为以下两个：让同一个社区内的结点表示能够相互接近，或在不同社区内扮演相似角色的结点表示也要相互接近。</p>
+<p>
+        <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170516.png">
+            <img class="mx-auto" alt="node2vec游走策略" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170516.png" />
+        </a>
+    </p>
+<p>为此，Node2Vec就要在DeepWalk现有的基础上，对随机游走的策略进行优化。Node2Vec提出了两种游走策略：</p>
+<ul>
+<li>广度优先策略</li>
+<li>深度优先策略</li>
+</ul>
+<p>就如上图的标注所示，深度优先游走策略将会限制游走序列中出现重复的结点，防止游走掉头，促进游走向更远的地方进行。而广度优先游走策略相反将会促进游走不断的回头，去访问上一步结点的其他邻居结点。</p>
+<p>这样一来，当使用广度优先策略时，游走将会在一个社区内长时间停留，使得一个社区内的结点互相成为context，这也就达到了第一条优化目标。相反，当使用深度优先的策略的时候，游走很难在同一个社区内停留，也就达到了第二条优化目标。</p>
+<p>那么如何达到这样的两种随机游走策略呢，这里需要用到两个超参数p和q用来控制深度优先策略和广度优先策略的比重，如下图所示。</p>
+<p>
+        <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170517.png">
+            <img class="mx-auto" alt="node2vec通过超参数p和q控制游走" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170517.png" />
+        </a>
+    </p>
+<p>假设现在游走序列从t走到v，这时候需要算出三个系数，分别作为控制下一步走向方向的偏置α</p>
+<p>
+        <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170518.png">
+            <img class="mx-auto" alt="node2vec游走偏置" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170518.png" />
+        </a>
+    </p>
+<p>其中d(t, x)代表t结点到下一步结点x的最短路，最多为2。</p>
+<ul>
+<li>当d(t, x)=0时，表示下一步游走是回到上一步的结点；</li>
+<li>当d(t, x)=1时，表示下一步游走跳向t的另外一个邻居结点；</li>
+<li>当d(t, x)=2时，表示下一步游走向更远的结点移动。</li>
+</ul>
+<p>而Node2Vec同时还考虑了边权w的影响，所以最终的偏置系数以及游走策略为：</p>
+<p>
+        <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170519.png">
+            <img class="mx-auto" alt="node2vec考虑了边权重后" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170519.png" />
+        </a>
+    </p>
+<p>这样一来，就可以看出，超参数p控制的是重新访问原来结点的概率，也就是保守探索系数，而超参数q控制的是游走向更远方向的概率，也就是激进探索系数。如果q较大，那么游走策略则更偏向于广度优先策略，若q较小，则偏向于深度优先策略。</p>
+<p>该算法引入了参数P和Q，参数Q关注随机游走中未发现部分的可能性，即控制着游走是向外还是向内: 若Q&gt;1，随机游走倾向于访问接近的顶点(偏向BFS); 若Q&lt;1，倾向于访问远离的顶点(偏向DFS)。</p>
+<p>参数P控制了随机游走返回到前一个节点的概率。也就是说，参数P控制节点局部关系的表示，参数Q控制较大邻域的关系。</p>
+<h4 id="516-line">5.1.6 LINE</h4>
+<p>LINE不再采用随机游走的方法。相反，他在图上定义了两种相似度——一阶相似度与二阶相似度。</p>
+<ul>
+<li>
+<p>一阶相似度：一阶相似度就是要保证低维的嵌入中要保留两个结点之间的直接联系的紧密程度，换句话说就是保留结点之间的边权，若两个结点之间不存在边，那么他们之间的一阶相似度为0。例如下图中的6、7两个结点就拥有很高的一阶相似度。</p>
+</li>
+<li>
+<p>二阶相似度：二阶相似度用一句俗话来概括就是“我朋友的朋友也可能是我的朋友”。他所比较的是两个结点邻居的相似程度。若两个结点拥有相同的邻居，他们也更加的相似。如果将邻居看作context，那么两个二阶相似度高的结点之间拥有相似的context。这一点与DeepWalk的目标一致。例如下图中的5、6两点拥有很高的二阶相似度。</p>
+</li>
+</ul>
+<p>
+        <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170520.png">
+            <img class="mx-auto" alt="LINE" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170520.png" />
+        </a>
+    </p>
+<p>最终要获得同时包含有一阶相似度和二阶相似度的embedding，只需要将通过一阶相似度获得的embedding与通过二阶相似度获得的embedding拼接即可。</p>
+<p>参考文献：</p>
+<ul>
+<li>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzUyNzcyNzE0Mg==&amp;mid=2247484484&amp;idx=1&amp;sn=5eec159195a8df164575d6498cb953d0&amp;chksm=fa7a6b0dcd0de21b80bb4283f39c404d7b37069866a56048d3552ae702fe7140cc14a22e8d29&amp;scene=21#wechat_redirect">总结|为什么要进行图嵌入Graph embedding?</a></p>
+</li>
+<li>
+<p><a href="https://zhuanlan.zhihu.com/p/104631376">图系列|图网络学习从入门到进阶：系列相关优质文章与资料汇总</a></p>
+</li>
+</ul>
+<h2 id="5-知识图谱">5 知识图谱</h2>
+<h2 id="6-网络挖掘的其他研究领域">6 网络挖掘的其他研究领域</h2>
+<h3 id="61-其他相关研究领域">6.1 其他相关研究领域</h3>
+<p>
+        <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170521.png">
+            <img class="mx-auto" alt="网络研究方向思维导图" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170521.png" />
+        </a>
+    </p>
+<h3 id="62-网络挖掘相关资料和大牛">6.2 网络挖掘相关资料和大牛</h3>
+        </div>
+
+        
+<div class="post-archive">
+    <ul class="post-copyright">
+        <li><strong>原文作者：</strong><a rel="author" href="http://jchenTech.github.io/">jchen</a></li>
+        <li style="word-break:break-all"><strong>原文链接：</strong><a href="http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E7%BD%91%E7%BB%9C%E6%8C%96%E6%8E%98%E5%8F%8A%E5%85%B6%E7%9B%B8%E5%85%B3%E5%BA%94%E7%94%A8/">http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E7%BD%91%E7%BB%9C%E6%8C%96%E6%8E%98%E5%8F%8A%E5%85%B6%E7%9B%B8%E5%85%B3%E5%BA%94%E7%94%A8/</a></li>
+        <li><strong>版权声明：</strong>本作品采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可，非商业转载请注明出处（作者，原文链接），商业转载请联系作者获得授权。</li>
+    </ul>
+</div>
+<br/>
+
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/Python/python%E4%B9%8Bmatplotlib%E7%BB%98%E5%9B%BE%E5%9F%BA%E7%A1%80/">Python之Matplotlib绘图基础</a></li>
+        
+        <li><a href="/post/C&#43;&#43;/C&#43;&#43;-primer-plus-%E7%AC%AC16%E7%AB%A0String%E7%B1%BB%E5%92%8C%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/">C&#43;&#43; primer plus 第16章String类和标准模板库</a></li>
+        
+        <li><a href="/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9CRNN%E4%BB%8B%E7%BB%8D/">循环神经网络RNN介绍</a></li>
+        
+        <li><a href="/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8BR-CNN-SSPNet-Fast-R-CNN-Faster-R-CNN-YOLO-SSD/">深度学习目标检测：R-CNN, SSPNet, Fast R-CNN, Faster R-CNN, YOLO, SSD</a></li>
+        
+        <li><a href="/post/%E5%8D%9A%E5%AE%A2/hugo%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%8B%E5%BD%92%E6%A1%A3%E9%A1%B5%E9%9D%A2/">hugo博客建立归档页面</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='/tags/%E5%A4%8D%E6%9D%82%E7%BD%91%E7%BB%9C'>复杂网络</a></li>
+                
+                <li><a href='/tags/%E7%A4%BE%E4%BA%A4%E7%BD%91%E7%BB%9C%E6%8C%96%E6%8E%98'>社交网络挖掘</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "your github repo"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2020 <a href="http://jchenTech.github.io/">jchen&#39;s blog By jchen</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'GA ID', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+    <script src='/js/douban.js'></script>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='http://jchenTech.github.io/search/' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://jchenTech.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/Java/Java%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/" title="Java常用方法总结">Java常用方法总结</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8EJava%E5%AE%9E%E7%8E%B0/" title="十大经典排序算法总结（基于Java实现）">十大经典排序算法总结（基于Java实现）</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC10/" title="【CS61B】LEC10 Subtype Polymorphism vs. HoFs">【CS61B】LEC10 Subtype Polymorphism vs. HoFs</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC9/" title="【CS61B】LEC9 Extends, Casting, Higher Order Functions">【CS61B】LEC9 Extends, Casting, Higher Order Functions</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/Git/%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4Github%E4%B8%8A%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9/" title="如何删除Github上的文件夹">如何删除Github上的文件夹</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC8/" title="【CS61B】LEC8 Inheritance, Implements">【CS61B】LEC8 Inheritance, Implements</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61B%E9%93%BE%E8%A1%A8IntListSLListDLListAList/" title="【CS61B】链表IntList、SLList、DLList、AList整理">【CS61B】链表IntList、SLList、DLList、AList整理</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BProj1A/" title="【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque ">【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque </a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC6/" title="【CS61B】LEC6 ALists, Resizing, vs. SLists ">【CS61B】LEC6 ALists, Resizing, vs. SLists </a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC5/" title="【CS61B】LEC5 DLLists, Arrays ">【CS61B】LEC5 DLLists, Arrays </a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="http://jchenTech.github.io/categories/C&#43;&#43;/">C&#43;&#43; (7)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/Git/">Git (1)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/Golang/">Golang (3)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/Java/">Java (1)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/Linux/">Linux (2)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/Python/">Python (1)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/%E5%8D%9A%E5%AE%A2/">博客 (8)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">图像处理与深度学习 (10)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法 (13)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="http://jchenTech.github.io/tags/AOD-Net/">AOD-Net</a>
+    
+    <a href="http://jchenTech.github.io/tags/C&#43;&#43;/">C&#43;&#43;</a>
+    
+    <a href="http://jchenTech.github.io/tags/CS61B/">CS61B</a>
+    
+    <a href="http://jchenTech.github.io/tags/DehazeNet/">DehazeNet</a>
+    
+    <a href="http://jchenTech.github.io/tags/Fast-R-CNN/">Fast R-CNN</a>
+    
+    <a href="http://jchenTech.github.io/tags/Faster-R-CNN/">Faster R-CNN</a>
+    
+    <a href="http://jchenTech.github.io/tags/Git/">Git</a>
+    
+    <a href="http://jchenTech.github.io/tags/Github/">Github</a>
+    
+    <a href="http://jchenTech.github.io/tags/Hugo/">Hugo</a>
+    
+    <a href="http://jchenTech.github.io/tags/Java/">Java</a>
+    
+    <a href="http://jchenTech.github.io/tags/Linux/">Linux</a>
+    
+    <a href="http://jchenTech.github.io/tags/MRP%E5%A4%9C%E9%97%B4%E5%8E%BB%E9%9B%BE/">MRP夜间去雾</a>
+    
+    <a href="http://jchenTech.github.io/tags/MSCNN%E5%8E%BB%E9%9B%BE/">MSCNN去雾</a>
+    
+    <a href="http://jchenTech.github.io/tags/Matplotlib/">Matplotlib</a>
+    
+    <a href="http://jchenTech.github.io/tags/Python/">Python</a>
+    
+    <a href="http://jchenTech.github.io/tags/R-CNN/">R-CNN</a>
+    
+    <a href="http://jchenTech.github.io/tags/RNN/">RNN</a>
+    
+    <a href="http://jchenTech.github.io/tags/SSD/">SSD</a>
+    
+    <a href="http://jchenTech.github.io/tags/SSPNet/">SSPNet</a>
+    
+    <a href="http://jchenTech.github.io/tags/Ubuntu/">Ubuntu</a>
+    
+    <a href="http://jchenTech.github.io/tags/YOLO/">YOLO</a>
+    
+    <a href="http://jchenTech.github.io/tags/github-page/">github page</a>
+    
+    <a href="http://jchenTech.github.io/tags/golang/">golang</a>
+    
+    <a href="http://jchenTech.github.io/tags/Hugo/">Hugo</a>
+    
+    <a href="http://jchenTech.github.io/tags/markdown/">markdown</a>
+    
+    <a href="http://jchenTech.github.io/tags/programming/">programming</a>
+    
+    <a href="http://jchenTech.github.io/tags/theme/">theme</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">卷积神经网络</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%9B%BE%E5%83%8F%E5%8E%BB%E9%9B%BE/">图像去雾</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5/">图片插入</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%A4%8D%E6%9D%82%E7%BD%91%E7%BB%9C/">复杂网络</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">常用方法</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%BD%92%E6%A1%A3%E9%A1%B5%E9%9D%A2/">归档页面</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">循环神经网络</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">排序算法</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E6%9A%97%E9%80%9A%E9%81%93/">暗通道</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E7%A4%BE%E4%BA%A4%E7%BD%91%E7%BB%9C%E6%8C%96%E6%8E%98/">社交网络挖掘</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://www.flysnow.org/" title="飞雪无情的博客">飞雪无情的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://yuedu.baidu.com/ebook/14a722970740be1e640e9a3e" title="Android Gradle权威指南">Android Gradle权威指南</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="http://jchenTech.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>YOLO on jchen&#39;s blog</title>
+    <link>http://jchenTech.github.io/tags/YOLO/</link>
+    <description>Recent content in YOLO on jchen&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 03 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://jchenTech.github.io/tags/YOLO/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>深度学习目标检测：R-CNN, SSPNet, Fast R-CNN, Faster R-CNN, YOLO, SSD</title>
+      <link>http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8BR-CNN-SSPNet-Fast-R-CNN-Faster-R-CNN-YOLO-SSD/</link>
+      <pubDate>Fri, 03 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8BR-CNN-SSPNet-Fast-R-CNN-Faster-R-CNN-YOLO-SSD/</guid>
+      <description>&lt;p&gt;Object Detection，在给定的图像中，找到目标图像的位置，并标注出来。 或者是，图像中有那些目标，目标的位置在那。这个目标，是限定在数据集中包含的目标种类，比如数据集中有两种目标:狗，猫。 就在图像找出来猫，狗的位置，并标注出来 是狗还是猫。&lt;/p&gt;
+&lt;p&gt;这就涉及到两个问题：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;目标识别，识别出来目标是猫还是狗，Image Classification解决了图像的识别问题。&lt;/li&gt;
+&lt;li&gt;定位，找出来猫狗的位置。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;本文将详细介绍目前深度学习目标检测算法的几种热门算法R-CNN, SSPNet, Fast R-CNN, Faster R-CNN, YOLO, SSD的比较&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

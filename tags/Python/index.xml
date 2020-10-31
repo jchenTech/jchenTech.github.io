@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on jchen&#39;s blog</title>
+    <link>http://jchenTech.github.io/tags/Python/</link>
+    <description>Recent content in Python on jchen&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 13 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://jchenTech.github.io/tags/Python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python之Matplotlib绘图基础</title>
+      <link>http://jchenTech.github.io/post/Python/python%E4%B9%8Bmatplotlib%E7%BB%98%E5%9B%BE%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Mon, 13 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/post/Python/python%E4%B9%8Bmatplotlib%E7%BB%98%E5%9B%BE%E5%9F%BA%E7%A1%80/</guid>
+      <description>&lt;p&gt;Python十分适合用来进行数据分析，因为它有“四板斧”，分别是Matplotlib、NumPy、SciPy/Pandas。Matplotlib是画图工具，NumPy是矩阵运算库，SciPy是数学运算工具，Pandas是数据处理的工具。本篇文章将介绍python的绘图工具Matplotlib，它是一个风格类似Matlab的基于Python的绘图库。它提供了一整套和matlab相似的命令API，十分适合交互式地进行制图。&lt;/p&gt;
+&lt;p&gt;
+        &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165616.png&#34;&gt;
+            &lt;img class=&#34;mx-auto&#34; alt=&#34;matplotlib&#34; src=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165616.png&#34; /&gt;
+        &lt;/a&gt;
+    &lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
