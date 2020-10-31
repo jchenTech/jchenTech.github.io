@@ -428,6 +428,31 @@
   </url>
   
   <url>
+    <loc>http://jchenTech.github.io/categories/Golang/</loc>
+    <lastmod>2019-12-18T21:55:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://jchenTech.github.io/tags/golang/</loc>
+    <lastmod>2019-12-18T21:55:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://jchenTech.github.io/2019/12/18/golang-gin-query-parameters-array-map.html</loc>
+    <lastmod>2019-12-18T21:55:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://jchenTech.github.io/post/2019-12-13-golang-gin-parameters-in-path/</loc>
+    <lastmod>2019-12-13T21:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://jchenTech.github.io/post/2019-12-15-golang-gin-query-parameters-source-code-analysis/</loc>
+    <lastmod>2019-12-13T21:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://jchenTech.github.io/post/%E5%8D%9A%E5%AE%A2/formulas-with-mathjax/</loc>
     <lastmod>2017-05-20T00:00:00+00:00</lastmod>
   </url>
@@ -440,11 +465,6 @@
   <url>
     <loc>http://jchenTech.github.io/post/%E5%8D%9A%E5%AE%A2/using-the-gallery-shortcode/</loc>
     <lastmod>2017-05-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://jchenTech.github.io/tags/golang/</loc>
-    <lastmod>2015-10-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
