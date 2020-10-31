@@ -13,7 +13,7 @@
       <pubDate>Tue, 31 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>http://jchenTech.github.io/post/%E5%8D%9A%E5%AE%A2/hugo%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%8B%E5%BD%92%E6%A1%A3%E9%A1%B5%E9%9D%A2/</guid>
-      <description>&lt;p&gt;在 Hugo 中默认只生成 tags 和 categories 两个页面，没有 archives （归档）页面，所以我们需要自己实现&lt;/p&gt;</description>
+      <description>在 Hugo 中默认只生成 tags 和 categories 两个页面，没有 archives （归档）页面，所以我们需要自己实现 1 新建归档单页面模板 首先，在 themes/主题/layouts 目录创建一个目录 archives 然后在里面新建一个文件 single.html。 2 替换归档页面模板代码 注意我们接下来要覆盖 themes/主题/layouts/_d</description>
     </item>
     
     <item>
@@ -22,7 +22,7 @@
       <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>http://jchenTech.github.io/post/%E5%8D%9A%E5%AE%A2/Hugo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/</guid>
-      <description>&lt;p&gt;在写博客时，常常需要在文章中插入图片，Hugo有多种图片插入方式，可以将图片存在本地引用、将图片放在CDN引用或建立图床。&lt;/p&gt;</description>
+      <description>在写博客时，常常需要在文章中插入图片，Hugo有多种图片插入方式，可以将图片存在本地引用、将图片放在CDN引用或建立图床。 1 本地引用 1.1 绝对路径 当图片使用较少时，可以将图片存在 static/images/具体文章 目录下的，在部署当github page上面时，会将图片推到github</description>
     </item>
     
     <item>
@@ -31,7 +31,7 @@
       <pubDate>Thu, 05 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>http://jchenTech.github.io/post/%E5%8D%9A%E5%AE%A2/hugo&#43;github-page%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</guid>
-      <description>&lt;p&gt;最近希望搭建一个自己的技术博客，用来记录在学的一些知识和技术，在比较了一下几个目前较为流行的静态博客Jekyll、Hexo、Hugo之后，还是决定采用Hugo。&lt;/p&gt;</description>
+      <description>最近希望搭建一个自己的技术博客，用来记录在学的一些知识和技术，在比较了一下几个目前较为流行的静态博客Jekyll、Hexo、Hugo之后，还是决定采用Hugo。 Hugo是基于Go语言的一款静态博客，编译之后只有一个二进制文件，相比于Hexo基于nodejs、jekyll基于rub</description>
     </item>
     
     <item>

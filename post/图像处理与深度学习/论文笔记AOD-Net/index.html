@@ -18,7 +18,7 @@
         
     <meta property="article:modified_time" content='2020-07-18T00:00:00&#43;08:00'>
         
-    <meta name="Keywords" content="">
+    <meta name="Keywords" content="Java后端">
     <meta name="description" content="【论文笔记】AOD-Net: An All-in-One Network for Dehazing and Beyond">
         
     <meta name="author" content="jchen">
@@ -54,13 +54,13 @@
                         jchen&#39;s blog
                     </a>
                 
-                
+                <p class="description">专注于Java后端、大数据，记录分享自己的学习过程</p>
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
                     <a class="current" href="http://jchenTech.github.io/">首页</a>
                     
-                    <a  href="http://jchenTech.github.io/tools/" title="工具">工具</a>
+                    <a  href="http://jchenTech.github.io/route/" title="路线">路线</a>
                     
                     <a  href="http://jchenTech.github.io/archives/" title="归档">归档</a>
                     
@@ -145,36 +145,36 @@
     <div class="post-toc-content">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#引言">引言</a>
+    <li><a href="#1-引言">1 引言</a>
       <ul>
-        <li><a href="#前人的工作">前人的工作</a></li>
-        <li><a href="#存在的问题">存在的问题</a></li>
-        <li><a href="#我们的贡献">我们的贡献</a></li>
+        <li><a href="#11-前人的工作">1.1 前人的工作</a></li>
+        <li><a href="#12-存在的问题">1.2 存在的问题</a></li>
+        <li><a href="#13-我们的贡献">1.3 我们的贡献</a></li>
       </ul>
     </li>
-    <li><a href="#提出的方法">提出的方法</a>
+    <li><a href="#2-提出的方法">2 提出的方法</a>
       <ul>
-        <li><a href="#物理模型">物理模型</a></li>
-        <li><a href="#网络设计">网络设计</a></li>
+        <li><a href="#21-物理模型">2.1 物理模型</a></li>
+        <li><a href="#22-网络设计">2.2 网络设计</a></li>
       </ul>
     </li>
-    <li><a href="#实验结果">实验结果</a>
+    <li><a href="#3-实验结果">3 实验结果</a>
       <ul>
-        <li><a href="#数据集和实现">数据集和实现</a></li>
-        <li><a href="#合成数据集上的质量评估">合成数据集上的质量评估</a></li>
-        <li><a href="#视觉效果评估">视觉效果评估</a></li>
-        <li><a href="#多尺度特征的有效性">多尺度特征的有效性</a></li>
-        <li><a href="#速度对比">速度对比</a></li>
+        <li><a href="#31-数据集和实现">3.1 数据集和实现</a></li>
+        <li><a href="#32-合成数据集上的质量评估">3.2 合成数据集上的质量评估</a></li>
+        <li><a href="#33-视觉效果评估">3.3 视觉效果评估</a></li>
+        <li><a href="#34-多尺度特征的有效性">3.4 多尺度特征的有效性</a></li>
+        <li><a href="#35-速度对比">3.5 速度对比</a></li>
       </ul>
     </li>
-    <li><a href="#高层视觉任务评估和提升目标检测任务中的去雾">高层视觉任务：评估和提升目标检测任务中的去雾</a>
+    <li><a href="#4-高层视觉任务评估和提升目标检测任务中的去雾">4 高层视觉任务：评估和提升目标检测任务中的去雾</a>
       <ul>
-        <li><a href="#pascal-voc2007上的合成雾霾图像的质量评估">Pascal-voc2007上的合成雾霾图像的质量评估</a></li>
-        <li><a href="#自然雾霾图像的质量评估">自然雾霾图像的质量评估</a></li>
-        <li><a href="#到底那个起到实际帮助特定任务的除雾网络或只是添加更多参数">到底那个起到实际帮助：特定任务的除雾网络或只是添加更多参数？</a></li>
+        <li><a href="#41-pascal-voc2007上的合成雾霾图像的质量评估">4.1 Pascal-voc2007上的合成雾霾图像的质量评估</a></li>
+        <li><a href="#42-自然雾霾图像的质量评估">4.2 自然雾霾图像的质量评估</a></li>
+        <li><a href="#43-到底那个起到实际帮助特定任务的除雾网络或只是添加更多参数">4.3 到底那个起到实际帮助：特定任务的除雾网络或只是添加更多参数？</a></li>
       </ul>
     </li>
-    <li><a href="#讨论和结论">讨论和结论</a></li>
+    <li><a href="#5-讨论和结论">5 讨论和结论</a></li>
     <li><a href="#参考文章">参考文章</a></li>
   </ul>
 </nav>
@@ -251,9 +251,9 @@
 <p>tensorflow源码 ：https://download.csdn.net/download/cherry1307/11012233</p>
 <p>pythorch源码: https://github.com/TheFairBear/PyTorch-Image-Dehazing</p>
 <p>项目：https://sites.google.com/site/boyilics/website-builder/project-page</p>
-<h2 id="引言">引言</h2>
+<h2 id="1-引言">1 引言</h2>
 <p>由于存在诸如灰尘，雾气和烟雾的气溶胶，雾度的存在给相机捕获的图像增加了复杂的噪声。 它会大大降低室外图像的可见度，对比度降低，表面颜色变暗。 此外，模糊的图像将使许多后续高级计算机视觉任务的有效性受到威胁，例如物体检测和识别。 因此，广泛考虑了去雾算法，作为（不适定的）图像恢复和增强的具有挑战性的实例。 类似于图像去噪和超分辨率[37]，[15]等其他问题，早期的去雾工作[23]，[30]，[38]，[12]假设来自同一场景的多个图像的可用性。 然而，从单个图像中去除雾霾现在已经占据了主导地位，因为它对于实际设置更为实用[7]。 本文重点研究了单幅图像去雾问题。</p>
-<h3 id="前人的工作">前人的工作</h3>
+<h3 id="11-前人的工作">1.1 前人的工作</h3>
 <p>作为用于去雾的先验知识，模糊图像生成遵循广为接受的物理模型（详见第II-A节）。除了估计全球大气光强度之外，已经认识到实现雾霾去除的关键是传输矩阵的恢复。</p>
 <p>[7]通过估计场景的反照率提出了一种物理接地的方法。</p>
 <p>[9]，[34]发现有效暗通道先验（DCP）更可靠地计算传输矩阵，然后是一系列工作</p>
@@ -266,12 +266,12 @@
 <p>最近，随着卷积神经网络（CNN）在计算机视觉任务中取得了普遍的成功，它们也被引入到图像去雾中。</p>
 <p>DehazeNet [3]提出了一种可训练的模型来估计一个模糊图像的传输矩阵。</p>
 <p>[27]进一步开发了多尺度CNN（MSCNN），它首先生成了一个粗尺度的传输矩阵，然后对其进行了细化。</p>
-<h3 id="存在的问题">存在的问题</h3>
+<h3 id="12-存在的问题">1.2 存在的问题</h3>
 <p>1）没有端到端去雾：大多数用于图像恢复和增强的深度学习方法完全包含端到端建模：训练模型以直接从损坏的图像中回归清晰的图像。例子包括图像去噪[42]，去模糊[31]和超分辨率[41]。相比之下，迄今为止还没有用于除雾的端到端深度模型，它直接从模糊的模型中回归清晰的图像。虽然乍一看可能看起来很奇怪，但人们需要意识到雾霾本质上会带来不均匀的依赖于信号的噪声：由雾度引起的表面场景衰减与相机表面之间的物理距离相关（即像素深度）。这与假设与信号无关的噪声的大多数图像劣化模型不同，在这种情况下，所有信号都经历相同的参数化降级过程。因此，可以使用一个静态映射功能轻松建模其恢复模型。同样不能直接应用于除雾：降解过程因信号而异，并且恢复模型也必须是输入自适应的。</p>
 <p>现有方法具有相同的信念，即估计精确的中间传输图是从雾霾中恢复清晰的场景的关键[1]，[3]，[27]。通过经验规则分别计算大气光，并且基于物理模型恢复清晰图像。尽管是直观的，但是这样的过程不直接测量或最小化重建失真。用于估计传输矩阵和大气光的两个单独步骤中的误差将累积并且可能相互放大。结果，传统的单独管道产生了次优的图像恢复质量。</p>
 <p>2）缺少与高级视觉任务的衔接：目前，去雾模型依赖于两组评估标准：（1）对于合成模糊图像，其对应的清晰图像已知，通常计算PSNR和SSIM来测量确保恢复保真度; （2）对于没有清晰图像的真实自然模糊图像，唯一可用的去雾效果比较是主观视觉质量。然而，与图像去噪和超分辨率结果不同，他们视觉伪像的抑制效果是可见的（例如，在纹理和边缘上），现有技术的去雾模型之间的视觉差异[1]，[3]，[27]通常表现在全球的光照和色调中，并且通常太微妙而无法分辨。</p>
 <p>一般图像恢复和增强，被称为低级视觉任务的一部分，通常被认为是中级和高级视觉任务的预处理步骤。众所周知，诸如物体检测和识别之类的高级计算机视觉任务的性能将在存在各种劣化的情况下恶化，并且然后在很大程度上受到图像恢复和增强的质量的影响。然而，根据我们的最佳知识，没有探索将去雾算法和结果与高级视觉任务性能相关联。</p>
-<h3 id="我们的贡献">我们的贡献</h3>
+<h3 id="13-我们的贡献">1.3 我们的贡献</h3>
 <p>在本文中，我们提出了一体化除雾网络（AOD-Net），这是一种基于CNN的除雾模型，具有两个关键创新，以应对上述两个挑战：</p>
 <ul>
 <li>
@@ -283,8 +283,8 @@
 </ul>
 <p>AOD-Net在合成模糊图像上进行训练，并在合成和真实自然图像上进行测试。实验证明了AOD-Net优于几种最先进的方法，不仅包括PSNR和SSIM（见图1），还包括视觉质量（见图2）。作为轻量级和高效率的型号，AOD-Net的耗费时间低至0.026秒，可以使用单个GPU处理一个480×640图像。当与更快的R-CNN [26]连接时，AOD-Net在改善模糊图像的物体检测性能方面明显优于其他去雾模型，当我们共同调整AOD-Net和fasterrcnn的流水线时，性能得到进一步提升。</p>
 <p>本文从以前的会议版本[14]扩展而来。本文最引人注目的改进在于第四部分，我们对评估和增强物体检测的去雾进行了深入的讨论，并介绍了联合训练部分的细节和分析。我们还对AOD-Net的架构进行了更详细和全面的分析（例如第III-D节）。此外，我们还包括更广泛的比较结果。</p>
-<h2 id="提出的方法">提出的方法</h2>
-<h3 id="物理模型">物理模型</h3>
+<h2 id="2-提出的方法">2 提出的方法</h2>
+<h3 id="21-物理模型">2.1 物理模型</h3>
 <p>在本节中，解释了提出的AOD-Net。 我们首先介绍了转换后的大气散射模型，在此基础上设计了AOD-Net。 然后详细描述AOD-Net的体系结构。</p>
 <p>A 物理模型和转换公式</p>
 <p>大气光散射模型已经是雾霾图像生成的经典描述模型[19], [21], [22]，</p>
@@ -316,7 +316,7 @@
             <img class="mx-auto" alt="" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165650.png" />
         </a>
     </p>
-<h3 id="网络设计">网络设计</h3>
+<h3 id="22-网络设计">2.2 网络设计</h3>
 <p>
         <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165655.png">
             <img class="mx-auto" alt="网络框架图" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165655.png" />
@@ -331,11 +331,11 @@
     </p>
 <p>（b）清晰图像生成模型：k（x）再去估计J（x）</p>
 <p><strong>K估算模块是AOD-Net的关键组成部分，负责估算深度和雾浓度</strong>。如图4（b）所示，我们使用五个卷积层，并通过<strong>融合不同大小的卷积核形成多尺度特征</strong>。在[3]中，在第二层中使用具有不同卷积核尺寸的并行卷积。[27]将粗尺度网络特征与细尺度网络的中间层连接起来。受他们的启发，AOD-Net的“concat1”层连接层“conv1”和“conv2”的特征。类似的，“concat2”连接来自“conv2”和“conv3”的特征，“concat3”连接来自“conv3”和“conv4”的特征。这种多尺度设计捕获不同尺度的特征，并且中间连接还不长卷积期间的信息损失。值得注意的是，<strong>AOD-Net的每个卷积层仅使用三个卷积核</strong>。因此与现有的深层方法相比，AOD-Net重量轻，例如[3],[27]。在K估计模块之后，清晰图像生成块由逐元素乘法层和若干元素加法层组成，以便通过计算（4）生成恢复的图像。</p>
-<h2 id="实验结果">实验结果</h2>
-<h3 id="数据集和实现">数据集和实现</h3>
+<h2 id="3-实验结果">3 实验结果</h2>
+<h3 id="31-数据集和实现">3.1 数据集和实现</h3>
 <p>创建合成数据集：NYU2深度数据集，大气光值[0.6,1.0],beta {0.4,0.6,0.8,1.0,1.2,1.4,1.6},取出27256个图像做训练集，3170个做测试集A，Middlebury立体数据集中取出800张full-size合成图像作为测试集B,此外，在自然雾霾图像上也评估了模型的泛化能力。</p>
 <p>在训练过程中，使用高斯随机变量初始化权重。 我们使用ReLU神经元，因为我们发现它比[3]中提出的BReLU神经元在我们的特定环境中更有效。 动量和衰减参数分别设置为0.9和0.0001。 我们使用8个图像（480×640）的批量大小，学习率为0.001。 我们采用简单的均方误差（MSE）损失函数，并且很高兴地发现它不仅提升了PSNR，还提升了SSIM以及视觉质量。AOD-Net模型需要大约10个训练时期才能收敛，并且通常在10个时期之后表现得足够好。 在本文中，我们已经训练了40个时期的模型。 还发现将范数约束在[-0.1,0.1]内对clip the gradient （防止梯度爆炸）很有帮助。 该技术在稳定复发网络训练方面很受欢迎[25]。</p>
-<h3 id="合成数据集上的质量评估">合成数据集上的质量评估</h3>
+<h3 id="32-合成数据集上的质量评估">3.2 合成数据集上的质量评估</h3>
 <p>对比方法：</p>
 <ol>
 <li>Fast Visibility Restoration (FVR) [35],</li>
@@ -356,7 +356,7 @@
 <p>表I和III-B分别显示了测试集A和B上的平均PSNR和SSIM结果。 由于AOD-Net在MSE损失下从端到端进行了优化，因此看到其PSNR性能高于其他方法并不令人惊讶。 更有吸引力的是观察到AOD-Net比所有竞争对手获得更大的SSIM优势，尽管SSIM并未直接被称为优化标准。 由于SSIM的测量超出了像素方面的误差，并且众所周知，它更忠实地反映了人类的感知，因此我们对AOD-Net的哪一部分实现了这种持续改进感到好奇。</p>
 <p>我们进行以下调查：TestSet B中的每个图像被分解为平均图像和残差图像的总和。前者由具有相同平均值的所有像素位置构成（图像上的平均3通道矢量）。很容易证明两个图像之间的MSE等于它们在两个残留图像之间添加的平均图像之间的MSE。平均图像大致对应于全局照明并且与A相关，而残差更多地涉及局部结构变化和对比等。我们观察到AOD-Net产生类似的残余MSE（在TestSet B上平均）到一些竞争对手DehazeNet和CAP等方法。然而，AOD-Net结果的平均部分的MSE显着低于DehazeNet和CAP，如表III所示。由此暗示，由于我们在端到端重建损失下的联合参数估计方案，AOD-Net可能更能够正确地恢复A（全局照明）。由于人眼对全局照明的大变化肯定比对任何局部失真更敏感，因此难怪为什么AOD-Net的视觉效果也明显更好，而其他一些结果通常看起来不切实际。</p>
 <p>上述优点也体现在计算SSIM [39]的照明（1）项中，并部分解释了我们强大的SSIM结果。 SSIM收益的另一个主要来源似乎来自对比（c）项。例如，我们随机选择五个图像进行测试，TestSetB上AOD-Net结果的对比值平均值为0.9989，显着高于ATM（0.7281），BCCR（0.9574），FVR（0.9630），NLD（0.9250），DCP （0.9457），MSCNN（0.9697），DehazeNet（0.9076）和CAP（0.9760）。</p>
-<h3 id="视觉效果评估">视觉效果评估</h3>
+<h3 id="33-视觉效果评估">3.3 视觉效果评估</h3>
 <p>a）合成图像：图5显示了来自TestSet A的合成图像的去雾结果。我们观察到AOD-Net结果通常具有更清晰的轮廓和更丰富的颜色，并且在视觉上更忠实于地面实况。</p>
 <p>
         <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165713.png">
@@ -387,18 +387,18 @@
             <img class="mx-auto" alt="" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165744.png" />
         </a>
     </p>
-<h3 id="多尺度特征的有效性">多尺度特征的有效性</h3>
+<h3 id="34-多尺度特征的有效性">3.4 多尺度特征的有效性</h3>
 <p>在本节中，我们专门分析了K估计模块的层间级联的有用性，它结合了不同大小的滤波器的多尺度特征。 我们认为，尽管经验性发现，当前的连接方式通过始终将几个连续的较低层连续馈入下一层，促进了从低层到高层的平滑特征转换。 为了进行比较，我们设计了一个基线：“conv1→conv2→conv3→conv4→conv5（K）”，它不涉及层间连接。 对于TestSet A，平均PSNR为17.0517 dB，SSIM为0.7688。 对于TestSet B，平均PSNR为22.3359 dB，SSIM为0.9032。 这些结果通常不如AOD-Net（除了TestSet B上的PSNR略高），特别是两个SSIM值都遭受显着下降。</p>
-<h3 id="速度对比">速度对比</h3>
+<h3 id="35-速度对比">3.5 速度对比</h3>
 <p>AOD-Net的轻质结构导致更快的除雾。 我们在同一台机器（Intel（R）Core（TM）i7-6700 <a href="mailto:CPU@3.40GHz">CPU@3.40GHz</a>和16GB内存）上为所有型号选择了来自TestSet A的50个图像，没有GPU加速。 所有型号的每图像平均运行时间如表IV所示。 尽管其他Matlab实现较慢，但比较DehazeNet（Pycaffe版本）和我们的[11]是公平的。 结果表明AOD-Net具有很高的效率，每张图像仅占DehazeNet的1/10</p>
 <p>
         <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165809.png">
             <img class="mx-auto" alt="" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165809.png" />
         </a>
     </p>
-<h2 id="高层视觉任务评估和提升目标检测任务中的去雾">高层视觉任务：评估和提升目标检测任务中的去雾</h2>
+<h2 id="4-高层视觉任务评估和提升目标检测任务中的去雾">4 高层视觉任务：评估和提升目标检测任务中的去雾</h2>
 <p>高级计算机视觉任务，如物体检测和识别，涉及视觉语义，并受到了极大的关注[26]，[43]。然而，这些算法的性能可能在很大程度上受到实际应用中各种降级的危害。传统方法在进入目标任务之前采用单独的图像恢复步骤。最近，[40]，[17]验证了恢复和识别步骤的联合优化将显着提高传统两阶段方法的性能。然而，之前的方法[44]，[5]，[4]主要仅针对图像分类任务，研究了常见降级（如噪声，模糊和低分辨率）的影响和补救措施。据我们所知，没有类似的工作来定量研究雾霾的存在如何影响高级视觉任务，以及如何使用联合优化方法来减轻其影响。我们研究了雾霾存在下的物体检测问题，作为高级视觉任务如何与除雾相互作用的一个例子。我们选择faster R-CNN模型[26]作为强基线4，并测试合成和自然有雾图像。然后，我们将AOD-Net模型与更快的R-CNN模型连接起来，作为统一管道进行联合优化。从我们的实验得出的一般结论是：随着雾度变重，物体检测变得不太可靠。在所有雾霾条件下（轻度，中度或重度），我们的联合调谐模型不断改进检测，超越maive fster R-CNN和非联合的方法。</p>
-<h3 id="pascal-voc2007上的合成雾霾图像的质量评估">Pascal-voc2007上的合成雾霾图像的质量评估</h3>
+<h3 id="41-pascal-voc2007上的合成雾霾图像的质量评估">4.1 Pascal-voc2007上的合成雾霾图像的质量评估</h3>
 <p>A.具有合成雾度的Pascal-VOC 2007的定量结果我们从Pascal VOC 2007数据集（称为Groundtruth）创建了三个合成集[6]：</p>
 <p>重雾（A = 1，β= 0.1），
 中雾（A = 1，β= 0.06）
@@ -416,7 +416,7 @@
             <img class="mx-auto" alt="" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165911.png" />
         </a>
     </p>
-<h3 id="自然雾霾图像的质量评估">自然雾霾图像的质量评估</h3>
+<h3 id="42-自然雾霾图像的质量评估">4.2 自然雾霾图像的质量评估</h3>
 <p>图10显示了对Web源自然模糊图像的对象检测结果的视觉比较。比较了六种方法： (1) naive Faster-RCNN; (2) DehazeNet + Faster R- CNN ; (3) MSCNN + Faster R-CNN ; (4) AOD-Net + Faster R- CNN; (5) Fine-tuned Faster R-CNN. (6) JAOD-Faster R-CNN.。我们观察到雾霾可能导致错误检测，不准确的本地化以及对于fster R-CNN的不自信的类别识别。虽然AOD-Net + Faster R-CNN已经显示出优于原始Faster-RCNN的明显优势，但JAOD-Faster R-CNN结果的性能进一步显着提升，显着超越所有其他替代方案。</p>
 <p>请注意，AOD-Net + Faster R-CNN从联合优化中获益双重：AOD-Net本身共同估算所有参数，整个流水线共同调整低水平（去雾）和高水平（检测）和认可）端到端的任务。端到端的管道调整是由AOD-Net独特实现的，AOD-Net是迄今为止唯一的一体化除雾模型。</p>
 <p>
@@ -424,9 +424,9 @@
             <img class="mx-auto" alt="" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165917.png" />
         </a>
     </p>
-<h3 id="到底那个起到实际帮助特定任务的除雾网络或只是添加更多参数">到底那个起到实际帮助：特定任务的除雾网络或只是添加更多参数？</h3>
+<h3 id="43-到底那个起到实际帮助特定任务的除雾网络或只是添加更多参数">4.3 到底那个起到实际帮助：特定任务的除雾网络或只是添加更多参数？</h3>
 <p>虽然JAOD-Faster R-CNN可以说是上面所示的最佳表现者，但自然会出现一个问题：它是否是AOD-Faster R-CNN使用的参数比（Retrained）faster R-CNN更多的结果？在本节中，我们展示了添加额外的图层和参数，而没有针对去雾的任务特定设计，并不一定能提高雾度中对象检测的性能。我们设计了一个名为Auto-Faster R-CNN的新基线，用简单的卷积自动编码器取代了JAOD-Faster R-CNN中的AOD-Net部分。自动编码器与AOD-Net具有相同数量的参数，由五个卷积层组成，其结构类似于K估计模块。我们使用与AOD-Net相同的训练协议和数据集预先训练用于除雾任务的自动编码器，并将其与更快的R-CNN连接以进行端到端调整。如表VI所示，自动更快的R-CNN的性能与AOD-Faster R-CNN并不相同，并且表现得比微调更快的R-CNN更差。回想一下[26]证实直接向更快的R-CNN添加额外的层并不一定能改善一般干净图像中物体检测的性能。我们的结论是它在朦胧案件中的一贯对应。此外，应该注意的是，尽管JAOD-Faster R-CNN在更快的R-CNN之前添加了AOD-Net，但由于AOD-Net的轻量化设计，复杂性并未增加太多。对于（Retrained）faster R-CNN，每个图像的平均运行时间为0.166秒，对于JAOD-Faster R-CNN，使用NVIDIA GeForce GTX TITAN X GPU为0.192秒。</p>
-<h2 id="讨论和结论">讨论和结论</h2>
+<h2 id="5-讨论和结论">5 讨论和结论</h2>
 <p>本文提出了AOD-Net，这是一种一体化的管道，可以通过端到端的CNN直接重建无雾图像。我们使用客观（PSNR，SSIM）和主观标准，在合成和自然雾度图像上比较AOD-Net与各种最先进的方法。广泛的实验结果证实了AOD-Net的优越性，稳健性和效率。此外，我们还提出了第一个关于AOD-Net如何通过联合管道优化提高自然朦胧图像上的物体检测和识别性能的研究。可以观察到，我们共同调整的模型在雾度存在的情况下不断改进检测，超过了天真的更快的R-CNN和非关节方法。然而，如上所述，去雾技术与来自图像的深度估计高度相关，并且通过结合深度先验知识或精细的深度估计模块，存在改善AOD-Net的性能的空间。</p>
 <h2 id="参考文章">参考文章</h2>
 <p>[1] <a href="https://blog.csdn.net/Julialove102123/article/details/89046288">https://blog.csdn.net/Julialove102123/article/details/89046288</a></p>
@@ -587,14 +587,6 @@ if (!doNotTrack) {
     </li>
     
     <li>
-        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8EJava%E5%AE%9E%E7%8E%B0/" title="十大经典排序算法总结（基于Java实现）">十大经典排序算法总结（基于Java实现）</a>
-    </li>
-    
-    <li>
-        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC10/" title="【CS61B】LEC10 Subtype Polymorphism vs. HoFs">【CS61B】LEC10 Subtype Polymorphism vs. HoFs</a>
-    </li>
-    
-    <li>
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC9/" title="【CS61B】LEC9 Extends, Casting, Higher Order Functions">【CS61B】LEC9 Extends, Casting, Higher Order Functions</a>
     </li>
     
@@ -611,6 +603,10 @@ if (!doNotTrack) {
     </li>
     
     <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8EJava%E5%AE%9E%E7%8E%B0/" title="十大经典排序算法总结（基于Java实现）">十大经典排序算法总结（基于Java实现）</a>
+    </li>
+    
+    <li>
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BProj1A/" title="【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque ">【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque </a>
     </li>
     
@@ -622,6 +618,10 @@ if (!doNotTrack) {
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC5/" title="【CS61B】LEC5 DLLists, Arrays ">【CS61B】LEC5 DLLists, Arrays </a>
     </li>
     
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC4/" title="【CS61B】LEC4 SLLists, Nested Classes, Sentinel Nodes ">【CS61B】LEC4 SLLists, Nested Classes, Sentinel Nodes </a>
+    </li>
+    
 </ul>
     </section>
 
@@ -631,11 +631,9 @@ if (!doNotTrack) {
         <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="http://jchenTech.github.io/categories/C&#43;&#43;/">C&#43;&#43; (7)</a></li>
+    <li><a href="http://jchenTech.github.io/categories/C&#43;&#43;/">C&#43;&#43; (6)</a></li>
     
     <li><a href="http://jchenTech.github.io/categories/Git/">Git (1)</a></li>
-    
-    <li><a href="http://jchenTech.github.io/categories/Golang/">Golang (3)</a></li>
     
     <li><a href="http://jchenTech.github.io/categories/Java/">Java (1)</a></li>
     
@@ -647,7 +645,7 @@ if (!doNotTrack) {
     
     <li><a href="http://jchenTech.github.io/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">图像处理与深度学习 (10)</a></li>
     
-    <li><a href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法 (13)</a></li>
+    <li><a href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法 (12)</a></li>
     
 </ul>
     </section>
@@ -745,7 +743,7 @@ if (!doNotTrack) {
         </li>
         
         <li>
-            <a target="_blank" href="http://yuedu.baidu.com/ebook/14a722970740be1e640e9a3e" title="Android Gradle权威指南">Android Gradle权威指南</a>
+            <a target="_blank" href="http://yuedu.baidu.com/ebook/14a722970740be1e640e9a3e" title="我的Github地址">Android Gradle权威指南</a>
         </li>
         
     </ul>

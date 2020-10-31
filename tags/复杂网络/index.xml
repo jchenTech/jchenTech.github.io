@@ -13,12 +13,7 @@
       <pubDate>Tue, 14 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E7%BD%91%E7%BB%9C%E6%8C%96%E6%8E%98%E5%8F%8A%E5%85%B6%E7%9B%B8%E5%85%B3%E5%BA%94%E7%94%A8/</guid>
-      <description>&lt;p&gt;网络挖掘及其相关应用&lt;/p&gt;
-&lt;p&gt;
-        &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170456.jpg&#34;&gt;
-            &lt;img class=&#34;mx-auto&#34; alt=&#34;复杂网络&#34; src=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170456.jpg&#34; /&gt;
-        &lt;/a&gt;
-    &lt;/p&gt;</description>
+      <description>网络挖掘及其相关应用 1 网络结构 1.1 网络统计特征 网络模型许多概念来自于图论，因为网络模型本质上是一个由节点和边组成的图。以下为网络模型中常用的统计概念。 度（Degree）：节点的度定义为与该节点相连的边的数目。在有向图中，所有指向某节点的边的数量叫作该节点的入度，所有从该节点出发指向</description>
     </item>
     
   </channel>

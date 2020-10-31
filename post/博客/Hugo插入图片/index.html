@@ -18,7 +18,7 @@
         
     <meta property="article:modified_time" content='2020-03-30T00:00:00&#43;08:00'>
         
-    <meta name="Keywords" content="">
+    <meta name="Keywords" content="Java后端">
     <meta name="description" content="Hugo插入图片">
         
     <meta name="author" content="jchen">
@@ -54,13 +54,13 @@
                         jchen&#39;s blog
                     </a>
                 
-                
+                <p class="description">专注于Java后端、大数据，记录分享自己的学习过程</p>
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
                     <a class="current" href="http://jchenTech.github.io/">首页</a>
                     
-                    <a  href="http://jchenTech.github.io/tools/" title="工具">工具</a>
+                    <a  href="http://jchenTech.github.io/route/" title="路线">路线</a>
                     
                     <a  href="http://jchenTech.github.io/archives/" title="归档">归档</a>
                     
@@ -145,16 +145,16 @@
     <div class="post-toc-content">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#本地引用">本地引用</a>
+    <li><a href="#1-本地引用">1 本地引用</a>
       <ul>
-        <li><a href="#绝对路径">绝对路径</a></li>
-        <li><a href="#相对路径">相对路径</a></li>
-        <li><a href="#注意事项">注意事项</a></li>
+        <li><a href="#11-绝对路径">1.1 绝对路径</a></li>
+        <li><a href="#12-相对路径">1.2 相对路径</a></li>
+        <li><a href="#13-注意事项">1.3 注意事项</a></li>
       </ul>
     </li>
-    <li><a href="#cdn引用">CDN引用</a>
+    <li><a href="#2-cdn引用">2 CDN引用</a>
       <ul>
-        <li><a href="#建立图床">建立图床</a></li>
+        <li><a href="#21-建立图床">2.1 建立图床</a></li>
       </ul>
     </li>
   </ul>
@@ -218,22 +218,23 @@
         
         <div class="post-content">
             <p>在写博客时，常常需要在文章中插入图片，Hugo有多种图片插入方式，可以将图片存在本地引用、将图片放在CDN引用或建立图床。</p>
-<h2 id="本地引用">本地引用</h2>
-<h3 id="绝对路径">绝对路径</h3>
+<h2 id="1-本地引用">1 本地引用</h2>
+<h3 id="11-绝对路径">1.1 绝对路径</h3>
 <p>当图片使用较少时，可以将图片存在 <code>static/images/具体文章</code> 目录下的，在部署当github page上面时，会将图片推到github上</p>
 <pre><code>![alt](/images/具体文章/image_1.jpg)
 </code></pre><p>图片既可以在文章中访问到，也可以在首页访问到。</p>
-<h3 id="相对路径">相对路径</h3>
+<h3 id="12-相对路径">1.2 相对路径</h3>
 <p>图片除了可以放在统一的images文件夹中，还可以放在文章自己的目录中。文章的目录可以通过配置_config.toml来生成。</p>
 <p>在新建文章时，得到的是包含文章和图片的文件夹。</p>
-<h3 id="注意事项">注意事项</h3>
+<h3 id="13-注意事项">1.3 注意事项</h3>
 <p>注意:你可能在你本地markdown编辑器上显示不出这张图片,你可以在本地运行hugo,在你的浏览器中就可以看到了</p>
-<h2 id="cdn引用">CDN引用</h2>
+<h2 id="2-cdn引用">2 CDN引用</h2>
 <p>CDN引用
 除了在本地存储图片，还可以将图片上传到一些免费的CDN服务中。比如Cloudinary提供的图片CDN服务，在Cloudinary中上传图片后，会生成对应的url地址，将地址直接拿来引用即可。</p>
 <p>By the way：可以在github上新建一个repo，专门存储图片，将图片按文章进行分类，方便管理。</p>
-<h3 id="建立图床">建立图床</h3>
+<h3 id="21-建立图床">2.1 建立图床</h3>
 <p>具体参考：Code show——<a href="https://corpython.github.io/post/GitHub+jsDelivr+PicGo%E6%89%93%E9%80%A0%E7%A8%B3%E5%AE%9A%E5%BF%AB%E9%80%9F%E9%AB%98%E6%95%88%E5%9B%BE%E5%BA%8A/">GitHub+jsDelivr+PicGo打造稳定快速高效图床</a></p>
+
         </div>
 
         
@@ -391,14 +392,6 @@ if (!doNotTrack) {
     </li>
     
     <li>
-        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8EJava%E5%AE%9E%E7%8E%B0/" title="十大经典排序算法总结（基于Java实现）">十大经典排序算法总结（基于Java实现）</a>
-    </li>
-    
-    <li>
-        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC10/" title="【CS61B】LEC10 Subtype Polymorphism vs. HoFs">【CS61B】LEC10 Subtype Polymorphism vs. HoFs</a>
-    </li>
-    
-    <li>
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC9/" title="【CS61B】LEC9 Extends, Casting, Higher Order Functions">【CS61B】LEC9 Extends, Casting, Higher Order Functions</a>
     </li>
     
@@ -415,6 +408,10 @@ if (!doNotTrack) {
     </li>
     
     <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8EJava%E5%AE%9E%E7%8E%B0/" title="十大经典排序算法总结（基于Java实现）">十大经典排序算法总结（基于Java实现）</a>
+    </li>
+    
+    <li>
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BProj1A/" title="【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque ">【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque </a>
     </li>
     
@@ -426,6 +423,10 @@ if (!doNotTrack) {
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC5/" title="【CS61B】LEC5 DLLists, Arrays ">【CS61B】LEC5 DLLists, Arrays </a>
     </li>
     
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC4/" title="【CS61B】LEC4 SLLists, Nested Classes, Sentinel Nodes ">【CS61B】LEC4 SLLists, Nested Classes, Sentinel Nodes </a>
+    </li>
+    
 </ul>
     </section>
 
@@ -435,11 +436,9 @@ if (!doNotTrack) {
         <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="http://jchenTech.github.io/categories/C&#43;&#43;/">C&#43;&#43; (7)</a></li>
+    <li><a href="http://jchenTech.github.io/categories/C&#43;&#43;/">C&#43;&#43; (6)</a></li>
     
     <li><a href="http://jchenTech.github.io/categories/Git/">Git (1)</a></li>
-    
-    <li><a href="http://jchenTech.github.io/categories/Golang/">Golang (3)</a></li>
     
     <li><a href="http://jchenTech.github.io/categories/Java/">Java (1)</a></li>
     
@@ -451,7 +450,7 @@ if (!doNotTrack) {
     
     <li><a href="http://jchenTech.github.io/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">图像处理与深度学习 (10)</a></li>
     
-    <li><a href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法 (13)</a></li>
+    <li><a href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法 (12)</a></li>
     
 </ul>
     </section>
@@ -549,7 +548,7 @@ if (!doNotTrack) {
         </li>
         
         <li>
-            <a target="_blank" href="http://yuedu.baidu.com/ebook/14a722970740be1e640e9a3e" title="Android Gradle权威指南">Android Gradle权威指南</a>
+            <a target="_blank" href="http://yuedu.baidu.com/ebook/14a722970740be1e640e9a3e" title="我的Github地址">Android Gradle权威指南</a>
         </li>
         
     </ul>

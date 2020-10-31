@@ -18,7 +18,7 @@
         
     <meta property="article:modified_time" content='2020-03-15T00:00:00&#43;08:00'>
         
-    <meta name="Keywords" content="">
+    <meta name="Keywords" content="Java后端">
     <meta name="description" content="C&#43;&#43; primer plus 第10章对象和类">
         
     <meta name="author" content="jchen">
@@ -54,13 +54,13 @@
                         jchen&#39;s blog
                     </a>
                 
-                
+                <p class="description">专注于Java后端、大数据，记录分享自己的学习过程</p>
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
                     <a class="current" href="http://jchenTech.github.io/">首页</a>
                     
-                    <a  href="http://jchenTech.github.io/tools/" title="工具">工具</a>
+                    <a  href="http://jchenTech.github.io/route/" title="路线">路线</a>
                     
                     <a  href="http://jchenTech.github.io/archives/" title="归档">归档</a>
                     
@@ -145,28 +145,28 @@
     <div class="post-toc-content">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#过程性编程和面向对象编程">过程性编程和面向对象编程</a></li>
-    <li><a href="#抽象和类">抽象和类</a>
+    <li><a href="#1-过程性编程和面向对象编程">1 过程性编程和面向对象编程</a></li>
+    <li><a href="#2-抽象和类">2 抽象和类</a>
       <ul>
-        <li><a href="#ifndef">ifndef</a></li>
-        <li><a href="#访问控制">访问控制</a></li>
-        <li><a href="#类和结构">类和结构</a></li>
-        <li><a href="#实现类成员函数">实现类成员函数</a></li>
+        <li><a href="#21-ifndef">2.1 ifndef</a></li>
+        <li><a href="#22-访问控制">2.2 访问控制</a></li>
+        <li><a href="#23-类和结构">2.3 类和结构</a></li>
+        <li><a href="#24-实现类成员函数">2.4 实现类成员函数</a></li>
       </ul>
     </li>
-    <li><a href="#类的构造函数和析构函数">类的构造函数和析构函数</a>
+    <li><a href="#3-类的构造函数和析构函数">3 类的构造函数和析构函数</a>
       <ul>
-        <li><a href="#声明和定义构造函数">声明和定义构造函数</a></li>
-        <li><a href="#使用构造函数">使用构造函数</a></li>
-        <li><a href="#默认构造函数">默认构造函数</a></li>
-        <li><a href="#析构函数">析构函数</a></li>
-        <li><a href="#改进stock类">改进Stock类</a></li>
+        <li><a href="#31-声明和定义构造函数">3.1 声明和定义构造函数</a></li>
+        <li><a href="#32-使用构造函数">3.2 使用构造函数</a></li>
+        <li><a href="#33-默认构造函数">3.3 默认构造函数</a></li>
+        <li><a href="#34-析构函数">3.4 析构函数</a></li>
+        <li><a href="#35-改进stock类">3.5 改进Stock类</a></li>
       </ul>
     </li>
-    <li><a href="#this指针">this指针</a></li>
-    <li><a href="#对象数组">对象数组</a></li>
-    <li><a href="#类作用域">类作用域</a></li>
-    <li><a href="#抽象数据类型">抽象数据类型</a></li>
+    <li><a href="#4-this指针">4 this指针</a></li>
+    <li><a href="#5-对象数组">5 对象数组</a></li>
+    <li><a href="#6-类作用域">6 类作用域</a></li>
+    <li><a href="#7-抽象数据类型">7 抽象数据类型</a></li>
   </ul>
 </nav>
     </div>
@@ -228,10 +228,9 @@
         
         <div class="post-content">
             <p>C++ primer plus 第10章对象和类</p>
-<p>[TOC]</p>
-<h2 id="过程性编程和面向对象编程">过程性编程和面向对象编程</h2>
-<h2 id="抽象和类">抽象和类</h2>
-<h3 id="ifndef">ifndef</h3>
+<h2 id="1-过程性编程和面向对象编程">1 过程性编程和面向对象编程</h2>
+<h2 id="2-抽象和类">2 抽象和类</h2>
+<h3 id="21-ifndef">2.1 ifndef</h3>
 <p>文件中的#ifndef</p>
 <p>头件的中的#ifndef，这是一个很关键的东西。</p>
 <p>需要注意的是，#ifndef起到的效果是防止一个源文件两次包含同一个头文件，而不是防止两个源文件包含同一个头文件。</p>
@@ -244,7 +243,7 @@
 ......
 
 #endif
-</code></pre><h3 id="访问控制">访问控制</h3>
+</code></pre><h3 id="22-访问控制">2.2 访问控制</h3>
 <p>公有成员函数是程序和对象的私有成员之间的桥梁，提供了对象和程序之间的接口。防止程序直接访问数据被称为<strong>数据隐藏</strong>。</p>
 <blockquote>
 <p>类表示人们可以类方法的公有接口对类对象执行的操作，这是<strong>抽象</strong>。</p>
@@ -255,7 +254,7 @@
 <blockquote>
 <p>实现的具体细节，（如数据表示和方法的代码）都是隐藏的，这是<strong>封装</strong>。</p>
 </blockquote>
-<h3 id="类和结构">类和结构</h3>
+<h3 id="23-类和结构">2.3 类和结构</h3>
 <p>类对象的默认访问控制是<code>private</code>，而结构的默认访问类型是<code>public</code>。</p>
 <pre><code>class World
 {
@@ -264,16 +263,16 @@
 public:
     void tellall(void);
 }
-</code></pre><h3 id="实现类成员函数">实现类成员函数</h3>
+</code></pre><h3 id="24-实现类成员函数">2.4 实现类成员函数</h3>
 <p>类成员函数有两个特征：</p>
 <ul>
 <li>定义成员函数时，使用作用域解析运算符<code>::</code>来标识函数所属的类</li>
 <li>类方法可以访问类的private组件</li>
 </ul>
 <pre><code>void Stock::update(double price)
-</code></pre><h2 id="类的构造函数和析构函数">类的构造函数和析构函数</h2>
+</code></pre><h2 id="3-类的构造函数和析构函数">3 类的构造函数和析构函数</h2>
 <p>每个类都分别定义了它的对象被初始化的方式，类通过一个或几个特殊的成员函数来控制其对象的初始化过程，这些函数叫<strong>构造函数</strong>。构造函数的任务是初始化类对象的数据成员，无论何时只要类的对象被创建，就会执行构造函数。</p>
-<h3 id="声明和定义构造函数">声明和定义构造函数</h3>
+<h3 id="31-声明和定义构造函数">3.1 声明和定义构造函数</h3>
 <p>构造函数原型（声明）：</p>
 <pre><code>Stock(const &amp; co, long n = 0, double pr = 0.0)
 </code></pre><p>构造函数定义（没有返回类型）：</p>
@@ -285,11 +284,11 @@ public:
     set_tot();
 }
 </code></pre><p><strong>成员名和参数名不能相同！！！</strong></p>
-<h3 id="使用构造函数">使用构造函数</h3>
+<h3 id="32-使用构造函数">3.2 使用构造函数</h3>
 <pre><code>Stock food = Stock(&quot;World Cabbage&quot;, 50, 2.5);
 或
 Stock food(&quot;World Cabbage&quot;, 50, 2.5);
-</code></pre><h3 id="默认构造函数">默认构造函数</h3>
+</code></pre><h3 id="33-默认构造函数">3.3 默认构造函数</h3>
 <p>定义默认构造函数有两种方法：</p>
 <ul>
 <li>一种是给已有构造函数的所有参数提供默认值：</li>
@@ -313,7 +312,7 @@ Stock food(&quot;World Cabbage&quot;, 50, 2.5);
 Stock second();  //声明一个返回Stock对象的函数
 Stock third;  //隐式的调用默认构造函数
 Stock *fourth = new Stock(&quot;popo&quot;); //动态对象
-</code></pre><h3 id="析构函数">析构函数</h3>
+</code></pre><h3 id="34-析构函数">3.4 析构函数</h3>
 <p>类的析构函数是类的一种特殊的成员函数，它会在每次删除所创建的对象时执行。</p>
 <p>析构函数的名称与类的名称是完全相同的，只是在前面加了个波浪号（~）作为前缀，它不会返回任何值，也不能带有任何参数。析构函数有助于在跳出程序（比如关闭文件、释放内存等）前释放资源。</p>
 <p>如果构造函数使用了new，则必须提供使用delete的析构函数，如：</p>
@@ -333,8 +332,8 @@ Student::~Student()
     delete m_name;
     m_name=NULL;
 }
-</code></pre><h3 id="改进stock类">改进Stock类</h3>
-<h2 id="this指针">this指针</h2>
+</code></pre><h3 id="35-改进stock类">3.5 改进Stock类</h3>
+<h2 id="4-this指针">4 this指针</h2>
 <p>当需要比较两个类中数据成员的大小，并返回变量值较大的类时，函数原型为：</p>
 <pre><code>const Stock &amp; topval(const Stock &amp; s) const
 </code></pre><p>函数调用为：</p>
@@ -358,7 +357,7 @@ top = stock2.topval(stock1);
     else
         return *this;
 }
-</code></pre><h2 id="对象数组">对象数组</h2>
+</code></pre><h2 id="5-对象数组">5 对象数组</h2>
 <p>声明对象数组的方法和标准类型数组方法相同：</p>
 <pre><code>Stock mystuff[4]; //创建一个含有四个Stock对象的数组
 </code></pre><p>使用构造函数来初始化数组元素时，必须为每一个元素调用构造函数。</p>
@@ -369,7 +368,7 @@ Stock stocks[STKS] = {
     Stock(&quot;Mono&quot;, 130, 20.25),
     Stock(&quot;Fleep&quot;, 60, 6.5),
 }
-</code></pre><h2 id="类作用域">类作用域</h2>
+</code></pre><h2 id="6-类作用域">6 类作用域</h2>
 <p>当我们要创建一个由所有对象共享的常量是个不错的主意，我们可能认为下面做法是可行的：</p>
 <pre><code>class Bakery()
 {
@@ -401,7 +400,7 @@ private:
     ...
 }
 </code></pre><p>将常量与其他静态变量存储在一起，而不是存储在对象中。</p>
-<h2 id="抽象数据类型">抽象数据类型</h2>
+<h2 id="7-抽象数据类型">7 抽象数据类型</h2>
 <p>ADT以通用的方式描述数据类型，而没有引入语言或实现细节。</p>
 <p>下面简要介绍一下栈的特征，首先，栈存储了多个数据项（该特征使得栈成为了一个容器——一种更通用的抽象）；其次栈由可对他执行的操作来描述。</p>
 <ul>
@@ -412,6 +411,7 @@ private:
 <li>可查看栈是否为空</li>
 </ul>
 <p>可以将上述描述转换为一个类声明，其中共有函数提供了表示栈操作的接口，而私有数据成员负责存储栈数据。类概念特别适合于ADT方法。</p>
+
         </div>
 
         
@@ -436,11 +436,11 @@ private:
         
         <li><a href="/post/%E5%8D%9A%E5%AE%A2/hugo&#43;github-page%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">我的第一次Hugo博客搭建过程（超级详细）</a></li>
         
-        <li><a href="/2019/12/18/golang-gin-query-parameters-array-map.html">Golang Gin 实战（五）| 接收数组和 Map</a></li>
+        <li><a href="/post/%E5%8D%9A%E5%AE%A2/formulas-with-mathjax/">Formulas with MathJax</a></li>
         
-        <li><a href="/post/2019-12-15-golang-gin-query-parameters-source-code-analysis/">Golang Gin 实战（三）| 路由参数</a></li>
+        <li><a href="/post/%E5%8D%9A%E5%AE%A2/markdown-cheat-sheet/">Markdown Cheat Sheet</a></li>
         
-        <li><a href="/post/2019-12-13-golang-gin-parameters-in-path/">Golang Gin 实战（三）| 路由参数</a></li>
+        <li><a href="/post/%E5%8D%9A%E5%AE%A2/using-the-gallery-shortcode/">Using the gallery shortcode</a></li>
         
     </ul>
 </div>
@@ -567,14 +567,6 @@ if (!doNotTrack) {
     </li>
     
     <li>
-        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8EJava%E5%AE%9E%E7%8E%B0/" title="十大经典排序算法总结（基于Java实现）">十大经典排序算法总结（基于Java实现）</a>
-    </li>
-    
-    <li>
-        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC10/" title="【CS61B】LEC10 Subtype Polymorphism vs. HoFs">【CS61B】LEC10 Subtype Polymorphism vs. HoFs</a>
-    </li>
-    
-    <li>
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC9/" title="【CS61B】LEC9 Extends, Casting, Higher Order Functions">【CS61B】LEC9 Extends, Casting, Higher Order Functions</a>
     </li>
     
@@ -591,6 +583,10 @@ if (!doNotTrack) {
     </li>
     
     <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8EJava%E5%AE%9E%E7%8E%B0/" title="十大经典排序算法总结（基于Java实现）">十大经典排序算法总结（基于Java实现）</a>
+    </li>
+    
+    <li>
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BProj1A/" title="【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque ">【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque </a>
     </li>
     
@@ -602,6 +598,10 @@ if (!doNotTrack) {
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC5/" title="【CS61B】LEC5 DLLists, Arrays ">【CS61B】LEC5 DLLists, Arrays </a>
     </li>
     
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC4/" title="【CS61B】LEC4 SLLists, Nested Classes, Sentinel Nodes ">【CS61B】LEC4 SLLists, Nested Classes, Sentinel Nodes </a>
+    </li>
+    
 </ul>
     </section>
 
@@ -611,11 +611,9 @@ if (!doNotTrack) {
         <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="http://jchenTech.github.io/categories/C&#43;&#43;/">C&#43;&#43; (7)</a></li>
+    <li><a href="http://jchenTech.github.io/categories/C&#43;&#43;/">C&#43;&#43; (6)</a></li>
     
     <li><a href="http://jchenTech.github.io/categories/Git/">Git (1)</a></li>
-    
-    <li><a href="http://jchenTech.github.io/categories/Golang/">Golang (3)</a></li>
     
     <li><a href="http://jchenTech.github.io/categories/Java/">Java (1)</a></li>
     
@@ -627,7 +625,7 @@ if (!doNotTrack) {
     
     <li><a href="http://jchenTech.github.io/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">图像处理与深度学习 (10)</a></li>
     
-    <li><a href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法 (13)</a></li>
+    <li><a href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法 (12)</a></li>
     
 </ul>
     </section>
@@ -725,7 +723,7 @@ if (!doNotTrack) {
         </li>
         
         <li>
-            <a target="_blank" href="http://yuedu.baidu.com/ebook/14a722970740be1e640e9a3e" title="Android Gradle权威指南">Android Gradle权威指南</a>
+            <a target="_blank" href="http://yuedu.baidu.com/ebook/14a722970740be1e640e9a3e" title="我的Github地址">Android Gradle权威指南</a>
         </li>
         
     </ul>

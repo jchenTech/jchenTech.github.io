@@ -18,7 +18,7 @@
         
     <meta property="article:modified_time" content='2020-03-16T00:00:00&#43;08:00'>
         
-    <meta name="Keywords" content="">
+    <meta name="Keywords" content="Java后端">
     <meta name="description" content="C&#43;&#43; primer plus 第11章使用类">
         
     <meta name="author" content="jchen">
@@ -54,13 +54,13 @@
                         jchen&#39;s blog
                     </a>
                 
-                
+                <p class="description">专注于Java后端、大数据，记录分享自己的学习过程</p>
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
                     <a class="current" href="http://jchenTech.github.io/">首页</a>
                     
-                    <a  href="http://jchenTech.github.io/tools/" title="工具">工具</a>
+                    <a  href="http://jchenTech.github.io/route/" title="路线">路线</a>
                     
                     <a  href="http://jchenTech.github.io/archives/" title="归档">归档</a>
                     
@@ -145,21 +145,21 @@
     <div class="post-toc-content">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#运算符重载">运算符重载</a></li>
-    <li><a href="#计算时间一个运算符重载示例">计算时间：一个运算符重载示例</a>
+    <li><a href="#1-运算符重载">1 运算符重载</a></li>
+    <li><a href="#2-计算时间一个运算符重载示例">2 计算时间：一个运算符重载示例</a>
       <ul>
-        <li><a href="#重载限制">重载限制</a></li>
+        <li><a href="#21-重载限制">2.1 重载限制</a></li>
       </ul>
     </li>
-    <li><a href="#友元">友元</a></li>
-    <li><a href="#重载运算符作为成员函数或非成员函数">重载运算符：作为成员函数或非成员函数</a></li>
-    <li><a href="#再谈重载一个矢量类">再谈重载：一个矢量类</a></li>
-    <li><a href="#类的自动转换和强制类型转换">类的自动转换和强制类型转换</a>
+    <li><a href="#3-友元">3 友元</a></li>
+    <li><a href="#4-重载运算符作为成员函数或非成员函数">4 重载运算符：作为成员函数或非成员函数</a></li>
+    <li><a href="#5-再谈重载一个矢量类">5 再谈重载：一个矢量类</a></li>
+    <li><a href="#6类的自动转换和强制类型转换">6类的自动转换和强制类型转换</a>
       <ul>
-        <li><a href="#将别的数据类型转换为类对象">将别的数据类型转换为类对象</a></li>
-        <li><a href="#将类类型转换为别的类型转换函数">将类类型转换为别的类型（转换函数）</a></li>
-        <li><a href="#总结">总结</a></li>
-        <li><a href="#转换函数和友元函数">转换函数和友元函数</a></li>
+        <li><a href="#61-将别的数据类型转换为类对象">6.1 将别的数据类型转换为类对象</a></li>
+        <li><a href="#62-将类类型转换为别的类型转换函数">6.2 将类类型转换为别的类型（转换函数）</a></li>
+        <li><a href="#63-总结">6.3 总结</a></li>
+        <li><a href="#64-转换函数和友元函数">6.4 转换函数和友元函数</a></li>
       </ul>
     </li>
   </ul>
@@ -223,14 +223,13 @@
         
         <div class="post-content">
             <p>C++ primer plus 第11章使用类</p>
-<p>[toc]</p>
-<h2 id="运算符重载">运算符重载</h2>
+<h2 id="1-运算符重载">1 运算符重载</h2>
 <pre><code>operatorop(argumnt-list)
 </code></pre><p>例如，<code>operator+()</code>重载<code>+</code>运算符。</p>
-<h2 id="计算时间一个运算符重载示例">计算时间：一个运算符重载示例</h2>
+<h2 id="2-计算时间一个运算符重载示例">2 计算时间：一个运算符重载示例</h2>
 <p>如果要计算两个时间之和，如2小时40分与1小时30分之和，可以重载运算符<code>+</code>，在类中的成员函数为：</p>
 <pre><code>Time operator+(const Time &amp; t) const;
-</code></pre><h3 id="重载限制">重载限制</h3>
+</code></pre><h3 id="21-重载限制">2.1 重载限制</h3>
 <ul>
 <li>重载后的运算符至少有一个操作数是用户定义的类型，这将防止用户为标准类型重载运算符。因此，不能将减法运算符（-）重载为两个double值的和。</li>
 <li>使用运算符不能违反运算符原来的句法规则，例如不能将求模运算符（%）重载成使用一个操作数。</li>
@@ -255,7 +254,7 @@
 </ol>
 </li>
 </ul>
-<h2 id="友元">友元</h2>
+<h2 id="3-友元">3 友元</h2>
 <p>C++控制对类对象私有部分的访问时，通常共有类方法是访问的唯一途径，但是C++还提供了另外一种形式的访问权限：友元。友元有三种：</p>
 <ul>
 <li>友元函数</li>
@@ -277,9 +276,9 @@
     ...
 }
 </code></pre><p>提示：如果要为类重载运算符，并将非类的项作为其第一个操作数，则可以使用友元函数来反转操作数的顺序。</p>
-<h2 id="重载运算符作为成员函数或非成员函数">重载运算符：作为成员函数或非成员函数</h2>
+<h2 id="4-重载运算符作为成员函数或非成员函数">4 重载运算符：作为成员函数或非成员函数</h2>
 <p>对于很多运算符，可以选择使用成员函数和非成员函数来实现运算符重载。一般来说非成员函数应该是友元函数，这样才可以访问类的私有数据。</p>
-<h2 id="再谈重载一个矢量类">再谈重载：一个矢量类</h2>
+<h2 id="5-再谈重载一个矢量类">5 再谈重载：一个矢量类</h2>
 <p>可以为Vector类重载运算符，实现矢量的加法和乘法，同时还可以使用Vector类来模拟<strong>随机游走</strong></p>
 <pre><code>// randwalk.cpp -- using the Vector class
 // compile with the vect.cpp file
@@ -332,7 +331,7 @@ int main()
 */
     return 0; 
 }
-</code></pre><h2 id="类的自动转换和强制类型转换">类的自动转换和强制类型转换</h2>
+</code></pre><h2 id="6类的自动转换和强制类型转换">6类的自动转换和强制类型转换</h2>
 <p>分为三种情况：</p>
 <p>（1）如果要进行的转换之间是兼容的，C++自动将值转换为接收变量的类型：</p>
 <pre><code>int count = 8.8;
@@ -343,7 +342,7 @@ long day = 8;
 </code></pre><p>（3）强制类型转换：</p>
 <pre><code>int *pr = （int *） 10;
 </code></pre><p>这条语句通过类型的强制转换的结果是这条语句可以正常进行。表示：定义一个地址为10 的指针。（这种赋值是没有什么意义的）</p>
-<h3 id="将别的数据类型转换为类对象">将别的数据类型转换为类对象</h3>
+<h3 id="61-将别的数据类型转换为类对象">6.1 将别的数据类型转换为类对象</h3>
 <p>将类定义成与基本类型相关或者是与另一个类相关，使得从一个类到另一个类的转换时有意义的。在这种情况下可以指示C++如何进行自动类型转换，或者通过强制类型转换来完成：</p>
 <p>下面我们通过一个例子来详细介绍：</p>
 <p>需求：计量单位磅转换为英石：</p>
@@ -408,7 +407,7 @@ void Stonewt::show_lbs() const
     cout &lt;&lt; pounds &lt;&lt; &quot; pounds\n&quot;;
 }
 </code></pre><p>Stonewt类有三个构造函数，可以允许将Stonewt对象初始化为一个浮点数或者两个浮点数，也可以不进行初始化。</p>
-<h4 id="隐式的自动类型转换">隐式的自动类型转换</h4>
+<h4 id="611-隐式的自动类型转换">6.1.1 隐式的自动类型转换</h4>
 <p>下面我们先来看一下这个构造函数：</p>
 <p>Stonewt(double lbs);</p>
 <p>这个构造函数允许将double类型的值转化为Stonewt类型，因此可以编写：</p>
@@ -417,7 +416,7 @@ myCat = 19.6;
 </code></pre><p>原理：程序使用Stonewt(double lbs)，来创建一个临时的Stonewt对象，然后将19.6赋值给它，随后，采用逐成员赋值的方式将该对象的内容赋值到myCat中，这一过程成为隐式转换，因为他是自动进行的。而不需要显示强制类型转换。</p>
 <p><strong>只有接受一个参数的构造函数才能作为转换函数</strong>，例如：Stonewt(int stn, double lbs);不能作为转换类型。<strong>但是如果给第二个参数提供默认值，它便可以转换int</strong>：</p>
 <pre><code>Stonewt(int stn,double lbs = 0);
-</code></pre><h4 id="显式类型强制转换">显式类型强制转换</h4>
+</code></pre><h4 id="612-显式类型强制转换">6.1.2 显式类型强制转换</h4>
 <p>将构造函数用作自动类型转换函数似乎是一种非常好的特性，但是这种自动类型转换并不是总是合乎需要的，因为这可能导致意外的类型转换：</p>
 <p>解决方法：C++新增了 关键字explicit用于关闭这种自动特性，也就是说可以这样声明构造函数:</p>
 <pre><code>explicit Stonewt(double lbs);
@@ -440,7 +439,7 @@ myCat = (Stonewt) 19.6;   //（允许的）
 Jumb = 7300;
 </code></pre><p>这两条语句都是先将int 转化为double，然后使用Stonewt(double)构造函数。然而这是有前提性的：</p>
 <p>即不存在二义性。如果还存在Stonewt(long)，则编译器将拒绝执行这些语句，因为int可以转为long 或者double，一次调用会出现<strong>二义性</strong>。</p>
-<h3 id="将类类型转换为别的类型转换函数">将类类型转换为别的类型（转换函数）</h3>
+<h3 id="62-将类类型转换为别的类型转换函数">6.2 将类类型转换为别的类型（转换函数）</h3>
 <p>构造函数只用于从某种类型到类类型的转换，要进行相应的反转，必须使用特殊的C++运算符函数&ndash;转换函数</p>
 <p>转换函数是用户自定义的强制类型转换，可以像使用强制类型转换那样使用它们。</p>
 <pre><code>Stonewt wolfe =(285.7); 
@@ -471,7 +470,7 @@ double p_wt = poppins;
 cout &lt;&lt;(int) poppins&lt;&lt;endl;
 </code></pre><p>还有一种情况需要注意：</p>
 <p><code>long temp = popins;</code> 这条语句是不正确的，因为存在二义性，因为int、double都可以转换为long 类型。如果删除一个int或者double的转换函数，则这条语句将可以执行。</p>
-<h3 id="总结">总结</h3>
+<h3 id="63-总结">6.3 总结</h3>
 <p>1.要谨慎的使用隐式转换函数，通常最好的选择是仅在被显示的调用时才会执行。</p>
 <p>2.只有一个参数的类构造函数将用于类型与该参数相同的值转换为类类型。
 例如：将int类型转换为CStonewt对象是，接受int 参数的CStonewt类构造函数将自动被调用，然而在构造函数声明中使用explicit可防止隐式转换，而只允许显式转换。</p>
@@ -479,7 +478,7 @@ cout &lt;&lt;(int) poppins&lt;&lt;endl;
 <p>转换函数是类成员，没有返回类型，没有参数名为 <code>operator typeName();</code></p>
 <p>其中 typeName是对象将被转换为的类型，将类对象赋给typeName变量或者将其强制转换为typeName类型时，该转换函数将会被自动调用。</p>
 <p>4.尤其要注意过多的转换函数将导致出现二义性的几率变大，要谨慎防止二义性的出现。</p>
-<h3 id="转换函数和友元函数">转换函数和友元函数</h3>
+<h3 id="64-转换函数和友元函数">6.4 转换函数和友元函数</h3>
 <p>普通成员函数和友元函数都能实现操作符的重载，如重载<code>+</code>运算符实现两个类对象的相加。有的时候你声明的操作符重载函数的形参是两个对象，但是实参中有一个类型兼容类型变量，这个时候如果你的类中存在类型转换函数，它就可能把原来是对象的那个实参通过类型转换函数转换成类型兼容类型。</p>
 <p>成员函数和友元函数都可以实现：</p>
 <pre><code>Stonewt jennySt(9, 12);
@@ -500,6 +499,7 @@ total = operator+(pennyD, jennySt);
 不能转换为
 total = pennyD.operator+(jennySt);
 </code></pre><p>这是因为当你使用一个成员函数版的操作符重载函数时，原本的调用者应该是该类的对象，但实际上调用者是一个类型兼容类型的变量，它显然不能成为成员重载函数的调用者，于是调用失败了。而一个友元函数却不会出现此状况，并且友元函数在接受实参时会使用构造函数将一个类型兼容类型转换为类类型。</p>
+
         </div>
 
         
@@ -526,9 +526,9 @@ total = pennyD.operator+(jennySt);
         
         <li><a href="/post/%E5%8D%9A%E5%AE%A2/hugo&#43;github-page%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">我的第一次Hugo博客搭建过程（超级详细）</a></li>
         
-        <li><a href="/2019/12/18/golang-gin-query-parameters-array-map.html">Golang Gin 实战（五）| 接收数组和 Map</a></li>
+        <li><a href="/post/%E5%8D%9A%E5%AE%A2/formulas-with-mathjax/">Formulas with MathJax</a></li>
         
-        <li><a href="/post/2019-12-15-golang-gin-query-parameters-source-code-analysis/">Golang Gin 实战（三）| 路由参数</a></li>
+        <li><a href="/post/%E5%8D%9A%E5%AE%A2/markdown-cheat-sheet/">Markdown Cheat Sheet</a></li>
         
     </ul>
 </div>
@@ -655,14 +655,6 @@ if (!doNotTrack) {
     </li>
     
     <li>
-        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8EJava%E5%AE%9E%E7%8E%B0/" title="十大经典排序算法总结（基于Java实现）">十大经典排序算法总结（基于Java实现）</a>
-    </li>
-    
-    <li>
-        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC10/" title="【CS61B】LEC10 Subtype Polymorphism vs. HoFs">【CS61B】LEC10 Subtype Polymorphism vs. HoFs</a>
-    </li>
-    
-    <li>
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC9/" title="【CS61B】LEC9 Extends, Casting, Higher Order Functions">【CS61B】LEC9 Extends, Casting, Higher Order Functions</a>
     </li>
     
@@ -679,6 +671,10 @@ if (!doNotTrack) {
     </li>
     
     <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8EJava%E5%AE%9E%E7%8E%B0/" title="十大经典排序算法总结（基于Java实现）">十大经典排序算法总结（基于Java实现）</a>
+    </li>
+    
+    <li>
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BProj1A/" title="【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque ">【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque </a>
     </li>
     
@@ -690,6 +686,10 @@ if (!doNotTrack) {
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC5/" title="【CS61B】LEC5 DLLists, Arrays ">【CS61B】LEC5 DLLists, Arrays </a>
     </li>
     
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC4/" title="【CS61B】LEC4 SLLists, Nested Classes, Sentinel Nodes ">【CS61B】LEC4 SLLists, Nested Classes, Sentinel Nodes </a>
+    </li>
+    
 </ul>
     </section>
 
@@ -699,11 +699,9 @@ if (!doNotTrack) {
         <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="http://jchenTech.github.io/categories/C&#43;&#43;/">C&#43;&#43; (7)</a></li>
+    <li><a href="http://jchenTech.github.io/categories/C&#43;&#43;/">C&#43;&#43; (6)</a></li>
     
     <li><a href="http://jchenTech.github.io/categories/Git/">Git (1)</a></li>
-    
-    <li><a href="http://jchenTech.github.io/categories/Golang/">Golang (3)</a></li>
     
     <li><a href="http://jchenTech.github.io/categories/Java/">Java (1)</a></li>
     
@@ -715,7 +713,7 @@ if (!doNotTrack) {
     
     <li><a href="http://jchenTech.github.io/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">图像处理与深度学习 (10)</a></li>
     
-    <li><a href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法 (13)</a></li>
+    <li><a href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法 (12)</a></li>
     
 </ul>
     </section>
@@ -813,7 +811,7 @@ if (!doNotTrack) {
         </li>
         
         <li>
-            <a target="_blank" href="http://yuedu.baidu.com/ebook/14a722970740be1e640e9a3e" title="Android Gradle权威指南">Android Gradle权威指南</a>
+            <a target="_blank" href="http://yuedu.baidu.com/ebook/14a722970740be1e640e9a3e" title="我的Github地址">Android Gradle权威指南</a>
         </li>
         
     </ul>

@@ -18,7 +18,7 @@
         
     <meta property="article:modified_time" content='2020-09-08T00:00:00&#43;08:00'>
         
-    <meta name="Keywords" content="">
+    <meta name="Keywords" content="Java后端">
     <meta name="description" content="【CS61B】LEC9 Extends, Casting, Higher Order Functions">
         
     <meta name="author" content="jchen">
@@ -54,13 +54,13 @@
                         jchen&#39;s blog
                     </a>
                 
-                
+                <p class="description">专注于Java后端、大数据，记录分享自己的学习过程</p>
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
                     <a class="current" href="http://jchenTech.github.io/">首页</a>
                     
-                    <a  href="http://jchenTech.github.io/tools/" title="工具">工具</a>
+                    <a  href="http://jchenTech.github.io/route/" title="路线">路线</a>
                     
                     <a  href="http://jchenTech.github.io/archives/" title="归档">归档</a>
                     
@@ -145,13 +145,13 @@
     <div class="post-toc-content">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#接口和实现-interface-and-implement">接口和实现 Interface and Implement</a></li>
-    <li><a href="#继承的用法">继承的用法</a></li>
-    <li><a href="#什么会被继承">什么会被继承？</a></li>
-    <li><a href="#构造函数的特殊情况">构造函数的特殊情况？</a></li>
-    <li><a href="#is-a">is A</a></li>
-    <li><a href="#抽象abstraction">抽象Abstraction</a></li>
-    <li><a href="#强制类型转换casting">强制类型转换Casting</a></li>
+    <li><a href="#1-接口和实现-interface-and-implement">1 接口和实现 Interface and Implement</a></li>
+    <li><a href="#2-继承的用法">2 继承的用法</a></li>
+    <li><a href="#3-什么会被继承">3 什么会被继承？</a></li>
+    <li><a href="#4-构造函数的特殊情况">4 构造函数的特殊情况？</a></li>
+    <li><a href="#5-is-a">5 is A</a></li>
+    <li><a href="#6-抽象abstraction">6 抽象Abstraction</a></li>
+    <li><a href="#7-强制类型转换casting">7 强制类型转换Casting</a></li>
   </ul>
 </nav>
     </div>
@@ -213,7 +213,7 @@
         
         <div class="post-content">
             <p>LEC9 Extends, Casting, Higher Order Functions</p>
-<h2 id="接口和实现-interface-and-implement">接口和实现 Interface and Implement</h2>
+<h2 id="1-接口和实现-interface-and-implement">1 接口和实现 Interface and Implement</h2>
 <p>早先我们介绍了类和接口，我们意识到在编写类时，有时会编写很多冗余代码。 这将我们引向继承，即某个对象不需要重新定义其父对象的所有性质。我们可以从接口和类继承，语法略有不同。 对于要继承接口性质的类，语法如下（其中SLList是一个类，而List61B是一个接口）：</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -225,19 +225,19 @@
 </div>
 </div><p>类似地，一个类实现另一类性质的方法的语法如下：</p>
 <pre><code>Class_Name extends Class_Name
-</code></pre><h2 id="继承的用法">继承的用法</h2>
+</code></pre><h2 id="2-继承的用法">2 继承的用法</h2>
 <p>假设我们要创建一种特殊的<code>SLList</code>类型，称为<code>RotatingSLList</code>。 <code>RotatingSLList</code>应该能够执行<code>SLList</code>可以做的所有事情； 但是，它也应该能够向右旋转。 我们应该怎么做？ 好吧，这只是继承的应用！ 执行以下操作将使<code>RotatingSLList</code>具有<code>SLList</code>的所有性质以及它自己的方法<code>rotateRight</code>。</p>
 <pre><code>public class RotatingSLList&lt;Blorp&gt; extends SLList&lt;Blorp&gt;{
     public void rotateRight() {...}
 }
-</code></pre><h2 id="什么会被继承">什么会被继承？</h2>
+</code></pre><h2 id="3-什么会被继承">3 什么会被继承？</h2>
 <p>现在，我们在继承中有一个强大的工具； 但是，我们将定义一些规则。 现在，我们将说哪些可以继承：</p>
 <ul>
 <li>实例和静态变量</li>
 <li>所有方法</li>
 <li>所有嵌套类。这会随着引入私有变量而有所变化，但现在不必担心。 没有继承的一项是类的构造函数。</li>
 </ul>
-<h2 id="构造函数的特殊情况">构造函数的特殊情况？</h2>
+<h2 id="4-构造函数的特殊情况">4 构造函数的特殊情况？</h2>
 <p>即使没有继承构造函数，我们仍然会使用它们。 我们可以使用关键字<code>super()</code>显式调用构造函数。 在每个构造函数的开始，已经有一个对其父类的构造函数的隐式调用。 结果是</p>
 <pre><code>public VengefulSLList() {
     deletedItems = new SLList&lt;Item&gt;();
@@ -257,13 +257,13 @@
     deletedItems = new SLList&lt;Item&gt;();
   }
 </code></pre><p>这是因为这里仅调用了空参数<code>super()</code>。</p>
-<h2 id="is-a">is A</h2>
+<h2 id="5-is-a">5 is A</h2>
 <p>当一个类从另一个继承时，我们知道它必须具有所有的特质。这意味着<code>VengefulSLList</code>是<code>SLList</code>，因为它具有<code>SLList</code>的所有特质-它也具有其他一些特质。</p>
 <p>每个单个类都是Object类的后代，这意味着它们都是Object。</p>
-<h2 id="抽象abstraction">抽象Abstraction</h2>
+<h2 id="6-抽象abstraction">6 抽象Abstraction</h2>
 <p>正如您将在本课程的后面学到​​的那样，程序过大时可能会引起混乱。使程序更易于处理的一种方法是使用抽象。基本上，抽象隐藏了人们不需要查看的程序组件。隐藏方法的用户应该能够在不知道它们如何工作的情况下使用它们。</p>
 <p>实现抽象动机的一种直观方法是看着自己。您是人类（除非有机器人正在研究这种情况，否则我很抱歉冒犯了您），人类可以食用食物并将其转化为能量。您无需知道如何将食物转化为能量，只需知道它的作用即可。在这种情况下，可以考虑将食物转化为能量的一种方法，输入是食物，而输出是能量。</p>
-<h2 id="强制类型转换casting">强制类型转换Casting</h2>
+<h2 id="7-强制类型转换casting">7 强制类型转换Casting</h2>
 <p>在Java中，每个对象都有一个静态类型（在编译时定义）和一个动态类型（在运行时定义）。我们的代码可能基于这样一个事实，即某些变量可能比静态类型更具体。例如，如果我们具有以下定义：</p>
 <pre><code>Poodle frank  = new Poodle(&quot;Frank&quot;, 5);
 Poodle frankJr = new Poodle(&quot;Frank Jr.&quot;, 15);
@@ -287,6 +287,7 @@ Poodle frankJr = new Poodle(&quot;Frank Jr.&quot;, 15);
 <p>最后，您永远都不能转换为高于或低于要转换的类的类。例如，您不能将狗投向猴子，因为猴子不在狗的直接血统之内-它是动物的孩子，因此距离较远。</p>
 </li>
 </ul>
+
         </div>
 
         
@@ -307,8 +308,6 @@ Poodle frankJr = new Poodle(&quot;Frank Jr.&quot;, 15);
     <h2>See Also</h2>
     <ul class="listing">
         
-        <li><a href="/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC10/">【CS61B】LEC10 Subtype Polymorphism vs. HoFs</a></li>
-        
         <li><a href="/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC8/">【CS61B】LEC8 Inheritance, Implements</a></li>
         
         <li><a href="/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61B%E9%93%BE%E8%A1%A8IntListSLListDLListAList/">【CS61B】链表IntList、SLList、DLList、AList整理</a></li>
@@ -316,6 +315,8 @@ Poodle frankJr = new Poodle(&quot;Frank Jr.&quot;, 15);
         <li><a href="/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BProj1A/">【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque </a></li>
         
         <li><a href="/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC6/">【CS61B】LEC6 ALists, Resizing, vs. SLists </a></li>
+        
+        <li><a href="/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC5/">【CS61B】LEC5 DLLists, Arrays </a></li>
         
     </ul>
 </div>
@@ -446,14 +447,6 @@ if (!doNotTrack) {
     </li>
     
     <li>
-        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8EJava%E5%AE%9E%E7%8E%B0/" title="十大经典排序算法总结（基于Java实现）">十大经典排序算法总结（基于Java实现）</a>
-    </li>
-    
-    <li>
-        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC10/" title="【CS61B】LEC10 Subtype Polymorphism vs. HoFs">【CS61B】LEC10 Subtype Polymorphism vs. HoFs</a>
-    </li>
-    
-    <li>
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC9/" title="【CS61B】LEC9 Extends, Casting, Higher Order Functions">【CS61B】LEC9 Extends, Casting, Higher Order Functions</a>
     </li>
     
@@ -470,6 +463,10 @@ if (!doNotTrack) {
     </li>
     
     <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8EJava%E5%AE%9E%E7%8E%B0/" title="十大经典排序算法总结（基于Java实现）">十大经典排序算法总结（基于Java实现）</a>
+    </li>
+    
+    <li>
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BProj1A/" title="【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque ">【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque </a>
     </li>
     
@@ -481,6 +478,10 @@ if (!doNotTrack) {
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC5/" title="【CS61B】LEC5 DLLists, Arrays ">【CS61B】LEC5 DLLists, Arrays </a>
     </li>
     
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC4/" title="【CS61B】LEC4 SLLists, Nested Classes, Sentinel Nodes ">【CS61B】LEC4 SLLists, Nested Classes, Sentinel Nodes </a>
+    </li>
+    
 </ul>
     </section>
 
@@ -490,11 +491,9 @@ if (!doNotTrack) {
         <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="http://jchenTech.github.io/categories/C&#43;&#43;/">C&#43;&#43; (7)</a></li>
+    <li><a href="http://jchenTech.github.io/categories/C&#43;&#43;/">C&#43;&#43; (6)</a></li>
     
     <li><a href="http://jchenTech.github.io/categories/Git/">Git (1)</a></li>
-    
-    <li><a href="http://jchenTech.github.io/categories/Golang/">Golang (3)</a></li>
     
     <li><a href="http://jchenTech.github.io/categories/Java/">Java (1)</a></li>
     
@@ -506,7 +505,7 @@ if (!doNotTrack) {
     
     <li><a href="http://jchenTech.github.io/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">图像处理与深度学习 (10)</a></li>
     
-    <li><a href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法 (13)</a></li>
+    <li><a href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法 (12)</a></li>
     
 </ul>
     </section>
@@ -604,7 +603,7 @@ if (!doNotTrack) {
         </li>
         
         <li>
-            <a target="_blank" href="http://yuedu.baidu.com/ebook/14a722970740be1e640e9a3e" title="Android Gradle权威指南">Android Gradle权威指南</a>
+            <a target="_blank" href="http://yuedu.baidu.com/ebook/14a722970740be1e640e9a3e" title="我的Github地址">Android Gradle权威指南</a>
         </li>
         
     </ul>

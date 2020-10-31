@@ -18,7 +18,7 @@
         
     <meta property="article:modified_time" content='2020-04-13T00:00:00&#43;08:00'>
         
-    <meta name="Keywords" content="">
+    <meta name="Keywords" content="Java后端">
     <meta name="description" content="Python之Matplotlib绘图基础">
         
     <meta name="author" content="jchen">
@@ -54,13 +54,13 @@
                         jchen&#39;s blog
                     </a>
                 
-                
+                <p class="description">专注于Java后端、大数据，记录分享自己的学习过程</p>
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
                     <a class="current" href="http://jchenTech.github.io/">首页</a>
                     
-                    <a  href="http://jchenTech.github.io/tools/" title="工具">工具</a>
+                    <a  href="http://jchenTech.github.io/route/" title="路线">路线</a>
                     
                     <a  href="http://jchenTech.github.io/archives/" title="归档">归档</a>
                     
@@ -145,20 +145,20 @@
     <div class="post-toc-content">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#matplotlibpyplot和pylab">Matplotlib，pyplot和pylab？</a></li>
-    <li><a href="#numpypandas">numpy，pandas？</a></li>
-    <li><a href="#matplotlib-绘图上手">matplotlib 绘图上手</a>
+    <li><a href="#1-matplotlibpyplot和pylab">1 Matplotlib，pyplot和pylab？</a></li>
+    <li><a href="#2-numpypandas">2 numpy，pandas？</a></li>
+    <li><a href="#3-matplotlib-绘图上手">3 matplotlib 绘图上手</a>
       <ul>
-        <li><a href="#安装matplotlib">安装Matplotlib</a></li>
-        <li><a href="#图的构成">图的构成</a></li>
-        <li><a href="#matplotlib绘图">matplotlib绘图</a></li>
+        <li><a href="#31-安装matplotlib">3.1 安装Matplotlib</a></li>
+        <li><a href="#32-图的构成">3.2 图的构成</a></li>
+        <li><a href="#33-matplotlib绘图">3.3 matplotlib绘图</a></li>
       </ul>
     </li>
-    <li><a href="#可视化控制">可视化控制</a>
+    <li><a href="#4-可视化控制">4 可视化控制</a>
       <ul>
-        <li><a href="#颜色表示">颜色表示</a></li>
-        <li><a href="#点线样式">点、线样式</a></li>
-        <li><a href="#保存图片">保存图片</a></li>
+        <li><a href="#41-颜色表示">4.1 颜色表示</a></li>
+        <li><a href="#42-点线样式">4.2 点、线样式</a></li>
+        <li><a href="#43-保存图片">4.3 保存图片</a></li>
       </ul>
     </li>
     <li><a href="#参考文献">参考文献</a></li>
@@ -231,16 +231,16 @@
 <hr>
 <p>matplotlib是一个python 2D绘图库，利用它可以画出许多高质量的图像。只需几行代码即可生成直方图，条形图，饼图，散点图等。</p>
 <p>Matplotlib可用于Python脚本，Python和IPython shell，Jupyter笔记本，Web应用程序服务器和四个图形用户界面工具包。希望本文能帮助大家了解如何将matplotlib用于自己的可视化。</p>
-<h2 id="matplotlibpyplot和pylab">Matplotlib，pyplot和pylab？</h2>
+<h2 id="1-matplotlibpyplot和pylab">1 Matplotlib，pyplot和pylab？</h2>
 <p>Matplotlib是整个包，pyplot是Matplotlib中的一个模块，并且pylab是一个安装在一起的模块。</p>
 <p>pylab和pyplot的区别是，前者将numpy导入了其命名空间中，这样会使pylab表现的和matlab更加相似。现在来说我们经常使用pyplot，因为pyplot相比pylab更加纯粹。</p>
-<h2 id="numpypandas">numpy，pandas？</h2>
+<h2 id="2-numpypandas">2 numpy，pandas？</h2>
 <p>matplotlib是可视化的表达，那么在图形的绘制中肯定会涉及一些数据处理。pandas和numpy则是python中最好用的两个数据分析库，使用它们，能够解决超过90%的数据分析问题。</p>
-<h2 id="matplotlib-绘图上手">matplotlib 绘图上手</h2>
-<h3 id="安装matplotlib">安装Matplotlib</h3>
+<h2 id="3-matplotlib-绘图上手">3 matplotlib 绘图上手</h2>
+<h3 id="31-安装matplotlib">3.1 安装Matplotlib</h3>
 <pre><code>python -m pip install matplotlib
 </code></pre><p>然后打开Jupyter Notebook（安装好 Anaconda 后，Jupyter 也已装好，在应用窗口中可以找到），我们就可以直接上手了。</p>
-<h3 id="图的构成">图的构成</h3>
+<h3 id="32-图的构成">3.2 图的构成</h3>
 <p>
         <a data-fancybox="gallery" href="https://pic1.zhimg.com/v2-d260b686b5fdff0ef48735257dc261fc_b.jpg">
             <img class="mx-auto" alt="" src="https://pic1.zhimg.com/v2-d260b686b5fdff0ef48735257dc261fc_b.jpg" />
@@ -249,7 +249,7 @@
 <p>以上图片来自matplotlib官网，它向我们展示了matplotlib的图的构成元素。</p>
 <p>大多数元素都比较好理解：</p>
 <p>坐标轴(axis)、坐标轴名称(axis label)、坐标轴刻度(tick)、坐标轴刻度标签(tick label)、网格线(grid)、图例(legend)、标题(title)&hellip;&hellip;</p>
-<h4 id="title设置">title设置</h4>
+<h4 id="321-title设置">3.2.1 title设置</h4>
 <pre><code>import matplotlib.pyplot as plt
 plt.title(&quot;title&quot;)#括号当中输入标题的名称
 plt.show()
@@ -265,7 +265,7 @@ plt.show()
             <img class="mx-auto" alt="" src="https://pic2.zhimg.com/v2-53f69bc322bbd2809aee87eee0b1d3d9_b.jpg" />
         </a>
     </p>
-<h4 id="figure对象">Figure对象</h4>
+<h4 id="322-figure对象">3.2.2 Figure对象</h4>
 <p>在matplotlib中，整个图像为一个Figure对象。在Figure对象中可以包含一个或者多个Axes对象。每个Axes(ax)对象都是一个拥有自己坐标系统的<strong>绘图区域</strong>。</p>
 <pre><code>plt.figure(figsize=(6, 3))
 plt.plot(6, 3)
@@ -276,7 +276,7 @@ plt.show()
             <img class="mx-auto" alt="" src="https://pic3.zhimg.com/v2-757ecd9bde16cf561c9e4056c1de4eae_b.jpg" />
         </a>
     </p>
-<h4 id="坐标轴及标签">坐标轴及标签</h4>
+<h4 id="323-坐标轴及标签">3.2.3 坐标轴及标签</h4>
 <pre><code>plt.xlim(0,6) #x轴坐标轴
 plt.ylim((0, 3))#y轴坐标轴
 plt.xlabel('X')#x轴标签
@@ -294,7 +294,7 @@ plt.show()
             <img class="mx-auto" alt="" src="https://pic4.zhimg.com/v2-82778a67b3a9d0081852c9c46b30597b_b.jpg" />
         </a>
     </p>
-<h4 id="设置label和legend">设置label和legend</h4>
+<h4 id="324-设置label和legend">3.2.4 设置label和legend</h4>
 <p>设置 label 和 legend 的目的就是为了区分出每个数据对应的图形名称,legend的loc参数用于设置图例位置。</p>
 <pre><code>plt.plot(2, 3, label=&quot;123&quot;)#第一个label
 plt.plot(2, 3* 2, label=&quot;456&quot;)#第二个label
@@ -305,7 +305,7 @@ plt.show()
             <img class="mx-auto" alt="" src="https://pic3.zhimg.com/v2-c5daccacab7f146466e666f8cc40bbfa_b.jpg" />
         </a>
     </p>
-<h4 id="添加注释">添加注释</h4>
+<h4 id="325-添加注释">3.2.5 添加注释</h4>
 <p>有时候我们需要对特定的点进行标注，我们可以使用 plt.annotate 函数来实现:</p>
 <p>s: 注释信息内容<br>
 xy:箭头点所在的坐标位置<br>
@@ -322,7 +322,7 @@ plt.show()
             <img class="mx-auto" alt="" src="https://pic4.zhimg.com/v2-04181787aa3f2d0f9451bb9be706b74f_b.jpg" />
         </a>
     </p>
-<h4 id="使用子图">使用子图</h4>
+<h4 id="326-使用子图">3.2.6 使用子图</h4>
 <p>如果需要将多张子图展示在一起，可以使用 subplot() 实现。即在调用 plot()函数之前需要先调用 subplot() 函数。该函数的第一个参数代表子图的总行数，第二个参数代表子图的总列数，第三个参数代表活跃区域。</p>
 <pre><code>ax1 = plt.subplot(2, 2, 1)
 plt.plot(x,np.sin(x), 'k')
@@ -340,10 +340,10 @@ plt.plot(x, 2*x, 'y')
             <img class="mx-auto" alt="" src="https://pic3.zhimg.com/v2-a31c13b45edb08bf1bf3ded74a8359aa_b.jpg" />
         </a>
     </p>
-<h3 id="matplotlib绘图">matplotlib绘图</h3>
+<h3 id="33-matplotlib绘图">3.3 matplotlib绘图</h3>
 <p>matplotlib画图可以总结为3个步骤：获取数据——画出基本图形——设置细节。获取的数据一般包括横坐标和纵坐标的数据，这个数据可以是读取的，也可以自己生成，本文为了方便演示，使用numpy和pandas生成随机数。</p>
 <p>matplotlib所提供的图形非常丰富，除了基本的柱状图、饼图、散点图等，还提供了极坐标图、3D图等高级图形，并且你可以自由选择和组合。每个图形函数下都有许多参数可设置，matplotlib提供的不仅仅是图形，还有更为精细的图像表达，你可以通过细节的设置来丰富你的可视化。</p>
-<h4 id="bar-柱状图">bar 柱状图</h4>
+<h4 id="331-bar-柱状图">3.3.1 bar 柱状图</h4>
 <p>生成一个单系列的柱状图比较简单，只要确定x轴及y轴的数据，利用bar（）函数就能生成：</p>
 <pre><code>x = np.arange(10)
 y = np.random.randint(0,20,10)
@@ -385,7 +385,7 @@ df.plot.barh( grid = True, colormap = 'BuGn_r')
             <img class="mx-auto" alt="" src="https://pic1.zhimg.com/v2-7955e1aa759c6c22cfeac3b8c85275b4_b.jpg" />
         </a>
     </p>
-<h4 id="scatter-散点图">scatter 散点图</h4>
+<h4 id="332-scatter-散点图">3.3.2 scatter 散点图</h4>
 <p>绘制散点图，主要用到plt.scatter（）这个函数。</p>
 <p>x,y是必填参数；</p>
 <p>c(颜色：b&ndash;blue, c&ndash;cyan,g&ndash;green,k&ndash;black,m&ndash;magenta,r&ndash;red,w&ndash;white,y&ndash;yellow)；</p>
@@ -423,7 +423,7 @@ pd.scatter_matrix(df, figsize = (8,6),marker = 'o',diagonal = 'kde',alpha = 0.4,
             <img class="mx-auto" alt="" src="https://pic1.zhimg.com/v2-3f642c4fc038dda767c12c56e1863ab0_b.jpg" />
         </a>
     </p>
-<h4 id="pie-饼图">pie 饼图</h4>
+<h4 id="333-pie-饼图">3.3.3 pie 饼图</h4>
 <pre><code>matplotlib中饼图的实现用的是pie（）函数，必须输入的参数是饼图每个部分的值。
 x = np.random.randint(1, 10, 3)
 plt.pie(x)
@@ -447,7 +447,7 @@ plt.show()
             <img class="mx-auto" alt="" src="https://pic3.zhimg.com/v2-70f8e7e1fe94b314c5ca0c55fca94f32_b.jpg" />
         </a>
     </p>
-<h4 id="hist-直方图">hist 直方图</h4>
+<h4 id="334-hist-直方图">3.3.4 hist 直方图</h4>
 <p>直方图绘制为hist（）函数，参数如下：</p>
 <p>data:必选参数，绘图数据</p>
 <p>bins:直方图的长条形数目，可选项，默认为10</p>
@@ -482,7 +482,7 @@ df.plot.hist(stacked = True,bins = 10,colormap = 'Blues_r',alpha = 0.5,grid = Tr
             <img class="mx-auto" alt="" src="https://pic2.zhimg.com/v2-fba7f9ce9b49be7b44b935f679a860c1_b.jpg" />
         </a>
     </p>
-<h4 id="polar-极坐标图">polar 极坐标图</h4>
+<h4 id="335-polar-极坐标图">3.3.5 polar 极坐标图</h4>
 <p>matplotlib的pyplot子库提供了绘制极坐标图的方法。在调用subplot()创建子图时通过设置projection=&lsquo;polar&rsquo;,便可创建一个极坐标子图，然后调用plot()在极坐标子图中绘图。</p>
 <pre><code>ax1 = plt.subplot(121, projection='polar')
 </code></pre><p>
@@ -523,7 +523,7 @@ ax2.scatter(theta, r, c=colors, s=area, cmap='hsv', alpha =0.75)
             <img class="mx-auto" alt="" src="https://pic1.zhimg.com/v2-fa03b2491032831aa78f0fc4d8a2dffc_b.jpg" />
         </a>
     </p>
-<h4 id="boxplot-箱型图">boxplot 箱型图</h4>
+<h4 id="336-boxplot-箱型图">3.3.6 boxplot 箱型图</h4>
 <p>绘制箱线图，用plt.boxplot()这个函数。箱型图是利用数据中的五个统计量：最小值、第一四分位数、中位数、第三四分位数与最大值来描述数据的一种方法。它也可以粗略地看出数据是否具有有对称性，分布的分散程度等信息，特别可以用于对几个样本的比较。</p>
 <p>
         <a data-fancybox="gallery" href="https://pic3.zhimg.com/v2-2aed06ee0846456cbdf84adbf96b6216_b.jpg">
@@ -559,7 +559,7 @@ plt.show()
             <img class="mx-auto" alt="" src="https://pic2.zhimg.com/v2-186bef80b453202251bda408167139fd_b.jpg" />
         </a>
     </p>
-<h4 id="heatmap-热图">heatmap 热图</h4>
+<h4 id="337-heatmap-热图">3.3.7 heatmap 热图</h4>
 <p>热图是数据分析的常用方法，通过色差、亮度来展示数据的差异、易于理解。matplotlib中生成热图是调用的函数imshow（）。</p>
 <pre><code>X = [[1,2],[3,4],[5,6]]
 plt.imshow(X)
@@ -575,9 +575,9 @@ plt.show()
             <img class="mx-auto" alt="" src="https://pic1.zhimg.com/v2-072b7476da718b61882799a0271763d8_b.jpg" />
         </a>
     </p>
-<h2 id="可视化控制">可视化控制</h2>
+<h2 id="4-可视化控制">4 可视化控制</h2>
 <p>前面我们用matplotlib绘制了许多不同类型的图像，对于基本的数据分析已经完全掌握。但在一些细节的调节、颜色、美观度上我们没有做过多强调，matplotlib所提供的不仅仅是图形的基本绘制，它也提供了让图像展示更精细的工具。</p>
-<h3 id="颜色表示">颜色表示</h3>
+<h3 id="41-颜色表示">4.1 颜色表示</h3>
 <pre><code>八种内件颜色缩写：
 b:blue
 g:green
@@ -594,14 +594,14 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 y=np.arange(1,5)
-</code></pre><h4 id="简单颜色展示">简单颜色展示</h4>
+</code></pre><h4 id="411-简单颜色展示">4.1.1 简单颜色展示</h4>
 <pre><code>plt.plot(y,color='b')
-</code></pre><h4 id="灰色度">灰色度</h4>
+</code></pre><h4 id="412-灰色度">4.1.2 灰色度</h4>
 <pre><code>plt.plot(y+1,color='0.5') #灰色 程度为0.5
-</code></pre><h4 id="十六进制颜色表示">十六进制颜色表示</h4>
+</code></pre><h4 id="413-十六进制颜色表示">4.1.3 十六进制颜色表示</h4>
 <p>十六进制颜色代码可通过百度颜色代码（对照表查找）</p>
 <pre><code>plt.plot(y+2,color='#FFEC8B')
-</code></pre><h4 id="rgb-表示">RGB 表示</h4>
+</code></pre><h4 id="414-rgb-表示">4.1.4 RGB 表示</h4>
 <p>此时注意要将R，G，B每个值除以255，使其属于0~1之间，如下为红色:</p>
 <pre><code>plt.plot(y+3,color=(1,0,0))
 </code></pre><p>效果图：</p>
@@ -610,8 +610,8 @@ y=np.arange(1,5)
             <img class="mx-auto" alt="" src="https://pic4.zhimg.com/v2-c906c3d5f97cbaa0ce6c3f49a8569e97_b.jpg" />
         </a>
     </p>
-<h3 id="点线样式">点、线样式</h3>
-<h4 id="四种线型">四种线型</h4>
+<h3 id="42-点线样式">4.2 点、线样式</h3>
+<h4 id="421四种线型">4.2.1四种线型</h4>
 <pre><code>plt.plot(y,'-') #实线
 plt.plot(y+1,'--')#虚线
 plt.plot(y+2,'-.')#点划线
@@ -621,7 +621,7 @@ plt.plot(y+3,':')#点线
             <img class="mx-auto" alt="" src="https://pic1.zhimg.com/v2-b9e5b4fecb0caa8eb157b57643d9af40_b.jpg" />
         </a>
     </p>
-<h4 id="点样式">点样式</h4>
+<h4 id="422点样式">4.2.2点样式</h4>
 <pre><code>plt.plot(y,'o')
 plt.plot(y+1,'D')
 plt.plot(y+2,'^')
@@ -639,7 +639,7 @@ plt.plot(y+1,marker='D')
             <img class="mx-auto" alt="" src="https://pic1.zhimg.com/v2-9dc5f6e56ccef371a54794b12901b8ec_b.jpg" />
         </a>
     </p>
-<h4 id="样式字符串">样式字符串</h4>
+<h4 id="423样式字符串">4.2.3样式字符串</h4>
 <p>将颜色，点型，线型写成一个字符串，如:gx：，mo&ndash;等</p>
 <pre><code>plt.plot(y,'gx:')
 plt.plot(y+1,'mo--')
@@ -649,7 +649,7 @@ plt.plot(y+2,'bp-')
             <img class="mx-auto" alt="" src="https://pic4.zhimg.com/v2-f080941f1b88bdeabbbf71b344163cf7_b.jpg" />
         </a>
     </p>
-<h3 id="保存图片">保存图片</h3>
+<h3 id="43-保存图片">4.3 保存图片</h3>
 <pre><code>plt.savefig() # 保存
 </code></pre><p>关于 matplotlib，基本的图形绘制到这里就差不多了，虽然只是最常规的图形，但是足够让你开始尝试探索数据，快速绘图并获得分析结果。</p>
 <h2 id="参考文献">参考文献</h2>
@@ -657,6 +657,7 @@ plt.plot(y+2,'bp-')
 <li><a href="https://matplotlib.org/">matplotlib官方文档</a></li>
 <li><a href="https://zhuanlan.zhihu.com/p/70835617">十分钟|matplotlib上手，开启你的python可视化</a></li>
 </ul>
+
         </div>
 
         
@@ -677,8 +678,6 @@ plt.plot(y+2,'bp-')
     <h2>See Also</h2>
     <ul class="listing">
         
-        <li><a href="/post/C&#43;&#43;/C&#43;&#43;-primer-plus-%E7%AC%AC16%E7%AB%A0String%E7%B1%BB%E5%92%8C%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/">C&#43;&#43; primer plus 第16章String类和标准模板库</a></li>
-        
         <li><a href="/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9CRNN%E4%BB%8B%E7%BB%8D/">循环神经网络RNN介绍</a></li>
         
         <li><a href="/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8BR-CNN-SSPNet-Fast-R-CNN-Faster-R-CNN-YOLO-SSD/">深度学习目标检测：R-CNN, SSPNet, Fast R-CNN, Faster R-CNN, YOLO, SSD</a></li>
@@ -686,6 +685,8 @@ plt.plot(y+2,'bp-')
         <li><a href="/post/%E5%8D%9A%E5%AE%A2/hugo%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%8B%E5%BD%92%E6%A1%A3%E9%A1%B5%E9%9D%A2/">hugo博客建立归档页面</a></li>
         
         <li><a href="/post/%E5%8D%9A%E5%AE%A2/Hugo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/">Hugo插入图片</a></li>
+        
+        <li><a href="/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">卷积神经网络</a></li>
         
     </ul>
 </div>
@@ -814,14 +815,6 @@ if (!doNotTrack) {
     </li>
     
     <li>
-        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8EJava%E5%AE%9E%E7%8E%B0/" title="十大经典排序算法总结（基于Java实现）">十大经典排序算法总结（基于Java实现）</a>
-    </li>
-    
-    <li>
-        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC10/" title="【CS61B】LEC10 Subtype Polymorphism vs. HoFs">【CS61B】LEC10 Subtype Polymorphism vs. HoFs</a>
-    </li>
-    
-    <li>
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC9/" title="【CS61B】LEC9 Extends, Casting, Higher Order Functions">【CS61B】LEC9 Extends, Casting, Higher Order Functions</a>
     </li>
     
@@ -838,6 +831,10 @@ if (!doNotTrack) {
     </li>
     
     <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8EJava%E5%AE%9E%E7%8E%B0/" title="十大经典排序算法总结（基于Java实现）">十大经典排序算法总结（基于Java实现）</a>
+    </li>
+    
+    <li>
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BProj1A/" title="【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque ">【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque </a>
     </li>
     
@@ -849,6 +846,10 @@ if (!doNotTrack) {
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC5/" title="【CS61B】LEC5 DLLists, Arrays ">【CS61B】LEC5 DLLists, Arrays </a>
     </li>
     
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC4/" title="【CS61B】LEC4 SLLists, Nested Classes, Sentinel Nodes ">【CS61B】LEC4 SLLists, Nested Classes, Sentinel Nodes </a>
+    </li>
+    
 </ul>
     </section>
 
@@ -858,11 +859,9 @@ if (!doNotTrack) {
         <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="http://jchenTech.github.io/categories/C&#43;&#43;/">C&#43;&#43; (7)</a></li>
+    <li><a href="http://jchenTech.github.io/categories/C&#43;&#43;/">C&#43;&#43; (6)</a></li>
     
     <li><a href="http://jchenTech.github.io/categories/Git/">Git (1)</a></li>
-    
-    <li><a href="http://jchenTech.github.io/categories/Golang/">Golang (3)</a></li>
     
     <li><a href="http://jchenTech.github.io/categories/Java/">Java (1)</a></li>
     
@@ -874,7 +873,7 @@ if (!doNotTrack) {
     
     <li><a href="http://jchenTech.github.io/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">图像处理与深度学习 (10)</a></li>
     
-    <li><a href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法 (13)</a></li>
+    <li><a href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法 (12)</a></li>
     
 </ul>
     </section>
@@ -972,7 +971,7 @@ if (!doNotTrack) {
         </li>
         
         <li>
-            <a target="_blank" href="http://yuedu.baidu.com/ebook/14a722970740be1e640e9a3e" title="Android Gradle权威指南">Android Gradle权威指南</a>
+            <a target="_blank" href="http://yuedu.baidu.com/ebook/14a722970740be1e640e9a3e" title="我的Github地址">Android Gradle权威指南</a>
         </li>
         
     </ul>

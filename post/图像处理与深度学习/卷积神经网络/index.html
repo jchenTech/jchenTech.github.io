@@ -18,7 +18,7 @@
         
     <meta property="article:modified_time" content='2020-03-29T00:00:00&#43;08:00'>
         
-    <meta name="Keywords" content="">
+    <meta name="Keywords" content="Java后端">
     <meta name="description" content="卷积神经网络">
         
     <meta name="author" content="jchen">
@@ -54,13 +54,13 @@
                         jchen&#39;s blog
                     </a>
                 
-                
+                <p class="description">专注于Java后端、大数据，记录分享自己的学习过程</p>
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
                     <a class="current" href="http://jchenTech.github.io/">首页</a>
                     
-                    <a  href="http://jchenTech.github.io/tools/" title="工具">工具</a>
+                    <a  href="http://jchenTech.github.io/route/" title="路线">路线</a>
                     
                     <a  href="http://jchenTech.github.io/archives/" title="归档">归档</a>
                     
@@ -145,24 +145,24 @@
     <div class="post-toc-content">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#前言卷积神经网络介绍">前言——卷积神经网络介绍</a>
+    <li><a href="#1-前言卷积神经网络介绍">1 前言——卷积神经网络介绍</a>
       <ul>
-        <li><a href="#为什么不用全连接神经网络">为什么不用全连接神经网络？</a></li>
-        <li><a href="#卷积神经网络">卷积神经网络</a></li>
-        <li><a href="#引子边界检测">引子：边界检测</a></li>
+        <li><a href="#11-为什么不用全连接神经网络">1.1 为什么不用全连接神经网络？</a></li>
+        <li><a href="#12-卷积神经网络">1.2 卷积神经网络</a></li>
+        <li><a href="#13-引子边界检测">1.3 引子：边界检测</a></li>
       </ul>
     </li>
-    <li><a href="#卷积神经网络结构">卷积神经网络结构</a>
+    <li><a href="#2-卷积神经网络结构">2 卷积神经网络结构</a>
       <ul>
-        <li><a href="#卷积层">卷积层</a></li>
-        <li><a href="#非线性激活层重点理解激活函数relu">非线性激活层——重点理解激活函数ReLu</a></li>
-        <li><a href="#池化层pooling">池化层pooling</a></li>
-        <li><a href="#全连接层">全连接层</a></li>
+        <li><a href="#21-卷积层">2.1 卷积层</a></li>
+        <li><a href="#22-非线性激活层重点理解激活函数relu">2.2 非线性激活层——重点理解激活函数ReLu</a></li>
+        <li><a href="#23-池化层pooling">2.3 池化层pooling</a></li>
+        <li><a href="#24-全连接层">2.4 全连接层</a></li>
       </ul>
     </li>
-    <li><a href="#cnn中一些基本概念">CNN中一些基本概念</a></li>
-    <li><a href="#卷积神经网络-vs-传统神经网络">卷积神经网络 VS. 传统神经网络</a></li>
-    <li><a href="#案例学习">案例学习</a></li>
+    <li><a href="#3-cnn中一些基本概念">3 CNN中一些基本概念</a></li>
+    <li><a href="#4-卷积神经网络-vs-传统神经网络">4 卷积神经网络 VS. 传统神经网络</a></li>
+    <li><a href="#5-案例学习">5 案例学习</a></li>
     <li><a href="#参考文章">参考文章：</a></li>
   </ul>
 </nav>
@@ -231,8 +231,8 @@
         </a>
     </p>
 <hr>
-<h2 id="前言卷积神经网络介绍">前言——卷积神经网络介绍</h2>
-<h3 id="为什么不用全连接神经网络">为什么不用全连接神经网络？</h3>
+<h2 id="1-前言卷积神经网络介绍">1 前言——卷积神经网络介绍</h2>
+<h3 id="11-为什么不用全连接神经网络">1.1 为什么不用全连接神经网络？</h3>
 <p>如果用全连接神经网络处理大尺寸图像具有三个明显的缺点：</p>
 <ul>
 <li>首先将图像展开为向量会丢失空间信息；</li>
@@ -240,7 +240,7 @@
 <li>同时大量的参数也很快会导致网络过拟合。</li>
 </ul>
 <p>而使用卷积神经网络可以很好地解决上面的三个问题。</p>
-<h3 id="卷积神经网络">卷积神经网络</h3>
+<h3 id="12-卷积神经网络">1.2 卷积神经网络</h3>
 <p>卷积神经网络的真谛：</p>
 <blockquote>
 <p>卷积神经网络主要由两部分组成
@@ -248,7 +248,7 @@
 </blockquote>
 <p>如今，CNN被用来应用于各个领域，比如物体分割、风格转换、自动上色……</p>
 <p>————但是，CNN真正能做的，只是起到一个<strong>图像特征提取器</strong>的作用！</p>
-<h3 id="引子边界检测">引子：边界检测</h3>
+<h3 id="13-引子边界检测">1.3 引子：边界检测</h3>
 <p>我们来看一个最简单的例子：“边界检测（edge detection）”，假设我们有这样的一张图片，大小8×8：</p>
 <p>
         <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170324.webp">
@@ -278,9 +278,9 @@
 <p><strong>我们的CNN（convolutional neural network），主要就是通过一个个的filter，不断地提取特征</strong>，从局部的特征到总体的特征，从而进行图像识别等等功能。</p>
 <p>那么问题来了，我们怎么可能去设计这么多各种各样的filter呀？首先，我们都不一定清楚对于一大推图片，我们需要识别哪些特征，其次，就算知道了有哪些特征，想真的去设计出对应的filter，恐怕也并非易事，要知道，特征的数量可能是成千上万的。</p>
 <p>其实学过神经网络之后，我们就知道，<strong>这些filter，根本就不用我们去设计</strong>，每个filter中的各个数字，不就是参数吗，我们可以通过大量的数据，来 让<strong>机器自己去“学习”这些参数</strong>嘛。这，就是CNN的原理。</p>
-<h2 id="卷积神经网络结构">卷积神经网络结构</h2>
+<h2 id="2-卷积神经网络结构">2 卷积神经网络结构</h2>
 <p>卷积神经网络主要由这几类层构成：输入层、卷积层，ReLU层、池化（Pooling）层和全连接层（全连接层和常规神经网络中的一样）。通过将这些层叠加起来，就可以构建一个完整的卷积神经网络。在实际应用中往往将卷积层与ReLU层共同称之为卷积层，所以卷积层经过卷积操作也是要经过激活函数的。具体说来，卷积层和全连接层（CONV/FC）对输入执行变换操作的时候，不仅会用到激活函数，还会用到很多参数，即神经元的权值w和偏差b；而ReLU层和池化层则是进行一个固定不变的函数操作。卷积层和全连接层中的参数会随着梯度下降被训练，这样卷积神经网络计算出的分类评分就能和训练集中的每个图像的标签吻合了。</p>
-<h3 id="卷积层">卷积层</h3>
+<h3 id="21-卷积层">2.1 卷积层</h3>
 <p>卷积层对输入图像进行转换，以从中提取特征。在这种转换中，图像与内核（或滤波器）卷积。</p>
 <p>
         <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170327.gif">
@@ -311,8 +311,8 @@
             <img class="mx-auto" alt="加入bias的多滤波器卷积计算" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170331.jpg" />
         </a>
     </p>
-<h3 id="非线性激活层重点理解激活函数relu">非线性激活层——重点理解激活函数ReLu</h3>
-<h4 id="什么是relu">什么是ReLu</h4>
+<h3 id="22-非线性激活层重点理解激活函数relu">2.2 非线性激活层——重点理解激活函数ReLu</h3>
+<h4 id="221什么是relu">2.2.1什么是ReLu</h4>
 <p>官方解释：</p>
 <blockquote>
 <p>卷积层对原图运算多个卷积，产生一组线性激活响应，而非线性激活层是对之前的结果进行一个非线性的激活响应。</p>
@@ -333,7 +333,7 @@
             <img class="mx-auto" alt="ReLu激活函数作用结果" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170333.jpg" />
         </a>
     </p>
-<h4 id="常见的激活函数sigmoidtanh和relu三种非线性函数">常见的激活函数——sigmoid、tanh和relu三种非线性函数</h4>
+<h4 id="222-常见的激活函数sigmoidtanh和relu三种非线性函数">2.2.2 常见的激活函数——sigmoid、tanh和relu三种非线性函数</h4>
 <p>
         <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170334.png">
             <img class="mx-auto" alt="三种非线性激活函数特征" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170334.png" />
@@ -374,8 +374,8 @@
             <img class="mx-auto" alt="一个卷积层" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170335.png" />
         </a>
     </p>
-<h3 id="池化层pooling">池化层pooling</h3>
-<h4 id="池化的作用">池化的作用</h4>
+<h3 id="23-池化层pooling">2.3 池化层pooling</h3>
+<h4 id="231-池化的作用">2.3.1 池化的作用</h4>
 <p>（1）卷积操作后，我们得到了一张张有着不同值的feature map，尽管数据量比原图少了很多，但还是过于庞大（深度学习动不动就几十万张训练图片），这时候该怎么办？？</p>
 <p><strong>池化操作，最大的作用就是减少数据量。</strong></p>
 <blockquote>
@@ -392,7 +392,7 @@
 <p>3、在一定程度上防止过拟合，更方便优化。
 （由1、2可知，这种池化机制能够有效地原因在于，在发现一个特征之后，它的精确位置远不及它和其他特征的相对位置的关系重要。池化层会不断地减小数据的空间大小，因此参数的数量和计算量也会下降，这在一定程度上也控制了过拟合。）</p>
 </blockquote>
-<h4 id="池化的分类">池化的分类</h4>
+<h4 id="232-池化的分类">2.3.2 池化的分类</h4>
 <p>池操作也使用内核和跨步。 在下面的示例图像中，使用2X2滤波器合并大小为4，跨度为2的4X4输入图像。</p>
 <p>有不同类型的池。 最大池和平均池是卷积神经网络中最常用的池方法。</p>
 <p>最大池化：在最大池化中，从要素图的每个面片中选择最大值以创建缩小图。</p>
@@ -402,7 +402,7 @@
             <img class="mx-auto" alt="最大池化和平均池化" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170336.jpg" />
         </a>
     </p>
-<h4 id="总结">总结</h4>
+<h4 id="233-总结">2.3.3 总结</h4>
 <blockquote>
 <p>因为最大池化保留了每一个小块内的最大值，所以它相当于保留了这一块最佳匹配结果。</p>
 </blockquote>
@@ -419,8 +419,8 @@
             <img class="mx-auto" alt="堆叠卷积激活与池化层" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170337.jpg" />
         </a>
     </p>
-<h3 id="全连接层">全连接层</h3>
-<h4 id="全连接层的作用">全连接层的作用</h4>
+<h3 id="24-全连接层">2.4 全连接层</h3>
+<h4 id="241-全连接层的作用">2.4.1 全连接层的作用</h4>
 <ol>
 <li>为什么是全连接？</li>
 </ol>
@@ -434,7 +434,7 @@
 <blockquote>
 <p>全连接层要做的，就是对之前的所有操作进行一个总结。对特征图进行维度上的改变，来得到每个分类类别对应的概率值。</p>
 </blockquote>
-<h4 id="全连接操作">全连接操作</h4>
+<h4 id="242-全连接操作">2.4.2 全连接操作</h4>
 <p>完全连接的层位于卷积神经网络的末端。 由较早层产生的特征图将展平为矢量。然后，此向量被馈送到完全连接的层，以便它捕获高级要素之间的复杂关系。该层的外面是一维特征向量。</p>
 <p>（1）接着上面的例子，原图片尺寸为9X9，在一系列的卷积、relu、池化操作后，得到尺寸被压缩为2X2的三张特征图。</p>
 <p>得到了2X2的特征图后，对其应用全连接网络，再全连接层中有一个非常重要的函数——Softmax，它是一个分类函数，输出的是每个对应类别的概率值。</p>
@@ -454,7 +454,7 @@
             <img class="mx-auto" alt="用于二进制图像分类的CNN的简单架构" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170339.png" />
         </a>
     </p>
-<h2 id="cnn中一些基本概念">CNN中一些基本概念</h2>
+<h2 id="3-cnn中一些基本概念">3 CNN中一些基本概念</h2>
 <ol>
 <li>padding 填白
 从上面的引子中，我们可以知道，原图像在经过filter卷积之后，变小了，从(8,8)变成了(6,6)。假设我们再卷一次，那大小就变成了(4,4)了。</li>
@@ -481,7 +481,7 @@
 <p>比如，对于(8,8)的输入，我们用(3,3)的filter，
 如果stride=1，则输出为(6,6);
 如果stride=2，则输出为(3,3);（这里例子举得不大好，除不断就向下取整）</p>
-<h2 id="卷积神经网络-vs-传统神经网络">卷积神经网络 VS. 传统神经网络</h2>
+<h2 id="4-卷积神经网络-vs-传统神经网络">4 卷积神经网络 VS. 传统神经网络</h2>
 <p>其实现在回过头来看，CNN跟我们之前学习的神经网络，也没有很大的差别。</p>
 <p>传统的神经网络，其实就是多个FC层叠加起来。
 CNN，无非就是把FC改成了CONV和POOL，就是把传统的由一个个神经元组成的layer，变成了由filters组成的layer。</p>
@@ -518,7 +518,7 @@ CNN，无非就是把FC改成了CONV和POOL，就是把传统的由一个个神�
     </p>
 <p>而传统神经网络中，由于都是全连接，所以输出的任何一个单元，都要受输入的所有的单元的影响。这样无形中会对图像的识别效果大打折扣。比较，每一个区域都有自己的专属特征，我们不希望它受到其他区域的影响。</p>
 <p><strong>正是由于上面这两大优势，使得CNN超越了传统的NN，开启了神经网络的新时代。</strong></p>
-<h2 id="案例学习">案例学习</h2>
+<h2 id="5-案例学习">5 案例学习</h2>
 <p>下面是卷积神经网络领域中比较有名的几种结构：</p>
 <ul>
 <li>
@@ -702,14 +702,6 @@ if (!doNotTrack) {
     </li>
     
     <li>
-        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8EJava%E5%AE%9E%E7%8E%B0/" title="十大经典排序算法总结（基于Java实现）">十大经典排序算法总结（基于Java实现）</a>
-    </li>
-    
-    <li>
-        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC10/" title="【CS61B】LEC10 Subtype Polymorphism vs. HoFs">【CS61B】LEC10 Subtype Polymorphism vs. HoFs</a>
-    </li>
-    
-    <li>
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC9/" title="【CS61B】LEC9 Extends, Casting, Higher Order Functions">【CS61B】LEC9 Extends, Casting, Higher Order Functions</a>
     </li>
     
@@ -726,6 +718,10 @@ if (!doNotTrack) {
     </li>
     
     <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8EJava%E5%AE%9E%E7%8E%B0/" title="十大经典排序算法总结（基于Java实现）">十大经典排序算法总结（基于Java实现）</a>
+    </li>
+    
+    <li>
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BProj1A/" title="【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque ">【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque </a>
     </li>
     
@@ -737,6 +733,10 @@ if (!doNotTrack) {
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC5/" title="【CS61B】LEC5 DLLists, Arrays ">【CS61B】LEC5 DLLists, Arrays </a>
     </li>
     
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC4/" title="【CS61B】LEC4 SLLists, Nested Classes, Sentinel Nodes ">【CS61B】LEC4 SLLists, Nested Classes, Sentinel Nodes </a>
+    </li>
+    
 </ul>
     </section>
 
@@ -746,11 +746,9 @@ if (!doNotTrack) {
         <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="http://jchenTech.github.io/categories/C&#43;&#43;/">C&#43;&#43; (7)</a></li>
+    <li><a href="http://jchenTech.github.io/categories/C&#43;&#43;/">C&#43;&#43; (6)</a></li>
     
     <li><a href="http://jchenTech.github.io/categories/Git/">Git (1)</a></li>
-    
-    <li><a href="http://jchenTech.github.io/categories/Golang/">Golang (3)</a></li>
     
     <li><a href="http://jchenTech.github.io/categories/Java/">Java (1)</a></li>
     
@@ -762,7 +760,7 @@ if (!doNotTrack) {
     
     <li><a href="http://jchenTech.github.io/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">图像处理与深度学习 (10)</a></li>
     
-    <li><a href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法 (13)</a></li>
+    <li><a href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法 (12)</a></li>
     
 </ul>
     </section>
@@ -860,7 +858,7 @@ if (!doNotTrack) {
         </li>
         
         <li>
-            <a target="_blank" href="http://yuedu.baidu.com/ebook/14a722970740be1e640e9a3e" title="Android Gradle权威指南">Android Gradle权威指南</a>
+            <a target="_blank" href="http://yuedu.baidu.com/ebook/14a722970740be1e640e9a3e" title="我的Github地址">Android Gradle权威指南</a>
         </li>
         
     </ul>

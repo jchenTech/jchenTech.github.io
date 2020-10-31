@@ -18,7 +18,7 @@
         
     <meta property="article:modified_time" content='2020-07-30T00:00:00&#43;08:00'>
         
-    <meta name="Keywords" content="">
+    <meta name="Keywords" content="Java后端">
     <meta name="description" content="【CS61B】LEC1 Intro, Hello World ">
         
     <meta name="author" content="jchen">
@@ -54,13 +54,13 @@
                         jchen&#39;s blog
                     </a>
                 
-                
+                <p class="description">专注于Java后端、大数据，记录分享自己的学习过程</p>
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
                     <a class="current" href="http://jchenTech.github.io/">首页</a>
                     
-                    <a  href="http://jchenTech.github.io/tools/" title="工具">工具</a>
+                    <a  href="http://jchenTech.github.io/route/" title="路线">路线</a>
                     
                     <a  href="http://jchenTech.github.io/archives/" title="归档">归档</a>
                     
@@ -145,19 +145,15 @@
     <div class="post-toc-content">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#reading">Reading</a>
-      <ul>
-        <li><a href="#hello-world">Hello World</a></li>
-        <li><a href="#running-a-java-program">Running a Java Program</a></li>
-        <li><a href="#variables-and-loops">Variables and Loops</a></li>
-        <li><a href="#static-typing">Static Typing</a></li>
-        <li><a href="#extra-thought-exercise">Extra Thought Exercise</a></li>
-        <li><a href="#defining-functions-in-java">Defining Functions in Java</a></li>
-        <li><a href="#code-style-comments-javadoc">Code Style, Comments, Javadoc</a></li>
-        <li><a href="#comments">Comments</a></li>
-      </ul>
-    </li>
-    <li><a href="#overview总结">Overview总结</a></li>
+    <li><a href="#1-hello-world">1 Hello World</a></li>
+    <li><a href="#2-running-a-java-program">2 Running a Java Program</a></li>
+    <li><a href="#3-variables-and-loops">3 Variables and Loops</a></li>
+    <li><a href="#4-static-typing">4 Static Typing</a></li>
+    <li><a href="#5-extra-thought-exercise">5 Extra Thought Exercise</a></li>
+    <li><a href="#6-defining-functions-in-java">6 Defining Functions in Java</a></li>
+    <li><a href="#7-code-style-comments-javadoc">7 Code Style, Comments, Javadoc</a></li>
+    <li><a href="#8-comments">8 Comments</a></li>
+    <li><a href="#9-overview总结">9 Overview总结</a></li>
   </ul>
 </nav>
     </div>
@@ -219,8 +215,7 @@
         
         <div class="post-content">
             <p>从今天开始，将follow数据结构的一门经典课程，UC Berkeley的CS61B。</p>
-<h2 id="reading">Reading</h2>
-<h3 id="hello-world">Hello World</h3>
+<h2 id="1-hello-world">1 Hello World</h2>
 <p>Let&rsquo;s look at our first Java program. When run, the program below prints &ldquo;Hello world!&rdquo; to the screen.</p>
 <pre><code>public class HelloWorld {
     public static void main(String[] args) {
@@ -234,7 +229,7 @@
 <li>We use curly braces <code>{</code> and <code>}</code> to denote the beginning and the end of a section of code.
 Statements must end with semi-colons.</li>
 </ul>
-<h3 id="running-a-java-program">Running a Java Program</h3>
+<h2 id="2-running-a-java-program">2 Running a Java Program</h2>
 <p>The most common way to execute a Java program is to run it through a sequence of two programs. The first is the Java compiler, or <code>javac</code>. The second is the Java interpreter, or <code>java</code>.</p>
 <p>
         <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170823.svg">
@@ -247,7 +242,7 @@ $ java HelloWorld
 Hello World!
 </code></pre><p>In the figure above, the <code>$</code> represents our terminal&rsquo;s command prompt. Yours is probably something longer.</p>
 <p>You may notice that we include the &lsquo;.java&rsquo; when compiling, but we don&rsquo;t include the &lsquo;.class&rsquo; when interpreting. This is just the way it is (TIJTWII).</p>
-<h3 id="variables-and-loops">Variables and Loops</h3>
+<h2 id="3-variables-and-loops">3 Variables and Loops</h2>
 <p>The program below will print out the integers from 0 through 9.</p>
 <pre><code>public class HelloNumbers {
     public static void main(String[] args) {
@@ -270,7 +265,7 @@ Our loop definition is contained inside of curly braces, and the boolean express
 <li>Our print statement adds a number to a space. This makes sure the numbers don&rsquo;t run into each other. Try removing the space to see what happens.</li>
 <li>When we run it, our prompt ends up on the same line as the numbers (which you can fix in the following exercise if you&rsquo;d like).</li>
 </ul>
-<h3 id="static-typing">Static Typing</h3>
+<h2 id="4-static-typing">4 Static Typing</h2>
 <p>One of the most important features of Java is that all variables and expressions have a so-called static type. Java variables can contain values of that type, and only that type. Furthermore, the type of a variable can never change.</p>
 <p>One of the key features of the Java compiler is that it performs a static type check. For example, suppose we have the program below:</p>
 <pre><code>public class HelloNumbers {
@@ -289,7 +284,7 @@ HelloNumbers.java:9: error: incompatible types: String cannot be converted to in
         x = &quot;horse&quot;;
                 ^
 1 error
-</code></pre><h3 id="extra-thought-exercise">Extra Thought Exercise</h3>
+</code></pre><h2 id="5-extra-thought-exercise">5 Extra Thought Exercise</h2>
 <p>In Java, we can say <code>System.out.println(5 + &quot; &quot;)</code>;. But in Python, we can&rsquo;t say <code>print(5 + &quot;horse&quot;)</code>, like we saw above. Why is that so?</p>
 <p>Consider these two Java statements:</p>
 <pre><code>String h = 5 + &quot;horse&quot;;
@@ -297,7 +292,7 @@ HelloNumbers.java:9: error: incompatible types: String cannot be converted to in
 <pre><code>int h = 5 + &quot;horse&quot;;
 </code></pre><p>The first one of these will succeed; the second will give a compiler error. Since Java is strongly typed, if you tell it <code>h</code> is a string, it can concatenate the elements and give you a string. But when <code>h</code> is an <code>int</code>, it can&rsquo;t concatenate a number and a string and give you a number.</p>
 <p>In this case, <code>System.out.println(5 + &quot;horse&quot;);</code>, Java interprets the arguments as a string concatentation, and prints out &ldquo;5horse&rdquo; as your result. Or, more usefully, <code>System.out.println(5 + &quot; &quot;);</code> will print a space after your &ldquo;5&rdquo;.</p>
-<h3 id="defining-functions-in-java">Defining Functions in Java</h3>
+<h2 id="6-defining-functions-in-java">6 Defining Functions in Java</h2>
 <p>In languages like Python, functions can be declared anywhere, even outside of functions. For example, the code below declares a function that returns the larger of two arguments, and then uses this function to compute and print the larger of the numbers 8 and 10:</p>
 <pre><code>def larger(x, y):
     if x &gt; y:
@@ -319,14 +314,14 @@ print(larger(8, 10))
     }
 }
 </code></pre><p>The new piece of syntax here is that we declared our method using the keywords <code>public static</code>, which is a very rough analog of Python&rsquo;s def keyword. We will see alternate ways to declare methods in the next chapter.</p>
-<h3 id="code-style-comments-javadoc">Code Style, Comments, Javadoc</h3>
+<h2 id="7-code-style-comments-javadoc">7 Code Style, Comments, Javadoc</h2>
 <p>In this course, we&rsquo;ll work hard to try to keep our code readable. Some of the most important features of good coding style are:</p>
 <p>Consistent style (spacing, variable naming, brace style, etc)
 Size (lines that are not too wide, source files that are not too long)
 Descriptive naming (variables, functions, classes), e.g. variables or functions with names like <code>year</code> or <code>getUserName</code> instead of <code>x</code> or <code>f</code>.
 Avoidance of repetitive code: You should almost never have two significant blocks of code that are nearly identical except for a few changes.
 Comments where appropriate. Line comments in Java use the <code>//</code> delimiter. Block (a.k.a. multi-line comments) comments use <code>/*</code> and <code>*/</code>.</p>
-<h3 id="comments">Comments</h3>
+<h2 id="8-comments">8 Comments</h2>
 <pre><code>public class LargerDemo {
     /** Returns the larger of x and y. */           
     public static int larger(int x, int y) {
@@ -340,7 +335,7 @@ Comments where appropriate. Line comments in Java use the <code>//</code> delimi
         System.out.println(larger(8, 10));
     }
 }
-</code></pre><h2 id="overview总结">Overview总结</h2>
+</code></pre><h2 id="9-overview总结">9 Overview总结</h2>
 <p><strong>关键语法功能</strong>：我们的第一个程序揭示了Java的几个重要语法特性：</p>
 <ul>
 <li>所有代码都存在于一个类中。</li>
@@ -361,6 +356,7 @@ Comments where appropriate. Line comments in Java use the <code>//</code> delimi
 </ul>
 <p><strong>编码风格</strong>：编码风格在61B和现实世界中非常重要。应按照教科书和讲座中的说明对代码进行适当的注释。</p>
 <p><strong>命令行编译和执行</strong>： <code>javac</code>用于编译程序。 <code>java</code>用于执行程序。我们必须始终在执行之前进行编译。</p>
+
         </div>
 
         
@@ -520,14 +516,6 @@ if (!doNotTrack) {
     </li>
     
     <li>
-        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8EJava%E5%AE%9E%E7%8E%B0/" title="十大经典排序算法总结（基于Java实现）">十大经典排序算法总结（基于Java实现）</a>
-    </li>
-    
-    <li>
-        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC10/" title="【CS61B】LEC10 Subtype Polymorphism vs. HoFs">【CS61B】LEC10 Subtype Polymorphism vs. HoFs</a>
-    </li>
-    
-    <li>
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC9/" title="【CS61B】LEC9 Extends, Casting, Higher Order Functions">【CS61B】LEC9 Extends, Casting, Higher Order Functions</a>
     </li>
     
@@ -544,6 +532,10 @@ if (!doNotTrack) {
     </li>
     
     <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8EJava%E5%AE%9E%E7%8E%B0/" title="十大经典排序算法总结（基于Java实现）">十大经典排序算法总结（基于Java实现）</a>
+    </li>
+    
+    <li>
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BProj1A/" title="【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque ">【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque </a>
     </li>
     
@@ -555,6 +547,10 @@ if (!doNotTrack) {
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC5/" title="【CS61B】LEC5 DLLists, Arrays ">【CS61B】LEC5 DLLists, Arrays </a>
     </li>
     
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC4/" title="【CS61B】LEC4 SLLists, Nested Classes, Sentinel Nodes ">【CS61B】LEC4 SLLists, Nested Classes, Sentinel Nodes </a>
+    </li>
+    
 </ul>
     </section>
 
@@ -564,11 +560,9 @@ if (!doNotTrack) {
         <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="http://jchenTech.github.io/categories/C&#43;&#43;/">C&#43;&#43; (7)</a></li>
+    <li><a href="http://jchenTech.github.io/categories/C&#43;&#43;/">C&#43;&#43; (6)</a></li>
     
     <li><a href="http://jchenTech.github.io/categories/Git/">Git (1)</a></li>
-    
-    <li><a href="http://jchenTech.github.io/categories/Golang/">Golang (3)</a></li>
     
     <li><a href="http://jchenTech.github.io/categories/Java/">Java (1)</a></li>
     
@@ -580,7 +574,7 @@ if (!doNotTrack) {
     
     <li><a href="http://jchenTech.github.io/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">图像处理与深度学习 (10)</a></li>
     
-    <li><a href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法 (13)</a></li>
+    <li><a href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法 (12)</a></li>
     
 </ul>
     </section>
@@ -678,7 +672,7 @@ if (!doNotTrack) {
         </li>
         
         <li>
-            <a target="_blank" href="http://yuedu.baidu.com/ebook/14a722970740be1e640e9a3e" title="Android Gradle权威指南">Android Gradle权威指南</a>
+            <a target="_blank" href="http://yuedu.baidu.com/ebook/14a722970740be1e640e9a3e" title="我的Github地址">Android Gradle权威指南</a>
         </li>
         
     </ul>

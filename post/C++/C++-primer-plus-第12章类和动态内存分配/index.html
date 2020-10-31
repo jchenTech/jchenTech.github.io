@@ -18,7 +18,7 @@
         
     <meta property="article:modified_time" content='2020-03-17T00:00:00&#43;08:00'>
         
-    <meta name="Keywords" content="">
+    <meta name="Keywords" content="Java后端">
     <meta name="description" content="C&#43;&#43; primer plus 第12章类和动态内存分配">
         
     <meta name="author" content="jchen">
@@ -54,13 +54,13 @@
                         jchen&#39;s blog
                     </a>
                 
-                
+                <p class="description">专注于Java后端、大数据，记录分享自己的学习过程</p>
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
                     <a class="current" href="http://jchenTech.github.io/">首页</a>
                     
-                    <a  href="http://jchenTech.github.io/tools/" title="工具">工具</a>
+                    <a  href="http://jchenTech.github.io/route/" title="路线">路线</a>
                     
                     <a  href="http://jchenTech.github.io/archives/" title="归档">归档</a>
                     
@@ -145,46 +145,46 @@
     <div class="post-toc-content">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#动态内存和类">动态内存和类</a>
+    <li><a href="#1-动态内存和类">1 动态内存和类</a>
       <ul>
-        <li><a href="#复习示例和静态类成员">复习示例和静态类成员</a></li>
-        <li><a href="#特殊成员函数">特殊成员函数</a></li>
-        <li><a href="#复制构造函数哪里出了问题">复制构造函数哪里出了问题</a></li>
-        <li><a href="#赋值运算符">赋值运算符</a></li>
+        <li><a href="#11-复习示例和静态类成员">1.1 复习示例和静态类成员</a></li>
+        <li><a href="#12-特殊成员函数">1.2 特殊成员函数</a></li>
+        <li><a href="#13-复制构造函数哪里出了问题">1.3 复制构造函数哪里出了问题</a></li>
+        <li><a href="#14-赋值运算符">1.4 赋值运算符</a></li>
       </ul>
     </li>
-    <li><a href="#改进后的新string类">改进后的新String类</a>
+    <li><a href="#2-改进后的新string类">2 改进后的新String类</a>
       <ul>
-        <li><a href="#修订后的默认构造函数">修订后的默认构造函数</a></li>
-        <li><a href="#比较成员函数">比较成员函数</a></li>
-        <li><a href="#使用中括号表示法访问字符">使用中括号表示法访问字符</a></li>
-        <li><a href="#静态类成员函数">静态类成员函数</a></li>
-        <li><a href="#进一步重载赋值运算符">进一步重载赋值运算符</a></li>
+        <li><a href="#21-修订后的默认构造函数">2.1 修订后的默认构造函数</a></li>
+        <li><a href="#22-比较成员函数">2.2 比较成员函数</a></li>
+        <li><a href="#23-使用中括号表示法访问字符">2.3 使用中括号表示法访问字符</a></li>
+        <li><a href="#24-静态类成员函数">2.4 静态类成员函数</a></li>
+        <li><a href="#25-进一步重载赋值运算符">2.5 进一步重载赋值运算符</a></li>
       </ul>
     </li>
-    <li><a href="#在构造函数总使用new时应注意的事项">在构造函数总使用new时应注意的事项</a>
+    <li><a href="#3-在构造函数总使用new时应注意的事项">3 在构造函数总使用new时应注意的事项</a>
       <ul>
-        <li><a href="#应该和不应该">应该和不应该</a></li>
-        <li><a href="#包含类成员的类的逐成员复制">包含类成员的类的逐成员复制</a></li>
-        <li><a href="#有关返回对象的说明">有关返回对象的说明</a></li>
-        <li><a href="#返回对象">返回对象</a></li>
-        <li><a href="#返回const对象">返回const对象</a></li>
+        <li><a href="#31-应该和不应该">3.1 应该和不应该</a></li>
+        <li><a href="#32-包含类成员的类的逐成员复制">3.2 包含类成员的类的逐成员复制</a></li>
+        <li><a href="#33-有关返回对象的说明">3.3 有关返回对象的说明</a></li>
+        <li><a href="#34-返回对象">3.4 返回对象</a></li>
+        <li><a href="#35-返回const对象">3.5 返回const对象</a></li>
       </ul>
     </li>
-    <li><a href="#使用指向对象的指针">使用指向对象的指针</a>
+    <li><a href="#4-使用指向对象的指针">4 使用指向对象的指针</a>
       <ul>
-        <li><a href="#再探new和delete">再探new和delete</a></li>
-        <li><a href="#指针和对象小结">指针和对象小结</a></li>
-        <li><a href="#再谈定位new运算符">再谈定位new运算符</a></li>
+        <li><a href="#41-再探new和delete">4.1 再探new和delete</a></li>
+        <li><a href="#42-指针和对象小结">4.2 指针和对象小结</a></li>
+        <li><a href="#43-再谈定位new运算符">4.3 再谈定位new运算符</a></li>
       </ul>
     </li>
-    <li><a href="#复习各种技术">复习各种技术</a></li>
-    <li><a href="#队列模拟">队列模拟</a>
+    <li><a href="#5-复习各种技术">5 复习各种技术</a></li>
+    <li><a href="#6-队列模拟">6 队列模拟</a>
       <ul>
-        <li><a href="#队列类">队列类</a></li>
+        <li><a href="#61-队列类">6.1 队列类</a></li>
       </ul>
     </li>
-    <li><a href="#总结">总结</a></li>
+    <li><a href="#7-总结">7 总结</a></li>
   </ul>
 </nav>
     </div>
@@ -245,11 +245,9 @@
         </div>
         
         <div class="post-content">
-            <p>C++ primer plus 第12章类和动态内存分配</p>
-<p>[toc]</p>
-<h2 id="动态内存和类">动态内存和类</h2>
+            <h2 id="1-动态内存和类">1 动态内存和类</h2>
 <p>C++在分配内存时是让程序在运行时决定内存分配，而不是在编译时决定。这样，可根据程序的需要，而不是根据一系列严格的存储类型规则来使用内存。C++使用new和delete运算符来动态控制内存。</p>
-<h3 id="复习示例和静态类成员">复习示例和静态类成员</h3>
+<h3 id="11-复习示例和静态类成员">1.1 复习示例和静态类成员</h3>
 <p>这个程序使用了一个新的存储类型：静态类成员：</p>
 <pre><code>//strngbad.h
 #include&lt;iostream&gt;
@@ -325,7 +323,7 @@ std::ostream &amp; operator&lt;&lt;(std::ostream &amp; os, const StringBad &amp;
 </code></pre><p>因为sports的类型为StringBad，因此相应的构造函数原型应该如下：</p>
 <pre><code>StringBad(const StringBad &amp;);
 </code></pre><p>当您使用一个对象来初始化另一个对象时，编译器将自动生成上述构造函数（称为<code>复制构造函数</code>，因为它创建对象的一个副本）。自动生成的构造函数不知道需要更新静态变量num_string，因此会将计数方案搞乱。 实际上，这个例子说明的所有问题都是由编译器自动生成的成员函数引起的。</p>
-<h3 id="特殊成员函数">特殊成员函数</h3>
+<h3 id="12-特殊成员函数">1.2 特殊成员函数</h3>
 <p>StringBad类的问题是由特殊成员函数引起的。 这些成员函数是自动定义的，就StringBad而言，这些函数的行为与类设计不符。 具体地说，C++自动提供了这些成员函数：</p>
 <ul>
 <li>默认构造函数，如果没有定义构造函数；</li>
@@ -393,7 +391,7 @@ sailor.str=sports.str;
 
 sailor.len=sports.len;
 </code></pre><p>如果成员本身就是类对象，则将使用这个类的复制构造函数来复制成员对象。 静态函数（如num_strings）不受影响，因为它们属于整个类，而不是各个对象。</p>
-<h3 id="复制构造函数哪里出了问题">复制构造函数哪里出了问题</h3>
+<h3 id="13-复制构造函数哪里出了问题">1.3 复制构造函数哪里出了问题</h3>
 <p>当callme2()被调用时，复制构造函数被用来初始化callme2()的形参，还被用来将对象sailor初始化为对象sports。 默认的复制构造函数不说明其行为，因此它不指出创建过程，也不增加计数器num_strings的值。但析构函数更新了计数，并且在任何对象过期时都将被调用，而不管对象是如何被创建的。 这是一个问题，因为这意味着程序无法准确地记录对象计数。 解决方法是提供一个对计数进行更新地显式复制构造函数：</p>
 <pre><code>StringBad::StringBad(const StringBad &amp; s)
 {
@@ -411,7 +409,7 @@ sailor.len=sports.len;
          &lt;&lt; &quot;\&quot; object created\n&quot;;
 }
 </code></pre><p>必须定义复制构造函数的原因在于，一些类成员是使用new初始化的、指向数据的指针，而不是数据本身。</p>
-<h3 id="赋值运算符">赋值运算符</h3>
+<h3 id="14-赋值运算符">1.4 赋值运算符</h3>
 <p>C++允许类对象赋值，这是通过自动为类重载赋值运算符实现的。 这种运算符的原型如下：</p>
 <pre><code>Class_name &amp; Class_name::operator=(const Class_name &amp;);
 </code></pre><p>它接受并返回一个指向类对象的引用。 例如，StringBad类的赋值运算符的原型如下：</p>
@@ -444,8 +442,8 @@ Knot = headline1;         //赋值运算符被调用
     return *this;                  
 }
 </code></pre><p>如果地址相同，程序将返回*this，然后结束。 如果地址不同，函数将释放str指向的内存，这是因为稍后把一个新字符串的地址赋给str。 如果不首先使用delete运算符，则上述字符串将保留在内存中。赋值操作并不创建新的对象，因此不需要调整静态数据成员num_strings的值。</p>
-<h2 id="改进后的新string类">改进后的新String类</h2>
-<h3 id="修订后的默认构造函数">修订后的默认构造函数</h3>
+<h2 id="2-改进后的新string类">2 改进后的新String类</h2>
+<h3 id="21-修订后的默认构造函数">2.1 修订后的默认构造函数</h3>
 <pre><code>String::String()
 {
     len = 0;
@@ -455,7 +453,7 @@ Knot = headline1;         //赋值运算符被调用
 </code></pre><p>delete[ ]与使用new[ ]初始化的指针和空指针都兼容。空指针建议用<code>nullptr</code>表示：</p>
 <pre><code>str = nullptr;  //C++11的空指针表示法
 </code></pre><p>以其他方式初始化的指针，使用delete[]时，结果将是不确定的。</p>
-<h3 id="比较成员函数">比较成员函数</h3>
+<h3 id="22-比较成员函数">2.2 比较成员函数</h3>
 <pre><code>friend bool operator==(const String &amp;st1, const String &amp;st2);
 </code></pre><p>将比较函数作为友元，有助于将String类对象与常规的C字符串进行比较。</p>
 <pre><code>if (&quot;love&quot; == answer)
@@ -463,7 +461,7 @@ Knot = headline1;         //赋值运算符被调用
 <pre><code>if (operator==(&quot;love&quot;, answer));
 </code></pre><p>然后编译器将使用某个构造函数将代码转换为：</p>
 <pre><code>if (operator==(String(&quot;love&quot;), answer));
-</code></pre><h3 id="使用中括号表示法访问字符">使用中括号表示法访问字符</h3>
+</code></pre><h3 id="23-使用中括号表示法访问字符">2.3 使用中括号表示法访问字符</h3>
 <pre><code>String opera(&quot;The Magic Flute&quot;);
 </code></pre><p>对于表达式opera[4]，C++将查找名称与特征标与此相同的方法；</p>
 <pre><code>String::operator[](int i)
@@ -483,7 +481,7 @@ means[0] = 'r';
 <p>这里将r赋给方法的返回值，上述代码等同于：</p>
 <pre><code>means.str[0] = 'r';
 </code></pre><p>但在重载时，C++将区分常量和非常量函数的特征标，因此可以提供另一个仅供const String对象使用的operator<a href=""></a>版本。</p>
-<h3 id="静态类成员函数">静态类成员函数</h3>
+<h3 id="24-静态类成员函数">2.4 静态类成员函数</h3>
 <p>可以将成员函数声明为静态的，函数声明必须包含关键字<code>static</code>。但如果函数定义是独立的，则其中不能包含关键字static，这样做有两个重要的后果。</p>
 <p>首先，不能通过对象调用静态成员函数 ，实际上，静态成员函数甚至不能使用this指针。</p>
 <p>如果静态成员函数是在公有部分声明的，则可以使用类名和作用域运算符来调用它。</p>
@@ -491,8 +489,8 @@ means[0] = 'r';
 <pre><code>static int HowMany() {return num_strings;}
 </code></pre><p>由于静态成员函数不与特定的对象相关联，只能使用静态数据成员。</p>
 <p>可以使用静态成员函数设置类级标记，以控制某些类接口的行为，例如：类级标记可以控制显示类内容的方法所使用的格式。</p>
-<h3 id="进一步重载赋值运算符">进一步重载赋值运算符</h3>
-<h2 id="在构造函数总使用new时应注意的事项">在构造函数总使用new时应注意的事项</h2>
+<h3 id="25-进一步重载赋值运算符">2.5 进一步重载赋值运算符</h3>
+<h2 id="3-在构造函数总使用new时应注意的事项">3 在构造函数总使用new时应注意的事项</h2>
 <p>如果在构造函数中使用new来初始化对象的指针成员时必须特别小心。</p>
 <ul>
 <li>
@@ -528,8 +526,8 @@ means[0] = 'r';
     std::strcpy(str, st.str);
     return *this;
 }
-</code></pre><h3 id="应该和不应该">应该和不应该</h3>
-<h3 id="包含类成员的类的逐成员复制">包含类成员的类的逐成员复制</h3>
+</code></pre><h3 id="31-应该和不应该">3.1 应该和不应该</h3>
+<h3 id="32-包含类成员的类的逐成员复制">3.2 包含类成员的类的逐成员复制</h3>
 <pre><code>class Magazine
 {
 private:
@@ -539,7 +537,7 @@ private:
 };
 </code></pre><p>String和string都使用动态内存分配，这是否意味着需要为Magazine类编写复制构造函数和赋值运算符？不，至少对这个类本身来说不需要。默认的逐成员复制和赋值行为有一定的智能。如果您将一个Magazine对象复制或赋值给另一个Magazine对象，逐成员复制将使用成员类型定义的赋值构造函数和赋值运算符。也就是说，复制成员title时，将使用String的复制构造函数，而将成员title赋给另一个Magazine对象时，将使用String赋值运算符，以此类推。</p>
 <p>然而，如果Magazine类因其他成员需要定义复制构造函数和赋值运算符，情况将更加复杂；在这种情况下，这些函数必须显式地调用String和string的复制构造函数和赋值运算符，这将在第13章中介绍。</p>
-<h3 id="有关返回对象的说明">有关返回对象的说明</h3>
+<h3 id="33-有关返回对象的说明">3.3 有关返回对象的说明</h3>
 <p>返回方式：</p>
 <ul>
 <li>返回指向对象的引用；</li>
@@ -593,7 +591,7 @@ s3=s2=s1;
 <p>String s1(&ldquo;Good stuff&rdquo;);</p>
 <p>cout &laquo; s1 &laquo; &ldquo;is coming!&quot;;</p>
 <p><code>operator&lt;&lt;(cout, s1)</code>的返回值成员一个用于显示字符串&quot;is coming!&ldquo;的对象。返回类型必须是ostream &amp;，而不能仅仅是ostream。如果使用返回类型ostream，将要求调用ostream类的赋值构造函数，而ostream没有公有的赋值构造函数。幸运的是，返回一个指向cout的引用不会带来任何问题，因为cout已经在调用函数的作用域内。</p>
-<h3 id="返回对象">返回对象</h3>
+<h3 id="34-返回对象">3.4 返回对象</h3>
 <p>如果被返回的对象是被调用函数的局部变量，则不应该按引用方式去返回它，因为在被调用函数执行完毕时，局部对象将调用析构函数。因此，当控制权回到调用函数时，引用指向的对象将不再存在。在这种情况下，应返回对象而不是引用。</p>
 <p>通常，被重载的算术运算符属于这一类。</p>
 <pre><code>Vector force1();
@@ -602,7 +600,7 @@ Vector net;
 net = force1+force2;
 </code></pre><p>返回的不是force1，也不是force2，force1和force2在这个过程中应该保持不变。因此，返回值不能是指向在调用函数中已存在的对象的引用。相反，在Vector::operator+()中计算得到的两个矢量和被存储在一个新的临时对象中，该函数也不应返回指向该临时对象的引用，而应该返回实际的Vector对象，而不是引用。</p>
 <p>在这种情况下，存在调用复制构造函数来创建被返回的对象的开销，然而这时无法避免的。</p>
-<h3 id="返回const对象">返回const对象</h3>
+<h3 id="35-返回const对象">3.5 返回const对象</h3>
 <p>前面的Vector::operator+()的定义中有一个奇异的属性</p>
 <pre><code>net = force1 +force2; //语句1
 force1 +force2 =net; //语句2
@@ -617,14 +615,14 @@ force1 +force2 =net; //语句2
 <blockquote>
 <p>最后，有些方法和函数可以返回对象，也可以返回指向对象的引用，在这种情况下，应首选引用，因为其效率更高。</p>
 </blockquote>
-<h2 id="使用指向对象的指针">使用指向对象的指针</h2>
-<h3 id="再探new和delete">再探new和delete</h3>
+<h2 id="4-使用指向对象的指针">4 使用指向对象的指针</h2>
+<h3 id="41-再探new和delete">4.1 再探new和delete</h3>
 <p>new为创建的每一个对象的名称字符串分配存储空间，这是在构造函数中进行的；</p>
 <p>析构函数使用delete来释放这些内存。</p>
 <p>字符串是一个字符数组，所以析构函数使用的是带中括号的delete。使用new来为整个对象分配内存：</p>
 <pre><code>String * favorite = new String(saying[choice]);
 </code></pre><p>这不是为要存储的字符串分配内存，而是为<strong>对象分配内存</strong>；也就是说，为保存字符串地址的str指针和len成员分配内存。</p>
-<h3 id="指针和对象小结">指针和对象小结</h3>
+<h3 id="42-指针和对象小结">4.2 指针和对象小结</h3>
 <ul>
 <li>使用常规表示法来声明指向对象的指针：</li>
 </ul>
@@ -657,7 +655,7 @@ String * favorite = new String(saying[choice]);
 </ul>
 <pre><code>if (saying[i]&lt;*first)
     first = &amp;saying[i];
-</code></pre><h3 id="再谈定位new运算符">再谈定位new运算符</h3>
+</code></pre><h3 id="43-再谈定位new运算符">4.3 再谈定位new运算符</h3>
 <p>这里说的定位new运算符，是一种相对于普通的new运算符，可以指定内存地址的运算符，程序直接使用我们提供的地址，不管它是否已经被使用，而且可以看到新值直接覆盖在旧值上面。</p>
 <p>定位new运算符直接使用传递给它的地址，它不负责判断哪些内存单元已被使用，也不查找未使用的内存块。</p>
 <pre><code>char * buffer = new char[BUF]；
@@ -680,12 +678,12 @@ pc3 = new (buffer +sizeof(JustTesting)) JustTesting(&quot;Better Idea&quot;, 6);
 
 pc1-&gt;~JustTesting();//销毁对象的顺序，先销毁后创建的对象。类似于栈的先进后出顺序。
 </code></pre><p>仅当所有对象都被销毁后，才能释放用于存储这些对象的缓冲区。</p>
-<h2 id="复习各种技术">复习各种技术</h2>
-<h2 id="队列模拟">队列模拟</h2>
+<h2 id="5-复习各种技术">5 复习各种技术</h2>
+<h2 id="6-队列模拟">6 队列模拟</h2>
 <p><strong>队列</strong>：是一种抽象的数据类型（Abstract Data Type），可以存储有序的项目序列。新项目被添加在队尾，并可以删除队首的项目。队列有些像栈。栈是在同一端进行添加和删除。这使得栈是一种后进先出的结构，队列是先进先出的。</p>
 <p><strong>问题</strong>：Heather银行要在Food Hea超市门口开设一个ATM机。Food Heap需要了解ATM对超市交通可能造成的影响。Heather银行希望对顾客排队等待的时间进行评估，编写一个程序模拟这种情况。</p>
 <p><strong>设计</strong>：设计一个队列类，队列中的项目是顾客。设计一个表示顾客的类，编写一个程序来模拟顾客和队列之间的交互。</p>
-<h3 id="队列类">队列类</h3>
+<h3 id="61-队列类">6.1 队列类</h3>
 <p>队列的特征：</p>
 <ul>
 <li>队列能够存储有序的项目序列；</li>
@@ -697,7 +695,7 @@ pc1-&gt;~JustTesting();//销毁对象的顺序，先销毁后创建的对象。�
 <li>应当能够在队首删除项目；</li>
 <li>应当能够确定队列中的项目数；</li>
 </ul>
-<h2 id="总结">总结</h2>
+<h2 id="7-总结">7 总结</h2>
 <p>本章介绍了定义和使用类的许多重要方面。其中一些方面是非常微妙甚至是很难理解的。</p>
 <p>在类构造函数中，可以使用new为数据分配内存。然后将内存地址赋给类成员。这样，类便可以处理长度不同的字符串，而不用在类设计时提前固定数组的长度。</p>
 <p>在类构造函数中使用new，也可能在对象过期时引发问题。</p>
@@ -752,7 +750,7 @@ private:
         
         <li><a href="/post/%E5%8D%9A%E5%AE%A2/hugo&#43;github-page%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">我的第一次Hugo博客搭建过程（超级详细）</a></li>
         
-        <li><a href="/2019/12/18/golang-gin-query-parameters-array-map.html">Golang Gin 实战（五）| 接收数组和 Map</a></li>
+        <li><a href="/post/%E5%8D%9A%E5%AE%A2/formulas-with-mathjax/">Formulas with MathJax</a></li>
         
     </ul>
 </div>
@@ -879,14 +877,6 @@ if (!doNotTrack) {
     </li>
     
     <li>
-        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8EJava%E5%AE%9E%E7%8E%B0/" title="十大经典排序算法总结（基于Java实现）">十大经典排序算法总结（基于Java实现）</a>
-    </li>
-    
-    <li>
-        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC10/" title="【CS61B】LEC10 Subtype Polymorphism vs. HoFs">【CS61B】LEC10 Subtype Polymorphism vs. HoFs</a>
-    </li>
-    
-    <li>
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC9/" title="【CS61B】LEC9 Extends, Casting, Higher Order Functions">【CS61B】LEC9 Extends, Casting, Higher Order Functions</a>
     </li>
     
@@ -903,6 +893,10 @@ if (!doNotTrack) {
     </li>
     
     <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8EJava%E5%AE%9E%E7%8E%B0/" title="十大经典排序算法总结（基于Java实现）">十大经典排序算法总结（基于Java实现）</a>
+    </li>
+    
+    <li>
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BProj1A/" title="【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque ">【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque </a>
     </li>
     
@@ -914,6 +908,10 @@ if (!doNotTrack) {
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC5/" title="【CS61B】LEC5 DLLists, Arrays ">【CS61B】LEC5 DLLists, Arrays </a>
     </li>
     
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC4/" title="【CS61B】LEC4 SLLists, Nested Classes, Sentinel Nodes ">【CS61B】LEC4 SLLists, Nested Classes, Sentinel Nodes </a>
+    </li>
+    
 </ul>
     </section>
 
@@ -923,11 +921,9 @@ if (!doNotTrack) {
         <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="http://jchenTech.github.io/categories/C&#43;&#43;/">C&#43;&#43; (7)</a></li>
+    <li><a href="http://jchenTech.github.io/categories/C&#43;&#43;/">C&#43;&#43; (6)</a></li>
     
     <li><a href="http://jchenTech.github.io/categories/Git/">Git (1)</a></li>
-    
-    <li><a href="http://jchenTech.github.io/categories/Golang/">Golang (3)</a></li>
     
     <li><a href="http://jchenTech.github.io/categories/Java/">Java (1)</a></li>
     
@@ -939,7 +935,7 @@ if (!doNotTrack) {
     
     <li><a href="http://jchenTech.github.io/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">图像处理与深度学习 (10)</a></li>
     
-    <li><a href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法 (13)</a></li>
+    <li><a href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法 (12)</a></li>
     
 </ul>
     </section>
@@ -1037,7 +1033,7 @@ if (!doNotTrack) {
         </li>
         
         <li>
-            <a target="_blank" href="http://yuedu.baidu.com/ebook/14a722970740be1e640e9a3e" title="Android Gradle权威指南">Android Gradle权威指南</a>
+            <a target="_blank" href="http://yuedu.baidu.com/ebook/14a722970740be1e640e9a3e" title="我的Github地址">Android Gradle权威指南</a>
         </li>
         
     </ul>

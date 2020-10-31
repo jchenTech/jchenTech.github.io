@@ -13,21 +13,7 @@
       <pubDate>Tue, 06 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>http://jchenTech.github.io/post/Java/Java%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>【CS61B】LEC10 Subtype Polymorphism vs. HoFs</title>
-      <link>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC10/</link>
-      <pubDate>Tue, 08 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC10/</guid>
-      <description>&lt;p&gt;LEC9 Subtype Polymorphism vs. HoFs&lt;/p&gt;
-&lt;p&gt;
-        &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170934.png&#34;&gt;
-            &lt;img class=&#34;mx-auto&#34; alt=&#34;&#34; src=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170934.png&#34; /&gt;
-        &lt;/a&gt;
-    &lt;/p&gt;</description>
+      <description>String类方法 方法 描述 int length() 返回字符串的长度： return value.length char charAt(int index) 返回某索引处的字符return value[index] boolean isEmpty() 判断是否是空字符串：return value.length == 0 String toLowerCase() 使用默认语言环境，将 String 中的所字符转换为小写 String toUpperCase() 使用默认语言环境，将 String 中的所字符转换为大写 String trim() 返回字符串的副本，忽略前导空白和尾部空白 boolean equals(Object obj) 比较字</description>
     </item>
     
     <item>
@@ -36,7 +22,7 @@
       <pubDate>Tue, 08 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC9/</guid>
-      <description>&lt;p&gt;LEC9 Extends, Casting, Higher Order Functions&lt;/p&gt;</description>
+      <description>LEC9 Extends, Casting, Higher Order Functions 1 接口和实现 Interface and Implement 早先我们介绍了类和接口，我们意识到在编写类时，有时会编写很多冗余代码。 这将我们引向继承，即某个对象不需要重新定义其父对象的所有性质。我们可以从接口和类继承，语法略有不同。 对于要继承接口性质的类，语法如下（其中SLList是一个类，而List61B是一</description>
     </item>
     
     <item>
@@ -45,12 +31,7 @@
       <pubDate>Fri, 28 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC8/</guid>
-      <description>&lt;p&gt;LEC8 Inheritance, Implements&lt;/p&gt;
-&lt;p&gt;
-        &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170915.png&#34;&gt;
-            &lt;img class=&#34;mx-auto&#34; alt=&#34;&#34; src=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170915.png&#34; /&gt;
-        &lt;/a&gt;
-    &lt;/p&gt;</description>
+      <description>LEC8 Inheritance, Implements 1 方法重载 Overloading: 在Java中，类方法名字可以相同，但参数不同。例如，Math 类可以具有 add(int a, int b) 方法和 add(float a, float b) 方法。 Java编译器足够智能，可以根据传入的参数选择正确的方法。具有相同名称但不同参数的方法被认为被重载。 2 使代码通用： 考虑一个仅使用 AList 作为参数的 largestNumber 方法。缺点是，无论我们</description>
     </item>
     
     <item>
@@ -60,6 +41,15 @@
       
       <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61B%E9%93%BE%E8%A1%A8IntListSLListDLListAList/</guid>
       <description>&lt;p&gt;本文整理了CS61B中的链表IntList、SLList、DLList、AList实现。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>十大经典排序算法总结（基于Java实现）</title>
+      <link>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8EJava%E5%AE%9E%E7%8E%B0/</link>
+      <pubDate>Fri, 21 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8EJava%E5%AE%9E%E7%8E%B0/</guid>
+      <description>1 排序算法说明 1.1 排序的定义 对一序列对象根据某个关键字进行排序。 1.2 术语说明 稳定 ：如果a原本在b前面，而a=b，排序之后a仍然在b的前面； 不稳定 ：如果a原本在br的前面，而a=b，排序之后a可能会出现在b的后面； 内排序 ：所有排序操作都在内存中完成； 外排序 ：由于数据太大，因此把数据放在</description>
     </item>
     
     <item>
@@ -78,8 +68,7 @@
       <pubDate>Tue, 18 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC6/</guid>
-      <description>&lt;p&gt;ALists, Resizing, vs. SLists&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://sp18.datastructur.es/&#34;&gt;https://sp18.datastructur.es/&lt;/a&gt;&lt;/p&gt;</description>
+      <description>ALists, Resizing, vs. SLists https://sp18.datastructur.es/ 列表与数组 我们的 DLList 有一个缺点。获得第i个项目很慢；我们必须从头到尾扫描列表中的每个项目，直到到达第 i 个项目为止。但是，对于名为 A 的数组，我们可以使用方括号表示法 A[i] 快速访问第i个项目。因此，我们的目标是实现带有数组的列表。 AList AList 将具有与 DLList 相同的API，这意味着它将具有与 DLList 相</description>
     </item>
     
     <item>
@@ -88,8 +77,7 @@
       <pubDate>Sun, 16 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC5/</guid>
-      <description>&lt;p&gt;DLLists, Arrays&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://sp18.datastructur.es/&#34;&gt;https://sp18.datastructur.es/&lt;/a&gt;&lt;/p&gt;</description>
+      <description>DLLists, Arrays https://sp18.datastructur.es/ SLList的缺点 addLast() 方法非常慢！我们无法添加到列表的中间。另外，如果我们的列表很大，那么我们必须从最前面开始，并一直循环到列表的最后，然后再添加元素。 一个Naive的解决方法 回想一下，我们将列表的大小作为SLList的实例变量进行了缓存。如果我们也缓存列表中的最后一个元素怎</description>
     </item>
     
     <item>
@@ -98,8 +86,7 @@
       <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC4/</guid>
-      <description>&lt;p&gt;SLLists, Nested Classes, Sentinel Nodes&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://sp18.datastructur.es/&#34;&gt;https://sp18.datastructur.es/&lt;/a&gt;&lt;/p&gt;</description>
+      <description>SLLists, Nested Classes, Sentinel Nodes https://sp18.datastructur.es/ 裸数据结构Naked Data Structure IntLists很难使用。为了正确使用 IntLists，即使对于简单的列表相关任务，程序员也必须理解并利用递归。 Adding Clothes 我们首先将 IntList 类转变为 IntNode 类。然后我们将删除IntNode类中的所有方法，接下来我们将创建一个名为 SLList 的新类，该类首先包含实例变量，并</description>
     </item>
     
     <item>
@@ -108,8 +95,7 @@
       <pubDate>Tue, 11 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC3/</guid>
-      <description>&lt;p&gt;References, Recursion, and Lists&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://sp18.datastructur.es/&#34;&gt;https://sp18.datastructur.es/&lt;/a&gt;&lt;/p&gt;</description>
+      <description>References, Recursion, and Lists https://sp18.datastructur.es/ Bits: 计算机将信息存储为内存，并使用0或1的位序列表示此信息。 Primitives： Primitives是信息的表示。 Java有8种原始类型：byte, short, int, long, float, double, boolean, and char。每个基本类型由一定数量的位表示。例如，整型是32位，而字节是8位。 **声明基元：**当我们将变量声</description>
     </item>
     
     <item>
@@ -118,7 +104,7 @@
       <pubDate>Sat, 01 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC2/</guid>
-      <description>&lt;p&gt;Defining and Using Classes&lt;/p&gt;</description>
+      <description>1 Static vs Non-Static Methods 1.1 Static Methods Java中的所有代码都必须是类class中的一部分，大多数代码在方法methods中： public class Dog { public static void makeNoise() { System.out.println(&amp;quot;Bark!&amp;quot;); } } 如果运行 Dog 类，将会报错： $ java Dog Error: Main method not found in class Dog, please define the main method as: public static void main(String[] args) 为了执行Dog类，我们需要添加一个main方法。或者，我们也可以单独创建一个 DogLauncher 类来执行</description>
     </item>
     
     <item>
@@ -127,7 +113,7 @@
       <pubDate>Thu, 30 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC1/</guid>
-      <description>&lt;p&gt;从今天开始，将follow数据结构的一门经典课程，UC Berkeley的CS61B。&lt;/p&gt;</description>
+      <description>从今天开始，将follow数据结构的一门经典课程，UC Berkeley的CS61B。 1 Hello World Let&amp;rsquo;s look at our first Java program. When run, the program below prints &amp;ldquo;Hello world!&amp;rdquo; to the screen. public class HelloWorld { public static void main(String[] args) { System.out.println(&amp;quot;Hello world!&amp;quot;); } } For those of you coming from a language like Python, this probably seems needlessly verbose. However, it&amp;rsquo;s all for good reason, which we&amp;rsquo;ll come to understand over the next couple of weeks. Some key syntactic features to notice: The program consists of a class declaration, which is declared using the keywords public class. In Java, all code lives inside of classes. The code</description>
     </item>
     
     <item>

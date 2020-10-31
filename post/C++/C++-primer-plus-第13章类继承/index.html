@@ -18,7 +18,7 @@
         
     <meta property="article:modified_time" content='2020-03-20T00:00:00&#43;08:00'>
         
-    <meta name="Keywords" content="">
+    <meta name="Keywords" content="Java后端">
     <meta name="description" content="C&#43;&#43; primer plus 第13章类继承">
         
     <meta name="author" content="jchen">
@@ -54,13 +54,13 @@
                         jchen&#39;s blog
                     </a>
                 
-                
+                <p class="description">专注于Java后端、大数据，记录分享自己的学习过程</p>
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
                     <a class="current" href="http://jchenTech.github.io/">首页</a>
                     
-                    <a  href="http://jchenTech.github.io/tools/" title="工具">工具</a>
+                    <a  href="http://jchenTech.github.io/route/" title="路线">路线</a>
                     
                     <a  href="http://jchenTech.github.io/archives/" title="归档">归档</a>
                     
@@ -145,37 +145,37 @@
     <div class="post-toc-content">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#一个简单得基类">一个简单得基类</a>
+    <li><a href="#1-一个简单得基类">1 一个简单得基类</a>
       <ul>
-        <li><a href="#派生一个类">派生一个类</a></li>
-        <li><a href="#构造函数访问权限的考虑">构造函数：访问权限的考虑</a></li>
-        <li><a href="#使用派生类">使用派生类</a></li>
-        <li><a href="#派生类和基类之间的特殊关系">派生类和基类之间的特殊关系</a></li>
+        <li><a href="#11-派生一个类">1.1 派生一个类</a></li>
+        <li><a href="#12-构造函数访问权限的考虑">1.2 构造函数：访问权限的考虑</a></li>
+        <li><a href="#13-使用派生类">1.3 使用派生类</a></li>
+        <li><a href="#14-派生类和基类之间的特殊关系">1.4 派生类和基类之间的特殊关系</a></li>
       </ul>
     </li>
-    <li><a href="#继承is-a关系">继承：is-a关系</a></li>
-    <li><a href="#多态公有继承">多态公有继承</a></li>
-    <li><a href="#静态联编和动态联编">静态联编和动态联编</a>
+    <li><a href="#2-继承is-a关系">2 继承：is-a关系</a></li>
+    <li><a href="#3-多态公有继承">3 多态公有继承</a></li>
+    <li><a href="#4-静态联编和动态联编">4 静态联编和动态联编</a>
       <ul>
-        <li><a href="#指针和引用类型的兼容性">指针和引用类型的兼容性</a></li>
-        <li><a href="#虚成员函数和动态联编">虚成员函数和动态联编</a></li>
-        <li><a href="#有关虚函数的注意事项">有关虚函数的注意事项</a></li>
+        <li><a href="#41-指针和引用类型的兼容性">4.1 指针和引用类型的兼容性</a></li>
+        <li><a href="#42-虚成员函数和动态联编">4.2 虚成员函数和动态联编</a></li>
+        <li><a href="#43-有关虚函数的注意事项">4.3 有关虚函数的注意事项</a></li>
       </ul>
     </li>
-    <li><a href="#访问控制protected">访问控制：protected</a></li>
-    <li><a href="#抽象基类">抽象基类</a></li>
-    <li><a href="#继承和动态内存分配">继承和动态内存分配</a>
+    <li><a href="#5-访问控制protected">5 访问控制：protected</a></li>
+    <li><a href="#6-抽象基类">6 抽象基类</a></li>
+    <li><a href="#6-继承和动态内存分配">6 继承和动态内存分配</a>
       <ul>
-        <li><a href="#第一种情况派生类不适用new">第一种情况：派生类不适用new</a></li>
-        <li><a href="#第二种情况派生类使用new">第二种情况：派生类使用new</a></li>
+        <li><a href="#61-第一种情况派生类不适用new">6.1 第一种情况：派生类不适用new</a></li>
+        <li><a href="#62-第二种情况派生类使用new">6.2 第二种情况：派生类使用new</a></li>
       </ul>
     </li>
-    <li><a href="#类设计回顾">类设计回顾</a>
+    <li><a href="#7-类设计回顾">7 类设计回顾</a>
       <ul>
-        <li><a href="#编译器生成的成员函数">编译器生成的成员函数</a></li>
-        <li><a href="#其他的类方法">其他的类方法</a></li>
-        <li><a href="#公有继承的考虑因素">公有继承的考虑因素</a></li>
-        <li><a href="#类函数小结">类函数小结</a></li>
+        <li><a href="#71-编译器生成的成员函数">7.1 编译器生成的成员函数</a></li>
+        <li><a href="#72-其他的类方法">7.2 其他的类方法</a></li>
+        <li><a href="#73-公有继承的考虑因素">7.3 公有继承的考虑因素</a></li>
+        <li><a href="#74-类函数小结">7.4 类函数小结</a></li>
       </ul>
     </li>
   </ul>
@@ -238,11 +238,9 @@
         </div>
         
         <div class="post-content">
-            <p>C++ primer plus 第13章类继承</p>
-<p>[toc]</p>
-<h2 id="一个简单得基类">一个简单得基类</h2>
+            <h2 id="1-一个简单得基类">1 一个简单得基类</h2>
 <p>从一个类派生出另一个类时，原始类称为基类，继承类称为派生类。</p>
-<h3 id="派生一个类">派生一个类</h3>
+<h3 id="11-派生一个类">1.1 派生一个类</h3>
 <pre><code>class RatedPlayer :public TableTennisPlayer
 {
 
@@ -257,7 +255,7 @@
 <li>派生类需要自己的构造函数</li>
 <li>派生类可以根据需要添加额外的数据成员和成员函数。</li>
 </ul>
-<h3 id="构造函数访问权限的考虑">构造函数：访问权限的考虑</h3>
+<h3 id="12-构造函数访问权限的考虑">1.2 构造函数：访问权限的考虑</h3>
 <p>派生类不能直接访问基类的私有成员，而必须通过基类方法进行访问。因此派生类构造函数必须使用基类构造函数；</p>
 <p>创建派生类对象时，程序首先创建基类对象。从概念上讲，这意味着基类对象应当在程序进入派生类构造函数之前被创建。C++使用成员初始化列表来完成这种工作。</p>
 <pre><code>RatedPlayer::RatedPlayer(unsigned int r, const string &amp; fn, const string &amp; ln, bool ht):TableTennisPlayer(fn,ln,ht)
@@ -295,16 +293,16 @@
 <li>派生类构造函数应初始化派生类新增的数据成员(rating = r)</li>
 </ul>
 <p>释放对象的顺序与创建对象的顺序相反：首先执行派生类的析构函数，然后自动调用基类的析构函数。</p>
-<h3 id="使用派生类">使用派生类</h3>
+<h3 id="13-使用派生类">1.3 使用派生类</h3>
 <p>使用派生类，程序必须要能够访问基类声明。可以把两个类的声明放在同一个头文件中，也可以放在不同的头文件中。</p>
-<h3 id="派生类和基类之间的特殊关系">派生类和基类之间的特殊关系</h3>
+<h3 id="14-派生类和基类之间的特殊关系">1.4 派生类和基类之间的特殊关系</h3>
 <p>派生类可以使用基类的方法，条件是方法不是私有的。</p>
 <p>基类指针可以在不进行显式类型转换的情况下指向派生类对象。基类引用可以在不进行显式类型转换的情况下引用派生类对象。但是基类指针和引用只能调用基类的方法。</p>
 <p>C++中要求引用和指针类型与赋予的类型匹配，但这一规则对继承来说是例外。这例外是单向的，也就是说不能将基类对象和地址赋给派生类引用和指针。</p>
 <p>这样要求是有道理的：如果允许基类引用隐式地调用派生类方法，则可以使用基类引用为派生类对象调用基类的方法。因为派生类继承了基类的方法，所以这样做不会有问题。</p>
 <p>如果可以将基类对象赋给派生类引用，将发生什么情况？派生类引用能够为基类对象调用派生类方法，这是没有意义的。例如TableTennisPlayer没有rating成员。</p>
-<h2 id="继承is-a关系">继承：is-a关系</h2>
-<h2 id="多态公有继承">多态公有继承</h2>
+<h2 id="2-继承is-a关系">2 继承：is-a关系</h2>
+<h2 id="3-多态公有继承">3 多态公有继承</h2>
 <p>有时候希望同一个方法在派生类和基类中的行为是不同的。换句话说，方法的行为取决于调用该方法的对象。这种较复杂的行为称为多态——具有多种形态。即同一种方法其行为随上下文而异。有两种重要的机制可用于实现多态公有继承：</p>
 <ul>
 <li>在派生类中重新定义基类的方法。</li>
@@ -316,16 +314,16 @@
 <p><strong>为何要使用虚析构函数</strong>：</p>
 <p>如果析构函数不是虚的话，则将只调用对应指针类型的析构函数。</p>
 <p>虚方法就是给引用或指针调用对象时根据对象的类型确定调用哪个方法而设计的。不加virtual的话，就会根据引用或指针的类型调用方法了，这就容易造成一些问题。</p>
-<h2 id="静态联编和动态联编">静态联编和动态联编</h2>
+<h2 id="4-静态联编和动态联编">4 静态联编和动态联编</h2>
 <p>程序调用函数时，将使用哪个可执行代码块呢？编译器负责回答这个问题。</p>
 <p>将源代码中的函数调用解释为特定的函数代码块被称为函数名联编（binding）。</p>
 <p>在C语言中，这非常简单，因为每个函数名对应一个不同的函数。</p>
 <p>但是在C++中由于函数重载的缘故，这项任务非常复杂。编译器必须查看函数参数才能确定使用哪个函数。编译器可以在编译过程中完成联编，这被称作<strong>静态联编</strong>，又称为<strong>早期联编</strong>。然而，虚函数使这项工作变得更加困难。使用哪个函数不是在编译时就能确定的，因为编译器不知道用户将选择哪个类型的对象。所以编译器必须生成能够在程序运行时选择正确的虚方法的代码，这被称为<strong>动态联编</strong>，又称为<strong>晚期联编</strong>。</p>
-<h3 id="指针和引用类型的兼容性">指针和引用类型的兼容性</h3>
+<h3 id="41-指针和引用类型的兼容性">4.1 指针和引用类型的兼容性</h3>
 <p>将派生类引用或指针转换为基类引用或指针被称为向上强制转换（upcasting）。这使公有继承不需要进行显式类型转换。该规则是is-a关系的一部分。</p>
 <p>相反的过程——将基类指针或引用转换为派生类指针或引用——称为向下强制转换（downcasting）。如果不使用显式类型转换，向下强制转换是不允许的。</p>
 <p>is-a关系是不可逆的，派生类可以新增数据成员，因此使用这些数据成员的类成员函数不能应用于基类。</p>
-<h3 id="虚成员函数和动态联编">虚成员函数和动态联编</h3>
+<h3 id="42-虚成员函数和动态联编">4.2 虚成员函数和动态联编</h3>
 <p>编译器对非虚方法使用静态联编。对虚方法采用动态联编。</p>
 <ol>
 <li>为什么有两种类型的联编以及为什么默认为静态联编？</li>
@@ -335,7 +333,7 @@
 <ol start="2">
 <li>虚函数的工作原理</li>
 </ol>
-<h3 id="有关虚函数的注意事项">有关虚函数的注意事项</h3>
+<h3 id="43-有关虚函数的注意事项">4.3 有关虚函数的注意事项</h3>
 <ul>
 <li>
 <p>在基类方法的声明中使用关键字virtual可使该方法在基类以及所有派生类（包括从派生类派生出来的类）当中都是虚的。</p>
@@ -385,12 +383,12 @@ trump.showperks(5);  //invalid
 <p>总结两条经验：</p>
 <p>1、如果重新定义继承的方法，应确保与原来的原型完全相同，但如果返回类型是基类引用或指针，则可以修改为指向派生类的引用或指针。这种特性被称为返回类型协变。因为允许返回类型随类类型的变化而变化。</p>
 <p>2、 如果基类声明被重载了，则应该在派生类中重新定义所有基类版本。如果只重新定义一个版本，则另外两个版本将被隐藏，派生类对象将无法使用它们。</p>
-<h2 id="访问控制protected">访问控制：protected</h2>
+<h2 id="5-访问控制protected">5 访问控制：protected</h2>
 <p>public和private来控制对类成员的访问。</p>
 <p>还存在另外一个访问类别，这种类别用关键字protected表示。protected和private相似，在类外只能用公有类成员来访问protected部分中的类成员。但是它们之间的区别体现在基类派生的类中。派生类的成员可以直接访问基类的保护成员，但不能直接访问基类的私有成员。对于外部世界来说，保护成员的行为和私有成员相似。但对于派生类来说，保护成员的行为与公有成员相似。</p>
 <p>保护访问控制的好处是，让派生类能够访问公众不能使用的内部函数。最好对数据成员采用私有访问控制，不要使用保护访问控制，同时通过基类方法使派生类能够访问基类数据。</p>
 <p>使用保护数据成员可以简化代码的编写工作，但存在设计缺陷，就是派生类如果把继承的保护数据成员的修改方式写到公有成员函数里，这样通过派生类的成员函数来访问该保护成员，这样实际上使得该保护数据成员成为公有变量。</p>
-<h2 id="抽象基类">抽象基类</h2>
+<h2 id="6-抽象基类">6 抽象基类</h2>
 <p>abstract base class，ABC 抽象基类</p>
 <p>有时候is-a规则并不像看上去那么简单，例如圆和椭圆的关系。圆是椭圆的特殊情况。椭圆可以派生出圆。但是椭圆的数据成员及方法对于圆来说是信息冗余。圆类继承椭圆类会显得很繁琐。</p>
 <p>如果把圆和椭圆分开定义，这种方法效率不高，因为它忽略了圆类和椭圆类的许多共同点。</p>
@@ -412,9 +410,9 @@ public:
 <p>BaseEllipse类是Ellipse类和Circle类的基类，后两者都是具体类（concrete）。</p>
 <p>如果要设计类继承层次，则只能将那些不会被用作基类的类设计为具体的类。这种方法的设计更清晰，复杂程序更低。</p>
 <p>可以将ABC看作是必须实施的接口。ABC要求具体派生类覆盖其纯虚函数——迫使派生类遵循ABC设置的接口规则。这种模型在基于组件的编程模式中很常见。使用ABC使得组件设计人员能够制定“接口约定”，这样确保了从ABC派生的所有组件都至少支持ABC指定的功能。</p>
-<h2 id="继承和动态内存分配">继承和动态内存分配</h2>
+<h2 id="6-继承和动态内存分配">6 继承和动态内存分配</h2>
 <p>如果基类使用动态内存分配，并重新定义赋值和复制构造函数，这将怎样影响派生类的实现？这个问题的答案取决于派生类的属性。如果派生类也使用动态内存分配，那就需要注意学习新的小技巧。</p>
-<h3 id="第一种情况派生类不适用new">第一种情况：派生类不适用new</h3>
+<h3 id="61-第一种情况派生类不适用new">6.1 第一种情况：派生类不适用new</h3>
 <pre><code>//Base Class Using DMA
 class baseDMA
 {
@@ -442,7 +440,7 @@ public:
 <p>复制构造函数：默认复制构造函数执行成员复制，这对于动态内存分配来说是不合适的，但对于新的lacksDMA成员来说是合适的。LacksDMA类的默认复制构造函数使用显式baseDMA复制构造函数来复制lackDMA对象的baseDMA部分。因此，默认复制构造函数对于新的lackDMA成员来说是合适的，同时对于继承的baseDMA对象来说也是合适的。</p>
 <p>对于赋值来说，也是如此。类的默认赋值运算符将自动使用基类的赋值运算符对基类组件进行赋值。因此，默认赋值运算符也是合适的。</p>
 <p>派生类对象的这些属性也适用于本身就是对象的类成员。</p>
-<h3 id="第二种情况派生类使用new">第二种情况：派生类使用new</h3>
+<h3 id="62-第二种情况派生类使用new">6.2 第二种情况：派生类使用new</h3>
 <p>这种情况下，必须为派生类定义显式析构函数，赋值构造函数和赋值运算符。</p>
 <pre><code>//derived class with DMA
 class hasDMA:public baseDMA
@@ -508,8 +506,8 @@ hasDMA &amp; hasDMA::operator=(const hasDMA &amp; hs)
 <p>对于析构函数：这是自动完成的；</p>
 <p>对于构造函数：这是通过在初始化成员列表中调用基类的复制构造函数来完成的；</p>
 <p>对于赋值运算符，这是通过使用作用域解析运算符显式地调用基类的赋值运算符来完成的；</p>
-<h2 id="类设计回顾">类设计回顾</h2>
-<h3 id="编译器生成的成员函数">编译器生成的成员函数</h3>
+<h2 id="7-类设计回顾">7 类设计回顾</h2>
+<h3 id="71-编译器生成的成员函数">7.1 编译器生成的成员函数</h3>
 <p>编译器会自动生成一些公有的成员函数——特殊成员函数。</p>
 <p>1、 默认构造函数</p>
 <p>提供构造函数的动机之一是确保对象总能被正确地初始化。如果类包含指针成员，则必须初始化这些成员。最好提供一个显式默认构造函数，将所有的类数据成员都初始化为合理的值。</p>
@@ -533,7 +531,7 @@ Star dogstar;
 dogstar = sirius;  //assignment 赋值
 </code></pre><p>默认的赋值运算符用于处理同类对象之间的赋值；</p>
 <p>如果需要显式定义复制构造函数，基于相同的原因，也需要显式定义赋值运算符。</p>
-<h3 id="其他的类方法">其他的类方法</h3>
+<h3 id="72-其他的类方法">7.2 其他的类方法</h3>
 <p>1、构造函数</p>
 <p>构造函数不同于其他类方法，因为它创建新的对象。而其他类方法知识被现有的对象调用。这是构造函数不被继承的原因之一。</p>
 <p>2、析构函数</p>
@@ -547,7 +545,7 @@ dogstar = sirius;  //assignment 赋值
 <p>返回引用可以节约内存空间和时间，但是并不总是要返回引用。如果函数返回在函数中创建的临时对象，则不要使用引用，例如返回两个对象相加的临时对象时不返回引用。</p>
 <p>6、使用const</p>
 <p>使用const来确保方法不修改调用它的对象。</p>
-<h3 id="公有继承的考虑因素">公有继承的考虑因素</h3>
+<h3 id="73-公有继承的考虑因素">7.3 公有继承的考虑因素</h3>
 <p>在程序中使用继承，有很多问题需要注意。</p>
 <p>1、is-a关系</p>
 <p>必须是is-a关系，无需进行显式类型转换，基类指针就可以指向派生类对象，基类引用可以引用派生类对象。</p>
@@ -575,8 +573,9 @@ dogstar = sirius;  //assignment 赋值
 <li>派生类方法可以使用作用域解析运算符来调用公有的和受保护的基类方法；</li>
 <li>派生类的友元函数可以通过强制类型转换，将派生类引用或指针转换为基类引用或指针；</li>
 </ul>
-<h3 id="类函数小结">类函数小结</h3>
+<h3 id="74-类函数小结">7.4 类函数小结</h3>
 <p>见书P530表13.1</p>
+
         </div>
 
         
@@ -732,14 +731,6 @@ if (!doNotTrack) {
     </li>
     
     <li>
-        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8EJava%E5%AE%9E%E7%8E%B0/" title="十大经典排序算法总结（基于Java实现）">十大经典排序算法总结（基于Java实现）</a>
-    </li>
-    
-    <li>
-        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC10/" title="【CS61B】LEC10 Subtype Polymorphism vs. HoFs">【CS61B】LEC10 Subtype Polymorphism vs. HoFs</a>
-    </li>
-    
-    <li>
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC9/" title="【CS61B】LEC9 Extends, Casting, Higher Order Functions">【CS61B】LEC9 Extends, Casting, Higher Order Functions</a>
     </li>
     
@@ -756,6 +747,10 @@ if (!doNotTrack) {
     </li>
     
     <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8EJava%E5%AE%9E%E7%8E%B0/" title="十大经典排序算法总结（基于Java实现）">十大经典排序算法总结（基于Java实现）</a>
+    </li>
+    
+    <li>
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BProj1A/" title="【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque ">【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque </a>
     </li>
     
@@ -767,6 +762,10 @@ if (!doNotTrack) {
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC5/" title="【CS61B】LEC5 DLLists, Arrays ">【CS61B】LEC5 DLLists, Arrays </a>
     </li>
     
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC4/" title="【CS61B】LEC4 SLLists, Nested Classes, Sentinel Nodes ">【CS61B】LEC4 SLLists, Nested Classes, Sentinel Nodes </a>
+    </li>
+    
 </ul>
     </section>
 
@@ -776,11 +775,9 @@ if (!doNotTrack) {
         <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="http://jchenTech.github.io/categories/C&#43;&#43;/">C&#43;&#43; (7)</a></li>
+    <li><a href="http://jchenTech.github.io/categories/C&#43;&#43;/">C&#43;&#43; (6)</a></li>
     
     <li><a href="http://jchenTech.github.io/categories/Git/">Git (1)</a></li>
-    
-    <li><a href="http://jchenTech.github.io/categories/Golang/">Golang (3)</a></li>
     
     <li><a href="http://jchenTech.github.io/categories/Java/">Java (1)</a></li>
     
@@ -792,7 +789,7 @@ if (!doNotTrack) {
     
     <li><a href="http://jchenTech.github.io/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">图像处理与深度学习 (10)</a></li>
     
-    <li><a href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法 (13)</a></li>
+    <li><a href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法 (12)</a></li>
     
 </ul>
     </section>
@@ -890,7 +887,7 @@ if (!doNotTrack) {
         </li>
         
         <li>
-            <a target="_blank" href="http://yuedu.baidu.com/ebook/14a722970740be1e640e9a3e" title="Android Gradle权威指南">Android Gradle权威指南</a>
+            <a target="_blank" href="http://yuedu.baidu.com/ebook/14a722970740be1e640e9a3e" title="我的Github地址">Android Gradle权威指南</a>
         </li>
         
     </ul>

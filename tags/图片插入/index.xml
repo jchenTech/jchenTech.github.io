@@ -13,7 +13,7 @@
       <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>http://jchenTech.github.io/post/%E5%8D%9A%E5%AE%A2/Hugo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/</guid>
-      <description>&lt;p&gt;在写博客时，常常需要在文章中插入图片，Hugo有多种图片插入方式，可以将图片存在本地引用、将图片放在CDN引用或建立图床。&lt;/p&gt;</description>
+      <description>在写博客时，常常需要在文章中插入图片，Hugo有多种图片插入方式，可以将图片存在本地引用、将图片放在CDN引用或建立图床。 1 本地引用 1.1 绝对路径 当图片使用较少时，可以将图片存在 static/images/具体文章 目录下的，在部署当github page上面时，会将图片推到github</description>
     </item>
     
   </channel>

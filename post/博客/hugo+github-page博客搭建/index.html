@@ -18,7 +18,7 @@
         
     <meta property="article:modified_time" content='2020-03-05T00:00:00&#43;08:00'>
         
-    <meta name="Keywords" content="">
+    <meta name="Keywords" content="Java后端">
     <meta name="description" content="我的第一次Hugo博客搭建过程（超级详细）">
         
     <meta name="author" content="jchen">
@@ -54,13 +54,13 @@
                         jchen&#39;s blog
                     </a>
                 
-                
+                <p class="description">专注于Java后端、大数据，记录分享自己的学习过程</p>
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
                     <a class="current" href="http://jchenTech.github.io/">首页</a>
                     
-                    <a  href="http://jchenTech.github.io/tools/" title="工具">工具</a>
+                    <a  href="http://jchenTech.github.io/route/" title="路线">路线</a>
                     
                     <a  href="http://jchenTech.github.io/archives/" title="归档">归档</a>
                     
@@ -145,21 +145,21 @@
     <div class="post-toc-content">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#hugo安装">Hugo安装</a></li>
-    <li><a href="#生成站点">生成站点</a></li>
-    <li><a href="#生成文章">生成文章</a></li>
-    <li><a href="#安装主题">安装主题</a></li>
-    <li><a href="#运行hugo">运行hugo</a></li>
-    <li><a href="#将hugo部署到github-page">将Hugo部署到Github Page</a>
+    <li><a href="#1-hugo安装">1 Hugo安装</a></li>
+    <li><a href="#2-生成站点">2 生成站点</a></li>
+    <li><a href="#3-生成文章">3 生成文章</a></li>
+    <li><a href="#4-安装主题">4 安装主题</a></li>
+    <li><a href="#5-运行hugo">5 运行hugo</a></li>
+    <li><a href="#6-将hugo部署到github-page">6 将Hugo部署到Github Page</a>
       <ul>
-        <li><a href="#安装git">安装git</a></li>
-        <li><a href="#部署">部署</a></li>
+        <li><a href="#61-安装git">6.1 安装git</a></li>
+        <li><a href="#62-部署">6.2 部署</a></li>
       </ul>
     </li>
-    <li><a href="#部署过程中遇到的问题">部署过程中遇到的问题</a>
+    <li><a href="#7-部署过程中遇到的问题">7 部署过程中遇到的问题</a>
       <ul>
-        <li><a href="#页面加载过程中请求了http资源">页面加载过程中请求了http资源</a></li>
-        <li><a href="#出现博客首页无法加载出文章列表问题">出现博客首页无法加载出文章列表问题</a></li>
+        <li><a href="#71-页面加载过程中请求了http资源">7.1 页面加载过程中请求了http资源</a></li>
+        <li><a href="#72-出现博客首页无法加载出文章列表问题">7.2 出现博客首页无法加载出文章列表问题</a></li>
       </ul>
     </li>
   </ul>
@@ -226,12 +226,12 @@
 <p>Hugo是基于Go语言的一款静态博客，编译之后只有一个二进制文件，相比于Hexo基于nodejs、jekyll基于ruby等解释型语言而言搭建过程简单且博客编译速度非常快，所以即使文章数量和标签等很多时，Hugo也可以在几秒钟完成更新。但是Hugo目前使用率不及Hexo，所以目前可用的主题较少，并且网上的相关问题解决也不多，大多时候需要自己摸索。后面会更新Hugo博客主题的配置文章，现在先进行Hugo安装以及部署到Github Page的介绍：</p>
 <p>安装过程可参照Hugo中文官网：<a href="https://www.gohugo.org">https://www.gohugo.org</a></p>
 <hr>
-<h2 id="hugo安装">Hugo安装</h2>
+<h2 id="1-hugo安装">1 Hugo安装</h2>
 <p>二进制安装（推荐：简单、快速）</p>
 <p>到<a href="https://github.com/gohugoio/hugo/releases">Hugo Releases</a>下载对应的操作系统版本的Hugo二进制文件（hugo或者hugo.exe），我这里时解压到了D:\hugo目录下</p>
 <p>上一步操作，可以看到我们把hugo.exe解压到了D:\hugo下面。所以hugo命令只能在该目录下才能识别。但是我们想要把博客目录建到其他目录下，这就需要配置环境变量，在此不再赘述。</p>
 <hr>
-<h2 id="生成站点">生成站点</h2>
+<h2 id="2-生成站点">2 生成站点</h2>
 <p>使用Hugo快速生成站点，比如希望生成到 /path/to/site 路径：</p>
 <pre><code>hugo new site /path/to/site
 </code></pre><p>这样就在 /path/to/site 目录里生成了初始站点，进去目录：</p>
@@ -243,7 +243,7 @@
   ▸ static/
     config.toml
 </code></pre><hr>
-<h2 id="生成文章">生成文章</h2>
+<h2 id="3-生成文章">3 生成文章</h2>
 <p>创建一个 about 页面：</p>
 <pre><code>hugo new about.md
 </code></pre><p>about.md 自动生成到了 content/about.md ，打开 about.md 看下：</p>
@@ -272,22 +272,22 @@ title: &quot;first&quot;
  1. ccc
 </code></pre><p>注意当md文件中的第四行<code>drafts=true</code>时，该文件为草稿，不会生成文章。应把改行删掉或者改为<code>drafts=false</code>。</p>
 <hr>
-<h2 id="安装主题">安装主题</h2>
+<h2 id="4-安装主题">4 安装主题</h2>
 <p>在<a href="https://themes.gohugo.io/">官网主题列表</a>中选择主题进行安装，我的博客时采用<a href="https://github.com/digitalcraftsman/hugo-icarus-theme">icarus</a>主题进行安装的，具体的主题配置按照该主题的说明文件进行配置。</p>
 <pre><code># 创建 themes 目录
 cd themes
 git clone https://github.com/digitalcraftsman/hugo-icarus-theme.git
 </code></pre><hr>
-<h2 id="运行hugo">运行hugo</h2>
+<h2 id="5-运行hugo">5 运行hugo</h2>
 <p>在你的站点根目录执行 Hugo 命令进行调试：</p>
 <pre><code>hugo server --theme=icarus --buildDrafts
 </code></pre><p>浏览器里打开：<code>http://localhost:1313</code></p>
 <hr>
-<h2 id="将hugo部署到github-page">将Hugo部署到Github Page</h2>
-<h3 id="安装git">安装git</h3>
+<h2 id="6-将hugo部署到github-page">6 将Hugo部署到Github Page</h2>
+<h3 id="61-安装git">6.1 安装git</h3>
 <p>根据该博客链接进行git的下载安装和环境配置：</p>
 <p><a href="https://blog.csdn.net/huangqqdy/article/details/83032408">https://blog.csdn.net/huangqqdy/article/details/83032408</a></p>
-<h3 id="部署">部署</h3>
+<h3 id="62-部署">6.2 部署</h3>
 <p>假设你需要部署在 GitHub Pages 上，首先在GitHub上创建一个Repository，命名为：jchenTech.github.io （jchenTech替换为你的github用户名）。</p>
 <p>在站点根目录执行 Hugo 命令生成最终页面：</p>
 <pre><code>hugo --theme=icarus --baseUrl=&quot;http://jchenTech.github.io/&quot;
@@ -302,12 +302,13 @@ git push -u origin master
 <pre><code>git remote rm origin
 </code></pre><p>浏览器里访问：<a href="http://jchenTech.github.io">http://jchenTech.github.io</a></p>
 <hr>
-<h2 id="部署过程中遇到的问题">部署过程中遇到的问题</h2>
-<h3 id="页面加载过程中请求了http资源">页面加载过程中请求了http资源</h3>
+<h2 id="7-部署过程中遇到的问题">7 部署过程中遇到的问题</h2>
+<h3 id="71-页面加载过程中请求了http资源">7.1 页面加载过程中请求了http资源</h3>
 <p>在我安装icarus主题的过程中，在将博客部署到github上时，会导致页面不能正常显示，在页面F12显示Https的页面加载了http的js和css，提示Mixed Content错误，阻止了加载。因此，需要在<code>E:\hugo\jchenBlog\themes\icarus\layouts\partials\head.html</code>文件中加入下语句，将会把http请求转化为https请求：</p>
 <pre><code>&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;upgrade-insecure-requests&quot;&gt;
-</code></pre><h3 id="出现博客首页无法加载出文章列表问题">出现博客首页无法加载出文章列表问题</h3>
+</code></pre><h3 id="72-出现博客首页无法加载出文章列表问题">7.2 出现博客首页无法加载出文章列表问题</h3>
 <p>困扰了很久的问题，这是因为在安装hugo时选择的是当前最新版本0.65，但是hugo icarus这个主题是之前发布的，在hugo进行版本更新后，从0.57版本后，该主题有一些不兼容，并且目前该主题没有像其他主题一样针对hugo版本进行更新，所以需要下载老版本，如今的版本号为0.54，下载该版本然后替换掉该路径下的hugo二进制文件即可。</p>
+
         </div>
 
         
@@ -328,15 +329,15 @@ git push -u origin master
     <h2>See Also</h2>
     <ul class="listing">
         
-        <li><a href="/2019/12/18/golang-gin-query-parameters-array-map.html">Golang Gin 实战（五）| 接收数组和 Map</a></li>
-        
-        <li><a href="/post/2019-12-13-golang-gin-parameters-in-path/">Golang Gin 实战（三）| 路由参数</a></li>
-        
-        <li><a href="/post/2019-12-15-golang-gin-query-parameters-source-code-analysis/">Golang Gin 实战（三）| 路由参数</a></li>
-        
         <li><a href="/post/%E5%8D%9A%E5%AE%A2/formulas-with-mathjax/">Formulas with MathJax</a></li>
         
         <li><a href="/post/%E5%8D%9A%E5%AE%A2/markdown-cheat-sheet/">Markdown Cheat Sheet</a></li>
+        
+        <li><a href="/post/%E5%8D%9A%E5%AE%A2/using-the-gallery-shortcode/">Using the gallery shortcode</a></li>
+        
+        <li><a href="/post/%E5%8D%9A%E5%AE%A2/linked-post/">How to add pages to the menu</a></li>
+        
+        <li><a href="/archives/">归档</a></li>
         
     </ul>
 </div>
@@ -465,14 +466,6 @@ if (!doNotTrack) {
     </li>
     
     <li>
-        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8EJava%E5%AE%9E%E7%8E%B0/" title="十大经典排序算法总结（基于Java实现）">十大经典排序算法总结（基于Java实现）</a>
-    </li>
-    
-    <li>
-        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC10/" title="【CS61B】LEC10 Subtype Polymorphism vs. HoFs">【CS61B】LEC10 Subtype Polymorphism vs. HoFs</a>
-    </li>
-    
-    <li>
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC9/" title="【CS61B】LEC9 Extends, Casting, Higher Order Functions">【CS61B】LEC9 Extends, Casting, Higher Order Functions</a>
     </li>
     
@@ -489,6 +482,10 @@ if (!doNotTrack) {
     </li>
     
     <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8EJava%E5%AE%9E%E7%8E%B0/" title="十大经典排序算法总结（基于Java实现）">十大经典排序算法总结（基于Java实现）</a>
+    </li>
+    
+    <li>
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BProj1A/" title="【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque ">【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque </a>
     </li>
     
@@ -500,6 +497,10 @@ if (!doNotTrack) {
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC5/" title="【CS61B】LEC5 DLLists, Arrays ">【CS61B】LEC5 DLLists, Arrays </a>
     </li>
     
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC4/" title="【CS61B】LEC4 SLLists, Nested Classes, Sentinel Nodes ">【CS61B】LEC4 SLLists, Nested Classes, Sentinel Nodes </a>
+    </li>
+    
 </ul>
     </section>
 
@@ -509,11 +510,9 @@ if (!doNotTrack) {
         <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="http://jchenTech.github.io/categories/C&#43;&#43;/">C&#43;&#43; (7)</a></li>
+    <li><a href="http://jchenTech.github.io/categories/C&#43;&#43;/">C&#43;&#43; (6)</a></li>
     
     <li><a href="http://jchenTech.github.io/categories/Git/">Git (1)</a></li>
-    
-    <li><a href="http://jchenTech.github.io/categories/Golang/">Golang (3)</a></li>
     
     <li><a href="http://jchenTech.github.io/categories/Java/">Java (1)</a></li>
     
@@ -525,7 +524,7 @@ if (!doNotTrack) {
     
     <li><a href="http://jchenTech.github.io/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">图像处理与深度学习 (10)</a></li>
     
-    <li><a href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法 (13)</a></li>
+    <li><a href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法 (12)</a></li>
     
 </ul>
     </section>
@@ -623,7 +622,7 @@ if (!doNotTrack) {
         </li>
         
         <li>
-            <a target="_blank" href="http://yuedu.baidu.com/ebook/14a722970740be1e640e9a3e" title="Android Gradle权威指南">Android Gradle权威指南</a>
+            <a target="_blank" href="http://yuedu.baidu.com/ebook/14a722970740be1e640e9a3e" title="我的Github地址">Android Gradle权威指南</a>
         </li>
         
     </ul>

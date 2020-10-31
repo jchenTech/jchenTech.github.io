@@ -18,7 +18,7 @@
         
     <meta property="article:modified_time" content='2020-07-07T00:00:00&#43;08:00'>
         
-    <meta name="Keywords" content="">
+    <meta name="Keywords" content="Java后端">
     <meta name="description" content="【论文笔记】DehazeNet: An End-to-End System for Single Image Haze Removal">
         
     <meta name="author" content="jchen">
@@ -54,13 +54,13 @@
                         jchen&#39;s blog
                     </a>
                 
-                
+                <p class="description">专注于Java后端、大数据，记录分享自己的学习过程</p>
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
                     <a class="current" href="http://jchenTech.github.io/">首页</a>
                     
-                    <a  href="http://jchenTech.github.io/tools/" title="工具">工具</a>
+                    <a  href="http://jchenTech.github.io/route/" title="路线">路线</a>
                     
                     <a  href="http://jchenTech.github.io/archives/" title="归档">归档</a>
                     
@@ -145,11 +145,11 @@
     <div class="post-toc-content">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#摘要">摘要</a></li>
-    <li><a href="#贡献">贡献</a></li>
-    <li><a href="#图像去雾的核心">图像去雾的核心</a></li>
-    <li><a href="#基于人工特征">基于人工特征</a></li>
-    <li><a href="#基于深度智能">基于深度智能</a></li>
+    <li><a href="#1-摘要">1 摘要</a></li>
+    <li><a href="#2-贡献">2 贡献</a></li>
+    <li><a href="#3-图像去雾的核心">3 图像去雾的核心</a></li>
+    <li><a href="#4-基于人工特征">4 基于人工特征</a></li>
+    <li><a href="#5-基于深度智能">5 基于深度智能</a></li>
     <li><a href="#参考文献">参考文献</a></li>
   </ul>
 </nav>
@@ -217,7 +217,7 @@
             <img class="mx-auto" alt="DehazeNet架构图" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165931.png" />
         </a>
     </p>
-<h2 id="摘要">摘要</h2>
+<h2 id="1-摘要">1 摘要</h2>
 <blockquote>
 <p>背景：Single image haze removal is a challenging ill-posed problem.</p>
 </blockquote>
@@ -227,13 +227,13 @@
 <blockquote>
 <p>提出的方法：In this paper, we propose a trainable end-to-end system called DehazeNet, for medium transmission estimation. DehazeNet takes a hazy image as input, and outputs its medium transmission map that is subsequently used to recover a haze-free image via atmospheric scattering model. DehazeNet adopts convolutional neural network-based deep architecture, whose layers are specially designed to <strong>embody the established assumptions/priors in image dehazing</strong>. Specifically, <strong>the layers of Maxout units are used for feature extraction, which can generate almost all haze-relevant features</strong>. We also propose a novel nonlinear activation function in DehazeNet, called <strong>bilateral rectified linear unit</strong>, which is able to improve the quality of recovered haze-free image. We establish connections between the components of the proposed DehazeNet and those used in existing methods. Experiments on benchmark images show that DehazeNet achieves superior performance over existing methods, yet keeps efficient and easy to use. </p>
 </blockquote>
-<h2 id="贡献">贡献</h2>
+<h2 id="2-贡献">2 贡献</h2>
 <ul>
 <li>DehazeNet是一个端到端系统。 它直接学习和估计模糊图像patches与其传输图之间的映射关系。 这是通过其深层架构的特殊设计来实现的，以体现已建立的图像去雾原理。</li>
 <li>提出了一种新的非线性激活函数，称为双边整流线性单元1（BReLU）。 BReLU扩展了整流线性单元（ReLU）并证明了其在获得精确图像恢复方面的重要性。 从技术上讲，BReLU使用双边约束来减少搜索空间并改善收敛。</li>
 <li>在DehazeNet的组件与现有的去雾方法中使用的假设/先验之间建立联系，并解释DehazeNet通过自动从头到尾自动学习所有这些组件来改进这些方法。 </li>
 </ul>
-<h2 id="图像去雾的核心">图像去雾的核心</h2>
+<h2 id="3-图像去雾的核心">3 图像去雾的核心</h2>
 <p>现有的图像去雾（Image Dehazing）技术离不开一个简单的自然模型——大气散射模型（Atmospheric Scattering Model）。大气散射模型描述了，在雾霾和光照的共同作用下的成像机制：</p>
 <p>
         <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170001.png">
@@ -243,7 +243,7 @@
 <p>其中，$t(x)$ 是媒介透射率（medium transmission），顾名思义表示能顺利透过雾霾到达摄像头的比率。因此，透射率跟物体与摄像头距离 $d(x)$ 成反比，离摄像头越远的物体受雾霾影响更大。当距离 $d(x)$ 趋于无穷大时，透射率 $t(x)$ 趋于零，$I(x)$ 趋近于 $\alpha$，其中：</p>
 <!-- raw HTML omitted -->
 <p>综上所述，去雾的核心是如何更精确地估计媒介透射率 t(x)。</p>
-<h2 id="基于人工特征">基于人工特征</h2>
+<h2 id="4-基于人工特征">4 基于人工特征</h2>
 <p>手工特征是传统机器视觉的基础，讲究的是熟能生巧，依赖的是实践出真知。通过“观察→经验→设计”构建各式各样的特征来满足各式各样的任务需求。图像去雾技术也是沿着手工特征逐步地发展起来。</p>
 <p>（1）暗通道先验[2]（Dark Channel Prior，DCP）</p>
 <p>说起去雾特征，不得不提起的暗通道先验（DCP）。大道之行在于简，DCP作为CVPR 2009的最佳论文，以简洁有效的先验假设解决了雾霾浓度估计问题。</p>
@@ -261,7 +261,7 @@
     </p>
 <p>（4）色度不一致(Hue Disparity)[5]</p>
 <!-- raw HTML omitted -->
-<h2 id="基于深度智能">基于深度智能</h2>
+<h2 id="5-基于深度智能">5 基于深度智能</h2>
 <p>人的视觉系统并不需依赖这些显式的特征变换，便可以很好地估计雾的浓度和场景的深度。DehazeNet是一个特殊设计的深度卷积网络，利用深度学习去智能地学习雾霾特征，解决手工特征设计的难点和痛点。</p>
 <p>
         <a data-fancybox="gallery" href="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170027.png">
@@ -323,9 +323,9 @@
         
         <li><a href="/post/Python/python%E4%B9%8Bmatplotlib%E7%BB%98%E5%9B%BE%E5%9F%BA%E7%A1%80/">Python之Matplotlib绘图基础</a></li>
         
-        <li><a href="/post/C&#43;&#43;/C&#43;&#43;-primer-plus-%E7%AC%AC16%E7%AB%A0String%E7%B1%BB%E5%92%8C%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/">C&#43;&#43; primer plus 第16章String类和标准模板库</a></li>
-        
         <li><a href="/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9CRNN%E4%BB%8B%E7%BB%8D/">循环神经网络RNN介绍</a></li>
+        
+        <li><a href="/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8BR-CNN-SSPNet-Fast-R-CNN-Faster-R-CNN-YOLO-SSD/">深度学习目标检测：R-CNN, SSPNet, Fast R-CNN, Faster R-CNN, YOLO, SSD</a></li>
         
     </ul>
 </div>
@@ -454,14 +454,6 @@ if (!doNotTrack) {
     </li>
     
     <li>
-        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8EJava%E5%AE%9E%E7%8E%B0/" title="十大经典排序算法总结（基于Java实现）">十大经典排序算法总结（基于Java实现）</a>
-    </li>
-    
-    <li>
-        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC10/" title="【CS61B】LEC10 Subtype Polymorphism vs. HoFs">【CS61B】LEC10 Subtype Polymorphism vs. HoFs</a>
-    </li>
-    
-    <li>
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC9/" title="【CS61B】LEC9 Extends, Casting, Higher Order Functions">【CS61B】LEC9 Extends, Casting, Higher Order Functions</a>
     </li>
     
@@ -478,6 +470,10 @@ if (!doNotTrack) {
     </li>
     
     <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8EJava%E5%AE%9E%E7%8E%B0/" title="十大经典排序算法总结（基于Java实现）">十大经典排序算法总结（基于Java实现）</a>
+    </li>
+    
+    <li>
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BProj1A/" title="【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque ">【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque </a>
     </li>
     
@@ -489,6 +485,10 @@ if (!doNotTrack) {
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC5/" title="【CS61B】LEC5 DLLists, Arrays ">【CS61B】LEC5 DLLists, Arrays </a>
     </li>
     
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC4/" title="【CS61B】LEC4 SLLists, Nested Classes, Sentinel Nodes ">【CS61B】LEC4 SLLists, Nested Classes, Sentinel Nodes </a>
+    </li>
+    
 </ul>
     </section>
 
@@ -498,11 +498,9 @@ if (!doNotTrack) {
         <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="http://jchenTech.github.io/categories/C&#43;&#43;/">C&#43;&#43; (7)</a></li>
+    <li><a href="http://jchenTech.github.io/categories/C&#43;&#43;/">C&#43;&#43; (6)</a></li>
     
     <li><a href="http://jchenTech.github.io/categories/Git/">Git (1)</a></li>
-    
-    <li><a href="http://jchenTech.github.io/categories/Golang/">Golang (3)</a></li>
     
     <li><a href="http://jchenTech.github.io/categories/Java/">Java (1)</a></li>
     
@@ -514,7 +512,7 @@ if (!doNotTrack) {
     
     <li><a href="http://jchenTech.github.io/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">图像处理与深度学习 (10)</a></li>
     
-    <li><a href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法 (13)</a></li>
+    <li><a href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法 (12)</a></li>
     
 </ul>
     </section>
@@ -612,7 +610,7 @@ if (!doNotTrack) {
         </li>
         
         <li>
-            <a target="_blank" href="http://yuedu.baidu.com/ebook/14a722970740be1e640e9a3e" title="Android Gradle权威指南">Android Gradle权威指南</a>
+            <a target="_blank" href="http://yuedu.baidu.com/ebook/14a722970740be1e640e9a3e" title="我的Github地址">Android Gradle权威指南</a>
         </li>
         
     </ul>

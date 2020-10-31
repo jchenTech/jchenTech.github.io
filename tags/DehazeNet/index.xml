@@ -13,12 +13,7 @@
       <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>http://jchenTech.github.io/post/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0DehazeNet/</guid>
-      <description>&lt;p&gt;该文章提出一种名为DehazeNet的可训练的端到端系统，用于传输值估计。 DehazeNet将模糊图像作为输入，并输出其中间透射图，随后用于通过大气散射模型恢复无雾图像。 DehazeNet采用基于卷积神经网络的深层架构，&lt;strong&gt;其层专门设计用于体现图像去雾中已建立的假设/先验&lt;/strong&gt;。具体而言，Maxout单位的图层用于特征提取，这可以生成几乎所有与雾相关的特征。我们还在DehazeNet中提出了一种新的非线性激活函数，称为&lt;strong&gt;双边整流线性单元&lt;/strong&gt;，它能够提高恢复的无雾图像的质量。我们在提议的&lt;strong&gt;DehazeNet的组件与现有方法中使用的组件之间建立连接&lt;/strong&gt;。基准图像的实验表明，DehazeNet比现有方法具有更高的性能，同时保持高效和易用。&lt;/p&gt;
-&lt;p&gt;
-        &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165931.png&#34;&gt;
-            &lt;img class=&#34;mx-auto&#34; alt=&#34;DehazeNet架构图&#34; src=&#34;https://raw.githubusercontent.com/jchenTech/images/main/img/20201010165931.png&#34; /&gt;
-        &lt;/a&gt;
-    &lt;/p&gt;</description>
+      <description>&lt;p&gt;该文章提出一种名为DehazeNet的可训练的端到端系统，用于传输值估计。 DehazeNet将模糊图像作为输入，并输出其中间透射图，随后用于通过大气散射模型恢复无雾图像。 DehazeNet采用基于卷积神经网络的深层架构，&lt;strong&gt;其层专门设计用于体现图像去雾中已建立的假设/先验&lt;/strong&gt;。具体而言，Maxout单位的图层用于特征提取，这可以生成几乎所有与雾相关的特征。我们还在DehazeNet中提出了一种新的非线性激活函数，称为&lt;strong&gt;双边整流线性单元&lt;/strong&gt;，它能够提高恢复的无雾图像的质量。我们在提议的&lt;strong&gt;DehazeNet的组件与现有方法中使用的组件之间建立连接&lt;/strong&gt;。基准图像的实验表明，DehazeNet比现有方法具有更高的性能，同时保持高效和易用。&lt;/p&gt;</description>
     </item>
     
   </channel>

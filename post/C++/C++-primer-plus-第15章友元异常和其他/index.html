@@ -18,7 +18,7 @@
         
     <meta property="article:modified_time" content='2020-03-23T00:00:00&#43;08:00'>
         
-    <meta name="Keywords" content="">
+    <meta name="Keywords" content="Java后端">
     <meta name="description" content="C&#43;&#43; primer plus 第15章友元、异常和其他">
         
     <meta name="author" content="jchen">
@@ -54,13 +54,13 @@
                         jchen&#39;s blog
                     </a>
                 
-                
+                <p class="description">专注于Java后端、大数据，记录分享自己的学习过程</p>
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
                     <a class="current" href="http://jchenTech.github.io/">首页</a>
                     
-                    <a  href="http://jchenTech.github.io/tools/" title="工具">工具</a>
+                    <a  href="http://jchenTech.github.io/route/" title="路线">路线</a>
                     
                     <a  href="http://jchenTech.github.io/archives/" title="归档">归档</a>
                     
@@ -145,48 +145,47 @@
     <div class="post-toc-content">
         <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#1-友元">1 友元</a>
       <ul>
-        <li><a href="#友元">友元</a></li>
-        <li><a href="#友元类">友元类</a></li>
-        <li><a href="#友元成员函数">友元成员函数</a></li>
-        <li><a href="#其他友元关系">其他友元关系</a></li>
-        <li><a href="#共同的友元">共同的友元</a></li>
+        <li><a href="#11-友元类">1.1 友元类</a></li>
+        <li><a href="#12-友元成员函数">1.2 友元成员函数</a></li>
+        <li><a href="#13-其他友元关系">1.3 其他友元关系</a></li>
+        <li><a href="#14-共同的友元">1.4 共同的友元</a></li>
       </ul>
     </li>
-    <li><a href="#嵌套类">嵌套类</a>
+    <li><a href="#2-嵌套类">2 嵌套类</a>
       <ul>
-        <li><a href="#嵌套类和访问权限">嵌套类和访问权限</a></li>
-        <li><a href="#模板中的嵌套">模板中的嵌套</a></li>
+        <li><a href="#21-嵌套类和访问权限">2.1 嵌套类和访问权限</a></li>
+        <li><a href="#22-模板中的嵌套">2.2 模板中的嵌套</a></li>
       </ul>
     </li>
-    <li><a href="#异常">异常</a>
+    <li><a href="#3-异常">3 异常</a>
       <ul>
-        <li><a href="#调用abort">调用abort()</a></li>
-        <li><a href="#返回错误码">返回错误码</a></li>
-        <li><a href="#异常机制">异常机制</a></li>
-        <li><a href="#将对象用作异常类型">将对象用作异常类型</a></li>
-        <li><a href="#异常规范和c11">异常规范和C++11</a></li>
-        <li><a href="#栈解退">栈解退</a></li>
-        <li><a href="#其他异常特性">其他异常特性</a></li>
-        <li><a href="#exception类">exception类</a></li>
-        <li><a href="#异常类和继承">异常、类和继承</a></li>
-        <li><a href="#异常何时会迷失方向">异常何时会迷失方向</a></li>
-        <li><a href="#有关异常的处理事项">有关异常的处理事项</a></li>
+        <li><a href="#31-调用abort">3.1 调用abort()</a></li>
+        <li><a href="#32-返回错误码">3.2 返回错误码</a></li>
+        <li><a href="#33-异常机制">3.3 异常机制</a></li>
+        <li><a href="#34-将对象用作异常类型">3.4 将对象用作异常类型</a></li>
+        <li><a href="#35-异常规范和c11">3.5 异常规范和C++11</a></li>
+        <li><a href="#36-栈解退">3.6 栈解退</a></li>
+        <li><a href="#37-其他异常特性">3.7 其他异常特性</a></li>
+        <li><a href="#38-exception类">3.8 exception类</a></li>
+        <li><a href="#39-异常类和继承">3.9 异常、类和继承</a></li>
+        <li><a href="#310-异常何时会迷失方向">3.10 异常何时会迷失方向</a></li>
+        <li><a href="#311-有关异常的处理事项">3.11 有关异常的处理事项</a></li>
       </ul>
     </li>
-    <li><a href="#rtti">RTTI</a>
+    <li><a href="#4-rtti">4 RTTI</a>
       <ul>
-        <li><a href="#rtti的用途">RTTI的用途</a></li>
-        <li><a href="#rtti工作原理">RTTI工作原理</a></li>
+        <li><a href="#41-rtti的用途">4.1 RTTI的用途</a></li>
+        <li><a href="#42-rtti工作原理">4.2 RTTI工作原理</a></li>
       </ul>
     </li>
-    <li><a href="#类型转换运算符">类型转换运算符</a>
+    <li><a href="#5-类型转换运算符">5 类型转换运算符</a>
       <ul>
-        <li><a href="#dynamic_cast运算符">dynamic_cast运算符</a></li>
-        <li><a href="#const_cast运算符">const_cast运算符</a></li>
-        <li><a href="#static_cast运算符">static_cast运算符</a></li>
-        <li><a href="#reinterpret_cast运算符">reinterpret_cast运算符</a></li>
+        <li><a href="#51-dynamic_cast运算符">5.1 dynamic_cast运算符</a></li>
+        <li><a href="#52-const_cast运算符">5.2 const_cast运算符</a></li>
+        <li><a href="#53-static_cast运算符">5.3 static_cast运算符</a></li>
+        <li><a href="#54-reinterpret_cast运算符">5.4 reinterpret_cast运算符</a></li>
       </ul>
     </li>
   </ul>
@@ -249,9 +248,8 @@
         </div>
         
         <div class="post-content">
-            <p>C++ primer plus 第15章友元、异常和其他</p>
-<h3 id="友元">友元</h3>
-<h3 id="友元类">友元类</h3>
+            <h2 id="1-友元">1 友元</h2>
+<h3 id="11-友元类">1.1 友元类</h3>
 <p><strong>友元函数</strong>：不是类的成员函数，但是能够访问类的私有数据成员。</p>
 <p>之前有个矛盾就是规定非成员函数不能直接访问类的私有数据，但是这会儿却可以，但那只是针对常规非成员函数而言，特殊的非成员函数就可以访问类的私有数据——友元函数。</p>
 <p>友元函数就是这么特殊，虽然在类中声明，却不是类的成员函数，这是因为加了前缀friend。</p>
@@ -407,7 +405,7 @@ int main()
     s58.settings();
     return 0;
 }
-</code></pre><h3 id="友元成员函数">友元成员函数</h3>
+</code></pre><h3 id="12-友元成员函数">1.2 友元成员函数</h3>
 <p>我们发现Remote友元类的大多数方法都是用Tv类的公有接口实现。这意味着这些方法并不是真正需要友元。</p>
 <p>事实上唯一直接访问Tv成员的Remote方法是Remote::set_chan()，因此它是唯一需要作为友元的方法。</p>
 <p>确实可以仅让特定的类成员成为另一类的友元。</p>
@@ -512,7 +510,7 @@ inline void Remote::chandown(Tv &amp; t) {t.chandown();}
 inline void Remote::set_mode(Tv &amp; t) {t.set_mode();}
 inline void Remote::set_input(Tv &amp; t) {t.set_input();}
 inline void Remote::set_chan(Tv &amp; t, int c) {t.channel = c;}
-</code></pre><h3 id="其他友元关系">其他友元关系</h3>
+</code></pre><h3 id="13-其他友元关系">1.3 其他友元关系</h3>
 <p>友元和类的关系还可以更复杂。</p>
 <p>举个例子，假设出现了交互式遥控器，交互式遥控器能够让您回答电视节目中的问题，如果回答错误，电视将在控制器上产生嗡嗡声。</p>
 <p>这个例子的问题，可以使用新的友元关系来解决。我把它叫做相互的友情。</p>
@@ -543,7 +541,7 @@ inline void Tv::buzz(Remote &amp; r)
 {
 ...
 }
-</code></pre><h3 id="共同的友元">共同的友元</h3>
+</code></pre><h3 id="14-共同的友元">1.4 共同的友元</h3>
 <p>需要使用友元的另一种情况是，函数需要访问两个类的私有数据。</p>
 <p>从逻辑上看，这样的函数是每个类的成员函数，但是这是不可能的。</p>
 <p>它可以是一个类的成员，同时是另一个类的友元，但有时将函数作为两个类的友元更加合理。</p>
@@ -585,7 +583,7 @@ inline void sync(Probe &amp; p, const Analyzer &amp; a)
 <p>但是你的朋友不是你的家人，是有别于你的家人。所以友元不是类的成员。</p>
 <p>友元可以是函数，类的成员函数，甚至类；</p>
 <p>其实还可以这样理解：把友元看成与类方法一样都是表达类接口的一种方式。</p>
-<h2 id="嵌套类">嵌套类</h2>
+<h2 id="2-嵌套类">2 嵌套类</h2>
 <p>在C++中, 可以将类声明放在另一个类中. 在另一个类中声明的类被称为嵌套类(nested class), 它通过提供新的类型类作用域来避免名称混乱. 包含类的成员函数可以创建和使用被嵌套类的对象; 而仅当声明位于共有部分, 才能在包含类的外面使用嵌套类, 而且必须使用作用域解析运算符。</p>
 <p>对类进行嵌套和包含并不同, 包含意味着将类对象作为另一个类的成员, 而对类进行嵌套不创建类成员, 而是定义了一种类型, 该类型仅在包含嵌套类声明的类中有效.</p>
 <p>我们先看一个之前的一个例子, 自定义实现的简化版的队列:</p>
@@ -632,7 +630,7 @@ private:
 }
 </code></pre><p>这个例子中是在类声明中定义了构造函数, 假设想在方法文件中定义构造函数, 则定义必须指出Node类是在Queue类中定义的, 我们可以通过两次作用域解析运算符来完成:</p>
 <pre><code>Queue::Node::Node(const Item &amp; i): item(i), next(0) {}
-</code></pre><h3 id="嵌套类和访问权限">嵌套类和访问权限</h3>
+</code></pre><h3 id="21-嵌套类和访问权限">2.1 嵌套类和访问权限</h3>
 <p>首先.嵌套类的声明位置决定了嵌套类的作用域, 即它决定了程序的那些部分可以创建这种类的对象.</p>
 <p>其次.嵌套类的共有部分, 保护部分和私有部分控制了对类成员的访问.</p>
 <p>1.作用域
@@ -682,15 +680,15 @@ public:
 <p>2.访问控制
 对嵌套类的访问控制规则与常规类相同. 在Queue类声明中声明Node类并没有赋予Queue类的访问特权, 也没有赋予Node类任何对Queue类的访问特权. 因此Queue类对象只能显示的访问Node对象的公有成员。</p>
 <p>类声明的位置决定了类的作用域或可见性, 类可见后, 访问控制规则(共有, 保护, 私有, 友元)将决定程序对嵌套类成员的访问权限。</p>
-<h3 id="模板中的嵌套">模板中的嵌套</h3>
+<h3 id="22-模板中的嵌套">2.2 模板中的嵌套</h3>
 <p>模板类中同样可以使用嵌套类</p>
-<h2 id="异常">异常</h2>
+<h2 id="3-异常">3 异常</h2>
 <p>异常是相对较新的C++功能，有些老式编译器可能没有实现。另外有些编译器可能默认关闭这一特性，需要使用编译器选项来打开它。</p>
 <p>这里先讨论一个基本问题：</p>
 <pre><code>2.0 * x * y / (x+y)
 </code></pre><p>如果y是x的负值，则上述公式将导致被零除。这是一种不允许的运算。很多新式编译器通过生产一个表示无穷大的特殊浮点值来处理。</p>
 <p>例如Inf,inf,INF等。</p>
-<h3 id="调用abort">调用abort()</h3>
+<h3 id="31-调用abort">3.1 调用abort()</h3>
 <p>对于这种问题，处理方式之一就是，如果其中一个参数是另一个参数的负值，则调用abort()函数。</p>
 <p>Abort()函数的原型位于头文件cstdlib中，其典型实现是向标准错误流发送消息abnormal program termination(程序异常终止)，然后终止程序。</p>
 <p>它还返回一个随实现而异的值，告诉操作系统，实现失败。</p>
@@ -728,7 +726,7 @@ double hmean(double a, double b)
     return 2.0*a*b/(a+b);
 }
 </code></pre><p>为了避免异常终止，程序应在调用hmean()函数之前检查x和y的值。然而，依靠程序员来执行这种检查是不安全的。</p>
-<h3 id="返回错误码">返回错误码</h3>
+<h3 id="32-返回错误码">3.2 返回错误码</h3>
 <p>一种比异常终止更灵活的办法是，使用函数的返回值来指出问题。</p>
 <p>例如，ostream类的get(void)成员通常返回下一个输入字符的ASCII码，但到达文件尾时，将返回EOF。</p>
 <p>对hmean()来说，这种方法不管用。任何数值都是有效的返回值，因此不存在可以指出问题的特殊值。</p>
@@ -777,7 +775,7 @@ bool mean(double a, double b, double * ans)
 <p>第三个参数可以是指针或引用。很多程序员都倾向于使用指针，因为这样可以明显看出是哪个参数用于提供答案。</p>
 <p>另外一种在某个地方存储返回条件的方法是使用一个全局变量。</p>
 <p>可能出现问题的函数可以在出现问题时将该全局变量设置为特定的值，而调用程序可以检查该变量。</p>
-<h3 id="异常机制">异常机制</h3>
+<h3 id="33-异常机制">3.3 异常机制</h3>
 <p>下面介绍如何使用异常机制来处理错误。</p>
 <p>C++异常是对程序运行过程中发生的异常情况的一种响应。异常提供了将控制权从程序的一部分传递到另一部分的途径。</p>
 <p>对异常的处理有3个组成部分：</p>
@@ -845,7 +843,7 @@ double hmean(double a, double b)
 </ol>
 <p>这里可能有个疑问，如果函数引发了异常，而没有try块或者没有匹配的处理程序时，将会发生什么情况。</p>
 <p>在默认情况下，程序最终会调用abort()函数，但可以修改这种行为。</p>
-<h3 id="将对象用作异常类型">将对象用作异常类型</h3>
+<h3 id="34-将对象用作异常类型">3.4 将对象用作异常类型</h3>
 <p>通常，引发异常的函数将传递一个对象。这样做的重要优点之一就是，可以利用不同的异常类型来区分不同的函数在不同的情况下引发的异常。</p>
 <p>对象可以携带信息，程序员可以根据这些信息来确定异常的原因。</p>
 <p>同时，catch块可以根据这些信息来决定采取什么样的措施。</p>
@@ -876,7 +874,7 @@ inline void bad_hmean::mesg()
 <p>添加了一个新的异常类bad_gmean，类bad_gmean中的函数gmean()计算两个数的几何平均值，即乘积的平方根。</p>
 <p>bad_hmean()和bad_gmean()使用的技术不一样，</p>
 <p>bad_gmean()使用的是公有方法和公有数据，该方法返回一个C-风格字符串；</p>
-<h3 id="异常规范和c11">异常规范和C++11</h3>
+<h3 id="35-异常规范和c11">3.5 异常规范和C++11</h3>
 <p>异常规范的理念看似有前途，但实际的使用效果并不好。</p>
 <p>忽视异常规范之前，您至少应该知道它是什么样的，如下所示：</p>
 <pre><code>double harm(double a) throw(bad_thing);  //may throw bad_thing exception
@@ -887,7 +885,7 @@ double harm(double a) throw();    //doesn't throw an exception
 <p>marm()可能不会引发异常，但它可能调用一个函数，而这个函数调用的另一个函数引发了异常。</p>
 <p>另外，您给函数编写代码时它不会引发异常，但库更新后它却会引发异常。</p>
 <p>总之，编程社区达成的意见是不要使用这个功能。</p>
-<h3 id="栈解退">栈解退</h3>
+<h3 id="36-栈解退">3.6 栈解退</h3>
 <p>假设try块没有直接调用引发异常的函数B，而是调用了对引发异常的函数B进行调用的函数A，即A调用了B。</p>
 <p>则程序流程将从引发异常的函数B跳到包含try块和处理程序的函数。这涉及到栈解退。</p>
 <p>首先要了解C++是如何处理函数调用和返回的。C++通常通过将信息放到栈中来处理函数调用。</p>
@@ -906,7 +904,7 @@ double harm(double a) throw();    //doesn't throw an exception
 <p>和函数返回一样，对于栈中的自动类对象，类的析构函数将被调用。</p>
 <p>然而函数返回仅仅处理该函数放在栈中的对象。</p>
 <p>而throw语句则处理try块和throw之间整个函数调用序列放在栈中的对象。</p>
-<h3 id="其他异常特性">其他异常特性</h3>
+<h3 id="37-其他异常特性">3.7 其他异常特性</h3>
 <p>throw-catch机制类似于函数参数和函数返回返回机制，但还是有些不同：</p>
 <ol>
 <li>
@@ -957,7 +955,7 @@ catch(bad_case3 &amp;be)
 {//...}
 catch(...)
 {//statements}
-</code></pre><h3 id="exception类">exception类</h3>
+</code></pre><h3 id="38-exception类">3.8 exception类</h3>
 <p>exception头文件定义了exception类，C++可以把它用作其他异常的基类。代码可以引发exception异常，也可以将exception类作为基类。</p>
 <p>有一个名为what()的虚拟成员函数，它返回一个字符串，该字符串的特征随实现而异。然而，由于这是一个虚方法，因此可以再exception派生类中重新定义它。</p>
 <ol>
@@ -999,7 +997,7 @@ if(pb ==0)
     cout&lt;&lt;&quot;Could not allocate memory. Bye.\n&quot;;
     exit(EXIT_FAILURE);
 }
-</code></pre><h3 id="异常类和继承">异常、类和继承</h3>
+</code></pre><h3 id="39-异常类和继承">3.9 异常、类和继承</h3>
 <p>异常、类和继承以3种方式向关联：</p>
 <ol>
 <li>
@@ -1012,7 +1010,7 @@ if(pb ==0)
 <p>这种嵌套声明本身可以被继承，还可以用作基类。</p>
 </li>
 </ol>
-<h3 id="异常何时会迷失方向">异常何时会迷失方向</h3>
+<h3 id="310-异常何时会迷失方向">3.10 异常何时会迷失方向</h3>
 <p>异常被引发后，在两种情况下会引发问题：</p>
 <p>如果它是在带异常规范的函数中引发的，则必须与规范列表中的某种异常匹配，否则称为意外异常。</p>
 <p>如果异常不是在函数中引发的(或者函数没有异常规范)，则必须捕获它。如果没有捕获，则异常被称为未捕获异常。</p>
@@ -1042,9 +1040,9 @@ catch (bad_exception&amp; e)
 {
 	...
 }
-</code></pre><h3 id="有关异常的处理事项">有关异常的处理事项</h3>
-<h2 id="rtti">RTTI</h2>
-<h3 id="rtti的用途">RTTI的用途</h3>
+</code></pre><h3 id="311-有关异常的处理事项">3.11 有关异常的处理事项</h3>
+<h2 id="4-rtti">4 RTTI</h2>
+<h3 id="41-rtti的用途">4.1 RTTI的用途</h3>
 <p>假如，有一个类层次结构，其中的类都是从同一个基类派生而来的，利用多态性，则基类指针或者引用可以指向任意一个派生类对象。但如何知道指针指向的是哪种对象呢？可能有三种情况：</p>
 <ol>
 <li>
@@ -1058,7 +1056,7 @@ catch (bad_exception&amp; e)
 </li>
 </ol>
 <p>对于后两种情况，RTTI提供解决方案。</p>
-<h3 id="rtti工作原理">RTTI工作原理</h3>
+<h3 id="42-rtti工作原理">4.2 RTTI工作原理</h3>
 <p>C++有3个支持RTTI的元素：</p>
 <ol>
 <li>
@@ -1103,7 +1101,7 @@ catch (bad_cast &amp;)
 </code></pre><p>如果pg是一个空指针，程序将引发bad_typeid异常。该异常类型是从exception类派生而来的，是在头文件typeinfo中声明的。</p>
 <p>type_info类实现随厂商而异，但包含一个name()成员，该函数返回一个随实现而异的字符串：通常(但并非一定)是类名。例如，下面的语句显示指针pg指向的对象所属类定义的字符串：</p>
 <pre><code>cout::typeid(*pg).name()&lt;&lt;&quot;\n&quot;;
-</code></pre><h2 id="类型转换运算符">类型转换运算符</h2>
+</code></pre><h2 id="5-类型转换运算符">5 类型转换运算符</h2>
 <p>四种类型转换运算符，他们的语法相同：</p>
 <ul>
 <li>dynamic_cast，语法：dynamic_cast<!-- raw HTML omitted --> (expression)</li>
@@ -1111,7 +1109,7 @@ catch (bad_cast &amp;)
 <li>static_cast，语法：static_cast<!-- raw HTML omitted --> (expression)</li>
 <li>reinterpret_cast，语法：reinterpret_cast<!-- raw HTML omitted --> (expression)</li>
 </ul>
-<h3 id="dynamic_cast运算符">dynamic_cast运算符</h3>
+<h3 id="51-dynamic_cast运算符">5.1 dynamic_cast运算符</h3>
 <p>dynamic_cast运算符在前面已经介绍过了，假设High和Low是两个类，而ph和pl的类型分别为High *和Low *。</p>
 <p>则仅当Low是High的可访问基类时，下面的语句才将一个Low*指针赋给pl：</p>
 <pre><code>pl = dynamic_cast&lt;Low *&gt; ph;
@@ -1126,7 +1124,7 @@ catch (bad_cast &amp;)
 <p>向上转换，即为子类指针指向父类指针（一般不会出问题）；</p>
 <p>向下转换，即将父类指针转化子类指针。向下转换的成功与否还与将要转换的类型有关，即要转换的指针指向的对象的实际类型与转换以后的对象类型一定要相同，否则转换失败。</p>
 <p>在C++中，编译期的类型转换有可能会在运行时出现错误，特别是涉及到类对象的指针或引用操作时，更容易产生错误。Dynamic_cast操作符则可以在运行期对可能产生问题的类型转换进行测试。</p>
-<h3 id="const_cast运算符">const_cast运算符</h3>
+<h3 id="52-const_cast运算符">5.2 const_cast运算符</h3>
 <p>const运算符用于执行只有一种用途的类型转换。即改变值为const或volatile，其语法与dynamic_cast运算符相同：</p>
 <p>如果类型的其他方面也被修改，则上述类型的转换将出错。</p>
 <p>也就是说除了const和volatile特征可以不同外，type_name和expression的类型必须相同。</p>
@@ -1160,7 +1158,7 @@ int main()
     return 0;
 }
 </code></pre><p>在change()中，指针pt被声明为const int *，因此不能用来修改指向的int。指针pc删除了const特诊，因此可以用来修改指针指向的值，但仅当指向的不是const时才行，因此，pc可用于修改pop1的值，但不能修改pop2的值。</p>
-<h3 id="static_cast运算符">static_cast运算符</h3>
+<h3 id="53-static_cast运算符">5.3 static_cast运算符</h3>
 <p>static_cast运算符仅当type_name可被隐式转换为expression所属的类型或expression可被隐式转换为type_name所属的类型时，上述转换才是合法的，否则将会出错。</p>
 <p>假设High是Low的基类，而Pond是一个无关的类，则从High到Low的转换，从Low到High的转换都是合法的，而从Low到Pond的转换时不允许的。</p>
 <pre><code>High bar;
@@ -1179,9 +1177,10 @@ Pond *pb = static_cast&lt;Pond *&gt;(&amp;blow); //invalid,Pond unrelated
 <li>把任何类型的表达式转换为void类型
 注意：static_cast不能转换掉expression的const、volitale或者__unaligned属性。</li>
 </ul>
-<h3 id="reinterpret_cast运算符">reinterpret_cast运算符</h3>
+<h3 id="54-reinterpret_cast运算符">5.4 reinterpret_cast运算符</h3>
 <p>reinterpret_cast用于天生危险的类型转换,主要有三种强制转换用途：改变指针或引用的类型、将指针或引用转换为一个足够长度的整形、将整型转换为指针或引用类型。</p>
 <p>reinterpret_cast不支持所有类型的转换，如<strong>不能将指针类型转换为更小的整型或浮点型</strong>，<strong>不能将函数指针转换为数据指针</strong>，反之亦然。</p>
+
         </div>
 
         
@@ -1337,14 +1336,6 @@ if (!doNotTrack) {
     </li>
     
     <li>
-        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8EJava%E5%AE%9E%E7%8E%B0/" title="十大经典排序算法总结（基于Java实现）">十大经典排序算法总结（基于Java实现）</a>
-    </li>
-    
-    <li>
-        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC10/" title="【CS61B】LEC10 Subtype Polymorphism vs. HoFs">【CS61B】LEC10 Subtype Polymorphism vs. HoFs</a>
-    </li>
-    
-    <li>
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC9/" title="【CS61B】LEC9 Extends, Casting, Higher Order Functions">【CS61B】LEC9 Extends, Casting, Higher Order Functions</a>
     </li>
     
@@ -1361,6 +1352,10 @@ if (!doNotTrack) {
     </li>
     
     <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8EJava%E5%AE%9E%E7%8E%B0/" title="十大经典排序算法总结（基于Java实现）">十大经典排序算法总结（基于Java实现）</a>
+    </li>
+    
+    <li>
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BProj1A/" title="【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque ">【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque </a>
     </li>
     
@@ -1372,6 +1367,10 @@ if (!doNotTrack) {
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC5/" title="【CS61B】LEC5 DLLists, Arrays ">【CS61B】LEC5 DLLists, Arrays </a>
     </li>
     
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC4/" title="【CS61B】LEC4 SLLists, Nested Classes, Sentinel Nodes ">【CS61B】LEC4 SLLists, Nested Classes, Sentinel Nodes </a>
+    </li>
+    
 </ul>
     </section>
 
@@ -1381,11 +1380,9 @@ if (!doNotTrack) {
         <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="http://jchenTech.github.io/categories/C&#43;&#43;/">C&#43;&#43; (7)</a></li>
+    <li><a href="http://jchenTech.github.io/categories/C&#43;&#43;/">C&#43;&#43; (6)</a></li>
     
     <li><a href="http://jchenTech.github.io/categories/Git/">Git (1)</a></li>
-    
-    <li><a href="http://jchenTech.github.io/categories/Golang/">Golang (3)</a></li>
     
     <li><a href="http://jchenTech.github.io/categories/Java/">Java (1)</a></li>
     
@@ -1397,7 +1394,7 @@ if (!doNotTrack) {
     
     <li><a href="http://jchenTech.github.io/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">图像处理与深度学习 (10)</a></li>
     
-    <li><a href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法 (13)</a></li>
+    <li><a href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法 (12)</a></li>
     
 </ul>
     </section>
@@ -1495,7 +1492,7 @@ if (!doNotTrack) {
         </li>
         
         <li>
-            <a target="_blank" href="http://yuedu.baidu.com/ebook/14a722970740be1e640e9a3e" title="Android Gradle权威指南">Android Gradle权威指南</a>
+            <a target="_blank" href="http://yuedu.baidu.com/ebook/14a722970740be1e640e9a3e" title="我的Github地址">Android Gradle权威指南</a>
         </li>
         
     </ul>

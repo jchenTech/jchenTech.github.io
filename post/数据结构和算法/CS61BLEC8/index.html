@@ -18,7 +18,7 @@
         
     <meta property="article:modified_time" content='2020-08-28T00:00:00&#43;08:00'>
         
-    <meta name="Keywords" content="">
+    <meta name="Keywords" content="Java后端">
     <meta name="description" content="【CS61B】LEC8 Inheritance, Implements">
         
     <meta name="author" content="jchen">
@@ -54,13 +54,13 @@
                         jchen&#39;s blog
                     </a>
                 
-                
+                <p class="description">专注于Java后端、大数据，记录分享自己的学习过程</p>
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
                     <a class="current" href="http://jchenTech.github.io/">首页</a>
                     
-                    <a  href="http://jchenTech.github.io/tools/" title="工具">工具</a>
+                    <a  href="http://jchenTech.github.io/route/" title="路线">路线</a>
                     
                     <a  href="http://jchenTech.github.io/archives/" title="归档">归档</a>
                     
@@ -145,19 +145,15 @@
     <div class="post-toc-content">
         <nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#方法重载-overloading">方法重载 Overloading:</a></li>
-        <li><a href="#使代码通用">使代码通用：</a></li>
-        <li><a href="#接口-interface">接口 Interface:</a></li>
-        <li><a href="#重写-overriding">重写 Overriding：</a></li>
-        <li><a href="#接口继承">接口继承:</a></li>
-        <li><a href="#默认方法-default-methods">默认方法 Default Methods:</a></li>
-        <li><a href="#静态类型与动态类型-static-vs-dynamic-type">静态类型与动态类型 Static vs. Dynamic Type：</a></li>
-        <li><a href="#动态方法选择-dynamic-method-selection">动态方法选择 Dynamic Method Selection：</a></li>
-        <li><a href="#重载和动态方法选择">重载和动态方法选择：</a></li>
-      </ul>
-    </li>
+    <li><a href="#1-方法重载-overloading">1 方法重载 Overloading:</a></li>
+    <li><a href="#2-使代码通用">2 使代码通用：</a></li>
+    <li><a href="#3-接口-interface">3 接口 Interface:</a></li>
+    <li><a href="#4-重写-overriding">4 重写 Overriding：</a></li>
+    <li><a href="#5-接口继承">5 接口继承:</a></li>
+    <li><a href="#6-默认方法-default-methods">6 默认方法 Default Methods:</a></li>
+    <li><a href="#7-静态类型与动态类型-static-vs-dynamic-type">7 静态类型与动态类型 Static vs. Dynamic Type：</a></li>
+    <li><a href="#8-动态方法选择-dynamic-method-selection">8 动态方法选择 Dynamic Method Selection：</a></li>
+    <li><a href="#9-重载和动态方法选择">9 重载和动态方法选择：</a></li>
   </ul>
 </nav>
     </div>
@@ -224,12 +220,12 @@
             <img class="mx-auto" alt="" src="https://raw.githubusercontent.com/jchenTech/images/main/img/20201010170915.png" />
         </a>
     </p>
-<h3 id="方法重载-overloading">方法重载 Overloading:</h3>
+<h2 id="1-方法重载-overloading">1 方法重载 Overloading:</h2>
 <p>在Java中，类方法名字可以相同，但参数不同。例如，<code>Math</code> 类可以具有 <code>add(int a, int b)</code> 方法和 <code>add(float a, float b)</code> 方法。 Java编译器足够智能，可以根据传入的参数选择正确的方法。具有相同名称但不同参数的方法被认为被重载。</p>
-<h3 id="使代码通用">使代码通用：</h3>
+<h2 id="2-使代码通用">2 使代码通用：</h2>
 <p>考虑一个仅使用 <code>AList</code> 作为参数的 <code>largestNumber</code> 方法。缺点是，无论我们采用 <code>AList</code> 还是 <code>SLList</code>，<code>largestNumber</code>的逻辑都是相同的。我们只是对不同类型的列表进行操作。如果我们使用以前的方法覆盖的想法，则会导致Java文件很长，并且包含许多类似的方法。这段代码很难维护。如果我们用一种方法修复错误，则必须手动将此修复方法复制到所有其他方法。</p>
 <p>解决上述问题的方法是定义一个代表 <code>AList</code> 和 <code>SLList</code> 的新引用类型。我们将其称为 <code>List</code>。接下来，我们指定一个“is-a”关系：<code>AList</code>是一个 <code>List</code>。我们对SLList做同样的事情。让我们将其形式化为代码。</p>
-<h3 id="接口-interface">接口 Interface:</h3>
+<h2 id="3-接口-interface">3 接口 Interface:</h2>
 <p>我们使用 <code>interface</code> 关键字而非 <code>class</code> 来创建 <code>List</code>。我们写：</p>
 <pre><code>public interface List&lt;Item&gt; { ... }
 </code></pre><p>关键思想是接口指定此 <code>List</code> 可以执行的操作，而不是如何做。 由于所有Lists都有一个 <code>get</code> 方法，因此我们将以下方法签名添加到接口类中：</p>
@@ -238,18 +234,18 @@
 <p>现在，我们要指定 <code>AList</code> 为一个 <code>List</code> 。 我们将 <code>AList</code> 的类声明更改为：</p>
 <pre><code>public AList&lt;Item&gt; implements List&lt;Item&gt; { ... }
 </code></pre><p>我们可以为 <code>SLList</code> 做同样的事情。 现在，回到我们的 <code>largestNumber</code> 方法，而不是为每种类型的列表创建一个方法，我们可以简单地创建一个以 <code>List</code> 为参数的方法。 只要我们的实际对象实现<code>List</code>接口，该方法就可以正常工作！</p>
-<h3 id="重写-overriding">重写 Overriding：</h3>
+<h2 id="4-重写-overriding">4 重写 Overriding：</h2>
 <p>对于在 <code>List </code>中定义过的 <code>AList</code> 中的每个方法，我们将在方法签名上方添加一个 <code>@Override</code>。 举个例子：</p>
 <pre><code>@Override
 public Item get(int i) { ... }
 </code></pre><p>这不是必需的，但是是好的风格，因此我们将需要它。 此外，它还允许我们检查错别字。 如果我们键入错误的方法名称，则如果具有 <code>@Override</code> 标记，则编译器将阻止我们的编译。</p>
-<h3 id="接口继承">接口继承:</h3>
+<h2 id="5-接口继承">5 接口继承:</h2>
 <p>在形式上，我们说子类从超类继承。 接口包含所有方法签名，每个子类必须实现每个单独的签名。 将其视为合同。 另外，关系可以跨越多代。 例如，C可以从B继承，而B可以从A继承。</p>
-<h3 id="默认方法-default-methods">默认方法 Default Methods:</h3>
+<h2 id="6-默认方法-default-methods">6 默认方法 Default Methods:</h2>
 <p>接口可以具有默认方法。 我们通过以下方式定义：</p>
 <pre><code>default public void method() { ... }
 </code></pre><p>我们实际上可以在接口内实现这些方法。 请注意，没有实例变量可以使用，但是我们可以自由使用接口中定义的方法，而不必担心实现。 默认方法应适用于实现该接口的任何类型的对象！ 子类不必在任何地方重新实现默认方法。 他们可以简单地免费调用它。 但是，我们仍然可以覆盖默认方法，并在子类中重新定义该方法。</p>
-<h3 id="静态类型与动态类型-static-vs-dynamic-type">静态类型与动态类型 Static vs. Dynamic Type：</h3>
+<h2 id="7-静态类型与动态类型-static-vs-dynamic-type">7 静态类型与动态类型 Static vs. Dynamic Type：</h2>
 <p>Java中的每个变量都有一个静态类型。 这是在声明变量时指定的类型，并在编译时进行检查。 每个变量都有一个动态类型。 该类型在实例化变量时指定，并在运行时检查。 举个例子：</p>
 <pre><code>Thing a;
 a = new Fox();
@@ -260,9 +256,9 @@ a = new Fox();
 </code></pre><p>This is fine, because <code>b</code> points to a Fox. Finally, we can do:</p>
 <pre><code>a = new Squid()
 </code></pre><p>This is fine, because the static type of <code>a</code> is a <code>Thing</code>, and <code>Squid</code> is a <code>thing</code>.</p>
-<h3 id="动态方法选择-dynamic-method-selection">动态方法选择 Dynamic Method Selection：</h3>
+<h2 id="8-动态方法选择-dynamic-method-selection">8 动态方法选择 Dynamic Method Selection：</h2>
 <p>规则是，如果我们具有静态类型 <code>X</code> 和动态类型 <code>Y</code>，则如果 <code>Y</code> 重写 <code>X</code> 中的方法，则在运行时，我们将在 <code>Y</code> 中使用该方法。 学生经常混淆重写和重载。</p>
-<h3 id="重载和动态方法选择">重载和动态方法选择：</h3>
+<h2 id="9-重载和动态方法选择">9 重载和动态方法选择：</h2>
 <p>对于重载方法，动态方法选择不起作用。 考虑下面的代码，Fox扩展了Animal。</p>
 <pre><code>1  Fox f = new Fox();
 2  Animal a = f;
@@ -272,11 +268,7 @@ a = new Fox();
 <pre><code>public static void define(Fox f) { ... }
 public static void define(Animal a) { ... }
 </code></pre><p>第3行将执行 <code>define(Fox f)</code>，而第4行将执行 <code>define(Animal a)</code>。 动态方法选择仅在我们重写方法时才适用。 这里没有重写，因此动态方法选择不适用。</p>
-<p>
-        <a data-fancybox="gallery" href="/images/%e3%80%90CS61B%e3%80%91%e8%af%be%e7%a8%8b%e6%80%bb%e7%bb%93%e6%80%9d%e7%bb%b4%e5%af%bc%e5%9b%be/LEC8.png">
-            <img class="mx-auto" alt="" src="/images/%e3%80%90CS61B%e3%80%91%e8%af%be%e7%a8%8b%e6%80%bb%e7%bb%93%e6%80%9d%e7%bb%b4%e5%af%bc%e5%9b%be/LEC8.png" />
-        </a>
-    </p>
+
         </div>
 
         
@@ -436,14 +428,6 @@ if (!doNotTrack) {
     </li>
     
     <li>
-        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8EJava%E5%AE%9E%E7%8E%B0/" title="十大经典排序算法总结（基于Java实现）">十大经典排序算法总结（基于Java实现）</a>
-    </li>
-    
-    <li>
-        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC10/" title="【CS61B】LEC10 Subtype Polymorphism vs. HoFs">【CS61B】LEC10 Subtype Polymorphism vs. HoFs</a>
-    </li>
-    
-    <li>
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC9/" title="【CS61B】LEC9 Extends, Casting, Higher Order Functions">【CS61B】LEC9 Extends, Casting, Higher Order Functions</a>
     </li>
     
@@ -460,6 +444,10 @@ if (!doNotTrack) {
     </li>
     
     <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8EJava%E5%AE%9E%E7%8E%B0/" title="十大经典排序算法总结（基于Java实现）">十大经典排序算法总结（基于Java实现）</a>
+    </li>
+    
+    <li>
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BProj1A/" title="【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque ">【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque </a>
     </li>
     
@@ -471,6 +459,10 @@ if (!doNotTrack) {
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC5/" title="【CS61B】LEC5 DLLists, Arrays ">【CS61B】LEC5 DLLists, Arrays </a>
     </li>
     
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC4/" title="【CS61B】LEC4 SLLists, Nested Classes, Sentinel Nodes ">【CS61B】LEC4 SLLists, Nested Classes, Sentinel Nodes </a>
+    </li>
+    
 </ul>
     </section>
 
@@ -480,11 +472,9 @@ if (!doNotTrack) {
         <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="http://jchenTech.github.io/categories/C&#43;&#43;/">C&#43;&#43; (7)</a></li>
+    <li><a href="http://jchenTech.github.io/categories/C&#43;&#43;/">C&#43;&#43; (6)</a></li>
     
     <li><a href="http://jchenTech.github.io/categories/Git/">Git (1)</a></li>
-    
-    <li><a href="http://jchenTech.github.io/categories/Golang/">Golang (3)</a></li>
     
     <li><a href="http://jchenTech.github.io/categories/Java/">Java (1)</a></li>
     
@@ -496,7 +486,7 @@ if (!doNotTrack) {
     
     <li><a href="http://jchenTech.github.io/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">图像处理与深度学习 (10)</a></li>
     
-    <li><a href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法 (13)</a></li>
+    <li><a href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法 (12)</a></li>
     
 </ul>
     </section>
@@ -594,7 +584,7 @@ if (!doNotTrack) {
         </li>
         
         <li>
-            <a target="_blank" href="http://yuedu.baidu.com/ebook/14a722970740be1e640e9a3e" title="Android Gradle权威指南">Android Gradle权威指南</a>
+            <a target="_blank" href="http://yuedu.baidu.com/ebook/14a722970740be1e640e9a3e" title="我的Github地址">Android Gradle权威指南</a>
         </li>
         
     </ul>

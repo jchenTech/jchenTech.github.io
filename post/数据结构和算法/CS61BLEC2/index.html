@@ -18,7 +18,7 @@
         
     <meta property="article:modified_time" content='2020-08-01T00:00:00&#43;08:00'>
         
-    <meta name="Keywords" content="">
+    <meta name="Keywords" content="Java后端">
     <meta name="description" content="【CS61B】LEC2 Defining and Using Classes ">
         
     <meta name="author" content="jchen">
@@ -54,13 +54,13 @@
                         jchen&#39;s blog
                     </a>
                 
-                
+                <p class="description">专注于Java后端、大数据，记录分享自己的学习过程</p>
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
                     <a class="current" href="http://jchenTech.github.io/">首页</a>
                     
-                    <a  href="http://jchenTech.github.io/tools/" title="工具">工具</a>
+                    <a  href="http://jchenTech.github.io/route/" title="路线">路线</a>
                     
                     <a  href="http://jchenTech.github.io/archives/" title="归档">归档</a>
                     
@@ -145,15 +145,24 @@
     <div class="post-toc-content">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#reading">Reading</a>
+    <li><a href="#1-static-vs-non-static-methods">1 Static vs Non-Static Methods</a>
       <ul>
-        <li><a href="#static-vs-non-static-methods">Static vs Non-Static Methods</a></li>
-        <li><a href="#class-methods-vs-instance-methods-类方法vs实例方法">Class Methods vs. Instance Methods 类方法vs实例方法</a></li>
-        <li><a href="#13-public-static-void-mainstring-args">1.3 public static void main(String[] args)</a></li>
-        <li><a href="#using-libraries使用库">Using Libraries使用库</a></li>
+        <li><a href="#11-static-methods">1.1 Static Methods</a></li>
+        <li><a href="#12-instance-variables-and-object-instantiation-实例变量和对象初始化">1.2 Instance Variables and Object Instantiation 实例变量和对象初始化</a></li>
+        <li><a href="#13-constructors-in-java-java中的构造函数">1.3 Constructors in Java (Java中的构造函数)</a></li>
+        <li><a href="#14-数组实例化对象数组">1.4 数组实例化、对象数组</a></li>
       </ul>
     </li>
-    <li><a href="#overview总结">Overview总结</a></li>
+    <li><a href="#2-class-methods-vs-instance-methods-类方法vs实例方法">2 Class Methods vs. Instance Methods 类方法vs实例方法</a></li>
+    <li><a href="#3-静态变量">3 静态变量</a></li>
+    <li><a href="#4-public-static-void-mainstring-args">4 public static void main(String[] args)</a>
+      <ul>
+        <li><a href="#41-command-line-arguments-命令行参数">4.1 Command Line Arguments 命令行参数</a></li>
+        <li><a href="#42-summing-command-line-arguments">4.2 Summing Command Line Arguments</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-using-libraries使用库">5 Using Libraries使用库</a></li>
+    <li><a href="#6-overview总结">6 Overview总结</a></li>
   </ul>
 </nav>
     </div>
@@ -214,10 +223,8 @@
         </div>
         
         <div class="post-content">
-            <p>Defining and Using Classes</p>
-<h2 id="reading">Reading</h2>
-<h3 id="static-vs-non-static-methods">Static vs Non-Static Methods</h3>
-<h4 id="static-methods">Static Methods</h4>
+            <h2 id="1-static-vs-non-static-methods">1 Static vs Non-Static Methods</h2>
+<h3 id="11-static-methods">1.1 Static Methods</h3>
 <p>Java中的所有代码都必须是类class中的一部分，大多数代码在方法methods中：</p>
 <pre><code>public class Dog {
     public static void makeNoise() {
@@ -237,7 +244,7 @@ Error: Main method not found in class Dog, please define the main method as:
 </code></pre><pre><code>$ java DogLauncher
 Bark!
 </code></pre><p>一个类使用另一个类也叫做这个类的 <code>client</code>客户， 所以 <code>DogLauncher</code> 是 <code>Dog</code> 的client</p>
-<h4 id="instance-variables-and-object-instantiation-实例变量和对象初始化">Instance Variables and Object Instantiation 实例变量和对象初始化</h4>
+<h3 id="12-instance-variables-and-object-instantiation-实例变量和对象初始化">1.2 Instance Variables and Object Instantiation 实例变量和对象初始化</h3>
 <p>狗的叫声不是都是一样的，其中一种方法是为不同类型的Dog创建不同的类。</p>
 <pre><code>public class TinyDog {
     public static void makeNoise() {
@@ -284,7 +291,7 @@ public class MalamuteDog {
 <li>类的变量和方法也称为类的<strong>成员</strong>。</li>
 <li>类的成员使用<strong>点</strong>表示法进行访问。</li>
 </ul>
-<h4 id="constructors-in-java-java中的构造函数">Constructors in Java (Java中的构造函数)</h4>
+<h3 id="13-constructors-in-java-java中的构造函数">1.3 Constructors in Java (Java中的构造函数)</h3>
 <p>我们通常通过<strong>构造函数</strong>在面向对象语言中构造对象</p>
 <pre><code>public class DogLauncher {
     public static void main(String[] args) {
@@ -311,7 +318,7 @@ public class MalamuteDog {
     }
 }
 </code></pre><p>每当我们尝试使用new关键字和单个整数参数创建Dog时，都会调用带有签名 <code>public Dog(int w)</code> 的构造函数。</p>
-<h4 id="数组实例化对象数组">数组实例化、对象数组</h4>
+<h3 id="14-数组实例化对象数组">1.4 数组实例化、对象数组</h3>
 <p>Java中使用 <code>new</code> 来实例化数组：</p>
 <pre><code>public class ArrayDemo {
     public static void main(String[] args) {
@@ -334,7 +341,7 @@ public class MalamuteDog {
     }
 }
 </code></pre><p>在这里，<code>new</code> 既用于创建含两个Dog对象的数组，也创建了单个的Dog</p>
-<h3 id="class-methods-vs-instance-methods-类方法vs实例方法">Class Methods vs. Instance Methods 类方法vs实例方法</h3>
+<h2 id="2-class-methods-vs-instance-methods-类方法vs实例方法">2 Class Methods vs. Instance Methods 类方法vs实例方法</h2>
 <p>Java允许我们定义两种方法：</p>
 <ul>
 <li>类方法，即静态方法</li>
@@ -367,7 +374,7 @@ Dog.maxDog(d, d2);
 Dog d2 = new Dog(100);
 d.maxDog(d2);
 </code></pre><p>这里我们是用的特定的实例化变量进行调用方法。</p>
-<h4 id="静态变量">静态变量</h4>
+<h2 id="3-静态变量">3 静态变量</h2>
 <p>对于类而言，具有静态变量有时会很有用。 这些是类本身而非实例的固有属性。 例如，我们可能会记录到“狗”的学名是“ Canis handsomeis”：</p>
 <pre><code>public class Dog {
     public int weightInPounds;
@@ -375,7 +382,7 @@ d.maxDog(d2);
     ...
 }
 </code></pre><p>我们应该通过类名而不是特定的实例来访问静态变量，即应使用 <code>Dog.binomen</code>, 而不是 <code>d.binomen</code></p>
-<h3 id="13-public-static-void-mainstring-args">1.3 public static void main(String[] args)</h3>
+<h2 id="4-public-static-void-mainstring-args">4 public static void main(String[] args)</h2>
 <p>到目前为止，我们已经了解到了，现在该使我们一直在使用main方法的声明变得神秘了。 分成几部分，我们有：</p>
 <ul>
 <li><code>public</code>：到目前为止，我们所有的方法都以该关键字开头。</li>
@@ -384,7 +391,7 @@ d.maxDog(d2);
 <li><code>main</code>：这是方法的名称。</li>
 <li><code>String [] args</code>：这是传递给main方法的参数。</li>
 </ul>
-<h4 id="command-line-arguments-命令行参数">Command Line Arguments 命令行参数</h4>
+<h3 id="41-command-line-arguments-命令行参数">4.1 Command Line Arguments 命令行参数</h3>
 <pre><code>public class ArgsDemo {
     public static void main(String[] args) {
         System.out.println(args[0]);
@@ -392,10 +399,10 @@ d.maxDog(d2);
 }
 </code></pre><pre><code>$ java ArgsDemo these are command line arguments
 these
-</code></pre><h4 id="132-summing-command-line-arguments">1.3.2 Summing Command Line Arguments</h4>
+</code></pre><h3 id="42-summing-command-line-arguments">4.2 Summing Command Line Arguments</h3>
 <p>Exercise 1.2.3: Try to write a program that sums up the command line arguments, assuming they are numbers. For a solution, see the webcast or the code provided on GitHub.</p>
-<h3 id="using-libraries使用库">Using Libraries使用库</h3>
-<h2 id="overview总结">Overview总结</h2>
+<h2 id="5-using-libraries使用库">5 Using Libraries使用库</h2>
+<h2 id="6-overview总结">6 Overview总结</h2>
 <p><strong>Client程序和Main方法</strong> ：没有main方法的Java程序无法使用java命令运行。 但是，可以使用另一类的main方法来调用一个类的方法。 使用另一个类的Java类称为该类的客户端。</p>
 <p><strong>类声明</strong>：Java类可以包含方法和/或变量。 我们说这样的方法和变量是类的“成员”。 成员可以是实例成员或静态成员。 静态成员用<code>static</code>关键字声明。 实例成员是没有<code>static</code>关键字的任何成员。</p>
 <p><strong>类实例化</strong>：类的实例化几乎总是使用new关键字完成的，例如 <code>Dog d = new Dog()</code>。 Java中类的实例也称为对象。</p>
@@ -417,6 +424,7 @@ these
 </ul>
 <p>使用库：在2017年，您无需从头开始构建所有内容。在我们的课程中，您被允许并强烈鼓励您使用Java的内置库以及我们提供的库，例如普林斯顿标准库。除了Java提供或内置的库以外，您不应使用其他库，因为它可能使某些作业无济于事，而且我们的自动分级机将无法访问这些库，并且您的代码也将无法使用。</p>
 <p>从Internet获得帮助：欢迎您在线寻求帮助。但是，您应始终引用您的消息来源，并且不应就特定的家庭作业问题或项目寻求帮助。例如，使用谷歌搜索“如何转换String Java”或“如何读取文件Java”是可以的，但您不应搜索“ project 2 61b java berkeley”。</p>
+
         </div>
 
         
@@ -576,14 +584,6 @@ if (!doNotTrack) {
     </li>
     
     <li>
-        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8EJava%E5%AE%9E%E7%8E%B0/" title="十大经典排序算法总结（基于Java实现）">十大经典排序算法总结（基于Java实现）</a>
-    </li>
-    
-    <li>
-        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC10/" title="【CS61B】LEC10 Subtype Polymorphism vs. HoFs">【CS61B】LEC10 Subtype Polymorphism vs. HoFs</a>
-    </li>
-    
-    <li>
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC9/" title="【CS61B】LEC9 Extends, Casting, Higher Order Functions">【CS61B】LEC9 Extends, Casting, Higher Order Functions</a>
     </li>
     
@@ -600,6 +600,10 @@ if (!doNotTrack) {
     </li>
     
     <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93%E5%9F%BA%E4%BA%8EJava%E5%AE%9E%E7%8E%B0/" title="十大经典排序算法总结（基于Java实现）">十大经典排序算法总结（基于Java实现）</a>
+    </li>
+    
+    <li>
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BProj1A/" title="【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque ">【CS61B】Proj1A Data Structures -- LinkedListDeque and ArrayDeque </a>
     </li>
     
@@ -611,6 +615,10 @@ if (!doNotTrack) {
         <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC5/" title="【CS61B】LEC5 DLLists, Arrays ">【CS61B】LEC5 DLLists, Arrays </a>
     </li>
     
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC4/" title="【CS61B】LEC4 SLLists, Nested Classes, Sentinel Nodes ">【CS61B】LEC4 SLLists, Nested Classes, Sentinel Nodes </a>
+    </li>
+    
 </ul>
     </section>
 
@@ -620,11 +628,9 @@ if (!doNotTrack) {
         <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="http://jchenTech.github.io/categories/C&#43;&#43;/">C&#43;&#43; (7)</a></li>
+    <li><a href="http://jchenTech.github.io/categories/C&#43;&#43;/">C&#43;&#43; (6)</a></li>
     
     <li><a href="http://jchenTech.github.io/categories/Git/">Git (1)</a></li>
-    
-    <li><a href="http://jchenTech.github.io/categories/Golang/">Golang (3)</a></li>
     
     <li><a href="http://jchenTech.github.io/categories/Java/">Java (1)</a></li>
     
@@ -636,7 +642,7 @@ if (!doNotTrack) {
     
     <li><a href="http://jchenTech.github.io/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">图像处理与深度学习 (10)</a></li>
     
-    <li><a href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法 (13)</a></li>
+    <li><a href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法 (12)</a></li>
     
 </ul>
     </section>
@@ -734,7 +740,7 @@ if (!doNotTrack) {
         </li>
         
         <li>
-            <a target="_blank" href="http://yuedu.baidu.com/ebook/14a722970740be1e640e9a3e" title="Android Gradle权威指南">Android Gradle权威指南</a>
+            <a target="_blank" href="http://yuedu.baidu.com/ebook/14a722970740be1e640e9a3e" title="我的Github地址">Android Gradle权威指南</a>
         </li>
         
     </ul>
