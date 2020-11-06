@@ -6,7 +6,196 @@
     <description>Recent content in Tags on jchen&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 06 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://jchenTech.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 06 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://jchenTech.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>位运算</title>
+      <link>http://jchenTech.github.io/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/</link>
+      <pubDate>Fri, 06 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JDBC</title>
+      <link>http://jchenTech.github.io/tags/JDBC/</link>
+      <pubDate>Wed, 28 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/JDBC/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>IO流</title>
+      <link>http://jchenTech.github.io/tags/IO%E6%B5%81/</link>
+      <pubDate>Tue, 27 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/IO%E6%B5%81/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>二叉树</title>
+      <link>http://jchenTech.github.io/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/</link>
+      <pubDate>Tue, 27 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>反射</title>
+      <link>http://jchenTech.github.io/tags/%E5%8F%8D%E5%B0%84/</link>
+      <pubDate>Tue, 27 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/%E5%8F%8D%E5%B0%84/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>数据结构</title>
+      <link>http://jchenTech.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+      <pubDate>Tue, 27 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JavaWeb</title>
+      <link>http://jchenTech.github.io/tags/JavaWeb/</link>
+      <pubDate>Mon, 26 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/JavaWeb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Servlet</title>
+      <link>http://jchenTech.github.io/tags/Servlet/</link>
+      <pubDate>Mon, 26 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/Servlet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>XML</title>
+      <link>http://jchenTech.github.io/tags/XML/</link>
+      <pubDate>Mon, 26 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/XML/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>多线程</title>
+      <link>http://jchenTech.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</link>
+      <pubDate>Mon, 26 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>网络编程</title>
+      <link>http://jchenTech.github.io/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</link>
+      <pubDate>Mon, 26 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jQuery</title>
+      <link>http://jchenTech.github.io/tags/jQuery/</link>
+      <pubDate>Sun, 25 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/jQuery/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>集合</title>
+      <link>http://jchenTech.github.io/tags/%E9%9B%86%E5%90%88/</link>
+      <pubDate>Sun, 25 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/%E9%9B%86%E5%90%88/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JavaScript</title>
+      <link>http://jchenTech.github.io/tags/JavaScript/</link>
+      <pubDate>Sat, 24 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/JavaScript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>链表</title>
+      <link>http://jchenTech.github.io/tags/%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Sat, 24 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/%E9%93%BE%E8%A1%A8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Array</title>
+      <link>http://jchenTech.github.io/tags/Array/</link>
+      <pubDate>Fri, 23 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/Array/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CSS</title>
+      <link>http://jchenTech.github.io/tags/CSS/</link>
+      <pubDate>Fri, 23 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/CSS/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>http://jchenTech.github.io/tags/Git/</link>
+      <pubDate>Fri, 23 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/Git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Github</title>
+      <link>http://jchenTech.github.io/tags/Github/</link>
+      <pubDate>Fri, 23 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/Github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MySQL</title>
+      <link>http://jchenTech.github.io/tags/MySQL/</link>
+      <pubDate>Fri, 23 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/MySQL/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HTML</title>
+      <link>http://jchenTech.github.io/tags/HTML/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/HTML/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Java</title>
       <link>http://jchenTech.github.io/tags/Java/</link>
@@ -31,33 +220,6 @@
       <pubDate>Tue, 08 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>http://jchenTech.github.io/tags/CS61B/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Git</title>
-      <link>http://jchenTech.github.io/tags/Git/</link>
-      <pubDate>Tue, 08 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://jchenTech.github.io/tags/Git/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Github</title>
-      <link>http://jchenTech.github.io/tags/Github/</link>
-      <pubDate>Tue, 08 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://jchenTech.github.io/tags/Github/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>数据结构</title>
-      <link>http://jchenTech.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
-      <pubDate>Tue, 08 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://jchenTech.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
       <description></description>
     </item>
     

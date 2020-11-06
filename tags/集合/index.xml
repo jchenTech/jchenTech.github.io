@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>集合 on jchen&#39;s blog</title>
+    <link>http://jchenTech.github.io/tags/%E9%9B%86%E5%90%88/</link>
+    <description>Recent content in 集合 on jchen&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 25 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://jchenTech.github.io/tags/%E9%9B%86%E5%90%88/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaSE连载 | Java集合框架</title>
+      <link>http://jchenTech.github.io/post/Java/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/</link>
+      <pubDate>Sun, 25 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/post/Java/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/</guid>
+      <description>1 数组与集合 集合、数组都是对多个数据进行存储操作的结构，简称Java容器。 说明：此时的存储，主要指的是内存层面的存储，不涉及到持久化的存储（.txt,.jpg,.avi，数据库中) 数组存储的特点： 一旦初始化以后，其长度就确定了。 数组一旦定义好，其元素的类型也就确定了。我们也就只能</description>
+    </item>
+    
+  </channel>
+</rss>

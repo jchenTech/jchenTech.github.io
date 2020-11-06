@@ -6,7 +6,61 @@
     <description>Recent content in Java on jchen&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 06 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://jchenTech.github.io/categories/Java/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 06 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://jchenTech.github.io/categories/Java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaSE连载 | Java语言位运算符详解</title>
+      <link>http://jchenTech.github.io/post/Java/Java%E8%AF%AD%E8%A8%80%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6%E8%AF%A6%E8%A7%A3/</link>
+      <pubDate>Fri, 06 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/post/Java/Java%E8%AF%AD%E8%A8%80%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6%E8%AF%A6%E8%A7%A3/</guid>
+      <description>1 位运算符概述 很多编程语言都有位运算符，Java语言也不例外。在Java语言中，提供了7种位运算符，分别是按位与&amp;amp;、按位或|、按位异或^、取反~、左移&amp;lt;&amp;lt;、带符号右移&amp;gt;&amp;gt;和无符号右移&amp;gt;&amp;gt;&amp;gt;。这些运算符当中，仅有~是单目运算符，其他</description>
+    </item>
+    
+    <item>
+      <title>JavaSE连载 | IO流</title>
+      <link>http://jchenTech.github.io/post/Java/IO%E6%B5%81/</link>
+      <pubDate>Tue, 27 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/post/Java/IO%E6%B5%81/</guid>
+      <description>1 File类的使用 1.1 File类的理解 File类的一个对象，代表一个文件或一个文件目录(俗称：文件夹) File类声明在java.io包下 File类中涉及到关于文件或文件目录的创建、删除、重命名、修改时间、文件大小等方法， 并未涉及到写入或读取文件内容的操作。如果需要读取或写入文件内容</description>
+    </item>
+    
+    <item>
+      <title>JavaSE连载 | 反射</title>
+      <link>http://jchenTech.github.io/post/Java/%E5%8F%8D%E5%B0%84/</link>
+      <pubDate>Tue, 27 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/post/Java/%E5%8F%8D%E5%B0%84/</guid>
+      <description>1 反射的概述 1.1 反射主要内容 Java反射机制 理解Class类并获取Class实例 类的加载与ClassLoader的理解 创建运行时类的对象 获取运行时类的完整结构 调用运行时类的指定结构 反射的应用：动态代理 1.2 反射的理解 Reflection(反射)是被视为动态语言的关键，反射机制允许程序在</description>
+    </item>
+    
+    <item>
+      <title>JavaSE连载 | 多线程</title>
+      <link>http://jchenTech.github.io/post/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</link>
+      <pubDate>Mon, 26 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/post/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</guid>
+      <description>1 程序、进程、线程的理解 程序(program) 概念：是为完成特定任务、用某种语言编写的一组指令的集合。即指一段静态的代码。 进程(process) 概念：程序的一次执行过程，或是正在运行的一个程序。 说明：进程作为资源分配的单位，系统在运行时会为每个进程分配不同的内存区域 线程(thre</description>
+    </item>
+    
+    <item>
+      <title>JavaSE连载 | 网络编程</title>
+      <link>http://jchenTech.github.io/post/Java/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</link>
+      <pubDate>Mon, 26 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/post/Java/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</guid>
+      <description>1 InetAddress类的使用 1.1 实现网络通信需要解决的两个问题 如何准确地定位网络上一台或多台主机；定位主机上的特定的应用 找到主机后如何可靠高效地进行数据传输 1.2 网络通信的两个要素 对应问题一：IP和端口号 对应问题二：提供网络通信协议：TCP/IP参考模型（应用层、传输层、网络层、物</description>
+    </item>
+    
+    <item>
+      <title>JavaSE连载 | Java集合框架</title>
+      <link>http://jchenTech.github.io/post/Java/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/</link>
+      <pubDate>Sun, 25 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/post/Java/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/</guid>
+      <description>1 数组与集合 集合、数组都是对多个数据进行存储操作的结构，简称Java容器。 说明：此时的存储，主要指的是内存层面的存储，不涉及到持久化的存储（.txt,.jpg,.avi，数据库中) 数组存储的特点： 一旦初始化以后，其长度就确定了。 数组一旦定义好，其元素的类型也就确定了。我们也就只能</description>
+    </item>
+    
     <item>
       <title>Java常用方法总结</title>
       <link>http://jchenTech.github.io/post/Java/Java%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/</link>

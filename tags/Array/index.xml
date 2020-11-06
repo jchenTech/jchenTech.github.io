@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Array on jchen&#39;s blog</title>
+    <link>http://jchenTech.github.io/tags/Array/</link>
+    <description>Recent content in Array on jchen&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 23 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://jchenTech.github.io/tags/Array/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Leetcode连载 | 数组</title>
+      <link>http://jchenTech.github.io/post/Leetcode/%E6%95%B0%E7%BB%84%E4%B8%8E%E7%9F%A9%E9%98%B5/</link>
+      <pubDate>Fri, 23 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/post/Leetcode/%E6%95%B0%E7%BB%84%E4%B8%8E%E7%9F%A9%E9%98%B5/</guid>
+      <description>移动零 283. 移动零 (Easy) 给定一个数组 `nums`，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。 示例: 输入: [0,1,0,3,12] 输出: [1,3,12,0,0] 说明: 1. 必须在原数组上操作，不能拷贝额外的数组。 2. 尽量减少操作次数。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 class Solution { public void moveZeroes(int[] nums) { if (nums == null) { return; } //使用双指针i</description>
+    </item>
+    
+  </channel>
+</rss>

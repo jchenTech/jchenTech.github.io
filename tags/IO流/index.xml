@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IO流 on jchen&#39;s blog</title>
+    <link>http://jchenTech.github.io/tags/IO%E6%B5%81/</link>
+    <description>Recent content in IO流 on jchen&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 27 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://jchenTech.github.io/tags/IO%E6%B5%81/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaSE连载 | IO流</title>
+      <link>http://jchenTech.github.io/post/Java/IO%E6%B5%81/</link>
+      <pubDate>Tue, 27 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/post/Java/IO%E6%B5%81/</guid>
+      <description>1 File类的使用 1.1 File类的理解 File类的一个对象，代表一个文件或一个文件目录(俗称：文件夹) File类声明在java.io包下 File类中涉及到关于文件或文件目录的创建、删除、重命名、修改时间、文件大小等方法， 并未涉及到写入或读取文件内容的操作。如果需要读取或写入文件内容</description>
+    </item>
+    
+  </channel>
+</rss>

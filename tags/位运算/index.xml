@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>位运算 on jchen&#39;s blog</title>
+    <link>http://jchenTech.github.io/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/</link>
+    <description>Recent content in 位运算 on jchen&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 06 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://jchenTech.github.io/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaSE连载 | Java语言位运算符详解</title>
+      <link>http://jchenTech.github.io/post/Java/Java%E8%AF%AD%E8%A8%80%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6%E8%AF%A6%E8%A7%A3/</link>
+      <pubDate>Fri, 06 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/post/Java/Java%E8%AF%AD%E8%A8%80%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6%E8%AF%A6%E8%A7%A3/</guid>
+      <description>1 位运算符概述 很多编程语言都有位运算符，Java语言也不例外。在Java语言中，提供了7种位运算符，分别是按位与&amp;amp;、按位或|、按位异或^、取反~、左移&amp;lt;&amp;lt;、带符号右移&amp;gt;&amp;gt;和无符号右移&amp;gt;&amp;gt;&amp;gt;。这些运算符当中，仅有~是单目运算符，其他</description>
+    </item>
+    
+  </channel>
+</rss>

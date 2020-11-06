@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CSS on jchen&#39;s blog</title>
+    <link>http://jchenTech.github.io/tags/CSS/</link>
+    <description>Recent content in CSS on jchen&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 23 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://jchenTech.github.io/tags/CSS/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaWeb连载 | CSS技术</title>
+      <link>http://jchenTech.github.io/post/JavaWeb/CSS%E6%8A%80%E6%9C%AF/</link>
+      <pubDate>Fri, 23 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/post/JavaWeb/CSS%E6%8A%80%E6%9C%AF/</guid>
+      <description>1 CSS技术介绍 CSS 是「层叠样式表单」。是用于(增强)控制网页样式并允许将样式信息与网页内容分离的一种标记性语言。 2 CSS语法规则 选择器：浏览器根据“选择器”决定受CSS 样式影响的HTML 元素（标签）。 属性(property) 是你要改变的样式名，并且每个属性都有一个值。属性和值被冒</description>
+    </item>
+    
+  </channel>
+</rss>

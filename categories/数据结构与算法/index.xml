@@ -6,7 +6,16 @@
     <description>Recent content in 数据结构与算法 on jchen&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 08 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>二叉树的遍历java实现</title>
+      <link>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86java%E5%AE%9E%E7%8E%B0/</link>
+      <pubDate>Tue, 27 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86java%E5%AE%9E%E7%8E%B0/</guid>
+      <description>1 二叉树遍历方法 二叉树深度优先遍历（配合leetcode进行练习） 前序遍历： 144. 二叉树的前序遍历 后序遍历： 145. 二叉树的后序遍历 中序遍历： 94. 二叉树的中序遍历 二叉树广度优先遍历 层序遍历：102. 二叉树的层序遍历 2 深度优先遍历 2.1 递归解法 2.1.1 通用框架 1 2 3 4 5 public List&amp;lt;Integer&amp;gt; mlr(TreeNode root){ List&amp;lt;Integer&amp;gt; res=new ArrayList&amp;lt;&amp;gt;(); helper(res,root); return res; } 2.1.2 前序遍历 访</description>
+    </item>
+    
     <item>
       <title>【CS61B】LEC9 Extends, Casting, Higher Order Functions</title>
       <link>http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/CS61BLEC9/</link>
