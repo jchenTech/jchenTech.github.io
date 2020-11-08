@@ -6,7 +6,25 @@
     <description>Recent content in Tags on jchen&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 06 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://jchenTech.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 Nov 2020 21:55:00 +0800</lastBuildDate><atom:link href="http://jchenTech.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>EL表达式</title>
+      <link>http://jchenTech.github.io/tags/EL%E8%A1%A8%E8%BE%BE%E5%BC%8F/</link>
+      <pubDate>Sun, 08 Nov 2020 21:55:00 +0800</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/EL%E8%A1%A8%E8%BE%BE%E5%BC%8F/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Servlet</title>
+      <link>http://jchenTech.github.io/tags/Servlet/</link>
+      <pubDate>Sun, 08 Nov 2020 18:55:00 +0800</pubDate>
+      
+      <guid>http://jchenTech.github.io/tags/Servlet/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>位运算</title>
       <link>http://jchenTech.github.io/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/</link>
@@ -67,15 +85,6 @@
       <pubDate>Mon, 26 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>http://jchenTech.github.io/tags/JavaWeb/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Servlet</title>
-      <link>http://jchenTech.github.io/tags/Servlet/</link>
-      <pubDate>Mon, 26 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://jchenTech.github.io/tags/Servlet/</guid>
       <description></description>
     </item>
     

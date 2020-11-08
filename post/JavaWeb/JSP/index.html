@@ -1,0 +1,1066 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+
+    <title>JavaWeb连载08 | JSP | jchen&#39;s blog</title>
+    <meta property="og:title" content="JavaWeb连载08 | JSP - jchen&#39;s blog">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2020-11-08T18:55:00&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2020-11-08T18:55:00&#43;08:00'>
+        
+    <meta name="Keywords" content="Java后端">
+    <meta name="description" content="JavaWeb连载08 | JSP">
+        
+    <meta name="author" content="jchen">
+    <meta property="og:url" content="http://jchenTech.github.io/post/JavaWeb/JSP/">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+    
+    
+    
+        <link rel="stylesheet" href='/css/douban.css'>
+    
+        <link rel="stylesheet" href='/css/other.css'>
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://jchenTech.github.io/">
+                        jchen&#39;s blog
+                    </a>
+                
+                <p class="description">专注于Java后端、大数据，记录分享自己的学习过程</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="http://jchenTech.github.io/">首页</a>
+                    
+                    <a  href="http://jchenTech.github.io/route/" title="路线">路线</a>
+                    
+                    <a  href="http://jchenTech.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://jchenTech.github.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    <style type="text/css">
+    .post-toc {
+        position: fixed;
+        width: 200px;
+        margin-left: -210px;
+        padding: 5px 10px;
+        font-family: Athelas, STHeiti, Microsoft Yahei, serif;
+        font-size: 12px;
+        border: 1px solid rgba(0, 0, 0, .07);
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.98);
+        background-clip: padding-box;
+        -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        word-wrap: break-word;
+        white-space: nowrap;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        z-index: 999;
+        cursor: pointer;
+        max-height: 70%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+    @media print,
+    screen and (max-width:1057px) {
+        .post-toc {
+            display: none;
+        }
+    }
+</style>
+<div class="post-toc" style="position: absolute; top: 188px;">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-jsp的介绍与创建">1 JSP的介绍与创建</a></li>
+    <li><a href="#2-jsp的本质">2 JSP的本质</a></li>
+    <li><a href="#3-jsp的三种语法">3 JSP的三种语法</a>
+      <ul>
+        <li><a href="#31-jsp头部的page指令">3.1 JSP头部的page指令</a></li>
+        <li><a href="#32-jsp中的常用脚本">3.2 JSP中的常用脚本</a></li>
+        <li><a href="#33-jsp中的三种注释">3.3 JSP中的三种注释</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-jsp中的九大内置对象">4 JSP中的九大内置对象</a></li>
+    <li><a href="#5-jsp四大域对象">5 JSP四大域对象</a></li>
+    <li><a href="#6-out输出与responsegetwriter输出的区别">6 out输出与response.getWriter输出的区别</a></li>
+    <li><a href="#7-jsp常用标签">7 JSP常用标签</a>
+      <ul>
+        <li><a href="#71-静态包含">7.1 静态包含</a></li>
+        <li><a href="#72-动态包含">7.2 动态包含</a></li>
+        <li><a href="#73-jsp标签-转发">7.3 JSP标签-转发</a></li>
+      </ul>
+    </li>
+    <li><a href="#8-listener监听器">8 Listener监听器</a>
+      <ul>
+        <li><a href="#81-监听器介绍">8.1 监听器介绍</a></li>
+        <li><a href="#82-servletcontextlistener监听器">8.2 ServletContextListener监听器</a></li>
+        <li><a href="#83-servlercontextlistener监听器的使用步骤">8.3 ServlerContextListener监听器的使用步骤</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var postToc = $(".post-toc");
+        if (postToc.length) {
+            var leftPos = $("#main").offset().left;
+            if(leftPos<220){
+                postToc.css({"width":leftPos-10,"margin-left":(0-leftPos)})
+            }
+
+            var t = postToc.offset().top - 20,
+                a = {
+                    start: {
+                        position: "absolute",
+                        top: t
+                    },
+                    process: {
+                        position: "fixed",
+                        top: 20
+                    },
+                };
+            $(window).scroll(function () {
+                var e = $(window).scrollTop();
+                e < t ? postToc.css(a.start) : postToc.css(a.process)
+            })
+        }
+    })
+</script>
+    <article class="post">
+        <header>
+            <h1 class="post-title">JavaWeb连载08 | JSP</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年11月8日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='/categories/JavaWeb'>JavaWeb</a></span>
+            
+        </div>
+        
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span>
+                    阅读</span></span>
+        </div>
+        
+        
+        <div class="post-content">
+            <h2 id="1-jsp的介绍与创建">1 JSP的介绍与创建</h2>
+<ol>
+<li>JSP的全称是Java Server Pages，即Java的服务器页面</li>
+<li>JSP的主要作用是代替Servlet程序回传HTML页面的数据</li>
+<li>web目录(或其他)右击 &ndash;&gt; new &ndash;&gt; JSP/JSPX &ndash;&gt; 输入文件名 &ndash;&gt; 选择JSP file创建</li>
+</ol>
+<p>Servlet程序回传HTML页面数据（非常繁琐）：</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">PrintHtml</span> <span style="color:#000;font-weight:bold">extends</span> HttpServlet <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
+    <span style="color:#000;font-weight:bold">protected</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">doGet</span><span style="color:#000;font-weight:bold">(</span>HttpServletRequest req<span style="color:#000;font-weight:bold">,</span> HttpServletResponse resp<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> ServletException<span style="color:#000;font-weight:bold">,</span> IOException <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#998;font-style:italic">//通过响应的回传流回传html页面数据
+</span><span style="color:#998;font-style:italic"></span>        resp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setContentType</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;text/html; charset=UTF-8&#34;</span><span style="color:#000;font-weight:bold">);</span>
+
+        PrintWriter writer <span style="color:#000;font-weight:bold">=</span> resp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getWriter</span><span style="color:#000;font-weight:bold">();</span>
+        writer<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;&lt;!DOCTYPE html&gt;\r\n&#34;</span><span style="color:#000;font-weight:bold">);</span>
+        writer<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;  &lt;html lang=\&#34;en\&#34;&gt;\r\n&#34;</span><span style="color:#000;font-weight:bold">);</span>
+        writer<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;  &lt;head&gt;\r\n&#34;</span><span style="color:#000;font-weight:bold">);</span>
+        writer<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;      &lt;meta charset=\&#34;UTF-8\&#34;&gt;\r\n&#34;</span><span style="color:#000;font-weight:bold">);</span>
+        writer<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;      &lt;title&gt;Title&lt;/title&gt;\r\n&#34;</span><span style="color:#000;font-weight:bold">);</span>
+        writer<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;  &lt;/head&gt;\r\n&#34;</span><span style="color:#000;font-weight:bold">);</span>
+        writer<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34; &lt;body&gt;\r\n&#34;</span><span style="color:#000;font-weight:bold">);</span>
+        writer<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;    这是html页面数据 \r\n&#34;</span><span style="color:#000;font-weight:bold">);</span>
+        writer<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;  &lt;/body&gt;\r\n&#34;</span><span style="color:#000;font-weight:bold">);</span>
+        writer<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;&lt;/html&gt;\r\n&#34;</span><span style="color:#000;font-weight:bold">);</span>
+        writer<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;\r\n&#34;</span><span style="color:#000;font-weight:bold">);</span>
+
+    <span style="color:#000;font-weight:bold">}</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="2-jsp的本质">2 JSP的本质</h2>
+<p>JSP页面本质上是一个Servlet程序，第一次访问JSP页面时(运行Tomcat服务器后在浏览器地址栏输入路径)，Tomcat服务器会将此JSP页面翻译成为一个Java源文件，并对其进行编译成为.class字节码文件(一个.java，一个.class)，当打开.java文件时发现其中的内容是：</p>
+<p>
+        <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201108163241.png">
+            <img class="mx-auto" alt="image-20201108163241183" src="https://gitee.com/jchenTech/images/raw/master/img/20201108163241.png" />
+        </a>
+    </p>
+<p>我们跟踪原代码发现，HttpJspBase类直接继承于HttpServlet类，即JSP翻译出来的Java类间接继承于HttpServlet类，证明JSP页面是一个Servlet程序</p>
+<h2 id="3-jsp的三种语法">3 JSP的三种语法</h2>
+<h3 id="31-jsp头部的page指令">3.1 JSP头部的page指令</h3>
+<pre><code class="language-jsp" data-lang="jsp">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+</code></pre><p>JSP头部的page指令可以修改JSP页面中的一些重要属性或行为
+(以下属性均写在page指令中，默认page指令中没有出现的属性都采用默认值)：</p>
+<ol>
+<li>contentType属性：表示JSP返回的数据类型是什么，即response.setContentType()的参数值</li>
+<li>language属性：表示JSP翻译之后是什么语言文件(目前只支持Java)</li>
+<li>pageEncoding属性：表示当前JSP文件本身的字符集(可在IDEA右下角看到)</li>
+<li>import属性：表示导包(导类)，与Java一致</li>
+<li>autoFlush属性：设置当out输出流缓冲区满了之后是否自动刷新缓冲区，默认值是true</li>
+<li>buffer属性：设置out缓冲区的大小，默认是8kb
+注意：out缓冲区满了之后不能自动刷新的话会报错</li>
+<li>errorPage属性：设置当JSP页面运行出错时自动跳转到的页面(错误信息页面)的路径，这个 路径一般都是以斜杠打头，表示请求的地址是http://ip:port/工程路径/，对应代码web目录</li>
+<li>isErrorPage属性：设置当前JSP页面是否是错误信息页面，默认是false，如果是true可以 获取错误信息</li>
+<li>session属性：设置访问当前JSP页面时是否会创建HttpSession对象，默认值是true</li>
+<li>extends属性：设置JSP页面翻译出来的Java类默认继承谁</li>
+</ol>
+<p>注意：以上默认值除非有特殊需要，否则不建议修改</p>
+<h3 id="32-jsp中的常用脚本">3.2 JSP中的常用脚本</h3>
+<p><strong>声明脚本（极少使用）：</strong></p>
+<p>格式：<code>&lt;%! 声明Java代码 %&gt;</code>
+作用：可以给JSP翻译出来的Java类定义属性、方法、静态代码块、内部类等
+特点：不会在浏览器的页面上显示出来，仅存在于翻译后的Java类中</p>
+<p>代码演示：声明脚本的使用(此JSP文件在web目录下，名为First.jsp)</p>
+<pre><code class="language-jsp" data-lang="jsp">&lt;%--练习：
+    --%&gt;
+
+&lt;%--1、声明类属性--%&gt;
+&lt;%!
+    private Integer id;
+private String name;
+private static Map&lt;String,Object&gt; map;
+%&gt;
+&lt;%--2、声明static静态代码块--%&gt;
+&lt;%!
+    static {
+    map = new HashMap&lt;String,Object&gt;();
+    map.put(&quot;key1&quot;, &quot;value1&quot;);
+    map.put(&quot;key2&quot;, &quot;value2&quot;);
+    map.put(&quot;key3&quot;, &quot;value3&quot;);
+}
+%&gt;
+&lt;%--3、声明类方法--%&gt;
+&lt;%!
+    public int abc(){
+    return 12;
+}
+%&gt;
+&lt;%--4、声明内部类--%&gt;
+&lt;%!
+    public static class A {
+        private Integer id = 12;
+        private String abc = &quot;abc&quot;;
+    }
+%&gt;
+</code></pre><p>翻译后的java源文件：</p>
+<p>
+        <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201108170450.png">
+            <img class="mx-auto" alt="image-20201108170450434" src="https://gitee.com/jchenTech/images/raw/master/img/20201108170450.png" />
+        </a>
+    </p>
+<p><strong>表达式脚本</strong>（常用）：</p>
+<p>格式：<code>&lt;%=表达式 %&gt;</code>
+作用：在浏览器的JSP页面上输出数据(只有此脚本可以在浏览器的页面上输出数据)
+特点：</p>
+<ol>
+<li>所有的表达式脚本都会被翻译到对应的Java类的_<code>jspService()</code>方法中，故表达式脚本可以 直接使用_jspService()方法参数中的对象</li>
+<li>表达式脚本都会被编译后的Java类中的out.print()方法输出到浏览器页面上</li>
+<li>表达式脚本中的表达式不能以分号结束</li>
+</ol>
+<p>代码演示：表达式脚本的使用</p>
+<pre><code class="language-jsp" data-lang="jsp">&lt;%--练习：
+1.输出整型
+2.输出浮点型
+3.输出字符串
+4.输出对象    --%&gt;
+
+&lt;%=12 %&gt; &lt;br&gt;
+&lt;%=12.12 %&gt; &lt;br&gt;
+&lt;%=&quot;我是字符串&quot; %&gt; &lt;br&gt;
+&lt;%=map%&gt; &lt;br&gt;
+&lt;%=request.getParameter(&quot;username&quot;)%&gt;
+</code></pre><p>启动Tomcat服务器后浏览器的运行结果：</p>
+<p>
+        <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201108171045.png">
+            <img class="mx-auto" alt="image-20201108171045374" src="https://gitee.com/jchenTech/images/raw/master/img/20201108171045.png" />
+        </a>
+    </p>
+<p>翻译对照：</p>
+<p>
+        <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201108171337.png">
+            <img class="mx-auto" alt="image-20201108171337796" src="https://gitee.com/jchenTech/images/raw/master/img/20201108171337.png" />
+        </a>
+    </p>
+<p><strong>代码脚本：</strong></p>
+<p>格式：<code>&lt;% Java语句 %&gt;</code>
+作用：在JSP页面中可以编写需要的Java代码
+特点：</p>
+<ol>
+<li>代码脚本翻译后都在jspService方法中，故代码脚本可以直接使用此方法参数中的对象</li>
+<li>可以由多个代码脚本块组合完成一个完整的Java语句</li>
+<li>代码脚本还可以和表达式脚本一起组合使用，在JSP页面上输出数据</li>
+</ol>
+<p>代码演示：代码脚本的使用</p>
+<pre><code class="language-jsp" data-lang="jsp">&lt;%--练习：--%&gt;
+&lt;%--1.代码脚本----if 语句--%&gt;
+&lt;%
+int i = 13 ;
+if (i == 12) {
+    %&gt;
+&lt;h1&gt;国哥好帅&lt;/h1&gt;
+&lt;%
+} else {
+    %&gt;
+&lt;h1&gt;国哥又骗人了！&lt;/h1&gt;
+&lt;%
+}
+%&gt;
+&lt;br&gt;
+&lt;%--2.代码脚本----for 循环语句--%&gt;
+&lt;table border=&quot;1&quot; cellspacing=&quot;0&quot;&gt;
+    &lt;%
+    for (int j = 0; j &lt; 10; j++) {
+        %&gt;
+    &lt;tr&gt;
+        &lt;td&gt;第 &lt;%=j + 1%&gt;行&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;%
+    }
+    %&gt;
+&lt;/table&gt;
+&lt;%--3.翻译后java文件中_jspService方法内的代码都可以写--%&gt;
+&lt;%
+String username = request.getParameter(&quot;username&quot;);
+System.out.println(&quot;用户名的请求参数值是：&quot; + username);
+%&gt;
+</code></pre><p>翻译对照：</p>
+<p>
+        <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201108171711.png">
+            <img class="mx-auto" alt="image-20201108171711007" src="https://gitee.com/jchenTech/images/raw/master/img/20201108171711.png" />
+        </a>
+    </p>
+<h3 id="33-jsp中的三种注释">3.3 JSP中的三种注释</h3>
+<ol>
+<li>HTML注释：<code>&lt;!--HTML注释--&gt;</code>
+HTML注释会被翻译到JSP文件对应的Java类的_jspService方法中，以out.write()输出到客户端，write方法会自动识别标签，执行标签对应的功能，不会在浏览器的页面上输出注释</li>
+<li>Java注释：<code>(1) //单行注释 (2) /*多行注释*/</code>
+Java注释要写在声明脚本和代码脚本中才被认为是Java注释，会被翻译到JSP文件对应的Java类的jspService方法中，在对应的Java类中也是注释</li>
+<li>JSP注释：<code>&lt;%- -这是JSP注释- -%&gt;</code>
+JSP注释中的内容不会在JSP文件翻译后的Java类中出现，即注释中的内容没有任何功能</li>
+</ol>
+<h2 id="4-jsp中的九大内置对象">4 JSP中的九大内置对象</h2>
+<p>
+        <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201108182619.png">
+            <img class="mx-auto" alt="image-20201108182619637" src="https://gitee.com/jchenTech/images/raw/master/img/20201108182619.png" />
+        </a>
+    </p>
+<ol>
+<li>request：请求对象</li>
+<li>response：响应对象</li>
+<li>pageContext：JSP的上下文对象</li>
+<li>session：会话对象</li>
+<li>application：ServletContext对象</li>
+<li>config：ServletConfig对象</li>
+<li>out：JSP输出流对象</li>
+<li>page：指向当前JSP的对象</li>
+<li>exception：异常对象</li>
+</ol>
+<h2 id="5-jsp四大域对象">5 JSP四大域对象</h2>
+<table>
+<thead>
+<tr>
+<th>域对象</th>
+<th>对应的类</th>
+<th>作用范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pageContext</td>
+<td>PageContextImpl</td>
+<td>当前jsp页面范围内有效</td>
+</tr>
+<tr>
+<td>request</td>
+<td>HttpServletRequest</td>
+<td>一次请求内有效</td>
+</tr>
+<tr>
+<td>session</td>
+<td>HttpSession</td>
+<td>一个会话范围内有效（打开浏览器访问服务器，直到关闭浏览器）</td>
+</tr>
+<tr>
+<td>application</td>
+<td>ServletContext</td>
+<td>整个web 工程范围内都有效（只要web 工程不停止，数据都在）</td>
+</tr>
+</tbody>
+</table>
+<p>域对象是指可以像Map一样存取数据的对象，四个域对象功能一样，只是对数据的存取范围不同。</p>
+<p>注意：若四个域对象在使用时范围都可满足要求，则使用的优先顺序是(范围从小到大)：
+pageContext &ndash;&gt; request &ndash;&gt; session &ndash;&gt; application</p>
+<p>代码演示1：四个域对象存取数据的范围的不同(在web目录下创建scope.jsp)</p>
+<pre><code class="language-jsp" data-lang="jsp">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;scope.jsp页面&lt;/h1&gt;
+    &lt;%
+        // 往四个域中都分别保存了数据
+        pageContext.setAttribute(&quot;key&quot;, &quot;pageContext&quot;);
+        request.setAttribute(&quot;key&quot;, &quot;request&quot;);
+        session.setAttribute(&quot;key&quot;, &quot;session&quot;);
+        application.setAttribute(&quot;key&quot;, &quot;application&quot;);
+    %&gt;
+    pageContext域是否有值：&lt;%=pageContext.getAttribute(&quot;key&quot;)%&gt; &lt;br&gt;
+    request域是否有值：&lt;%=request.getAttribute(&quot;key&quot;)%&gt; &lt;br&gt;
+    session域是否有值：&lt;%=session.getAttribute(&quot;key&quot;)%&gt; &lt;br&gt;
+    application域是否有值：&lt;%=application.getAttribute(&quot;key&quot;)%&gt; &lt;br&gt;
+    &lt;%
+        request.getRequestDispatcher(&quot;/scope2.jsp&quot;).forward(request,response);
+    %&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre><p>代码演示2：在web目录下创建scope2.jsp</p>
+<pre><code class="language-jsp" data-lang="jsp">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;scope2.jsp页面&lt;/h1&gt;
+    pageContext域是否有值：&lt;%=pageContext.getAttribute(&quot;key&quot;)%&gt; &lt;br&gt;
+    request域是否有值：&lt;%=request.getAttribute(&quot;key&quot;)%&gt; &lt;br&gt;
+    session域是否有值：&lt;%=session.getAttribute(&quot;key&quot;)%&gt; &lt;br&gt;
+    application域是否有值：&lt;%=application.getAttribute(&quot;key&quot;)%&gt; &lt;br&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre><h2 id="6-out输出与responsegetwriter输出的区别">6 out输出与response.getWriter输出的区别</h2>
+<ol>
+<li>相同点：response表示响应，用于给客户端(浏览器)返回内容
+out同样也是用于给客户端(浏览器)输出内容</li>
+<li>不同点：
+
+        <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201108191223">
+            <img class="mx-auto" alt="img" src="https://gitee.com/jchenTech/images/raw/master/img/20201108191223" />
+        </a>
+    </li>
+<li>注意：由于官方的代码中翻译后的Java代码底层都是使用out进行输出，故一般都使用out进行 输出，out又分为<code>write</code>方法和<code>print</code>方法：
+<ol>
+<li><code>out.print()</code>：会将任何内容转换成字符串后调用write方法输出</li>
+<li><code>out.write()</code>：输出字符串没有问题，但输出int型时会将int转换成char输出，导致输出的并非是想要的数字而是数字对应的ASCII码
+结论：JSP页面的代码脚本中任何要输出在浏览器的内容均使用out.print()方法</li>
+</ol>
+</li>
+</ol>
+<h2 id="7-jsp常用标签">7 JSP常用标签</h2>
+<h3 id="71-静态包含">7.1 静态包含</h3>
+<ol>
+<li>使用场景：</li>
+</ol>
+<p>
+        <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201108193317">
+            <img class="mx-auto" alt="在这里插入图片描述" src="https://gitee.com/jchenTech/images/raw/master/img/20201108193317" />
+        </a>
+    </p>
+<ol start="2">
+<li>使用方法：<code>&lt;%@include file=&quot;&quot;%&gt;</code>
+其中file属性设置要包含的JSP页面，以/打头，代表http://ip:port/工程路径/，对应web目录</li>
+</ol>
+<pre><code class="language-jsp" data-lang="jsp">&lt;%@ include file=&quot;/include/footer.jsp&quot;%&gt;
+</code></pre><ol start="3">
+<li>静态包含的特点：
+<ul>
+<li>静态包含不会将被包含的JSP页面翻译成.java.class文件</li>
+<li>静态包含是把被包含的页面的代码拷贝到body.jsp对应的Java文件的对应位置执行输出</li>
+</ul>
+</li>
+</ol>
+<h3 id="72-动态包含">7.2 动态包含</h3>
+<ol>
+<li>
+<p>使用方法：
+&lt;jsp:include page=””&gt;&lt;/jsp:include&gt;
+其中page属性设置要包含的JSP页面，与静态包含一致</p>
+</li>
+<li>
+<p>动态包含的特点：</p>
+<ul>
+<li>动态包含将被包含的JSP页面翻译成.java.class文件</li>
+<li>动态包含还可以传递参数</li>
+<li>动态包含底层使用如下代码调用被包含的JSP页面执行输出：
+<code>org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, &quot;/foot.jsp&quot;, out, false);</code></li>
+</ul>
+</li>
+</ol>
+<pre><code class="language-jsp" data-lang="jsp">&lt;jsp:include page=&quot;/include/footer.jsp&quot;&gt;
+    &lt;jsp:param name=&quot;username&quot; value=&quot;bbj&quot;/&gt;
+    &lt;jsp:param name=&quot;password&quot; value=&quot;root&quot;/&gt;
+&lt;/jsp:include&gt;
+</code></pre><ol start="3">
+<li>
+<p>动态包含底层原理：</p>
+<p>
+        <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201108194142">
+            <img class="mx-auto" alt="在这里插入图片描述" src="https://gitee.com/jchenTech/images/raw/master/img/20201108194142" />
+        </a>
+    </p>
+</li>
+</ol>
+<h3 id="73-jsp标签-转发">7.3 JSP标签-转发</h3>
+<p><code>&lt;jsp:forward page=&quot;&quot;&gt;&lt;/jsp:forward</code>&gt; 是请求转发标签，它的功能就是请求转发
+page 属性设置请求转发的路径</p>
+<p>示例说明：</p>
+<pre><code class="language-jsp" data-lang="jsp">&lt;jsp:forward page=&quot;/scope2.jsp&quot;&gt;&lt;/jsp:forward&gt;
+&lt;jsp:forward page=&quot;/scope2.jsp&quot;&gt;&lt;/jsp:forward&gt;
+</code></pre><h2 id="8-listener监听器">8 Listener监听器</h2>
+<h3 id="81-监听器介绍">8.1 监听器介绍</h3>
+<ol>
+<li>Listener监听器是JavaWeb的三大组件之一</li>
+<li>Listener监听器是JavaEE的规范(接口)</li>
+<li>Listener监听器的作用是监听某件事物的变化，然后通过回调函数反馈给程序做一些处理</li>
+</ol>
+<h3 id="82-servletcontextlistener监听器">8.2 ServletContextListener监听器</h3>
+<p><code>ServletContextListener</code>监听器可以监听<code>ServletContext</code>对象的创建和销毁(web工程启动时创建，停止时销毁)，监听到创建和销毁之后都会调用<code>ServletContextListener</code>监听器的方法进行反馈：</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">interface</span> <span style="color:#458;font-weight:bold">ServletContextListener</span> <span style="color:#000;font-weight:bold">extends</span> EventListener <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#998;font-style:italic">//在ServletContext对象创建之后调用
+</span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">contextInitialized</span><span style="color:#000;font-weight:bold">(</span>ServletContextEvent sce<span style="color:#000;font-weight:bold">);</span>
+    <span style="color:#998;font-style:italic">//在ServletContext对象销毁之后调用
+</span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">contextDestroyed</span><span style="color:#000;font-weight:bold">(</span>ServletContextEvent sce<span style="color:#000;font-weight:bold">);</span>
+<span style="color:#000;font-weight:bold">}</span>	
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="83-servlercontextlistener监听器的使用步骤">8.3 ServlerContextListener监听器的使用步骤</h3>
+<ol>
+<li>编写一个类实现ServletContextListener接口</li>
+<li>重写两个方法</li>
+<li>在web.xml文件中配置监听器</li>
+</ol>
+<p>代码演示1：创建一个类</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">MyServletContextListenerImpl</span> <span style="color:#000;font-weight:bold">implements</span> ServletContextListener <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
+    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">contextInitialized</span><span style="color:#000;font-weight:bold">(</span>ServletContextEvent sce<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;ServletContext对象被创建了&#34;</span><span style="color:#000;font-weight:bold">);</span>
+    <span style="color:#000;font-weight:bold">}</span>
+    
+    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
+    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">contextDestroyed</span><span style="color:#000;font-weight:bold">(</span>ServletContextEvent sce<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;ServletContext对象被销毁了&#34;</span><span style="color:#000;font-weight:bold">);</span>
+    <span style="color:#000;font-weight:bold">}</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>代码演示2：在web.xml中配置</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#000080">&lt;listener&gt;</span>
+    <span style="color:#000080">&lt;listener-class&gt;</span>com.atguigu.listener.MyServletContextListenerImpl<span style="color:#000080">&lt;/listener-class&gt;</span>
+<span style="color:#000080">&lt;/listener&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>运行结果：
+Tomcat服务器启动之后控制台输出ServletContext对象创建
+Tomcat服务器停止之后控制台输出ServletContext对象销毁</p>
+
+        </div>
+
+        
+<div class="post-archive">
+    <ul class="post-copyright">
+        <li><strong>原文作者：</strong><a rel="author" href="http://jchenTech.github.io/">jchen</a></li>
+        <li style="word-break:break-all"><strong>原文链接：</strong><a href="http://jchenTech.github.io/post/JavaWeb/JSP/">http://jchenTech.github.io/post/JavaWeb/JSP/</a></li>
+        <li><strong>版权声明：</strong>本作品采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可，非商业转载请注明出处（作者，原文链接），商业转载请联系作者获得授权。</li>
+    </ul>
+</div>
+<br/>
+
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/JavaWeb/Servlet/">JavaWeb连载07 | Servlet</a></li>
+        
+        <li><a href="/post/Java/Java%E8%AF%AD%E8%A8%80%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6%E8%AF%A6%E8%A7%A3/">JavaSE连载 | Java语言位运算符详解</a></li>
+        
+        <li><a href="/route/">Java后端学习路线</a></li>
+        
+        <li><a href="/about/">关于我</a></li>
+        
+        <li><a href="/post/DataBase/JDBC%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF/">JDBC核心技术</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='/tags/Servlet'>Servlet</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "your github repo"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2020 <a href="http://jchenTech.github.io/">jchen&#39;s blog By jchen</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'GA ID', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+    <script src='/js/douban.js'></script>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='http://jchenTech.github.io/search/' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://jchenTech.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/JavaWeb/EL%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="JavaWeb连载09 | EL表达式">JavaWeb连载09 | EL表达式</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/JavaWeb/JSP/" title="JavaWeb连载08 | JSP">JavaWeb连载08 | JSP</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/Java/Java%E8%AF%AD%E8%A8%80%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6%E8%AF%A6%E8%A7%A3/" title="JavaSE连载 | Java语言位运算符详解">JavaSE连载 | Java语言位运算符详解</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/DataBase/JDBC%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF/" title="JDBC核心技术">JDBC核心技术</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/Java/IO%E6%B5%81/" title="JavaSE连载 | IO流">JavaSE连载 | IO流</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/Java/%E5%8F%8D%E5%B0%84/" title="JavaSE连载 | 反射">JavaSE连载 | 反射</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86java%E5%AE%9E%E7%8E%B0/" title="二叉树的遍历java实现">二叉树的遍历java实现</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" title="JavaSE连载 | 多线程">JavaSE连载 | 多线程</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/Java/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" title="JavaSE连载 | 网络编程">JavaSE连载 | 网络编程</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/JavaWeb/XML/" title="JavaWeb连载05 | XML">JavaWeb连载05 | XML</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="http://jchenTech.github.io/categories/C&#43;&#43;/">C&#43;&#43; (6)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/DataBase/">DataBase (2)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/Git/">Git (2)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/Java/">Java (7)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/JavaWeb/">JavaWeb (9)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/Leetcode/">Leetcode (2)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/Linux/">Linux (2)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/Python/">Python (1)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/%E5%8D%9A%E5%AE%A2/">博客 (8)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">图像处理与深度学习 (10)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法 (13)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="http://jchenTech.github.io/tags/AOD-Net/">AOD-Net</a>
+    
+    <a href="http://jchenTech.github.io/tags/Array/">Array</a>
+    
+    <a href="http://jchenTech.github.io/tags/C&#43;&#43;/">C&#43;&#43;</a>
+    
+    <a href="http://jchenTech.github.io/tags/CS61B/">CS61B</a>
+    
+    <a href="http://jchenTech.github.io/tags/CSS/">CSS</a>
+    
+    <a href="http://jchenTech.github.io/tags/DehazeNet/">DehazeNet</a>
+    
+    <a href="http://jchenTech.github.io/tags/EL%E8%A1%A8%E8%BE%BE%E5%BC%8F/">EL表达式</a>
+    
+    <a href="http://jchenTech.github.io/tags/Fast-R-CNN/">Fast R-CNN</a>
+    
+    <a href="http://jchenTech.github.io/tags/Faster-R-CNN/">Faster R-CNN</a>
+    
+    <a href="http://jchenTech.github.io/tags/Git/">Git</a>
+    
+    <a href="http://jchenTech.github.io/tags/Github/">Github</a>
+    
+    <a href="http://jchenTech.github.io/tags/HTML/">HTML</a>
+    
+    <a href="http://jchenTech.github.io/tags/Hugo/">Hugo</a>
+    
+    <a href="http://jchenTech.github.io/tags/IO%E6%B5%81/">IO流</a>
+    
+    <a href="http://jchenTech.github.io/tags/JDBC/">JDBC</a>
+    
+    <a href="http://jchenTech.github.io/tags/Java/">Java</a>
+    
+    <a href="http://jchenTech.github.io/tags/JavaScript/">JavaScript</a>
+    
+    <a href="http://jchenTech.github.io/tags/JavaWeb/">JavaWeb</a>
+    
+    <a href="http://jchenTech.github.io/tags/Linux/">Linux</a>
+    
+    <a href="http://jchenTech.github.io/tags/MRP%E5%A4%9C%E9%97%B4%E5%8E%BB%E9%9B%BE/">MRP夜间去雾</a>
+    
+    <a href="http://jchenTech.github.io/tags/MSCNN%E5%8E%BB%E9%9B%BE/">MSCNN去雾</a>
+    
+    <a href="http://jchenTech.github.io/tags/Matplotlib/">Matplotlib</a>
+    
+    <a href="http://jchenTech.github.io/tags/MySQL/">MySQL</a>
+    
+    <a href="http://jchenTech.github.io/tags/Python/">Python</a>
+    
+    <a href="http://jchenTech.github.io/tags/R-CNN/">R-CNN</a>
+    
+    <a href="http://jchenTech.github.io/tags/RNN/">RNN</a>
+    
+    <a href="http://jchenTech.github.io/tags/SSD/">SSD</a>
+    
+    <a href="http://jchenTech.github.io/tags/SSPNet/">SSPNet</a>
+    
+    <a href="http://jchenTech.github.io/tags/Servlet/">Servlet</a>
+    
+    <a href="http://jchenTech.github.io/tags/Ubuntu/">Ubuntu</a>
+    
+    <a href="http://jchenTech.github.io/tags/XML/">XML</a>
+    
+    <a href="http://jchenTech.github.io/tags/YOLO/">YOLO</a>
+    
+    <a href="http://jchenTech.github.io/tags/github-page/">github page</a>
+    
+    <a href="http://jchenTech.github.io/tags/golang/">golang</a>
+    
+    <a href="http://jchenTech.github.io/tags/Hugo/">Hugo</a>
+    
+    <a href="http://jchenTech.github.io/tags/jQuery/">jQuery</a>
+    
+    <a href="http://jchenTech.github.io/tags/markdown/">markdown</a>
+    
+    <a href="http://jchenTech.github.io/tags/programming/">programming</a>
+    
+    <a href="http://jchenTech.github.io/tags/theme/">theme</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">二叉树</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/">位运算</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">卷积神经网络</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%8F%8D%E5%B0%84/">反射</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%9B%BE%E5%83%8F%E5%8E%BB%E9%9B%BE/">图像去雾</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5/">图片插入</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%A4%8D%E6%9D%82%E7%BD%91%E7%BB%9C/">复杂网络</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">常用方法</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%BD%92%E6%A1%A3%E9%A1%B5%E9%9D%A2/">归档页面</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">循环神经网络</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">排序算法</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E6%9A%97%E9%80%9A%E9%81%93/">暗通道</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E7%A4%BE%E4%BA%A4%E7%BD%91%E7%BB%9C%E6%8C%96%E6%8E%98/">社交网络挖掘</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">网络编程</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E9%93%BE%E8%A1%A8/">链表</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E9%9B%86%E5%90%88/">集合</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://www.flysnow.org/" title="飞雪无情的博客">飞雪无情的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://yuedu.baidu.com/ebook/14a722970740be1e640e9a3e" title="我的Github地址">Android Gradle权威指南</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="http://jchenTech.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

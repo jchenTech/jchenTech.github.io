@@ -6,7 +6,16 @@
     <description>Recent content in Categories on jchen&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 06 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://jchenTech.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 Nov 2020 21:55:00 +0800</lastBuildDate><atom:link href="http://jchenTech.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaWeb</title>
+      <link>http://jchenTech.github.io/categories/JavaWeb/</link>
+      <pubDate>Sun, 08 Nov 2020 21:55:00 +0800</pubDate>
+      
+      <guid>http://jchenTech.github.io/categories/JavaWeb/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Java</title>
       <link>http://jchenTech.github.io/categories/Java/</link>
@@ -31,15 +40,6 @@
       <pubDate>Tue, 27 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>JavaWeb</title>
-      <link>http://jchenTech.github.io/categories/JavaWeb/</link>
-      <pubDate>Mon, 26 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://jchenTech.github.io/categories/JavaWeb/</guid>
       <description></description>
     </item>
     
