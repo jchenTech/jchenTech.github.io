@@ -6,7 +6,25 @@
     <description>Recent content on jchen&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 08 Nov 2020 21:55:00 +0800</lastBuildDate><atom:link href="http://jchenTech.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 10 Nov 2020 20:55:00 +0800</lastBuildDate><atom:link href="http://jchenTech.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaWeb连载10 | Filter过滤器</title>
+      <link>http://jchenTech.github.io/post/JavaWeb/Filter%E8%BF%87%E6%BB%A4%E5%99%A8/</link>
+      <pubDate>Tue, 10 Nov 2020 20:55:00 +0800</pubDate>
+      
+      <guid>http://jchenTech.github.io/post/JavaWeb/Filter%E8%BF%87%E6%BB%A4%E5%99%A8/</guid>
+      <description>1 什么是Filter过滤器 Filter 过滤器它是 JavaWeb 的三大组件之一。三大组件分别是：Servlet 程序、Listener 监听器、Filter 过滤器 Filter 过滤器它是 JavaEE 的规范。也就是接口 Filter 过滤器它的作用是： 拦截请求，过滤响应。 拦截请求常见的应用场景有： 权限检查 日记操作 事务管理 ……等等 2 Filter初</description>
+    </item>
+    
+    <item>
+      <title>JavaWeb连载10 | Cookie和Session</title>
+      <link>http://jchenTech.github.io/post/JavaWeb/Cookie%E5%92%8CSession/</link>
+      <pubDate>Tue, 10 Nov 2020 18:55:00 +0800</pubDate>
+      
+      <guid>http://jchenTech.github.io/post/JavaWeb/Cookie%E5%92%8CSession/</guid>
+      <description>1 会话技术 会话：一次会话中包含多次请求和响应 注：一次会话表示浏览器第一次给服务器发送请求，会话建立，直到有一方断开为止 功能：在一次会话的多次请求间共享数据 方式： (1) 客户端会话技术：Cookie (2) 服务器端会话技术：Session 2 Cookie会话 2.1 什么是Cookie Cookie 翻译过来是饼干的</description>
+    </item>
+    
     <item>
       <title>JavaWeb连载09 | EL表达式</title>
       <link>http://jchenTech.github.io/post/JavaWeb/EL%E8%A1%A8%E8%BE%BE%E5%BC%8F/</link>
