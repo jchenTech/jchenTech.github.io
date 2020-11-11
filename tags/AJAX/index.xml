@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AJAX on jchen&#39;s blog</title>
+    <link>http://jchenTech.github.io/tags/AJAX/</link>
+    <description>Recent content in AJAX on jchen&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 11 Nov 2020 14:00:00 +0800</lastBuildDate><atom:link href="http://jchenTech.github.io/tags/AJAX/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaWeb连载12 | JSON和AJAX</title>
+      <link>http://jchenTech.github.io/post/JavaWeb/JSON%E5%92%8CAJAX/</link>
+      <pubDate>Wed, 11 Nov 2020 14:00:00 +0800</pubDate>
+      
+      <guid>http://jchenTech.github.io/post/JavaWeb/JSON%E5%92%8CAJAX/</guid>
+      <description>1 什么是JSON？ JSON (JavaScript Object Notation) 是一种轻量级的数据交换格式。易于人阅读和编写。同时也易于机器解析和生成。JSON采用完全独立于语言的文本格式，而且很多语言都提供了对 json 的支持（包括 C, C++, C#, Java, JavaScript, Perl, Python等）。 这样就使得 JSON 成为理想的数据交换格式。 json 是一种轻量级的数据交换格式。轻量级指的是</description>
+    </item>
+    
+  </channel>
+</rss>
