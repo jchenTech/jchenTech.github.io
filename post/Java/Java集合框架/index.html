@@ -337,46 +337,22 @@
 <ul>
 <li>
 <p>集合 &mdash;&gt;数组：toArray()</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Object<span style="color:#000;font-weight:bold">[]</span> arr <span style="color:#000;font-weight:bold">=</span> coll<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">toArray</span><span style="color:#000;font-weight:bold">();</span>
-<span style="color:#000;font-weight:bold">for</span><span style="color:#000;font-weight:bold">(</span><span style="color:#458;font-weight:bold">int</span> i <span style="color:#000;font-weight:bold">=</span> 0<span style="color:#000;font-weight:bold">;</span> i <span style="color:#000;font-weight:bold">&lt;</span> arr<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">length</span><span style="color:#000;font-weight:bold">;</span> i<span style="color:#000;font-weight:bold">++){</span>
-    System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>arr<span style="color:#000;font-weight:bold">[</span>i<span style="color:#000;font-weight:bold">]);</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div></li>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Object<span style="color:#f92672">[]</span> arr <span style="color:#f92672">=</span> coll<span style="color:#f92672">.</span><span style="color:#a6e22e">toArray</span><span style="color:#f92672">();</span>
+<span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> arr<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span> i<span style="color:#f92672">++){</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>arr<span style="color:#f92672">[</span>i<span style="color:#f92672">]);</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
 <li>
 <p>//拓展：数组 &mdash;&gt;集合:调用Arrays类的静态方法<code>asList(T ... t)</code></p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">List<span style="color:#000;font-weight:bold">&lt;</span>String<span style="color:#000;font-weight:bold">&gt;</span> list <span style="color:#000;font-weight:bold">=</span> Arrays<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">asList</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">new</span> String<span style="color:#000;font-weight:bold">[]{</span><span style="color:#d14">&#34;AA&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;BB&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;CC&#34;</span><span style="color:#000;font-weight:bold">});</span>
-System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>list<span style="color:#000;font-weight:bold">);</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> list <span style="color:#f92672">=</span> Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">asList</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> String<span style="color:#f92672">[]{</span><span style="color:#e6db74">&#34;AA&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;BB&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;CC&#34;</span><span style="color:#f92672">});</span>
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>list<span style="color:#f92672">);</span>
   
-List arr1 <span style="color:#000;font-weight:bold">=</span> Arrays<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">asList</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">new</span> <span style="color:#458;font-weight:bold">int</span><span style="color:#000;font-weight:bold">[]{</span>123<span style="color:#000;font-weight:bold">,</span> 456<span style="color:#000;font-weight:bold">});</span>
-System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>arr1<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">size</span><span style="color:#000;font-weight:bold">());</span><span style="color:#998;font-style:italic">//1
-</span><span style="color:#998;font-style:italic"></span>  
-List arr2 <span style="color:#000;font-weight:bold">=</span> Arrays<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">asList</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">new</span> Integer<span style="color:#000;font-weight:bold">[]{</span>123<span style="color:#000;font-weight:bold">,</span> 456<span style="color:#000;font-weight:bold">});</span>
-System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>arr2<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">size</span><span style="color:#000;font-weight:bold">());</span><span style="color:#998;font-style:italic">//2
-</span></code></pre></td></tr></table>
-</div>
-</div></li>
+List arr1 <span style="color:#f92672">=</span> Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">asList</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]{</span>123<span style="color:#f92672">,</span> 456<span style="color:#f92672">});</span>
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>arr1<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">());</span><span style="color:#75715e">//1
+</span><span style="color:#75715e"></span>  
+List arr2 <span style="color:#f92672">=</span> Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">asList</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Integer<span style="color:#f92672">[]{</span>123<span style="color:#f92672">,</span> 456<span style="color:#f92672">});</span>
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>arr2<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">());</span><span style="color:#75715e">//2
+</span></code></pre></div></li>
 </ul>
 <h3 id="24-collection集合存储对象要求">2.4 Collection集合存储对象要求</h3>
 <p><strong>向Collection接口的实现类的对象中添加数据obj时，要求obj所在类要重写equals().</strong></p>
@@ -407,25 +383,13 @@ Iterator对象称为迭代器(设计模式的一种)，主要用于遍历 Collec
 </li>
 <li>
 <p>遍历的代码实现：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Iterator iterator <span style="color:#000;font-weight:bold">=</span> coll<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">iterator</span><span style="color:#000;font-weight:bold">();</span>
-<span style="color:#998;font-style:italic">//hasNext():判断是否还下一个元素
-</span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">while</span><span style="color:#000;font-weight:bold">(</span>iterator<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">hasNext</span><span style="color:#000;font-weight:bold">()){</span>
-    <span style="color:#998;font-style:italic">//next():①指针下移 ②将下移以后集合位置上的元素返回
-</span><span style="color:#998;font-style:italic"></span>    System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>iterator<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">next</span><span style="color:#000;font-weight:bold">());</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div></li>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Iterator iterator <span style="color:#f92672">=</span> coll<span style="color:#f92672">.</span><span style="color:#a6e22e">iterator</span><span style="color:#f92672">();</span>
+<span style="color:#75715e">//hasNext():判断是否还下一个元素
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>iterator<span style="color:#f92672">.</span><span style="color:#a6e22e">hasNext</span><span style="color:#f92672">()){</span>
+    <span style="color:#75715e">//next():①指针下移 ②将下移以后集合位置上的元素返回
+</span><span style="color:#75715e"></span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>iterator<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">());</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
 <li>
 <p>图示说明：
 
@@ -436,39 +400,20 @@ Iterator对象称为迭代器(设计模式的一种)，主要用于遍历 Collec
 </li>
 <li>
 <p>remove()的使用：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#998;font-style:italic">//测试Iterator中的remove()
-</span><span style="color:#998;font-style:italic">//如果还未调用next()或在上一次调用 next 方法之后已经调用了remove方法，再调用remove都会报IllegalStateException。
-</span><span style="color:#998;font-style:italic">//内部定义了remove(),可以在遍历的时候，删除集合中的元素。此方法不同于集合直接调用remove()
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#3c5d5d;font-weight:bold">@Test</span>
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">test3</span><span style="color:#000;font-weight:bold">(){</span>
-        Collection coll <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> ArrayList<span style="color:#000;font-weight:bold">();</span>
-        coll<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">add</span><span style="color:#000;font-weight:bold">(</span>123<span style="color:#000;font-weight:bold">);</span>
-        coll<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">add</span><span style="color:#000;font-weight:bold">(</span>456<span style="color:#000;font-weight:bold">);</span>
-        coll<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">add</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">new</span> Person<span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Jerry&#34;</span><span style="color:#000;font-weight:bold">,</span>20<span style="color:#000;font-weight:bold">));</span>
-     coll<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">add</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">new</span> String<span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Tom&#34;</span><span style="color:#000;font-weight:bold">));</span>
-        coll<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">add</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">false</span><span style="color:#000;font-weight:bold">);</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">//测试Iterator中的remove()
+</span><span style="color:#75715e">//如果还未调用next()或在上一次调用 next 方法之后已经调用了remove方法，再调用remove都会报IllegalStateException。
+</span><span style="color:#75715e">//内部定义了remove(),可以在遍历的时候，删除集合中的元素。此方法不同于集合直接调用remove()
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test3</span><span style="color:#f92672">(){</span>
+        Collection coll <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">();</span>
+        coll<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>123<span style="color:#f92672">);</span>
+        coll<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>456<span style="color:#f92672">);</span>
+        coll<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Person<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Jerry&#34;</span><span style="color:#f92672">,</span>20<span style="color:#f92672">));</span>
+     coll<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> String<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Tom&#34;</span><span style="color:#f92672">));</span>
+        coll<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">);</span>
    
- <span style="color:#998;font-style:italic">//删除集合中&#34;Tom&#34;
-</span></code></pre></td></tr></table>
-</div>
-</div></li>
+ <span style="color:#75715e">//删除集合中&#34;Tom&#34;
+</span></code></pre></div></li>
 </ol>
 <p>Iterator iterator = coll.iterator();
 while (iterator.hasNext()){</p>
@@ -514,29 +459,15 @@ for(Object obj : coll){
 <ol start="2">
 <li>
 <p>遍历数组举例：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#3c5d5d;font-weight:bold">@Test</span>
-<span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">test2</span><span style="color:#000;font-weight:bold">(){</span>
-    <span style="color:#458;font-weight:bold">int</span><span style="color:#000;font-weight:bold">[]</span> arr <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> <span style="color:#458;font-weight:bold">int</span><span style="color:#000;font-weight:bold">[]{</span>1<span style="color:#000;font-weight:bold">,</span>2<span style="color:#000;font-weight:bold">,</span>3<span style="color:#000;font-weight:bold">,</span>4<span style="color:#000;font-weight:bold">,</span>5<span style="color:#000;font-weight:bold">,</span>6<span style="color:#000;font-weight:bold">};</span>
-    <span style="color:#998;font-style:italic">//for(数组元素的类型 局部变量 : 数组对象)
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">for</span><span style="color:#000;font-weight:bold">(</span><span style="color:#458;font-weight:bold">int</span> i <span style="color:#000;font-weight:bold">:</span> arr<span style="color:#000;font-weight:bold">){</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>i<span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div></li>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Test</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test2</span><span style="color:#f92672">(){</span>
+    <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> arr <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]{</span>1<span style="color:#f92672">,</span>2<span style="color:#f92672">,</span>3<span style="color:#f92672">,</span>4<span style="color:#f92672">,</span>5<span style="color:#f92672">,</span>6<span style="color:#f92672">};</span>
+    <span style="color:#75715e">//for(数组元素的类型 局部变量 : 数组对象)
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">:</span> arr<span style="color:#f92672">){</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>i<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
 </ol>
 <h2 id="4-list接口">4 List接口</h2>
 <h3 id="41-存储的数据特点">4.1 存储的数据特点</h3>
@@ -579,93 +510,44 @@ for(Object obj : coll){
 <ol>
 <li>
 <p>jdk 7情况下</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">ArrayList list <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> ArrayList<span style="color:#000;font-weight:bold">();</span><span style="color:#998;font-style:italic">//底层创建了长度是10的Object[]数组elementData
-</span><span style="color:#998;font-style:italic"></span>   
-list<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">add</span><span style="color:#000;font-weight:bold">(</span>123<span style="color:#000;font-weight:bold">);</span><span style="color:#998;font-style:italic">//elementData[0] = new Integer(123);
-</span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">...</span>
-list<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">add</span><span style="color:#000;font-weight:bold">(</span>11<span style="color:#000;font-weight:bold">);</span><span style="color:#998;font-style:italic">//如果此次的添加导致底层elementData数组容量不够，则扩容。
-</span><span style="color:#998;font-style:italic"></span>   
-<span style="color:#998;font-style:italic">//默认情况下，扩容为原来的容量的1.5倍，同时需要将原有数组中的数据复制到新的数组中。
-</span></code></pre></td></tr></table>
-</div>
-</div><p>结论：建议开发中使用带参的构造器：<code>ArrayList list = new ArrayList(int capacity)</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">ArrayList list <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">();</span><span style="color:#75715e">//底层创建了长度是10的Object[]数组elementData
+</span><span style="color:#75715e"></span>   
+list<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>123<span style="color:#f92672">);</span><span style="color:#75715e">//elementData[0] = new Integer(123);
+</span><span style="color:#75715e"></span><span style="color:#f92672">...</span>
+list<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>11<span style="color:#f92672">);</span><span style="color:#75715e">//如果此次的添加导致底层elementData数组容量不够，则扩容。
+</span><span style="color:#75715e"></span>   
+<span style="color:#75715e">//默认情况下，扩容为原来的容量的1.5倍，同时需要将原有数组中的数据复制到新的数组中。
+</span></code></pre></div><p>结论：建议开发中使用带参的构造器：<code>ArrayList list = new ArrayList(int capacity)</code></p>
 </li>
 <li>
 <p>jdk8中ArrayList的变化：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">ArrayList list <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> ArrayList<span style="color:#000;font-weight:bold">();</span><span style="color:#998;font-style:italic">//底层Object[] elementData初始化为{}.并没创建长度为10的数组
-</span><span style="color:#998;font-style:italic"></span>   
-list<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">add</span><span style="color:#000;font-weight:bold">(</span>123<span style="color:#000;font-weight:bold">);</span><span style="color:#998;font-style:italic">//第一次调用add()时，底层才创建了长度10的数组，并将数据123添加到elementData[0]
-</span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">...</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>后续的添加和扩容操作与jdk 7 无异。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">ArrayList list <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">();</span><span style="color:#75715e">//底层Object[] elementData初始化为{}.并没创建长度为10的数组
+</span><span style="color:#75715e"></span>   
+list<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>123<span style="color:#f92672">);</span><span style="color:#75715e">//第一次调用add()时，底层才创建了长度10的数组，并将数据123添加到elementData[0]
+</span><span style="color:#75715e"></span><span style="color:#f92672">...</span>
+</code></pre></div><p>后续的添加和扩容操作与jdk 7 无异。</p>
 </li>
 <li>
 <p>小结：jdk7中的ArrayList的对象的创建类似于单例的饿汉式，而jdk8中的ArrayList的对象的创建类似于单例的懒汉式，延迟了数组的创建，节省内存。</p>
 </li>
 </ol>
 <h4 id="442-linkedlist的源码分析">4.4.2 LinkedList的源码分析：</h4>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">LinkedList list <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> LinkedList<span style="color:#000;font-weight:bold">();</span> <span style="color:#998;font-style:italic">//内部声明了Node类型的first和last属性，默认值为null
-</span><span style="color:#998;font-style:italic"></span>
-list<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">add</span><span style="color:#000;font-weight:bold">(</span>123<span style="color:#000;font-weight:bold">);</span><span style="color:#998;font-style:italic">//将123封装到Node中，创建了Node对象。
-</span></code></pre></td></tr></table>
-</div>
-</div><p>其中，Node定义为：体现了LinkedList的双向链表的说法</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000;font-weight:bold">private</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Node</span><span style="color:#000;font-weight:bold">&lt;</span>E<span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#000;font-weight:bold">{</span>
-     E item<span style="color:#000;font-weight:bold">;</span>
-     Node<span style="color:#000;font-weight:bold">&lt;</span>E<span style="color:#000;font-weight:bold">&gt;</span> next<span style="color:#000;font-weight:bold">;</span>
-     Node<span style="color:#000;font-weight:bold">&lt;</span>E<span style="color:#000;font-weight:bold">&gt;</span> prev<span style="color:#000;font-weight:bold">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">LinkedList list <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LinkedList<span style="color:#f92672">();</span> <span style="color:#75715e">//内部声明了Node类型的first和last属性，默认值为null
+</span><span style="color:#75715e"></span>
+list<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>123<span style="color:#f92672">);</span><span style="color:#75715e">//将123封装到Node中，创建了Node对象。
+</span></code></pre></div><p>其中，Node定义为：体现了LinkedList的双向链表的说法</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Node</span><span style="color:#f92672">&lt;</span>E<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+     E item<span style="color:#f92672">;</span>
+     Node<span style="color:#f92672">&lt;</span>E<span style="color:#f92672">&gt;</span> next<span style="color:#f92672">;</span>
+     Node<span style="color:#f92672">&lt;</span>E<span style="color:#f92672">&gt;</span> prev<span style="color:#f92672">;</span>
 
- Node<span style="color:#000;font-weight:bold">(</span>Node<span style="color:#000;font-weight:bold">&lt;</span>E<span style="color:#000;font-weight:bold">&gt;</span> prev<span style="color:#000;font-weight:bold">,</span> E element<span style="color:#000;font-weight:bold">,</span> Node<span style="color:#000;font-weight:bold">&lt;</span>E<span style="color:#000;font-weight:bold">&gt;</span> next<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-     <span style="color:#000;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">item</span> <span style="color:#000;font-weight:bold">=</span> element<span style="color:#000;font-weight:bold">;</span>
-     <span style="color:#000;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">next</span> <span style="color:#000;font-weight:bold">=</span> next<span style="color:#000;font-weight:bold">;</span>
-     <span style="color:#000;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">prev</span> <span style="color:#000;font-weight:bold">=</span> prev<span style="color:#000;font-weight:bold">;</span>
- <span style="color:#000;font-weight:bold">}</span>
- <span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h4 id="443-vector的源码分析">4.4.3 Vector的源码分析：</h4>
+ Node<span style="color:#f92672">(</span>Node<span style="color:#f92672">&lt;</span>E<span style="color:#f92672">&gt;</span> prev<span style="color:#f92672">,</span> E element<span style="color:#f92672">,</span> Node<span style="color:#f92672">&lt;</span>E<span style="color:#f92672">&gt;</span> next<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+     <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">item</span> <span style="color:#f92672">=</span> element<span style="color:#f92672">;</span>
+     <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> next<span style="color:#f92672">;</span>
+     <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">prev</span> <span style="color:#f92672">=</span> prev<span style="color:#f92672">;</span>
+ <span style="color:#f92672">}</span>
+ <span style="color:#f92672">}</span>
+</code></pre></div><h4 id="443-vector的源码分析">4.4.3 Vector的源码分析：</h4>
 <p>jdk7和jdk8中通过Vector()构造器创建对象时，底层都创建了长度为10的数组。在扩容方面，默认扩容为原来的数组长度的2倍。</p>
 <h3 id="45-存储的元素的要求">4.5 存储的元素的要求</h3>
 <p>添加的对象，所在的类要重写equals()方法
@@ -743,152 +625,75 @@ list<span style="color:#000;font-weight:bold">.</span><span style="color:#008080
 <ol>
 <li>
 <p>自然排序</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"> <span style="color:#3c5d5d;font-weight:bold">@Test</span>
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">test1</span><span style="color:#000;font-weight:bold">(){</span>
-        TreeSet set <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> TreeSet<span style="color:#000;font-weight:bold">();</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"> <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test1</span><span style="color:#f92672">(){</span>
+        TreeSet set <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> TreeSet<span style="color:#f92672">();</span>
    
-        <span style="color:#998;font-style:italic">//失败：不能添加不同类的对象
-</span><span style="color:#998;font-style:italic">//        set.add(123);
-</span><span style="color:#998;font-style:italic">//        set.add(456);
-</span><span style="color:#998;font-style:italic">//        set.add(&#34;AA&#34;);
-</span><span style="color:#998;font-style:italic">//        set.add(new User(&#34;Tom&#34;,12));
-</span><span style="color:#998;font-style:italic"></span>   
-            <span style="color:#998;font-style:italic">//举例一：
-</span><span style="color:#998;font-style:italic">//        set.add(34);
-</span><span style="color:#998;font-style:italic">//        set.add(-34);
-</span><span style="color:#998;font-style:italic">//        set.add(43);
-</span><span style="color:#998;font-style:italic">//        set.add(11);
-</span><span style="color:#998;font-style:italic">//        set.add(8);
-</span><span style="color:#998;font-style:italic"></span>   
-        <span style="color:#998;font-style:italic">//举例二：
-</span><span style="color:#998;font-style:italic"></span>        set<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">add</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">new</span> User<span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Tom&#34;</span><span style="color:#000;font-weight:bold">,</span>12<span style="color:#000;font-weight:bold">));</span>
-        set<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">add</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">new</span> User<span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Jerry&#34;</span><span style="color:#000;font-weight:bold">,</span>32<span style="color:#000;font-weight:bold">));</span>
-        set<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">add</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">new</span> User<span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Jim&#34;</span><span style="color:#000;font-weight:bold">,</span>2<span style="color:#000;font-weight:bold">));</span>
-        set<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">add</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">new</span> User<span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Mike&#34;</span><span style="color:#000;font-weight:bold">,</span>65<span style="color:#000;font-weight:bold">));</span>
-        set<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">add</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">new</span> User<span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Jack&#34;</span><span style="color:#000;font-weight:bold">,</span>33<span style="color:#000;font-weight:bold">));</span>
-        set<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">add</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">new</span> User<span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Jack&#34;</span><span style="color:#000;font-weight:bold">,</span>56<span style="color:#000;font-weight:bold">));</span>
+        <span style="color:#75715e">//失败：不能添加不同类的对象
+</span><span style="color:#75715e">//        set.add(123);
+</span><span style="color:#75715e">//        set.add(456);
+</span><span style="color:#75715e">//        set.add(&#34;AA&#34;);
+</span><span style="color:#75715e">//        set.add(new User(&#34;Tom&#34;,12));
+</span><span style="color:#75715e"></span>   
+            <span style="color:#75715e">//举例一：
+</span><span style="color:#75715e">//        set.add(34);
+</span><span style="color:#75715e">//        set.add(-34);
+</span><span style="color:#75715e">//        set.add(43);
+</span><span style="color:#75715e">//        set.add(11);
+</span><span style="color:#75715e">//        set.add(8);
+</span><span style="color:#75715e"></span>   
+        <span style="color:#75715e">//举例二：
+</span><span style="color:#75715e"></span>        set<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Tom&#34;</span><span style="color:#f92672">,</span>12<span style="color:#f92672">));</span>
+        set<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Jerry&#34;</span><span style="color:#f92672">,</span>32<span style="color:#f92672">));</span>
+        set<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Jim&#34;</span><span style="color:#f92672">,</span>2<span style="color:#f92672">));</span>
+        set<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Mike&#34;</span><span style="color:#f92672">,</span>65<span style="color:#f92672">));</span>
+        set<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Jack&#34;</span><span style="color:#f92672">,</span>33<span style="color:#f92672">));</span>
+        set<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Jack&#34;</span><span style="color:#f92672">,</span>56<span style="color:#f92672">));</span>
    
    
-        Iterator iterator <span style="color:#000;font-weight:bold">=</span> set<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">iterator</span><span style="color:#000;font-weight:bold">();</span>
-        <span style="color:#000;font-weight:bold">while</span><span style="color:#000;font-weight:bold">(</span>iterator<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">hasNext</span><span style="color:#000;font-weight:bold">()){</span>
-            System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>iterator<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">next</span><span style="color:#000;font-weight:bold">());</span>
-        <span style="color:#000;font-weight:bold">}</span>
+        Iterator iterator <span style="color:#f92672">=</span> set<span style="color:#f92672">.</span><span style="color:#a6e22e">iterator</span><span style="color:#f92672">();</span>
+        <span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>iterator<span style="color:#f92672">.</span><span style="color:#a6e22e">hasNext</span><span style="color:#f92672">()){</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>iterator<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">());</span>
+        <span style="color:#f92672">}</span>
    
-    <span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div></li>
+    <span style="color:#f92672">}</span>
+</code></pre></div></li>
 <li>
 <p>定制排序</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#3c5d5d;font-weight:bold">@Test</span>
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">test2</span><span style="color:#000;font-weight:bold">(){</span>
-        Comparator com <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Comparator<span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-            <span style="color:#998;font-style:italic">//按照年龄从小到大排列
-</span><span style="color:#998;font-style:italic"></span>            <span style="color:#3c5d5d;font-weight:bold">@Override</span>
-            <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">int</span> <span style="color:#900;font-weight:bold">compare</span><span style="color:#000;font-weight:bold">(</span>Object o1<span style="color:#000;font-weight:bold">,</span> Object o2<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-                <span style="color:#000;font-weight:bold">if</span><span style="color:#000;font-weight:bold">(</span>o1 <span style="color:#000;font-weight:bold">instanceof</span> User <span style="color:#000;font-weight:bold">&amp;&amp;</span> o2 <span style="color:#000;font-weight:bold">instanceof</span> User<span style="color:#000;font-weight:bold">){</span>
-                    User u1 <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span>User<span style="color:#000;font-weight:bold">)</span>o1<span style="color:#000;font-weight:bold">;</span>
-                    User u2 <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span>User<span style="color:#000;font-weight:bold">)</span>o2<span style="color:#000;font-weight:bold">;</span>
-                    <span style="color:#000;font-weight:bold">return</span> Integer<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">compare</span><span style="color:#000;font-weight:bold">(</span>u1<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getAge</span><span style="color:#000;font-weight:bold">(),</span>u2<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getAge</span><span style="color:#000;font-weight:bold">());</span>
-                <span style="color:#000;font-weight:bold">}</span><span style="color:#000;font-weight:bold">else</span><span style="color:#000;font-weight:bold">{</span>
-                    <span style="color:#000;font-weight:bold">throw</span> <span style="color:#000;font-weight:bold">new</span> RuntimeException<span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;输入的数据类型不匹配&#34;</span><span style="color:#000;font-weight:bold">);</span>
-                <span style="color:#000;font-weight:bold">}</span>
-            <span style="color:#000;font-weight:bold">}</span>
-        <span style="color:#000;font-weight:bold">};</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test2</span><span style="color:#f92672">(){</span>
+        Comparator com <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Comparator<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+            <span style="color:#75715e">//按照年龄从小到大排列
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">@Override</span>
+            <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">compare</span><span style="color:#f92672">(</span>Object o1<span style="color:#f92672">,</span> Object o2<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>o1 <span style="color:#66d9ef">instanceof</span> User <span style="color:#f92672">&amp;&amp;</span> o2 <span style="color:#66d9ef">instanceof</span> User<span style="color:#f92672">){</span>
+                    User u1 <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>User<span style="color:#f92672">)</span>o1<span style="color:#f92672">;</span>
+                    User u2 <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>User<span style="color:#f92672">)</span>o2<span style="color:#f92672">;</span>
+                    <span style="color:#66d9ef">return</span> Integer<span style="color:#f92672">.</span><span style="color:#a6e22e">compare</span><span style="color:#f92672">(</span>u1<span style="color:#f92672">.</span><span style="color:#a6e22e">getAge</span><span style="color:#f92672">(),</span>u2<span style="color:#f92672">.</span><span style="color:#a6e22e">getAge</span><span style="color:#f92672">());</span>
+                <span style="color:#f92672">}</span><span style="color:#66d9ef">else</span><span style="color:#f92672">{</span>
+                    <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> RuntimeException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;输入的数据类型不匹配&#34;</span><span style="color:#f92672">);</span>
+                <span style="color:#f92672">}</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">};</span>
    
-        TreeSet set <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> TreeSet<span style="color:#000;font-weight:bold">(</span>com<span style="color:#000;font-weight:bold">);</span>
-        set<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">add</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">new</span> User<span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Tom&#34;</span><span style="color:#000;font-weight:bold">,</span>12<span style="color:#000;font-weight:bold">));</span>
-        set<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">add</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">new</span> User<span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Jerry&#34;</span><span style="color:#000;font-weight:bold">,</span>32<span style="color:#000;font-weight:bold">));</span>
-        set<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">add</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">new</span> User<span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Jim&#34;</span><span style="color:#000;font-weight:bold">,</span>2<span style="color:#000;font-weight:bold">));</span>
-        set<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">add</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">new</span> User<span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Mike&#34;</span><span style="color:#000;font-weight:bold">,</span>65<span style="color:#000;font-weight:bold">));</span>
-        set<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">add</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">new</span> User<span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Mary&#34;</span><span style="color:#000;font-weight:bold">,</span>33<span style="color:#000;font-weight:bold">));</span>
-        set<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">add</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">new</span> User<span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Jack&#34;</span><span style="color:#000;font-weight:bold">,</span>33<span style="color:#000;font-weight:bold">));</span>
-        set<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">add</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">new</span> User<span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Jack&#34;</span><span style="color:#000;font-weight:bold">,</span>56<span style="color:#000;font-weight:bold">));</span>
+        TreeSet set <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> TreeSet<span style="color:#f92672">(</span>com<span style="color:#f92672">);</span>
+        set<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Tom&#34;</span><span style="color:#f92672">,</span>12<span style="color:#f92672">));</span>
+        set<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Jerry&#34;</span><span style="color:#f92672">,</span>32<span style="color:#f92672">));</span>
+        set<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Jim&#34;</span><span style="color:#f92672">,</span>2<span style="color:#f92672">));</span>
+        set<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Mike&#34;</span><span style="color:#f92672">,</span>65<span style="color:#f92672">));</span>
+        set<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Mary&#34;</span><span style="color:#f92672">,</span>33<span style="color:#f92672">));</span>
+        set<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Jack&#34;</span><span style="color:#f92672">,</span>33<span style="color:#f92672">));</span>
+        set<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Jack&#34;</span><span style="color:#f92672">,</span>56<span style="color:#f92672">));</span>
    
    
-        Iterator iterator <span style="color:#000;font-weight:bold">=</span> set<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">iterator</span><span style="color:#000;font-weight:bold">();</span>
-        <span style="color:#000;font-weight:bold">while</span><span style="color:#000;font-weight:bold">(</span>iterator<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">hasNext</span><span style="color:#000;font-weight:bold">()){</span>
-            System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>iterator<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">next</span><span style="color:#000;font-weight:bold">());</span>
-        <span style="color:#000;font-weight:bold">}</span>
-    <span style="color:#000;font-weight:bold">}</span>
+        Iterator iterator <span style="color:#f92672">=</span> set<span style="color:#f92672">.</span><span style="color:#a6e22e">iterator</span><span style="color:#f92672">();</span>
+        <span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>iterator<span style="color:#f92672">.</span><span style="color:#a6e22e">hasNext</span><span style="color:#f92672">()){</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>iterator<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">());</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
    
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div></li>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
 </ol>
 <h2 id="6-map接口">6 Map接口</h2>
 <p>双列集合框架：Map</p>
@@ -945,25 +750,11 @@ Map:双列数据，存储key-value对的数据   &mdash;类似于高中的函数
 </ul>
 <h3 id="64-内存结构说明难点">6.4 内存结构说明（难点）</h3>
 <h4 id="641-hashmap在jdk7中实现原理">6.4.1 HashMap在jdk7中实现原理</h4>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">HashMap map <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> HashMap<span style="color:#000;font-weight:bold">();</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>在实例化以后，底层创建了长度是16的一维数组Entry[] table。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">HashMap map <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">();</span>
+</code></pre></div><p>在实例化以后，底层创建了长度是16的一维数组Entry[] table。</p>
 <p>&hellip;可能已经执行过多次put后&hellip;</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">map<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">put</span><span style="color:#000;font-weight:bold">(</span>key1<span style="color:#000;font-weight:bold">,</span>value1<span style="color:#000;font-weight:bold">);</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>首先，调用key1所在类的hashCode()计算key1哈希值，此哈希值经过某种算法计算以后，得到在Entry数组中的存放位置。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">map<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>key1<span style="color:#f92672">,</span>value1<span style="color:#f92672">);</span>
+</code></pre></div><p>首先，调用key1所在类的hashCode()计算key1哈希值，此哈希值经过某种算法计算以后，得到在Entry数组中的存放位置。</p>
 <ul>
 <li>
 <p>如果此位置上的数据为空，此时的key1-value1添加成功。 &mdash;-情况1</p>
@@ -1020,67 +811,34 @@ jdk8底层的数组是：<code>Node[]</code>,而非<code>Entry[]</code></li>
 <h3 id="65-treemap的使用">6.5 TreeMap的使用</h3>
 <p>向TreeMap中添加key-value，要求key必须是由同一个类创建的对象，因为要照key进行排序：自然排序 、定制排序</p>
 <h3 id="66-使用properties读取配置文件">6.6 使用Properties读取配置文件</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#998;font-style:italic">//Properties:常用来处理配置文件。key和value都是String类型
-</span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span>  <span style="color:#000;font-weight:bold">{</span>
-    FileInputStream fis <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000;font-weight:bold">try</span> <span style="color:#000;font-weight:bold">{</span>
-        Properties pros <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Properties<span style="color:#000;font-weight:bold">();</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">//Properties:常用来处理配置文件。key和value都是String类型
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span>  <span style="color:#f92672">{</span>
+    FileInputStream fis <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+        Properties pros <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Properties<span style="color:#f92672">();</span>
 
-        fis <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> FileInputStream<span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;jdbc.properties&#34;</span><span style="color:#000;font-weight:bold">);</span>
-        pros<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">load</span><span style="color:#000;font-weight:bold">(</span>fis<span style="color:#000;font-weight:bold">);</span><span style="color:#998;font-style:italic">//加载流对应的文件
-</span><span style="color:#998;font-style:italic"></span>
-        String name <span style="color:#000;font-weight:bold">=</span> pros<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getProperty</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;name&#34;</span><span style="color:#000;font-weight:bold">);</span>
-        String password <span style="color:#000;font-weight:bold">=</span> pros<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getProperty</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;password&#34;</span><span style="color:#000;font-weight:bold">);</span>
+        fis <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FileInputStream<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;jdbc.properties&#34;</span><span style="color:#f92672">);</span>
+        pros<span style="color:#f92672">.</span><span style="color:#a6e22e">load</span><span style="color:#f92672">(</span>fis<span style="color:#f92672">);</span><span style="color:#75715e">//加载流对应的文件
+</span><span style="color:#75715e"></span>
+        String name <span style="color:#f92672">=</span> pros<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;name&#34;</span><span style="color:#f92672">);</span>
+        String password <span style="color:#f92672">=</span> pros<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;password&#34;</span><span style="color:#f92672">);</span>
 
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;name = &#34;</span> <span style="color:#000;font-weight:bold">+</span> name <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34;, password = &#34;</span> <span style="color:#000;font-weight:bold">+</span> password<span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span> <span style="color:#000;font-weight:bold">catch</span> <span style="color:#000;font-weight:bold">(</span>IOException e<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-        e<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">printStackTrace</span><span style="color:#000;font-weight:bold">();</span>
-    <span style="color:#000;font-weight:bold">}</span> <span style="color:#000;font-weight:bold">finally</span> <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#000;font-weight:bold">if</span><span style="color:#000;font-weight:bold">(</span>fis <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">){</span>
-            <span style="color:#000;font-weight:bold">try</span> <span style="color:#000;font-weight:bold">{</span>
-                fis<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">close</span><span style="color:#000;font-weight:bold">();</span>
-            <span style="color:#000;font-weight:bold">}</span> <span style="color:#000;font-weight:bold">catch</span> <span style="color:#000;font-weight:bold">(</span>IOException e<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-                e<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">printStackTrace</span><span style="color:#000;font-weight:bold">();</span>
-            <span style="color:#000;font-weight:bold">}</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;name = &#34;</span> <span style="color:#f92672">+</span> name <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;, password = &#34;</span> <span style="color:#f92672">+</span> password<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>IOException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span> <span style="color:#66d9ef">finally</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>fis <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">){</span>
+            <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+                fis<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+            <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>IOException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+            <span style="color:#f92672">}</span>
 
-        <span style="color:#000;font-weight:bold">}</span>
-    <span style="color:#000;font-weight:bold">}</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
 
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="7-collections工具类">7 Collections工具类</h2>
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="7-collections工具类">7 Collections工具类</h2>
 <p>作用：操作Collection和Map的工具类</p>
 <h3 id="71-常用方法">7.1 常用方法</h3>
 <ul>

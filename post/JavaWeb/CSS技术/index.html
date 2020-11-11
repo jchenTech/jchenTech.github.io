@@ -230,21 +230,11 @@
 最后可以不加分号(但尽量在每条声明的末尾都加上分号)</li>
 </ul>
 <p>例如：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#000080">p</span>{
-    <span style="color:#000;font-weight:bold">color</span>:<span style="color:#000;font-weight:bold">red</span>;
-    <span style="color:#000;font-weight:bold">font-size</span>:<span style="color:#099">30</span><span style="color:#458;font-weight:bold">px</span>;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">p</span>{
+    <span style="color:#66d9ef">color</span>:<span style="color:#66d9ef">red</span>;
+    <span style="color:#66d9ef">font-size</span>:<span style="color:#ae81ff">30</span><span style="color:#66d9ef">px</span>;
 }
-</code></pre></td></tr></table>
-</div>
-</div><p>CSS 注释：<code>/*注释内容*/</code>
+</code></pre></div><p>CSS 注释：<code>/*注释内容*/</code>
 注：一般每行只描述一个属性</p>
 <h3 id="21-css和html的结合方式">2.1 CSS和HTML的结合方式</h3>
 <ol>
@@ -255,27 +245,14 @@
 &lt;div&gt;div 标签2&lt;/div&gt;
 &lt;span&gt;span 标签1&lt;/span&gt;
 &lt;span&gt;span 标签2&lt;/span&gt;
-</code></pre><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">body</span>&gt;
-    <span style="color:#998;font-style:italic">&lt;!--需求1：分别定义两个 div、span标签，分别修改每个 div 标签的样式为：边框1个像素，实线，红色。--&gt;</span>
-    &lt;<span style="color:#000080">div</span> <span style="color:#008080">style</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;border: 1px solid red;&#34;</span>&gt;div标签1&lt;/<span style="color:#000080">div</span>&gt;
-    &lt;<span style="color:#000080">div</span> <span style="color:#008080">style</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;border: 1px solid red;&#34;</span>&gt;div标签2&lt;/<span style="color:#000080">div</span>&gt;
-    &lt;<span style="color:#000080">span</span> <span style="color:#008080">style</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;border: 1px solid red;&#34;</span>&gt;span标签1&lt;/<span style="color:#000080">span</span>&gt;
-    &lt;<span style="color:#000080">span</span> <span style="color:#008080">style</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;border: 1px solid red;&#34;</span>&gt;span标签2&lt;/<span style="color:#000080">span</span>&gt;
-&lt;/<span style="color:#000080">body</span>&gt;	
-</code></pre></td></tr></table>
-</div>
-</div><p>问题：这种方式的缺点？</p>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">body</span>&gt;
+    <span style="color:#75715e">&lt;!--需求1：分别定义两个 div、span标签，分别修改每个 div 标签的样式为：边框1个像素，实线，红色。--&gt;</span>
+    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;border: 1px solid red;&#34;</span>&gt;div标签1&lt;/<span style="color:#f92672">div</span>&gt;
+    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;border: 1px solid red;&#34;</span>&gt;div标签2&lt;/<span style="color:#f92672">div</span>&gt;
+    &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;border: 1px solid red;&#34;</span>&gt;span标签1&lt;/<span style="color:#f92672">span</span>&gt;
+    &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;border: 1px solid red;&#34;</span>&gt;span标签2&lt;/<span style="color:#f92672">span</span>&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;	
+</code></pre></div><p>问题：这种方式的缺点？</p>
 <ul>
 <li>如果标签多了。样式多了。代码量非常庞大。</li>
 <li>可读性非常差。</li>
@@ -285,75 +262,35 @@
 <li>
 <p>在head标签中，使用style标签来定义各种自己需要的css样式。
 格式如下：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#000080">xxx</span>{
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">xxx</span>{
 Key : value value;
 }
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#999;font-weight:bold;font-style:italic">&lt;!DOCTYPE html&gt;</span>
-&lt;<span style="color:#000080">html</span> <span style="color:#008080">lang</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;en&#34;</span>&gt;
-&lt;<span style="color:#000080">head</span>&gt;
-    &lt;<span style="color:#000080">meta</span> <span style="color:#008080">charset</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;UTF-8&#34;</span>&gt;
-    &lt;<span style="color:#000080">title</span>&gt;Title&lt;/<span style="color:#000080">title</span>&gt;
-    <span style="color:#998;font-style:italic">&lt;!--style标签专门用来定义css样式代码--&gt;</span>
-    &lt;<span style="color:#000080">style</span> <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;text/css&#34;</span>&gt;
-        <span style="color:#998;font-style:italic">/* 需求1：分别定义两个 div、span标签，分别修改每个 div 标签的样式为：边框1个像素，实线，红色。*/</span>
-        <span style="color:#000080">div</span>{
-            <span style="color:#000;font-weight:bold">border</span>: <span style="color:#099">1</span><span style="color:#458;font-weight:bold">px</span> <span style="color:#000;font-weight:bold">solid</span> <span style="color:#000;font-weight:bold">red</span>;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+&lt;<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+    &lt;<span style="color:#f92672">title</span>&gt;Title&lt;/<span style="color:#f92672">title</span>&gt;
+    <span style="color:#75715e">&lt;!--style标签专门用来定义css样式代码--&gt;</span>
+    &lt;<span style="color:#f92672">style</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/css&#34;</span>&gt;
+        <span style="color:#75715e">/* 需求1：分别定义两个 div、span标签，分别修改每个 div 标签的样式为：边框1个像素，实线，红色。*/</span>
+        <span style="color:#f92672">div</span>{
+            <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#66d9ef">red</span>;
         }
-        <span style="color:#000080">span</span>{
-            <span style="color:#000;font-weight:bold">border</span>: <span style="color:#099">1</span><span style="color:#458;font-weight:bold">px</span> <span style="color:#000;font-weight:bold">solid</span> <span style="color:#000;font-weight:bold">red</span>;
+        <span style="color:#f92672">span</span>{
+            <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#66d9ef">red</span>;
         }
-    &lt;/<span style="color:#000080">style</span>&gt;
-&lt;/<span style="color:#000080">head</span>&gt;
+    &lt;/<span style="color:#f92672">style</span>&gt;
+&lt;/<span style="color:#f92672">head</span>&gt;
    
-&lt;<span style="color:#000080">body</span>&gt;
-    &lt;<span style="color:#000080">div</span>&gt;div标签1&lt;/<span style="color:#000080">div</span>&gt;
-    &lt;<span style="color:#000080">div</span>&gt;div标签2&lt;/<span style="color:#000080">div</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
+    &lt;<span style="color:#f92672">div</span>&gt;div标签1&lt;/<span style="color:#f92672">div</span>&gt;
+    &lt;<span style="color:#f92672">div</span>&gt;div标签2&lt;/<span style="color:#f92672">div</span>&gt;
    
-    &lt;<span style="color:#000080">span</span>&gt;span标签1&lt;/<span style="color:#000080">span</span>&gt;
-    &lt;<span style="color:#000080">span</span>&gt;span标签2&lt;/<span style="color:#000080">span</span>&gt;
-&lt;/<span style="color:#000080">body</span>&gt;
-&lt;/<span style="color:#000080">html</span>&gt;
-</code></pre></td></tr></table>
-</div>
-</div><p>问题：这种方式的缺点。</p>
+    &lt;<span style="color:#f92672">span</span>&gt;span标签1&lt;/<span style="color:#f92672">span</span>&gt;
+    &lt;<span style="color:#f92672">span</span>&gt;span标签2&lt;/<span style="color:#f92672">span</span>&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><p>问题：这种方式的缺点。</p>
 <ul>
 <li>只能在同一页面内复用代码，不能在多个页面中复用css 代码。</li>
 <li>维护起来不方便，实际的项目中会有成千上万的页面，要到每个页面中去修改。工作量太大了。</li>
@@ -363,68 +300,32 @@ Key : value value;
 <p>把css样式写成一个单独的css文件，再通过link 标签引入即可复用。</p>
 <p>使用html 的<code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;./styles.css&quot; /&gt;</code>标签导入css 样式文件。</p>
 <p>css 文件内容：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">div{
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">div{
  border: 1px solid red;
 }
 span{
  border: 1px solid red;
 }
-</code></pre></td></tr></table>
-</div>
-</div><p>html文件代码：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#999;font-weight:bold;font-style:italic">&lt;!DOCTYPE html&gt;</span>
-&lt;<span style="color:#000080">html</span> <span style="color:#008080">lang</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;en&#34;</span>&gt;
-&lt;<span style="color:#000080">head</span>&gt;
-    &lt;<span style="color:#000080">meta</span> <span style="color:#008080">charset</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;UTF-8&#34;</span>&gt;
-    &lt;<span style="color:#000080">title</span>&gt;Title&lt;/<span style="color:#000080">title</span>&gt;
-    <span style="color:#998;font-style:italic">&lt;!--link标签专门用来引入css样式代码--&gt;</span>
-    &lt;<span style="color:#000080">link</span> <span style="color:#008080">rel</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;stylesheet&#34;</span> <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;text/css&#34;</span> <span style="color:#008080">href</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;1.css&#34;</span>/&gt;
+</code></pre></div><p>html文件代码：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+&lt;<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+    &lt;<span style="color:#f92672">title</span>&gt;Title&lt;/<span style="color:#f92672">title</span>&gt;
+    <span style="color:#75715e">&lt;!--link标签专门用来引入css样式代码--&gt;</span>
+    &lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/css&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1.css&#34;</span>/&gt;
    
-&lt;/<span style="color:#000080">head</span>&gt;
+&lt;/<span style="color:#f92672">head</span>&gt;
    
-&lt;<span style="color:#000080">body</span>&gt;
-    &lt;<span style="color:#000080">div</span>&gt;div标签1&lt;/<span style="color:#000080">div</span>&gt;
-    &lt;<span style="color:#000080">div</span>&gt;div标签2&lt;/<span style="color:#000080">div</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
+    &lt;<span style="color:#f92672">div</span>&gt;div标签1&lt;/<span style="color:#f92672">div</span>&gt;
+    &lt;<span style="color:#f92672">div</span>&gt;div标签2&lt;/<span style="color:#f92672">div</span>&gt;
    
-    &lt;<span style="color:#000080">span</span>&gt;span标签1&lt;/<span style="color:#000080">span</span>&gt;
-    &lt;<span style="color:#000080">span</span>&gt;span标签2&lt;/<span style="color:#000080">span</span>&gt;
-&lt;/<span style="color:#000080">body</span>&gt;
-&lt;/<span style="color:#000080">html</span>&gt;
-</code></pre></td></tr></table>
-</div>
-</div></li>
+    &lt;<span style="color:#f92672">span</span>&gt;span标签1&lt;/<span style="color:#f92672">span</span>&gt;
+    &lt;<span style="color:#f92672">span</span>&gt;span标签2&lt;/<span style="color:#f92672">span</span>&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div></li>
 </ol>
 <h2 id="3-css选择器">3 CSS选择器</h2>
 <h3 id="31-标签名选择器">3.1 标签名选择器</h3>
@@ -433,87 +334,42 @@ span{
 属性：值;
 }</p>
 <p>标签名选择器，可以决定哪些标签被动的使用这个样式。</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">div</span>&gt;div 标签1&lt;/<span style="color:#000080">div</span>&gt;
-&lt;<span style="color:#000080">div</span>&gt;div 标签2&lt;/<span style="color:#000080">div</span>&gt;
-&lt;<span style="color:#000080">span</span>&gt;span 标签1&lt;/<span style="color:#000080">span</span>&gt;
-&lt;<span style="color:#000080">span</span>&gt;span 标签2&lt;/<span style="color:#000080">span</span>&gt;
-</code></pre></td></tr></table>
-</div>
-</div><p>需求1：在所有div标签上修改字体颜色为蓝色，字体大小30 个像素。边框为1 像素黄色实线。
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span>&gt;div 标签1&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;<span style="color:#f92672">div</span>&gt;div 标签2&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;<span style="color:#f92672">span</span>&gt;span 标签1&lt;/<span style="color:#f92672">span</span>&gt;
+&lt;<span style="color:#f92672">span</span>&gt;span 标签2&lt;/<span style="color:#f92672">span</span>&gt;
+</code></pre></div><p>需求1：在所有div标签上修改字体颜色为蓝色，字体大小30 个像素。边框为1 像素黄色实线。
 并且修改所有span 标签的字体颜色为黄色，字体大小20 个像素。边框为5 像素蓝色虚线。</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#999;font-weight:bold;font-style:italic">&lt;!DOCTYPE html&gt;</span>
-&lt;<span style="color:#000080">html</span>&gt;
-&lt;<span style="color:#000080">head</span>&gt;
-	&lt;<span style="color:#000080">meta</span> <span style="color:#008080">charset</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;UTF-8&#34;</span>&gt;
-	&lt;<span style="color:#000080">title</span>&gt;CSS选择器&lt;/<span style="color:#000080">title</span>&gt;
-	&lt;<span style="color:#000080">style</span> <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;text/css&#34;</span>&gt;
-		<span style="color:#000080">div</span>{
-			<span style="color:#000;font-weight:bold">border</span>: <span style="color:#099">1</span><span style="color:#458;font-weight:bold">px</span> <span style="color:#000;font-weight:bold">solid</span> <span style="color:#000;font-weight:bold">yellow</span>;
-			<span style="color:#000;font-weight:bold">color</span>: <span style="color:#000;font-weight:bold">blue</span>;
-			<span style="color:#000;font-weight:bold">font-size</span>: <span style="color:#099">30</span><span style="color:#458;font-weight:bold">px</span>;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#f92672">html</span>&gt;
+&lt;<span style="color:#f92672">head</span>&gt;
+	&lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+	&lt;<span style="color:#f92672">title</span>&gt;CSS选择器&lt;/<span style="color:#f92672">title</span>&gt;
+	&lt;<span style="color:#f92672">style</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/css&#34;</span>&gt;
+		<span style="color:#f92672">div</span>{
+			<span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#66d9ef">yellow</span>;
+			<span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">blue</span>;
+			<span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">30</span><span style="color:#66d9ef">px</span>;
 		}
-		<span style="color:#000080">span</span>{
-			<span style="color:#000;font-weight:bold">border</span>: <span style="color:#099">5</span><span style="color:#458;font-weight:bold">px</span> <span style="color:#000;font-weight:bold">dashed</span>  <span style="color:#000;font-weight:bold">blue</span>;
-			<span style="color:#000;font-weight:bold">color</span>: <span style="color:#000;font-weight:bold">yellow</span>;
-			<span style="color:#000;font-weight:bold">font-size</span>: <span style="color:#099">20</span><span style="color:#458;font-weight:bold">px</span>;
+		<span style="color:#f92672">span</span>{
+			<span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">5</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">dashed</span>  <span style="color:#66d9ef">blue</span>;
+			<span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">yellow</span>;
+			<span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">20</span><span style="color:#66d9ef">px</span>;
 		}
-	&lt;/<span style="color:#000080">style</span>&gt;
-&lt;/<span style="color:#000080">head</span>&gt;
-&lt;<span style="color:#000080">body</span>&gt;
-	<span style="color:#998;font-style:italic">&lt;!-- 
-</span><span style="color:#998;font-style:italic">	需求1：在所有div标签上修改字体颜色为蓝色，字体大小30个像素。边框为1像素黄色实线。
-</span><span style="color:#998;font-style:italic">	并且修改所有span 标签的字体颜色为黄色，字体大小20个像素。边框为5像素蓝色虚线。
-</span><span style="color:#998;font-style:italic">	 --&gt;</span>
-	&lt;<span style="color:#000080">div</span>&gt;div标签1&lt;/<span style="color:#000080">div</span>&gt;
-	&lt;<span style="color:#000080">div</span>&gt;div标签2&lt;/<span style="color:#000080">div</span>&gt;
-	&lt;<span style="color:#000080">span</span>&gt;span标签1&lt;/<span style="color:#000080">span</span>&gt;
-	&lt;<span style="color:#000080">span</span>&gt;span标签2&lt;/<span style="color:#000080">span</span>&gt;
-&lt;/<span style="color:#000080">body</span>&gt;
-&lt;/<span style="color:#000080">html</span>&gt;
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="32-id选择器">3.2 id选择器</h3>
+	&lt;/<span style="color:#f92672">style</span>&gt;
+&lt;/<span style="color:#f92672">head</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
+	<span style="color:#75715e">&lt;!-- 
+</span><span style="color:#75715e">	需求1：在所有div标签上修改字体颜色为蓝色，字体大小30个像素。边框为1像素黄色实线。
+</span><span style="color:#75715e">	并且修改所有span 标签的字体颜色为黄色，字体大小20个像素。边框为5像素蓝色虚线。
+</span><span style="color:#75715e">	 --&gt;</span>
+	&lt;<span style="color:#f92672">div</span>&gt;div标签1&lt;/<span style="color:#f92672">div</span>&gt;
+	&lt;<span style="color:#f92672">div</span>&gt;div标签2&lt;/<span style="color:#f92672">div</span>&gt;
+	&lt;<span style="color:#f92672">span</span>&gt;span标签1&lt;/<span style="color:#f92672">span</span>&gt;
+	&lt;<span style="color:#f92672">span</span>&gt;span标签2&lt;/<span style="color:#f92672">span</span>&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><h3 id="32-id选择器">3.2 id选择器</h3>
 <p>id 选择器的格式是：
 #id 属性值{
 属性：值;
@@ -525,83 +381,42 @@ span{
 字体大小30 个像素。边框为1 像素黄色实线。</li>
 <li>第二个div 标签定义id 为id002 ，然后根据id 属性定义css样式修改的字体颜色为红色，字体大小20 个素。边框为5 像素蓝色点线。</li>
 </ul>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#999;font-weight:bold;font-style:italic">&lt;!DOCTYPE html&gt;</span>
-&lt;<span style="color:#000080">html</span>&gt;
-&lt;<span style="color:#000080">head</span>&gt;
-	&lt;<span style="color:#000080">meta</span> <span style="color:#008080">charset</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;UTF-8&#34;</span>&gt;
-	&lt;<span style="color:#000080">title</span>&gt;ID选择器&lt;/<span style="color:#000080">title</span>&gt;
-	&lt;<span style="color:#000080">style</span> <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;text/css&#34;</span>&gt;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#f92672">html</span>&gt;
+&lt;<span style="color:#f92672">head</span>&gt;
+	&lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+	&lt;<span style="color:#f92672">title</span>&gt;ID选择器&lt;/<span style="color:#f92672">title</span>&gt;
+	&lt;<span style="color:#f92672">style</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/css&#34;</span>&gt;
 
-		#<span style="color:#555">id001</span>{
-			<span style="color:#000;font-weight:bold">color</span>: <span style="color:#000;font-weight:bold">blue</span>;
-			<span style="color:#000;font-weight:bold">font-size</span>: <span style="color:#099">30</span><span style="color:#458;font-weight:bold">px</span>;
-			<span style="color:#000;font-weight:bold">border</span>: <span style="color:#099">1</span><span style="color:#458;font-weight:bold">px</span> <span style="color:#000;font-weight:bold">yellow</span> <span style="color:#000;font-weight:bold">solid</span>;
+		#id001{
+			<span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">blue</span>;
+			<span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">30</span><span style="color:#66d9ef">px</span>;
+			<span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">yellow</span> <span style="color:#66d9ef">solid</span>;
 		}
 
-		#<span style="color:#555">id002</span>{
-			<span style="color:#000;font-weight:bold">color</span>: <span style="color:#000;font-weight:bold">red</span>;
-			<span style="color:#000;font-weight:bold">font-size</span>: <span style="color:#099">20</span><span style="color:#458;font-weight:bold">px</span>;
-			<span style="color:#000;font-weight:bold">border</span>: <span style="color:#099">5</span><span style="color:#458;font-weight:bold">px</span> <span style="color:#000;font-weight:bold">blue</span> <span style="color:#000;font-weight:bold">dotted</span> ;
+		#id002{
+			<span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">red</span>;
+			<span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">20</span><span style="color:#66d9ef">px</span>;
+			<span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">5</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">blue</span> <span style="color:#66d9ef">dotted</span> ;
 		}
 
-	&lt;/<span style="color:#000080">style</span>&gt;
-&lt;/<span style="color:#000080">head</span>&gt;
-&lt;<span style="color:#000080">body</span>&gt;		
-	<span style="color:#998;font-style:italic">&lt;!--
-</span><span style="color:#998;font-style:italic">	需求1：分别定义两个 div 标签，
-</span><span style="color:#998;font-style:italic">	第一个div 标签定义 id 为 id001 ，然后根据id 属性定义css样式修改字体颜色为蓝色，
-</span><span style="color:#998;font-style:italic">	字体大小30个像素。边框为1像素黄色实线。
-</span><span style="color:#998;font-style:italic">	
-</span><span style="color:#998;font-style:italic">	第二个div 标签定义 id 为 id002 ，然后根据id 属性定义css样式 修改的字体颜色为红色，字体大小20个像素。
-</span><span style="color:#998;font-style:italic">	边框为5像素蓝色点线。
-</span><span style="color:#998;font-style:italic">	 --&gt;</span>
+	&lt;/<span style="color:#f92672">style</span>&gt;
+&lt;/<span style="color:#f92672">head</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;		
+	<span style="color:#75715e">&lt;!--
+</span><span style="color:#75715e">	需求1：分别定义两个 div 标签，
+</span><span style="color:#75715e">	第一个div 标签定义 id 为 id001 ，然后根据id 属性定义css样式修改字体颜色为蓝色，
+</span><span style="color:#75715e">	字体大小30个像素。边框为1像素黄色实线。
+</span><span style="color:#75715e">	
+</span><span style="color:#75715e">	第二个div 标签定义 id 为 id002 ，然后根据id 属性定义css样式 修改的字体颜色为红色，字体大小20个像素。
+</span><span style="color:#75715e">	边框为5像素蓝色点线。
+</span><span style="color:#75715e">	 --&gt;</span>
 	
-	&lt;<span style="color:#000080">div</span> <span style="color:#008080">id</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;id002&#34;</span>&gt;div标签1&lt;/<span style="color:#000080">div</span>&gt;
-	&lt;<span style="color:#000080">div</span> <span style="color:#008080">id</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;id001&#34;</span>&gt;div标签2&lt;/<span style="color:#000080">div</span>&gt;
-&lt;/<span style="color:#000080">body</span>&gt;
-&lt;/<span style="color:#000080">html</span>&gt;
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="33-class选择器">3.3 class选择器</h3>
+	&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;id002&#34;</span>&gt;div标签1&lt;/<span style="color:#f92672">div</span>&gt;
+	&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;id001&#34;</span>&gt;div标签2&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><h3 id="33-class选择器">3.3 class选择器</h3>
 <p>class 类型选择器的格式是：
 .class 属性值{
 属性：值;
@@ -609,135 +424,68 @@ span{
 <p>class 类型选择器，可以通过class 属性有效的选择性地去使用这个样式。</p>
 <p>需求1：修改class属性值为class01 的span 或div 标签，字体颜色为蓝色，字体大小30 个像素。边框为1 像素黄色实线。
 需求2：修改class属性值为class02 的div 标签，字体颜色为灰色，字体大小26 个像素。边框为1 像素红色实线。</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#999;font-weight:bold;font-style:italic">&lt;!DOCTYPE html&gt;</span>
-&lt;<span style="color:#000080">html</span>&gt;
-&lt;<span style="color:#000080">head</span>&gt;
-	&lt;<span style="color:#000080">meta</span> <span style="color:#008080">charset</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;UTF-8&#34;</span>&gt;
-	&lt;<span style="color:#000080">title</span>&gt;class类型选择器&lt;/<span style="color:#000080">title</span>&gt;
-	&lt;<span style="color:#000080">style</span> <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;text/css&#34;</span>&gt;
-		.<span style="color:#458;font-weight:bold">class01</span>{
-			<span style="color:#000;font-weight:bold">color</span>: <span style="color:#000;font-weight:bold">blue</span>;
-			<span style="color:#000;font-weight:bold">font-size</span>: <span style="color:#099">30</span><span style="color:#458;font-weight:bold">px</span>;
-			<span style="color:#000;font-weight:bold">border</span>: <span style="color:#099">1</span><span style="color:#458;font-weight:bold">px</span> <span style="color:#000;font-weight:bold">solid</span> <span style="color:#000;font-weight:bold">yellow</span>;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#f92672">html</span>&gt;
+&lt;<span style="color:#f92672">head</span>&gt;
+	&lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+	&lt;<span style="color:#f92672">title</span>&gt;class类型选择器&lt;/<span style="color:#f92672">title</span>&gt;
+	&lt;<span style="color:#f92672">style</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/css&#34;</span>&gt;
+		.<span style="color:#a6e22e">class01</span>{
+			<span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">blue</span>;
+			<span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">30</span><span style="color:#66d9ef">px</span>;
+			<span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#66d9ef">yellow</span>;
 		}
 
-		.<span style="color:#458;font-weight:bold">class02</span>{
-			<span style="color:#000;font-weight:bold">color</span>: <span style="color:#000;font-weight:bold">grey</span>;
-			<span style="color:#000;font-weight:bold">font-size</span>: <span style="color:#099">26</span><span style="color:#458;font-weight:bold">px</span>;
-			<span style="color:#000;font-weight:bold">border</span>: <span style="color:#099">1</span><span style="color:#458;font-weight:bold">px</span> <span style="color:#000;font-weight:bold">solid</span> <span style="color:#000;font-weight:bold">red</span>;
+		.<span style="color:#a6e22e">class02</span>{
+			<span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">grey</span>;
+			<span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">26</span><span style="color:#66d9ef">px</span>;
+			<span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#66d9ef">red</span>;
 		}
-	&lt;/<span style="color:#000080">style</span>&gt;
-&lt;/<span style="color:#000080">head</span>&gt;
-&lt;<span style="color:#000080">body</span>&gt;
-	<span style="color:#998;font-style:italic">&lt;!--
-</span><span style="color:#998;font-style:italic">		需求1：修改 class 属性值为 class01的 span 或 div 标签，字体颜色为蓝色，字体大小30个像素。边框为1像素黄色实线。
-</span><span style="color:#998;font-style:italic">		需求2：修改 class 属性值为 class02的 div 标签，字体颜色为灰色，字体大小26个像素。边框为1像素红色实线。
-</span><span style="color:#998;font-style:italic">	 --&gt;</span>
+	&lt;/<span style="color:#f92672">style</span>&gt;
+&lt;/<span style="color:#f92672">head</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
+	<span style="color:#75715e">&lt;!--
+</span><span style="color:#75715e">		需求1：修改 class 属性值为 class01的 span 或 div 标签，字体颜色为蓝色，字体大小30个像素。边框为1像素黄色实线。
+</span><span style="color:#75715e">		需求2：修改 class 属性值为 class02的 div 标签，字体颜色为灰色，字体大小26个像素。边框为1像素红色实线。
+</span><span style="color:#75715e">	 --&gt;</span>
 
-	&lt;<span style="color:#000080">div</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;class02&#34;</span>&gt;div标签class01&lt;/<span style="color:#000080">div</span>&gt;
-	&lt;<span style="color:#000080">div</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;class02&#34;</span>&gt;div标签&lt;/<span style="color:#000080">div</span>&gt;
-	&lt;<span style="color:#000080">span</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;class02&#34;</span>&gt;span标签class01&lt;/<span style="color:#000080">span</span>&gt;
-	&lt;<span style="color:#000080">span</span>&gt;span标签2&lt;/<span style="color:#000080">span</span>&gt;
-&lt;/<span style="color:#000080">body</span>&gt;
-&lt;/<span style="color:#000080">html</span>&gt;
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="34-组合选择器">3.4 组合选择器</h3>
+	&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;class02&#34;</span>&gt;div标签class01&lt;/<span style="color:#f92672">div</span>&gt;
+	&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;class02&#34;</span>&gt;div标签&lt;/<span style="color:#f92672">div</span>&gt;
+	&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;class02&#34;</span>&gt;span标签class01&lt;/<span style="color:#f92672">span</span>&gt;
+	&lt;<span style="color:#f92672">span</span>&gt;span标签2&lt;/<span style="color:#f92672">span</span>&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><h3 id="34-组合选择器">3.4 组合选择器</h3>
 <p>组合选择器的格式是：
 选择器1，选择器2，选择器n{
 属性：值;
 }</p>
 <p>组合选择器可以让多个选择器共用同一个css 样式代码。</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#999;font-weight:bold;font-style:italic">&lt;!DOCTYPE html&gt;</span>
-&lt;<span style="color:#000080">html</span>&gt;
-&lt;<span style="color:#000080">head</span>&gt;
-    &lt;<span style="color:#000080">meta</span> <span style="color:#008080">charset</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;UTF-8&#34;</span>&gt;
-    &lt;<span style="color:#000080">title</span>&gt;class类型选择器&lt;/<span style="color:#000080">title</span>&gt;
-    &lt;<span style="color:#000080">style</span> <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;text/css&#34;</span>&gt;
-        .<span style="color:#458;font-weight:bold">class01</span> <span style="color:#000;font-weight:bold">,</span> #<span style="color:#555">id01</span>{
-            <span style="color:#000;font-weight:bold">color</span>: <span style="color:#000;font-weight:bold">blue</span>;
-            <span style="color:#000;font-weight:bold">font-size</span>: <span style="color:#099">20</span><span style="color:#458;font-weight:bold">px</span>;
-            <span style="color:#000;font-weight:bold">border</span>:  <span style="color:#000;font-weight:bold">yellow</span> <span style="color:#099">1</span><span style="color:#458;font-weight:bold">px</span> <span style="color:#000;font-weight:bold">solid</span>;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#f92672">html</span>&gt;
+&lt;<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+    &lt;<span style="color:#f92672">title</span>&gt;class类型选择器&lt;/<span style="color:#f92672">title</span>&gt;
+    &lt;<span style="color:#f92672">style</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/css&#34;</span>&gt;
+        .<span style="color:#a6e22e">class01</span> <span style="color:#f92672">,</span> #id01{
+            <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">blue</span>;
+            <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">20</span><span style="color:#66d9ef">px</span>;
+            <span style="color:#66d9ef">border</span>:  <span style="color:#66d9ef">yellow</span> <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span>;
         }
-    &lt;/<span style="color:#000080">style</span>&gt;
-&lt;/<span style="color:#000080">head</span>&gt;
-&lt;<span style="color:#000080">body</span>&gt;
-	<span style="color:#998;font-style:italic">&lt;!-- 
-</span><span style="color:#998;font-style:italic">	需求1：修改 class=&#34;class01&#34; 的div 标签 和 id=&#34;id01&#34; 所有的span标签，
-</span><span style="color:#998;font-style:italic">	字体颜色为蓝色，字体大小20个像素。边框为1像素黄色实线。
-</span><span style="color:#998;font-style:italic">	 --&gt;</span>
-   &lt;<span style="color:#000080">div</span> <span style="color:#008080">id</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;id01&#34;</span>&gt;div标签class01&lt;/<span style="color:#000080">div</span>&gt; &lt;<span style="color:#000080">br</span> /&gt;
-   &lt;<span style="color:#000080">span</span>&gt;span 标签&lt;/<span style="color:#000080">span</span>&gt;  &lt;<span style="color:#000080">br</span> /&gt;
-   &lt;<span style="color:#000080">div</span>&gt;div标签&lt;/<span style="color:#000080">div</span>&gt; &lt;<span style="color:#000080">br</span> /&gt;
-   &lt;<span style="color:#000080">div</span>&gt;div标签id01&lt;/<span style="color:#000080">div</span>&gt; &lt;<span style="color:#000080">br</span> /&gt;
-&lt;/<span style="color:#000080">body</span>&gt;
-&lt;/<span style="color:#000080">html</span>&gt;
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="35-css常用样式">3.5 CSS常用样式</h3>
+    &lt;/<span style="color:#f92672">style</span>&gt;
+&lt;/<span style="color:#f92672">head</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
+	<span style="color:#75715e">&lt;!-- 
+</span><span style="color:#75715e">	需求1：修改 class=&#34;class01&#34; 的div 标签 和 id=&#34;id01&#34; 所有的span标签，
+</span><span style="color:#75715e">	字体颜色为蓝色，字体大小20个像素。边框为1像素黄色实线。
+</span><span style="color:#75715e">	 --&gt;</span>
+   &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;id01&#34;</span>&gt;div标签class01&lt;/<span style="color:#f92672">div</span>&gt; &lt;<span style="color:#f92672">br</span> /&gt;
+   &lt;<span style="color:#f92672">span</span>&gt;span 标签&lt;/<span style="color:#f92672">span</span>&gt;  &lt;<span style="color:#f92672">br</span> /&gt;
+   &lt;<span style="color:#f92672">div</span>&gt;div标签&lt;/<span style="color:#f92672">div</span>&gt; &lt;<span style="color:#f92672">br</span> /&gt;
+   &lt;<span style="color:#f92672">div</span>&gt;div标签id01&lt;/<span style="color:#f92672">div</span>&gt; &lt;<span style="color:#f92672">br</span> /&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><h3 id="35-css常用样式">3.5 CSS常用样式</h3>
 <ol>
 <li>
 <p>字体颜色</p>
@@ -786,42 +534,20 @@ span{
 </li>
 <li>
 <p>表格细线</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#000080">table</span> {
-    <span style="color:#000;font-weight:bold">border</span>: <span style="color:#099">1</span><span style="color:#458;font-weight:bold">px</span> <span style="color:#000;font-weight:bold">solid</span> <span style="color:#000;font-weight:bold">black</span>; <span style="color:#998;font-style:italic">/*设置边框*/</span>
-    <span style="color:#000;font-weight:bold">border-collapse</span>: <span style="color:#000;font-weight:bold">collapse</span>; <span style="color:#998;font-style:italic">/*将边框合并*/</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">table</span> {
+    <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#66d9ef">black</span>; <span style="color:#75715e">/*设置边框*/</span>
+    <span style="color:#66d9ef">border-collapse</span>: <span style="color:#66d9ef">collapse</span>; <span style="color:#75715e">/*将边框合并*/</span>
 }
-<span style="color:#000080">td</span><span style="color:#000;font-weight:bold">,</span><span style="color:#000080">th</span> {
-    <span style="color:#000;font-weight:bold">border</span>: <span style="color:#099">1</span><span style="color:#458;font-weight:bold">px</span> <span style="color:#000;font-weight:bold">solid</span> <span style="color:#000;font-weight:bold">black</span>; <span style="color:#998;font-style:italic">/*设置边框*/</span>
+<span style="color:#f92672">td</span><span style="color:#f92672">,</span><span style="color:#f92672">th</span> {
+    <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#66d9ef">black</span>; <span style="color:#75715e">/*设置边框*/</span>
 }
-</code></pre></td></tr></table>
-</div>
-</div></li>
+</code></pre></div></li>
 <li>
 <p>列表去除修饰</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#000080">ul</span> {
-    <span style="color:#000;font-weight:bold">list-style</span>: <span style="color:#000;font-weight:bold">none</span>;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">ul</span> {
+    <span style="color:#66d9ef">list-style</span>: <span style="color:#66d9ef">none</span>;
 }
-</code></pre></td></tr></table>
-</div>
-</div></li>
+</code></pre></div></li>
 </ol>
 
         </div>

@@ -248,86 +248,41 @@
 <li>到 <code>web.xml</code> 中去配置 Filter 的拦截路径</li>
 </ol>
 <p>Filter 的代码：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#3c5d5d;font-weight:bold">@Override</span>
-<span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">doFilter</span><span style="color:#000;font-weight:bold">(</span>ServletRequest servletRequest<span style="color:#000;font-weight:bold">,</span> ServletResponse servletResponse<span style="color:#000;font-weight:bold">,</span> FilterChain filterChain<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> IOException<span style="color:#000;font-weight:bold">,</span> ServletException <span style="color:#000;font-weight:bold">{</span>
-    System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;3、Filter的doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)方法 &#34;</span><span style="color:#000;font-weight:bold">);</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Override</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">doFilter</span><span style="color:#f92672">(</span>ServletRequest servletRequest<span style="color:#f92672">,</span> ServletResponse servletResponse<span style="color:#f92672">,</span> FilterChain filterChain<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException<span style="color:#f92672">,</span> ServletException <span style="color:#f92672">{</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;3、Filter的doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)方法 &#34;</span><span style="color:#f92672">);</span>
 
-    HttpServletRequest httpServletRequest <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span>HttpServletRequest<span style="color:#000;font-weight:bold">)</span> servletRequest<span style="color:#000;font-weight:bold">;</span>
-    HttpSession session <span style="color:#000;font-weight:bold">=</span> httpServletRequest<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getSession</span><span style="color:#000;font-weight:bold">();</span>
-    Object user <span style="color:#000;font-weight:bold">=</span> session<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getAttribute</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;user&#34;</span><span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#998;font-style:italic">// 如果等于 null，说明还没有登录
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>user <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-        servletRequest<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getRequestDispatcher</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;/login.jsp&#34;</span><span style="color:#000;font-weight:bold">).</span><span style="color:#008080">forward</span><span style="color:#000;font-weight:bold">(</span>servletRequest<span style="color:#000;font-weight:bold">,</span> servletResponse<span style="color:#000;font-weight:bold">);</span>
-        <span style="color:#000;font-weight:bold">return</span><span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000;font-weight:bold">}</span><span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#998;font-style:italic">// 让程序继续往下访问用户的目标资源
-</span><span style="color:#998;font-style:italic"></span>        filterChain<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">doFilter</span><span style="color:#000;font-weight:bold">(</span>servletRequest<span style="color:#000;font-weight:bold">,</span> servletResponse<span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>web.xml中的配置：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#998;font-style:italic">&lt;!--filter 标签用于配置一个 Filter 过滤器--&gt;</span>
-<span style="color:#000080">&lt;filter&gt;</span>
-    <span style="color:#998;font-style:italic">&lt;!--给 filter 起一个别名--&gt;</span>
-    <span style="color:#000080">&lt;filter-name&gt;</span>AdminFilter<span style="color:#000080">&lt;/filter-name&gt;</span>
-    <span style="color:#998;font-style:italic">&lt;!--配置 filter 的全类名--&gt;</span>
-    <span style="color:#000080">&lt;filter-class&gt;</span>com.atguigu.filter.AdminFilter<span style="color:#000080">&lt;/filter-class&gt;</span>
+    HttpServletRequest httpServletRequest <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>HttpServletRequest<span style="color:#f92672">)</span> servletRequest<span style="color:#f92672">;</span>
+    HttpSession session <span style="color:#f92672">=</span> httpServletRequest<span style="color:#f92672">.</span><span style="color:#a6e22e">getSession</span><span style="color:#f92672">();</span>
+    Object user <span style="color:#f92672">=</span> session<span style="color:#f92672">.</span><span style="color:#a6e22e">getAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;user&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#75715e">// 如果等于 null，说明还没有登录
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>user <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        servletRequest<span style="color:#f92672">.</span><span style="color:#a6e22e">getRequestDispatcher</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/login.jsp&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">forward</span><span style="color:#f92672">(</span>servletRequest<span style="color:#f92672">,</span> servletResponse<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span><span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">// 让程序继续往下访问用户的目标资源
+</span><span style="color:#75715e"></span>        filterChain<span style="color:#f92672">.</span><span style="color:#a6e22e">doFilter</span><span style="color:#f92672">(</span>servletRequest<span style="color:#f92672">,</span> servletResponse<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>web.xml中的配置：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;!--filter 标签用于配置一个 Filter 过滤器--&gt;</span>
+<span style="color:#f92672">&lt;filter&gt;</span>
+    <span style="color:#75715e">&lt;!--给 filter 起一个别名--&gt;</span>
+    <span style="color:#f92672">&lt;filter-name&gt;</span>AdminFilter<span style="color:#f92672">&lt;/filter-name&gt;</span>
+    <span style="color:#75715e">&lt;!--配置 filter 的全类名--&gt;</span>
+    <span style="color:#f92672">&lt;filter-class&gt;</span>com.atguigu.filter.AdminFilter<span style="color:#f92672">&lt;/filter-class&gt;</span>
 
-<span style="color:#000080">&lt;/filter&gt;</span>
-<span style="color:#998;font-style:italic">&lt;!--filter-mapping 配置 Filter 过滤器的拦截路径--&gt;</span>
-<span style="color:#000080">&lt;filter-mapping&gt;</span>
-    <span style="color:#998;font-style:italic">&lt;!--filter-name 表示当前的拦截路径给哪个 filter 使用--&gt;</span>
-    <span style="color:#000080">&lt;filter-name&gt;</span>AdminFilter<span style="color:#000080">&lt;/filter-name&gt;</span>
-    <span style="color:#998;font-style:italic">&lt;!--url-pattern 配置拦截路径
-</span><span style="color:#998;font-style:italic">            /表示请求地址为:http://ip:port/工程路径/ 映射到IDEA的web目录
-</span><span style="color:#998;font-style:italic">            /admin/* 表示请求地址为:http://ip:port/工程路径/admin/* --&gt;</span>
-    <span style="color:#000080">&lt;url-pattern&gt;</span>/admin/*<span style="color:#000080">&lt;/url-pattern&gt;</span>
-<span style="color:#000080">&lt;/filter-mapping&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="21-完整的用户登录">2.1 完整的用户登录</h3>
+<span style="color:#f92672">&lt;/filter&gt;</span>
+<span style="color:#75715e">&lt;!--filter-mapping 配置 Filter 过滤器的拦截路径--&gt;</span>
+<span style="color:#f92672">&lt;filter-mapping&gt;</span>
+    <span style="color:#75715e">&lt;!--filter-name 表示当前的拦截路径给哪个 filter 使用--&gt;</span>
+    <span style="color:#f92672">&lt;filter-name&gt;</span>AdminFilter<span style="color:#f92672">&lt;/filter-name&gt;</span>
+    <span style="color:#75715e">&lt;!--url-pattern 配置拦截路径
+</span><span style="color:#75715e">            /表示请求地址为:http://ip:port/工程路径/ 映射到IDEA的web目录
+</span><span style="color:#75715e">            /admin/* 表示请求地址为:http://ip:port/工程路径/admin/* --&gt;</span>
+    <span style="color:#f92672">&lt;url-pattern&gt;</span>/admin/*<span style="color:#f92672">&lt;/url-pattern&gt;</span>
+<span style="color:#f92672">&lt;/filter-mapping&gt;</span>
+</code></pre></div><h3 id="21-完整的用户登录">2.1 完整的用户登录</h3>
 <p>login.jsp 页面 == 登录表单</p>
 <pre><code class="language-jsp" data-lang="jsp">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
 &lt;html&gt;
@@ -344,43 +299,22 @@
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre><p>LoginServlet程序：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">LoginServlet</span> <span style="color:#000;font-weight:bold">extends</span> HttpServlet <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
-    <span style="color:#000;font-weight:bold">protected</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">doPost</span><span style="color:#000;font-weight:bold">(</span>HttpServletRequest req<span style="color:#000;font-weight:bold">,</span> HttpServletResponse resp<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> ServletException<span style="color:#000;font-weight:bold">,</span> IOException <span style="color:#000;font-weight:bold">{</span>
-        resp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setContentType</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;text/html; charset=utf-8&#34;</span><span style="color:#000;font-weight:bold">);</span>
-        String username <span style="color:#000;font-weight:bold">=</span> req<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getParameter</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;username&#34;</span><span style="color:#000;font-weight:bold">);</span>
-        String password <span style="color:#000;font-weight:bold">=</span> req<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getParameter</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;password&#34;</span><span style="color:#000;font-weight:bold">);</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LoginServlet</span> <span style="color:#66d9ef">extends</span> HttpServlet <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">doPost</span><span style="color:#f92672">(</span>HttpServletRequest req<span style="color:#f92672">,</span> HttpServletResponse resp<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> ServletException<span style="color:#f92672">,</span> IOException <span style="color:#f92672">{</span>
+        resp<span style="color:#f92672">.</span><span style="color:#a6e22e">setContentType</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;text/html; charset=utf-8&#34;</span><span style="color:#f92672">);</span>
+        String username <span style="color:#f92672">=</span> req<span style="color:#f92672">.</span><span style="color:#a6e22e">getParameter</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;username&#34;</span><span style="color:#f92672">);</span>
+        String password <span style="color:#f92672">=</span> req<span style="color:#f92672">.</span><span style="color:#a6e22e">getParameter</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;password&#34;</span><span style="color:#f92672">);</span>
 
-        <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;cjj057&#34;</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">equals</span><span style="color:#000;font-weight:bold">(</span>username<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> <span style="color:#d14">&#34;123456&#34;</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">equals</span><span style="color:#000;font-weight:bold">(</span>password<span style="color:#000;font-weight:bold">))</span> <span style="color:#000;font-weight:bold">{</span>
-            req<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getSession</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">setAttribute</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;user&#34;</span><span style="color:#000;font-weight:bold">,</span> username<span style="color:#000;font-weight:bold">);</span>
-            resp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getWriter</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34; 登陆成功 ！ &#34;</span><span style="color:#000;font-weight:bold">);</span>
-        <span style="color:#000;font-weight:bold">}</span><span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">{</span>
-            req<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getRequestDispatcher</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;/login.jsp&#34;</span><span style="color:#000;font-weight:bold">).</span><span style="color:#008080">forward</span><span style="color:#000;font-weight:bold">(</span>req<span style="color:#000;font-weight:bold">,</span> resp<span style="color:#000;font-weight:bold">);</span>
-        <span style="color:#000;font-weight:bold">}</span>
-    <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="3-filter的生命周期">3 Filter的生命周期</h2>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;cjj057&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>username<span style="color:#f92672">)</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#e6db74">&#34;123456&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>password<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+            req<span style="color:#f92672">.</span><span style="color:#a6e22e">getSession</span><span style="color:#f92672">().</span><span style="color:#a6e22e">setAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;user&#34;</span><span style="color:#f92672">,</span> username<span style="color:#f92672">);</span>
+            resp<span style="color:#f92672">.</span><span style="color:#a6e22e">getWriter</span><span style="color:#f92672">().</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34; 登陆成功 ！ &#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span><span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+            req<span style="color:#f92672">.</span><span style="color:#a6e22e">getRequestDispatcher</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/login.jsp&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">forward</span><span style="color:#f92672">(</span>req<span style="color:#f92672">,</span> resp<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="3-filter的生命周期">3 Filter的生命周期</h2>
 <p>Filter 的生命周期包含几个方法</p>
 <ol>
 <li>构造器方法</li>
@@ -400,74 +334,35 @@
 <li>获取 <code>ServletContext</code> 对象</li>
 </ol>
 <p>Servlet代码：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#3c5d5d;font-weight:bold">@Override</span>
-<span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">init</span><span style="color:#000;font-weight:bold">(</span>FilterConfig filterConfig<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> ServletException <span style="color:#000;font-weight:bold">{</span>
-    System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;2、Filter的init(FilterConfig filterConfig)初始化方法 &#34;</span><span style="color:#000;font-weight:bold">);</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Override</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">init</span><span style="color:#f92672">(</span>FilterConfig filterConfig<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> ServletException <span style="color:#f92672">{</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;2、Filter的init(FilterConfig filterConfig)初始化方法 &#34;</span><span style="color:#f92672">);</span>
 
-    <span style="color:#998;font-style:italic">//         1、获取 Filter 的名称 filter-name 的内容
-</span><span style="color:#998;font-style:italic"></span>    System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;filter-name -&gt; &#34;</span> <span style="color:#000;font-weight:bold">+</span> filterConfig<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getFilterName</span><span style="color:#000;font-weight:bold">());</span>
-    <span style="color:#998;font-style:italic">//         2、获取在 Filter 中配置的 init-param 初始化参数
-</span><span style="color:#998;font-style:italic"></span>    System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;初始化参数username的值是 -&gt; &#34;</span> <span style="color:#000;font-weight:bold">+</span> filterConfig<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getInitParameter</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;username&#34;</span><span style="color:#000;font-weight:bold">));</span>
-    System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;初始化参数 url 的值是 -&gt; &#34;</span> <span style="color:#000;font-weight:bold">+</span> filterConfig<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getInitParameter</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;url&#34;</span><span style="color:#000;font-weight:bold">));</span>
-    <span style="color:#998;font-style:italic">//         3、获取 ServletContext 对象
-</span><span style="color:#998;font-style:italic"></span>    System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>filterConfig<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getServletContext</span><span style="color:#000;font-weight:bold">());</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>web.xml中的配置：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#000080">&lt;filter&gt;</span>
-    <span style="color:#998;font-style:italic">&lt;!--给 filter 起一个别名--&gt;</span>
-    <span style="color:#000080">&lt;filter-name&gt;</span>AdminFilter<span style="color:#000080">&lt;/filter-name&gt;</span>
-    <span style="color:#998;font-style:italic">&lt;!--配置 filter 的全类名--&gt;</span>
-    <span style="color:#000080">&lt;filter-class&gt;</span>com.atguigu.filter.AdminFilter<span style="color:#000080">&lt;/filter-class&gt;</span>
+    <span style="color:#75715e">//         1、获取 Filter 的名称 filter-name 的内容
+</span><span style="color:#75715e"></span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;filter-name -&gt; &#34;</span> <span style="color:#f92672">+</span> filterConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">getFilterName</span><span style="color:#f92672">());</span>
+    <span style="color:#75715e">//         2、获取在 Filter 中配置的 init-param 初始化参数
+</span><span style="color:#75715e"></span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;初始化参数username的值是 -&gt; &#34;</span> <span style="color:#f92672">+</span> filterConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">getInitParameter</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;username&#34;</span><span style="color:#f92672">));</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;初始化参数 url 的值是 -&gt; &#34;</span> <span style="color:#f92672">+</span> filterConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">getInitParameter</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;url&#34;</span><span style="color:#f92672">));</span>
+    <span style="color:#75715e">//         3、获取 ServletContext 对象
+</span><span style="color:#75715e"></span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>filterConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">getServletContext</span><span style="color:#f92672">());</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>web.xml中的配置：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;filter&gt;</span>
+    <span style="color:#75715e">&lt;!--给 filter 起一个别名--&gt;</span>
+    <span style="color:#f92672">&lt;filter-name&gt;</span>AdminFilter<span style="color:#f92672">&lt;/filter-name&gt;</span>
+    <span style="color:#75715e">&lt;!--配置 filter 的全类名--&gt;</span>
+    <span style="color:#f92672">&lt;filter-class&gt;</span>com.atguigu.filter.AdminFilter<span style="color:#f92672">&lt;/filter-class&gt;</span>
 
-    <span style="color:#000080">&lt;init-param&gt;</span>
-        <span style="color:#000080">&lt;param-name&gt;</span>username<span style="color:#000080">&lt;/param-name&gt;</span>
-        <span style="color:#000080">&lt;param-value&gt;</span>root<span style="color:#000080">&lt;/param-value&gt;</span>
-    <span style="color:#000080">&lt;/init-param&gt;</span>
-    <span style="color:#000080">&lt;init-param&gt;</span>
-        <span style="color:#000080">&lt;param-name&gt;</span>url<span style="color:#000080">&lt;/param-name&gt;</span>
-        <span style="color:#000080">&lt;param-value&gt;</span>jdbc:mysql://localhost3306/test<span style="color:#000080">&lt;/param-value&gt;</span>
-    <span style="color:#000080">&lt;/init-param&gt;</span>
-<span style="color:#000080">&lt;/filter&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="5-filterchain过滤器链">5 FilterChain过滤器链</h2>
+    <span style="color:#f92672">&lt;init-param&gt;</span>
+        <span style="color:#f92672">&lt;param-name&gt;</span>username<span style="color:#f92672">&lt;/param-name&gt;</span>
+        <span style="color:#f92672">&lt;param-value&gt;</span>root<span style="color:#f92672">&lt;/param-value&gt;</span>
+    <span style="color:#f92672">&lt;/init-param&gt;</span>
+    <span style="color:#f92672">&lt;init-param&gt;</span>
+        <span style="color:#f92672">&lt;param-name&gt;</span>url<span style="color:#f92672">&lt;/param-name&gt;</span>
+        <span style="color:#f92672">&lt;param-value&gt;</span>jdbc:mysql://localhost3306/test<span style="color:#f92672">&lt;/param-value&gt;</span>
+    <span style="color:#f92672">&lt;/init-param&gt;</span>
+<span style="color:#f92672">&lt;/filter&gt;</span>
+</code></pre></div><h2 id="5-filterchain过滤器链">5 FilterChain过滤器链</h2>
 <p><code>FilterChain</code> 就是过滤器链（多个过滤器如何一起工作）</p>
 <p>
         <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201110204223.png">
@@ -485,48 +380,20 @@
 <ol>
 <li>
 <p>精确匹配</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#000080">&lt;url-pattern&gt;</span>/target.jsp<span style="color:#000080">&lt;/url-pattern&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>以上配置的路径，表示请求地址必须为：<code>http://ip:port/工程路径/target.jsp</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;url-pattern&gt;</span>/target.jsp<span style="color:#f92672">&lt;/url-pattern&gt;</span>
+</code></pre></div><p>以上配置的路径，表示请求地址必须为：<code>http://ip:port/工程路径/target.jsp</code></p>
 </li>
 <li>
 <p>目录匹配</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#000080">&lt;url-pattern&gt;</span>/admin/*<span style="color:#000080">&lt;/url-pattern&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>以上配置的路径，表示请求地址必须为：<code>http://ip:port/工程路径/admin/*</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;url-pattern&gt;</span>/admin/*<span style="color:#f92672">&lt;/url-pattern&gt;</span>
+</code></pre></div><p>以上配置的路径，表示请求地址必须为：<code>http://ip:port/工程路径/admin/*</code></p>
 </li>
 <li>
 <p>后缀名匹配</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#000080">&lt;url-pattern&gt;</span>*.html<span style="color:#000080">&lt;/url-pattern&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>以上配置的路径，表示请求地址必须以.html 结尾才会拦截到</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#000080">&lt;url-pattern&gt;</span>*.do<span style="color:#000080">&lt;/url-pattern&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>以上配置的路径，表示请求地址必须以.do 结尾才会拦截到</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;url-pattern&gt;</span>*.html<span style="color:#f92672">&lt;/url-pattern&gt;</span>
+</code></pre></div><p>以上配置的路径，表示请求地址必须以.html 结尾才会拦截到</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;url-pattern&gt;</span>*.do<span style="color:#f92672">&lt;/url-pattern&gt;</span>
+</code></pre></div><p>以上配置的路径，表示请求地址必须以.do 结尾才会拦截到</p>
 <pre><code>&lt;url-pattern&gt;*.action&lt;/url-pattern&gt;
 </code></pre><p>以上配置的路径，表示请求地址必须以.action 结尾才会拦截到</p>
 </li>

@@ -245,39 +245,20 @@
         </a>
     </p>
 <p>src目录下创建CookieServlet程序：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">CookieServlet</span> <span style="color:#000;font-weight:bold">extends</span> BaseServlet<span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#000;font-weight:bold">protected</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">createCookie</span><span style="color:#000;font-weight:bold">(</span>HttpServletRequest req<span style="color:#000;font-weight:bold">,</span> HttpServletResponse resp<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> ServletException<span style="color:#000;font-weight:bold">,</span> IOException <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#998;font-style:italic">//1 创建 Cookie 对象
-</span><span style="color:#998;font-style:italic"></span>        Cookie cookie <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Cookie<span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;key4&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;value4&#34;</span><span style="color:#000;font-weight:bold">);</span>
-        <span style="color:#998;font-style:italic">//2 通知客户端保存 Cookie
-</span><span style="color:#998;font-style:italic"></span>        resp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">addCookie</span><span style="color:#000;font-weight:bold">(</span>cookie<span style="color:#000;font-weight:bold">);</span>
-        <span style="color:#998;font-style:italic">//1 创建 Cookie 对象
-</span><span style="color:#998;font-style:italic"></span>        Cookie cookie1 <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Cookie<span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;key5&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;value5&#34;</span><span style="color:#000;font-weight:bold">);</span>
-        <span style="color:#998;font-style:italic">//2 通知客户端保存 Cookie
-</span><span style="color:#998;font-style:italic"></span>        resp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">addCookie</span><span style="color:#000;font-weight:bold">(</span>cookie1<span style="color:#000;font-weight:bold">);</span>
-        resp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getWriter</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Cookie 创建成功&#34;</span><span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>配置好xml文件后，在浏览器中输入地址：http://localhost:8080/13_cookie_session/cookie.html，运行结果为：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CookieServlet</span> <span style="color:#66d9ef">extends</span> BaseServlet<span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">createCookie</span><span style="color:#f92672">(</span>HttpServletRequest req<span style="color:#f92672">,</span> HttpServletResponse resp<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> ServletException<span style="color:#f92672">,</span> IOException <span style="color:#f92672">{</span>
+        <span style="color:#75715e">//1 创建 Cookie 对象
+</span><span style="color:#75715e"></span>        Cookie cookie <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Cookie<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;key4&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;value4&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#75715e">//2 通知客户端保存 Cookie
+</span><span style="color:#75715e"></span>        resp<span style="color:#f92672">.</span><span style="color:#a6e22e">addCookie</span><span style="color:#f92672">(</span>cookie<span style="color:#f92672">);</span>
+        <span style="color:#75715e">//1 创建 Cookie 对象
+</span><span style="color:#75715e"></span>        Cookie cookie1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Cookie<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;key5&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;value5&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#75715e">//2 通知客户端保存 Cookie
+</span><span style="color:#75715e"></span>        resp<span style="color:#f92672">.</span><span style="color:#a6e22e">addCookie</span><span style="color:#f92672">(</span>cookie1<span style="color:#f92672">);</span>
+        resp<span style="color:#f92672">.</span><span style="color:#a6e22e">getWriter</span><span style="color:#f92672">().</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Cookie 创建成功&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>配置好xml文件后，在浏览器中输入地址：http://localhost:8080/13_cookie_session/cookie.html，运行结果为：</p>
 <p>
         <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201109220312.png">
             <img class="mx-auto" alt="image-20201109220312623" src="https://gitee.com/jchenTech/images/raw/master/img/20201109220312.png" />
@@ -291,102 +272,49 @@
         </a>
     </p>
 <p>Cookie的工具类，查找指定的Cookie对象：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">CookieUtils</span> <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#998;font-style:italic">/**
-</span><span style="color:#998;font-style:italic">     * 查找指定名称的Cookie对象
-</span><span style="color:#998;font-style:italic">     * @param name
-</span><span style="color:#998;font-style:italic">     * @param cookies
-</span><span style="color:#998;font-style:italic">     * @return
-</span><span style="color:#998;font-style:italic">     */</span>
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> Cookie <span style="color:#900;font-weight:bold">findCookie</span><span style="color:#000;font-weight:bold">(</span>String name <span style="color:#000;font-weight:bold">,</span> Cookie<span style="color:#000;font-weight:bold">[]</span> cookies<span style="color:#000;font-weight:bold">){</span>
-        <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>name <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">null</span> <span style="color:#000;font-weight:bold">||</span> cookies <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">null</span> <span style="color:#000;font-weight:bold">||</span> cookies<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">length</span> <span style="color:#000;font-weight:bold">==</span> 0<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-            <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#000;font-weight:bold">}</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CookieUtils</span> <span style="color:#f92672">{</span>
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * 查找指定名称的Cookie对象
+</span><span style="color:#75715e">     * @param name
+</span><span style="color:#75715e">     * @param cookies
+</span><span style="color:#75715e">     * @return
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> Cookie <span style="color:#a6e22e">findCookie</span><span style="color:#f92672">(</span>String name <span style="color:#f92672">,</span> Cookie<span style="color:#f92672">[]</span> cookies<span style="color:#f92672">){</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>name <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">||</span> cookies <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">||</span> cookies<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
 
-        <span style="color:#000;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span>Cookie cookie <span style="color:#000;font-weight:bold">:</span> cookies<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-            <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>name<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">equals</span><span style="color:#000;font-weight:bold">(</span>cookie<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getName</span><span style="color:#000;font-weight:bold">()))</span> <span style="color:#000;font-weight:bold">{</span>
-                <span style="color:#000;font-weight:bold">return</span> cookie<span style="color:#000;font-weight:bold">;</span>
-            <span style="color:#000;font-weight:bold">}</span>
-        <span style="color:#000;font-weight:bold">}</span>
-        <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>CookieServlet 程序中的代码：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000;font-weight:bold">protected</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">getCookie</span><span style="color:#000;font-weight:bold">(</span>HttpServletRequest req<span style="color:#000;font-weight:bold">,</span> HttpServletResponse resp<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> ServletException<span style="color:#000;font-weight:bold">,</span> IOException <span style="color:#000;font-weight:bold">{</span>
-    Cookie<span style="color:#000;font-weight:bold">[]</span> cookies <span style="color:#000;font-weight:bold">=</span> req<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getCookies</span><span style="color:#000;font-weight:bold">();</span>
-    <span style="color:#000;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span>Cookie cookie <span style="color:#000;font-weight:bold">:</span> cookies<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#998;font-style:italic">// getName方法返回Cookie的key（名）
-</span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">// getValue方法返回Cookie的value值
-</span><span style="color:#998;font-style:italic"></span>        resp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getWriter</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Cookie[&#34;</span> <span style="color:#000;font-weight:bold">+</span> cookie<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getName</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34;=&#34;</span> <span style="color:#000;font-weight:bold">+</span> cookie<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getValue</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34;] &lt;br/&gt;&#34;</span><span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>Cookie cookie <span style="color:#f92672">:</span> cookies<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>name<span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>cookie<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">()))</span> <span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">return</span> cookie<span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>CookieServlet 程序中的代码：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">getCookie</span><span style="color:#f92672">(</span>HttpServletRequest req<span style="color:#f92672">,</span> HttpServletResponse resp<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> ServletException<span style="color:#f92672">,</span> IOException <span style="color:#f92672">{</span>
+    Cookie<span style="color:#f92672">[]</span> cookies <span style="color:#f92672">=</span> req<span style="color:#f92672">.</span><span style="color:#a6e22e">getCookies</span><span style="color:#f92672">();</span>
+    <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>Cookie cookie <span style="color:#f92672">:</span> cookies<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">// getName方法返回Cookie的key（名）
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// getValue方法返回Cookie的value值
+</span><span style="color:#75715e"></span>        resp<span style="color:#f92672">.</span><span style="color:#a6e22e">getWriter</span><span style="color:#f92672">().</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Cookie[&#34;</span> <span style="color:#f92672">+</span> cookie<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;=&#34;</span> <span style="color:#f92672">+</span> cookie<span style="color:#f92672">.</span><span style="color:#a6e22e">getValue</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;] &lt;br/&gt;&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    Cookie iWantCookie <span style="color:#000;font-weight:bold">=</span> CookieUtils<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">findCookie</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;key1&#34;</span><span style="color:#000;font-weight:bold">,</span> cookies<span style="color:#000;font-weight:bold">);</span>
+    Cookie iWantCookie <span style="color:#f92672">=</span> CookieUtils<span style="color:#f92672">.</span><span style="color:#a6e22e">findCookie</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;key1&#34;</span><span style="color:#f92672">,</span> cookies<span style="color:#f92672">);</span>
 
-    <span style="color:#998;font-style:italic">//        for (Cookie cookie : cookies) {
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">//            if (&#34;key2&#34;.equals(cookie.getName())) {
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">//                iWantCookie = cookie;
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">//                break;
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">//            }
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">//        }
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// 如果不等于null，说明赋过值，也就是找到了需要的Cookie
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>iWantCookie <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-        resp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getWriter</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;找到了需要的Cookie&#34;</span><span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>浏览器运行结果：</p>
+    <span style="color:#75715e">//        for (Cookie cookie : cookies) {
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">//            if (&#34;key2&#34;.equals(cookie.getName())) {
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">//                iWantCookie = cookie;
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">//                break;
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">//            }
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">//        }
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// 如果不等于null，说明赋过值，也就是找到了需要的Cookie
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>iWantCookie <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        resp<span style="color:#f92672">.</span><span style="color:#a6e22e">getWriter</span><span style="color:#f92672">().</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;找到了需要的Cookie&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>浏览器运行结果：</p>
 <p>
         <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201110162353.png">
             <img class="mx-auto" alt="image-20201110162345972" src="https://gitee.com/jchenTech/images/raw/master/img/20201110162353.png" />
@@ -399,67 +327,34 @@
 <li>在构造器，同时赋于新的 Cookie 值。</li>
 <li>调用 <code>response.addCookie(Cookie)</code>;</li>
 </ol>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000;font-weight:bold">protected</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">updateCookie</span><span style="color:#000;font-weight:bold">(</span>HttpServletRequest req<span style="color:#000;font-weight:bold">,</span> HttpServletResponse resp<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> ServletException<span style="color:#000;font-weight:bold">,</span> IOException <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#998;font-style:italic">//        方案一：
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">//        1. 先创建一个要修改的同名（指的就是 key）的 Cookie 对象
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">//        2. 在构造器，同时赋于新的 Cookie 值。
-</span><span style="color:#998;font-style:italic"></span>    Cookie cookie <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Cookie<span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;key1&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;newValue&#34;</span><span style="color:#000;font-weight:bold">);</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">updateCookie</span><span style="color:#f92672">(</span>HttpServletRequest req<span style="color:#f92672">,</span> HttpServletResponse resp<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> ServletException<span style="color:#f92672">,</span> IOException <span style="color:#f92672">{</span>
+    <span style="color:#75715e">//        方案一：
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">//        1. 先创建一个要修改的同名（指的就是 key）的 Cookie 对象
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">//        2. 在构造器，同时赋于新的 Cookie 值。
+</span><span style="color:#75715e"></span>    Cookie cookie <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Cookie<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;key1&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;newValue&#34;</span><span style="color:#f92672">);</span>
 
-    <span style="color:#998;font-style:italic">//        3. 调用 `response.addCookie(Cookie)`;
-</span><span style="color:#998;font-style:italic"></span>    resp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">addCookie</span><span style="color:#000;font-weight:bold">(</span>cookie<span style="color:#000;font-weight:bold">);</span>
-    resp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getWriter</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;key1的Cookie已经修改好&#34;</span><span style="color:#000;font-weight:bold">);</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>方案二：</p>
+    <span style="color:#75715e">//        3. 调用 `response.addCookie(Cookie)`;
+</span><span style="color:#75715e"></span>    resp<span style="color:#f92672">.</span><span style="color:#a6e22e">addCookie</span><span style="color:#f92672">(</span>cookie<span style="color:#f92672">);</span>
+    resp<span style="color:#f92672">.</span><span style="color:#a6e22e">getWriter</span><span style="color:#f92672">().</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;key1的Cookie已经修改好&#34;</span><span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>方案二：</p>
 <ol>
 <li>先查找到需要修改的 Cookie 对象</li>
 <li>调用 <code>setValue()</code>方法赋于新的 Cookie 值。</li>
 <li>调用 <code>response.addCookie()</code>通知客户端保存修改</li>
 </ol>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000;font-weight:bold">protected</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">updateCookie</span><span style="color:#000;font-weight:bold">(</span>HttpServletRequest req<span style="color:#000;font-weight:bold">,</span> HttpServletResponse resp<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> ServletException<span style="color:#000;font-weight:bold">,</span> IOException <span style="color:#000;font-weight:bold">{</span>
-<span style="color:#998;font-style:italic">//        方案二：
-</span><span style="color:#998;font-style:italic">//        1. 先查找到需要修改的 Cookie 对象
-</span><span style="color:#998;font-style:italic"></span>        Cookie cookie <span style="color:#000;font-weight:bold">=</span> CookieUtils<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">findCookie</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;key2&#34;</span><span style="color:#000;font-weight:bold">,</span> req<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getCookies</span><span style="color:#000;font-weight:bold">());</span>
-        <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>cookie <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-<span style="color:#998;font-style:italic">//        2. 调用 `setValue()`方法赋于新的 Cookie 值。
-</span><span style="color:#998;font-style:italic"></span>            cookie<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setValue</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;newValue2&#34;</span><span style="color:#000;font-weight:bold">);</span>
-<span style="color:#998;font-style:italic">//        3. 调用response.addCookie()通知客户端保存修改
-</span><span style="color:#998;font-style:italic"></span>            resp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">addCookie</span><span style="color:#000;font-weight:bold">(</span>cookie<span style="color:#000;font-weight:bold">);</span>
-	<span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>浏览器运行结果：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">updateCookie</span><span style="color:#f92672">(</span>HttpServletRequest req<span style="color:#f92672">,</span> HttpServletResponse resp<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> ServletException<span style="color:#f92672">,</span> IOException <span style="color:#f92672">{</span>
+<span style="color:#75715e">//        方案二：
+</span><span style="color:#75715e">//        1. 先查找到需要修改的 Cookie 对象
+</span><span style="color:#75715e"></span>        Cookie cookie <span style="color:#f92672">=</span> CookieUtils<span style="color:#f92672">.</span><span style="color:#a6e22e">findCookie</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;key2&#34;</span><span style="color:#f92672">,</span> req<span style="color:#f92672">.</span><span style="color:#a6e22e">getCookies</span><span style="color:#f92672">());</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>cookie <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+<span style="color:#75715e">//        2. 调用 `setValue()`方法赋于新的 Cookie 值。
+</span><span style="color:#75715e"></span>            cookie<span style="color:#f92672">.</span><span style="color:#a6e22e">setValue</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;newValue2&#34;</span><span style="color:#f92672">);</span>
+<span style="color:#75715e">//        3. 调用response.addCookie()通知客户端保存修改
+</span><span style="color:#75715e"></span>            resp<span style="color:#f92672">.</span><span style="color:#a6e22e">addCookie</span><span style="color:#f92672">(</span>cookie<span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>浏览器运行结果：</p>
 <p>
         <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201110163748.png">
             <img class="mx-auto" alt="image-20201110163748277" src="https://gitee.com/jchenTech/images/raw/master/img/20201110163748.png" />
@@ -479,113 +374,57 @@
 <li>负数，表示浏览器一关，Cookie 就会被删除（默认值是-1）</li>
 <li>零，表示马上删除 Cookie</li>
 </ul>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
-<span style="color:#998;font-style:italic">/**
-</span><span style="color:#998;font-style:italic">     * 设置存活1个小时的Cooie
-</span><span style="color:#998;font-style:italic">     * @param req
-</span><span style="color:#998;font-style:italic">     * @param resp
-</span><span style="color:#998;font-style:italic">     * @throws ServletException
-</span><span style="color:#998;font-style:italic">     * @throws IOException
-</span><span style="color:#998;font-style:italic">     */</span>
-<span style="color:#000;font-weight:bold">protected</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">life3600</span><span style="color:#000;font-weight:bold">(</span>HttpServletRequest req<span style="color:#000;font-weight:bold">,</span> HttpServletResponse resp<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> ServletException<span style="color:#000;font-weight:bold">,</span> IOException <span style="color:#000;font-weight:bold">{</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#75715e">/**
+</span><span style="color:#75715e">     * 设置存活1个小时的Cooie
+</span><span style="color:#75715e">     * @param req
+</span><span style="color:#75715e">     * @param resp
+</span><span style="color:#75715e">     * @throws ServletException
+</span><span style="color:#75715e">     * @throws IOException
+</span><span style="color:#75715e">     */</span>
+<span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">life3600</span><span style="color:#f92672">(</span>HttpServletRequest req<span style="color:#f92672">,</span> HttpServletResponse resp<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> ServletException<span style="color:#f92672">,</span> IOException <span style="color:#f92672">{</span>
 
-    Cookie cookie <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Cookie<span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;life3600&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;life3600&#34;</span><span style="color:#000;font-weight:bold">);</span>
-    cookie<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setMaxAge</span><span style="color:#000;font-weight:bold">(</span>60 <span style="color:#000;font-weight:bold">*</span> 60<span style="color:#000;font-weight:bold">);</span> <span style="color:#998;font-style:italic">// 设置Cookie一小时之后被删除。无效
-</span><span style="color:#998;font-style:italic"></span>    resp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">addCookie</span><span style="color:#000;font-weight:bold">(</span>cookie<span style="color:#000;font-weight:bold">);</span>
-    resp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getWriter</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;已经创建了一个存活一小时的Cookie&#34;</span><span style="color:#000;font-weight:bold">);</span>
+    Cookie cookie <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Cookie<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;life3600&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;life3600&#34;</span><span style="color:#f92672">);</span>
+    cookie<span style="color:#f92672">.</span><span style="color:#a6e22e">setMaxAge</span><span style="color:#f92672">(</span>60 <span style="color:#f92672">*</span> 60<span style="color:#f92672">);</span> <span style="color:#75715e">// 设置Cookie一小时之后被删除。无效
+</span><span style="color:#75715e"></span>    resp<span style="color:#f92672">.</span><span style="color:#a6e22e">addCookie</span><span style="color:#f92672">(</span>cookie<span style="color:#f92672">);</span>
+    resp<span style="color:#f92672">.</span><span style="color:#a6e22e">getWriter</span><span style="color:#f92672">().</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;已经创建了一个存活一小时的Cookie&#34;</span><span style="color:#f92672">);</span>
 
-<span style="color:#000;font-weight:bold">}</span>
+<span style="color:#f92672">}</span>
 
-<span style="color:#998;font-style:italic">/**
-</span><span style="color:#998;font-style:italic">     * 马上删除一个Cookie
-</span><span style="color:#998;font-style:italic">     * @param req
-</span><span style="color:#998;font-style:italic">     * @param resp
-</span><span style="color:#998;font-style:italic">     * @throws ServletException
-</span><span style="color:#998;font-style:italic">     * @throws IOException
-</span><span style="color:#998;font-style:italic">     */</span>
-<span style="color:#000;font-weight:bold">protected</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">deleteNow</span><span style="color:#000;font-weight:bold">(</span>HttpServletRequest req<span style="color:#000;font-weight:bold">,</span> HttpServletResponse resp<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> ServletException<span style="color:#000;font-weight:bold">,</span> IOException <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#998;font-style:italic">// 先找到你要删除的Cookie对象
-</span><span style="color:#998;font-style:italic"></span>    Cookie cookie <span style="color:#000;font-weight:bold">=</span> CookieUtils<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">findCookie</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;key4&#34;</span><span style="color:#000;font-weight:bold">,</span> req<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getCookies</span><span style="color:#000;font-weight:bold">());</span>
-    <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>cookie <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#998;font-style:italic">// 调用setMaxAge(0);
-</span><span style="color:#998;font-style:italic"></span>        cookie<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setMaxAge</span><span style="color:#000;font-weight:bold">(</span>0<span style="color:#000;font-weight:bold">);</span> <span style="color:#998;font-style:italic">// 表示马上删除，都不需要等待浏览器关闭
-</span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">// 调用response.addCookie(cookie);
-</span><span style="color:#998;font-style:italic"></span>        resp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">addCookie</span><span style="color:#000;font-weight:bold">(</span>cookie<span style="color:#000;font-weight:bold">);</span>
+<span style="color:#75715e">/**
+</span><span style="color:#75715e">     * 马上删除一个Cookie
+</span><span style="color:#75715e">     * @param req
+</span><span style="color:#75715e">     * @param resp
+</span><span style="color:#75715e">     * @throws ServletException
+</span><span style="color:#75715e">     * @throws IOException
+</span><span style="color:#75715e">     */</span>
+<span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">deleteNow</span><span style="color:#f92672">(</span>HttpServletRequest req<span style="color:#f92672">,</span> HttpServletResponse resp<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> ServletException<span style="color:#f92672">,</span> IOException <span style="color:#f92672">{</span>
+    <span style="color:#75715e">// 先找到你要删除的Cookie对象
+</span><span style="color:#75715e"></span>    Cookie cookie <span style="color:#f92672">=</span> CookieUtils<span style="color:#f92672">.</span><span style="color:#a6e22e">findCookie</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;key4&#34;</span><span style="color:#f92672">,</span> req<span style="color:#f92672">.</span><span style="color:#a6e22e">getCookies</span><span style="color:#f92672">());</span>
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>cookie <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">// 调用setMaxAge(0);
+</span><span style="color:#75715e"></span>        cookie<span style="color:#f92672">.</span><span style="color:#a6e22e">setMaxAge</span><span style="color:#f92672">(</span>0<span style="color:#f92672">);</span> <span style="color:#75715e">// 表示马上删除，都不需要等待浏览器关闭
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// 调用response.addCookie(cookie);
+</span><span style="color:#75715e"></span>        resp<span style="color:#f92672">.</span><span style="color:#a6e22e">addCookie</span><span style="color:#f92672">(</span>cookie<span style="color:#f92672">);</span>
 
-        resp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getWriter</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;key4的Cookie已经被删除&#34;</span><span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
+        resp<span style="color:#f92672">.</span><span style="color:#a6e22e">getWriter</span><span style="color:#f92672">().</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;key4的Cookie已经被删除&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-<span style="color:#000;font-weight:bold">}</span>
+<span style="color:#f92672">}</span>
 
-<span style="color:#998;font-style:italic">/**
-</span><span style="color:#998;font-style:italic">     * 默认的会话级别的Cookie
-</span><span style="color:#998;font-style:italic">     * @param req
-</span><span style="color:#998;font-style:italic">     * @param resp
-</span><span style="color:#998;font-style:italic">     * @throws ServletException
-</span><span style="color:#998;font-style:italic">     * @throws IOException
-</span><span style="color:#998;font-style:italic">     */</span>
-<span style="color:#000;font-weight:bold">protected</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">defaultLife</span><span style="color:#000;font-weight:bold">(</span>HttpServletRequest req<span style="color:#000;font-weight:bold">,</span> HttpServletResponse resp<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> ServletException<span style="color:#000;font-weight:bold">,</span> IOException <span style="color:#000;font-weight:bold">{</span>
-    Cookie cookie <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Cookie<span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;defaultLife&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;defaultLife&#34;</span><span style="color:#000;font-weight:bold">);</span>
-    cookie<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setMaxAge</span><span style="color:#000;font-weight:bold">(-</span>1<span style="color:#000;font-weight:bold">);</span>
-    resp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">addCookie</span><span style="color:#000;font-weight:bold">(</span>cookie<span style="color:#000;font-weight:bold">);</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="27-cookie有效路径path的设置">2.7 Cookie有效路径Path的设置</h3>
+<span style="color:#75715e">/**
+</span><span style="color:#75715e">     * 默认的会话级别的Cookie
+</span><span style="color:#75715e">     * @param req
+</span><span style="color:#75715e">     * @param resp
+</span><span style="color:#75715e">     * @throws ServletException
+</span><span style="color:#75715e">     * @throws IOException
+</span><span style="color:#75715e">     */</span>
+<span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">defaultLife</span><span style="color:#f92672">(</span>HttpServletRequest req<span style="color:#f92672">,</span> HttpServletResponse resp<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> ServletException<span style="color:#f92672">,</span> IOException <span style="color:#f92672">{</span>
+    Cookie cookie <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Cookie<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;defaultLife&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;defaultLife&#34;</span><span style="color:#f92672">);</span>
+    cookie<span style="color:#f92672">.</span><span style="color:#a6e22e">setMaxAge</span><span style="color:#f92672">(-</span>1<span style="color:#f92672">);</span>
+    resp<span style="color:#f92672">.</span><span style="color:#a6e22e">addCookie</span><span style="color:#f92672">(</span>cookie<span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="27-cookie有效路径path的设置">2.7 Cookie有效路径Path的设置</h3>
 <p>Cookie 的 <code>path</code> 属性可以有效的过滤哪些 Cookie 可以发送给服务器。哪些不发。
 <code>path</code> 属性是通过请求的地址来进行有效的过滤。</p>
 <pre><code>CookieA path=/工程路径
@@ -600,27 +439,14 @@ CookieB 不发送
 CookieA 发送
 CookieB 发送
 </code></pre><p>创建testPath方法：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000;font-weight:bold">protected</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">testPath</span><span style="color:#000;font-weight:bold">(</span>HttpServletRequest req<span style="color:#000;font-weight:bold">,</span> HttpServletResponse resp<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> ServletException<span style="color:#000;font-weight:bold">,</span> IOException <span style="color:#000;font-weight:bold">{</span>
-    Cookie cookie <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Cookie<span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;path1&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;path1&#34;</span><span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#998;font-style:italic">// getContextPath() ===&gt;&gt;&gt;&gt;  得到工程路径
-</span><span style="color:#998;font-style:italic"></span>    cookie<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setPath</span><span style="color:#000;font-weight:bold">(</span> req<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getContextPath</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34;/abc&#34;</span> <span style="color:#000;font-weight:bold">);</span> <span style="color:#998;font-style:italic">// ===&gt;&gt;&gt;&gt;  /工程路径/abc
-</span><span style="color:#998;font-style:italic"></span>    resp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">addCookie</span><span style="color:#000;font-weight:bold">(</span>cookie<span style="color:#000;font-weight:bold">);</span>
-    resp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getWriter</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;创建了一个带有Path路径的Cookie&#34;</span><span style="color:#000;font-weight:bold">);</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="28-免输入用户名登陆">2.8 免输入用户名登陆</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testPath</span><span style="color:#f92672">(</span>HttpServletRequest req<span style="color:#f92672">,</span> HttpServletResponse resp<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> ServletException<span style="color:#f92672">,</span> IOException <span style="color:#f92672">{</span>
+    Cookie cookie <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Cookie<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;path1&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;path1&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#75715e">// getContextPath() ===&gt;&gt;&gt;&gt;  得到工程路径
+</span><span style="color:#75715e"></span>    cookie<span style="color:#f92672">.</span><span style="color:#a6e22e">setPath</span><span style="color:#f92672">(</span> req<span style="color:#f92672">.</span><span style="color:#a6e22e">getContextPath</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;/abc&#34;</span> <span style="color:#f92672">);</span> <span style="color:#75715e">// ===&gt;&gt;&gt;&gt;  /工程路径/abc
+</span><span style="color:#75715e"></span>    resp<span style="color:#f92672">.</span><span style="color:#a6e22e">addCookie</span><span style="color:#f92672">(</span>cookie<span style="color:#f92672">);</span>
+    resp<span style="color:#f92672">.</span><span style="color:#a6e22e">getWriter</span><span style="color:#f92672">().</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;创建了一个带有Path路径的Cookie&#34;</span><span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="28-免输入用户名登陆">2.8 免输入用户名登陆</h3>
 <p>免输入用户名登陆示例图：</p>
 <p>
         <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201110170622.png">
@@ -643,53 +469,27 @@ CookieB 发送
 &lt;/html&gt;
 
 </code></pre><p>LoginServlet程序：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">LoginServlet</span> <span style="color:#000;font-weight:bold">extends</span> HttpServlet <span style="color:#000;font-weight:bold">{</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LoginServlet</span> <span style="color:#66d9ef">extends</span> HttpServlet <span style="color:#f92672">{</span>
 
-    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
-    <span style="color:#000;font-weight:bold">protected</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">doGet</span><span style="color:#000;font-weight:bold">(</span>HttpServletRequest req<span style="color:#000;font-weight:bold">,</span> HttpServletResponse resp<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> ServletException<span style="color:#000;font-weight:bold">,</span> IOException <span style="color:#000;font-weight:bold">{</span>
-        String username <span style="color:#000;font-weight:bold">=</span> req<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getParameter</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;username&#34;</span><span style="color:#000;font-weight:bold">);</span>
-        String password <span style="color:#000;font-weight:bold">=</span> req<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getParameter</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;password&#34;</span><span style="color:#000;font-weight:bold">);</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">doGet</span><span style="color:#f92672">(</span>HttpServletRequest req<span style="color:#f92672">,</span> HttpServletResponse resp<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> ServletException<span style="color:#f92672">,</span> IOException <span style="color:#f92672">{</span>
+        String username <span style="color:#f92672">=</span> req<span style="color:#f92672">.</span><span style="color:#a6e22e">getParameter</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;username&#34;</span><span style="color:#f92672">);</span>
+        String password <span style="color:#f92672">=</span> req<span style="color:#f92672">.</span><span style="color:#a6e22e">getParameter</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;password&#34;</span><span style="color:#f92672">);</span>
 
-        <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;cjj057&#34;</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">equals</span><span style="color:#000;font-weight:bold">(</span>username<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> <span style="color:#d14">&#34;123456&#34;</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">equals</span><span style="color:#000;font-weight:bold">(</span>password<span style="color:#000;font-weight:bold">))</span> <span style="color:#000;font-weight:bold">{</span>
-            <span style="color:#998;font-style:italic">//登录 成功
-</span><span style="color:#998;font-style:italic"></span>            Cookie cookie <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Cookie<span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;username&#34;</span><span style="color:#000;font-weight:bold">,</span> username<span style="color:#000;font-weight:bold">);</span>
-            cookie<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setMaxAge</span><span style="color:#000;font-weight:bold">(</span>60 <span style="color:#000;font-weight:bold">*</span> 60 <span style="color:#000;font-weight:bold">*</span> 24 <span style="color:#000;font-weight:bold">*</span> 7<span style="color:#000;font-weight:bold">);</span><span style="color:#998;font-style:italic">//当前Cookie一周内有效
-</span><span style="color:#998;font-style:italic"></span>            resp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">addCookie</span><span style="color:#000;font-weight:bold">(</span>cookie<span style="color:#000;font-weight:bold">);</span>
-            System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;登录 成功&#34;</span><span style="color:#000;font-weight:bold">);</span>
-        <span style="color:#000;font-weight:bold">}</span> <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">{</span>
-<span style="color:#998;font-style:italic">//            登录 失败
-</span><span style="color:#998;font-style:italic"></span>            System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;登录 失败&#34;</span><span style="color:#000;font-weight:bold">);</span>
-        <span style="color:#000;font-weight:bold">}</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;cjj057&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>username<span style="color:#f92672">)</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#e6db74">&#34;123456&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>password<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+            <span style="color:#75715e">//登录 成功
+</span><span style="color:#75715e"></span>            Cookie cookie <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Cookie<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;username&#34;</span><span style="color:#f92672">,</span> username<span style="color:#f92672">);</span>
+            cookie<span style="color:#f92672">.</span><span style="color:#a6e22e">setMaxAge</span><span style="color:#f92672">(</span>60 <span style="color:#f92672">*</span> 60 <span style="color:#f92672">*</span> 24 <span style="color:#f92672">*</span> 7<span style="color:#f92672">);</span><span style="color:#75715e">//当前Cookie一周内有效
+</span><span style="color:#75715e"></span>            resp<span style="color:#f92672">.</span><span style="color:#a6e22e">addCookie</span><span style="color:#f92672">(</span>cookie<span style="color:#f92672">);</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;登录 成功&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+<span style="color:#75715e">//            登录 失败
+</span><span style="color:#75715e"></span>            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;登录 失败&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
 
-    <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="3-session会话">3 Session会话</h2>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="3-session会话">3 Session会话</h2>
 <h3 id="31-什么是session会话">3.1 什么是Session会话</h3>
 <ol>
 <li>Session 就一个接口（HttpSession）。</li>
@@ -710,90 +510,43 @@ CookieB 发送
 <li>false 表示获取之前创建</li>
 </ul>
 <p>每个会话都有一个身份证号。也就是 ID 值。而且这个 ID 是唯一的。<code>getId()</code> 得到 Session 的会话 id 值。</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000;font-weight:bold">protected</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">createOrGetSession</span><span style="color:#000;font-weight:bold">(</span>HttpServletRequest req<span style="color:#000;font-weight:bold">,</span> HttpServletResponse resp<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> ServletException<span style="color:#000;font-weight:bold">,</span> IOException <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#998;font-style:italic">// 创建和获取Session会话对象
-</span><span style="color:#998;font-style:italic"></span>    HttpSession session <span style="color:#000;font-weight:bold">=</span> req<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getSession</span><span style="color:#000;font-weight:bold">();</span>
-    <span style="color:#998;font-style:italic">// 判断 当前Session会话，是否是新创建出来的
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#458;font-weight:bold">boolean</span> isNew <span style="color:#000;font-weight:bold">=</span> session<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">isNew</span><span style="color:#000;font-weight:bold">();</span>
-    <span style="color:#998;font-style:italic">// 获取Session会话的唯一标识 id
-</span><span style="color:#998;font-style:italic"></span>    String id <span style="color:#000;font-weight:bold">=</span> session<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getId</span><span style="color:#000;font-weight:bold">();</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">createOrGetSession</span><span style="color:#f92672">(</span>HttpServletRequest req<span style="color:#f92672">,</span> HttpServletResponse resp<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> ServletException<span style="color:#f92672">,</span> IOException <span style="color:#f92672">{</span>
+    <span style="color:#75715e">// 创建和获取Session会话对象
+</span><span style="color:#75715e"></span>    HttpSession session <span style="color:#f92672">=</span> req<span style="color:#f92672">.</span><span style="color:#a6e22e">getSession</span><span style="color:#f92672">();</span>
+    <span style="color:#75715e">// 判断 当前Session会话，是否是新创建出来的
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">boolean</span> isNew <span style="color:#f92672">=</span> session<span style="color:#f92672">.</span><span style="color:#a6e22e">isNew</span><span style="color:#f92672">();</span>
+    <span style="color:#75715e">// 获取Session会话的唯一标识 id
+</span><span style="color:#75715e"></span>    String id <span style="color:#f92672">=</span> session<span style="color:#f92672">.</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">();</span>
 
-    resp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getWriter</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;得到的Session，它的id是：&#34;</span> <span style="color:#000;font-weight:bold">+</span> id <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34; &lt;br /&gt; &#34;</span><span style="color:#000;font-weight:bold">);</span>
-    resp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getWriter</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;这个Session是否是新创建的：&#34;</span> <span style="color:#000;font-weight:bold">+</span> isNew <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34; &lt;br /&gt; &#34;</span><span style="color:#000;font-weight:bold">);</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="33-session域数据的存取">3.3 Session域数据的存取</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#998;font-style:italic">/**
-</span><span style="color:#998;font-style:italic"> * 往Session中保存数据
-</span><span style="color:#998;font-style:italic"> * @param req
-</span><span style="color:#998;font-style:italic"> * @param resp
-</span><span style="color:#998;font-style:italic"> * @throws ServletException
-</span><span style="color:#998;font-style:italic"> * @throws IOException
-</span><span style="color:#998;font-style:italic"> */</span>
-<span style="color:#000;font-weight:bold">protected</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">setAttribute</span><span style="color:#000;font-weight:bold">(</span>HttpServletRequest req<span style="color:#000;font-weight:bold">,</span> HttpServletResponse resp<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> ServletException<span style="color:#000;font-weight:bold">,</span> IOException <span style="color:#000;font-weight:bold">{</span>
-    req<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getSession</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">setAttribute</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;key1&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;value1&#34;</span><span style="color:#000;font-weight:bold">);</span>
-    resp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getWriter</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;已经往Session中保存了数据&#34;</span><span style="color:#000;font-weight:bold">);</span>
+    resp<span style="color:#f92672">.</span><span style="color:#a6e22e">getWriter</span><span style="color:#f92672">().</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;得到的Session，它的id是：&#34;</span> <span style="color:#f92672">+</span> id <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; &lt;br /&gt; &#34;</span><span style="color:#f92672">);</span>
+    resp<span style="color:#f92672">.</span><span style="color:#a6e22e">getWriter</span><span style="color:#f92672">().</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;这个Session是否是新创建的：&#34;</span> <span style="color:#f92672">+</span> isNew <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; &lt;br /&gt; &#34;</span><span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="33-session域数据的存取">3.3 Session域数据的存取</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/**
+</span><span style="color:#75715e"> * 往Session中保存数据
+</span><span style="color:#75715e"> * @param req
+</span><span style="color:#75715e"> * @param resp
+</span><span style="color:#75715e"> * @throws ServletException
+</span><span style="color:#75715e"> * @throws IOException
+</span><span style="color:#75715e"> */</span>
+<span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setAttribute</span><span style="color:#f92672">(</span>HttpServletRequest req<span style="color:#f92672">,</span> HttpServletResponse resp<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> ServletException<span style="color:#f92672">,</span> IOException <span style="color:#f92672">{</span>
+    req<span style="color:#f92672">.</span><span style="color:#a6e22e">getSession</span><span style="color:#f92672">().</span><span style="color:#a6e22e">setAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;key1&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;value1&#34;</span><span style="color:#f92672">);</span>
+    resp<span style="color:#f92672">.</span><span style="color:#a6e22e">getWriter</span><span style="color:#f92672">().</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;已经往Session中保存了数据&#34;</span><span style="color:#f92672">);</span>
 
-<span style="color:#000;font-weight:bold">}</span>
+<span style="color:#f92672">}</span>
 
-<span style="color:#998;font-style:italic">/**
-</span><span style="color:#998;font-style:italic"> * 获取Session域中的数据
-</span><span style="color:#998;font-style:italic"> * @param req
-</span><span style="color:#998;font-style:italic"> * @param resp
-</span><span style="color:#998;font-style:italic"> * @throws ServletException
-</span><span style="color:#998;font-style:italic"> * @throws IOException
-</span><span style="color:#998;font-style:italic"> */</span>
-<span style="color:#000;font-weight:bold">protected</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">getAttribute</span><span style="color:#000;font-weight:bold">(</span>HttpServletRequest req<span style="color:#000;font-weight:bold">,</span> HttpServletResponse resp<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> ServletException<span style="color:#000;font-weight:bold">,</span> IOException <span style="color:#000;font-weight:bold">{</span>
-    Object attribute <span style="color:#000;font-weight:bold">=</span> req<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getSession</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">getAttribute</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;key1&#34;</span><span style="color:#000;font-weight:bold">);</span>
-    resp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getWriter</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;从Session中获取出key1的数据是：&#34;</span> <span style="color:#000;font-weight:bold">+</span> attribute<span style="color:#000;font-weight:bold">);</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="34-session生命周期控制">3.4 Session生命周期控制</h3>
+<span style="color:#75715e">/**
+</span><span style="color:#75715e"> * 获取Session域中的数据
+</span><span style="color:#75715e"> * @param req
+</span><span style="color:#75715e"> * @param resp
+</span><span style="color:#75715e"> * @throws ServletException
+</span><span style="color:#75715e"> * @throws IOException
+</span><span style="color:#75715e"> */</span>
+<span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">getAttribute</span><span style="color:#f92672">(</span>HttpServletRequest req<span style="color:#f92672">,</span> HttpServletResponse resp<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> ServletException<span style="color:#f92672">,</span> IOException <span style="color:#f92672">{</span>
+    Object attribute <span style="color:#f92672">=</span> req<span style="color:#f92672">.</span><span style="color:#a6e22e">getSession</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;key1&#34;</span><span style="color:#f92672">);</span>
+    resp<span style="color:#f92672">.</span><span style="color:#a6e22e">getWriter</span><span style="color:#f92672">().</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;从Session中获取出key1的数据是：&#34;</span> <span style="color:#f92672">+</span> attribute<span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="34-session生命周期控制">3.4 Session生命周期控制</h3>
 <ol>
 <li>
 <p><code>public void setMaxInactiveInterval(int interval)</code> 设置 Session 的超时时间（以秒为单位），超过指定的时长，Session就会被销毁。</p>
@@ -809,81 +562,36 @@ CookieB 发送
 <li>
 <p>Session 默认的超时时长是多少！
 Session 默认的超时时间长为 30 分钟。因为在Tomcat服务器的配置文件web.xml中默认有以下的配置，它就表示配置了当前Tomcat服务器下所有的Session超时配置默认时长为：30 分钟。</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#000080">&lt;session-config&gt;</span>
- <span style="color:#000080">&lt;session-timeout&gt;</span>30<span style="color:#000080">&lt;/session-timeout&gt;</span>
-<span style="color:#000080">&lt;/session-config&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div></li>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;session-config&gt;</span>
+ <span style="color:#f92672">&lt;session-timeout&gt;</span>30<span style="color:#f92672">&lt;/session-timeout&gt;</span>
+<span style="color:#f92672">&lt;/session-config&gt;</span>
+</code></pre></div></li>
 </ol>
 <p>如果说。你希望你的 web 工程，默认的 Session 的超时时长为其他时长。你可以在你自己的 web.xml 配置文件中做以上相同的配置。就可以修改你的 web 工程所有 Seession 的默认超时时长。</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#998;font-style:italic">&lt;!-- 表示当前 web 工程。创建出来 的所有 Session 默认是 20 分钟 超时时长 --&gt;</span>
-<span style="color:#000080">&lt;session-config&gt;</span>
-<span style="color:#000080">&lt;session-timeout&gt;</span>20<span style="color:#000080">&lt;/session-timeout&gt;</span>
-<span style="color:#000080">&lt;/session-config&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>如果你想只修改个别 Session 的超时时长。就可以使用上面的 API。<code>setMaxInactiveInterval(int interval)</code>来进行单独的设置。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;!-- 表示当前 web 工程。创建出来 的所有 Session 默认是 20 分钟 超时时长 --&gt;</span>
+<span style="color:#f92672">&lt;session-config&gt;</span>
+<span style="color:#f92672">&lt;session-timeout&gt;</span>20<span style="color:#f92672">&lt;/session-timeout&gt;</span>
+<span style="color:#f92672">&lt;/session-config&gt;</span>
+</code></pre></div><p>如果你想只修改个别 Session 的超时时长。就可以使用上面的 API。<code>setMaxInactiveInterval(int interval)</code>来进行单独的设置。</p>
 <p>Session 超时的概念介绍：</p>
 <p><!-- raw HTML omitted --></p>
 <p>示例代码：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000;font-weight:bold">protected</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">life3</span><span style="color:#000;font-weight:bold">(</span>HttpServletRequest req<span style="color:#000;font-weight:bold">,</span> HttpServletResponse resp<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> ServletException<span style="color:#000;font-weight:bold">,</span>IOException <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#998;font-style:italic">// 先获取 Session 对象
-</span><span style="color:#998;font-style:italic"></span>    HttpSession session <span style="color:#000;font-weight:bold">=</span> req<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getSession</span><span style="color:#000;font-weight:bold">();</span>
-    <span style="color:#998;font-style:italic">// 设置当前 Session3 秒后超时
-</span><span style="color:#998;font-style:italic"></span>    session<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setMaxInactiveInterval</span><span style="color:#000;font-weight:bold">(</span>3<span style="color:#000;font-weight:bold">);</span>
-    resp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getWriter</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34; 当前 Session 已经设置为 3 秒后超时&#34;</span><span style="color:#000;font-weight:bold">);</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>Session 马上被超时示例：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000;font-weight:bold">protected</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">deleteNow</span><span style="color:#000;font-weight:bold">(</span>HttpServletRequest req<span style="color:#000;font-weight:bold">,</span> HttpServletResponse resp<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> ServletException<span style="color:#000;font-weight:bold">,</span> IOException <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#998;font-style:italic">// 先获取 Session 对象
-</span><span style="color:#998;font-style:italic"></span>    HttpSession session <span style="color:#000;font-weight:bold">=</span> req<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getSession</span><span style="color:#000;font-weight:bold">();</span>
-    <span style="color:#998;font-style:italic">// 让 Session 会话马上超时
-</span><span style="color:#998;font-style:italic"></span>    session<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">invalidate</span><span style="color:#000;font-weight:bold">();</span>
-    resp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getWriter</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Session 已经设置为超时（无效）&#34;</span><span style="color:#000;font-weight:bold">);</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="35-浏览器和session之间的关联的技术内幕">3.5 浏览器和Session之间的关联的技术内幕</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">life3</span><span style="color:#f92672">(</span>HttpServletRequest req<span style="color:#f92672">,</span> HttpServletResponse resp<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> ServletException<span style="color:#f92672">,</span>IOException <span style="color:#f92672">{</span>
+    <span style="color:#75715e">// 先获取 Session 对象
+</span><span style="color:#75715e"></span>    HttpSession session <span style="color:#f92672">=</span> req<span style="color:#f92672">.</span><span style="color:#a6e22e">getSession</span><span style="color:#f92672">();</span>
+    <span style="color:#75715e">// 设置当前 Session3 秒后超时
+</span><span style="color:#75715e"></span>    session<span style="color:#f92672">.</span><span style="color:#a6e22e">setMaxInactiveInterval</span><span style="color:#f92672">(</span>3<span style="color:#f92672">);</span>
+    resp<span style="color:#f92672">.</span><span style="color:#a6e22e">getWriter</span><span style="color:#f92672">().</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34; 当前 Session 已经设置为 3 秒后超时&#34;</span><span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Session 马上被超时示例：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">deleteNow</span><span style="color:#f92672">(</span>HttpServletRequest req<span style="color:#f92672">,</span> HttpServletResponse resp<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> ServletException<span style="color:#f92672">,</span> IOException <span style="color:#f92672">{</span>
+    <span style="color:#75715e">// 先获取 Session 对象
+</span><span style="color:#75715e"></span>    HttpSession session <span style="color:#f92672">=</span> req<span style="color:#f92672">.</span><span style="color:#a6e22e">getSession</span><span style="color:#f92672">();</span>
+    <span style="color:#75715e">// 让 Session 会话马上超时
+</span><span style="color:#75715e"></span>    session<span style="color:#f92672">.</span><span style="color:#a6e22e">invalidate</span><span style="color:#f92672">();</span>
+    resp<span style="color:#f92672">.</span><span style="color:#a6e22e">getWriter</span><span style="color:#f92672">().</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Session 已经设置为超时（无效）&#34;</span><span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="35-浏览器和session之间的关联的技术内幕">3.5 浏览器和Session之间的关联的技术内幕</h3>
 <p>Session技术，底层其实是基于Cookie技术来实现的。</p>
 <p>
         <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201110184316.png">

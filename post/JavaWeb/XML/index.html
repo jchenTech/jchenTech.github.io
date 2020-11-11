@@ -244,41 +244,21 @@
 <li>standalone=&ldquo;yes/no&rdquo; 表示这个xml 文件是否是独立的xml 文件</li>
 </ul>
 <p>图书有id 属性表示唯一标识，书名，有作者，价格的信息：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#999;font-weight:bold;font-style:italic">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34; ?&gt;</span>
-<span style="color:#998;font-style:italic">&lt;!-- xml声明 version是版本的意思   encoding是编码  --&gt;</span>
-<span style="color:#000080">&lt;books&gt;</span> <span style="color:#998;font-style:italic">&lt;!-- 这是xml注释 --&gt;</span>
-    <span style="color:#000080">&lt;book</span> <span style="color:#008080">id=</span><span style="color:#d14">&#34;SN123123413241&#34;</span><span style="color:#000080">&gt;</span> <span style="color:#998;font-style:italic">&lt;!-- book标签描述一本图书   id属性描述 的是图书 的编号  --&gt;</span>
-        <span style="color:#000080">&lt;name&gt;</span>java编程思想<span style="color:#000080">&lt;/name&gt;</span> <span style="color:#998;font-style:italic">&lt;!-- name标签描述 的是图书 的信息 --&gt;</span>
-        <span style="color:#000080">&lt;author&gt;</span>华仔<span style="color:#000080">&lt;/author&gt;</span>		<span style="color:#998;font-style:italic">&lt;!-- author单词是作者的意思 ，描述图书作者 --&gt;</span>
-        <span style="color:#000080">&lt;price&gt;</span>9.9<span style="color:#000080">&lt;/price&gt;</span>		<span style="color:#998;font-style:italic">&lt;!-- price单词是价格，描述的是图书 的价格 --&gt;</span>
-    <span style="color:#000080">&lt;/book&gt;</span>
-    <span style="color:#000080">&lt;book</span> <span style="color:#008080">id=</span><span style="color:#d14">&#34;SN12341235123&#34;</span><span style="color:#000080">&gt;</span>	<span style="color:#998;font-style:italic">&lt;!-- book标签描述一本图书   id属性描述 的是图书 的编号  --&gt;</span>
-        <span style="color:#000080">&lt;name&gt;</span>葵花宝典<span style="color:#000080">&lt;/name&gt;</span>	<span style="color:#998;font-style:italic">&lt;!-- name标签描述 的是图书 的信息 --&gt;</span>
-        <span style="color:#000080">&lt;author&gt;</span>班长<span style="color:#000080">&lt;/author&gt;</span>	<span style="color:#998;font-style:italic">&lt;!-- author单词是作者的意思 ，描述图书作者 --&gt;</span>
-        <span style="color:#000080">&lt;price&gt;</span>5.5<span style="color:#000080">&lt;/price&gt;</span>	<span style="color:#998;font-style:italic">&lt;!-- price单词是价格，描述的是图书 的价格 --&gt;</span>
-    <span style="color:#000080">&lt;/book&gt;</span>
-<span style="color:#000080">&lt;/books&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="22-xml注释">2.2 xml注释</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34; ?&gt;</span>
+<span style="color:#75715e">&lt;!-- xml声明 version是版本的意思   encoding是编码  --&gt;</span>
+<span style="color:#f92672">&lt;books&gt;</span> <span style="color:#75715e">&lt;!-- 这是xml注释 --&gt;</span>
+    <span style="color:#f92672">&lt;book</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;SN123123413241&#34;</span><span style="color:#f92672">&gt;</span> <span style="color:#75715e">&lt;!-- book标签描述一本图书   id属性描述 的是图书 的编号  --&gt;</span>
+        <span style="color:#f92672">&lt;name&gt;</span>java编程思想<span style="color:#f92672">&lt;/name&gt;</span> <span style="color:#75715e">&lt;!-- name标签描述 的是图书 的信息 --&gt;</span>
+        <span style="color:#f92672">&lt;author&gt;</span>华仔<span style="color:#f92672">&lt;/author&gt;</span>		<span style="color:#75715e">&lt;!-- author单词是作者的意思 ，描述图书作者 --&gt;</span>
+        <span style="color:#f92672">&lt;price&gt;</span>9.9<span style="color:#f92672">&lt;/price&gt;</span>		<span style="color:#75715e">&lt;!-- price单词是价格，描述的是图书 的价格 --&gt;</span>
+    <span style="color:#f92672">&lt;/book&gt;</span>
+    <span style="color:#f92672">&lt;book</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;SN12341235123&#34;</span><span style="color:#f92672">&gt;</span>	<span style="color:#75715e">&lt;!-- book标签描述一本图书   id属性描述 的是图书 的编号  --&gt;</span>
+        <span style="color:#f92672">&lt;name&gt;</span>葵花宝典<span style="color:#f92672">&lt;/name&gt;</span>	<span style="color:#75715e">&lt;!-- name标签描述 的是图书 的信息 --&gt;</span>
+        <span style="color:#f92672">&lt;author&gt;</span>班长<span style="color:#f92672">&lt;/author&gt;</span>	<span style="color:#75715e">&lt;!-- author单词是作者的意思 ，描述图书作者 --&gt;</span>
+        <span style="color:#f92672">&lt;price&gt;</span>5.5<span style="color:#f92672">&lt;/price&gt;</span>	<span style="color:#75715e">&lt;!-- price单词是价格，描述的是图书 的价格 --&gt;</span>
+    <span style="color:#f92672">&lt;/book&gt;</span>
+<span style="color:#f92672">&lt;/books&gt;</span>
+</code></pre></div><h3 id="22-xml注释">2.2 xml注释</h3>
 <p>html和XML注释一样: <code>&lt;!-- html 注释--&gt;</code></p>
 <h3 id="23-元素标签">2.3 元素（标签）</h3>
 <p>html 标签：</p>
@@ -303,23 +283,12 @@
 <ol>
 <li>
 <p>名称可以含字母、数字以及其他的字符</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#000080">&lt;book</span> <span style="color:#008080">id=</span><span style="color:#d14">&#34;SN213412341&#34;</span><span style="color:#000080">&gt;</span> <span style="color:#998;font-style:italic">&lt;!-- 描述一本书--&gt;</span>
-<span style="color:#000080">&lt;author&gt;</span>班导<span style="color:#000080">&lt;/author&gt;</span> <span style="color:#998;font-style:italic">&lt;!-- 描述书的作者信息--&gt;</span>
-<span style="color:#000080">&lt;name&gt;</span>java 编程思想<span style="color:#000080">&lt;/name&gt;</span> <span style="color:#998;font-style:italic">&lt;!-- 书名--&gt;</span>
-<span style="color:#000080">&lt;price&gt;</span>9.9<span style="color:#000080">&lt;/price&gt;</span> <span style="color:#998;font-style:italic">&lt;!-- 价格--&gt;</span>
-<span style="color:#000080">&lt;/book&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div></li>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;book</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;SN213412341&#34;</span><span style="color:#f92672">&gt;</span> <span style="color:#75715e">&lt;!-- 描述一本书--&gt;</span>
+<span style="color:#f92672">&lt;author&gt;</span>班导<span style="color:#f92672">&lt;/author&gt;</span> <span style="color:#75715e">&lt;!-- 描述书的作者信息--&gt;</span>
+<span style="color:#f92672">&lt;name&gt;</span>java 编程思想<span style="color:#f92672">&lt;/name&gt;</span> <span style="color:#75715e">&lt;!-- 书名--&gt;</span>
+<span style="color:#f92672">&lt;price&gt;</span>9.9<span style="color:#f92672">&lt;/price&gt;</span> <span style="color:#75715e">&lt;!-- 价格--&gt;</span>
+<span style="color:#f92672">&lt;/book&gt;</span>
+</code></pre></div></li>
 <li>
 <p>名称不能以数字或者标点符号开始</p>
 </li>
@@ -399,75 +368,38 @@ SAX 解析，它跟W3C 制定的解析不太一样。它是以类似事件机制
 <li>第四步：找到你想要修改、删除的子元素，进行相应的操作</li>
 <li>第五步，保存到硬盘上</li>
 </ul>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#998;font-style:italic">/*
-</span><span style="color:#998;font-style:italic">* 读取xml 文件中的内容
-</span><span style="color:#998;font-style:italic">*/</span>
-<span style="color:#3c5d5d;font-weight:bold">@Test</span>
-<span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">readXML</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">throws</span> DocumentException <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#998;font-style:italic">// 第一步，通过创建SAXReader 对象。来读取xml 文件，获取Document 对象
-</span><span style="color:#998;font-style:italic"></span>    SAXReader reader <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> SAXReader<span style="color:#000;font-weight:bold">();</span>
-    Document document <span style="color:#000;font-weight:bold">=</span> reader<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">read</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;src/books.xml&#34;</span><span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#998;font-style:italic">// 第二步，通过Document 对象。拿到XML 的根元素对象
-</span><span style="color:#998;font-style:italic"></span>    Element root <span style="color:#000;font-weight:bold">=</span> document<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getRootElement</span><span style="color:#000;font-weight:bold">();</span>
-    <span style="color:#998;font-style:italic">// 打印测试
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// Element.asXML() 它将当前元素转换成为String 对象
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// System.out.println( root.asXML() );
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// 第三步，通过根元素对象。获取所有的book 标签对象
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// Element.elements(标签名)它可以拿到当前元素下的指定的子元素的集合
-</span><span style="color:#998;font-style:italic"></span>    List<span style="color:#000;font-weight:bold">&lt;</span>Element<span style="color:#000;font-weight:bold">&gt;</span> books <span style="color:#000;font-weight:bold">=</span> root<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">elements</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;book&#34;</span><span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#998;font-style:italic">// 第四小，遍历每个book 标签对象。然后获取到book 标签对象内的每一个元素，
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span>Element book <span style="color:#000;font-weight:bold">:</span> books<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#998;font-style:italic">// 测试
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// System.out.println(book.asXML());
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// 拿到book 下面的name 元素对象
-</span><span style="color:#998;font-style:italic"></span>    Element nameElement <span style="color:#000;font-weight:bold">=</span> book<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">element</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;name&#34;</span><span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#998;font-style:italic">// 拿到book 下面的price 元素对象
-</span><span style="color:#998;font-style:italic"></span>    Element priceElement <span style="color:#000;font-weight:bold">=</span> book<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">element</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;price&#34;</span><span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#998;font-style:italic">// 拿到book 下面的author 元素对象
-</span><span style="color:#998;font-style:italic"></span>    Element authorElement <span style="color:#000;font-weight:bold">=</span> book<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">element</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;author&#34;</span><span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#998;font-style:italic">// 再通过getText() 方法拿到起始标签和结束标签之间的文本内容
-</span><span style="color:#998;font-style:italic"></span>    System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;书名&#34;</span> <span style="color:#000;font-weight:bold">+</span> nameElement<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getText</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34; , 价格:&#34;</span>
-    <span style="color:#000;font-weight:bold">+</span> priceElement<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getText</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34;, 作者：&#34;</span> <span style="color:#000;font-weight:bold">+</span> authorElement<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getText</span><span style="color:#000;font-weight:bold">());</span>
-    <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/*
+</span><span style="color:#75715e">* 读取xml 文件中的内容
+</span><span style="color:#75715e">*/</span>
+<span style="color:#a6e22e">@Test</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">readXML</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> DocumentException <span style="color:#f92672">{</span>
+    <span style="color:#75715e">// 第一步，通过创建SAXReader 对象。来读取xml 文件，获取Document 对象
+</span><span style="color:#75715e"></span>    SAXReader reader <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SAXReader<span style="color:#f92672">();</span>
+    Document document <span style="color:#f92672">=</span> reader<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;src/books.xml&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#75715e">// 第二步，通过Document 对象。拿到XML 的根元素对象
+</span><span style="color:#75715e"></span>    Element root <span style="color:#f92672">=</span> document<span style="color:#f92672">.</span><span style="color:#a6e22e">getRootElement</span><span style="color:#f92672">();</span>
+    <span style="color:#75715e">// 打印测试
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// Element.asXML() 它将当前元素转换成为String 对象
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// System.out.println( root.asXML() );
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// 第三步，通过根元素对象。获取所有的book 标签对象
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// Element.elements(标签名)它可以拿到当前元素下的指定的子元素的集合
+</span><span style="color:#75715e"></span>    List<span style="color:#f92672">&lt;</span>Element<span style="color:#f92672">&gt;</span> books <span style="color:#f92672">=</span> root<span style="color:#f92672">.</span><span style="color:#a6e22e">elements</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;book&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#75715e">// 第四小，遍历每个book 标签对象。然后获取到book 标签对象内的每一个元素，
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>Element book <span style="color:#f92672">:</span> books<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#75715e">// 测试
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// System.out.println(book.asXML());
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// 拿到book 下面的name 元素对象
+</span><span style="color:#75715e"></span>    Element nameElement <span style="color:#f92672">=</span> book<span style="color:#f92672">.</span><span style="color:#a6e22e">element</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;name&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#75715e">// 拿到book 下面的price 元素对象
+</span><span style="color:#75715e"></span>    Element priceElement <span style="color:#f92672">=</span> book<span style="color:#f92672">.</span><span style="color:#a6e22e">element</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;price&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#75715e">// 拿到book 下面的author 元素对象
+</span><span style="color:#75715e"></span>    Element authorElement <span style="color:#f92672">=</span> book<span style="color:#f92672">.</span><span style="color:#a6e22e">element</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;author&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#75715e">// 再通过getText() 方法拿到起始标签和结束标签之间的文本内容
+</span><span style="color:#75715e"></span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;书名&#34;</span> <span style="color:#f92672">+</span> nameElement<span style="color:#f92672">.</span><span style="color:#a6e22e">getText</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; , 价格:&#34;</span>
+    <span style="color:#f92672">+</span> priceElement<span style="color:#f92672">.</span><span style="color:#a6e22e">getText</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;, 作者：&#34;</span> <span style="color:#f92672">+</span> authorElement<span style="color:#f92672">.</span><span style="color:#a6e22e">getText</span><span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div>
         </div>
 
         

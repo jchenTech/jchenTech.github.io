@@ -211,960 +211,473 @@
         <div class="post-content">
             <p>本文整理了CS61B中的链表IntList、SLList、DLList、AList实现。</p>
 <h2 id="1-intlist">1 IntList</h2>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">IntList</span> <span style="color:#000;font-weight:bold">{</span>
-	<span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">int</span> first<span style="color:#000;font-weight:bold">;</span>
-	<span style="color:#000;font-weight:bold">public</span> IntList rest<span style="color:#000;font-weight:bold">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">IntList</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> first<span style="color:#f92672">;</span>
+	<span style="color:#66d9ef">public</span> IntList rest<span style="color:#f92672">;</span>
 
-	<span style="color:#000;font-weight:bold">public</span> <span style="color:#900;font-weight:bold">IntList</span><span style="color:#000;font-weight:bold">(</span><span style="color:#458;font-weight:bold">int</span> f<span style="color:#000;font-weight:bold">,</span> IntList r<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-		first <span style="color:#000;font-weight:bold">=</span> f<span style="color:#000;font-weight:bold">;</span>
-		rest <span style="color:#000;font-weight:bold">=</span> r<span style="color:#000;font-weight:bold">;</span>
-	<span style="color:#000;font-weight:bold">}</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">IntList</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> f<span style="color:#f92672">,</span> IntList r<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		first <span style="color:#f92672">=</span> f<span style="color:#f92672">;</span>
+		rest <span style="color:#f92672">=</span> r<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
 
-	<span style="color:#998;font-style:italic">/** Return the size of the list using... recursion! */</span>
-	<span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">int</span> <span style="color:#900;font-weight:bold">size</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-		<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">rest</span> <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#998;font-style:italic">/* base case */</span>
-			<span style="color:#000;font-weight:bold">return</span> 1<span style="color:#000;font-weight:bold">;</span>
-		<span style="color:#000;font-weight:bold">}</span>
-		<span style="color:#000;font-weight:bold">return</span> 1 <span style="color:#000;font-weight:bold">+</span> <span style="color:#000;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">rest</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">size</span><span style="color:#000;font-weight:bold">();</span>
-	<span style="color:#000;font-weight:bold">}</span>
+	<span style="color:#75715e">/** Return the size of the list using... recursion! */</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">size</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">rest</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span><span style="color:#75715e">/* base case */</span>
+			<span style="color:#66d9ef">return</span> 1<span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+		<span style="color:#66d9ef">return</span> 1 <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">rest</span><span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">();</span>
+	<span style="color:#f92672">}</span>
 
-	<span style="color:#998;font-style:italic">/** Return the size of the list using no recursion! */</span>
-	<span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">int</span> <span style="color:#900;font-weight:bold">iterativeSize</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-		<span style="color:#998;font-style:italic">/* You can not assign &#34;this&#34; in Java*/</span>
-		IntList p <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">this</span><span style="color:#000;font-weight:bold">;</span>
-		<span style="color:#458;font-weight:bold">int</span> totalSize <span style="color:#000;font-weight:bold">=</span> 0<span style="color:#000;font-weight:bold">;</span>
-		<span style="color:#000;font-weight:bold">while</span> <span style="color:#000;font-weight:bold">(</span>p <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-			totalSize <span style="color:#000;font-weight:bold">+=</span> 1<span style="color:#000;font-weight:bold">;</span>
-			p <span style="color:#000;font-weight:bold">=</span> p<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">rest</span><span style="color:#000;font-weight:bold">;</span>
-		<span style="color:#000;font-weight:bold">}</span>
-		<span style="color:#000;font-weight:bold">return</span> totalSize<span style="color:#000;font-weight:bold">;</span>
-	<span style="color:#000;font-weight:bold">}</span>
+	<span style="color:#75715e">/** Return the size of the list using no recursion! */</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">iterativeSize</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		<span style="color:#75715e">/* You can not assign &#34;this&#34; in Java*/</span>
+		IntList p <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">int</span> totalSize <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>p <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			totalSize <span style="color:#f92672">+=</span> 1<span style="color:#f92672">;</span>
+			p <span style="color:#f92672">=</span> p<span style="color:#f92672">.</span><span style="color:#a6e22e">rest</span><span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+		<span style="color:#66d9ef">return</span> totalSize<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
 
-	<span style="color:#998;font-style:italic">/** Returns the ith value in this list.*/</span>
-	<span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">int</span> <span style="color:#900;font-weight:bold">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#458;font-weight:bold">int</span> i<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-		IntList p <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">this</span><span style="color:#000;font-weight:bold">;</span>
-		<span style="color:#458;font-weight:bold">int</span> nth <span style="color:#000;font-weight:bold">=</span> 0<span style="color:#000;font-weight:bold">;</span>
-		<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>i <span style="color:#000;font-weight:bold">&gt;=</span> p<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">size</span><span style="color:#000;font-weight:bold">())</span> <span style="color:#000;font-weight:bold">{</span>
-			<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">-</span>1<span style="color:#000;font-weight:bold">;</span>
-		<span style="color:#000;font-weight:bold">}</span>
-		<span style="color:#000;font-weight:bold">while</span> <span style="color:#000;font-weight:bold">(</span>nth <span style="color:#000;font-weight:bold">!=</span> i<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-			p <span style="color:#000;font-weight:bold">=</span> p<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">rest</span><span style="color:#000;font-weight:bold">;</span>
-			nth <span style="color:#000;font-weight:bold">+=</span> 1<span style="color:#000;font-weight:bold">;</span>
-		<span style="color:#000;font-weight:bold">}</span>
-		<span style="color:#000;font-weight:bold">return</span> p<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">first</span><span style="color:#000;font-weight:bold">;</span>
-	<span style="color:#000;font-weight:bold">}</span>
+	<span style="color:#75715e">/** Returns the ith value in this list.*/</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		IntList p <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">int</span> nth <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>i <span style="color:#f92672">&gt;=</span> p<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+			<span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span>1<span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+		<span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>nth <span style="color:#f92672">!=</span> i<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			p <span style="color:#f92672">=</span> p<span style="color:#f92672">.</span><span style="color:#a6e22e">rest</span><span style="color:#f92672">;</span>
+			nth <span style="color:#f92672">+=</span> 1<span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+		<span style="color:#66d9ef">return</span> p<span style="color:#f92672">.</span><span style="color:#a6e22e">first</span><span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
 
-	<span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-		IntList L <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> IntList<span style="color:#000;font-weight:bold">(</span>15<span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">);</span>
-		L <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> IntList<span style="color:#000;font-weight:bold">(</span>10<span style="color:#000;font-weight:bold">,</span> L<span style="color:#000;font-weight:bold">);</span>
-		L <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> IntList<span style="color:#000;font-weight:bold">(</span>5<span style="color:#000;font-weight:bold">,</span> L<span style="color:#000;font-weight:bold">);</span>
-		System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>L<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">size</span><span style="color:#000;font-weight:bold">());</span>
-		System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>L<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">iterativeSize</span><span style="color:#000;font-weight:bold">());</span>
-		System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>L<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">get</span><span style="color:#000;font-weight:bold">(</span>2<span style="color:#000;font-weight:bold">));</span>
-	<span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span> 
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="2-sllist">2 SLList</h2>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">67
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">68
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">69
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">70
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">71
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">72
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"> <span style="color:#998;font-style:italic">/** An SLList is a list of integers, which hides the terrible truth
-</span><span style="color:#998;font-style:italic">   * of the nakedness within. */</span>
-<span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">SLList</span> <span style="color:#000;font-weight:bold">{</span>	
-	<span style="color:#000;font-weight:bold">private</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">IntNode</span> <span style="color:#000;font-weight:bold">{</span>
-		<span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">int</span> item<span style="color:#000;font-weight:bold">;</span>
-		<span style="color:#000;font-weight:bold">public</span> IntNode next<span style="color:#000;font-weight:bold">;</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		IntList L <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> IntList<span style="color:#f92672">(</span>15<span style="color:#f92672">,</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">);</span>
+		L <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> IntList<span style="color:#f92672">(</span>10<span style="color:#f92672">,</span> L<span style="color:#f92672">);</span>
+		L <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> IntList<span style="color:#f92672">(</span>5<span style="color:#f92672">,</span> L<span style="color:#f92672">);</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>L<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">());</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>L<span style="color:#f92672">.</span><span style="color:#a6e22e">iterativeSize</span><span style="color:#f92672">());</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>L<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>2<span style="color:#f92672">));</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span> 
+</code></pre></div><h2 id="2-sllist">2 SLList</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"> <span style="color:#75715e">/** An SLList is a list of integers, which hides the terrible truth
+</span><span style="color:#75715e">   * of the nakedness within. */</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SLList</span> <span style="color:#f92672">{</span>	
+	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">IntNode</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> item<span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">public</span> IntNode next<span style="color:#f92672">;</span>
 
-		<span style="color:#000;font-weight:bold">public</span> <span style="color:#900;font-weight:bold">IntNode</span><span style="color:#000;font-weight:bold">(</span><span style="color:#458;font-weight:bold">int</span> i<span style="color:#000;font-weight:bold">,</span> IntNode n<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-			item <span style="color:#000;font-weight:bold">=</span> i<span style="color:#000;font-weight:bold">;</span>
-			next <span style="color:#000;font-weight:bold">=</span> n<span style="color:#000;font-weight:bold">;</span>
-			System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>size<span style="color:#000;font-weight:bold">);</span>
-		<span style="color:#000;font-weight:bold">}</span>
-	<span style="color:#000;font-weight:bold">}</span> 
+		<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">IntNode</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i<span style="color:#f92672">,</span> IntNode n<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			item <span style="color:#f92672">=</span> i<span style="color:#f92672">;</span>
+			next <span style="color:#f92672">=</span> n<span style="color:#f92672">;</span>
+			System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>size<span style="color:#f92672">);</span>
+		<span style="color:#f92672">}</span>
+	<span style="color:#f92672">}</span> 
 
-	<span style="color:#998;font-style:italic">/* The first item (if it exists) is at sentinel.next. */</span>
-	<span style="color:#000;font-weight:bold">private</span> IntNode sentinel<span style="color:#000;font-weight:bold">;</span>
-	<span style="color:#000;font-weight:bold">private</span> <span style="color:#458;font-weight:bold">int</span> size<span style="color:#000;font-weight:bold">;</span>
+	<span style="color:#75715e">/* The first item (if it exists) is at sentinel.next. */</span>
+	<span style="color:#66d9ef">private</span> IntNode sentinel<span style="color:#f92672">;</span>
+	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> size<span style="color:#f92672">;</span>
 
-	<span style="color:#000;font-weight:bold">private</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">lectureQuestion</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-		SLList L <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> SLList<span style="color:#000;font-weight:bold">();</span>
-		IntNode n <span style="color:#000;font-weight:bold">=</span> IntNode<span style="color:#000;font-weight:bold">(</span>5<span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">);</span>
-	<span style="color:#000;font-weight:bold">}</span>
+	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">lectureQuestion</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		SLList L <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SLList<span style="color:#f92672">();</span>
+		IntNode n <span style="color:#f92672">=</span> IntNode<span style="color:#f92672">(</span>5<span style="color:#f92672">,</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
 
-	<span style="color:#998;font-style:italic">/** Creates an empty SLList. */</span>
-	<span style="color:#000;font-weight:bold">public</span> <span style="color:#900;font-weight:bold">SLList</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-		sentinel <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> IntNode<span style="color:#000;font-weight:bold">(</span>63<span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">);</span>
-		size <span style="color:#000;font-weight:bold">=</span> 0<span style="color:#000;font-weight:bold">;</span>
-	<span style="color:#000;font-weight:bold">}</span>
+	<span style="color:#75715e">/** Creates an empty SLList. */</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">SLList</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		sentinel <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> IntNode<span style="color:#f92672">(</span>63<span style="color:#f92672">,</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">);</span>
+		size <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
 
-	<span style="color:#000;font-weight:bold">public</span> <span style="color:#900;font-weight:bold">SLList</span><span style="color:#000;font-weight:bold">(</span><span style="color:#458;font-weight:bold">int</span> x<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-		sentinel <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> IntNode<span style="color:#000;font-weight:bold">(</span>63<span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">);</span>
-		sentinel<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">next</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> IntNode<span style="color:#000;font-weight:bold">(</span>x<span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">);</span>
-		size <span style="color:#000;font-weight:bold">=</span> 1<span style="color:#000;font-weight:bold">;</span>
-	<span style="color:#000;font-weight:bold">}</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">SLList</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> x<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		sentinel <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> IntNode<span style="color:#f92672">(</span>63<span style="color:#f92672">,</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">);</span>
+		sentinel<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> IntNode<span style="color:#f92672">(</span>x<span style="color:#f92672">,</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">);</span>
+		size <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
 
- 	<span style="color:#998;font-style:italic">/** Adds x to the front of the list. */</span>
- 	<span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">addFirst</span><span style="color:#000;font-weight:bold">(</span><span style="color:#458;font-weight:bold">int</span> x<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
- 		sentinel<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">next</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> IntNode<span style="color:#000;font-weight:bold">(</span>x<span style="color:#000;font-weight:bold">,</span> sentinel<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">next</span><span style="color:#000;font-weight:bold">);</span>
- 		size <span style="color:#000;font-weight:bold">=</span> size <span style="color:#000;font-weight:bold">+</span> 1<span style="color:#000;font-weight:bold">;</span>
- 	<span style="color:#000;font-weight:bold">}</span>
+ 	<span style="color:#75715e">/** Adds x to the front of the list. */</span>
+ 	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">addFirst</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> x<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+ 		sentinel<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> IntNode<span style="color:#f92672">(</span>x<span style="color:#f92672">,</span> sentinel<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">);</span>
+ 		size <span style="color:#f92672">=</span> size <span style="color:#f92672">+</span> 1<span style="color:#f92672">;</span>
+ 	<span style="color:#f92672">}</span>
 
- 	<span style="color:#998;font-style:italic">/** Returns the first item in the list. */</span>
- 	<span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">int</span> <span style="color:#900;font-weight:bold">getFirst</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
- 		<span style="color:#000;font-weight:bold">return</span> sentinel<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">next</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">item</span><span style="color:#000;font-weight:bold">;</span>
- 	<span style="color:#000;font-weight:bold">}</span>
+ 	<span style="color:#75715e">/** Returns the first item in the list. */</span>
+ 	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getFirst</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+ 		<span style="color:#66d9ef">return</span> sentinel<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">.</span><span style="color:#a6e22e">item</span><span style="color:#f92672">;</span>
+ 	<span style="color:#f92672">}</span>
 
- 	<span style="color:#998;font-style:italic">/** Adds x to the end of the list. */</span>
- 	<span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">addLast</span><span style="color:#000;font-weight:bold">(</span><span style="color:#458;font-weight:bold">int</span> x<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
- 		size <span style="color:#000;font-weight:bold">=</span> size <span style="color:#000;font-weight:bold">+</span> 1<span style="color:#000;font-weight:bold">;</span> 		
+ 	<span style="color:#75715e">/** Adds x to the end of the list. */</span>
+ 	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">addLast</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> x<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+ 		size <span style="color:#f92672">=</span> size <span style="color:#f92672">+</span> 1<span style="color:#f92672">;</span> 		
 
- 		IntNode p <span style="color:#000;font-weight:bold">=</span> sentinel<span style="color:#000;font-weight:bold">;</span>
+ 		IntNode p <span style="color:#f92672">=</span> sentinel<span style="color:#f92672">;</span>
 
- 		<span style="color:#998;font-style:italic">/* Advance p to the end of the list. */</span>
- 		<span style="color:#000;font-weight:bold">while</span> <span style="color:#000;font-weight:bold">(</span>p<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">next</span> <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
- 			p <span style="color:#000;font-weight:bold">=</span> p<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">next</span><span style="color:#000;font-weight:bold">;</span>
- 		<span style="color:#000;font-weight:bold">}</span>
+ 		<span style="color:#75715e">/* Advance p to the end of the list. */</span>
+ 		<span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>p<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+ 			p <span style="color:#f92672">=</span> p<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">;</span>
+ 		<span style="color:#f92672">}</span>
 
- 		p<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">next</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> IntNode<span style="color:#000;font-weight:bold">(</span>x<span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">);</span>
- 	<span style="color:#000;font-weight:bold">}</span>
+ 		p<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> IntNode<span style="color:#f92672">(</span>x<span style="color:#f92672">,</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">);</span>
+ 	<span style="color:#f92672">}</span>
  	
- 	<span style="color:#998;font-style:italic">/** Returns the size of the list. */</span>
- 	<span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">int</span> <span style="color:#900;font-weight:bold">size</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
- 		<span style="color:#000;font-weight:bold">return</span> size<span style="color:#000;font-weight:bold">;</span>
- 	<span style="color:#000;font-weight:bold">}</span>
+ 	<span style="color:#75715e">/** Returns the size of the list. */</span>
+ 	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">size</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+ 		<span style="color:#66d9ef">return</span> size<span style="color:#f92672">;</span>
+ 	<span style="color:#f92672">}</span>
 
-	<span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
- 		<span style="color:#998;font-style:italic">/* Creates a list of one integer, namely 10 */</span>
- 		SLList L <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> SLList<span style="color:#000;font-weight:bold">();</span>
- 		L<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">addLast</span><span style="color:#000;font-weight:bold">(</span>20<span style="color:#000;font-weight:bold">);</span>
- 		System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>L<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">size</span><span style="color:#000;font-weight:bold">());</span>
- 	<span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="3-dllistlinkedlistdeque链表双边队列">3 DLList(LinkedListDeque链表双边队列)</h2>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 35
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 36
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 37
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 38
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 39
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 40
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 41
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 42
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 43
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 44
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 45
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 46
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 47
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 48
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 49
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 50
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 51
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 52
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 53
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 54
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 55
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 56
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 57
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 58
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 59
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 60
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 61
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 62
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 63
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 64
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 65
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 66
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 67
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 68
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 69
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 70
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 71
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 72
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 73
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 74
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 75
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 76
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 77
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 78
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 79
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 80
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 81
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 82
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 83
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 84
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 85
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 86
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 87
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 88
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 89
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 90
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 91
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 92
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 93
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 94
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 95
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 96
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 97
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 98
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 99
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">100
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">101
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">102
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">103
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">104
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">105
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">106
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">107
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">108
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">109
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">110
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">111
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">112
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">113
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">114
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">115
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">116
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">117
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">118
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">119
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">120
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">121
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">122
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">123
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">124
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">125
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">126
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">127
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">128
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">129
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">130
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">131
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">132
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">133
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">134
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">135
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">136
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">137
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">138
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">139
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">140
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">141
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">142
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">143
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">144
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#998;font-style:italic">/**
-</span><span style="color:#998;font-style:italic"> * Created by JianjunChen on 08/16/2020
-</span><span style="color:#998;font-style:italic"> * This is a Linked List Doubly ended queue Data Structure using Lists!
-</span><span style="color:#998;font-style:italic"> * @Rule The amount of memory that your program uses at any given time must be
-</span><span style="color:#998;font-style:italic"> * proportional to the number of items.
-</span><span style="color:#998;font-style:italic"> * @Rule Do not maintain references to items that are no longer in the deque.
-</span><span style="color:#998;font-style:italic"> * @Rule Implement all the methods listed above in “The Deque API” section.
-</span><span style="color:#998;font-style:italic"> */</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+ 		<span style="color:#75715e">/* Creates a list of one integer, namely 10 */</span>
+ 		SLList L <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SLList<span style="color:#f92672">();</span>
+ 		L<span style="color:#f92672">.</span><span style="color:#a6e22e">addLast</span><span style="color:#f92672">(</span>20<span style="color:#f92672">);</span>
+ 		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>L<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">());</span>
+ 	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="3-dllistlinkedlistdeque链表双边队列">3 DLList(LinkedListDeque链表双边队列)</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/**
+</span><span style="color:#75715e"> * Created by JianjunChen on 08/16/2020
+</span><span style="color:#75715e"> * This is a Linked List Doubly ended queue Data Structure using Lists!
+</span><span style="color:#75715e"> * @Rule The amount of memory that your program uses at any given time must be
+</span><span style="color:#75715e"> * proportional to the number of items.
+</span><span style="color:#75715e"> * @Rule Do not maintain references to items that are no longer in the deque.
+</span><span style="color:#75715e"> * @Rule Implement all the methods listed above in “The Deque API” section.
+</span><span style="color:#75715e"> */</span>
 
 
-<span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">LinkedListDeque</span><span style="color:#000;font-weight:bold">&lt;</span>T<span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#998;font-style:italic">/**LinkedNode Nested Class*/</span>
-    <span style="color:#000;font-weight:bold">private</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">LinkedNode</span> <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#000;font-weight:bold">private</span> LinkedNode prev<span style="color:#000;font-weight:bold">;</span> <span style="color:#998;font-style:italic">/* Doubly Linked List*/</span>
-        <span style="color:#000;font-weight:bold">private</span> T item<span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#000;font-weight:bold">private</span> LinkedNode next<span style="color:#000;font-weight:bold">;</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LinkedListDeque</span><span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+    <span style="color:#75715e">/**LinkedNode Nested Class*/</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LinkedNode</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">private</span> LinkedNode prev<span style="color:#f92672">;</span> <span style="color:#75715e">/* Doubly Linked List*/</span>
+        <span style="color:#66d9ef">private</span> T item<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">private</span> LinkedNode next<span style="color:#f92672">;</span>
 
-        <span style="color:#000;font-weight:bold">public</span> <span style="color:#900;font-weight:bold">LinkedNode</span><span style="color:#000;font-weight:bold">(</span>LinkedNode p<span style="color:#000;font-weight:bold">,</span> T i<span style="color:#000;font-weight:bold">,</span> LinkedNode n<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-            prev <span style="color:#000;font-weight:bold">=</span> p<span style="color:#000;font-weight:bold">;</span>
-            item <span style="color:#000;font-weight:bold">=</span> i<span style="color:#000;font-weight:bold">;</span>
-            next <span style="color:#000;font-weight:bold">=</span> n<span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#000;font-weight:bold">}</span>
-    <span style="color:#000;font-weight:bold">}</span>
+        <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">LinkedNode</span><span style="color:#f92672">(</span>LinkedNode p<span style="color:#f92672">,</span> T i<span style="color:#f92672">,</span> LinkedNode n<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            prev <span style="color:#f92672">=</span> p<span style="color:#f92672">;</span>
+            item <span style="color:#f92672">=</span> i<span style="color:#f92672">;</span>
+            next <span style="color:#f92672">=</span> n<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
 
-    <span style="color:#000;font-weight:bold">private</span> LinkedNode sentinel<span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#998;font-style:italic">//private LinkedNode last;
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">private</span> <span style="color:#458;font-weight:bold">int</span> size<span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#66d9ef">private</span> LinkedNode sentinel<span style="color:#f92672">;</span>
+    <span style="color:#75715e">//private LinkedNode last;
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> size<span style="color:#f92672">;</span>
 
-    <span style="color:#998;font-style:italic">/** Constructor of LinkedListDeque */</span>
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#900;font-weight:bold">LinkedListDeque</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-        sentinel <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> LinkedNode<span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">);</span>
-        sentinel<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">prev</span> <span style="color:#000;font-weight:bold">=</span> sentinel<span style="color:#000;font-weight:bold">;</span>
-        sentinel<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">next</span> <span style="color:#000;font-weight:bold">=</span> sentinel<span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#998;font-style:italic">//last = sentinel;
-</span><span style="color:#998;font-style:italic"></span>        size <span style="color:#000;font-weight:bold">=</span> 0<span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#75715e">/** Constructor of LinkedListDeque */</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">LinkedListDeque</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        sentinel <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LinkedNode<span style="color:#f92672">(</span><span style="color:#66d9ef">null</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">);</span>
+        sentinel<span style="color:#f92672">.</span><span style="color:#a6e22e">prev</span> <span style="color:#f92672">=</span> sentinel<span style="color:#f92672">;</span>
+        sentinel<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> sentinel<span style="color:#f92672">;</span>
+        <span style="color:#75715e">//last = sentinel;
+</span><span style="color:#75715e"></span>        size <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    <span style="color:#998;font-style:italic">/** Adds an item of type T to the front of the deque.*/</span>
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">addFirst</span><span style="color:#000;font-weight:bold">(</span>T item<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-        LinkedNode first <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> LinkedNode<span style="color:#000;font-weight:bold">(</span>sentinel<span style="color:#000;font-weight:bold">,</span> item<span style="color:#000;font-weight:bold">,</span> sentinel<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">next</span><span style="color:#000;font-weight:bold">);</span>
-        <span style="color:#998;font-style:italic">/* Note that the order cannot be reversed since if we firstly write
-</span><span style="color:#998;font-style:italic">         * sentinel.next = first; the sentinel.next.prev will equal to first.prev!!!!*/</span>
-        sentinel<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">next</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">prev</span> <span style="color:#000;font-weight:bold">=</span> first<span style="color:#000;font-weight:bold">;</span>
-        sentinel<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">next</span> <span style="color:#000;font-weight:bold">=</span> first<span style="color:#000;font-weight:bold">;</span>
-        size <span style="color:#000;font-weight:bold">+=</span> 1<span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#75715e">/** Adds an item of type T to the front of the deque.*/</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">addFirst</span><span style="color:#f92672">(</span>T item<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        LinkedNode first <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LinkedNode<span style="color:#f92672">(</span>sentinel<span style="color:#f92672">,</span> item<span style="color:#f92672">,</span> sentinel<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">);</span>
+        <span style="color:#75715e">/* Note that the order cannot be reversed since if we firstly write
+</span><span style="color:#75715e">         * sentinel.next = first; the sentinel.next.prev will equal to first.prev!!!!*/</span>
+        sentinel<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">.</span><span style="color:#a6e22e">prev</span> <span style="color:#f92672">=</span> first<span style="color:#f92672">;</span>
+        sentinel<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> first<span style="color:#f92672">;</span>
+        size <span style="color:#f92672">+=</span> 1<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    <span style="color:#998;font-style:italic">/** Adds an item of type T to the back of the deque. */</span>
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">addLast</span><span style="color:#000;font-weight:bold">(</span>T item<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-        LinkedNode last <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> LinkedNode<span style="color:#000;font-weight:bold">(</span>sentinel<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">prev</span><span style="color:#000;font-weight:bold">,</span> item<span style="color:#000;font-weight:bold">,</span> sentinel<span style="color:#000;font-weight:bold">);</span>
-        <span style="color:#998;font-style:italic">/* Note that the order cannot be reversed!!! */</span>
-        sentinel<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">prev</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">next</span> <span style="color:#000;font-weight:bold">=</span> last<span style="color:#000;font-weight:bold">;</span>
-        sentinel<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">prev</span> <span style="color:#000;font-weight:bold">=</span> last<span style="color:#000;font-weight:bold">;</span>
-        size <span style="color:#000;font-weight:bold">+=</span> 1<span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#75715e">/** Adds an item of type T to the back of the deque. */</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">addLast</span><span style="color:#f92672">(</span>T item<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        LinkedNode last <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LinkedNode<span style="color:#f92672">(</span>sentinel<span style="color:#f92672">.</span><span style="color:#a6e22e">prev</span><span style="color:#f92672">,</span> item<span style="color:#f92672">,</span> sentinel<span style="color:#f92672">);</span>
+        <span style="color:#75715e">/* Note that the order cannot be reversed!!! */</span>
+        sentinel<span style="color:#f92672">.</span><span style="color:#a6e22e">prev</span><span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> last<span style="color:#f92672">;</span>
+        sentinel<span style="color:#f92672">.</span><span style="color:#a6e22e">prev</span> <span style="color:#f92672">=</span> last<span style="color:#f92672">;</span>
+        size <span style="color:#f92672">+=</span> 1<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    <span style="color:#998;font-style:italic">/** Returns true if deque is empty, false otherwise. */</span>
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">boolean</span> <span style="color:#900;font-weight:bold">isEmpty</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>sentinel<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">next</span> <span style="color:#000;font-weight:bold">==</span> sentinel<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-            <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">true</span><span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#000;font-weight:bold">}</span>
-        <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">false</span><span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#75715e">/** Returns true if deque is empty, false otherwise. */</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>sentinel<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">==</span> sentinel<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    <span style="color:#998;font-style:italic">/** Returns the number of items in the deque. */</span>
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">int</span> <span style="color:#900;font-weight:bold">size</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#000;font-weight:bold">return</span> size<span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#75715e">/** Returns the number of items in the deque. */</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">size</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> size<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    <span style="color:#998;font-style:italic">/* Prints the items in the deque from first to last, separated by a space. */</span>
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">printDeque</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-        LinkedNode p <span style="color:#000;font-weight:bold">=</span> sentinel<span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#000;font-weight:bold">while</span> <span style="color:#000;font-weight:bold">(</span>p<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">next</span> <span style="color:#000;font-weight:bold">!=</span> sentinel<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-            System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">print</span><span style="color:#000;font-weight:bold">(</span>p<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">next</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">item</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34; &#34;</span><span style="color:#000;font-weight:bold">);</span>
-            p <span style="color:#000;font-weight:bold">=</span> p<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">next</span><span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#000;font-weight:bold">}</span>
-    <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#75715e">/* Prints the items in the deque from first to last, separated by a space. */</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">printDeque</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        LinkedNode p <span style="color:#f92672">=</span> sentinel<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>p<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">!=</span> sentinel<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">(</span>p<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">.</span><span style="color:#a6e22e">item</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; &#34;</span><span style="color:#f92672">);</span>
+            p <span style="color:#f92672">=</span> p<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
 
-    <span style="color:#998;font-style:italic">/** Removes and returns the item at the front of the deque.
-</span><span style="color:#998;font-style:italic">    If no such item exists, returns null.*/</span>
-    <span style="color:#000;font-weight:bold">public</span> T <span style="color:#900;font-weight:bold">removeFirst</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>isEmpty<span style="color:#000;font-weight:bold">())</span> <span style="color:#000;font-weight:bold">{</span>
-            <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#75715e">/** Removes and returns the item at the front of the deque.
+</span><span style="color:#75715e">    If no such item exists, returns null.*/</span>
+    <span style="color:#66d9ef">public</span> T <span style="color:#a6e22e">removeFirst</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>isEmpty<span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
 
-        T firstItem <span style="color:#000;font-weight:bold">=</span> sentinel<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">next</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">item</span><span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#998;font-style:italic">/* Note that the order cannot be reversed!!!*/</span>
-        sentinel<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">next</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">next</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">prev</span> <span style="color:#000;font-weight:bold">=</span> sentinel<span style="color:#000;font-weight:bold">;</span>
-        sentinel<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">next</span> <span style="color:#000;font-weight:bold">=</span> sentinel<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">next</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">next</span><span style="color:#000;font-weight:bold">;</span>
+        T firstItem <span style="color:#f92672">=</span> sentinel<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">.</span><span style="color:#a6e22e">item</span><span style="color:#f92672">;</span>
+        <span style="color:#75715e">/* Note that the order cannot be reversed!!!*/</span>
+        sentinel<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">.</span><span style="color:#a6e22e">prev</span> <span style="color:#f92672">=</span> sentinel<span style="color:#f92672">;</span>
+        sentinel<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> sentinel<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">;</span>
 
-        size <span style="color:#000;font-weight:bold">-=</span> 1<span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#000;font-weight:bold">return</span> firstItem<span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000;font-weight:bold">}</span>
+        size <span style="color:#f92672">-=</span> 1<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">return</span> firstItem<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    <span style="color:#998;font-style:italic">/** Removes and returns the item at the back of the deque.
-</span><span style="color:#998;font-style:italic">     * If no such item exists, returns null. */</span>
-    <span style="color:#000;font-weight:bold">public</span> T <span style="color:#900;font-weight:bold">removeLast</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>isEmpty<span style="color:#000;font-weight:bold">())</span> <span style="color:#000;font-weight:bold">{</span>
-            <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#75715e">/** Removes and returns the item at the back of the deque.
+</span><span style="color:#75715e">     * If no such item exists, returns null. */</span>
+    <span style="color:#66d9ef">public</span> T <span style="color:#a6e22e">removeLast</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>isEmpty<span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
 
-        T lastItem <span style="color:#000;font-weight:bold">=</span> sentinel<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">prev</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">item</span><span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#998;font-style:italic">/* Note that the order cannot be reversed!!! */</span>
-        sentinel<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">prev</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">prev</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">next</span> <span style="color:#000;font-weight:bold">=</span> sentinel<span style="color:#000;font-weight:bold">;</span>
-        sentinel<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">prev</span> <span style="color:#000;font-weight:bold">=</span> sentinel<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">prev</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">prev</span><span style="color:#000;font-weight:bold">;</span>
+        T lastItem <span style="color:#f92672">=</span> sentinel<span style="color:#f92672">.</span><span style="color:#a6e22e">prev</span><span style="color:#f92672">.</span><span style="color:#a6e22e">item</span><span style="color:#f92672">;</span>
+        <span style="color:#75715e">/* Note that the order cannot be reversed!!! */</span>
+        sentinel<span style="color:#f92672">.</span><span style="color:#a6e22e">prev</span><span style="color:#f92672">.</span><span style="color:#a6e22e">prev</span><span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> sentinel<span style="color:#f92672">;</span>
+        sentinel<span style="color:#f92672">.</span><span style="color:#a6e22e">prev</span> <span style="color:#f92672">=</span> sentinel<span style="color:#f92672">.</span><span style="color:#a6e22e">prev</span><span style="color:#f92672">.</span><span style="color:#a6e22e">prev</span><span style="color:#f92672">;</span>
 
-        size <span style="color:#000;font-weight:bold">-=</span> 1<span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#000;font-weight:bold">return</span> lastItem<span style="color:#000;font-weight:bold">;</span>
+        size <span style="color:#f92672">-=</span> 1<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">return</span> lastItem<span style="color:#f92672">;</span>
 
-    <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#f92672">}</span>
 
-    <span style="color:#998;font-style:italic">/** Gets the item at the given index, where 0 is the front, 1 is the next item,
-</span><span style="color:#998;font-style:italic">    * and so forth. If no such item exists, returns null. Must not alter the deque! */</span>
-    <span style="color:#000;font-weight:bold">public</span> T <span style="color:#900;font-weight:bold">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#458;font-weight:bold">int</span> index<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>index <span style="color:#000;font-weight:bold">&gt;</span> size <span style="color:#000;font-weight:bold">-</span> 1<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-            <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#75715e">/** Gets the item at the given index, where 0 is the front, 1 is the next item,
+</span><span style="color:#75715e">    * and so forth. If no such item exists, returns null. Must not alter the deque! */</span>
+    <span style="color:#66d9ef">public</span> T <span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> index<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>index <span style="color:#f92672">&gt;</span> size <span style="color:#f92672">-</span> 1<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
 
-        LinkedNode p <span style="color:#000;font-weight:bold">=</span> sentinel<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">next</span><span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#458;font-weight:bold">int</span> i <span style="color:#000;font-weight:bold">=</span> 0<span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#000;font-weight:bold">while</span> <span style="color:#000;font-weight:bold">(</span>i <span style="color:#000;font-weight:bold">!=</span> index<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-            p <span style="color:#000;font-weight:bold">=</span> p<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">next</span><span style="color:#000;font-weight:bold">;</span>
-            i <span style="color:#000;font-weight:bold">+=</span> 1<span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#000;font-weight:bold">}</span>
-        <span style="color:#000;font-weight:bold">return</span> p<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">item</span><span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000;font-weight:bold">}</span>
+        LinkedNode p <span style="color:#f92672">=</span> sentinel<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>i <span style="color:#f92672">!=</span> index<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            p <span style="color:#f92672">=</span> p<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">;</span>
+            i <span style="color:#f92672">+=</span> 1<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> p<span style="color:#f92672">.</span><span style="color:#a6e22e">item</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    <span style="color:#998;font-style:italic">/** Helper method for getRecursive */</span>
-    <span style="color:#000;font-weight:bold">private</span> T <span style="color:#900;font-weight:bold">getRecursiveHelper</span><span style="color:#000;font-weight:bold">(</span>LinkedNode currentNode<span style="color:#000;font-weight:bold">,</span> <span style="color:#458;font-weight:bold">int</span> index<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>index <span style="color:#000;font-weight:bold">==</span> 0<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-            <span style="color:#000;font-weight:bold">return</span> currentNode<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">item</span><span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#000;font-weight:bold">}</span>
-        <span style="color:#000;font-weight:bold">return</span> getRecursiveHelper<span style="color:#000;font-weight:bold">(</span>currentNode<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">next</span><span style="color:#000;font-weight:bold">,</span> index <span style="color:#000;font-weight:bold">-</span> 1<span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#75715e">/** Helper method for getRecursive */</span>
+    <span style="color:#66d9ef">private</span> T <span style="color:#a6e22e">getRecursiveHelper</span><span style="color:#f92672">(</span>LinkedNode currentNode<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> index<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>index <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> currentNode<span style="color:#f92672">.</span><span style="color:#a6e22e">item</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> getRecursiveHelper<span style="color:#f92672">(</span>currentNode<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">,</span> index <span style="color:#f92672">-</span> 1<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    <span style="color:#998;font-style:italic">/** Same as get but using recursion!! */</span>
-    <span style="color:#000;font-weight:bold">public</span> T <span style="color:#900;font-weight:bold">getRecursive</span><span style="color:#000;font-weight:bold">(</span><span style="color:#458;font-weight:bold">int</span> index<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>index <span style="color:#000;font-weight:bold">&gt;</span> size <span style="color:#000;font-weight:bold">-</span> 1<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-            <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#75715e">/** Same as get but using recursion!! */</span>
+    <span style="color:#66d9ef">public</span> T <span style="color:#a6e22e">getRecursive</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> index<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>index <span style="color:#f92672">&gt;</span> size <span style="color:#f92672">-</span> 1<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
 
-        <span style="color:#000;font-weight:bold">return</span> getRecursiveHelper<span style="color:#000;font-weight:bold">(</span>sentinel<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">next</span><span style="color:#000;font-weight:bold">,</span> index<span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="4-alistarraydeque数组双边队列">4 AList(ArrayDeque数组双边队列)</h2>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 35
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 36
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 37
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 38
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 39
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 40
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 41
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 42
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 43
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 44
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 45
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 46
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 47
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 48
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 49
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 50
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 51
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 52
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 53
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 54
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 55
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 56
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 57
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 58
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 59
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 60
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 61
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 62
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 63
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 64
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 65
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 66
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 67
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 68
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 69
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 70
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 71
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 72
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 73
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 74
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 75
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 76
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 77
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 78
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 79
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 80
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 81
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 82
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 83
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 84
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 85
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 86
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 87
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 88
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 89
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 90
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 91
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 92
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 93
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 94
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 95
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 96
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 97
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 98
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 99
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">100
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">101
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">102
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">103
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">104
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">105
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">106
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">107
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">108
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">109
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">110
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">111
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">112
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">113
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">114
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">115
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">116
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">117
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">118
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">119
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">120
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">121
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">122
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">123
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">124
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">125
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">126
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">127
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">128
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">129
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">130
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">131
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">132
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">133
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">134
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">135
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">136
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">137
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">138
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">139
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">140
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">141
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">142
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">143
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">144
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">145
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">146
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">147
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">148
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">149
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">150
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">151
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">152
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">153
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">154
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">155
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">156
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">157
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">158
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">159
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">160
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">161
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">162
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">163
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">164
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">165
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">166
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">167
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">168
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">169
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">170
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">171
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">172
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">173
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">174
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">175
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">176
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">177
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">178
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">179
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">180
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">181
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">182
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">183
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">184
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">185
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">186
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">187
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">188
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">189
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">190
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">191
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">192
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">193
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">194
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">195
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#998;font-style:italic">/**
-</span><span style="color:#998;font-style:italic"> * Created by JianjunChen on 08/18/2020
-</span><span style="color:#998;font-style:italic"> * This is a Array based Doubly Ended Queue Data Structure!!
-</span><span style="color:#998;font-style:italic"> * @Rule The starting size of your array should be 8.
-</span><span style="color:#998;font-style:italic"> * @Rule Implement all the methods listed above in “The Deque API” section.
-</span><span style="color:#998;font-style:italic"> * @Rule The amount of memory that at any given time must be proportional to the number
-</span><span style="color:#998;font-style:italic"> * of items. For arrays of length 16 or more, your usage factor should always be at least 25%.
-</span><span style="color:#998;font-style:italic"> *
-</span><span style="color:#998;font-style:italic"> */</span>
+        <span style="color:#66d9ef">return</span> getRecursiveHelper<span style="color:#f92672">(</span>sentinel<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">,</span> index<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="4-alistarraydeque数组双边队列">4 AList(ArrayDeque数组双边队列)</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/**
+</span><span style="color:#75715e"> * Created by JianjunChen on 08/18/2020
+</span><span style="color:#75715e"> * This is a Array based Doubly Ended Queue Data Structure!!
+</span><span style="color:#75715e"> * @Rule The starting size of your array should be 8.
+</span><span style="color:#75715e"> * @Rule Implement all the methods listed above in “The Deque API” section.
+</span><span style="color:#75715e"> * @Rule The amount of memory that at any given time must be proportional to the number
+</span><span style="color:#75715e"> * of items. For arrays of length 16 or more, your usage factor should always be at least 25%.
+</span><span style="color:#75715e"> *
+</span><span style="color:#75715e"> */</span>
 
 
-<span style="color:#998;font-style:italic">// Circular ArrayDeque
-</span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">ArrayDeque</span><span style="color:#000;font-weight:bold">&lt;</span>T<span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#000;font-weight:bold">private</span> <span style="color:#458;font-weight:bold">int</span> initialCapacity <span style="color:#000;font-weight:bold">=</span> 8<span style="color:#000;font-weight:bold">;</span> <span style="color:#998;font-style:italic">//initial array capacity
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">private</span> <span style="color:#458;font-weight:bold">int</span> capacity<span style="color:#000;font-weight:bold">;</span>  <span style="color:#998;font-style:italic">//current array capacity
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">private</span> <span style="color:#458;font-weight:bold">int</span> eFactor <span style="color:#000;font-weight:bold">=</span> 2<span style="color:#000;font-weight:bold">;</span> <span style="color:#998;font-style:italic">//expanding factor
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">private</span> <span style="color:#458;font-weight:bold">double</span> usageFactor<span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000;font-weight:bold">private</span> <span style="color:#458;font-weight:bold">int</span> mCapacity <span style="color:#000;font-weight:bold">=</span> 16<span style="color:#000;font-weight:bold">;</span> <span style="color:#998;font-style:italic">// The minimum capacity for contraction
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">private</span> <span style="color:#458;font-weight:bold">double</span> mRatio <span style="color:#000;font-weight:bold">=</span> 0<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">25</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#998;font-style:italic">//The minimum usage ratio before contraction
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">private</span> <span style="color:#458;font-weight:bold">int</span> cFactor <span style="color:#000;font-weight:bold">=</span> 2<span style="color:#000;font-weight:bold">;</span> <span style="color:#998;font-style:italic">//contraction factor
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">private</span> T<span style="color:#000;font-weight:bold">[]</span> items<span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000;font-weight:bold">private</span> <span style="color:#458;font-weight:bold">int</span> size<span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000;font-weight:bold">private</span> <span style="color:#458;font-weight:bold">int</span> nextFirst<span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000;font-weight:bold">private</span> <span style="color:#458;font-weight:bold">int</span> nextLast<span style="color:#000;font-weight:bold">;</span>
+<span style="color:#75715e">// Circular ArrayDeque
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ArrayDeque</span><span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> initialCapacity <span style="color:#f92672">=</span> 8<span style="color:#f92672">;</span> <span style="color:#75715e">//initial array capacity
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> capacity<span style="color:#f92672">;</span>  <span style="color:#75715e">//current array capacity
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> eFactor <span style="color:#f92672">=</span> 2<span style="color:#f92672">;</span> <span style="color:#75715e">//expanding factor
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">double</span> usageFactor<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> mCapacity <span style="color:#f92672">=</span> 16<span style="color:#f92672">;</span> <span style="color:#75715e">// The minimum capacity for contraction
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">double</span> mRatio <span style="color:#f92672">=</span> 0<span style="color:#f92672">.</span><span style="color:#a6e22e">25</span><span style="color:#f92672">;</span> <span style="color:#75715e">//The minimum usage ratio before contraction
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> cFactor <span style="color:#f92672">=</span> 2<span style="color:#f92672">;</span> <span style="color:#75715e">//contraction factor
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> T<span style="color:#f92672">[]</span> items<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> size<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> nextFirst<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> nextLast<span style="color:#f92672">;</span>
 
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#900;font-weight:bold">ArrayDeque</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-        capacity <span style="color:#000;font-weight:bold">=</span> initialCapacity<span style="color:#000;font-weight:bold">;</span>
-        items <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span>T<span style="color:#000;font-weight:bold">[])</span> <span style="color:#000;font-weight:bold">new</span> Object<span style="color:#000;font-weight:bold">[</span>initialCapacity<span style="color:#000;font-weight:bold">];</span>
-        size <span style="color:#000;font-weight:bold">=</span> 0<span style="color:#000;font-weight:bold">;</span>
-        nextFirst <span style="color:#000;font-weight:bold">=</span> 4<span style="color:#000;font-weight:bold">;</span>
-        nextLast <span style="color:#000;font-weight:bold">=</span> 5<span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">ArrayDeque</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        capacity <span style="color:#f92672">=</span> initialCapacity<span style="color:#f92672">;</span>
+        items <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>T<span style="color:#f92672">[])</span> <span style="color:#66d9ef">new</span> Object<span style="color:#f92672">[</span>initialCapacity<span style="color:#f92672">];</span>
+        size <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+        nextFirst <span style="color:#f92672">=</span> 4<span style="color:#f92672">;</span>
+        nextLast <span style="color:#f92672">=</span> 5<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    <span style="color:#998;font-style:italic">/** Finding the next nextFirst and nextLast index in circle ArrayDeque. */</span>
-    <span style="color:#000;font-weight:bold">private</span> <span style="color:#458;font-weight:bold">int</span> <span style="color:#900;font-weight:bold">oneMinus</span><span style="color:#000;font-weight:bold">(</span><span style="color:#458;font-weight:bold">int</span> index<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>index <span style="color:#000;font-weight:bold">==</span> 0<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#998;font-style:italic">// whether the index is out of bounds!
-</span><span style="color:#998;font-style:italic"></span>            index <span style="color:#000;font-weight:bold">=</span> capacity <span style="color:#000;font-weight:bold">-</span> 1<span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#000;font-weight:bold">}</span> <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">{</span>
-            index <span style="color:#000;font-weight:bold">-=</span> 1<span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#000;font-weight:bold">}</span>
-        <span style="color:#000;font-weight:bold">return</span> index<span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#75715e">/** Finding the next nextFirst and nextLast index in circle ArrayDeque. */</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">oneMinus</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> index<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>index <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span> <span style="color:#75715e">// whether the index is out of bounds!
+</span><span style="color:#75715e"></span>            index <span style="color:#f92672">=</span> capacity <span style="color:#f92672">-</span> 1<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+            index <span style="color:#f92672">-=</span> 1<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> index<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    <span style="color:#000;font-weight:bold">private</span> <span style="color:#458;font-weight:bold">int</span> <span style="color:#900;font-weight:bold">onePlus</span><span style="color:#000;font-weight:bold">(</span><span style="color:#458;font-weight:bold">int</span> index<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>index <span style="color:#000;font-weight:bold">==</span> capacity <span style="color:#000;font-weight:bold">-</span> 1<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#998;font-style:italic">// whether the index is out of bounds!
-</span><span style="color:#998;font-style:italic"></span>            index <span style="color:#000;font-weight:bold">=</span> 0<span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#000;font-weight:bold">}</span> <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">{</span>
-            index <span style="color:#000;font-weight:bold">+=</span> 1<span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#000;font-weight:bold">}</span>
-        <span style="color:#000;font-weight:bold">return</span> index<span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">onePlus</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> index<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>index <span style="color:#f92672">==</span> capacity <span style="color:#f92672">-</span> 1<span style="color:#f92672">)</span> <span style="color:#f92672">{</span> <span style="color:#75715e">// whether the index is out of bounds!
+</span><span style="color:#75715e"></span>            index <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+            index <span style="color:#f92672">+=</span> 1<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> index<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    <span style="color:#998;font-style:italic">/** Resize the original array to a new array with given capacity. */</span>
-    <span style="color:#000;font-weight:bold">private</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">resize</span><span style="color:#000;font-weight:bold">(</span><span style="color:#458;font-weight:bold">int</span> newCapacity<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-        T<span style="color:#000;font-weight:bold">[]</span> a <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span>T<span style="color:#000;font-weight:bold">[])</span> <span style="color:#000;font-weight:bold">new</span> Object<span style="color:#000;font-weight:bold">[</span>newCapacity<span style="color:#000;font-weight:bold">];</span>
+    <span style="color:#75715e">/** Resize the original array to a new array with given capacity. */</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">resize</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> newCapacity<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        T<span style="color:#f92672">[]</span> a <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>T<span style="color:#f92672">[])</span> <span style="color:#66d9ef">new</span> Object<span style="color:#f92672">[</span>newCapacity<span style="color:#f92672">];</span>
 
-        <span style="color:#458;font-weight:bold">int</span> currentFirst <span style="color:#000;font-weight:bold">=</span> onePlus<span style="color:#000;font-weight:bold">(</span>nextFirst<span style="color:#000;font-weight:bold">);</span>
-        <span style="color:#458;font-weight:bold">int</span> currentLast <span style="color:#000;font-weight:bold">=</span> oneMinus<span style="color:#000;font-weight:bold">(</span>nextLast<span style="color:#000;font-weight:bold">);</span>
+        <span style="color:#66d9ef">int</span> currentFirst <span style="color:#f92672">=</span> onePlus<span style="color:#f92672">(</span>nextFirst<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">int</span> currentLast <span style="color:#f92672">=</span> oneMinus<span style="color:#f92672">(</span>nextLast<span style="color:#f92672">);</span>
 
-        <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>currentFirst <span style="color:#000;font-weight:bold">&lt;</span> currentLast<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-            <span style="color:#458;font-weight:bold">int</span> length <span style="color:#000;font-weight:bold">=</span> currentLast <span style="color:#000;font-weight:bold">-</span> currentFirst <span style="color:#000;font-weight:bold">+</span> 1<span style="color:#000;font-weight:bold">;</span>
-            System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">arraycopy</span><span style="color:#000;font-weight:bold">(</span>items<span style="color:#000;font-weight:bold">,</span> currentFirst<span style="color:#000;font-weight:bold">,</span> a<span style="color:#000;font-weight:bold">,</span> 0<span style="color:#000;font-weight:bold">,</span> length<span style="color:#000;font-weight:bold">);</span>
-            nextFirst <span style="color:#000;font-weight:bold">=</span> newCapacity <span style="color:#000;font-weight:bold">-</span> 1<span style="color:#000;font-weight:bold">;</span>
-            nextLast <span style="color:#000;font-weight:bold">=</span> length<span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#000;font-weight:bold">}</span> <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">{</span>
-            <span style="color:#458;font-weight:bold">int</span> firstRightCount <span style="color:#000;font-weight:bold">=</span> capacity <span style="color:#000;font-weight:bold">-</span> currentFirst<span style="color:#000;font-weight:bold">;</span>
-            <span style="color:#458;font-weight:bold">int</span> firstLeftCount <span style="color:#000;font-weight:bold">=</span> capacity <span style="color:#000;font-weight:bold">-</span> firstRightCount<span style="color:#000;font-weight:bold">;</span>
-            System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">arraycopy</span><span style="color:#000;font-weight:bold">(</span>items<span style="color:#000;font-weight:bold">,</span> currentFirst<span style="color:#000;font-weight:bold">,</span> a<span style="color:#000;font-weight:bold">,</span> 0<span style="color:#000;font-weight:bold">,</span> firstRightCount<span style="color:#000;font-weight:bold">);</span>
-            System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">arraycopy</span><span style="color:#000;font-weight:bold">(</span>items<span style="color:#000;font-weight:bold">,</span> 0<span style="color:#000;font-weight:bold">,</span> a<span style="color:#000;font-weight:bold">,</span> firstRightCount<span style="color:#000;font-weight:bold">,</span> firstLeftCount<span style="color:#000;font-weight:bold">);</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>currentFirst <span style="color:#f92672">&lt;</span> currentLast<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">int</span> length <span style="color:#f92672">=</span> currentLast <span style="color:#f92672">-</span> currentFirst <span style="color:#f92672">+</span> 1<span style="color:#f92672">;</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">arraycopy</span><span style="color:#f92672">(</span>items<span style="color:#f92672">,</span> currentFirst<span style="color:#f92672">,</span> a<span style="color:#f92672">,</span> 0<span style="color:#f92672">,</span> length<span style="color:#f92672">);</span>
+            nextFirst <span style="color:#f92672">=</span> newCapacity <span style="color:#f92672">-</span> 1<span style="color:#f92672">;</span>
+            nextLast <span style="color:#f92672">=</span> length<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">int</span> firstRightCount <span style="color:#f92672">=</span> capacity <span style="color:#f92672">-</span> currentFirst<span style="color:#f92672">;</span>
+            <span style="color:#66d9ef">int</span> firstLeftCount <span style="color:#f92672">=</span> capacity <span style="color:#f92672">-</span> firstRightCount<span style="color:#f92672">;</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">arraycopy</span><span style="color:#f92672">(</span>items<span style="color:#f92672">,</span> currentFirst<span style="color:#f92672">,</span> a<span style="color:#f92672">,</span> 0<span style="color:#f92672">,</span> firstRightCount<span style="color:#f92672">);</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">arraycopy</span><span style="color:#f92672">(</span>items<span style="color:#f92672">,</span> 0<span style="color:#f92672">,</span> a<span style="color:#f92672">,</span> firstRightCount<span style="color:#f92672">,</span> firstLeftCount<span style="color:#f92672">);</span>
 
-            nextFirst <span style="color:#000;font-weight:bold">=</span> newCapacity <span style="color:#000;font-weight:bold">-</span> 1<span style="color:#000;font-weight:bold">;</span>
-            nextLast <span style="color:#000;font-weight:bold">=</span> capacity<span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#000;font-weight:bold">}</span>
+            nextFirst <span style="color:#f92672">=</span> newCapacity <span style="color:#f92672">-</span> 1<span style="color:#f92672">;</span>
+            nextLast <span style="color:#f92672">=</span> capacity<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
 
-        capacity <span style="color:#000;font-weight:bold">=</span> newCapacity<span style="color:#000;font-weight:bold">;</span>
-        items <span style="color:#000;font-weight:bold">=</span> a<span style="color:#000;font-weight:bold">;</span>
+        capacity <span style="color:#f92672">=</span> newCapacity<span style="color:#f92672">;</span>
+        items <span style="color:#f92672">=</span> a<span style="color:#f92672">;</span>
 
-    <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#f92672">}</span>
 
-    <span style="color:#998;font-style:italic">/** Adds an item of type T to the front of the deque.
-</span><span style="color:#998;font-style:italic">     * @Rule Must take constant time, except during resizing operations.
-</span><span style="color:#998;font-style:italic">     */</span>
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">addFirst</span><span style="color:#000;font-weight:bold">(</span>T item<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-        items<span style="color:#000;font-weight:bold">[</span>nextFirst<span style="color:#000;font-weight:bold">]</span> <span style="color:#000;font-weight:bold">=</span> item<span style="color:#000;font-weight:bold">;</span>
-        size <span style="color:#000;font-weight:bold">+=</span> 1<span style="color:#000;font-weight:bold">;</span>
-        nextFirst <span style="color:#000;font-weight:bold">=</span> oneMinus<span style="color:#000;font-weight:bold">(</span>nextFirst<span style="color:#000;font-weight:bold">);</span>
+    <span style="color:#75715e">/** Adds an item of type T to the front of the deque.
+</span><span style="color:#75715e">     * @Rule Must take constant time, except during resizing operations.
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">addFirst</span><span style="color:#f92672">(</span>T item<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        items<span style="color:#f92672">[</span>nextFirst<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> item<span style="color:#f92672">;</span>
+        size <span style="color:#f92672">+=</span> 1<span style="color:#f92672">;</span>
+        nextFirst <span style="color:#f92672">=</span> oneMinus<span style="color:#f92672">(</span>nextFirst<span style="color:#f92672">);</span>
 
-        <span style="color:#998;font-style:italic">//The array is full, needed resize operation!
-</span><span style="color:#998;font-style:italic"></span>        <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>size <span style="color:#000;font-weight:bold">==</span> capacity<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-            resize<span style="color:#000;font-weight:bold">(</span>size <span style="color:#000;font-weight:bold">*</span> eFactor<span style="color:#000;font-weight:bold">);</span>
-        <span style="color:#000;font-weight:bold">}</span>
-    <span style="color:#000;font-weight:bold">}</span>
+        <span style="color:#75715e">//The array is full, needed resize operation!
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>size <span style="color:#f92672">==</span> capacity<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            resize<span style="color:#f92672">(</span>size <span style="color:#f92672">*</span> eFactor<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
 
-    <span style="color:#998;font-style:italic">/** Adds an item of type T to the back of the deque.
-</span><span style="color:#998;font-style:italic">     * @Rule Must take constant time, except during resizing operations.
-</span><span style="color:#998;font-style:italic">     */</span>
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">addLast</span><span style="color:#000;font-weight:bold">(</span>T item<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-        items<span style="color:#000;font-weight:bold">[</span>nextLast<span style="color:#000;font-weight:bold">]</span> <span style="color:#000;font-weight:bold">=</span> item<span style="color:#000;font-weight:bold">;</span>
-        size <span style="color:#000;font-weight:bold">+=</span> 1<span style="color:#000;font-weight:bold">;</span>
-        nextLast <span style="color:#000;font-weight:bold">=</span> onePlus<span style="color:#000;font-weight:bold">(</span>nextLast<span style="color:#000;font-weight:bold">);</span>
+    <span style="color:#75715e">/** Adds an item of type T to the back of the deque.
+</span><span style="color:#75715e">     * @Rule Must take constant time, except during resizing operations.
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">addLast</span><span style="color:#f92672">(</span>T item<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        items<span style="color:#f92672">[</span>nextLast<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> item<span style="color:#f92672">;</span>
+        size <span style="color:#f92672">+=</span> 1<span style="color:#f92672">;</span>
+        nextLast <span style="color:#f92672">=</span> onePlus<span style="color:#f92672">(</span>nextLast<span style="color:#f92672">);</span>
 
-        <span style="color:#998;font-style:italic">//The array is full, needed resize operation!
-</span><span style="color:#998;font-style:italic"></span>        <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>size <span style="color:#000;font-weight:bold">==</span> capacity<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-            resize<span style="color:#000;font-weight:bold">(</span>size <span style="color:#000;font-weight:bold">*</span> eFactor<span style="color:#000;font-weight:bold">);</span>
-        <span style="color:#000;font-weight:bold">}</span>
-    <span style="color:#000;font-weight:bold">}</span>
+        <span style="color:#75715e">//The array is full, needed resize operation!
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>size <span style="color:#f92672">==</span> capacity<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            resize<span style="color:#f92672">(</span>size <span style="color:#f92672">*</span> eFactor<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
 
-    <span style="color:#998;font-style:italic">/** Returns true if deque is empty, false otherwise. */</span>
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">boolean</span> <span style="color:#900;font-weight:bold">isEmpty</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>size <span style="color:#000;font-weight:bold">==</span> 0<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-            <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">true</span><span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#000;font-weight:bold">}</span>
-        <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">false</span><span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#75715e">/** Returns true if deque is empty, false otherwise. */</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>size <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    <span style="color:#998;font-style:italic">/** Returns the number of items in the deque. */</span>
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">int</span> <span style="color:#900;font-weight:bold">size</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#000;font-weight:bold">return</span> size<span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#75715e">/** Returns the number of items in the deque. */</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">size</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> size<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    <span style="color:#998;font-style:italic">/** Prints the items in the deque from first to last, separated by a space. */</span>
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">printDeque</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>isEmpty<span style="color:#000;font-weight:bold">())</span> <span style="color:#000;font-weight:bold">{</span>
-            <span style="color:#000;font-weight:bold">return</span><span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#000;font-weight:bold">}</span>
-        <span style="color:#458;font-weight:bold">int</span> index <span style="color:#000;font-weight:bold">=</span> onePlus<span style="color:#000;font-weight:bold">(</span>nextFirst<span style="color:#000;font-weight:bold">);</span>
-        <span style="color:#000;font-weight:bold">while</span> <span style="color:#000;font-weight:bold">(</span>index <span style="color:#000;font-weight:bold">!=</span> nextLast<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-            System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">print</span><span style="color:#000;font-weight:bold">(</span>items<span style="color:#000;font-weight:bold">[</span>index<span style="color:#000;font-weight:bold">]</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34; &#34;</span><span style="color:#000;font-weight:bold">);</span>
-            index <span style="color:#000;font-weight:bold">=</span> onePlus<span style="color:#000;font-weight:bold">(</span>index<span style="color:#000;font-weight:bold">);</span>
-        <span style="color:#000;font-weight:bold">}</span>
-    <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#75715e">/** Prints the items in the deque from first to last, separated by a space. */</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">printDeque</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>isEmpty<span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">int</span> index <span style="color:#f92672">=</span> onePlus<span style="color:#f92672">(</span>nextFirst<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>index <span style="color:#f92672">!=</span> nextLast<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">(</span>items<span style="color:#f92672">[</span>index<span style="color:#f92672">]</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; &#34;</span><span style="color:#f92672">);</span>
+            index <span style="color:#f92672">=</span> onePlus<span style="color:#f92672">(</span>index<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
 
-    <span style="color:#000;font-weight:bold">private</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">contract</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-        usageFactor <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#458;font-weight:bold">double</span><span style="color:#000;font-weight:bold">)</span> size <span style="color:#000;font-weight:bold">/</span> capacity<span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>usageFactor <span style="color:#000;font-weight:bold">&lt;=</span> mRatio <span style="color:#000;font-weight:bold">&amp;&amp;</span> capacity <span style="color:#000;font-weight:bold">&gt;=</span> mCapacity<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-            <span style="color:#458;font-weight:bold">int</span> newCapacity <span style="color:#000;font-weight:bold">=</span> capacity <span style="color:#000;font-weight:bold">/</span> cFactor<span style="color:#000;font-weight:bold">;</span>
-            resize<span style="color:#000;font-weight:bold">(</span>newCapacity<span style="color:#000;font-weight:bold">);</span>
-        <span style="color:#000;font-weight:bold">}</span>
-    <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">contract</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        usageFactor <span style="color:#f92672">=</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">double</span><span style="color:#f92672">)</span> size <span style="color:#f92672">/</span> capacity<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>usageFactor <span style="color:#f92672">&lt;=</span> mRatio <span style="color:#f92672">&amp;&amp;</span> capacity <span style="color:#f92672">&gt;=</span> mCapacity<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">int</span> newCapacity <span style="color:#f92672">=</span> capacity <span style="color:#f92672">/</span> cFactor<span style="color:#f92672">;</span>
+            resize<span style="color:#f92672">(</span>newCapacity<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
 
-    <span style="color:#998;font-style:italic">/** Removes and returns the item at the back of the deque. If no such item exists, returns null.
-</span><span style="color:#998;font-style:italic">     * @Rule must take constant time, except during resizing operations.
-</span><span style="color:#998;font-style:italic">     */</span>
-    <span style="color:#000;font-weight:bold">public</span> T <span style="color:#900;font-weight:bold">removeFirst</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>isEmpty<span style="color:#000;font-weight:bold">())</span> <span style="color:#000;font-weight:bold">{</span>
-            <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#75715e">/** Removes and returns the item at the back of the deque. If no such item exists, returns null.
+</span><span style="color:#75715e">     * @Rule must take constant time, except during resizing operations.
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">public</span> T <span style="color:#a6e22e">removeFirst</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>isEmpty<span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
 
-        <span style="color:#458;font-weight:bold">int</span> currentFirst <span style="color:#000;font-weight:bold">=</span> onePlus<span style="color:#000;font-weight:bold">(</span>nextFirst<span style="color:#000;font-weight:bold">);</span>
-        T currentFirstItem <span style="color:#000;font-weight:bold">=</span> items<span style="color:#000;font-weight:bold">[</span>currentFirst<span style="color:#000;font-weight:bold">];</span>
-        nextFirst <span style="color:#000;font-weight:bold">=</span> currentFirst<span style="color:#000;font-weight:bold">;</span>
-        items<span style="color:#000;font-weight:bold">[</span>nextFirst<span style="color:#000;font-weight:bold">]</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">;</span>
-        size <span style="color:#000;font-weight:bold">-=</span> 1<span style="color:#000;font-weight:bold">;</span>
+        <span style="color:#66d9ef">int</span> currentFirst <span style="color:#f92672">=</span> onePlus<span style="color:#f92672">(</span>nextFirst<span style="color:#f92672">);</span>
+        T currentFirstItem <span style="color:#f92672">=</span> items<span style="color:#f92672">[</span>currentFirst<span style="color:#f92672">];</span>
+        nextFirst <span style="color:#f92672">=</span> currentFirst<span style="color:#f92672">;</span>
+        items<span style="color:#f92672">[</span>nextFirst<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        size <span style="color:#f92672">-=</span> 1<span style="color:#f92672">;</span>
 
-        contract<span style="color:#000;font-weight:bold">();</span>
+        contract<span style="color:#f92672">();</span>
 
-        <span style="color:#000;font-weight:bold">return</span> currentFirstItem<span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000;font-weight:bold">}</span>
+        <span style="color:#66d9ef">return</span> currentFirstItem<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    <span style="color:#998;font-style:italic">/** Removes and returns the item at the back of the deque. If no such item
-</span><span style="color:#998;font-style:italic">     * exists, returns null..
-</span><span style="color:#998;font-style:italic">     * @Rule must take constant time, except during resizing operations.
-</span><span style="color:#998;font-style:italic">     */</span>
-    <span style="color:#000;font-weight:bold">public</span> T <span style="color:#900;font-weight:bold">removeLast</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>isEmpty<span style="color:#000;font-weight:bold">())</span> <span style="color:#000;font-weight:bold">{</span>
-            <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#75715e">/** Removes and returns the item at the back of the deque. If no such item
+</span><span style="color:#75715e">     * exists, returns null..
+</span><span style="color:#75715e">     * @Rule must take constant time, except during resizing operations.
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">public</span> T <span style="color:#a6e22e">removeLast</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>isEmpty<span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
 
-        <span style="color:#458;font-weight:bold">int</span> currentLast <span style="color:#000;font-weight:bold">=</span> oneMinus<span style="color:#000;font-weight:bold">(</span>nextLast<span style="color:#000;font-weight:bold">);</span>
-        T currentLastItem <span style="color:#000;font-weight:bold">=</span> items<span style="color:#000;font-weight:bold">[</span>currentLast<span style="color:#000;font-weight:bold">];</span>
-        nextLast <span style="color:#000;font-weight:bold">=</span> currentLast<span style="color:#000;font-weight:bold">;</span>
-        items<span style="color:#000;font-weight:bold">[</span>nextLast<span style="color:#000;font-weight:bold">]</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">;</span>
-        size <span style="color:#000;font-weight:bold">-=</span> 1<span style="color:#000;font-weight:bold">;</span>
+        <span style="color:#66d9ef">int</span> currentLast <span style="color:#f92672">=</span> oneMinus<span style="color:#f92672">(</span>nextLast<span style="color:#f92672">);</span>
+        T currentLastItem <span style="color:#f92672">=</span> items<span style="color:#f92672">[</span>currentLast<span style="color:#f92672">];</span>
+        nextLast <span style="color:#f92672">=</span> currentLast<span style="color:#f92672">;</span>
+        items<span style="color:#f92672">[</span>nextLast<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        size <span style="color:#f92672">-=</span> 1<span style="color:#f92672">;</span>
 
-        <span style="color:#000;font-weight:bold">return</span> currentLastItem<span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000;font-weight:bold">}</span>
+        <span style="color:#66d9ef">return</span> currentLastItem<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    <span style="color:#998;font-style:italic">/**
-</span><span style="color:#998;font-style:italic">     * Gets the item at the given index, where 0 is the front, 1 is the next item, and so forth.
-</span><span style="color:#998;font-style:italic">     * If no such item exists, returns null. Must not alter the deque!
-</span><span style="color:#998;font-style:italic">     * @Rule must take constant time.
-</span><span style="color:#998;font-style:italic">     */</span>
-    <span style="color:#000;font-weight:bold">public</span> T <span style="color:#900;font-weight:bold">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#458;font-weight:bold">int</span> index<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>index <span style="color:#000;font-weight:bold">&gt;=</span> size<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-            <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * Gets the item at the given index, where 0 is the front, 1 is the next item, and so forth.
+</span><span style="color:#75715e">     * If no such item exists, returns null. Must not alter the deque!
+</span><span style="color:#75715e">     * @Rule must take constant time.
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">public</span> T <span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> index<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>index <span style="color:#f92672">&gt;=</span> size<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
 
-        <span style="color:#458;font-weight:bold">int</span> indexFromFirst <span style="color:#000;font-weight:bold">=</span> nextFirst <span style="color:#000;font-weight:bold">+</span> 1 <span style="color:#000;font-weight:bold">+</span> index<span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>indexFromFirst <span style="color:#000;font-weight:bold">&gt;=</span> capacity<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-            indexFromFirst <span style="color:#000;font-weight:bold">-=</span> capacity<span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#000;font-weight:bold">}</span>
+        <span style="color:#66d9ef">int</span> indexFromFirst <span style="color:#f92672">=</span> nextFirst <span style="color:#f92672">+</span> 1 <span style="color:#f92672">+</span> index<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>indexFromFirst <span style="color:#f92672">&gt;=</span> capacity<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            indexFromFirst <span style="color:#f92672">-=</span> capacity<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
 
-        <span style="color:#000;font-weight:bold">return</span> items<span style="color:#000;font-weight:bold">[</span>indexFromFirst<span style="color:#000;font-weight:bold">];</span>
-    <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div>
+        <span style="color:#66d9ef">return</span> items<span style="color:#f92672">[</span>indexFromFirst<span style="color:#f92672">];</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div>
         </div>
 
         

@@ -232,55 +232,28 @@
 <li>web目录(或其他)右击 &ndash;&gt; new &ndash;&gt; JSP/JSPX &ndash;&gt; 输入文件名 &ndash;&gt; 选择JSP file创建</li>
 </ol>
 <p>Servlet程序回传HTML页面数据（非常繁琐）：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">PrintHtml</span> <span style="color:#000;font-weight:bold">extends</span> HttpServlet <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
-    <span style="color:#000;font-weight:bold">protected</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">doGet</span><span style="color:#000;font-weight:bold">(</span>HttpServletRequest req<span style="color:#000;font-weight:bold">,</span> HttpServletResponse resp<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> ServletException<span style="color:#000;font-weight:bold">,</span> IOException <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#998;font-style:italic">//通过响应的回传流回传html页面数据
-</span><span style="color:#998;font-style:italic"></span>        resp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setContentType</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;text/html; charset=UTF-8&#34;</span><span style="color:#000;font-weight:bold">);</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PrintHtml</span> <span style="color:#66d9ef">extends</span> HttpServlet <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">doGet</span><span style="color:#f92672">(</span>HttpServletRequest req<span style="color:#f92672">,</span> HttpServletResponse resp<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> ServletException<span style="color:#f92672">,</span> IOException <span style="color:#f92672">{</span>
+        <span style="color:#75715e">//通过响应的回传流回传html页面数据
+</span><span style="color:#75715e"></span>        resp<span style="color:#f92672">.</span><span style="color:#a6e22e">setContentType</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;text/html; charset=UTF-8&#34;</span><span style="color:#f92672">);</span>
 
-        PrintWriter writer <span style="color:#000;font-weight:bold">=</span> resp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getWriter</span><span style="color:#000;font-weight:bold">();</span>
-        writer<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;&lt;!DOCTYPE html&gt;\r\n&#34;</span><span style="color:#000;font-weight:bold">);</span>
-        writer<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;  &lt;html lang=\&#34;en\&#34;&gt;\r\n&#34;</span><span style="color:#000;font-weight:bold">);</span>
-        writer<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;  &lt;head&gt;\r\n&#34;</span><span style="color:#000;font-weight:bold">);</span>
-        writer<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;      &lt;meta charset=\&#34;UTF-8\&#34;&gt;\r\n&#34;</span><span style="color:#000;font-weight:bold">);</span>
-        writer<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;      &lt;title&gt;Title&lt;/title&gt;\r\n&#34;</span><span style="color:#000;font-weight:bold">);</span>
-        writer<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;  &lt;/head&gt;\r\n&#34;</span><span style="color:#000;font-weight:bold">);</span>
-        writer<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34; &lt;body&gt;\r\n&#34;</span><span style="color:#000;font-weight:bold">);</span>
-        writer<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;    这是html页面数据 \r\n&#34;</span><span style="color:#000;font-weight:bold">);</span>
-        writer<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;  &lt;/body&gt;\r\n&#34;</span><span style="color:#000;font-weight:bold">);</span>
-        writer<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;&lt;/html&gt;\r\n&#34;</span><span style="color:#000;font-weight:bold">);</span>
-        writer<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;\r\n&#34;</span><span style="color:#000;font-weight:bold">);</span>
+        PrintWriter writer <span style="color:#f92672">=</span> resp<span style="color:#f92672">.</span><span style="color:#a6e22e">getWriter</span><span style="color:#f92672">();</span>
+        writer<span style="color:#f92672">.</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;!DOCTYPE html&gt;\r\n&#34;</span><span style="color:#f92672">);</span>
+        writer<span style="color:#f92672">.</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;  &lt;html lang=\&#34;en\&#34;&gt;\r\n&#34;</span><span style="color:#f92672">);</span>
+        writer<span style="color:#f92672">.</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;  &lt;head&gt;\r\n&#34;</span><span style="color:#f92672">);</span>
+        writer<span style="color:#f92672">.</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;      &lt;meta charset=\&#34;UTF-8\&#34;&gt;\r\n&#34;</span><span style="color:#f92672">);</span>
+        writer<span style="color:#f92672">.</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;      &lt;title&gt;Title&lt;/title&gt;\r\n&#34;</span><span style="color:#f92672">);</span>
+        writer<span style="color:#f92672">.</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;  &lt;/head&gt;\r\n&#34;</span><span style="color:#f92672">);</span>
+        writer<span style="color:#f92672">.</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34; &lt;body&gt;\r\n&#34;</span><span style="color:#f92672">);</span>
+        writer<span style="color:#f92672">.</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;    这是html页面数据 \r\n&#34;</span><span style="color:#f92672">);</span>
+        writer<span style="color:#f92672">.</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;  &lt;/body&gt;\r\n&#34;</span><span style="color:#f92672">);</span>
+        writer<span style="color:#f92672">.</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&lt;/html&gt;\r\n&#34;</span><span style="color:#f92672">);</span>
+        writer<span style="color:#f92672">.</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;\r\n&#34;</span><span style="color:#f92672">);</span>
 
-    <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="2-jsp的本质">2 JSP的本质</h2>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="2-jsp的本质">2 JSP的本质</h2>
 <p>JSP页面本质上是一个Servlet程序，第一次访问JSP页面时(运行Tomcat服务器后在浏览器地址栏输入路径)，Tomcat服务器会将此JSP页面翻译成为一个Java源文件，并对其进行编译成为.class字节码文件(一个.java，一个.class)，当打开.java文件时发现其中的内容是：</p>
 <p>
         <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201108163241.png">
@@ -619,73 +592,35 @@ page 属性设置请求转发的路径</p>
 </ol>
 <h3 id="82-servletcontextlistener监听器">8.2 ServletContextListener监听器</h3>
 <p><code>ServletContextListener</code>监听器可以监听<code>ServletContext</code>对象的创建和销毁(web工程启动时创建，停止时销毁)，监听到创建和销毁之后都会调用<code>ServletContextListener</code>监听器的方法进行反馈：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">interface</span> <span style="color:#458;font-weight:bold">ServletContextListener</span> <span style="color:#000;font-weight:bold">extends</span> EventListener <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#998;font-style:italic">//在ServletContext对象创建之后调用
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">contextInitialized</span><span style="color:#000;font-weight:bold">(</span>ServletContextEvent sce<span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#998;font-style:italic">//在ServletContext对象销毁之后调用
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">contextDestroyed</span><span style="color:#000;font-weight:bold">(</span>ServletContextEvent sce<span style="color:#000;font-weight:bold">);</span>
-<span style="color:#000;font-weight:bold">}</span>	
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="83-servlercontextlistener监听器的使用步骤">8.3 ServlerContextListener监听器的使用步骤</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">ServletContextListener</span> <span style="color:#66d9ef">extends</span> EventListener <span style="color:#f92672">{</span>
+    <span style="color:#75715e">//在ServletContext对象创建之后调用
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">contextInitialized</span><span style="color:#f92672">(</span>ServletContextEvent sce<span style="color:#f92672">);</span>
+    <span style="color:#75715e">//在ServletContext对象销毁之后调用
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">contextDestroyed</span><span style="color:#f92672">(</span>ServletContextEvent sce<span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>	
+</code></pre></div><h3 id="83-servlercontextlistener监听器的使用步骤">8.3 ServlerContextListener监听器的使用步骤</h3>
 <ol>
 <li>编写一个类实现ServletContextListener接口</li>
 <li>重写两个方法</li>
 <li>在web.xml文件中配置监听器</li>
 </ol>
 <p>代码演示1：创建一个类</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">MyServletContextListenerImpl</span> <span style="color:#000;font-weight:bold">implements</span> ServletContextListener <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">contextInitialized</span><span style="color:#000;font-weight:bold">(</span>ServletContextEvent sce<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;ServletContext对象被创建了&#34;</span><span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyServletContextListenerImpl</span> <span style="color:#66d9ef">implements</span> ServletContextListener <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">contextInitialized</span><span style="color:#f92672">(</span>ServletContextEvent sce<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;ServletContext对象被创建了&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
     
-    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">contextDestroyed</span><span style="color:#000;font-weight:bold">(</span>ServletContextEvent sce<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;ServletContext对象被销毁了&#34;</span><span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>代码演示2：在web.xml中配置</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#000080">&lt;listener&gt;</span>
-    <span style="color:#000080">&lt;listener-class&gt;</span>com.atguigu.listener.MyServletContextListenerImpl<span style="color:#000080">&lt;/listener-class&gt;</span>
-<span style="color:#000080">&lt;/listener&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>运行结果：
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">contextDestroyed</span><span style="color:#f92672">(</span>ServletContextEvent sce<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;ServletContext对象被销毁了&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>代码演示2：在web.xml中配置</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;listener&gt;</span>
+    <span style="color:#f92672">&lt;listener-class&gt;</span>com.atguigu.listener.MyServletContextListenerImpl<span style="color:#f92672">&lt;/listener-class&gt;</span>
+<span style="color:#f92672">&lt;/listener&gt;</span>
+</code></pre></div><p>运行结果：
 Tomcat服务器启动之后控制台输出ServletContext对象创建
 Tomcat服务器停止之后控制台输出ServletContext对象销毁</p>
 

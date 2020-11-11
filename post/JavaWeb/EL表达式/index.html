@@ -238,22 +238,8 @@
 <h2 id="2-el表达式搜索域数据的顺序">2 EL表达式搜索域数据的顺序</h2>
 <p>EL表达式主要是输出域对象中的数据，当四个域对象都有同一个key的值时，EL表达式会按照四个域对象的范围从小到大进行搜索，找到就输出，与四个域对象声明的先后顺序无关</p>
 <p>代码演示：在web目录下创建Test.jsp</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">body</span>&gt;
-    <span style="color:#a61717;background-color:#e3d2d2">&lt;</span>%
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">body</span>&gt;
+    <span style="color:#960050;background-color:#1e0010">&lt;</span>%
         //往四个域中都保存了相同的key的数据。
         request.setAttribute(&#34;key&#34;, &#34;request&#34;);
         session.setAttribute(&#34;key&#34;, &#34;session&#34;);
@@ -261,10 +247,8 @@
         pageContext.setAttribute(&#34;key&#34;, &#34;pageContext&#34;);
     %&gt;
     ${ key }
-&lt;/<span style="color:#000080">body</span>&gt;
-</code></pre></td></tr></table>
-</div>
-</div><p>运行结果：</p>
+&lt;/<span style="color:#f92672">body</span>&gt;
+</code></pre></div><p>运行结果：</p>
 <p>
         <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201108204006.png">
             <img class="mx-auto" alt="image-20201108204005933" src="https://gitee.com/jchenTech/images/raw/master/img/20201108204006.png" />
@@ -272,39 +256,20 @@
     </p>
 <h2 id="3-el表达式输出java类的属性">3 EL表达式输出Java类的属性</h2>
 <p>代码演示：创建Person类</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Person</span> <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#998;font-style:italic">//输出Person类中普通属性，数组属性，list集合属性和map集合属性
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">private</span> String name<span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000;font-weight:bold">private</span> String<span style="color:#000;font-weight:bold">[]</span> phones<span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000;font-weight:bold">private</span> List<span style="color:#000;font-weight:bold">&lt;</span>String<span style="color:#000;font-weight:bold">&gt;</span> cities<span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000;font-weight:bold">private</span> Map<span style="color:#000;font-weight:bold">&lt;</span>String<span style="color:#000;font-weight:bold">,</span> Object<span style="color:#000;font-weight:bold">&gt;</span> map<span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#998;font-style:italic">//注意：没有声明age属性
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">int</span> <span style="color:#900;font-weight:bold">getAge</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#000;font-weight:bold">return</span> 18<span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000;font-weight:bold">}</span>
-    <span style="color:#998;font-style:italic">//以及全参、空参构造器，各属性的getter/setter方法
-</span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span> <span style="color:#f92672">{</span>
+    <span style="color:#75715e">//输出Person类中普通属性，数组属性，list集合属性和map集合属性
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> String<span style="color:#f92672">[]</span> phones<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> cities<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> Map<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> Object<span style="color:#f92672">&gt;</span> map<span style="color:#f92672">;</span>
+    <span style="color:#75715e">//注意：没有声明age属性
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getAge</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> 18<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#75715e">//以及全参、空参构造器，各属性的getter/setter方法
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
 123456789101112
-</code></pre></td></tr></table>
-</div>
-</div><p>代码演示：在web目录下创建c.jsp</p>
+</code></pre></div><p>代码演示：在web目录下创建c.jsp</p>
 <pre><code class="language-jsp" data-lang="jsp">&lt;body&gt;
 &lt;%
     Person person = new Person();
@@ -442,39 +407,20 @@
 <p>EL表达式中的11个隐含对象是EL表达式自己定义的，可以直接使用</p>
 <h3 id="51--pagescoperequestscopesessionscopeapplicationscope对象的使用">5.1  pageScope、requestScope、sessionScope、applicationScope对象的使用</h3>
 <p>代码演示：在web目录下创建scope.jsp</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">body</span>&gt;
-    <span style="color:#a61717;background-color:#e3d2d2">&lt;</span>%
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">body</span>&gt;
+    <span style="color:#960050;background-color:#1e0010">&lt;</span>%
         pageContext.setAttribute(&#34;key1&#34;, &#34;pageContext1&#34;);
         pageContext.setAttribute(&#34;key2&#34;, &#34;pageContext2&#34;);
         request.setAttribute(&#34;key2&#34;, &#34;request&#34;);
         session.setAttribute(&#34;key2&#34;, &#34;session&#34;);
         application.setAttribute(&#34;key2&#34;, &#34;application&#34;);
     %&gt;
-    <span style="color:#a61717;background-color:#e3d2d2">&lt;</span>%--  获取特定域中的属性  --%&gt;
-    ${ pageScope.key1 } &lt;<span style="color:#000080">br</span>&gt;
+    <span style="color:#960050;background-color:#1e0010">&lt;</span>%--  获取特定域中的属性  --%&gt;
+    ${ pageScope.key1 } &lt;<span style="color:#f92672">br</span>&gt;
     ${ applicationScope.key2 }
-    <span style="color:#a61717;background-color:#e3d2d2">&lt;</span>%--  若直接获取key1或key2依然按照之前范围从小到大检索，无法获取指定域  --%&gt;
-&lt;/<span style="color:#000080">body</span>&gt;
-</code></pre></td></tr></table>
-</div>
-</div><p>运行结果：
+    <span style="color:#960050;background-color:#1e0010">&lt;</span>%--  若直接获取key1或key2依然按照之前范围从小到大检索，无法获取指定域  --%&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
+</code></pre></div><p>运行结果：
 
         <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201108213521.png">
             <img class="mx-auto" alt="image-20201108213521870" src="https://gitee.com/jchenTech/images/raw/master/img/20201108213521.png" />
@@ -482,43 +428,14 @@
     </p>
 <h3 id="52-pagecontext对象的使用">5.2 pageContext对象的使用</h3>
 <p>代码示例：在web目录下创建pageContext.jsp</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#a61717;background-color:#e3d2d2">&lt;</span>%@ page contentType=&#34;text/html;charset=UTF-8&#34; language=&#34;java&#34; %&gt;
-&lt;<span style="color:#000080">html</span>&gt;
-&lt;<span style="color:#000080">head</span>&gt;
-    &lt;<span style="color:#000080">title</span>&gt;Title&lt;/<span style="color:#000080">title</span>&gt;
-&lt;/<span style="color:#000080">head</span>&gt;
-&lt;<span style="color:#000080">body</span>&gt;
-    <span style="color:#a61717;background-color:#e3d2d2">&lt;</span>%-- 先通过pageContext对象获取request、session对象，再获取以下内容 --%&gt;
-    <span style="color:#a61717;background-color:#e3d2d2">&lt;</span>%--
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#960050;background-color:#1e0010">&lt;</span>%@ page contentType=&#34;text/html;charset=UTF-8&#34; language=&#34;java&#34; %&gt;
+&lt;<span style="color:#f92672">html</span>&gt;
+&lt;<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">title</span>&gt;Title&lt;/<span style="color:#f92672">title</span>&gt;
+&lt;/<span style="color:#f92672">head</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
+    <span style="color:#960050;background-color:#1e0010">&lt;</span>%-- 先通过pageContext对象获取request、session对象，再获取以下内容 --%&gt;
+    <span style="color:#960050;background-color:#1e0010">&lt;</span>%--
         获取请求的协议：request.getScheme()
         获取请求的服务器ip或域名：request.getServerName()
         获取请求的服务器端口号：request.getServerPort()
@@ -527,18 +444,16 @@
         获取客户端的ip地址：request.getRemoteHost()
         获取会话的唯一标识：session.getId()
     --%&gt;
-1.协议： ${ pageContext.request.scheme }&lt;<span style="color:#000080">br</span>&gt;
-2.服务器ip：${ pageContext.request.serverName }&lt;<span style="color:#000080">br</span>&gt;
-3.服务器端口：${ pageContext.request.serverPort }&lt;<span style="color:#000080">br</span>&gt;
-4.获取工程路径：${ pageContext.request.contextPath }&lt;<span style="color:#000080">br</span>&gt;
-5.获取请求方法：${ pageContext.request.method }&lt;<span style="color:#000080">br</span>&gt;
-6.获取客户端ip地址：${ pageContext.request.remoteHost }&lt;<span style="color:#000080">br</span>&gt;
-7.获取会话的id编号：${ pageContext.session.id}&lt;<span style="color:#000080">br</span>&gt;
-&lt;/<span style="color:#000080">body</span>&gt;
-&lt;/<span style="color:#000080">html</span>&gt;
-</code></pre></td></tr></table>
-</div>
-</div><p>运行结果：</p>
+1.协议： ${ pageContext.request.scheme }&lt;<span style="color:#f92672">br</span>&gt;
+2.服务器ip：${ pageContext.request.serverName }&lt;<span style="color:#f92672">br</span>&gt;
+3.服务器端口：${ pageContext.request.serverPort }&lt;<span style="color:#f92672">br</span>&gt;
+4.获取工程路径：${ pageContext.request.contextPath }&lt;<span style="color:#f92672">br</span>&gt;
+5.获取请求方法：${ pageContext.request.method }&lt;<span style="color:#f92672">br</span>&gt;
+6.获取客户端ip地址：${ pageContext.request.remoteHost }&lt;<span style="color:#f92672">br</span>&gt;
+7.获取会话的id编号：${ pageContext.session.id}&lt;<span style="color:#f92672">br</span>&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><p>运行结果：</p>
 <p>
         <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201108213605.png">
             <img class="mx-auto" alt="image-20201108213605532" src="https://gitee.com/jchenTech/images/raw/master/img/20201108213605.png" />

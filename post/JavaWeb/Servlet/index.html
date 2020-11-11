@@ -263,108 +263,52 @@
 <li>在WEB-INF文件夹中的web.xml文件中配置Servlet程序的访问地址</li>
 </ol>
 <p>HelloServlet程序代码：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">com.atguigu.servlet</span><span style="color:#000;font-weight:bold">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.atguigu.servlet<span style="color:#f92672">;</span>
 
-<span style="color:#000;font-weight:bold">import</span> <span style="color:#555">javax.servlet.*</span><span style="color:#000;font-weight:bold">;</span>
-<span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.io.IOException</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#f92672">import</span> javax.servlet.*<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.io.IOException<span style="color:#f92672">;</span>
 
-<span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">HelloServlet</span> <span style="color:#000;font-weight:bold">implements</span> Servlet <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#998;font-style:italic">/**
-</span><span style="color:#998;font-style:italic">     * service 方法是专门用来处理请求和响应的
-</span><span style="color:#998;font-style:italic">     * @param servletRequest
-</span><span style="color:#998;font-style:italic">     * @param servletResponse
-</span><span style="color:#998;font-style:italic">     * @throws ServletException
-</span><span style="color:#998;font-style:italic">     * @throws IOException
-</span><span style="color:#998;font-style:italic">     */</span>
-    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">service</span><span style="color:#000;font-weight:bold">(</span>ServletRequest servletRequest<span style="color:#000;font-weight:bold">,</span> ServletResponse servletResponse<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> ServletException<span style="color:#000;font-weight:bold">,</span> IOException <span style="color:#000;font-weight:bold">{</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Hello Servlet 被访问了&#34;</span><span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>web.xml中的配置</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#999;font-weight:bold;font-style:italic">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
-<span style="color:#000080">&lt;web-app</span> <span style="color:#008080">xmlns=</span><span style="color:#d14">&#34;http://xmlns.jcp.org/xml/ns/javaee&#34;</span>
-         <span style="color:#008080">xmlns:xsi=</span><span style="color:#d14">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
-         <span style="color:#008080">xsi:schemaLocation=</span><span style="color:#d14">&#34;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&#34;</span>
-         <span style="color:#008080">version=</span><span style="color:#d14">&#34;4.0&#34;</span><span style="color:#000080">&gt;</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HelloServlet</span> <span style="color:#66d9ef">implements</span> Servlet <span style="color:#f92672">{</span>
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * service 方法是专门用来处理请求和响应的
+</span><span style="color:#75715e">     * @param servletRequest
+</span><span style="color:#75715e">     * @param servletResponse
+</span><span style="color:#75715e">     * @throws ServletException
+</span><span style="color:#75715e">     * @throws IOException
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">service</span><span style="color:#f92672">(</span>ServletRequest servletRequest<span style="color:#f92672">,</span> ServletResponse servletResponse<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> ServletException<span style="color:#f92672">,</span> IOException <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello Servlet 被访问了&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+</code></pre></div><p>web.xml中的配置</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#f92672">&lt;web-app</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://xmlns.jcp.org/xml/ns/javaee&#34;</span>
+         <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+         <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&#34;</span>
+         <span style="color:#a6e22e">version=</span><span style="color:#e6db74">&#34;4.0&#34;</span><span style="color:#f92672">&gt;</span>
 
-    <span style="color:#998;font-style:italic">&lt;!-- servlet标签给Tomcat配置Servlet程序 --&gt;</span>
-    <span style="color:#000080">&lt;servlet&gt;</span>
-        <span style="color:#998;font-style:italic">&lt;!-- servlet-name标签Servlet程序起一个别名（一般是类名） --&gt;</span>
-        <span style="color:#000080">&lt;servlet-name&gt;</span>HelloServlet<span style="color:#000080">&lt;/servlet-name&gt;</span>
-        <span style="color:#998;font-style:italic">&lt;!--servlet-class是Servlet程序的全类名--&gt;</span>
-        <span style="color:#000080">&lt;servlet-class&gt;</span>com.atguigu.servlet.HelloServlet<span style="color:#000080">&lt;/servlet-class&gt;</span>
-    <span style="color:#000080">&lt;/servlet&gt;</span>
+    <span style="color:#75715e">&lt;!-- servlet标签给Tomcat配置Servlet程序 --&gt;</span>
+    <span style="color:#f92672">&lt;servlet&gt;</span>
+        <span style="color:#75715e">&lt;!-- servlet-name标签Servlet程序起一个别名（一般是类名） --&gt;</span>
+        <span style="color:#f92672">&lt;servlet-name&gt;</span>HelloServlet<span style="color:#f92672">&lt;/servlet-name&gt;</span>
+        <span style="color:#75715e">&lt;!--servlet-class是Servlet程序的全类名--&gt;</span>
+        <span style="color:#f92672">&lt;servlet-class&gt;</span>com.atguigu.servlet.HelloServlet<span style="color:#f92672">&lt;/servlet-class&gt;</span>
+    <span style="color:#f92672">&lt;/servlet&gt;</span>
 
-    <span style="color:#998;font-style:italic">&lt;!--servlet-mapping标签给servlet程序配置访问地址--&gt;</span>
-    <span style="color:#000080">&lt;servlet-mapping&gt;</span>
-        <span style="color:#998;font-style:italic">&lt;!--servlet-name标签的作用是告诉服务器，我当前配置的地址给那个servlet程序使用--&gt;</span>
-        <span style="color:#000080">&lt;servlet-name&gt;</span>HelloServlet<span style="color:#000080">&lt;/servlet-name&gt;</span>
-        <span style="color:#998;font-style:italic">&lt;!--
-</span><span style="color:#998;font-style:italic">            url-pattern标签配置访问地址                                     &lt;br/&gt;
-</span><span style="color:#998;font-style:italic">               / 斜杠在服务器解析的时候，表示地址为：http://ip:port/工程路径          &lt;br/&gt;
-</span><span style="color:#998;font-style:italic">               /hello 表示地址为：http://ip:port/工程路径/hello              &lt;br/&gt;
-</span><span style="color:#998;font-style:italic">        --&gt;</span>
-        <span style="color:#000080">&lt;url-pattern&gt;</span>/hello<span style="color:#000080">&lt;/url-pattern&gt;</span>
-    <span style="color:#000080">&lt;/servlet-mapping&gt;</span>
+    <span style="color:#75715e">&lt;!--servlet-mapping标签给servlet程序配置访问地址--&gt;</span>
+    <span style="color:#f92672">&lt;servlet-mapping&gt;</span>
+        <span style="color:#75715e">&lt;!--servlet-name标签的作用是告诉服务器，我当前配置的地址给那个servlet程序使用--&gt;</span>
+        <span style="color:#f92672">&lt;servlet-name&gt;</span>HelloServlet<span style="color:#f92672">&lt;/servlet-name&gt;</span>
+        <span style="color:#75715e">&lt;!--
+</span><span style="color:#75715e">            url-pattern标签配置访问地址                                     &lt;br/&gt;
+</span><span style="color:#75715e">               / 斜杠在服务器解析的时候，表示地址为：http://ip:port/工程路径          &lt;br/&gt;
+</span><span style="color:#75715e">               /hello 表示地址为：http://ip:port/工程路径/hello              &lt;br/&gt;
+</span><span style="color:#75715e">        --&gt;</span>
+        <span style="color:#f92672">&lt;url-pattern&gt;</span>/hello<span style="color:#f92672">&lt;/url-pattern&gt;</span>
+    <span style="color:#f92672">&lt;/servlet-mapping&gt;</span>
 
-<span style="color:#000080">&lt;/web-app&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>运行结果： 点击绿色按钮开启Tomcat服务器之后，会自动打开默认的地址http://localhost:8080/06_servlet， 在地址栏继续输入<code>/hello</code>，会执行指定类的service方法，控制台输出：Hello Servlet 被访问了</p>
+<span style="color:#f92672">&lt;/web-app&gt;</span>
+</code></pre></div><p>运行结果： 点击绿色按钮开启Tomcat服务器之后，会自动打开默认的地址http://localhost:8080/06_servlet， 在地址栏继续输入<code>/hello</code>，会执行指定类的service方法，控制台输出：Hello Servlet 被访问了</p>
 <h3 id="13-常见错误">1.3 常见错误</h3>
 <ol>
 <li>
@@ -409,108 +353,52 @@
 <p>其中1和2是在初次访问并创建Servlet程序时会执行(每次启动服务只执行一次)，第3步每次刷新 (访问)都会执行，第4步点击停止时会执行一次</p>
 <h3 id="16-get和post请求的不同处理">1.6 GET和POST请求的不同处理</h3>
 <p>在HelloServlet类中的service方法：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">HelloServlet</span> <span style="color:#000;font-weight:bold">implements</span> Servlet <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#998;font-style:italic">/**
-</span><span style="color:#998;font-style:italic">     * service 方法是专门用来处理请求和响应的
-</span><span style="color:#998;font-style:italic">     * @param servletRequest
-</span><span style="color:#998;font-style:italic">     * @param servletResponse
-</span><span style="color:#998;font-style:italic">     * @throws ServletException
-</span><span style="color:#998;font-style:italic">     * @throws IOException
-</span><span style="color:#998;font-style:italic">     */</span>
-    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">service</span><span style="color:#000;font-weight:bold">(</span>ServletRequest servletRequest<span style="color:#000;font-weight:bold">,</span> ServletResponse servletResponse<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> ServletException<span style="color:#000;font-weight:bold">,</span> IOException <span style="color:#000;font-weight:bold">{</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;3 service === Hello Servlet 被访问了&#34;</span><span style="color:#000;font-weight:bold">);</span>
-        <span style="color:#998;font-style:italic">//类型转换（因为他有getMethod()方法）
-</span><span style="color:#998;font-style:italic"></span>        HttpServletRequest httpServletRequest <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span>HttpServletRequest<span style="color:#000;font-weight:bold">)</span> servletRequest<span style="color:#000;font-weight:bold">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HelloServlet</span> <span style="color:#66d9ef">implements</span> Servlet <span style="color:#f92672">{</span>
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * service 方法是专门用来处理请求和响应的
+</span><span style="color:#75715e">     * @param servletRequest
+</span><span style="color:#75715e">     * @param servletResponse
+</span><span style="color:#75715e">     * @throws ServletException
+</span><span style="color:#75715e">     * @throws IOException
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">service</span><span style="color:#f92672">(</span>ServletRequest servletRequest<span style="color:#f92672">,</span> ServletResponse servletResponse<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> ServletException<span style="color:#f92672">,</span> IOException <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;3 service === Hello Servlet 被访问了&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#75715e">//类型转换（因为他有getMethod()方法）
+</span><span style="color:#75715e"></span>        HttpServletRequest httpServletRequest <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>HttpServletRequest<span style="color:#f92672">)</span> servletRequest<span style="color:#f92672">;</span>
 
-        String method <span style="color:#000;font-weight:bold">=</span> httpServletRequest<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getMethod</span><span style="color:#000;font-weight:bold">();</span>
+        String method <span style="color:#f92672">=</span> httpServletRequest<span style="color:#f92672">.</span><span style="color:#a6e22e">getMethod</span><span style="color:#f92672">();</span>
 
-        <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;GET&#34;</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">equals</span><span style="color:#000;font-weight:bold">(</span>method<span style="color:#000;font-weight:bold">))</span> <span style="color:#000;font-weight:bold">{</span>
-            doGet<span style="color:#000;font-weight:bold">();</span>
-        <span style="color:#000;font-weight:bold">}</span> <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;POST&#34;</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">equals</span><span style="color:#000;font-weight:bold">(</span>method<span style="color:#000;font-weight:bold">))</span> <span style="color:#000;font-weight:bold">{</span>
-            doPost<span style="color:#000;font-weight:bold">();</span>
-        <span style="color:#000;font-weight:bold">}</span>
-    <span style="color:#000;font-weight:bold">}</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;GET&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>method<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+            doGet<span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;POST&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>method<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+            doPost<span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
 
-    <span style="color:#998;font-style:italic">/*
-</span><span style="color:#998;font-style:italic">     * 做get请求的操作
-</span><span style="color:#998;font-style:italic">     */</span>
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">doGet</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;get请求&#34;</span><span style="color:#000;font-weight:bold">);</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;get请求&#34;</span><span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#75715e">/*
+</span><span style="color:#75715e">     * 做get请求的操作
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">doGet</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;get请求&#34;</span><span style="color:#f92672">);</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;get请求&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    <span style="color:#998;font-style:italic">/*
-</span><span style="color:#998;font-style:italic">     * 做post请求的操作
-</span><span style="color:#998;font-style:italic">     */</span>
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">doPost</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;post请求&#34;</span><span style="color:#000;font-weight:bold">);</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;post请求&#34;</span><span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>web目录下创建a.html页面：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">body</span>&gt;
-    &lt;<span style="color:#000080">form</span> <span style="color:#008080">action</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;http://localhost:8080/06_servlet/hello&#34;</span> <span style="color:#008080">method</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;post&#34;</span>&gt;
-        &lt;<span style="color:#000080">input</span> <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;submit&#34;</span>&gt;
-    &lt;/<span style="color:#000080">form</span>&gt;
-&lt;/<span style="color:#000080">body</span>&gt;
-</code></pre></td></tr></table>
-</div>
-</div><p>运行结果：服务器启动之后，在浏览器的地址栏中的后缀加上a.html，即可访问此页面，点击提交标签，即可跳转到http://localhost:8080/06_servlet/a.html，执行service方法，控制台输出：POST方式</p>
+    <span style="color:#75715e">/*
+</span><span style="color:#75715e">     * 做post请求的操作
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">doPost</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;post请求&#34;</span><span style="color:#f92672">);</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;post请求&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>web目录下创建a.html页面：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">body</span>&gt;
+    &lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://localhost:8080/06_servlet/hello&#34;</span> <span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post&#34;</span>&gt;
+        &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span>&gt;
+    &lt;/<span style="color:#f92672">form</span>&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
+</code></pre></div><p>运行结果：服务器启动之后，在浏览器的地址栏中的后缀加上a.html，即可访问此页面，点击提交标签，即可跳转到http://localhost:8080/06_servlet/a.html，执行service方法，控制台输出：POST方式</p>
 <h3 id="17-继承httpservlet类实现servlet程序">1.7 继承HttpServlet类实现Servlet程序</h3>
 <p>在实际的项目开发中，都是使用继承HttpServlet类实现Servlet程序的方式，步骤如下：</p>
 <ol>
@@ -519,74 +407,35 @@
 <li>到web.xml中配置Servlet程序的访问地址</li>
 </ol>
 <p>Servlet程序的代码：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">HelloServlet2</span> <span style="color:#000;font-weight:bold">extends</span> HttpServlet <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#998;font-style:italic">/*
-</span><span style="color:#998;font-style:italic">     * doGet() 在get请求的时候调用
-</span><span style="color:#998;font-style:italic">     */</span>
-    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
-    <span style="color:#000;font-weight:bold">protected</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">doGet</span><span style="color:#000;font-weight:bold">(</span>HttpServletRequest req<span style="color:#000;font-weight:bold">,</span> HttpServletResponse resp<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> ServletException<span style="color:#000;font-weight:bold">,</span> IOException <span style="color:#000;font-weight:bold">{</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;HelloServlet2的doGet方法&#34;</span><span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HelloServlet2</span> <span style="color:#66d9ef">extends</span> HttpServlet <span style="color:#f92672">{</span>
+    <span style="color:#75715e">/*
+</span><span style="color:#75715e">     * doGet() 在get请求的时候调用
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">doGet</span><span style="color:#f92672">(</span>HttpServletRequest req<span style="color:#f92672">,</span> HttpServletResponse resp<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> ServletException<span style="color:#f92672">,</span> IOException <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;HelloServlet2的doGet方法&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    <span style="color:#998;font-style:italic">/*
-</span><span style="color:#998;font-style:italic">     * doPost() 在post请求的时候调用
-</span><span style="color:#998;font-style:italic">     */</span>
-    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
-    <span style="color:#000;font-weight:bold">protected</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">doPost</span><span style="color:#000;font-weight:bold">(</span>HttpServletRequest req<span style="color:#000;font-weight:bold">,</span> HttpServletResponse resp<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> ServletException<span style="color:#000;font-weight:bold">,</span> IOException <span style="color:#000;font-weight:bold">{</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;HelloServlet2的doPost方法&#34;</span><span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#75715e">/*
+</span><span style="color:#75715e">     * doPost() 在post请求的时候调用
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">doPost</span><span style="color:#f92672">(</span>HttpServletRequest req<span style="color:#f92672">,</span> HttpServletResponse resp<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> ServletException<span style="color:#f92672">,</span> IOException <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;HelloServlet2的doPost方法&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
 
-</code></pre></td></tr></table>
-</div>
-</div><p>web.xml中的代码：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#000080">&lt;servlet&gt;</span>
-    <span style="color:#000080">&lt;servlet-name&gt;</span>HelloServlet2<span style="color:#000080">&lt;/servlet-name&gt;</span>
-    <span style="color:#000080">&lt;servlet-class&gt;</span>com.atguigu.servlet.HelloServlet2<span style="color:#000080">&lt;/servlet-class&gt;</span>
-<span style="color:#000080">&lt;/servlet&gt;</span>
+</code></pre></div><p>web.xml中的代码：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;servlet&gt;</span>
+    <span style="color:#f92672">&lt;servlet-name&gt;</span>HelloServlet2<span style="color:#f92672">&lt;/servlet-name&gt;</span>
+    <span style="color:#f92672">&lt;servlet-class&gt;</span>com.atguigu.servlet.HelloServlet2<span style="color:#f92672">&lt;/servlet-class&gt;</span>
+<span style="color:#f92672">&lt;/servlet&gt;</span>
 
-<span style="color:#000080">&lt;servlet-mapping&gt;</span>
-    <span style="color:#000080">&lt;servlet-name&gt;</span>HelloServlet2<span style="color:#000080">&lt;/servlet-name&gt;</span>
-    <span style="color:#000080">&lt;url-pattern&gt;</span>/hello2<span style="color:#000080">&lt;/url-pattern&gt;</span>
-<span style="color:#000080">&lt;/servlet-mapping&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="18-使用idea创建servlet程序">1.8 使用IDEA创建Servlet程序</h3>
+<span style="color:#f92672">&lt;servlet-mapping&gt;</span>
+    <span style="color:#f92672">&lt;servlet-name&gt;</span>HelloServlet2<span style="color:#f92672">&lt;/servlet-name&gt;</span>
+    <span style="color:#f92672">&lt;url-pattern&gt;</span>/hello2<span style="color:#f92672">&lt;/url-pattern&gt;</span>
+<span style="color:#f92672">&lt;/servlet-mapping&gt;</span>
+</code></pre></div><h3 id="18-使用idea创建servlet程序">1.8 使用IDEA创建Servlet程序</h3>
 <p><!-- raw HTML omitted --></p>
 <p>
         <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201102215238.png">
@@ -618,88 +467,42 @@
 <li>可以获取ServletContext对象</li>
 </ol>
 <p>servlet程序：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#3c5d5d;font-weight:bold">@Override</span>
-<span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">init</span><span style="color:#000;font-weight:bold">(</span>ServletConfig servletConfig<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> ServletException <span style="color:#000;font-weight:bold">{</span>
-    System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;2 init初始化&#34;</span><span style="color:#000;font-weight:bold">);</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Override</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">init</span><span style="color:#f92672">(</span>ServletConfig servletConfig<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> ServletException <span style="color:#f92672">{</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;2 init初始化&#34;</span><span style="color:#f92672">);</span>
 
-    <span style="color:#998;font-style:italic">//ServletConfig类三大好处
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">//1. 可以获取Servlet程序的别名servlet-name(即web.xml的内容)
-</span><span style="color:#998;font-style:italic"></span>    System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;HelloServlet程序的别名为&#34;</span> <span style="color:#000;font-weight:bold">+</span> servletConfig<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getServletName</span><span style="color:#000;font-weight:bold">());</span>
-    <span style="color:#998;font-style:italic">//2. 可以获取web.xml的初始化参数的值
-</span><span style="color:#998;font-style:italic"></span>    System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;初始化参数username的值是&#34;</span> <span style="color:#000;font-weight:bold">+</span> servletConfig<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getInitParameter</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;username&#34;</span><span style="color:#000;font-weight:bold">));</span>
-    System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;初始化参数url的值是&#34;</span> <span style="color:#000;font-weight:bold">+</span> servletConfig<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getInitParameter</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;url&#34;</span><span style="color:#000;font-weight:bold">));</span>
-    <span style="color:#998;font-style:italic">//3. 可以获取ServletContext对象
-</span><span style="color:#998;font-style:italic"></span>    System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>servletConfig<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getServletContext</span><span style="color:#000;font-weight:bold">());</span>
+    <span style="color:#75715e">//ServletConfig类三大好处
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">//1. 可以获取Servlet程序的别名servlet-name(即web.xml的内容)
+</span><span style="color:#75715e"></span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;HelloServlet程序的别名为&#34;</span> <span style="color:#f92672">+</span> servletConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">getServletName</span><span style="color:#f92672">());</span>
+    <span style="color:#75715e">//2. 可以获取web.xml的初始化参数的值
+</span><span style="color:#75715e"></span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;初始化参数username的值是&#34;</span> <span style="color:#f92672">+</span> servletConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">getInitParameter</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;username&#34;</span><span style="color:#f92672">));</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;初始化参数url的值是&#34;</span> <span style="color:#f92672">+</span> servletConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">getInitParameter</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;url&#34;</span><span style="color:#f92672">));</span>
+    <span style="color:#75715e">//3. 可以获取ServletContext对象
+</span><span style="color:#75715e"></span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>servletConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">getServletContext</span><span style="color:#f92672">());</span>
 
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>web.xml中的配置：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#998;font-style:italic">&lt;!-- servlet标签给Tomcat配置Servlet程序 --&gt;</span>
-    <span style="color:#000080">&lt;servlet&gt;</span>
-        <span style="color:#998;font-style:italic">&lt;!-- servlet-name标签Servlet程序起一个别名（一般是类名） --&gt;</span>
-        <span style="color:#000080">&lt;servlet-name&gt;</span>HelloServlet<span style="color:#000080">&lt;/servlet-name&gt;</span>
-        <span style="color:#998;font-style:italic">&lt;!--servlet-class是Servlet程序的全类名--&gt;</span>
-        <span style="color:#000080">&lt;servlet-class&gt;</span>com.atguigu.servlet.HelloServlet<span style="color:#000080">&lt;/servlet-class&gt;</span>
-        <span style="color:#998;font-style:italic">&lt;!--init-parm是初始化参数--&gt;</span>
-        <span style="color:#000080">&lt;init-param&gt;</span>
-            <span style="color:#998;font-style:italic">&lt;!--是参数名--&gt;</span>
-            <span style="color:#000080">&lt;param-name&gt;</span>username<span style="color:#000080">&lt;/param-name&gt;</span>
-            <span style="color:#998;font-style:italic">&lt;!--是参数值--&gt;</span>
-            <span style="color:#000080">&lt;param-value&gt;</span>root<span style="color:#000080">&lt;/param-value&gt;</span>
-        <span style="color:#000080">&lt;/init-param&gt;</span>
-        <span style="color:#000080">&lt;init-param&gt;</span>
-            <span style="color:#998;font-style:italic">&lt;!--是参数名--&gt;</span>
-            <span style="color:#000080">&lt;param-name&gt;</span>url<span style="color:#000080">&lt;/param-name&gt;</span>
-            <span style="color:#998;font-style:italic">&lt;!--是参数值--&gt;</span>
-            <span style="color:#000080">&lt;param-value&gt;</span>jdbc:mysql://localhost:3306/test<span style="color:#000080">&lt;/param-value&gt;</span>
-        <span style="color:#000080">&lt;/init-param&gt;</span>
-    <span style="color:#000080">&lt;/servlet&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>注意：重写init方法时，必须要在函数体内写：<code>super.init(config);</code></strong>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>web.xml中的配置：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;!-- servlet标签给Tomcat配置Servlet程序 --&gt;</span>
+    <span style="color:#f92672">&lt;servlet&gt;</span>
+        <span style="color:#75715e">&lt;!-- servlet-name标签Servlet程序起一个别名（一般是类名） --&gt;</span>
+        <span style="color:#f92672">&lt;servlet-name&gt;</span>HelloServlet<span style="color:#f92672">&lt;/servlet-name&gt;</span>
+        <span style="color:#75715e">&lt;!--servlet-class是Servlet程序的全类名--&gt;</span>
+        <span style="color:#f92672">&lt;servlet-class&gt;</span>com.atguigu.servlet.HelloServlet<span style="color:#f92672">&lt;/servlet-class&gt;</span>
+        <span style="color:#75715e">&lt;!--init-parm是初始化参数--&gt;</span>
+        <span style="color:#f92672">&lt;init-param&gt;</span>
+            <span style="color:#75715e">&lt;!--是参数名--&gt;</span>
+            <span style="color:#f92672">&lt;param-name&gt;</span>username<span style="color:#f92672">&lt;/param-name&gt;</span>
+            <span style="color:#75715e">&lt;!--是参数值--&gt;</span>
+            <span style="color:#f92672">&lt;param-value&gt;</span>root<span style="color:#f92672">&lt;/param-value&gt;</span>
+        <span style="color:#f92672">&lt;/init-param&gt;</span>
+        <span style="color:#f92672">&lt;init-param&gt;</span>
+            <span style="color:#75715e">&lt;!--是参数名--&gt;</span>
+            <span style="color:#f92672">&lt;param-name&gt;</span>url<span style="color:#f92672">&lt;/param-name&gt;</span>
+            <span style="color:#75715e">&lt;!--是参数值--&gt;</span>
+            <span style="color:#f92672">&lt;param-value&gt;</span>jdbc:mysql://localhost:3306/test<span style="color:#f92672">&lt;/param-value&gt;</span>
+        <span style="color:#f92672">&lt;/init-param&gt;</span>
+    <span style="color:#f92672">&lt;/servlet&gt;</span>
+</code></pre></div><p><strong>注意：重写init方法时，必须要在函数体内写：<code>super.init(config);</code></strong>
 <strong>原因：父类GenericServlet中的init方法将参数config保存起来，子类若不调用则无法保存</strong></p>
 <p>
         <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201102223847.png">
@@ -747,150 +550,68 @@
 <li>像Map一样存取数据</li>
 </ol>
 <p>ServletContext演示代码：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">ContextServlet</span> <span style="color:#000;font-weight:bold">extends</span> HttpServlet <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#000;font-weight:bold">protected</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">doPost</span><span style="color:#000;font-weight:bold">(</span>HttpServletRequest request<span style="color:#000;font-weight:bold">,</span> HttpServletResponse response<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> ServletException<span style="color:#000;font-weight:bold">,</span> IOException <span style="color:#000;font-weight:bold">{</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ContextServlet</span> <span style="color:#66d9ef">extends</span> HttpServlet <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">doPost</span><span style="color:#f92672">(</span>HttpServletRequest request<span style="color:#f92672">,</span> HttpServletResponse response<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> ServletException<span style="color:#f92672">,</span> IOException <span style="color:#f92672">{</span>
 
-    <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#f92672">}</span>
 
-    <span style="color:#000;font-weight:bold">protected</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">doGet</span><span style="color:#000;font-weight:bold">(</span>HttpServletRequest request<span style="color:#000;font-weight:bold">,</span> HttpServletResponse response<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> ServletException<span style="color:#000;font-weight:bold">,</span> IOException <span style="color:#000;font-weight:bold">{</span>
-<span style="color:#998;font-style:italic">//        1. 获取web.xml中配置的上下文参数标签中的值context-param
-</span><span style="color:#998;font-style:italic"></span>        ServletContext context <span style="color:#000;font-weight:bold">=</span> getServletConfig<span style="color:#000;font-weight:bold">().</span><span style="color:#008080">getServletContext</span><span style="color:#000;font-weight:bold">();</span>
-        String username <span style="color:#000;font-weight:bold">=</span> context<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getInitParameter</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;username&#34;</span><span style="color:#000;font-weight:bold">);</span>
-        String password <span style="color:#000;font-weight:bold">=</span> context<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getInitParameter</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;password&#34;</span><span style="color:#000;font-weight:bold">);</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;context-param参数username的值是:&#34;</span> <span style="color:#000;font-weight:bold">+</span> username<span style="color:#000;font-weight:bold">);</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;context-param参数password的值是：&#34;</span> <span style="color:#000;font-weight:bold">+</span> password<span style="color:#000;font-weight:bold">);</span>
-<span style="color:#998;font-style:italic">//        2. 获取当前工程的路径，格式：/工程路径，也就是Edit Configurations中Deployment中的 Application context的内容(即地址中8080之后，具体的打开的页面之前的内容)
-</span><span style="color:#998;font-style:italic"></span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;当前工程路径：&#34;</span> <span style="color:#000;font-weight:bold">+</span> context<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getContextPath</span><span style="color:#000;font-weight:bold">());</span>
-<span style="color:#998;font-style:italic">//        3. 获取工程部署后在硬盘上的绝对路径
-</span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">/*
-</span><span style="color:#998;font-style:italic">         * /斜杠被服务器解析地址为：http://ip:port/工程名/  映射到idea代码的web目录&lt;br/&gt;
-</span><span style="color:#998;font-style:italic">         */</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;工程部署的路径：&#34;</span> <span style="color:#000;font-weight:bold">+</span> context<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getRealPath</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;/&#34;</span><span style="color:#000;font-weight:bold">));</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;工程下css目录的绝对路径是&#34;</span> <span style="color:#000;font-weight:bold">+</span> context<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getRealPath</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;/css&#34;</span><span style="color:#000;font-weight:bold">));</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;工程下imgs目录1.png的绝对路径是&#34;</span> <span style="color:#000;font-weight:bold">+</span> context<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getRealPath</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;/imgs/1.png&#34;</span><span style="color:#000;font-weight:bold">));</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">doGet</span><span style="color:#f92672">(</span>HttpServletRequest request<span style="color:#f92672">,</span> HttpServletResponse response<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> ServletException<span style="color:#f92672">,</span> IOException <span style="color:#f92672">{</span>
+<span style="color:#75715e">//        1. 获取web.xml中配置的上下文参数标签中的值context-param
+</span><span style="color:#75715e"></span>        ServletContext context <span style="color:#f92672">=</span> getServletConfig<span style="color:#f92672">().</span><span style="color:#a6e22e">getServletContext</span><span style="color:#f92672">();</span>
+        String username <span style="color:#f92672">=</span> context<span style="color:#f92672">.</span><span style="color:#a6e22e">getInitParameter</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;username&#34;</span><span style="color:#f92672">);</span>
+        String password <span style="color:#f92672">=</span> context<span style="color:#f92672">.</span><span style="color:#a6e22e">getInitParameter</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;password&#34;</span><span style="color:#f92672">);</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;context-param参数username的值是:&#34;</span> <span style="color:#f92672">+</span> username<span style="color:#f92672">);</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;context-param参数password的值是：&#34;</span> <span style="color:#f92672">+</span> password<span style="color:#f92672">);</span>
+<span style="color:#75715e">//        2. 获取当前工程的路径，格式：/工程路径，也就是Edit Configurations中Deployment中的 Application context的内容(即地址中8080之后，具体的打开的页面之前的内容)
+</span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;当前工程路径：&#34;</span> <span style="color:#f92672">+</span> context<span style="color:#f92672">.</span><span style="color:#a6e22e">getContextPath</span><span style="color:#f92672">());</span>
+<span style="color:#75715e">//        3. 获取工程部署后在硬盘上的绝对路径
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">/*
+</span><span style="color:#75715e">         * /斜杠被服务器解析地址为：http://ip:port/工程名/  映射到idea代码的web目录&lt;br/&gt;
+</span><span style="color:#75715e">         */</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;工程部署的路径：&#34;</span> <span style="color:#f92672">+</span> context<span style="color:#f92672">.</span><span style="color:#a6e22e">getRealPath</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/&#34;</span><span style="color:#f92672">));</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;工程下css目录的绝对路径是&#34;</span> <span style="color:#f92672">+</span> context<span style="color:#f92672">.</span><span style="color:#a6e22e">getRealPath</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/css&#34;</span><span style="color:#f92672">));</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;工程下imgs目录1.png的绝对路径是&#34;</span> <span style="color:#f92672">+</span> context<span style="color:#f92672">.</span><span style="color:#a6e22e">getRealPath</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/imgs/1.png&#34;</span><span style="color:#f92672">));</span>
 
-    <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>web.xml配置：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#998;font-style:italic">&lt;!--context-param时上下文参数（它属于整个工程）--&gt;</span>
-<span style="color:#000080">&lt;context-param&gt;</span>
-    <span style="color:#000080">&lt;param-name&gt;</span>username<span style="color:#000080">&lt;/param-name&gt;</span>
-    <span style="color:#000080">&lt;param-value&gt;</span>context<span style="color:#000080">&lt;/param-value&gt;</span>
-<span style="color:#000080">&lt;/context-param&gt;</span>
-<span style="color:#998;font-style:italic">&lt;!--context-param时上下文参数（它属于整个工程）--&gt;</span>
-<span style="color:#000080">&lt;context-param&gt;</span>
-    <span style="color:#000080">&lt;param-name&gt;</span>password<span style="color:#000080">&lt;/param-name&gt;</span>
-    <span style="color:#000080">&lt;param-value&gt;</span>root<span style="color:#000080">&lt;/param-value&gt;</span>
-<span style="color:#000080">&lt;/context-param&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>ServletContext 像Map 一样存取数据：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">ContextServlet1</span> <span style="color:#000;font-weight:bold">extends</span> HttpServlet <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>web.xml配置：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;!--context-param时上下文参数（它属于整个工程）--&gt;</span>
+<span style="color:#f92672">&lt;context-param&gt;</span>
+    <span style="color:#f92672">&lt;param-name&gt;</span>username<span style="color:#f92672">&lt;/param-name&gt;</span>
+    <span style="color:#f92672">&lt;param-value&gt;</span>context<span style="color:#f92672">&lt;/param-value&gt;</span>
+<span style="color:#f92672">&lt;/context-param&gt;</span>
+<span style="color:#75715e">&lt;!--context-param时上下文参数（它属于整个工程）--&gt;</span>
+<span style="color:#f92672">&lt;context-param&gt;</span>
+    <span style="color:#f92672">&lt;param-name&gt;</span>password<span style="color:#f92672">&lt;/param-name&gt;</span>
+    <span style="color:#f92672">&lt;param-value&gt;</span>root<span style="color:#f92672">&lt;/param-value&gt;</span>
+<span style="color:#f92672">&lt;/context-param&gt;</span>
+</code></pre></div><p>ServletContext 像Map 一样存取数据：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ContextServlet1</span> <span style="color:#66d9ef">extends</span> HttpServlet <span style="color:#f92672">{</span>
 
-    <span style="color:#000;font-weight:bold">protected</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">doGet</span><span style="color:#000;font-weight:bold">(</span>HttpServletRequest request<span style="color:#000;font-weight:bold">,</span> HttpServletResponse response<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> ServletException<span style="color:#000;font-weight:bold">,</span> IOException <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#998;font-style:italic">//获取ServletContext对象
-</span><span style="color:#998;font-style:italic"></span>        ServletContext context <span style="color:#000;font-weight:bold">=</span> getServletContext<span style="color:#000;font-weight:bold">();</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">doGet</span><span style="color:#f92672">(</span>HttpServletRequest request<span style="color:#f92672">,</span> HttpServletResponse response<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> ServletException<span style="color:#f92672">,</span> IOException <span style="color:#f92672">{</span>
+        <span style="color:#75715e">//获取ServletContext对象
+</span><span style="color:#75715e"></span>        ServletContext context <span style="color:#f92672">=</span> getServletContext<span style="color:#f92672">();</span>
 
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;保存之前：Context1获取key1的值是：&#34;</span> <span style="color:#000;font-weight:bold">+</span> context<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getAttribute</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;key1&#34;</span><span style="color:#000;font-weight:bold">));</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;保存之前：Context1获取key1的值是：&#34;</span> <span style="color:#f92672">+</span> context<span style="color:#f92672">.</span><span style="color:#a6e22e">getAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;key1&#34;</span><span style="color:#f92672">));</span>
 
-        context<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setAttribute</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;key1&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;value1&#34;</span><span style="color:#000;font-weight:bold">);</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Context1中获取域数据key1的值是：&#34;</span> <span style="color:#000;font-weight:bold">+</span> context<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getAttribute</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;key1&#34;</span><span style="color:#000;font-weight:bold">));</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Context1中获取域数据key1的值是：&#34;</span> <span style="color:#000;font-weight:bold">+</span> context<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getAttribute</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;key1&#34;</span><span style="color:#000;font-weight:bold">));</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Context1中获取域数据key1的值是：&#34;</span> <span style="color:#000;font-weight:bold">+</span> context<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getAttribute</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;key1&#34;</span><span style="color:#000;font-weight:bold">));</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Context1中获取域数据key1的值是：&#34;</span> <span style="color:#000;font-weight:bold">+</span> context<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getAttribute</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;key1&#34;</span><span style="color:#000;font-weight:bold">));</span>
+        context<span style="color:#f92672">.</span><span style="color:#a6e22e">setAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;key1&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;value1&#34;</span><span style="color:#f92672">);</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Context1中获取域数据key1的值是：&#34;</span> <span style="color:#f92672">+</span> context<span style="color:#f92672">.</span><span style="color:#a6e22e">getAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;key1&#34;</span><span style="color:#f92672">));</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Context1中获取域数据key1的值是：&#34;</span> <span style="color:#f92672">+</span> context<span style="color:#f92672">.</span><span style="color:#a6e22e">getAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;key1&#34;</span><span style="color:#f92672">));</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Context1中获取域数据key1的值是：&#34;</span> <span style="color:#f92672">+</span> context<span style="color:#f92672">.</span><span style="color:#a6e22e">getAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;key1&#34;</span><span style="color:#f92672">));</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Context1中获取域数据key1的值是：&#34;</span> <span style="color:#f92672">+</span> context<span style="color:#f92672">.</span><span style="color:#a6e22e">getAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;key1&#34;</span><span style="color:#f92672">));</span>
 
-    <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>ContextServlet2代码：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">ContextServlet2</span> <span style="color:#000;font-weight:bold">extends</span> HttpServlet <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>ContextServlet2代码：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ContextServlet2</span> <span style="color:#66d9ef">extends</span> HttpServlet <span style="color:#f92672">{</span>
 
-    <span style="color:#000;font-weight:bold">protected</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">doGet</span><span style="color:#000;font-weight:bold">(</span>HttpServletRequest request<span style="color:#000;font-weight:bold">,</span> HttpServletResponse response<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> ServletException<span style="color:#000;font-weight:bold">,</span> IOException <span style="color:#000;font-weight:bold">{</span>
-        ServletContext context <span style="color:#000;font-weight:bold">=</span> getServletContext<span style="color:#000;font-weight:bold">();</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>context<span style="color:#000;font-weight:bold">);</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Context2中获取域数据key1的值是：&#34;</span> <span style="color:#000;font-weight:bold">+</span> context<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getAttribute</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;key1&#34;</span><span style="color:#000;font-weight:bold">));</span>
-    <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="4-http协议">4 HTTP协议</h2>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">doGet</span><span style="color:#f92672">(</span>HttpServletRequest request<span style="color:#f92672">,</span> HttpServletResponse response<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> ServletException<span style="color:#f92672">,</span> IOException <span style="color:#f92672">{</span>
+        ServletContext context <span style="color:#f92672">=</span> getServletContext<span style="color:#f92672">();</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>context<span style="color:#f92672">);</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Context2中获取域数据key1的值是：&#34;</span> <span style="color:#f92672">+</span> context<span style="color:#f92672">.</span><span style="color:#a6e22e">getAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;key1&#34;</span><span style="color:#f92672">));</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="4-http协议">4 HTTP协议</h2>
 <h3 id="41-什么是http协议">4.1 什么是HTTP协议</h3>
 <p>所谓协议指的是双方或多方相互约定好，都要遵守的规则，而HTTP协议指的是客户端和服务器之间通信时发送的数据需要遵守的规则，HTTP协议中的数据又称为报文。</p>
 <h3 id="42-请求的http协议格式">4.2 请求的HTTP协议格式</h3>
@@ -1034,124 +755,58 @@ GET请求：</p>
 <li>getRequestDispatcher()：获取请求转发对象</li>
 </ul>
 <p>常用API示例代码：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">RequestAPIServlet</span> <span style="color:#000;font-weight:bold">extends</span> HttpServlet <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
-    <span style="color:#000;font-weight:bold">protected</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">doGet</span><span style="color:#000;font-weight:bold">(</span>HttpServletRequest req<span style="color:#000;font-weight:bold">,</span> HttpServletResponse resp<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> ServletException<span style="color:#000;font-weight:bold">,</span> IOException <span style="color:#000;font-weight:bold">{</span>
-<span style="color:#998;font-style:italic">//        i. getRequestURI() 获取请求的资源路径
-</span><span style="color:#998;font-style:italic"></span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;URI = &#34;</span> <span style="color:#000;font-weight:bold">+</span> req<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getRequestURI</span><span style="color:#000;font-weight:bold">());</span>
-<span style="color:#998;font-style:italic">//        ii. getRequestURL() 获取请求的统一资源定位符（绝对路径）
-</span><span style="color:#998;font-style:italic"></span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;URL = &#34;</span> <span style="color:#000;font-weight:bold">+</span> req<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getRequestURL</span><span style="color:#000;font-weight:bold">());</span>
-<span style="color:#998;font-style:italic">//        iii. getRemoteHost() 获取客户端的ip 地址
-</span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">/*
-</span><span style="color:#998;font-style:italic">         * 在IDEA中使用localhost访问时，得到的客户端ip地址是 127.0.0.1
-</span><span style="color:#998;font-style:italic">         * 在IDEA中使用127.0.0.1访问时，得到的客户端ip地址是 127.0.0.1
-</span><span style="color:#998;font-style:italic">         * 在IDEA中使用真实ip访问时，得到的客户端ip地址是真实的ip地址
-</span><span style="color:#998;font-style:italic">         */</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;ip = &#34;</span> <span style="color:#000;font-weight:bold">+</span> req<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getRemoteHost</span><span style="color:#000;font-weight:bold">());</span>
-<span style="color:#998;font-style:italic">//        iv. getHeader() 获取请求头
-</span><span style="color:#998;font-style:italic"></span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;请求头Uer-Agent = &#34;</span> <span style="color:#000;font-weight:bold">+</span> req<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getHeader</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;User-Agent&#34;</span><span style="color:#000;font-weight:bold">));</span>
-<span style="color:#998;font-style:italic">//        vii. getMethod() 获取请求的方式GET 或POST
-</span><span style="color:#998;font-style:italic"></span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;请求的方式 = &#34;</span> <span style="color:#000;font-weight:bold">+</span> req<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getMethod</span><span style="color:#000;font-weight:bold">());</span>
-    <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="53-如何请求参数">5.3 如何请求参数</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RequestAPIServlet</span> <span style="color:#66d9ef">extends</span> HttpServlet <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">doGet</span><span style="color:#f92672">(</span>HttpServletRequest req<span style="color:#f92672">,</span> HttpServletResponse resp<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> ServletException<span style="color:#f92672">,</span> IOException <span style="color:#f92672">{</span>
+<span style="color:#75715e">//        i. getRequestURI() 获取请求的资源路径
+</span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;URI = &#34;</span> <span style="color:#f92672">+</span> req<span style="color:#f92672">.</span><span style="color:#a6e22e">getRequestURI</span><span style="color:#f92672">());</span>
+<span style="color:#75715e">//        ii. getRequestURL() 获取请求的统一资源定位符（绝对路径）
+</span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;URL = &#34;</span> <span style="color:#f92672">+</span> req<span style="color:#f92672">.</span><span style="color:#a6e22e">getRequestURL</span><span style="color:#f92672">());</span>
+<span style="color:#75715e">//        iii. getRemoteHost() 获取客户端的ip 地址
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">/*
+</span><span style="color:#75715e">         * 在IDEA中使用localhost访问时，得到的客户端ip地址是 127.0.0.1
+</span><span style="color:#75715e">         * 在IDEA中使用127.0.0.1访问时，得到的客户端ip地址是 127.0.0.1
+</span><span style="color:#75715e">         * 在IDEA中使用真实ip访问时，得到的客户端ip地址是真实的ip地址
+</span><span style="color:#75715e">         */</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;ip = &#34;</span> <span style="color:#f92672">+</span> req<span style="color:#f92672">.</span><span style="color:#a6e22e">getRemoteHost</span><span style="color:#f92672">());</span>
+<span style="color:#75715e">//        iv. getHeader() 获取请求头
+</span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;请求头Uer-Agent = &#34;</span> <span style="color:#f92672">+</span> req<span style="color:#f92672">.</span><span style="color:#a6e22e">getHeader</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;User-Agent&#34;</span><span style="color:#f92672">));</span>
+<span style="color:#75715e">//        vii. getMethod() 获取请求的方式GET 或POST
+</span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;请求的方式 = &#34;</span> <span style="color:#f92672">+</span> req<span style="color:#f92672">.</span><span style="color:#a6e22e">getMethod</span><span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="53-如何请求参数">5.3 如何请求参数</h3>
 <p>表单：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">body</span>&gt;
-    &lt;<span style="color:#000080">form</span> <span style="color:#008080">action</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;http://localhost:8080/07_servlet/parameterServlet&#34;</span> <span style="color:#008080">method</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;post&#34;</span>&gt;
-        用户名：&lt;<span style="color:#000080">input</span> <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;text&#34;</span> <span style="color:#008080">name</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;username&#34;</span>&gt;&lt;<span style="color:#000080">br</span>/&gt;
-        密码： &lt;<span style="color:#000080">input</span> <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;password&#34;</span> <span style="color:#008080">name</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;password&#34;</span>&gt;&lt;<span style="color:#000080">br</span>/&gt;
-        兴趣爱好：&lt;<span style="color:#000080">input</span> <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;checkbox&#34;</span> <span style="color:#008080">name</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;hobby&#34;</span> <span style="color:#008080">value</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;cpp&#34;</span>&gt;C++
-        &lt;<span style="color:#000080">input</span> <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;checkbox&#34;</span> <span style="color:#008080">name</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;hobby&#34;</span> <span style="color:#008080">value</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;java&#34;</span>&gt;Java
-        &lt;<span style="color:#000080">input</span> <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;checkbox&#34;</span> <span style="color:#008080">name</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;hobby&#34;</span> <span style="color:#008080">value</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;js&#34;</span>&gt;JavaScript
-        &lt;<span style="color:#000080">input</span> <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;submit&#34;</span>&gt;
-    &lt;/<span style="color:#000080">form</span>&gt;
-&lt;/<span style="color:#000080">body</span>&gt;
-</code></pre></td></tr></table>
-</div>
-</div><p>ParameterServlet代码：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">ParameterServlet</span> <span style="color:#000;font-weight:bold">extends</span> HttpServlet <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
-    <span style="color:#000;font-weight:bold">protected</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">doPost</span><span style="color:#000;font-weight:bold">(</span>HttpServletRequest req<span style="color:#000;font-weight:bold">,</span> HttpServletResponse resp<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> ServletException<span style="color:#000;font-weight:bold">,</span> IOException <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#998;font-style:italic">//doPost方法会出现中文请求乱码问题
-</span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">//需要在获取任何参数之前修改字符编码集，而不仅仅获取中文参数时才修改：
-</span><span style="color:#998;font-style:italic"></span>        req<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setCharacterEncoding</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;UTF-8&#34;</span><span style="color:#000;font-weight:bold">);</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">body</span>&gt;
+    &lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://localhost:8080/07_servlet/parameterServlet&#34;</span> <span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post&#34;</span>&gt;
+        用户名：&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;username&#34;</span>&gt;&lt;<span style="color:#f92672">br</span>/&gt;
+        密码： &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span>&gt;&lt;<span style="color:#f92672">br</span>/&gt;
+        兴趣爱好：&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;checkbox&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hobby&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cpp&#34;</span>&gt;C++
+        &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;checkbox&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hobby&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;java&#34;</span>&gt;Java
+        &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;checkbox&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hobby&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;js&#34;</span>&gt;JavaScript
+        &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span>&gt;
+    &lt;/<span style="color:#f92672">form</span>&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
+</code></pre></div><p>ParameterServlet代码：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ParameterServlet</span> <span style="color:#66d9ef">extends</span> HttpServlet <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">doPost</span><span style="color:#f92672">(</span>HttpServletRequest req<span style="color:#f92672">,</span> HttpServletResponse resp<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> ServletException<span style="color:#f92672">,</span> IOException <span style="color:#f92672">{</span>
+        <span style="color:#75715e">//doPost方法会出现中文请求乱码问题
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//需要在获取任何参数之前修改字符编码集，而不仅仅获取中文参数时才修改：
+</span><span style="color:#75715e"></span>        req<span style="color:#f92672">.</span><span style="color:#a6e22e">setCharacterEncoding</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;UTF-8&#34;</span><span style="color:#f92672">);</span>
 
-        <span style="color:#998;font-style:italic">//获取请求参数
-</span><span style="color:#998;font-style:italic"></span>        String username <span style="color:#000;font-weight:bold">=</span> req<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getParameter</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;username&#34;</span><span style="color:#000;font-weight:bold">);</span>
-        String password <span style="color:#000;font-weight:bold">=</span> req<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getParameter</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;password&#34;</span><span style="color:#000;font-weight:bold">);</span>
-        String<span style="color:#000;font-weight:bold">[]</span> hobby <span style="color:#000;font-weight:bold">=</span> req<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getParameterValues</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;hobby&#34;</span><span style="color:#000;font-weight:bold">);</span>
+        <span style="color:#75715e">//获取请求参数
+</span><span style="color:#75715e"></span>        String username <span style="color:#f92672">=</span> req<span style="color:#f92672">.</span><span style="color:#a6e22e">getParameter</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;username&#34;</span><span style="color:#f92672">);</span>
+        String password <span style="color:#f92672">=</span> req<span style="color:#f92672">.</span><span style="color:#a6e22e">getParameter</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;password&#34;</span><span style="color:#f92672">);</span>
+        String<span style="color:#f92672">[]</span> hobby <span style="color:#f92672">=</span> req<span style="color:#f92672">.</span><span style="color:#a6e22e">getParameterValues</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;hobby&#34;</span><span style="color:#f92672">);</span>
 
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;用户名：&#34;</span> <span style="color:#000;font-weight:bold">+</span> username<span style="color:#000;font-weight:bold">);</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;密码：&#34;</span> <span style="color:#000;font-weight:bold">+</span> password<span style="color:#000;font-weight:bold">);</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;兴趣爱好：&#34;</span> <span style="color:#000;font-weight:bold">+</span> Arrays<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">asList</span><span style="color:#000;font-weight:bold">(</span>hobby<span style="color:#000;font-weight:bold">));</span>
-    <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;用户名：&#34;</span> <span style="color:#f92672">+</span> username<span style="color:#f92672">);</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;密码：&#34;</span> <span style="color:#f92672">+</span> password<span style="color:#f92672">);</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;兴趣爱好：&#34;</span> <span style="color:#f92672">+</span> Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">asList</span><span style="color:#f92672">(</span>hobby<span style="color:#f92672">));</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
 
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="54-请求的转发">5.4 请求的转发</h3>
+</code></pre></div><h3 id="54-请求的转发">5.4 请求的转发</h3>
 <p>请求转发指的是服务器收到请求之后，从一个资源跳转到另一个资源的操作，如图所示：</p>
 <p>
         <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201104175527.png">
@@ -1159,86 +814,41 @@ GET请求：</p>
         </a>
     </p>
 <p>在src下创建Servlet1，并在web.xml中配置相应的数据：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Servlet1</span> <span style="color:#000;font-weight:bold">extends</span> HttpServlet <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
-    <span style="color:#000;font-weight:bold">protected</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">doGet</span><span style="color:#000;font-weight:bold">(</span>HttpServletRequest req<span style="color:#000;font-weight:bold">,</span> HttpServletResponse resp<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> ServletException<span style="color:#000;font-weight:bold">,</span> IOException <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#998;font-style:italic">//获取请求的参数(查看办事的材料)
-</span><span style="color:#998;font-style:italic"></span>        String username <span style="color:#000;font-weight:bold">=</span> req<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getParameter</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;username&#34;</span><span style="color:#000;font-weight:bold">);</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;在Servlet1(柜台1)中查看参数(材料):&#34;</span> <span style="color:#000;font-weight:bold">+</span> username<span style="color:#000;font-weight:bold">);</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Servlet1</span> <span style="color:#66d9ef">extends</span> HttpServlet <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">doGet</span><span style="color:#f92672">(</span>HttpServletRequest req<span style="color:#f92672">,</span> HttpServletResponse resp<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> ServletException<span style="color:#f92672">,</span> IOException <span style="color:#f92672">{</span>
+        <span style="color:#75715e">//获取请求的参数(查看办事的材料)
+</span><span style="color:#75715e"></span>        String username <span style="color:#f92672">=</span> req<span style="color:#f92672">.</span><span style="color:#a6e22e">getParameter</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;username&#34;</span><span style="color:#f92672">);</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;在Servlet1(柜台1)中查看参数(材料):&#34;</span> <span style="color:#f92672">+</span> username<span style="color:#f92672">);</span>
 
-        <span style="color:#998;font-style:italic">//给材料盖章，并传递到Servlet2（柜台2）去查看
-</span><span style="color:#998;font-style:italic"></span>        req<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setAttribute</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;key1&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#d14">&#34;柜台1的章&#34;</span><span style="color:#000;font-weight:bold">);</span>
+        <span style="color:#75715e">//给材料盖章，并传递到Servlet2（柜台2）去查看
+</span><span style="color:#75715e"></span>        req<span style="color:#f92672">.</span><span style="color:#a6e22e">setAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;key1&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;柜台1的章&#34;</span><span style="color:#f92672">);</span>
 
-        <span style="color:#998;font-style:italic">//问路：获得通向Servlet2的路径(请求转发对象)
-</span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">//请求转发参数必须以斜杠打头，斜杠代表http://localhost:8080/工程名/，对应IDEA代码的web目录
-</span><span style="color:#998;font-style:italic"></span>        RequestDispatcher requestDispatcher <span style="color:#000;font-weight:bold">=</span> req<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getRequestDispatcher</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;/servlet2&#34;</span><span style="color:#000;font-weight:bold">);</span>
+        <span style="color:#75715e">//问路：获得通向Servlet2的路径(请求转发对象)
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//请求转发参数必须以斜杠打头，斜杠代表http://localhost:8080/工程名/，对应IDEA代码的web目录
+</span><span style="color:#75715e"></span>        RequestDispatcher requestDispatcher <span style="color:#f92672">=</span> req<span style="color:#f92672">.</span><span style="color:#a6e22e">getRequestDispatcher</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/servlet2&#34;</span><span style="color:#f92672">);</span>
 
-        <span style="color:#998;font-style:italic">//通过得到的路径走向Servlet2(柜台2)
-</span><span style="color:#998;font-style:italic"></span>        requestDispatcher<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">forward</span><span style="color:#000;font-weight:bold">(</span>req<span style="color:#000;font-weight:bold">,</span> resp<span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>在src下创建Servlet2，并配置xml：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Servlet2</span> <span style="color:#000;font-weight:bold">extends</span> HttpServlet <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
-    <span style="color:#000;font-weight:bold">protected</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">doGet</span><span style="color:#000;font-weight:bold">(</span>HttpServletRequest req<span style="color:#000;font-weight:bold">,</span> HttpServletResponse resp<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> ServletException<span style="color:#000;font-weight:bold">,</span> IOException <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#998;font-style:italic">// 获取请求的参数（办事的材料）查看
-</span><span style="color:#998;font-style:italic"></span>        String username <span style="color:#000;font-weight:bold">=</span> req<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getParameter</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;username&#34;</span><span style="color:#000;font-weight:bold">);</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;在Servlet2（柜台2）中查看参数（材料）：&#34;</span> <span style="color:#000;font-weight:bold">+</span> username<span style="color:#000;font-weight:bold">);</span>
+        <span style="color:#75715e">//通过得到的路径走向Servlet2(柜台2)
+</span><span style="color:#75715e"></span>        requestDispatcher<span style="color:#f92672">.</span><span style="color:#a6e22e">forward</span><span style="color:#f92672">(</span>req<span style="color:#f92672">,</span> resp<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>在src下创建Servlet2，并配置xml：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Servlet2</span> <span style="color:#66d9ef">extends</span> HttpServlet <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">doGet</span><span style="color:#f92672">(</span>HttpServletRequest req<span style="color:#f92672">,</span> HttpServletResponse resp<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> ServletException<span style="color:#f92672">,</span> IOException <span style="color:#f92672">{</span>
+        <span style="color:#75715e">// 获取请求的参数（办事的材料）查看
+</span><span style="color:#75715e"></span>        String username <span style="color:#f92672">=</span> req<span style="color:#f92672">.</span><span style="color:#a6e22e">getParameter</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;username&#34;</span><span style="color:#f92672">);</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;在Servlet2（柜台2）中查看参数（材料）：&#34;</span> <span style="color:#f92672">+</span> username<span style="color:#f92672">);</span>
 
-        <span style="color:#998;font-style:italic">// 查看柜台1 是否有盖章
-</span><span style="color:#998;font-style:italic"></span>        Object key1 <span style="color:#000;font-weight:bold">=</span> req<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getAttribute</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;key1&#34;</span><span style="color:#000;font-weight:bold">);</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;柜台1 是否有章：&#34;</span> <span style="color:#000;font-weight:bold">+</span> key1<span style="color:#000;font-weight:bold">);</span>
+        <span style="color:#75715e">// 查看柜台1 是否有盖章
+</span><span style="color:#75715e"></span>        Object key1 <span style="color:#f92672">=</span> req<span style="color:#f92672">.</span><span style="color:#a6e22e">getAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;key1&#34;</span><span style="color:#f92672">);</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;柜台1 是否有章：&#34;</span> <span style="color:#f92672">+</span> key1<span style="color:#f92672">);</span>
 
-        <span style="color:#998;font-style:italic">// 处理自己的业务
-</span><span style="color:#998;font-style:italic"></span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Servlet2 处理自己的业务&#34;</span><span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>运行结果：
+        <span style="color:#75715e">// 处理自己的业务
+</span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Servlet2 处理自己的业务&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>运行结果：
 (在浏览器的地址栏中输入：http://localhost:8080/07_servlet/servlet1?username=cjj057)</p>
 <pre><code>在Servlet1(柜台1)中查看参数(材料):cjj057
 在Servlet2（柜台2）中查看参数（材料）：cjj057
@@ -1250,127 +860,60 @@ Servlet2 处理自己的业务
 <ol>
 <li>
 <p>在web目录下创建a文件夹下创建b文件夹下创建c.html</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#999;font-weight:bold;font-style:italic">&lt;!DOCTYPE html&gt;</span>
-&lt;<span style="color:#000080">html</span> <span style="color:#008080">lang</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;en&#34;</span>&gt;
-&lt;<span style="color:#000080">head</span>&gt;
-    &lt;<span style="color:#000080">meta</span> <span style="color:#008080">charset</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;UTF-8&#34;</span>&gt;
-    &lt;<span style="color:#000080">title</span>&gt;Title&lt;/<span style="color:#000080">title</span>&gt;
-&lt;/<span style="color:#000080">head</span>&gt;
-&lt;<span style="color:#000080">body</span>&gt;
-    这是a下的b下的c.html页面&lt;<span style="color:#000080">br</span>/&gt;
-    &lt;<span style="color:#000080">a</span> <span style="color:#008080">href</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;../../index.html&#34;</span>&gt;跳回首页&lt;/<span style="color:#000080">a</span>&gt;&lt;<span style="color:#000080">br</span>/&gt;
-&lt;/<span style="color:#000080">body</span>&gt;
-&lt;/<span style="color:#000080">html</span>&gt;
-</code></pre></td></tr></table>
-</div>
-</div></li>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+&lt;<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+    &lt;<span style="color:#f92672">title</span>&gt;Title&lt;/<span style="color:#f92672">title</span>&gt;
+&lt;/<span style="color:#f92672">head</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
+    这是a下的b下的c.html页面&lt;<span style="color:#f92672">br</span>/&gt;
+    &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;../../index.html&#34;</span>&gt;跳回首页&lt;/<span style="color:#f92672">a</span>&gt;&lt;<span style="color:#f92672">br</span>/&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div></li>
 <li>
 <p>在web目录下创建index.html</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#999;font-weight:bold;font-style:italic">&lt;!DOCTYPE html&gt;</span>
-&lt;<span style="color:#000080">html</span> <span style="color:#008080">lang</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;en&#34;</span>&gt;
-&lt;<span style="color:#000080">head</span>&gt;
-    &lt;<span style="color:#000080">meta</span> <span style="color:#008080">charset</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;UTF-8&#34;</span>&gt;
-    &lt;<span style="color:#000080">title</span>&gt;Title&lt;/<span style="color:#000080">title</span>&gt;
-&lt;/<span style="color:#000080">head</span>&gt;
-&lt;<span style="color:#000080">body</span>&gt;
-    这是Web下的index.html &lt;<span style="color:#000080">br</span>/&gt;
-    &lt;<span style="color:#000080">a</span> <span style="color:#008080">href</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;a/b/c.html&#34;</span>&gt;a/b/c.html&lt;/<span style="color:#000080">a</span>&gt;&lt;<span style="color:#000080">br</span>/&gt;
-&lt;/<span style="color:#000080">body</span>&gt;
-&lt;/<span style="color:#000080">html</span>&gt;
-</code></pre></td></tr></table>
-</div>
-</div><p>两个页面可以来回跳转，分析：当在c.html页面准备点击进行跳转时浏览器的地址栏是http://localhost:8080/07_servlet/a/b/c.html，跳转到index.html页面时的a标签路径是…/…/index.html，所有相对路径在跳转时都会参照当前浏览器地址栏中的地址来进行跳转，路径正确，跳转成功。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+&lt;<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+    &lt;<span style="color:#f92672">title</span>&gt;Title&lt;/<span style="color:#f92672">title</span>&gt;
+&lt;/<span style="color:#f92672">head</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
+    这是Web下的index.html &lt;<span style="color:#f92672">br</span>/&gt;
+    &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;a/b/c.html&#34;</span>&gt;a/b/c.html&lt;/<span style="color:#f92672">a</span>&gt;&lt;<span style="color:#f92672">br</span>/&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><p>两个页面可以来回跳转，分析：当在c.html页面准备点击进行跳转时浏览器的地址栏是http://localhost:8080/07_servlet/a/b/c.html，跳转到index.html页面时的a标签路径是…/…/index.html，所有相对路径在跳转时都会参照当前浏览器地址栏中的地址来进行跳转，路径正确，跳转成功。</p>
 </li>
 <li>
 <p>创建ForwardC类，并在xml中进行配置：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">ForwardC</span> <span style="color:#000;font-weight:bold">extends</span> HttpServlet <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
-    <span style="color:#000;font-weight:bold">protected</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">doGet</span><span style="color:#000;font-weight:bold">(</span>HttpServletRequest req<span style="color:#000;font-weight:bold">,</span> HttpServletResponse resp<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> ServletException<span style="color:#000;font-weight:bold">,</span> IOException <span style="color:#000;font-weight:bold">{</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;经过了ForwardC程序&#34;</span><span style="color:#000;font-weight:bold">);</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ForwardC</span> <span style="color:#66d9ef">extends</span> HttpServlet <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">doGet</span><span style="color:#f92672">(</span>HttpServletRequest req<span style="color:#f92672">,</span> HttpServletResponse resp<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> ServletException<span style="color:#f92672">,</span> IOException <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;经过了ForwardC程序&#34;</span><span style="color:#f92672">);</span>
    
-        RequestDispatcher requestDispatcher <span style="color:#000;font-weight:bold">=</span> req<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getRequestDispatcher</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;/a/b/c.html&#34;</span><span style="color:#000;font-weight:bold">);</span>
-        requestDispatcher<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">forward</span><span style="color:#000;font-weight:bold">(</span>req<span style="color:#000;font-weight:bold">,</span> resp<span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div></li>
+        RequestDispatcher requestDispatcher <span style="color:#f92672">=</span> req<span style="color:#f92672">.</span><span style="color:#a6e22e">getRequestDispatcher</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/a/b/c.html&#34;</span><span style="color:#f92672">);</span>
+        requestDispatcher<span style="color:#f92672">.</span><span style="color:#a6e22e">forward</span><span style="color:#f92672">(</span>req<span style="color:#f92672">,</span> resp<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
 <li>
 <p>在web目录下index.html中改为:</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#999;font-weight:bold;font-style:italic">&lt;!DOCTYPE html&gt;</span>
-&lt;<span style="color:#000080">html</span> <span style="color:#008080">lang</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;en&#34;</span>&gt;
-&lt;<span style="color:#000080">head</span>&gt;
-    &lt;<span style="color:#000080">meta</span> <span style="color:#008080">charset</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;UTF-8&#34;</span>&gt;
-    &lt;<span style="color:#000080">title</span>&gt;Title&lt;/<span style="color:#000080">title</span>&gt;
-&lt;/<span style="color:#000080">head</span>&gt;
-&lt;<span style="color:#000080">body</span>&gt;
-    这是Web下的index.html &lt;<span style="color:#000080">br</span>/&gt;
-    &lt;<span style="color:#000080">a</span> <span style="color:#008080">href</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;a/b/c.html&#34;</span>&gt;a/b/c.html&lt;/<span style="color:#000080">a</span>&gt;&lt;<span style="color:#000080">br</span>/&gt;
-    &lt;<span style="color:#000080">a</span> <span style="color:#008080">href</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;http://localhost:8080/07_servlet/forwardC&#34;</span>&gt;请求转发：a/b/c.html&lt;/<span style="color:#000080">a</span>&gt;
-&lt;/<span style="color:#000080">body</span>&gt;
-&lt;/<span style="color:#000080">html</span>&gt;
-</code></pre></td></tr></table>
-</div>
-</div><p>此时：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+&lt;<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+    &lt;<span style="color:#f92672">title</span>&gt;Title&lt;/<span style="color:#f92672">title</span>&gt;
+&lt;/<span style="color:#f92672">head</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
+    这是Web下的index.html &lt;<span style="color:#f92672">br</span>/&gt;
+    &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;a/b/c.html&#34;</span>&gt;a/b/c.html&lt;/<span style="color:#f92672">a</span>&gt;&lt;<span style="color:#f92672">br</span>/&gt;
+    &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://localhost:8080/07_servlet/forwardC&#34;</span>&gt;请求转发：a/b/c.html&lt;/<span style="color:#f92672">a</span>&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><p>此时：</p>
 <p><!-- raw HTML omitted --></p>
 <p>
         <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201104192807.png">
@@ -1382,41 +925,21 @@ Servlet2 处理自己的业务
 </li>
 </ol>
 <p>base标签可以设置当前页面中所有相对路径跳转时参照指定的路径来进行跳转，在href属性中设置指定路径：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#999;font-weight:bold;font-style:italic">&lt;!DOCTYPE html&gt;</span>
-&lt;<span style="color:#000080">html</span> <span style="color:#008080">lang</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;en&#34;</span>&gt;
-&lt;<span style="color:#000080">head</span>&gt;
-    &lt;<span style="color:#000080">meta</span> <span style="color:#008080">charset</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;UTF-8&#34;</span>&gt;
-    &lt;<span style="color:#000080">title</span>&gt;Title&lt;/<span style="color:#000080">title</span>&gt;
-    <span style="color:#998;font-style:italic">&lt;!--base标签设置页面相对路径工作是参照的地址
-</span><span style="color:#998;font-style:italic">            href属性就是参数的地址值--&gt;</span>
-    &lt;<span style="color:#000080">base</span> <span style="color:#008080">href</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;http://localhost:8080/07_servlet/a/b/c.html&#34;</span>&gt;
-&lt;/<span style="color:#000080">head</span>&gt;
-&lt;<span style="color:#000080">body</span>&gt;
-    这是a下的b下的c.html页面&lt;<span style="color:#000080">br</span>/&gt;
-    &lt;<span style="color:#000080">a</span> <span style="color:#008080">href</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;../../index.html&#34;</span>&gt;跳回首页&lt;/<span style="color:#000080">a</span>&gt;&lt;<span style="color:#000080">br</span>/&gt;
-&lt;/<span style="color:#000080">body</span>&gt;
-&lt;/<span style="color:#000080">html</span>&gt;
-</code></pre></td></tr></table>
-</div>
-</div><p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+&lt;<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+    &lt;<span style="color:#f92672">title</span>&gt;Title&lt;/<span style="color:#f92672">title</span>&gt;
+    <span style="color:#75715e">&lt;!--base标签设置页面相对路径工作是参照的地址
+</span><span style="color:#75715e">            href属性就是参数的地址值--&gt;</span>
+    &lt;<span style="color:#f92672">base</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://localhost:8080/07_servlet/a/b/c.html&#34;</span>&gt;
+&lt;/<span style="color:#f92672">head</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
+    这是a下的b下的c.html页面&lt;<span style="color:#f92672">br</span>/&gt;
+    &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;../../index.html&#34;</span>&gt;跳回首页&lt;/<span style="color:#f92672">a</span>&gt;&lt;<span style="color:#f92672">br</span>/&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><p>
         <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201104202502.jpg">
             <img class="mx-auto" alt="base标签" src="https://gitee.com/jchenTech/images/raw/master/img/20201104202502.jpg" />
         </a>
@@ -1476,82 +999,33 @@ Servlet2 处理自己的业务
     </p>
 <h3 id="63-如何往客户端回传数据">6.3 如何往客户端回传数据</h3>
 <p>要求： 往客户端回传字符串数据。</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">ResponseIOServlet</span> <span style="color:#000;font-weight:bold">extends</span> HttpServlet <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
-    <span style="color:#000;font-weight:bold">protected</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">doGet</span><span style="color:#000;font-weight:bold">(</span>HttpServletRequest req<span style="color:#000;font-weight:bold">,</span> HttpServletResponse resp<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> ServletException<span style="color:#000;font-weight:bold">,</span> IOException <span style="color:#000;font-weight:bold">{</span>
-        PrintWriter writer <span style="color:#000;font-weight:bold">=</span> resp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getWriter</span><span style="color:#000;font-weight:bold">();</span>
-        writer<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;response&#39;s content!!!&#34;</span><span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="64-响应的乱码解决">6.4 响应的乱码解决</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ResponseIOServlet</span> <span style="color:#66d9ef">extends</span> HttpServlet <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">doGet</span><span style="color:#f92672">(</span>HttpServletRequest req<span style="color:#f92672">,</span> HttpServletResponse resp<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> ServletException<span style="color:#f92672">,</span> IOException <span style="color:#f92672">{</span>
+        PrintWriter writer <span style="color:#f92672">=</span> resp<span style="color:#f92672">.</span><span style="color:#a6e22e">getWriter</span><span style="color:#f92672">();</span>
+        writer<span style="color:#f92672">.</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;response&#39;s content!!!&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="64-响应的乱码解决">6.4 响应的乱码解决</h3>
 <p>解决响应中文乱码方案一（不推荐使用）：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#998;font-style:italic">//设置服务器字符集为UTF-8
-</span><span style="color:#998;font-style:italic"></span>resp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setCharacterEncoding</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;UTF-8&#34;</span><span style="color:#000;font-weight:bold">);</span>
-<span style="color:#998;font-style:italic">// 通过响应头，设置浏览器也是用UTF-8字符集
-</span><span style="color:#998;font-style:italic"></span>resp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setHeader</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Content-Type&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;text/html; charset=UTF-8&#34;</span><span style="color:#000;font-weight:bold">);</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>解决响应中文乱码方案二（推荐）：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#998;font-style:italic">// 它会同时设置服务器和客户端都使用UTF-8 字符集，还设置了响应头
-</span><span style="color:#998;font-style:italic">// 此方法一定要在获取流对象之前调用才有效
-</span><span style="color:#998;font-style:italic"></span>resp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setContentType</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;text/html; charset=UTF-8&#34;</span><span style="color:#000;font-weight:bold">);</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="65-请求重定向">6.5 请求重定向</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">//设置服务器字符集为UTF-8
+</span><span style="color:#75715e"></span>resp<span style="color:#f92672">.</span><span style="color:#a6e22e">setCharacterEncoding</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;UTF-8&#34;</span><span style="color:#f92672">);</span>
+<span style="color:#75715e">// 通过响应头，设置浏览器也是用UTF-8字符集
+</span><span style="color:#75715e"></span>resp<span style="color:#f92672">.</span><span style="color:#a6e22e">setHeader</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Content-Type&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;text/html; charset=UTF-8&#34;</span><span style="color:#f92672">);</span>
+</code></pre></div><p>解决响应中文乱码方案二（推荐）：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">// 它会同时设置服务器和客户端都使用UTF-8 字符集，还设置了响应头
+</span><span style="color:#75715e">// 此方法一定要在获取流对象之前调用才有效
+</span><span style="color:#75715e"></span>resp<span style="color:#f92672">.</span><span style="color:#a6e22e">setContentType</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;text/html; charset=UTF-8&#34;</span><span style="color:#f92672">);</span>
+</code></pre></div><h3 id="65-请求重定向">6.5 请求重定向</h3>
 <p>请求重定向，是指客户端给服务器发请求，然后服务器告诉客户端说。我给你一些地址。你去新地址访问。叫请求重定向（因为之前的地址可能已经被废弃）。</p>
 <p>请求重定向的第一种方案：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#998;font-style:italic">// 设置响应状态码302 ，表示重定向，（已搬迁）
-</span><span style="color:#998;font-style:italic"></span>resp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setStatus</span><span style="color:#000;font-weight:bold">(</span>302<span style="color:#000;font-weight:bold">);</span>
-<span style="color:#998;font-style:italic">// 设置响应头，说明新的地址在哪里
-</span><span style="color:#998;font-style:italic"></span>resp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setHeader</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Location&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;http://localhost:8080&#34;</span><span style="color:#000;font-weight:bold">);</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>请求重定向的第二种方案（推荐使用）：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">resp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">sendRedirect</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;http://localhost:8080&#34;</span><span style="color:#000;font-weight:bold">);</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">// 设置响应状态码302 ，表示重定向，（已搬迁）
+</span><span style="color:#75715e"></span>resp<span style="color:#f92672">.</span><span style="color:#a6e22e">setStatus</span><span style="color:#f92672">(</span>302<span style="color:#f92672">);</span>
+<span style="color:#75715e">// 设置响应头，说明新的地址在哪里
+</span><span style="color:#75715e"></span>resp<span style="color:#f92672">.</span><span style="color:#a6e22e">setHeader</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Location&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;http://localhost:8080&#34;</span><span style="color:#f92672">);</span>
+</code></pre></div><p>请求重定向的第二种方案（推荐使用）：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">resp<span style="color:#f92672">.</span><span style="color:#a6e22e">sendRedirect</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;http://localhost:8080&#34;</span><span style="color:#f92672">);</span>
+</code></pre></div><p>
         <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201104203925.png">
             <img class="mx-auto" alt="请求重定向" src="https://gitee.com/jchenTech/images/raw/master/img/20201104203925.png" />
         </a>

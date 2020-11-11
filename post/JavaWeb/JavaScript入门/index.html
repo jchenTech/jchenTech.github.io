@@ -234,94 +234,46 @@ JS 是弱类型，Java 是强类型。
 <ol>
 <li>
 <p>只需要在head标签中，或者在body标签中， 使用script标签来书写JavaScript 代码</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#999;font-weight:bold;font-style:italic">&lt;!DOCTYPE html&gt;</span>
-&lt;<span style="color:#000080">html</span> <span style="color:#008080">lang</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;en&#34;</span>&gt;
-&lt;<span style="color:#000080">head</span>&gt;
-    &lt;<span style="color:#000080">meta</span> <span style="color:#008080">charset</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;UTF-8&#34;</span>&gt;
-    &lt;<span style="color:#000080">title</span>&gt;Title&lt;/<span style="color:#000080">title</span>&gt;
-    &lt;<span style="color:#000080">script</span> <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;text/javascript&#34;</span>&gt;
-        <span style="color:#998;font-style:italic">// alert是JavaScript语言提供的一个警告框函数。
-</span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">// 它可以接收任意类型的参数，这个参数就是警告框的提示信息
-</span><span style="color:#998;font-style:italic"></span>        alert(<span style="color:#d14">&#34;hello javaScript!&#34;</span>);
-    &lt;/<span style="color:#000080">script</span>&gt;
-&lt;/<span style="color:#000080">head</span>&gt;
-&lt;<span style="color:#000080">body</span>&gt;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+&lt;<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+    &lt;<span style="color:#f92672">title</span>&gt;Title&lt;/<span style="color:#f92672">title</span>&gt;
+    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span>&gt;
+        <span style="color:#75715e">// alert是JavaScript语言提供的一个警告框函数。
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// 它可以接收任意类型的参数，这个参数就是警告框的提示信息
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;hello javaScript!&#34;</span>);
+    &lt;/<span style="color:#f92672">script</span>&gt;
+&lt;/<span style="color:#f92672">head</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
    
-&lt;/<span style="color:#000080">body</span>&gt;
-&lt;/<span style="color:#000080">html</span>&gt;
-</code></pre></td></tr></table>
-</div>
-</div></li>
+&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div></li>
 <li>
 <p>使用script标签引入单独的JavaScript 代码文件</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#999;font-weight:bold;font-style:italic">&lt;!DOCTYPE html&gt;</span>
-&lt;<span style="color:#000080">html</span> <span style="color:#008080">lang</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;en&#34;</span>&gt;
-&lt;<span style="color:#000080">head</span>&gt;
-    &lt;<span style="color:#000080">meta</span> <span style="color:#008080">charset</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;UTF-8&#34;</span>&gt;
-    &lt;<span style="color:#000080">title</span>&gt;Title&lt;/<span style="color:#000080">title</span>&gt;
-    <span style="color:#998;font-style:italic">&lt;!--
-</span><span style="color:#998;font-style:italic">        现在需要使用script引入外部的js文件来执行
-</span><span style="color:#998;font-style:italic">            src 属性专门用来引入js文件路径（可以是相对路径，也可以是绝对路径）
-</span><span style="color:#998;font-style:italic">   
-</span><span style="color:#998;font-style:italic">        script标签可以用来定义js代码，也可以用来引入js文件
-</span><span style="color:#998;font-style:italic">        但是，两个功能二选一使用。不能同时使用两个功能
-</span><span style="color:#998;font-style:italic">    --&gt;</span>
-    &lt;<span style="color:#000080">script</span> <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;text/javascript&#34;</span> <span style="color:#008080">src</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;1.js&#34;</span>&gt;&lt;/<span style="color:#000080">script</span>&gt;
-    &lt;<span style="color:#000080">script</span> <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;text/javascript&#34;</span>&gt;
-        alert(<span style="color:#d14">&#34;国哥现在可以帅了&#34;</span>);
-    &lt;/<span style="color:#000080">script</span>&gt;
-&lt;/<span style="color:#000080">head</span>&gt;
-&lt;<span style="color:#000080">body</span>&gt;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+&lt;<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+    &lt;<span style="color:#f92672">title</span>&gt;Title&lt;/<span style="color:#f92672">title</span>&gt;
+    <span style="color:#75715e">&lt;!--
+</span><span style="color:#75715e">        现在需要使用script引入外部的js文件来执行
+</span><span style="color:#75715e">            src 属性专门用来引入js文件路径（可以是相对路径，也可以是绝对路径）
+</span><span style="color:#75715e">   
+</span><span style="color:#75715e">        script标签可以用来定义js代码，也可以用来引入js文件
+</span><span style="color:#75715e">        但是，两个功能二选一使用。不能同时使用两个功能
+</span><span style="color:#75715e">    --&gt;</span>
+    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span>&gt;
+        <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;国哥现在可以帅了&#34;</span>);
+    &lt;/<span style="color:#f92672">script</span>&gt;
+&lt;/<span style="color:#f92672">head</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
        
-&lt;/<span style="color:#000080">body</span>&gt;
-&lt;/<span style="color:#000080">html</span>&gt;
-</code></pre></td></tr></table>
-</div>
-</div></li>
+&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div></li>
 </ol>
 <h2 id="3-变量">3 变量</h2>
 <p>什么是变量？变量是可以存放某些值的内存的命名。
@@ -373,189 +325,90 @@ JavaScript 的变量类型：</p>
 取反运算： !</p>
 <p>在JavaScript 语言中，所有的变量，都可以做为一个boolean 类型的变量去使用。
 0 、null、undefined、“”(空串) 都认为是false；</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#998;font-style:italic">/*
-</span><span style="color:#998;font-style:italic">&amp;&amp; 且运算。
-</span><span style="color:#998;font-style:italic">有两种情况：
-</span><span style="color:#998;font-style:italic">第一种：当表达式全为真的时候。返回最后一个表达式的值。
-</span><span style="color:#998;font-style:italic">第二种：当表达式中，有一个为假的时候。返回第一个为假的表达式的值
-</span><span style="color:#998;font-style:italic">|| 或运算
-</span><span style="color:#998;font-style:italic">第一种情况：当表达式全为假时，返回最后一个表达式的值
-</span><span style="color:#998;font-style:italic">第二种情况：只要有一个表达式为真。就会把回第一个为真的表达式的值
-</span><span style="color:#998;font-style:italic">并且&amp;&amp; 与运算和||或运算有短路。
-</span><span style="color:#998;font-style:italic">短路就是说，当这个&amp;&amp;或||运算有结果了之后。后面的表达式不再执行
-</span><span style="color:#998;font-style:italic">*/</span>
-<span style="color:#000;font-weight:bold">var</span> a <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;abc&#34;</span>;
-<span style="color:#000;font-weight:bold">var</span> b <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">true</span>;
-<span style="color:#000;font-weight:bold">var</span> d <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">false</span>;
-<span style="color:#000;font-weight:bold">var</span> c <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">null</span>;
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="6-数组">6 数组</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">/*
+</span><span style="color:#75715e">&amp;&amp; 且运算。
+</span><span style="color:#75715e">有两种情况：
+</span><span style="color:#75715e">第一种：当表达式全为真的时候。返回最后一个表达式的值。
+</span><span style="color:#75715e">第二种：当表达式中，有一个为假的时候。返回第一个为假的表达式的值
+</span><span style="color:#75715e">|| 或运算
+</span><span style="color:#75715e">第一种情况：当表达式全为假时，返回最后一个表达式的值
+</span><span style="color:#75715e">第二种情况：只要有一个表达式为真。就会把回第一个为真的表达式的值
+</span><span style="color:#75715e">并且&amp;&amp; 与运算和||或运算有短路。
+</span><span style="color:#75715e">短路就是说，当这个&amp;&amp;或||运算有结果了之后。后面的表达式不再执行
+</span><span style="color:#75715e">*/</span>
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;abc&#34;</span>;
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">d</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">c</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+</code></pre></div><h2 id="6-数组">6 数组</h2>
 <p>JS中数组的定义：
 格式：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#000;font-weight:bold">var</span> 数组名<span style="color:#000;font-weight:bold">=</span> []; <span style="color:#998;font-style:italic">// 空数组
-</span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">var</span> 数组名<span style="color:#000;font-weight:bold">=</span> [<span style="color:#099">1</span> , <span style="color:#a61717;background-color:#e3d2d2">’</span>abc<span style="color:#a61717;background-color:#e3d2d2">’</span> , <span style="color:#000;font-weight:bold">true</span>]; <span style="color:#998;font-style:italic">// 定义数组同时赋值元素
-</span></code></pre></td></tr></table>
-</div>
-</div><h2 id="7-函数重点">7 函数（重点）</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">数组名</span><span style="color:#f92672">=</span> []; <span style="color:#75715e">// 空数组
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">数组名</span><span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span> , <span style="color:#960050;background-color:#1e0010">’</span><span style="color:#a6e22e">abc</span><span style="color:#960050;background-color:#1e0010">’</span> , <span style="color:#66d9ef">true</span>]; <span style="color:#75715e">// 定义数组同时赋值元素
+</span></code></pre></div><h2 id="7-函数重点">7 函数（重点）</h2>
 <h3 id="71-函数的两种定义方式">7.1 函数的两种定义方式</h3>
 <ol>
 <li>
 <p>使用function关键字来定义函数。
 使用的格式如下:</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#000;font-weight:bold">function</span> 函数名(形参列表){
-函数体
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">函数名</span>(<span style="color:#a6e22e">形参列表</span>){
+<span style="color:#a6e22e">函数体</span>
 }
-</code></pre></td></tr></table>
-</div>
-</div><p>在JavaScript 语言中，如何定义带有返回值的函数？
+</code></pre></div><p>在JavaScript 语言中，如何定义带有返回值的函数？
 只需要在函数体内直接使用return 语句返回值即可！</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">head</span>&gt;
-    &lt;<span style="color:#000080">meta</span> <span style="color:#008080">charset</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;UTF-8&#34;</span>&gt;
-    &lt;<span style="color:#000080">title</span>&gt;Title&lt;/<span style="color:#000080">title</span>&gt;
-    &lt;<span style="color:#000080">script</span> <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;text/javascript&#34;</span>&gt;
-        <span style="color:#998;font-style:italic">// 定义一个无参函数
-</span><span style="color:#998;font-style:italic"></span>        <span style="color:#000;font-weight:bold">function</span> fun(){
-            alert(<span style="color:#d14">&#34;无参函数fun()被调用了&#34;</span>);
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+    &lt;<span style="color:#f92672">title</span>&gt;Title&lt;/<span style="color:#f92672">title</span>&gt;
+    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span>&gt;
+        <span style="color:#75715e">// 定义一个无参函数
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">fun</span>(){
+            <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;无参函数fun()被调用了&#34;</span>);
         }
-        <span style="color:#998;font-style:italic">// 函数调用===才会执行
-</span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">// fun();
-</span><span style="color:#998;font-style:italic"></span>   
-        <span style="color:#000;font-weight:bold">function</span> fun2(a ,b) {
-            alert(<span style="color:#d14">&#34;有参函数fun2()被调用了 a=&gt;&#34;</span> <span style="color:#000;font-weight:bold">+</span> a <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34;,b=&gt;&#34;</span><span style="color:#000;font-weight:bold">+</span>b);
+        <span style="color:#75715e">// 函数调用===才会执行
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// fun();
+</span><span style="color:#75715e"></span>   
+        <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">fun2</span>(<span style="color:#a6e22e">a</span> ,<span style="color:#a6e22e">b</span>) {
+            <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;有参函数fun2()被调用了 a=&gt;&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;,b=&gt;&#34;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">b</span>);
         }
    
-        <span style="color:#998;font-style:italic">// fun2(12,&#34;abc&#34;);
-</span><span style="color:#998;font-style:italic"></span>   
-        <span style="color:#998;font-style:italic">// 定义带有返回值的函数
-</span><span style="color:#998;font-style:italic"></span>        <span style="color:#000;font-weight:bold">function</span> sum(num1,num2) {
-            <span style="color:#000;font-weight:bold">var</span> result <span style="color:#000;font-weight:bold">=</span> num1 <span style="color:#000;font-weight:bold">+</span> num2;
-            <span style="color:#000;font-weight:bold">return</span> result;
+        <span style="color:#75715e">// fun2(12,&#34;abc&#34;);
+</span><span style="color:#75715e"></span>   
+        <span style="color:#75715e">// 定义带有返回值的函数
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">sum</span>(<span style="color:#a6e22e">num1</span>,<span style="color:#a6e22e">num2</span>) {
+            <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">num1</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">num2</span>;
+            <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>;
         }
    
-        alert( sum(<span style="color:#099">100</span>,<span style="color:#099">50</span>) );
+        <span style="color:#a6e22e">alert</span>( <span style="color:#a6e22e">sum</span>(<span style="color:#ae81ff">100</span>,<span style="color:#ae81ff">50</span>) );
    
-    &lt;/<span style="color:#000080">script</span>&gt;
-&lt;/<span style="color:#000080">head</span>&gt;
-</code></pre></td></tr></table>
-</div>
-</div></li>
+    &lt;/<span style="color:#f92672">script</span>&gt;
+&lt;/<span style="color:#f92672">head</span>&gt;
+</code></pre></div></li>
 <li>
 <p>var 函数名= function(形参列表) { 函数体}</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">head</span>&gt;
-    &lt;<span style="color:#000080">meta</span> <span style="color:#008080">charset</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;UTF-8&#34;</span>&gt;
-    &lt;<span style="color:#000080">title</span>&gt;Title&lt;/<span style="color:#000080">title</span>&gt;
-    &lt;<span style="color:#000080">script</span> <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;text/javascript&#34;</span>&gt;
-        <span style="color:#000;font-weight:bold">var</span> fun <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">function</span> () {
-            alert(<span style="color:#d14">&#34;无参函数&#34;</span>);
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+    &lt;<span style="color:#f92672">title</span>&gt;Title&lt;/<span style="color:#f92672">title</span>&gt;
+    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span>&gt;
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">fun</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> () {
+            <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;无参函数&#34;</span>);
         }
-        <span style="color:#998;font-style:italic">// fun();
-</span><span style="color:#998;font-style:italic"></span>   
-        <span style="color:#000;font-weight:bold">var</span> fun2 <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">function</span> (a,b) {
-            alert(<span style="color:#d14">&#34;有参函数a=&#34;</span> <span style="color:#000;font-weight:bold">+</span> a <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34;,b=&#34;</span> <span style="color:#000;font-weight:bold">+</span> b);
+        <span style="color:#75715e">// fun();
+</span><span style="color:#75715e"></span>   
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">fun2</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">a</span>,<span style="color:#a6e22e">b</span>) {
+            <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;有参函数a=&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;,b=&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">b</span>);
         }
-        <span style="color:#998;font-style:italic">// fun2(1,2);
-</span><span style="color:#998;font-style:italic"></span>   
-        <span style="color:#000;font-weight:bold">var</span> fun3 <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">function</span> (num1,num2) {
-            <span style="color:#000;font-weight:bold">return</span> num1 <span style="color:#000;font-weight:bold">+</span> num2;
+        <span style="color:#75715e">// fun2(1,2);
+</span><span style="color:#75715e"></span>   
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">fun3</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">num1</span>,<span style="color:#a6e22e">num2</span>) {
+            <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">num1</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">num2</span>;
         }
    
-        alert( fun3(<span style="color:#099">100</span>,<span style="color:#099">200</span>) );
-    &lt;/<span style="color:#000080">script</span>&gt;
+        <span style="color:#a6e22e">alert</span>( <span style="color:#a6e22e">fun3</span>(<span style="color:#ae81ff">100</span>,<span style="color:#ae81ff">200</span>) );
+    &lt;/<span style="color:#f92672">script</span>&gt;
    
-&lt;/<span style="color:#000080">head</span>&gt;
-</code></pre></td></tr></table>
-</div>
-</div><p>注：在Java 中函数允许重载。但是在JS 中函数的重载会直接覆盖掉上一次的定义</p>
+&lt;/<span style="color:#f92672">head</span>&gt;
+</code></pre></div><p>注：在Java 中函数允许重载。但是在JS 中函数的重载会直接覆盖掉上一次的定义</p>
 </li>
 </ol>
 <h3 id="72-函数的arguments隐形参数只在function-函数内">7.2 函数的arguments隐形参数（只在function 函数内）</h3>
@@ -563,184 +416,90 @@ JavaScript 的变量类型：</p>
 隐形参数特别像java 基础的可变长参数一样。
 <code>public void fun( Object ... args );</code>
 可变长参数其实是一个数组。那么js中的隐形参数也跟java 的可变长参数一样。操作类似数组。</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">head</span>&gt;
-    &lt;<span style="color:#000080">meta</span> <span style="color:#008080">charset</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;UTF-8&#34;</span>&gt;
-    &lt;<span style="color:#000080">title</span>&gt;Title&lt;/<span style="color:#000080">title</span>&gt;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+    &lt;<span style="color:#f92672">title</span>&gt;Title&lt;/<span style="color:#f92672">title</span>&gt;
 
-    &lt;<span style="color:#000080">script</span> <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;text/javascript&#34;</span>&gt;
-        <span style="color:#000;font-weight:bold">function</span> fun(a) {
-            alert( arguments.length );<span style="color:#998;font-style:italic">//可看参数个数
-</span><span style="color:#998;font-style:italic"></span>
-            alert( arguments[<span style="color:#099">0</span>] );
-            alert( arguments[<span style="color:#099">1</span>] );
-            alert( arguments[<span style="color:#099">2</span>] );
+    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span>&gt;
+        <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">fun</span>(<span style="color:#a6e22e">a</span>) {
+            <span style="color:#a6e22e">alert</span>( <span style="color:#a6e22e">arguments</span>.<span style="color:#a6e22e">length</span> );<span style="color:#75715e">//可看参数个数
+</span><span style="color:#75715e"></span>
+            <span style="color:#a6e22e">alert</span>( <span style="color:#a6e22e">arguments</span>[<span style="color:#ae81ff">0</span>] );
+            <span style="color:#a6e22e">alert</span>( <span style="color:#a6e22e">arguments</span>[<span style="color:#ae81ff">1</span>] );
+            <span style="color:#a6e22e">alert</span>( <span style="color:#a6e22e">arguments</span>[<span style="color:#ae81ff">2</span>] );
 
-            alert(<span style="color:#d14">&#34;a = &#34;</span> <span style="color:#000;font-weight:bold">+</span> a);
+            <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;a = &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">a</span>);
 
-            <span style="color:#000;font-weight:bold">for</span> (<span style="color:#000;font-weight:bold">var</span> i <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>; i <span style="color:#000;font-weight:bold">&lt;</span> arguments.length; i<span style="color:#000;font-weight:bold">++</span>){
-                alert( arguments[i] );
+            <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">arguments</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
+                <span style="color:#a6e22e">alert</span>( <span style="color:#a6e22e">arguments</span>[<span style="color:#a6e22e">i</span>] );
             }
 
-            alert(<span style="color:#d14">&#34;无参函数fun()&#34;</span>);
+            <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;无参函数fun()&#34;</span>);
         }
-        <span style="color:#998;font-style:italic">// fun(1,&#34;ad&#34;,true);
-</span><span style="color:#998;font-style:italic"></span>
-        <span style="color:#998;font-style:italic">// 需求：要求 编写 一个函数。用于计算所有参数相加的和并返回
-</span><span style="color:#998;font-style:italic"></span>        <span style="color:#000;font-weight:bold">function</span> sum(num1,num2) {
-            <span style="color:#000;font-weight:bold">var</span> result <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>;
-            <span style="color:#000;font-weight:bold">for</span> (<span style="color:#000;font-weight:bold">var</span> i <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>; i <span style="color:#000;font-weight:bold">&lt;</span> arguments.length; i<span style="color:#000;font-weight:bold">++</span>) {
-                <span style="color:#000;font-weight:bold">if</span> (<span style="color:#000;font-weight:bold">typeof</span>(arguments[i]) <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#34;number&#34;</span>) {
-                    result <span style="color:#000;font-weight:bold">+=</span> arguments[i];
+        <span style="color:#75715e">// fun(1,&#34;ad&#34;,true);
+</span><span style="color:#75715e"></span>
+        <span style="color:#75715e">// 需求：要求 编写 一个函数。用于计算所有参数相加的和并返回
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">sum</span>(<span style="color:#a6e22e">num1</span>,<span style="color:#a6e22e">num2</span>) {
+            <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+            <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">arguments</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+                <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">typeof</span>(<span style="color:#a6e22e">arguments</span>[<span style="color:#a6e22e">i</span>]) <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;number&#34;</span>) {
+                    <span style="color:#a6e22e">result</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">arguments</span>[<span style="color:#a6e22e">i</span>];
                 }
             }
-            <span style="color:#000;font-weight:bold">return</span> result;
+            <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>;
         }
 
-        alert( sum(<span style="color:#099">1</span>,<span style="color:#099">2</span>,<span style="color:#099">3</span>,<span style="color:#099">4</span>,<span style="color:#d14">&#34;abc&#34;</span>,<span style="color:#099">5</span>,<span style="color:#099">6</span>,<span style="color:#099">7</span>,<span style="color:#099">8</span>,<span style="color:#099">9</span>) );
+        <span style="color:#a6e22e">alert</span>( <span style="color:#a6e22e">sum</span>(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,<span style="color:#e6db74">&#34;abc&#34;</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">9</span>) );
 
 
-    &lt;/<span style="color:#000080">script</span>&gt;
-&lt;/<span style="color:#000080">head</span>&gt;
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="8-js中的自定义对象扩展内容">8 JS中的自定义对象（扩展内容）</h2>
+    &lt;/<span style="color:#f92672">script</span>&gt;
+&lt;/<span style="color:#f92672">head</span>&gt;
+</code></pre></div><h2 id="8-js中的自定义对象扩展内容">8 JS中的自定义对象（扩展内容）</h2>
 <ol>
 <li>
 <p>Object 形式的自定义对象
 对象的定义：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#000;font-weight:bold">var</span> 变量名<span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> <span style="color:#0086b3">Object</span>(); <span style="color:#998;font-style:italic">// 对象实例（空对象）
-</span><span style="color:#998;font-style:italic"></span>变量名.属性名<span style="color:#000;font-weight:bold">=</span> 值; <span style="color:#998;font-style:italic">// 定义一个属性
-</span><span style="color:#998;font-style:italic"></span>变量名.函数名<span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">function</span>(){} <span style="color:#998;font-style:italic">// 定义一个函数
-</span></code></pre></td></tr></table>
-</div>
-</div><p>对象的访问：
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">变量名</span><span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Object(); <span style="color:#75715e">// 对象实例（空对象）
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">变量名</span>.<span style="color:#a6e22e">属性名</span><span style="color:#f92672">=</span> <span style="color:#a6e22e">值</span>; <span style="color:#75715e">// 定义一个属性
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">变量名</span>.<span style="color:#a6e22e">函数名</span><span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(){} <span style="color:#75715e">// 定义一个函数
+</span></code></pre></div><p>对象的访问：
 <code>变量名.属性/ 函数名();</code></p>
 </li>
 <li>
 <p>{}花括号形式的自定义对象</p>
 <p>对象的定义：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#000;font-weight:bold">var</span> 变量名<span style="color:#000;font-weight:bold">=</span> { <span style="color:#998;font-style:italic">// 空对象
-</span><span style="color:#998;font-style:italic"></span>属性名<span style="color:#a61717;background-color:#e3d2d2">：</span>值, <span style="color:#998;font-style:italic">// 定义一个属性
-</span><span style="color:#998;font-style:italic"></span>属性名<span style="color:#a61717;background-color:#e3d2d2">：</span>值, <span style="color:#998;font-style:italic">// 定义一个属性
-</span><span style="color:#998;font-style:italic"></span>函数名<span style="color:#a61717;background-color:#e3d2d2">：</span><span style="color:#000;font-weight:bold">function</span>(){} <span style="color:#998;font-style:italic">// 定义一个函数
-</span><span style="color:#998;font-style:italic"></span>};
-</code></pre></td></tr></table>
-</div>
-</div><p>对象的访问：
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">变量名</span><span style="color:#f92672">=</span> { <span style="color:#75715e">// 空对象
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">属性名</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#a6e22e">值</span>, <span style="color:#75715e">// 定义一个属性
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">属性名</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#a6e22e">值</span>, <span style="color:#75715e">// 定义一个属性
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">函数名</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#66d9ef">function</span>(){} <span style="color:#75715e">// 定义一个函数
+</span><span style="color:#75715e"></span>};
+</code></pre></div><p>对象的访问：
 <code>变量名.属性/ 函数名();</code></p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">head</span>&gt;
-    &lt;<span style="color:#000080">meta</span> <span style="color:#008080">charset</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;UTF-8&#34;</span>&gt;
-    &lt;<span style="color:#000080">title</span>&gt;Title&lt;/<span style="color:#000080">title</span>&gt;
-    &lt;<span style="color:#000080">script</span> <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;text/javascript&#34;</span>&gt;
-        <span style="color:#998;font-style:italic">// 对象的定义：
-</span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">// var 变量名 = {			// 空对象
-</span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">//     属性名：值,			// 定义一个属性
-</span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">//     属性名：值,			// 定义一个属性
-</span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">//     函数名：function(){}	// 定义一个函数
-</span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">// };
-</span><span style="color:#998;font-style:italic"></span>        <span style="color:#000;font-weight:bold">var</span> obj <span style="color:#000;font-weight:bold">=</span> {
-            name<span style="color:#000;font-weight:bold">:</span><span style="color:#d14">&#34;国哥&#34;</span>,
-            age<span style="color:#000;font-weight:bold">:</span><span style="color:#099">18</span>,
-                fun <span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">function</span> () {
-                alert(<span style="color:#d14">&#34;姓名：&#34;</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#000;font-weight:bold">this</span>.name <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34; , 年龄：&#34;</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#000;font-weight:bold">this</span>.age);
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+    &lt;<span style="color:#f92672">title</span>&gt;Title&lt;/<span style="color:#f92672">title</span>&gt;
+    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span>&gt;
+        <span style="color:#75715e">// 对象的定义：
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// var 变量名 = {			// 空对象
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//     属性名：值,			// 定义一个属性
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//     属性名：值,			// 定义一个属性
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//     函数名：function(){}	// 定义一个函数
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// };
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {
+            <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;国哥&#34;</span>,
+            <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span><span style="color:#ae81ff">18</span>,
+                <span style="color:#a6e22e">fun</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
+                <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;姓名：&#34;</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; , 年龄：&#34;</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">age</span>);
             }
         };
    
-        <span style="color:#998;font-style:italic">// 对象的访问：
-</span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">//     变量名.属性 / 函数名();
-</span><span style="color:#998;font-style:italic"></span>        alert(obj.name);
-        obj.fun();
-    &lt;/<span style="color:#000080">script</span>&gt;
-&lt;/<span style="color:#000080">head</span>&gt;
-</code></pre></td></tr></table>
-</div>
-</div></li>
+        <span style="color:#75715e">// 对象的访问：
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//     变量名.属性 / 函数名();
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">alert</span>(<span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">name</span>);
+        <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">fun</span>();
+    &lt;/<span style="color:#f92672">script</span>&gt;
+&lt;/<span style="color:#f92672">head</span>&gt;
+</code></pre></div></li>
 </ol>
 <h2 id="9-js中的事件">9 JS中的事件</h2>
 <p>什么是事件？事件是电脑输入设备与页面进行交互的响应。我们称之为事件。</p>
@@ -789,57 +548,24 @@ JavaScript 的变量类型：</p>
 <li>第四点：我们可以通过document 访问所有的标签对象。</li>
 </ul>
 <p>有一个人有年龄：18 岁，性别：女，名字：张某某。我们要把这个人的信息对象化怎么办?</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Person</span> <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#000;font-weight:bold">private</span> <span style="color:#458;font-weight:bold">int</span> age<span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000;font-weight:bold">private</span> String sex<span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000;font-weight:bold">private</span> String name<span style="color:#000;font-weight:bold">;</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>那么html 标签要对象化怎么办？</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000080">body</span>&gt;
-	&lt;<span style="color:#000080">div</span> <span style="color:#008080">id</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;div01&#34;</span>&gt;div01&lt;/<span style="color:#000080">div</span>&gt;
-&lt;/<span style="color:#000080">body</span>&gt;
-</code></pre></td></tr></table>
-</div>
-</div><p>模拟对象化，相当于：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Dom</span><span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#000;font-weight:bold">private</span> String id<span style="color:#000;font-weight:bold">;</span> <span style="color:#998;font-style:italic">// id 属性
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">private</span> String tagName<span style="color:#000;font-weight:bold">;</span> <span style="color:#998;font-style:italic">//表示标签名
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">private</span> Dom parentNode<span style="color:#000;font-weight:bold">;</span> <span style="color:#998;font-style:italic">//父亲
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">private</span> List<span style="color:#000;font-weight:bold">&lt;</span>Dom<span style="color:#000;font-weight:bold">&gt;</span> children<span style="color:#000;font-weight:bold">;</span> <span style="color:#998;font-style:italic">// 孩子结点
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">private</span> String innerHTML<span style="color:#000;font-weight:bold">;</span> <span style="color:#998;font-style:italic">// 起始标签和结束标签中间的内容
-</span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="102-document-对象中的方法介绍重点">10.2 Document 对象中的方法介绍（重点）</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> age<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> String sex<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>那么html 标签要对象化怎么办？</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">body</span>&gt;
+	&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;div01&#34;</span>&gt;div01&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
+</code></pre></div><p>模拟对象化，相当于：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dom</span><span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> String id<span style="color:#f92672">;</span> <span style="color:#75715e">// id 属性
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> String tagName<span style="color:#f92672">;</span> <span style="color:#75715e">//表示标签名
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> Dom parentNode<span style="color:#f92672">;</span> <span style="color:#75715e">//父亲
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> List<span style="color:#f92672">&lt;</span>Dom<span style="color:#f92672">&gt;</span> children<span style="color:#f92672">;</span> <span style="color:#75715e">// 孩子结点
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> String innerHTML<span style="color:#f92672">;</span> <span style="color:#75715e">// 起始标签和结束标签中间的内容
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</code></pre></div><h3 id="102-document-对象中的方法介绍重点">10.2 Document 对象中的方法介绍（重点）</h3>
 <p><code>document.getElementById(elementId)</code>
 通过标签的id 属性查找标签dom 对象，elementId 是标签的id 属性值</p>
 <p><code>document.getElementsByName(elementName)</code>

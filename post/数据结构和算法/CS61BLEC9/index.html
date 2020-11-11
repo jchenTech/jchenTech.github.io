@@ -215,15 +215,8 @@
             <p>LEC9 Extends, Casting, Higher Order Functions</p>
 <h2 id="1-接口和实现-interface-and-implement">1 接口和实现 Interface and Implement</h2>
 <p>早先我们介绍了类和接口，我们意识到在编写类时，有时会编写很多冗余代码。 这将我们引向继承，即某个对象不需要重新定义其父对象的所有性质。我们可以从接口和类继承，语法略有不同。 对于要继承接口性质的类，语法如下（其中SLList是一个类，而List61B是一个接口）：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java">SLList<span style="color:#000;font-weight:bold">&lt;</span>Blorp<span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#000;font-weight:bold">implements</span> List61B<span style="color:#000;font-weight:bold">&lt;</span>Blorp<span style="color:#000;font-weight:bold">&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>类似地，一个类实现另一类性质的方法的语法如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java">SLList<span style="color:#f92672">&lt;</span>Blorp<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">implements</span> List61B<span style="color:#f92672">&lt;</span>Blorp<span style="color:#f92672">&gt;</span>
+</code></pre></div><p>类似地，一个类实现另一类性质的方法的语法如下：</p>
 <pre><code>Class_Name extends Class_Name
 </code></pre><h2 id="2-继承的用法">2 继承的用法</h2>
 <p>假设我们要创建一种特殊的<code>SLList</code>类型，称为<code>RotatingSLList</code>。 <code>RotatingSLList</code>应该能够执行<code>SLList</code>可以做的所有事情； 但是，它也应该能够向右旋转。 我们应该怎么做？ 好吧，这只是继承的应用！ 执行以下操作将使<code>RotatingSLList</code>具有<code>SLList</code>的所有性质以及它自己的方法<code>rotateRight</code>。</p>

@@ -278,85 +278,40 @@
     </p>
 <p>框架 = 反射 + 注解 + 设计模式。</p>
 <h3 id="13-反射机制的动态性">1.3 反射机制的“动态性”</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#998;font-style:italic">//体会反射的动态性
-</span><span style="color:#998;font-style:italic"></span><span style="color:#3c5d5d;font-weight:bold">@Test</span>
-<span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">test2</span><span style="color:#000;font-weight:bold">(){</span>
-    <span style="color:#000;font-weight:bold">for</span><span style="color:#000;font-weight:bold">(</span><span style="color:#458;font-weight:bold">int</span> i <span style="color:#000;font-weight:bold">=</span> 0<span style="color:#000;font-weight:bold">;</span>i <span style="color:#000;font-weight:bold">&lt;</span> 100<span style="color:#000;font-weight:bold">;</span>i<span style="color:#000;font-weight:bold">++){</span>
-        <span style="color:#458;font-weight:bold">int</span> num <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Random<span style="color:#000;font-weight:bold">().</span><span style="color:#008080">nextInt</span><span style="color:#000;font-weight:bold">(</span>3<span style="color:#000;font-weight:bold">);</span><span style="color:#998;font-style:italic">//0,1,2
-</span><span style="color:#998;font-style:italic"></span>        String classPath <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;&#34;</span><span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#000;font-weight:bold">switch</span><span style="color:#000;font-weight:bold">(</span>num<span style="color:#000;font-weight:bold">){</span>
-            <span style="color:#000;font-weight:bold">case</span> 0<span style="color:#000;font-weight:bold">:</span>
-                classPath <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;java.util.Date&#34;</span><span style="color:#000;font-weight:bold">;</span>
-                <span style="color:#000;font-weight:bold">break</span><span style="color:#000;font-weight:bold">;</span>
-            <span style="color:#000;font-weight:bold">case</span> 1<span style="color:#000;font-weight:bold">:</span>
-                classPath <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;java.lang.Object&#34;</span><span style="color:#000;font-weight:bold">;</span>
-                <span style="color:#000;font-weight:bold">break</span><span style="color:#000;font-weight:bold">;</span>
-            <span style="color:#000;font-weight:bold">case</span> 2<span style="color:#000;font-weight:bold">:</span>
-                classPath <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;com.atguigu.java.Person&#34;</span><span style="color:#000;font-weight:bold">;</span>
-                <span style="color:#000;font-weight:bold">break</span><span style="color:#000;font-weight:bold">;</span>
-        <span style="color:#000;font-weight:bold">}</span>
-        <span style="color:#000;font-weight:bold">try</span> <span style="color:#000;font-weight:bold">{</span>
-            Object obj <span style="color:#000;font-weight:bold">=</span> getInstance<span style="color:#000;font-weight:bold">(</span>classPath<span style="color:#000;font-weight:bold">);</span>
-            System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>obj<span style="color:#000;font-weight:bold">);</span>
-        <span style="color:#000;font-weight:bold">}</span> <span style="color:#000;font-weight:bold">catch</span> <span style="color:#000;font-weight:bold">(</span>Exception e<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-            e<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">printStackTrace</span><span style="color:#000;font-weight:bold">();</span>
-        <span style="color:#000;font-weight:bold">}</span>
-    <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#998;font-style:italic">/*
-</span><span style="color:#998;font-style:italic">创建一个指定类的对象。
-</span><span style="color:#998;font-style:italic">classPath:指定类的全类名
-</span><span style="color:#998;font-style:italic"> */</span>
-<span style="color:#000;font-weight:bold">public</span> Object <span style="color:#900;font-weight:bold">getInstance</span><span style="color:#000;font-weight:bold">(</span>String classPath<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> Exception <span style="color:#000;font-weight:bold">{</span>
-   Class clazz <span style="color:#000;font-weight:bold">=</span>  Class<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">forName</span><span style="color:#000;font-weight:bold">(</span>classPath<span style="color:#000;font-weight:bold">);</span>
-   <span style="color:#000;font-weight:bold">return</span> clazz<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">newInstance</span><span style="color:#000;font-weight:bold">();</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="14-反射机制的功能">1.4 反射机制的功能</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#75715e">//体会反射的动态性
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">@Test</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test2</span><span style="color:#f92672">(){</span>
+    <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>i <span style="color:#f92672">&lt;</span> 100<span style="color:#f92672">;</span>i<span style="color:#f92672">++){</span>
+        <span style="color:#66d9ef">int</span> num <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Random<span style="color:#f92672">().</span><span style="color:#a6e22e">nextInt</span><span style="color:#f92672">(</span>3<span style="color:#f92672">);</span><span style="color:#75715e">//0,1,2
+</span><span style="color:#75715e"></span>        String classPath <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">switch</span><span style="color:#f92672">(</span>num<span style="color:#f92672">){</span>
+            <span style="color:#66d9ef">case</span> 0<span style="color:#f92672">:</span>
+                classPath <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;java.util.Date&#34;</span><span style="color:#f92672">;</span>
+                <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+            <span style="color:#66d9ef">case</span> 1<span style="color:#f92672">:</span>
+                classPath <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;java.lang.Object&#34;</span><span style="color:#f92672">;</span>
+                <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+            <span style="color:#66d9ef">case</span> 2<span style="color:#f92672">:</span>
+                classPath <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;com.atguigu.java.Person&#34;</span><span style="color:#f92672">;</span>
+                <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+            Object obj <span style="color:#f92672">=</span> getInstance<span style="color:#f92672">(</span>classPath<span style="color:#f92672">);</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>obj<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>Exception e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#75715e">/*
+</span><span style="color:#75715e">创建一个指定类的对象。
+</span><span style="color:#75715e">classPath:指定类的全类名
+</span><span style="color:#75715e"> */</span>
+<span style="color:#66d9ef">public</span> Object <span style="color:#a6e22e">getInstance</span><span style="color:#f92672">(</span>String classPath<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+   Class clazz <span style="color:#f92672">=</span>  Class<span style="color:#f92672">.</span><span style="color:#a6e22e">forName</span><span style="color:#f92672">(</span>classPath<span style="color:#f92672">);</span>
+   <span style="color:#66d9ef">return</span> clazz<span style="color:#f92672">.</span><span style="color:#a6e22e">newInstance</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="14-反射机制的功能">1.4 反射机制的功能</h3>
 <ol>
 <li>在运行时判断任意一个对象所属的类</li>
 <li>在运行时构造任意一个类的对象</li>
@@ -382,67 +337,34 @@
 <li>加载到内存中的运行时类，会缓存一定的时间。在此时间之内，我们可以通过不同的方式来获取此运行时类。</li>
 </ol>
 <h3 id="22-获取class实例的几种方式">2.2 获取Class实例的几种方式</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#998;font-style:italic">//获取Class的实例的方式（前三种方式需要掌握）
-</span><span style="color:#998;font-style:italic"></span><span style="color:#3c5d5d;font-weight:bold">@Test</span>
-<span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">test3</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">throws</span> ClassNotFoundException <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#998;font-style:italic">//方式一：调用运行时类的属性：.class
-</span><span style="color:#998;font-style:italic"></span>    Class clazz1 <span style="color:#000;font-weight:bold">=</span> Person<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">;</span>
-    System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>clazz1<span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#998;font-style:italic">//方式二：通过运行时类的对象,调用getClass()
-</span><span style="color:#998;font-style:italic"></span>    Person p1 <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Person<span style="color:#000;font-weight:bold">();</span>
-    Class clazz2 <span style="color:#000;font-weight:bold">=</span> p1<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getClass</span><span style="color:#000;font-weight:bold">();</span>
-    System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>clazz2<span style="color:#000;font-weight:bold">);</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#75715e">//获取Class的实例的方式（前三种方式需要掌握）
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">@Test</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test3</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> ClassNotFoundException <span style="color:#f92672">{</span>
+    <span style="color:#75715e">//方式一：调用运行时类的属性：.class
+</span><span style="color:#75715e"></span>    Class clazz1 <span style="color:#f92672">=</span> Person<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">;</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>clazz1<span style="color:#f92672">);</span>
+    <span style="color:#75715e">//方式二：通过运行时类的对象,调用getClass()
+</span><span style="color:#75715e"></span>    Person p1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Person<span style="color:#f92672">();</span>
+    Class clazz2 <span style="color:#f92672">=</span> p1<span style="color:#f92672">.</span><span style="color:#a6e22e">getClass</span><span style="color:#f92672">();</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>clazz2<span style="color:#f92672">);</span>
 
-    <span style="color:#998;font-style:italic">//方式三：调用Class的静态方法：forName(String classPath)
-</span><span style="color:#998;font-style:italic"></span>    Class clazz3 <span style="color:#000;font-weight:bold">=</span> Class<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">forName</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;com.atguigu.java.Person&#34;</span><span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#998;font-style:italic">//        clazz3 = Class.forName(&#34;java.lang.String&#34;);
-</span><span style="color:#998;font-style:italic"></span>    System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>clazz3<span style="color:#000;font-weight:bold">);</span>
+    <span style="color:#75715e">//方式三：调用Class的静态方法：forName(String classPath)
+</span><span style="color:#75715e"></span>    Class clazz3 <span style="color:#f92672">=</span> Class<span style="color:#f92672">.</span><span style="color:#a6e22e">forName</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;com.atguigu.java.Person&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#75715e">//        clazz3 = Class.forName(&#34;java.lang.String&#34;);
+</span><span style="color:#75715e"></span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>clazz3<span style="color:#f92672">);</span>
 
-    System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>clazz1 <span style="color:#000;font-weight:bold">==</span> clazz2<span style="color:#000;font-weight:bold">);</span>
-    System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>clazz1 <span style="color:#000;font-weight:bold">==</span> clazz3<span style="color:#000;font-weight:bold">);</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>clazz1 <span style="color:#f92672">==</span> clazz2<span style="color:#f92672">);</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>clazz1 <span style="color:#f92672">==</span> clazz3<span style="color:#f92672">);</span>
 
-    <span style="color:#998;font-style:italic">//方式四：使用类的加载器：ClassLoader  (了解)
-</span><span style="color:#998;font-style:italic"></span>    ClassLoader classLoader <span style="color:#000;font-weight:bold">=</span> ReflectionTest<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getClassLoader</span><span style="color:#000;font-weight:bold">();</span>
-    Class clazz4 <span style="color:#000;font-weight:bold">=</span> classLoader<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">loadClass</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;com.atguigu.java.Person&#34;</span><span style="color:#000;font-weight:bold">);</span>
-    System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>clazz4<span style="color:#000;font-weight:bold">);</span>
+    <span style="color:#75715e">//方式四：使用类的加载器：ClassLoader  (了解)
+</span><span style="color:#75715e"></span>    ClassLoader classLoader <span style="color:#f92672">=</span> ReflectionTest<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getClassLoader</span><span style="color:#f92672">();</span>
+    Class clazz4 <span style="color:#f92672">=</span> classLoader<span style="color:#f92672">.</span><span style="color:#a6e22e">loadClass</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;com.atguigu.java.Person&#34;</span><span style="color:#f92672">);</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>clazz4<span style="color:#f92672">);</span>
 
-    System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>clazz1 <span style="color:#000;font-weight:bold">==</span> clazz4<span style="color:#000;font-weight:bold">);</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>clazz1 <span style="color:#f92672">==</span> clazz4<span style="color:#f92672">);</span>
 
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="23-总结创建类的对象的方式">2.3 总结：创建类的对象的方式</h3>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="23-总结创建类的对象的方式">2.3 总结：创建类的对象的方式</h3>
 <ul>
 <li>方式一：new + 构造器</li>
 <li>方式二：要创建Xxx类的对象，可以考虑：Xxx、Xxxs、XxxFactory、XxxBuilder类中查看是否有静态方法的存在。可以调用其静态方法，创建Xxx对象。</li>
@@ -483,75 +405,36 @@
         </a>
     </p>
 <h3 id="35使用classloader加载src目录下的配置文件">3.5使用ClassLoader加载src目录下的配置文件</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#3c5d5d;font-weight:bold">@Test</span>
-<span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">test2</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">throws</span> Exception <span style="color:#000;font-weight:bold">{</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#a6e22e">@Test</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test2</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
 
-    Properties pros <span style="color:#000;font-weight:bold">=</span>  <span style="color:#000;font-weight:bold">new</span> Properties<span style="color:#000;font-weight:bold">();</span>
-    <span style="color:#998;font-style:italic">//此时的文件默认在当前的module下。
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">//读取配置文件的方式一：
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">//        FileInputStream fis = new FileInputStream(&#34;jdbc.properties&#34;);
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">//        FileInputStream fis = new FileInputStream(&#34;src\\jdbc1.properties&#34;);
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">//        pros.load(fis);
-</span><span style="color:#998;font-style:italic"></span>
-    <span style="color:#998;font-style:italic">//读取配置文件的方式二：使用ClassLoader
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">//配置文件默认识别为：当前module的src下
-</span><span style="color:#998;font-style:italic"></span>    ClassLoader classLoader <span style="color:#000;font-weight:bold">=</span> ClassLoaderTest<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getClassLoader</span><span style="color:#000;font-weight:bold">();</span>
-    InputStream is <span style="color:#000;font-weight:bold">=</span> classLoader<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getResourceAsStream</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;jdbc1.properties&#34;</span><span style="color:#000;font-weight:bold">);</span>
-    pros<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">load</span><span style="color:#000;font-weight:bold">(</span>is<span style="color:#000;font-weight:bold">);</span>
+    Properties pros <span style="color:#f92672">=</span>  <span style="color:#66d9ef">new</span> Properties<span style="color:#f92672">();</span>
+    <span style="color:#75715e">//此时的文件默认在当前的module下。
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">//读取配置文件的方式一：
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">//        FileInputStream fis = new FileInputStream(&#34;jdbc.properties&#34;);
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">//        FileInputStream fis = new FileInputStream(&#34;src\\jdbc1.properties&#34;);
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">//        pros.load(fis);
+</span><span style="color:#75715e"></span>
+    <span style="color:#75715e">//读取配置文件的方式二：使用ClassLoader
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">//配置文件默认识别为：当前module的src下
+</span><span style="color:#75715e"></span>    ClassLoader classLoader <span style="color:#f92672">=</span> ClassLoaderTest<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getClassLoader</span><span style="color:#f92672">();</span>
+    InputStream is <span style="color:#f92672">=</span> classLoader<span style="color:#f92672">.</span><span style="color:#a6e22e">getResourceAsStream</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;jdbc1.properties&#34;</span><span style="color:#f92672">);</span>
+    pros<span style="color:#f92672">.</span><span style="color:#a6e22e">load</span><span style="color:#f92672">(</span>is<span style="color:#f92672">);</span>
 
-    String user <span style="color:#000;font-weight:bold">=</span> pros<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getProperty</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;user&#34;</span><span style="color:#000;font-weight:bold">);</span>
-    String password <span style="color:#000;font-weight:bold">=</span> pros<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getProperty</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;password&#34;</span><span style="color:#000;font-weight:bold">);</span>
-    System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;user = &#34;</span> <span style="color:#000;font-weight:bold">+</span> user <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34;,password = &#34;</span> <span style="color:#000;font-weight:bold">+</span> password<span style="color:#000;font-weight:bold">);</span>
+    String user <span style="color:#f92672">=</span> pros<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;user&#34;</span><span style="color:#f92672">);</span>
+    String password <span style="color:#f92672">=</span> pros<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;password&#34;</span><span style="color:#f92672">);</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;user = &#34;</span> <span style="color:#f92672">+</span> user <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;,password = &#34;</span> <span style="color:#f92672">+</span> password<span style="color:#f92672">);</span>
 
 
 
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="4-反射应用一创建运行时类的对象">4 反射应用一：创建运行时类的对象</h2>
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="4-反射应用一创建运行时类的对象">4 反射应用一：创建运行时类的对象</h2>
 <h3 id="41-代码举例">4.1 代码举例</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java">Class<span style="color:#000;font-weight:bold">&lt;</span>Person<span style="color:#000;font-weight:bold">&gt;</span> clazz <span style="color:#000;font-weight:bold">=</span> Person<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java">Class<span style="color:#f92672">&lt;</span>Person<span style="color:#f92672">&gt;</span> clazz <span style="color:#f92672">=</span> Person<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">;</span>
 
-Person obj <span style="color:#000;font-weight:bold">=</span> clazz<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">newInstance</span><span style="color:#000;font-weight:bold">();</span>
-System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>obj<span style="color:#000;font-weight:bold">);</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="42-说明">4.2 说明</h3>
+Person obj <span style="color:#f92672">=</span> clazz<span style="color:#f92672">.</span><span style="color:#a6e22e">newInstance</span><span style="color:#f92672">();</span>
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>obj<span style="color:#f92672">);</span>
+</code></pre></div><h3 id="42-说明">4.2 说明</h3>
 <p><code>newInstance()</code>:调用此方法，创建对应的运行时类的对象。内部调用了运行时类的空参的构造器。</p>
 <p>要想此方法正常的创建运行时类的对象，要求：</p>
 <ol>
@@ -570,659 +453,305 @@ System<span style="color:#000;font-weight:bold">.</span><span style="color:#0080
 <h2 id="5-反射应用二创建运行时类的完整结构">5 反射应用二:创建运行时类的完整结构</h2>
 <p>我们可以通过反射，获取对应的运行时类中所有的属性、方法、构造器、父类、接口、父类的泛型、包、注解、异常等</p>
 <h3 id="51-获取运行时类属性">5.1 获取运行时类属性</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#3c5d5d;font-weight:bold">@Test</span>
-<span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">test1</span><span style="color:#000;font-weight:bold">(){</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#a6e22e">@Test</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test1</span><span style="color:#f92672">(){</span>
 
-    Class clazz <span style="color:#000;font-weight:bold">=</span> Person<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">;</span>
+    Class clazz <span style="color:#f92672">=</span> Person<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">;</span>
 
-    <span style="color:#998;font-style:italic">//获取属性结构
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">//getFields():获取当前运行时类及其父类中声明为public访问权限的属性
-</span><span style="color:#998;font-style:italic"></span>    Field<span style="color:#000;font-weight:bold">[]</span> fields <span style="color:#000;font-weight:bold">=</span> clazz<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getFields</span><span style="color:#000;font-weight:bold">();</span>
-    <span style="color:#000;font-weight:bold">for</span><span style="color:#000;font-weight:bold">(</span>Field f <span style="color:#000;font-weight:bold">:</span> fields<span style="color:#000;font-weight:bold">){</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>f<span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
-    System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">();</span>
+    <span style="color:#75715e">//获取属性结构
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">//getFields():获取当前运行时类及其父类中声明为public访问权限的属性
+</span><span style="color:#75715e"></span>    Field<span style="color:#f92672">[]</span> fields <span style="color:#f92672">=</span> clazz<span style="color:#f92672">.</span><span style="color:#a6e22e">getFields</span><span style="color:#f92672">();</span>
+    <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>Field f <span style="color:#f92672">:</span> fields<span style="color:#f92672">){</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>f<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">();</span>
 
-    <span style="color:#998;font-style:italic">//getDeclaredFields():获取当前运行时类中声明的所属性。（不包含父类中声明的属性
-</span><span style="color:#998;font-style:italic"></span>    Field<span style="color:#000;font-weight:bold">[]</span> declaredFields <span style="color:#000;font-weight:bold">=</span> clazz<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getDeclaredFields</span><span style="color:#000;font-weight:bold">();</span>
-    <span style="color:#000;font-weight:bold">for</span><span style="color:#000;font-weight:bold">(</span>Field f <span style="color:#000;font-weight:bold">:</span> declaredFields<span style="color:#000;font-weight:bold">){</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>f<span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#75715e">//getDeclaredFields():获取当前运行时类中声明的所属性。（不包含父类中声明的属性
+</span><span style="color:#75715e"></span>    Field<span style="color:#f92672">[]</span> declaredFields <span style="color:#f92672">=</span> clazz<span style="color:#f92672">.</span><span style="color:#a6e22e">getDeclaredFields</span><span style="color:#f92672">();</span>
+    <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>Field f <span style="color:#f92672">:</span> declaredFields<span style="color:#f92672">){</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>f<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
 
 
-<span style="color:#998;font-style:italic">//权限修饰符  数据类型 变量名
-</span><span style="color:#998;font-style:italic"></span><span style="color:#3c5d5d;font-weight:bold">@Test</span>
-<span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">test2</span><span style="color:#000;font-weight:bold">(){</span>
-    Class clazz <span style="color:#000;font-weight:bold">=</span> Person<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">;</span>
-    Field<span style="color:#000;font-weight:bold">[]</span> declaredFields <span style="color:#000;font-weight:bold">=</span> clazz<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getDeclaredFields</span><span style="color:#000;font-weight:bold">();</span>
-    <span style="color:#000;font-weight:bold">for</span><span style="color:#000;font-weight:bold">(</span>Field f <span style="color:#000;font-weight:bold">:</span> declaredFields<span style="color:#000;font-weight:bold">){</span>
-        <span style="color:#998;font-style:italic">//1.权限修饰符
-</span><span style="color:#998;font-style:italic"></span>        <span style="color:#458;font-weight:bold">int</span> modifier <span style="color:#000;font-weight:bold">=</span> f<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getModifiers</span><span style="color:#000;font-weight:bold">();</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">print</span><span style="color:#000;font-weight:bold">(</span>Modifier<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">toString</span><span style="color:#000;font-weight:bold">(</span>modifier<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34;\t&#34;</span><span style="color:#000;font-weight:bold">);</span>
+<span style="color:#75715e">//权限修饰符  数据类型 变量名
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">@Test</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test2</span><span style="color:#f92672">(){</span>
+    Class clazz <span style="color:#f92672">=</span> Person<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">;</span>
+    Field<span style="color:#f92672">[]</span> declaredFields <span style="color:#f92672">=</span> clazz<span style="color:#f92672">.</span><span style="color:#a6e22e">getDeclaredFields</span><span style="color:#f92672">();</span>
+    <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>Field f <span style="color:#f92672">:</span> declaredFields<span style="color:#f92672">){</span>
+        <span style="color:#75715e">//1.权限修饰符
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">int</span> modifier <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span><span style="color:#a6e22e">getModifiers</span><span style="color:#f92672">();</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">(</span>Modifier<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span>modifier<span style="color:#f92672">)</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;\t&#34;</span><span style="color:#f92672">);</span>
 
-        <span style="color:#998;font-style:italic">//2.数据类型
-</span><span style="color:#998;font-style:italic"></span>        Class type <span style="color:#000;font-weight:bold">=</span> f<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getType</span><span style="color:#000;font-weight:bold">();</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">print</span><span style="color:#000;font-weight:bold">(</span>type<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getName</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34;\t&#34;</span><span style="color:#000;font-weight:bold">);</span>
+        <span style="color:#75715e">//2.数据类型
+</span><span style="color:#75715e"></span>        Class type <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span><span style="color:#a6e22e">getType</span><span style="color:#f92672">();</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">(</span>type<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;\t&#34;</span><span style="color:#f92672">);</span>
 
-        <span style="color:#998;font-style:italic">//3.变量名
-</span><span style="color:#998;font-style:italic"></span>        String fName <span style="color:#000;font-weight:bold">=</span> f<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getName</span><span style="color:#000;font-weight:bold">();</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">print</span><span style="color:#000;font-weight:bold">(</span>fName<span style="color:#000;font-weight:bold">);</span>
+        <span style="color:#75715e">//3.变量名
+</span><span style="color:#75715e"></span>        String fName <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">();</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">(</span>fName<span style="color:#f92672">);</span>
 
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">();</span>
-    <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
 
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="52-获取运行时类的方法">5.2 获取运行时类的方法</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#3c5d5d;font-weight:bold">@Test</span>
-<span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">test1</span><span style="color:#000;font-weight:bold">(){</span>
+</code></pre></div><h3 id="52-获取运行时类的方法">5.2 获取运行时类的方法</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#a6e22e">@Test</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test1</span><span style="color:#f92672">(){</span>
 
-    Class clazz <span style="color:#000;font-weight:bold">=</span> Person<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">;</span>
+    Class clazz <span style="color:#f92672">=</span> Person<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">;</span>
 
-    <span style="color:#998;font-style:italic">//getMethods():获取当前运行时类及其所有父类中声明为public权限的方法
-</span><span style="color:#998;font-style:italic"></span>    Method<span style="color:#000;font-weight:bold">[]</span> methods <span style="color:#000;font-weight:bold">=</span> clazz<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getMethods</span><span style="color:#000;font-weight:bold">();</span>
-    <span style="color:#000;font-weight:bold">for</span><span style="color:#000;font-weight:bold">(</span>Method m <span style="color:#000;font-weight:bold">:</span> methods<span style="color:#000;font-weight:bold">){</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>m<span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
-    System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">();</span>
-    <span style="color:#998;font-style:italic">//getDeclaredMethods():获取当前运行时类中声明的所有方法。（不包含父类中声明的方法）
-</span><span style="color:#998;font-style:italic"></span>    Method<span style="color:#000;font-weight:bold">[]</span> declaredMethods <span style="color:#000;font-weight:bold">=</span> clazz<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getDeclaredMethods</span><span style="color:#000;font-weight:bold">();</span>
-    <span style="color:#000;font-weight:bold">for</span><span style="color:#000;font-weight:bold">(</span>Method m <span style="color:#000;font-weight:bold">:</span> declaredMethods<span style="color:#000;font-weight:bold">){</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>m<span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="53-获取方法内部结构">5.3 获取方法内部结构</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#998;font-style:italic">/*
-</span><span style="color:#998;font-style:italic">    @Xxxx
-</span><span style="color:#998;font-style:italic">    权限修饰符  返回值类型  方法名(参数类型1 形参名1,...) throws XxxException{}
-</span><span style="color:#998;font-style:italic">     */</span>
-<span style="color:#3c5d5d;font-weight:bold">@Test</span>
-<span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">test2</span><span style="color:#000;font-weight:bold">(){</span>
-    Class clazz <span style="color:#000;font-weight:bold">=</span> Person<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">;</span>
-    Method<span style="color:#000;font-weight:bold">[]</span> declaredMethods <span style="color:#000;font-weight:bold">=</span> clazz<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getDeclaredMethods</span><span style="color:#000;font-weight:bold">();</span>
-    <span style="color:#000;font-weight:bold">for</span><span style="color:#000;font-weight:bold">(</span>Method m <span style="color:#000;font-weight:bold">:</span> declaredMethods<span style="color:#000;font-weight:bold">){</span>
-        <span style="color:#998;font-style:italic">//1.获取方法声明的注解
-</span><span style="color:#998;font-style:italic"></span>        Annotation<span style="color:#000;font-weight:bold">[]</span> annos <span style="color:#000;font-weight:bold">=</span> m<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getAnnotations</span><span style="color:#000;font-weight:bold">();</span>
-        <span style="color:#000;font-weight:bold">for</span><span style="color:#000;font-weight:bold">(</span>Annotation a <span style="color:#000;font-weight:bold">:</span> annos<span style="color:#000;font-weight:bold">){</span>
-            System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>a<span style="color:#000;font-weight:bold">);</span>
-        <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#75715e">//getMethods():获取当前运行时类及其所有父类中声明为public权限的方法
+</span><span style="color:#75715e"></span>    Method<span style="color:#f92672">[]</span> methods <span style="color:#f92672">=</span> clazz<span style="color:#f92672">.</span><span style="color:#a6e22e">getMethods</span><span style="color:#f92672">();</span>
+    <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>Method m <span style="color:#f92672">:</span> methods<span style="color:#f92672">){</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>m<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">();</span>
+    <span style="color:#75715e">//getDeclaredMethods():获取当前运行时类中声明的所有方法。（不包含父类中声明的方法）
+</span><span style="color:#75715e"></span>    Method<span style="color:#f92672">[]</span> declaredMethods <span style="color:#f92672">=</span> clazz<span style="color:#f92672">.</span><span style="color:#a6e22e">getDeclaredMethods</span><span style="color:#f92672">();</span>
+    <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>Method m <span style="color:#f92672">:</span> declaredMethods<span style="color:#f92672">){</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>m<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="53-获取方法内部结构">5.3 获取方法内部结构</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#75715e">/*
+</span><span style="color:#75715e">    @Xxxx
+</span><span style="color:#75715e">    权限修饰符  返回值类型  方法名(参数类型1 形参名1,...) throws XxxException{}
+</span><span style="color:#75715e">     */</span>
+<span style="color:#a6e22e">@Test</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test2</span><span style="color:#f92672">(){</span>
+    Class clazz <span style="color:#f92672">=</span> Person<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">;</span>
+    Method<span style="color:#f92672">[]</span> declaredMethods <span style="color:#f92672">=</span> clazz<span style="color:#f92672">.</span><span style="color:#a6e22e">getDeclaredMethods</span><span style="color:#f92672">();</span>
+    <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>Method m <span style="color:#f92672">:</span> declaredMethods<span style="color:#f92672">){</span>
+        <span style="color:#75715e">//1.获取方法声明的注解
+</span><span style="color:#75715e"></span>        Annotation<span style="color:#f92672">[]</span> annos <span style="color:#f92672">=</span> m<span style="color:#f92672">.</span><span style="color:#a6e22e">getAnnotations</span><span style="color:#f92672">();</span>
+        <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>Annotation a <span style="color:#f92672">:</span> annos<span style="color:#f92672">){</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>a<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
 
-        <span style="color:#998;font-style:italic">//2.权限修饰符
-</span><span style="color:#998;font-style:italic"></span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">print</span><span style="color:#000;font-weight:bold">(</span>Modifier<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">toString</span><span style="color:#000;font-weight:bold">(</span>m<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getModifiers</span><span style="color:#000;font-weight:bold">())</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34;\t&#34;</span><span style="color:#000;font-weight:bold">);</span>
+        <span style="color:#75715e">//2.权限修饰符
+</span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">(</span>Modifier<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span>m<span style="color:#f92672">.</span><span style="color:#a6e22e">getModifiers</span><span style="color:#f92672">())</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;\t&#34;</span><span style="color:#f92672">);</span>
 
-        <span style="color:#998;font-style:italic">//3.返回值类型
-</span><span style="color:#998;font-style:italic"></span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">print</span><span style="color:#000;font-weight:bold">(</span>m<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getReturnType</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">getName</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34;\t&#34;</span><span style="color:#000;font-weight:bold">);</span>
+        <span style="color:#75715e">//3.返回值类型
+</span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">(</span>m<span style="color:#f92672">.</span><span style="color:#a6e22e">getReturnType</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;\t&#34;</span><span style="color:#f92672">);</span>
 
-        <span style="color:#998;font-style:italic">//4.方法名
-</span><span style="color:#998;font-style:italic"></span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">print</span><span style="color:#000;font-weight:bold">(</span>m<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getName</span><span style="color:#000;font-weight:bold">());</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;(&#34;</span><span style="color:#000;font-weight:bold">);</span>
-        <span style="color:#998;font-style:italic">//5.形参列表
-</span><span style="color:#998;font-style:italic"></span>        Class<span style="color:#000;font-weight:bold">[]</span> parameterTypes <span style="color:#000;font-weight:bold">=</span> m<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getParameterTypes</span><span style="color:#000;font-weight:bold">();</span>
-        <span style="color:#000;font-weight:bold">if</span><span style="color:#000;font-weight:bold">(!(</span>parameterTypes <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">null</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> parameterTypes<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">length</span> <span style="color:#000;font-weight:bold">==</span> 0<span style="color:#000;font-weight:bold">)){</span>
-            <span style="color:#000;font-weight:bold">for</span><span style="color:#000;font-weight:bold">(</span><span style="color:#458;font-weight:bold">int</span> i <span style="color:#000;font-weight:bold">=</span> 0<span style="color:#000;font-weight:bold">;</span>i <span style="color:#000;font-weight:bold">&lt;</span> parameterTypes<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">length</span><span style="color:#000;font-weight:bold">;</span>i<span style="color:#000;font-weight:bold">++){</span>
+        <span style="color:#75715e">//4.方法名
+</span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">(</span>m<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">());</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;(&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#75715e">//5.形参列表
+</span><span style="color:#75715e"></span>        Class<span style="color:#f92672">[]</span> parameterTypes <span style="color:#f92672">=</span> m<span style="color:#f92672">.</span><span style="color:#a6e22e">getParameterTypes</span><span style="color:#f92672">();</span>
+        <span style="color:#66d9ef">if</span><span style="color:#f92672">(!(</span>parameterTypes <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;&amp;</span> parameterTypes<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">==</span> 0<span style="color:#f92672">)){</span>
+            <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>i <span style="color:#f92672">&lt;</span> parameterTypes<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span>i<span style="color:#f92672">++){</span>
 
-                <span style="color:#000;font-weight:bold">if</span><span style="color:#000;font-weight:bold">(</span>i <span style="color:#000;font-weight:bold">==</span> parameterTypes<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">length</span> <span style="color:#000;font-weight:bold">-</span> 1<span style="color:#000;font-weight:bold">){</span>
-                    System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">print</span><span style="color:#000;font-weight:bold">(</span>parameterTypes<span style="color:#000;font-weight:bold">[</span>i<span style="color:#000;font-weight:bold">].</span><span style="color:#008080">getName</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34; args_&#34;</span> <span style="color:#000;font-weight:bold">+</span> i<span style="color:#000;font-weight:bold">);</span>
-                    <span style="color:#000;font-weight:bold">break</span><span style="color:#000;font-weight:bold">;</span>
-                <span style="color:#000;font-weight:bold">}</span>
+                <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>i <span style="color:#f92672">==</span> parameterTypes<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">){</span>
+                    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">(</span>parameterTypes<span style="color:#f92672">[</span>i<span style="color:#f92672">].</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; args_&#34;</span> <span style="color:#f92672">+</span> i<span style="color:#f92672">);</span>
+                    <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+                <span style="color:#f92672">}</span>
 
-                System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">print</span><span style="color:#000;font-weight:bold">(</span>parameterTypes<span style="color:#000;font-weight:bold">[</span>i<span style="color:#000;font-weight:bold">].</span><span style="color:#008080">getName</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34; args_&#34;</span> <span style="color:#000;font-weight:bold">+</span> i <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34;,&#34;</span><span style="color:#000;font-weight:bold">);</span>
-            <span style="color:#000;font-weight:bold">}</span>
-        <span style="color:#000;font-weight:bold">}</span>
+                System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">(</span>parameterTypes<span style="color:#f92672">[</span>i<span style="color:#f92672">].</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; args_&#34;</span> <span style="color:#f92672">+</span> i <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;,&#34;</span><span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
 
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;)&#34;</span><span style="color:#000;font-weight:bold">);</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;)&#34;</span><span style="color:#f92672">);</span>
 
-        <span style="color:#998;font-style:italic">//6.抛出的异常
-</span><span style="color:#998;font-style:italic"></span>        Class<span style="color:#000;font-weight:bold">[]</span> exceptionTypes <span style="color:#000;font-weight:bold">=</span> m<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getExceptionTypes</span><span style="color:#000;font-weight:bold">();</span>
-        <span style="color:#000;font-weight:bold">if</span><span style="color:#000;font-weight:bold">(</span>exceptionTypes<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">length</span> <span style="color:#000;font-weight:bold">&gt;</span> 0<span style="color:#000;font-weight:bold">){</span>
-            System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;throws &#34;</span><span style="color:#000;font-weight:bold">);</span>
-            <span style="color:#000;font-weight:bold">for</span><span style="color:#000;font-weight:bold">(</span><span style="color:#458;font-weight:bold">int</span> i <span style="color:#000;font-weight:bold">=</span> 0<span style="color:#000;font-weight:bold">;</span>i <span style="color:#000;font-weight:bold">&lt;</span> exceptionTypes<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">length</span><span style="color:#000;font-weight:bold">;</span>i<span style="color:#000;font-weight:bold">++){</span>
-                <span style="color:#000;font-weight:bold">if</span><span style="color:#000;font-weight:bold">(</span>i <span style="color:#000;font-weight:bold">==</span> exceptionTypes<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">length</span> <span style="color:#000;font-weight:bold">-</span> 1<span style="color:#000;font-weight:bold">){</span>
-                    System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">print</span><span style="color:#000;font-weight:bold">(</span>exceptionTypes<span style="color:#000;font-weight:bold">[</span>i<span style="color:#000;font-weight:bold">].</span><span style="color:#008080">getName</span><span style="color:#000;font-weight:bold">());</span>
-                    <span style="color:#000;font-weight:bold">break</span><span style="color:#000;font-weight:bold">;</span>
-                <span style="color:#000;font-weight:bold">}</span>
+        <span style="color:#75715e">//6.抛出的异常
+</span><span style="color:#75715e"></span>        Class<span style="color:#f92672">[]</span> exceptionTypes <span style="color:#f92672">=</span> m<span style="color:#f92672">.</span><span style="color:#a6e22e">getExceptionTypes</span><span style="color:#f92672">();</span>
+        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>exceptionTypes<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">&gt;</span> 0<span style="color:#f92672">){</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;throws &#34;</span><span style="color:#f92672">);</span>
+            <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>i <span style="color:#f92672">&lt;</span> exceptionTypes<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span>i<span style="color:#f92672">++){</span>
+                <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>i <span style="color:#f92672">==</span> exceptionTypes<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">){</span>
+                    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">(</span>exceptionTypes<span style="color:#f92672">[</span>i<span style="color:#f92672">].</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">());</span>
+                    <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+                <span style="color:#f92672">}</span>
 
-                System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">print</span><span style="color:#000;font-weight:bold">(</span>exceptionTypes<span style="color:#000;font-weight:bold">[</span>i<span style="color:#000;font-weight:bold">].</span><span style="color:#008080">getName</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34;,&#34;</span><span style="color:#000;font-weight:bold">);</span>
-            <span style="color:#000;font-weight:bold">}</span>
-        <span style="color:#000;font-weight:bold">}</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">();</span>
-    <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="54-获取构造器结构">5.4 获取构造器结构</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#998;font-style:italic">/*
-</span><span style="color:#998;font-style:italic">    获取构造器结构
-</span><span style="color:#998;font-style:italic">
-</span><span style="color:#998;font-style:italic">     */</span>
-<span style="color:#3c5d5d;font-weight:bold">@Test</span>
-<span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">test1</span><span style="color:#000;font-weight:bold">(){</span>
+                System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">(</span>exceptionTypes<span style="color:#f92672">[</span>i<span style="color:#f92672">].</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;,&#34;</span><span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="54-获取构造器结构">5.4 获取构造器结构</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#75715e">/*
+</span><span style="color:#75715e">    获取构造器结构
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">     */</span>
+<span style="color:#a6e22e">@Test</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test1</span><span style="color:#f92672">(){</span>
 
-    Class clazz <span style="color:#000;font-weight:bold">=</span> Person<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#998;font-style:italic">//getConstructors():获取当前运行时类中声明为public的构造器
-</span><span style="color:#998;font-style:italic"></span>    Constructor<span style="color:#000;font-weight:bold">[]</span> constructors <span style="color:#000;font-weight:bold">=</span> clazz<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getConstructors</span><span style="color:#000;font-weight:bold">();</span>
-    <span style="color:#000;font-weight:bold">for</span><span style="color:#000;font-weight:bold">(</span>Constructor c <span style="color:#000;font-weight:bold">:</span> constructors<span style="color:#000;font-weight:bold">){</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>c<span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
+    Class clazz <span style="color:#f92672">=</span> Person<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">;</span>
+    <span style="color:#75715e">//getConstructors():获取当前运行时类中声明为public的构造器
+</span><span style="color:#75715e"></span>    Constructor<span style="color:#f92672">[]</span> constructors <span style="color:#f92672">=</span> clazz<span style="color:#f92672">.</span><span style="color:#a6e22e">getConstructors</span><span style="color:#f92672">();</span>
+    <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>Constructor c <span style="color:#f92672">:</span> constructors<span style="color:#f92672">){</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>c<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">();</span>
-    <span style="color:#998;font-style:italic">//getDeclaredConstructors():获取当前运行时类中声明的所有的构造器
-</span><span style="color:#998;font-style:italic"></span>    Constructor<span style="color:#000;font-weight:bold">[]</span> declaredConstructors <span style="color:#000;font-weight:bold">=</span> clazz<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getDeclaredConstructors</span><span style="color:#000;font-weight:bold">();</span>
-    <span style="color:#000;font-weight:bold">for</span><span style="color:#000;font-weight:bold">(</span>Constructor c <span style="color:#000;font-weight:bold">:</span> declaredConstructors<span style="color:#000;font-weight:bold">){</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>c<span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="55-获取带泛型的父类的泛型">5.5 获取带泛型的父类的泛型</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#998;font-style:italic">/*
-</span><span style="color:#998;font-style:italic">获取运行时类的带泛型的父类的泛型
-</span><span style="color:#998;font-style:italic">代码：逻辑性代码  vs 功能性代码
-</span><span style="color:#998;font-style:italic">*/</span>
-<span style="color:#3c5d5d;font-weight:bold">@Test</span>
-<span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">test4</span><span style="color:#000;font-weight:bold">(){</span>
-    Class clazz <span style="color:#000;font-weight:bold">=</span> Person<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">;</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">();</span>
+    <span style="color:#75715e">//getDeclaredConstructors():获取当前运行时类中声明的所有的构造器
+</span><span style="color:#75715e"></span>    Constructor<span style="color:#f92672">[]</span> declaredConstructors <span style="color:#f92672">=</span> clazz<span style="color:#f92672">.</span><span style="color:#a6e22e">getDeclaredConstructors</span><span style="color:#f92672">();</span>
+    <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>Constructor c <span style="color:#f92672">:</span> declaredConstructors<span style="color:#f92672">){</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>c<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="55-获取带泛型的父类的泛型">5.5 获取带泛型的父类的泛型</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#75715e">/*
+</span><span style="color:#75715e">获取运行时类的带泛型的父类的泛型
+</span><span style="color:#75715e">代码：逻辑性代码  vs 功能性代码
+</span><span style="color:#75715e">*/</span>
+<span style="color:#a6e22e">@Test</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test4</span><span style="color:#f92672">(){</span>
+    Class clazz <span style="color:#f92672">=</span> Person<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">;</span>
 
-    Type genericSuperclass <span style="color:#000;font-weight:bold">=</span> clazz<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getGenericSuperclass</span><span style="color:#000;font-weight:bold">();</span>
-    ParameterizedType paramType <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span>ParameterizedType<span style="color:#000;font-weight:bold">)</span> genericSuperclass<span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#998;font-style:italic">//获取泛型类型
-</span><span style="color:#998;font-style:italic"></span>    Type<span style="color:#000;font-weight:bold">[]</span> actualTypeArguments <span style="color:#000;font-weight:bold">=</span> paramType<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getActualTypeArguments</span><span style="color:#000;font-weight:bold">();</span>
-    <span style="color:#998;font-style:italic">//        System.out.println(actualTypeArguments[0].getTypeName());
-</span><span style="color:#998;font-style:italic"></span>    System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(((</span>Class<span style="color:#000;font-weight:bold">)</span>actualTypeArguments<span style="color:#000;font-weight:bold">[</span>0<span style="color:#000;font-weight:bold">]).</span><span style="color:#008080">getName</span><span style="color:#000;font-weight:bold">());</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="56-获取运行时类实现的接口">5.6 获取运行时类实现的接口</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#998;font-style:italic">/*
-</span><span style="color:#998;font-style:italic">获取运行时类实现的接口
-</span><span style="color:#998;font-style:italic">*/</span>
-<span style="color:#3c5d5d;font-weight:bold">@Test</span>
-<span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">test5</span><span style="color:#000;font-weight:bold">(){</span>
-    Class clazz <span style="color:#000;font-weight:bold">=</span> Person<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">;</span>
+    Type genericSuperclass <span style="color:#f92672">=</span> clazz<span style="color:#f92672">.</span><span style="color:#a6e22e">getGenericSuperclass</span><span style="color:#f92672">();</span>
+    ParameterizedType paramType <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>ParameterizedType<span style="color:#f92672">)</span> genericSuperclass<span style="color:#f92672">;</span>
+    <span style="color:#75715e">//获取泛型类型
+</span><span style="color:#75715e"></span>    Type<span style="color:#f92672">[]</span> actualTypeArguments <span style="color:#f92672">=</span> paramType<span style="color:#f92672">.</span><span style="color:#a6e22e">getActualTypeArguments</span><span style="color:#f92672">();</span>
+    <span style="color:#75715e">//        System.out.println(actualTypeArguments[0].getTypeName());
+</span><span style="color:#75715e"></span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(((</span>Class<span style="color:#f92672">)</span>actualTypeArguments<span style="color:#f92672">[</span>0<span style="color:#f92672">]).</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">());</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="56-获取运行时类实现的接口">5.6 获取运行时类实现的接口</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#75715e">/*
+</span><span style="color:#75715e">获取运行时类实现的接口
+</span><span style="color:#75715e">*/</span>
+<span style="color:#a6e22e">@Test</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test5</span><span style="color:#f92672">(){</span>
+    Class clazz <span style="color:#f92672">=</span> Person<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">;</span>
 
-    Class<span style="color:#000;font-weight:bold">[]</span> interfaces <span style="color:#000;font-weight:bold">=</span> clazz<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getInterfaces</span><span style="color:#000;font-weight:bold">();</span>
-    <span style="color:#000;font-weight:bold">for</span><span style="color:#000;font-weight:bold">(</span>Class c <span style="color:#000;font-weight:bold">:</span> interfaces<span style="color:#000;font-weight:bold">){</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>c<span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
+    Class<span style="color:#f92672">[]</span> interfaces <span style="color:#f92672">=</span> clazz<span style="color:#f92672">.</span><span style="color:#a6e22e">getInterfaces</span><span style="color:#f92672">();</span>
+    <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>Class c <span style="color:#f92672">:</span> interfaces<span style="color:#f92672">){</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>c<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">();</span>
-    <span style="color:#998;font-style:italic">//获取运行时类的父类实现的接口
-</span><span style="color:#998;font-style:italic"></span>    Class<span style="color:#000;font-weight:bold">[]</span> interfaces1 <span style="color:#000;font-weight:bold">=</span> clazz<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getSuperclass</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">getInterfaces</span><span style="color:#000;font-weight:bold">();</span>
-    <span style="color:#000;font-weight:bold">for</span><span style="color:#000;font-weight:bold">(</span>Class c <span style="color:#000;font-weight:bold">:</span> interfaces1<span style="color:#000;font-weight:bold">){</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>c<span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="57-获取运行时类所在的包">5.7 获取运行时类所在的包</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#998;font-style:italic">/*
-</span><span style="color:#998;font-style:italic">获取运行时类所在的包
-</span><span style="color:#998;font-style:italic">*/</span>
-<span style="color:#3c5d5d;font-weight:bold">@Test</span>
-<span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">test6</span><span style="color:#000;font-weight:bold">(){</span>
-    Class clazz <span style="color:#000;font-weight:bold">=</span> Person<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">;</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">();</span>
+    <span style="color:#75715e">//获取运行时类的父类实现的接口
+</span><span style="color:#75715e"></span>    Class<span style="color:#f92672">[]</span> interfaces1 <span style="color:#f92672">=</span> clazz<span style="color:#f92672">.</span><span style="color:#a6e22e">getSuperclass</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getInterfaces</span><span style="color:#f92672">();</span>
+    <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>Class c <span style="color:#f92672">:</span> interfaces1<span style="color:#f92672">){</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>c<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="57-获取运行时类所在的包">5.7 获取运行时类所在的包</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#75715e">/*
+</span><span style="color:#75715e">获取运行时类所在的包
+</span><span style="color:#75715e">*/</span>
+<span style="color:#a6e22e">@Test</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test6</span><span style="color:#f92672">(){</span>
+    Class clazz <span style="color:#f92672">=</span> Person<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">;</span>
 
-    Package pack <span style="color:#000;font-weight:bold">=</span> clazz<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getPackage</span><span style="color:#000;font-weight:bold">();</span>
-    System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>pack<span style="color:#000;font-weight:bold">);</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="58-获取运行时类声明的注解">5.8 获取运行时类声明的注解</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#998;font-style:italic">/*
-</span><span style="color:#998;font-style:italic">获取运行时类声明的注解
-</span><span style="color:#998;font-style:italic">*/</span>
-<span style="color:#3c5d5d;font-weight:bold">@Test</span>
-<span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">test7</span><span style="color:#000;font-weight:bold">(){</span>
-    Class clazz <span style="color:#000;font-weight:bold">=</span> Person<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">;</span>
+    Package pack <span style="color:#f92672">=</span> clazz<span style="color:#f92672">.</span><span style="color:#a6e22e">getPackage</span><span style="color:#f92672">();</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>pack<span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="58-获取运行时类声明的注解">5.8 获取运行时类声明的注解</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#75715e">/*
+</span><span style="color:#75715e">获取运行时类声明的注解
+</span><span style="color:#75715e">*/</span>
+<span style="color:#a6e22e">@Test</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test7</span><span style="color:#f92672">(){</span>
+    Class clazz <span style="color:#f92672">=</span> Person<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">;</span>
 
-    Annotation<span style="color:#000;font-weight:bold">[]</span> annotations <span style="color:#000;font-weight:bold">=</span> clazz<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getAnnotations</span><span style="color:#000;font-weight:bold">();</span>
-    <span style="color:#000;font-weight:bold">for</span><span style="color:#000;font-weight:bold">(</span>Annotation annos <span style="color:#000;font-weight:bold">:</span> annotations<span style="color:#000;font-weight:bold">){</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>annos<span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="6-反射应用三调用运行时类的指定结构">6 反射应用三：调用运行时类的指定结构</h2>
+    Annotation<span style="color:#f92672">[]</span> annotations <span style="color:#f92672">=</span> clazz<span style="color:#f92672">.</span><span style="color:#a6e22e">getAnnotations</span><span style="color:#f92672">();</span>
+    <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>Annotation annos <span style="color:#f92672">:</span> annotations<span style="color:#f92672">){</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>annos<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="6-反射应用三调用运行时类的指定结构">6 反射应用三：调用运行时类的指定结构</h2>
 <h3 id="61-操作指定属性">6.1 操作指定属性</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#998;font-style:italic">/*
-</span><span style="color:#998;font-style:italic">如何操作运行时类中的指定的属性 -- 需要掌握
-</span><span style="color:#998;font-style:italic">*/</span>
-<span style="color:#3c5d5d;font-weight:bold">@Test</span>
-<span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">testField1</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">throws</span> Exception <span style="color:#000;font-weight:bold">{</span>
-    Class clazz <span style="color:#000;font-weight:bold">=</span> Person<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#75715e">/*
+</span><span style="color:#75715e">如何操作运行时类中的指定的属性 -- 需要掌握
+</span><span style="color:#75715e">*/</span>
+<span style="color:#a6e22e">@Test</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testField1</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+    Class clazz <span style="color:#f92672">=</span> Person<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">;</span>
 
-    <span style="color:#998;font-style:italic">//创建运行时类的对象
-</span><span style="color:#998;font-style:italic"></span>    Person p <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span>Person<span style="color:#000;font-weight:bold">)</span> clazz<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">newInstance</span><span style="color:#000;font-weight:bold">();</span>
+    <span style="color:#75715e">//创建运行时类的对象
+</span><span style="color:#75715e"></span>    Person p <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Person<span style="color:#f92672">)</span> clazz<span style="color:#f92672">.</span><span style="color:#a6e22e">newInstance</span><span style="color:#f92672">();</span>
 
-    <span style="color:#998;font-style:italic">//1. getDeclaredField(String fieldName):获取运行时类中指定变量名的属性
-</span><span style="color:#998;font-style:italic"></span>    Field name <span style="color:#000;font-weight:bold">=</span> clazz<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getDeclaredField</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;name&#34;</span><span style="color:#000;font-weight:bold">);</span>
+    <span style="color:#75715e">//1. getDeclaredField(String fieldName):获取运行时类中指定变量名的属性
+</span><span style="color:#75715e"></span>    Field name <span style="color:#f92672">=</span> clazz<span style="color:#f92672">.</span><span style="color:#a6e22e">getDeclaredField</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;name&#34;</span><span style="color:#f92672">);</span>
 
-    <span style="color:#998;font-style:italic">//2.保证当前属性是可访问的
-</span><span style="color:#998;font-style:italic"></span>    name<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setAccessible</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">true</span><span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#998;font-style:italic">//3.获取、设置指定对象的此属性值
-</span><span style="color:#998;font-style:italic"></span>    name<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">set</span><span style="color:#000;font-weight:bold">(</span>p<span style="color:#000;font-weight:bold">,</span><span style="color:#d14">&#34;Tom&#34;</span><span style="color:#000;font-weight:bold">);</span>
+    <span style="color:#75715e">//2.保证当前属性是可访问的
+</span><span style="color:#75715e"></span>    name<span style="color:#f92672">.</span><span style="color:#a6e22e">setAccessible</span><span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">);</span>
+    <span style="color:#75715e">//3.获取、设置指定对象的此属性值
+</span><span style="color:#75715e"></span>    name<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span>p<span style="color:#f92672">,</span><span style="color:#e6db74">&#34;Tom&#34;</span><span style="color:#f92672">);</span>
 
-    System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>name<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">get</span><span style="color:#000;font-weight:bold">(</span>p<span style="color:#000;font-weight:bold">));</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="62-操作指定方法">6.2 操作指定方法</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#998;font-style:italic">/*
-</span><span style="color:#998;font-style:italic">如何操作运行时类中的指定的方法 -- 需要掌握
-</span><span style="color:#998;font-style:italic">*/</span>
-<span style="color:#3c5d5d;font-weight:bold">@Test</span>
-<span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">testMethod</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">throws</span> Exception <span style="color:#000;font-weight:bold">{</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>name<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>p<span style="color:#f92672">));</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="62-操作指定方法">6.2 操作指定方法</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#75715e">/*
+</span><span style="color:#75715e">如何操作运行时类中的指定的方法 -- 需要掌握
+</span><span style="color:#75715e">*/</span>
+<span style="color:#a6e22e">@Test</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testMethod</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
 
-    Class clazz <span style="color:#000;font-weight:bold">=</span> Person<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">;</span>
+    Class clazz <span style="color:#f92672">=</span> Person<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">;</span>
 
-    <span style="color:#998;font-style:italic">//创建运行时类的对象
-</span><span style="color:#998;font-style:italic"></span>    Person p <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span>Person<span style="color:#000;font-weight:bold">)</span> clazz<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">newInstance</span><span style="color:#000;font-weight:bold">();</span>
+    <span style="color:#75715e">//创建运行时类的对象
+</span><span style="color:#75715e"></span>    Person p <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Person<span style="color:#f92672">)</span> clazz<span style="color:#f92672">.</span><span style="color:#a6e22e">newInstance</span><span style="color:#f92672">();</span>
 
-    <span style="color:#998;font-style:italic">/*
-</span><span style="color:#998;font-style:italic">      1.获取指定的某个方法
-</span><span style="color:#998;font-style:italic">      getDeclaredMethod():参数1 ：指明获取的方法的名称  参数2：指明获取的方法的形参列表
-</span><span style="color:#998;font-style:italic">	*/</span>
-    Method show <span style="color:#000;font-weight:bold">=</span> clazz<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getDeclaredMethod</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;show&#34;</span><span style="color:#000;font-weight:bold">,</span> String<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#998;font-style:italic">//2.保证当前方法是可访问的
-</span><span style="color:#998;font-style:italic"></span>    show<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setAccessible</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">true</span><span style="color:#000;font-weight:bold">);</span>
+    <span style="color:#75715e">/*
+</span><span style="color:#75715e">      1.获取指定的某个方法
+</span><span style="color:#75715e">      getDeclaredMethod():参数1 ：指明获取的方法的名称  参数2：指明获取的方法的形参列表
+</span><span style="color:#75715e">	*/</span>
+    Method show <span style="color:#f92672">=</span> clazz<span style="color:#f92672">.</span><span style="color:#a6e22e">getDeclaredMethod</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;show&#34;</span><span style="color:#f92672">,</span> String<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+    <span style="color:#75715e">//2.保证当前方法是可访问的
+</span><span style="color:#75715e"></span>    show<span style="color:#f92672">.</span><span style="color:#a6e22e">setAccessible</span><span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">);</span>
 
-    <span style="color:#998;font-style:italic">/*
-</span><span style="color:#998;font-style:italic">        3. 调用方法的invoke():参数1：方法的调用者  参数2：给方法形参赋值的实参
-</span><span style="color:#998;font-style:italic">        invoke()的返回值即为对应类中调用的方法的返回值。
-</span><span style="color:#998;font-style:italic">         */</span>
-    Object returnValue <span style="color:#000;font-weight:bold">=</span> show<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">invoke</span><span style="color:#000;font-weight:bold">(</span>p<span style="color:#000;font-weight:bold">,</span><span style="color:#d14">&#34;CHN&#34;</span><span style="color:#000;font-weight:bold">);</span> <span style="color:#998;font-style:italic">//String nation = p.show(&#34;CHN&#34;);
-</span><span style="color:#998;font-style:italic"></span>    System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>returnValue<span style="color:#000;font-weight:bold">);</span>
+    <span style="color:#75715e">/*
+</span><span style="color:#75715e">        3. 调用方法的invoke():参数1：方法的调用者  参数2：给方法形参赋值的实参
+</span><span style="color:#75715e">        invoke()的返回值即为对应类中调用的方法的返回值。
+</span><span style="color:#75715e">         */</span>
+    Object returnValue <span style="color:#f92672">=</span> show<span style="color:#f92672">.</span><span style="color:#a6e22e">invoke</span><span style="color:#f92672">(</span>p<span style="color:#f92672">,</span><span style="color:#e6db74">&#34;CHN&#34;</span><span style="color:#f92672">);</span> <span style="color:#75715e">//String nation = p.show(&#34;CHN&#34;);
+</span><span style="color:#75715e"></span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>returnValue<span style="color:#f92672">);</span>
 
-    System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;*************如何调用静态方法*****************&#34;</span><span style="color:#000;font-weight:bold">);</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;*************如何调用静态方法*****************&#34;</span><span style="color:#f92672">);</span>
 
-    <span style="color:#998;font-style:italic">// private static void showDesc()
-</span><span style="color:#998;font-style:italic"></span>
-    Method showDesc <span style="color:#000;font-weight:bold">=</span> clazz<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getDeclaredMethod</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;showDesc&#34;</span><span style="color:#000;font-weight:bold">);</span>
-    showDesc<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setAccessible</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">true</span><span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#998;font-style:italic">//如果调用的运行时类中的方法没有返回值，则此invoke()返回null
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">//        Object returnVal = showDesc.invoke(null);
-</span><span style="color:#998;font-style:italic"></span>    Object returnVal <span style="color:#000;font-weight:bold">=</span> showDesc<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">invoke</span><span style="color:#000;font-weight:bold">(</span>Person<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">);</span>
-    System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>returnVal<span style="color:#000;font-weight:bold">);</span><span style="color:#998;font-style:italic">//null
-</span><span style="color:#998;font-style:italic"></span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="63-调用指定的构造器">6.3 调用指定的构造器</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#998;font-style:italic">/*
-</span><span style="color:#998;font-style:italic">如何调用运行时类中的指定的构造器
-</span><span style="color:#998;font-style:italic">*/</span>
-<span style="color:#3c5d5d;font-weight:bold">@Test</span>
-<span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">testConstructor</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">throws</span> Exception <span style="color:#000;font-weight:bold">{</span>
-    Class clazz <span style="color:#000;font-weight:bold">=</span> Person<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#75715e">// private static void showDesc()
+</span><span style="color:#75715e"></span>
+    Method showDesc <span style="color:#f92672">=</span> clazz<span style="color:#f92672">.</span><span style="color:#a6e22e">getDeclaredMethod</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;showDesc&#34;</span><span style="color:#f92672">);</span>
+    showDesc<span style="color:#f92672">.</span><span style="color:#a6e22e">setAccessible</span><span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">);</span>
+    <span style="color:#75715e">//如果调用的运行时类中的方法没有返回值，则此invoke()返回null
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">//        Object returnVal = showDesc.invoke(null);
+</span><span style="color:#75715e"></span>    Object returnVal <span style="color:#f92672">=</span> showDesc<span style="color:#f92672">.</span><span style="color:#a6e22e">invoke</span><span style="color:#f92672">(</span>Person<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>returnVal<span style="color:#f92672">);</span><span style="color:#75715e">//null
+</span><span style="color:#75715e"></span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="63-调用指定的构造器">6.3 调用指定的构造器</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#75715e">/*
+</span><span style="color:#75715e">如何调用运行时类中的指定的构造器
+</span><span style="color:#75715e">*/</span>
+<span style="color:#a6e22e">@Test</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testConstructor</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+    Class clazz <span style="color:#f92672">=</span> Person<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">;</span>
 
-    <span style="color:#998;font-style:italic">//private Person(String name)
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">/*
-</span><span style="color:#998;font-style:italic">     1.获取指定的构造器
-</span><span style="color:#998;font-style:italic">     getDeclaredConstructor():参数：指明构造器的参数列表
-</span><span style="color:#998;font-style:italic">     */</span>
+    <span style="color:#75715e">//private Person(String name)
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">/*
+</span><span style="color:#75715e">     1.获取指定的构造器
+</span><span style="color:#75715e">     getDeclaredConstructor():参数：指明构造器的参数列表
+</span><span style="color:#75715e">     */</span>
 
-    Constructor constructor <span style="color:#000;font-weight:bold">=</span> clazz<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getDeclaredConstructor</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">);</span>
+    Constructor constructor <span style="color:#f92672">=</span> clazz<span style="color:#f92672">.</span><span style="color:#a6e22e">getDeclaredConstructor</span><span style="color:#f92672">(</span>String<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
 
-    <span style="color:#998;font-style:italic">//2.保证此构造器是可访问的
-</span><span style="color:#998;font-style:italic"></span>    constructor<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setAccessible</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">true</span><span style="color:#000;font-weight:bold">);</span>
+    <span style="color:#75715e">//2.保证此构造器是可访问的
+</span><span style="color:#75715e"></span>    constructor<span style="color:#f92672">.</span><span style="color:#a6e22e">setAccessible</span><span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">);</span>
 
-    <span style="color:#998;font-style:italic">//3.调用此构造器创建运行时类的对象
-</span><span style="color:#998;font-style:italic"></span>    Person per <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span>Person<span style="color:#000;font-weight:bold">)</span> constructor<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">newInstance</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Tom&#34;</span><span style="color:#000;font-weight:bold">);</span>
-    System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>per<span style="color:#000;font-weight:bold">);</span>
+    <span style="color:#75715e">//3.调用此构造器创建运行时类的对象
+</span><span style="color:#75715e"></span>    Person per <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Person<span style="color:#f92672">)</span> constructor<span style="color:#f92672">.</span><span style="color:#a6e22e">newInstance</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Tom&#34;</span><span style="color:#f92672">);</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>per<span style="color:#f92672">);</span>
 
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="7-反射应用四动态代理">7 反射应用四:动态代理</h2>
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="7-反射应用四动态代理">7 反射应用四:动态代理</h2>
 <h3 id="71-代理模式的原理">7.1 代理模式的原理</h3>
 <p>使用一个代理将对象包装起来, 然后用该代理对象取代原始对象。任何对原始对象的调用都要通过代理。代理对象决定是否以及何时将方法调用转到原始对象上。</p>
 <h3 id="72-静态代理">7.2 静态代理</h3>
 <h4 id="721-举例">7.2.1 举例</h4>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#998;font-style:italic">//实现Runnable接口的方法创建多线程。
-</span><span style="color:#998;font-style:italic"></span>Class MyThread <span style="color:#000;font-weight:bold">implements</span> Runnable<span style="color:#000;font-weight:bold">{}</span> <span style="color:#998;font-style:italic">//相当于被代理类
-</span><span style="color:#998;font-style:italic"></span>Class Thread <span style="color:#000;font-weight:bold">implements</span> Runnable<span style="color:#000;font-weight:bold">{}</span> <span style="color:#998;font-style:italic">//相当于代理类
-</span><span style="color:#998;font-style:italic"></span>main<span style="color:#000;font-weight:bold">(){</span>
-	MyThread t <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> MyThread<span style="color:#000;font-weight:bold">();</span>
-	Thread thread <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Thread<span style="color:#000;font-weight:bold">(</span>t<span style="color:#000;font-weight:bold">);</span>
-	thread<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">start</span><span style="color:#000;font-weight:bold">();</span><span style="color:#998;font-style:italic">//启动线程；调用线程的run()
-</span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h4 id="722-静态代理缺点">7.2.2 静态代理缺点</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#75715e">//实现Runnable接口的方法创建多线程。
+</span><span style="color:#75715e"></span>Class MyThread <span style="color:#66d9ef">implements</span> Runnable<span style="color:#f92672">{}</span> <span style="color:#75715e">//相当于被代理类
+</span><span style="color:#75715e"></span>Class Thread <span style="color:#66d9ef">implements</span> Runnable<span style="color:#f92672">{}</span> <span style="color:#75715e">//相当于代理类
+</span><span style="color:#75715e"></span>main<span style="color:#f92672">(){</span>
+	MyThread t <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> MyThread<span style="color:#f92672">();</span>
+	Thread thread <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Thread<span style="color:#f92672">(</span>t<span style="color:#f92672">);</span>
+	thread<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span><span style="color:#75715e">//启动线程；调用线程的run()
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</code></pre></div><h4 id="722-静态代理缺点">7.2.2 静态代理缺点</h4>
 <ol>
 <li>代理类和目标对象的类都是在编译期间确定下来，不利于程序的扩展。</li>
 <li>每一个代理类只能为一个接口服务，这样一来程序开发中必然产生过多的代理。</li>
@@ -1235,207 +764,104 @@ System<span style="color:#000;font-weight:bold">.</span><span style="color:#0080
 <li>问题二：当通过代理类的对象调用方法a时，如何动态的去调用被代理类中的同名方法a。(通过InvocationHandler接口的实现类及其方法invoke())</li>
 </ul>
 <h4 id="732-代码实现">7.3.2 代码实现</h4>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">67
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">68
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">69
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">70
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">71
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">72
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">73
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">74
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">75
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">76
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">77
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">78
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">79
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">80
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">81
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">82
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">83
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">84
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">85
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">86
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">87
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">88
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">89
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">90
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">91
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">92
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">93
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">94
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">95
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">96
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">97
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#000;font-weight:bold">interface</span> <span style="color:#458;font-weight:bold">Human</span><span style="color:#000;font-weight:bold">{</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Human</span><span style="color:#f92672">{</span>
 
-    String <span style="color:#900;font-weight:bold">getBelief</span><span style="color:#000;font-weight:bold">();</span>
+    String <span style="color:#a6e22e">getBelief</span><span style="color:#f92672">();</span>
 
-    <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">eat</span><span style="color:#000;font-weight:bold">(</span>String food<span style="color:#000;font-weight:bold">);</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">eat</span><span style="color:#f92672">(</span>String food<span style="color:#f92672">);</span>
 
-<span style="color:#000;font-weight:bold">}</span>
-<span style="color:#998;font-style:italic">//被代理类
-</span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">SuperMan</span> <span style="color:#000;font-weight:bold">implements</span> Human<span style="color:#000;font-weight:bold">{</span>
+<span style="color:#f92672">}</span>
+<span style="color:#75715e">//被代理类
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SuperMan</span> <span style="color:#66d9ef">implements</span> Human<span style="color:#f92672">{</span>
 
 
-    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
-    <span style="color:#000;font-weight:bold">public</span> String <span style="color:#900;font-weight:bold">getBelief</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#000;font-weight:bold">return</span> <span style="color:#d14">&#34;I believe I can fly!&#34;</span><span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getBelief</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;I believe I can fly!&#34;</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">eat</span><span style="color:#000;font-weight:bold">(</span>String food<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;我喜欢吃&#34;</span> <span style="color:#000;font-weight:bold">+</span> food<span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">eat</span><span style="color:#f92672">(</span>String food<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;我喜欢吃&#34;</span> <span style="color:#f92672">+</span> food<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
 
-<span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">HumanUtil</span><span style="color:#000;font-weight:bold">{</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HumanUtil</span><span style="color:#f92672">{</span>
 
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">method1</span><span style="color:#000;font-weight:bold">(){</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;====================通用方法一====================&#34;</span><span style="color:#000;font-weight:bold">);</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">method1</span><span style="color:#f92672">(){</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;====================通用方法一====================&#34;</span><span style="color:#f92672">);</span>
 
-    <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#f92672">}</span>
 
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">method2</span><span style="color:#000;font-weight:bold">(){</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;====================通用方法二====================&#34;</span><span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">method2</span><span style="color:#f92672">(){</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;====================通用方法二====================&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-<span style="color:#000;font-weight:bold">}</span>
+<span style="color:#f92672">}</span>
 
 
-<span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">ProxyFactory</span><span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#998;font-style:italic">//调用此方法，返回一个代理类的对象。解决问题一
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> Object <span style="color:#900;font-weight:bold">getProxyInstance</span><span style="color:#000;font-weight:bold">(</span>Object obj<span style="color:#000;font-weight:bold">){</span><span style="color:#998;font-style:italic">//obj:被代理类的对象
-</span><span style="color:#998;font-style:italic"></span>        MyInvocationHandler handler <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> MyInvocationHandler<span style="color:#000;font-weight:bold">();</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ProxyFactory</span><span style="color:#f92672">{</span>
+    <span style="color:#75715e">//调用此方法，返回一个代理类的对象。解决问题一
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> Object <span style="color:#a6e22e">getProxyInstance</span><span style="color:#f92672">(</span>Object obj<span style="color:#f92672">){</span><span style="color:#75715e">//obj:被代理类的对象
+</span><span style="color:#75715e"></span>        MyInvocationHandler handler <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> MyInvocationHandler<span style="color:#f92672">();</span>
 
-        handler<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">bind</span><span style="color:#000;font-weight:bold">(</span>obj<span style="color:#000;font-weight:bold">);</span>
+        handler<span style="color:#f92672">.</span><span style="color:#a6e22e">bind</span><span style="color:#f92672">(</span>obj<span style="color:#f92672">);</span>
 
-        <span style="color:#000;font-weight:bold">return</span> Proxy<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">newProxyInstance</span><span style="color:#000;font-weight:bold">(</span>obj<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getClass</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">getClassLoader</span><span style="color:#000;font-weight:bold">(),</span>obj<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getClass</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">getInterfaces</span><span style="color:#000;font-weight:bold">(),</span>handler<span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
+        <span style="color:#66d9ef">return</span> Proxy<span style="color:#f92672">.</span><span style="color:#a6e22e">newProxyInstance</span><span style="color:#f92672">(</span>obj<span style="color:#f92672">.</span><span style="color:#a6e22e">getClass</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getClassLoader</span><span style="color:#f92672">(),</span>obj<span style="color:#f92672">.</span><span style="color:#a6e22e">getClass</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getInterfaces</span><span style="color:#f92672">(),</span>handler<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-<span style="color:#000;font-weight:bold">}</span>
+<span style="color:#f92672">}</span>
 
-<span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">MyInvocationHandler</span> <span style="color:#000;font-weight:bold">implements</span> InvocationHandler<span style="color:#000;font-weight:bold">{</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyInvocationHandler</span> <span style="color:#66d9ef">implements</span> InvocationHandler<span style="color:#f92672">{</span>
 
-    <span style="color:#000;font-weight:bold">private</span> Object obj<span style="color:#000;font-weight:bold">;</span><span style="color:#998;font-style:italic">//需要使用被代理类的对象进行赋值
-</span><span style="color:#998;font-style:italic"></span>
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">bind</span><span style="color:#000;font-weight:bold">(</span>Object obj<span style="color:#000;font-weight:bold">){</span>
-        <span style="color:#000;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">obj</span> <span style="color:#000;font-weight:bold">=</span> obj<span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#66d9ef">private</span> Object obj<span style="color:#f92672">;</span><span style="color:#75715e">//需要使用被代理类的对象进行赋值
+</span><span style="color:#75715e"></span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">bind</span><span style="color:#f92672">(</span>Object obj<span style="color:#f92672">){</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> obj<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    <span style="color:#998;font-style:italic">//当我们通过代理类的对象，调用方法a时，就会自动的调用如下的方法：invoke()
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">//将被代理类要执行的方法a的功能就声明在invoke()中
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
-    <span style="color:#000;font-weight:bold">public</span> Object <span style="color:#900;font-weight:bold">invoke</span><span style="color:#000;font-weight:bold">(</span>Object proxy<span style="color:#000;font-weight:bold">,</span> Method method<span style="color:#000;font-weight:bold">,</span> Object<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> Throwable <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#75715e">//当我们通过代理类的对象，调用方法a时，就会自动的调用如下的方法：invoke()
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">//将被代理类要执行的方法a的功能就声明在invoke()中
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> Object <span style="color:#a6e22e">invoke</span><span style="color:#f92672">(</span>Object proxy<span style="color:#f92672">,</span> Method method<span style="color:#f92672">,</span> Object<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Throwable <span style="color:#f92672">{</span>
 
-        HumanUtil util <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> HumanUtil<span style="color:#000;font-weight:bold">();</span>
-        util<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">method1</span><span style="color:#000;font-weight:bold">();</span>
+        HumanUtil util <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HumanUtil<span style="color:#f92672">();</span>
+        util<span style="color:#f92672">.</span><span style="color:#a6e22e">method1</span><span style="color:#f92672">();</span>
 
-        <span style="color:#998;font-style:italic">//method:即为代理类对象调用的方法，此方法也就作为了被代理类对象要调用的方法
-</span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">//obj:被代理类的对象
-</span><span style="color:#998;font-style:italic"></span>        Object returnValue <span style="color:#000;font-weight:bold">=</span> method<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">invoke</span><span style="color:#000;font-weight:bold">(</span>obj<span style="color:#000;font-weight:bold">,</span>args<span style="color:#000;font-weight:bold">);</span>
+        <span style="color:#75715e">//method:即为代理类对象调用的方法，此方法也就作为了被代理类对象要调用的方法
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//obj:被代理类的对象
+</span><span style="color:#75715e"></span>        Object returnValue <span style="color:#f92672">=</span> method<span style="color:#f92672">.</span><span style="color:#a6e22e">invoke</span><span style="color:#f92672">(</span>obj<span style="color:#f92672">,</span>args<span style="color:#f92672">);</span>
 
-        util<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">method2</span><span style="color:#000;font-weight:bold">();</span>
+        util<span style="color:#f92672">.</span><span style="color:#a6e22e">method2</span><span style="color:#f92672">();</span>
 
-        <span style="color:#998;font-style:italic">//上述方法的返回值就作为当前类中的invoke()的返回值。
-</span><span style="color:#998;font-style:italic"></span>        <span style="color:#000;font-weight:bold">return</span> returnValue<span style="color:#000;font-weight:bold">;</span>
+        <span style="color:#75715e">//上述方法的返回值就作为当前类中的invoke()的返回值。
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">return</span> returnValue<span style="color:#f92672">;</span>
 
-    <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
 
-<span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">ProxyTest</span> <span style="color:#000;font-weight:bold">{</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ProxyTest</span> <span style="color:#f92672">{</span>
 
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-        SuperMan superMan <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> SuperMan<span style="color:#000;font-weight:bold">();</span>
-        <span style="color:#998;font-style:italic">//proxyInstance:代理类的对象
-</span><span style="color:#998;font-style:italic"></span>        Human proxyInstance <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span>Human<span style="color:#000;font-weight:bold">)</span> ProxyFactory<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getProxyInstance</span><span style="color:#000;font-weight:bold">(</span>superMan<span style="color:#000;font-weight:bold">);</span>
-        <span style="color:#998;font-style:italic">//当通过代理类对象调用方法时，会自动的调用被代理类中同名的方法
-</span><span style="color:#998;font-style:italic"></span>        String belief <span style="color:#000;font-weight:bold">=</span> proxyInstance<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getBelief</span><span style="color:#000;font-weight:bold">();</span>
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>belief<span style="color:#000;font-weight:bold">);</span>
-        proxyInstance<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">eat</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;四川麻辣烫&#34;</span><span style="color:#000;font-weight:bold">);</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        SuperMan superMan <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SuperMan<span style="color:#f92672">();</span>
+        <span style="color:#75715e">//proxyInstance:代理类的对象
+</span><span style="color:#75715e"></span>        Human proxyInstance <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Human<span style="color:#f92672">)</span> ProxyFactory<span style="color:#f92672">.</span><span style="color:#a6e22e">getProxyInstance</span><span style="color:#f92672">(</span>superMan<span style="color:#f92672">);</span>
+        <span style="color:#75715e">//当通过代理类对象调用方法时，会自动的调用被代理类中同名的方法
+</span><span style="color:#75715e"></span>        String belief <span style="color:#f92672">=</span> proxyInstance<span style="color:#f92672">.</span><span style="color:#a6e22e">getBelief</span><span style="color:#f92672">();</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>belief<span style="color:#f92672">);</span>
+        proxyInstance<span style="color:#f92672">.</span><span style="color:#a6e22e">eat</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;四川麻辣烫&#34;</span><span style="color:#f92672">);</span>
 
-        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;*****************************&#34;</span><span style="color:#000;font-weight:bold">);</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;*****************************&#34;</span><span style="color:#f92672">);</span>
 
-        NikeClothFactory nikeClothFactory <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> NikeClothFactory<span style="color:#000;font-weight:bold">();</span>
+        NikeClothFactory nikeClothFactory <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> NikeClothFactory<span style="color:#f92672">();</span>
 
-        ClothFactory proxyClothFactory <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span>ClothFactory<span style="color:#000;font-weight:bold">)</span> ProxyFactory<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getProxyInstance</span><span style="color:#000;font-weight:bold">(</span>nikeClothFactory<span style="color:#000;font-weight:bold">);</span>
+        ClothFactory proxyClothFactory <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>ClothFactory<span style="color:#f92672">)</span> ProxyFactory<span style="color:#f92672">.</span><span style="color:#a6e22e">getProxyInstance</span><span style="color:#f92672">(</span>nikeClothFactory<span style="color:#f92672">);</span>
 
-        proxyClothFactory<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">produceCloth</span><span style="color:#000;font-weight:bold">();</span>
+        proxyClothFactory<span style="color:#f92672">.</span><span style="color:#a6e22e">produceCloth</span><span style="color:#f92672">();</span>
 
-    <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></td></tr></table>
-</div>
-</div>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div>
         </div>
 
         

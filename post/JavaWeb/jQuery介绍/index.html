@@ -231,69 +231,35 @@ jQuery 是免费、开源的，jQuery 的语法设计可以使开发更加便捷
 </ol>
 <h2 id="2-jquery初体验">2 jQuery初体验</h2>
 <p>需求：使用jQuery 给一个按钮绑定单击事件?</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#999;font-weight:bold;font-style:italic">&lt;!DOCTYPE html PUBLIC &#34;-//W3C//DTD HTML 4.01 Transitional//EN&#34; &#34;http://www.w3.org/TR/html4/loose.dtd&#34;&gt;</span>
-&lt;<span style="color:#000080">html</span>&gt;
-&lt;<span style="color:#000080">head</span>&gt;
-&lt;<span style="color:#000080">meta</span> <span style="color:#008080">http-equiv</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Content-Type&#34;</span> <span style="color:#008080">content</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;text/html; charset=UTF-8&#34;</span>&gt;
-&lt;<span style="color:#000080">title</span>&gt;Insert title here&lt;/<span style="color:#000080">title</span>&gt;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!DOCTYPE html PUBLIC &#34;-//W3C//DTD HTML 4.01 Transitional//EN&#34; &#34;http://www.w3.org/TR/html4/loose.dtd&#34;&gt;</span>
+&lt;<span style="color:#f92672">html</span>&gt;
+&lt;<span style="color:#f92672">head</span>&gt;
+&lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">http-equiv</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Content-Type&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/html; charset=UTF-8&#34;</span>&gt;
+&lt;<span style="color:#f92672">title</span>&gt;Insert title here&lt;/<span style="color:#f92672">title</span>&gt;
 
-&lt;<span style="color:#000080">script</span> <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;text/javascript&#34;</span> <span style="color:#008080">src</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;../script/jquery-1.7.2.js&#34;</span>&gt;&lt;/<span style="color:#000080">script</span>&gt;
-&lt;<span style="color:#000080">script</span> <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;text/javascript&#34;</span>&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;../script/jquery-1.7.2.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span>&gt;
 
-	<span style="color:#998;font-style:italic">//使用$()代替window.onload
-</span><span style="color:#998;font-style:italic"></span>	$(<span style="color:#000;font-weight:bold">function</span>(){
-		<span style="color:#998;font-style:italic">//使用选择器获取按钮对象，随后绑定单击响应函数
-</span><span style="color:#998;font-style:italic"></span>		$(<span style="color:#d14">&#34;#btnId&#34;</span>).click(<span style="color:#000;font-weight:bold">function</span>(){
-			<span style="color:#998;font-style:italic">//弹出Hello
-</span><span style="color:#998;font-style:italic"></span>			alert(<span style="color:#d14">&#39;Hello&#39;</span>);
+	<span style="color:#75715e">//使用$()代替window.onload
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">$</span>(<span style="color:#66d9ef">function</span>(){
+		<span style="color:#75715e">//使用选择器获取按钮对象，随后绑定单击响应函数
+</span><span style="color:#75715e"></span>		<span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;#btnId&#34;</span>).<span style="color:#a6e22e">click</span>(<span style="color:#66d9ef">function</span>(){
+			<span style="color:#75715e">//弹出Hello
+</span><span style="color:#75715e"></span>			<span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#39;Hello&#39;</span>);
 		});
 	});
 
-&lt;/<span style="color:#000080">script</span>&gt;
+&lt;/<span style="color:#f92672">script</span>&gt;
 
 
-&lt;/<span style="color:#000080">head</span>&gt;
-&lt;<span style="color:#000080">body</span>&gt;
+&lt;/<span style="color:#f92672">head</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
 
-	&lt;<span style="color:#000080">button</span> <span style="color:#008080">id</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;btnId&#34;</span>&gt;SayHello&lt;/<span style="color:#000080">button</span>&gt;
+	&lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;btnId&#34;</span>&gt;SayHello&lt;/<span style="color:#f92672">button</span>&gt;
 
-&lt;/<span style="color:#000080">body</span>&gt;
-&lt;/<span style="color:#000080">html</span>&gt;	
-</code></pre></td></tr></table>
-</div>
-</div><p>常见问题？</p>
+&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;	
+</code></pre></div><p>常见问题？</p>
 <ol>
 <li>使用jQuery 一定要引入jQuery 库吗？ 答案： 是，必须</li>
 <li>jQuery 中的$到底是什么？ 答案： 它是一个函数</li>
