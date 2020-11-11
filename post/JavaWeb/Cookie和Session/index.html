@@ -149,20 +149,20 @@
     <li><a href="#2-cookie会话">2 Cookie会话</a>
       <ul>
         <li><a href="#21-什么是cookie">2.1 什么是Cookie</a></li>
-        <li><a href="#22-如何创建cookie">2.2 如何创建Cookie</a></li>
+        <li><a href="#如何创建cookie">如何创建Cookie</a></li>
         <li><a href="#23-服务器如何获取cookie">2.3 服务器如何获取Cookie</a></li>
         <li><a href="#24-cookie值的修改">2.4 Cookie值的修改</a></li>
         <li><a href="#25-浏览器查看cookie">2.5 浏览器查看Cookie</a></li>
         <li><a href="#26-cookie生命控制">2.6 Cookie生命控制</a></li>
-        <li><a href="#27-cookie有效路径path的设置">2.7 Cookie有效路径Path的设置</a></li>
+        <li><a href="#cookie有效路径path的设置">Cookie有效路径Path的设置</a></li>
         <li><a href="#28-免输入用户名登陆">2.8 免输入用户名登陆</a></li>
       </ul>
     </li>
-    <li><a href="#3-session会话">3 Session会话</a>
+    <li><a href="#session会话">Session会话</a>
       <ul>
         <li><a href="#31-什么是session会话">3.1 什么是Session会话</a></li>
         <li><a href="#32-如何创建session和获取id-号-是否为新">3.2 如何创建Session和获取(id 号, 是否为新)</a></li>
-        <li><a href="#33-session域数据的存取">3.3 Session域数据的存取</a></li>
+        <li><a href="#session域数据的存取">Session域数据的存取</a></li>
         <li><a href="#34-session生命周期控制">3.4 Session生命周期控制</a></li>
         <li><a href="#35-浏览器和session之间的关联的技术内幕">3.5 浏览器和Session之间的关联的技术内幕</a></li>
       </ul>
@@ -238,7 +238,7 @@
 <li>客户端有了Cookie 后，每次请求都发送给服务器。</li>
 <li>每个Cookie 的大小不能超过4kb</li>
 </ol>
-<h3 id="22-如何创建cookie">2.2 如何创建Cookie</h3>
+<h3 id="如何创建cookie">如何创建Cookie</h3>
 <p>
         <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201109214540.png">
             <img class="mx-auto" alt="image-20201109214540284" src="https://gitee.com/jchenTech/images/raw/master/img/20201109214540.png" />
@@ -424,7 +424,7 @@
     cookie<span style="color:#f92672">.</span><span style="color:#a6e22e">setMaxAge</span><span style="color:#f92672">(-</span>1<span style="color:#f92672">);</span>
     resp<span style="color:#f92672">.</span><span style="color:#a6e22e">addCookie</span><span style="color:#f92672">(</span>cookie<span style="color:#f92672">);</span>
 <span style="color:#f92672">}</span>
-</code></pre></div><h3 id="27-cookie有效路径path的设置">2.7 Cookie有效路径Path的设置</h3>
+</code></pre></div><h3 id="cookie有效路径path的设置">Cookie有效路径Path的设置</h3>
 <p>Cookie 的 <code>path</code> 属性可以有效的过滤哪些 Cookie 可以发送给服务器。哪些不发。
 <code>path</code> 属性是通过请求的地址来进行有效的过滤。</p>
 <pre><code>CookieA path=/工程路径
@@ -489,7 +489,7 @@ CookieB 发送
 
     <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
-</code></pre></div><h2 id="3-session会话">3 Session会话</h2>
+</code></pre></div><h2 id="session会话">Session会话</h2>
 <h3 id="31-什么是session会话">3.1 什么是Session会话</h3>
 <ol>
 <li>Session 就一个接口（HttpSession）。</li>
@@ -521,7 +521,7 @@ CookieB 发送
     resp<span style="color:#f92672">.</span><span style="color:#a6e22e">getWriter</span><span style="color:#f92672">().</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;得到的Session，它的id是：&#34;</span> <span style="color:#f92672">+</span> id <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; &lt;br /&gt; &#34;</span><span style="color:#f92672">);</span>
     resp<span style="color:#f92672">.</span><span style="color:#a6e22e">getWriter</span><span style="color:#f92672">().</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;这个Session是否是新创建的：&#34;</span> <span style="color:#f92672">+</span> isNew <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; &lt;br /&gt; &#34;</span><span style="color:#f92672">);</span>
 <span style="color:#f92672">}</span>
-</code></pre></div><h3 id="33-session域数据的存取">3.3 Session域数据的存取</h3>
+</code></pre></div><h3 id="session域数据的存取">Session域数据的存取</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/**
 </span><span style="color:#75715e"> * 往Session中保存数据
 </span><span style="color:#75715e"> * @param req
