@@ -387,7 +387,7 @@ textarea {
     border-radius: 3px;
 }
 .post-content p {
-    margin:0 0 1.1em;
+    margin:0 0 0.5em;
 }
 .post-content img {
     padding:1em 0;
@@ -398,7 +398,7 @@ textarea {
     overflow: auto;
     padding: .5em 2.4em;
     border-radius: 3px;
-    margin:1.8em 0;
+    margin:0.0em 0;
 }
 .post-content ul li{
     text-indent: .5em;
