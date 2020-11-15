@@ -216,8 +216,12 @@
 </ol>
 <h3 id="12-网络通信的两个要素">1.2 网络通信的两个要素</h3>
 <ol>
-<li>对应问题一：IP和端口号</li>
-<li>对应问题二：提供网络通信协议：TCP/IP参考模型（应用层、传输层、网络层、物理+数据链路层）</li>
+<li>
+<p>对应问题一：IP和端口号</p>
+</li>
+<li>
+<p>对应问题二：提供网络通信协议：TCP/IP参考模型（应用层、传输层、网络层、物理+数据链路层）</p>
+</li>
 </ol>
 <h4 id="121-ip和端口号">1.2.1 IP和端口号</h4>
 <p><strong>IP的理解</strong></p>
@@ -242,14 +246,26 @@
 <p><strong>端口号</strong></p>
 <p>端口号标识正在计算机上运行的进程（程序）</p>
 <ul>
-<li>不同的进程有不同的端口号</li>
-<li>被规定为一个 16 位的整数 0~65535 。</li>
-<li>端口分类：
+<li>
+<p>不同的进程有不同的端口号</p>
+</li>
+<li>
+<p>被规定为一个 16 位的整数 0~65535 。</p>
+</li>
+<li>
+<p>端口分类：</p>
 <ul>
-<li>公认端口：0~1023 。被预先定义的服务通信占用 如： HTTP占用端口80，FTP占用端口21，Telnet占用端口23。</li>
-<li>注册端口：1024~49151 。分配给用户进程或应用程序。（如：Tomcat占用端口 8080， MySQL占用端口3306，Oracle 占用端口 1521 等） 。</li>
-<li>动态私有端口： 49152~65535 。</li>
-<li></li>
+<li>
+<p>公认端口：0~1023 。被预先定义的服务通信占用 如： HTTP占用端口
+80，FTP占用端口21，Telnet占用端口23。</p>
+</li>
+<li>
+<p>注册端口：1024~49151 。分配给用户进程或应用程序。（如： Tomcat 占
+用端口 8080， MySQL占用端口3306，Oracle 占用端口 1521 等） 。</p>
+</li>
+<li>
+<p>动态私有端口： 49152~65535 。</p>
+</li>
 </ul>
 </li>
 </ul>
@@ -257,11 +273,17 @@
 <p><strong>InetAddress类</strong></p>
 <p>此类的一个对象就代表着一个具体的IP地址</p>
 <ol>
-<li>实例化
-<code>getByName(String host)</code> 、 <code>getLocalHost()</code></li>
-<li>常用方法
-<code>getHostName()</code> / <code>getHostAddress()</code></li>
-<li>端口号：正在计算机上运行的进程。</li>
+<li>
+<p>实例化
+<code>getByName(String host)</code> 、 <code>getLocalHost()</code></p>
+</li>
+<li>
+<p>常用方法
+<code>getHostName()</code> / <code>getHostAddress()</code></p>
+</li>
+<li>
+<p>端口号：正在计算机上运行的进程。</p>
+</li>
 </ol>
 <ul>
 <li>要求：不同的进程不同的端口号</li>
@@ -273,29 +295,29 @@
 <li>分型模型</li>
 </ol>
 <p>
-        <a data-fancybox="gallery" href="C:%5cUsers%5clenovo%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20201013140326838.png">
-            <img class="mx-auto" alt="image-20201013140326838" src="C:%5cUsers%5clenovo%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20201013140326838.png" />
+        <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201115171117.png">
+            <img class="mx-auto" alt="image-20201115171034324" src="https://gitee.com/jchenTech/images/raw/master/img/20201115171117.png" />
         </a>
     </p>
 <ol start="2">
 <li>TCP和UDP的区别</li>
 </ol>
 <p>
-        <a data-fancybox="gallery" href="C:%5cUsers%5clenovo%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20201013140347440.png">
-            <img class="mx-auto" alt="image-20201013140347440" src="C:%5cUsers%5clenovo%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20201013140347440.png" />
+        <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201115171118.png">
+            <img class="mx-auto" alt="image-20201115171042693" src="https://gitee.com/jchenTech/images/raw/master/img/20201115171118.png" />
         </a>
     </p>
 <ol start="3">
 <li>TCP三次握手和四次挥手</li>
 </ol>
 <p>
-        <a data-fancybox="gallery" href="C:%5cUsers%5clenovo%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20201013140408667.png">
-            <img class="mx-auto" alt="image-20201013140408667" src="C:%5cUsers%5clenovo%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20201013140408667.png" />
+        <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201115171119.png">
+            <img class="mx-auto" alt="image-20201115171048359" src="https://gitee.com/jchenTech/images/raw/master/img/20201115171119.png" />
         </a>
     </p>
 <p>
-        <a data-fancybox="gallery" href="C:%5cUsers%5clenovo%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20201013140412368.png">
-            <img class="mx-auto" alt="image-20201013140412368" src="C:%5cUsers%5clenovo%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20201013140412368.png" />
+        <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201115171120.png">
+            <img class="mx-auto" alt="image-20201115171103739" src="https://gitee.com/jchenTech/images/raw/master/img/20201115171120.png" />
         </a>
     </p>
 <h2 id="2-tcp网络编程">2 TCP网络编程</h2>
