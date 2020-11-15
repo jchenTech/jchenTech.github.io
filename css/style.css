@@ -387,7 +387,7 @@ textarea {
     border-radius: 3px;
 }
 .post-content p {
-    margin:0 0 1.1em;
+    /**margin:0 0 1.1em;**/
 }
 .post-content img {
     padding:1em 0;
