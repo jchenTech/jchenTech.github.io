@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>插值 on jchen&#39;s blog</title>
+    <link>http://jchenTech.github.io/tags/%E6%8F%92%E5%80%BC/</link>
+    <description>Recent content in 插值 on jchen&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 17 Nov 2020 22:23:00 +0800</lastBuildDate><atom:link href="http://jchenTech.github.io/tags/%E6%8F%92%E5%80%BC/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>数值分析连载02 | 插值</title>
+      <link>http://jchenTech.github.io/post/Math/%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%9002%E6%8F%92%E5%80%BC/</link>
+      <pubDate>Tue, 17 Nov 2020 22:23:00 +0800</pubDate>
+      
+      <guid>http://jchenTech.github.io/post/Math/%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%9002%E6%8F%92%E5%80%BC/</guid>
+      <description>1 插值 定义：设函数 $y=f(x)$ 在区间[a, b]上的 $n + 1$ 个点， $a \le x_0,x_1,&amp;hellip;,x_n \le b$ 上的函数值为 $y_0,y_1,&amp;hellip;,y_n$ 若存在函数 $P(x)$ ， 使得： $$ P(x_i)=y_i,i=0,1,&amp;hellip;,n $$ 成立，则称函数 $P(x)$ 为 $f(x)$的插值函数，$f(x)$ 称为被插值函数，点 $x_0,x_1,&amp;hellip;,x_n$ 称为插值节点，包含插值节点的区间[a, b] 称为插值区间。 一般来说 $P(x)$ 分为三类，一类是 $n$ 次多项式 $a_0 + a_1 x + &amp;hellip; +</description>
+    </item>
+    
+  </channel>
+</rss>

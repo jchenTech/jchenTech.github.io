@@ -6,7 +6,43 @@
     <description>Recent content on jchen&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 11 Nov 2020 14:00:00 +0800</lastBuildDate><atom:link href="http://jchenTech.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Nov 2020 22:25:00 +0800</lastBuildDate><atom:link href="http://jchenTech.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>数值分析连载03 | 函数逼近</title>
+      <link>http://jchenTech.github.io/post/Math/%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%9003%E5%87%BD%E6%95%B0%E9%80%BC%E8%BF%91/</link>
+      <pubDate>Tue, 17 Nov 2020 22:25:00 +0800</pubDate>
+      
+      <guid>http://jchenTech.github.io/post/Math/%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%9003%E5%87%BD%E6%95%B0%E9%80%BC%E8%BF%91/</guid>
+      <description>1 函数逼近的概念 首先我们可能对函数逼近的概念不太清楚，这里我们先通过一个熟悉的例子来了解一下函数逼近的概念。 现在我们仍然是已知 $x_1&amp;hellip;x_N ; y_1&amp;hellip;y_N$ 求一个简单易算的近似函数 $P(x) \approx f(x)$ ，之前我们是通过插值的方法来计算 $P(x)$ 但是当： N很大； $y_i$ 本身是测量值，不准确，即 $y_i \ne f(x_i)$ 我们这时没必要取 $P(x_i) = y_i$ ，而要使得 $P(x_i) -</description>
+    </item>
+    
+    <item>
+      <title>数值分析连载01 | 误差</title>
+      <link>http://jchenTech.github.io/post/Math/%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%9001%E8%AF%AF%E5%B7%AE/</link>
+      <pubDate>Tue, 17 Nov 2020 22:23:00 +0800</pubDate>
+      
+      <guid>http://jchenTech.github.io/post/Math/%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%9001%E8%AF%AF%E5%B7%AE/</guid>
+      <description>1 误差及相关概念 本章需要的掌握的误差概念 截断误差：是指计算某个算式时没有精确的计算结果，如积分计算，无穷级数计算等，使用极限的形式表达的，显然我们只能截取有限项进行计算，此时必定会有误差存在，这就是截断误差。 舍入误差：是指由于计算机表示位数的有限，很难表示位数很长的数字，这时计算</description>
+    </item>
+    
+    <item>
+      <title>数值分析连载02 | 插值</title>
+      <link>http://jchenTech.github.io/post/Math/%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%9002%E6%8F%92%E5%80%BC/</link>
+      <pubDate>Tue, 17 Nov 2020 22:23:00 +0800</pubDate>
+      
+      <guid>http://jchenTech.github.io/post/Math/%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%9002%E6%8F%92%E5%80%BC/</guid>
+      <description>1 插值 定义：设函数 $y=f(x)$ 在区间[a, b]上的 $n + 1$ 个点， $a \le x_0,x_1,&amp;hellip;,x_n \le b$ 上的函数值为 $y_0,y_1,&amp;hellip;,y_n$ 若存在函数 $P(x)$ ， 使得： $$ P(x_i)=y_i,i=0,1,&amp;hellip;,n $$ 成立，则称函数 $P(x)$ 为 $f(x)$的插值函数，$f(x)$ 称为被插值函数，点 $x_0,x_1,&amp;hellip;,x_n$ 称为插值节点，包含插值节点的区间[a, b] 称为插值区间。 一般来说 $P(x)$ 分为三类，一类是 $n$ 次多项式 $a_0 + a_1 x + &amp;hellip; +</description>
+    </item>
+    
+    <item>
+      <title>数值分析连载00 | 数值分析考点</title>
+      <link>http://jchenTech.github.io/post/Math/%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E8%80%83%E7%82%B9/</link>
+      <pubDate>Tue, 17 Nov 2020 22:20:00 +0800</pubDate>
+      
+      <guid>http://jchenTech.github.io/post/Math/%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E8%80%83%E7%82%B9/</guid>
+      <description>第1章 误差 误差的来源类型；截断误差；舍入误差 第2、3章 函数插值与函数逼近 构造插值多项式的方法： 待定系数法 基函数法 承袭性思想 拉格朗日插值多项式；插值基函数 牛顿插值多项式；差商表；差商与导数的关系 含导数插值条件（Hermite插值）的构造法；余项表达式；最小二乘法，法方程组 第4章 数值</description>
+    </item>
+    
     <item>
       <title>JavaWeb连载12 | JSON和AJAX</title>
       <link>http://jchenTech.github.io/post/JavaWeb/JSON%E5%92%8CAJAX/</link>
