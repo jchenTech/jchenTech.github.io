@@ -233,26 +233,37 @@ $$</p>
 </li>
 </ol>
 <h2 id="2-内积与内积空间">2 内积与内积空间</h2>
+<blockquote>
 <p><strong>定义</strong>：设在区间 (a, b) 上非负函数 $\rho (x)$ ，满足条件：</p>
 <ol>
-<li>$\int_{;a}^{;b} {|x{|^n}\rho (x)dx} $ 存在 (n=0,1,…)，</li>
-<li>对非负的连续函数 $g(x)$ ，若$\int_{;a}^{;b} {g(x)\rho (x)dx = 0} $ ，</li>
+<li>
+<p>$\int_{;a}^{;b} {|x{|^n}\rho (x)dx} $ 存在 (n=0,1,…)，</p>
+</li>
+<li>
+<p>对非负的连续函数 $g(x)$ ，若$\int_{;a}^{;b} {g(x)\rho (x)dx = 0} $ ，</p>
+</li>
 </ol>
 <p>则在(a, b)上 $g(x) \equiv 0$ ，$\rho (x)$ 就称为区间(a, b)上的<strong>权函数</strong>。</p>
+</blockquote>
 <hr>
+<blockquote>
 <p><strong>定义</strong>：设 $f(x),;g(x) \in C[a,;b],;\rho (x)$ 是[a, b]上的权函数，积分：
 $$
 (f,;g) = \int_{;a}^{;b} {\rho (x)f(x)g(x)dx}
 $$
 称为函数 $f(x)$ 与 $g(x)$ 在[a, b]上的**内积**。</p>
 <p>满足内积定义的函数空间称为<strong>内积空间</strong>。因此，连续函数空间 $C[a,;b]$ 上定义了内积就形成一个内积空间。</p>
+</blockquote>
 <hr>
+<blockquote>
 <p><strong>定义</strong>： $f(x) \in C[a,;b]$ ，量
 $$
-{\left| {;f;} \right|<em>2} = \sqrt {\int</em>{;a}^{;b} {\rho (x){f^2}(x)dx} }  = \sqrt {(f,;f)} 
+{\left| {;f;} \right|<em>2} = \sqrt {\int</em>{;a}^{;b} {\rho (x){f^2}(x)dx} }  = \sqrt {(f,;f)}
 $$
 称为 $f(x)$ 的<strong>欧式范数</strong>。</p>
+</blockquote>
 <hr>
+<blockquote>
 <p><strong>定理</strong>：对任何 $f,;g \in C[a,;b]$ ，下列结论成立</p>
 <ol>
 <li>
@@ -268,10 +279,12 @@ $$
 平行四边形不等式</p>
 </li>
 </ol>
+</blockquote>
 <hr>
+<blockquote>
 <p><strong>定义</strong>：若 $f(x),;g(x) \in C[a,;b]$ 满足
 $$
-(f,;g) = \int_{;a}^{;b} {\rho (x)f(x)g(x)dx = 0} 
+(f,;g) = \int_{;a}^{;b} {\rho (x)f(x)g(x)dx = 0}
 $$
 则称 $f$ 与 $g$ 在[a, b]上带权 $\rho(x)$ 正交，若函数族 ${\varphi _0}(x),;{\varphi _1}(x),; \cdots ,;{\varphi _n}(x), \cdots $ 满足关系：
 $$
@@ -281,16 +294,20 @@ $$
 \end{array} \right.}
 $$
 就称 $ {\varphi_k }$ 是[a, b]上带权 $\rho (x)$ 的**正交函数族**；若 ${A_k} \equiv 1$ ，就称之为**标准正交函数族**。</p>
+</blockquote>
 <p>例如： 三角函数族 $1,;\cos x,;\sin x,;\cos 2x,;\sin 2x,; \cdots ,$</p>
 <hr>
-<p><strong>定义</strong>：线性无关函数族 ${\varphi _0}(x),;{\varphi _1}(x),; \cdots ,;{\varphi _n}(x), \cdots$ 满足条件：其中任意函数的线性组合${a_0}{\varphi _0}(x) + {a_1}{\varphi <em>1}(x) +  \cdots  + {a</em>{n - 1}}{\varphi <em>{n - 1}}(x) = 0$ 对任意 $x \in [a, b]$ 成立
-当且仅当 ${a_0} = {a_1} =  \cdots  = {a</em>{n - 1}} = 0$ 时成立，则称在[a, b]上是<strong>线性无关</strong>的，若函数族            中的任何有限个 ${ {\varphi _k}} (k = 0,;1, \cdots )$ 线性无关，则称 ${\varphi _k}$为<strong>线性无关函数族</strong>。</p>
+<blockquote>
+<p><strong>定义</strong>：线性无关函数族 ${\varphi _0}(x),;{\varphi _1}(x),; \cdots ,;{\varphi _n}(x), \cdots$ 满足条件：其中任意函数的线性组合${a_0}{\varphi _0}(x) + {a_1}{\varphi <em>1}(x) +  \cdots  + {a</em>{n - 1}}{\varphi <em>{n - 1}}(x) = 0$ 对任意 $x \in [a, b]$ 成立当且仅当 ${a_0} = {a_1} =  \cdots  = {a</em>{n - 1}} = 0$ 时成立，则称在[a, b]上是<strong>线性无关</strong>的，若函数族中的任何有限个 ${ {\varphi _k}} (k = 0,;1, \cdots )$ 线性无关，则称 ${\varphi _k}$为<strong>线性无关函数族</strong>。</p>
+</blockquote>
 <p>例如：$1,;x, \cdots ,;{x^n}, \cdots $ 就是[a, b]上线性无关函数族，</p>
 <hr>
+<blockquote>
 <p><strong>定理</strong>：判断函数族 ${\varphi_k} (k = 0,;1, \cdots ,;n - 1)$ 线性无关的充要条件：</p>
-<p>${\varphi _0}(x),;{\varphi <em>1}(x), \cdots ,;{\varphi <em>{n - 1}}(x)$ 在[a, b]上<strong>线性无关的充要条件</strong>是它的克莱姆（Cramer）行列式 ${G</em>{n - 1}} \ne 0$ 其中：
-$$
-{G</em>{n - 1}} = G({\varphi _0};{\varphi _1}, \cdots ,;{\varphi _{n - 1}}) = \left| {\begin{array}{*{20}{c}}
+<p>${\varphi _0}(x),;{\varphi _1}(x), \cdots ,;{\varphi <em>{n - 1}}(x)$ 在[a, b]上<strong>线性无关的充要条件</strong>是它的克莱姆（Cramer）行列式 ${G</em>{n - 1}} \ne 0$ 其中：</p>
+</blockquote>
+<p>$$
+{G_{n - 1}} = G({\varphi _0};{\varphi _1}, \cdots ,;{\varphi _{n - 1}}) = \left| {\begin{array}{*{20}{c}}
 {({\varphi _0},;{\varphi _0})}&amp;{({\varphi _0},;{\varphi _1})}&amp; \cdots &amp;{({\varphi _0},;{\varphi _{n - 1}})}\<br>
 {({\varphi _1},;{\varphi _0})}&amp;{({\varphi _1},;{\varphi _1})}&amp; \cdots &amp;{({\varphi _1},;{\varphi _{n - 1}})}\<br>
 { \cdots  \cdots }&amp;{}&amp; \cdots &amp;{}\<br>
@@ -400,6 +417,7 @@ $$
 = \frac{1}{2} - \frac{4}{{15}} \times \frac{2}{3} - \frac{{12}}{{15}} \times \frac{2}{5} = 0.002222
 $$</p>
 <h2 id="3-正交多项式">3 正交多项式</h2>
+<blockquote>
 <p><strong>定义</strong>：首项系数 $a_k \ne 0$ 的 $n$ 次多项式 ${g_n}(x)$，满足：
 $$
 \int_{;a}^{;b} {\rho (x){g_j}(x){g_k}(x)dx = \left{ \begin{array}{l}
@@ -408,6 +426,7 @@ $$
 \end{array} \right.} \quad (j,k = 0,;1, \cdots )
 $$
 就称多项式序列 ${g_0}(x),;{g_1}(x), \cdots  \cdots $ 在[a, b]上带权 $\rho (x)$ 正交，并称 ${g_n}(x)$ 是[a, b]上带权 $\rho (x)$ 的 $n$ 次**正交多项式**。</p>
+</blockquote>
 <p><strong>正交多项式的性质</strong>：</p>
 <ol>
 <li>
@@ -592,19 +611,86 @@ $$
 {({\varphi _m},;y)}
 \end{array}} \right]
 $$
-中间的 $a_j$ 为回归系数。得到函数：
+中间的 $a_j$ 为回归系数。**法方程组又可以写成矩阵形式**：
+$$
+{{\bf{A}}^T}{\bf{A}}\alpha  = {{\bf{A}}^T}{\bf{Y}}
+$$
+其中：
+$$
+\mathbf{A}=\left[\begin{array}{cccc}\varphi_{0}\left(x_{1}\right) &amp; \varphi_{1}\left(x_{1}\right) &amp; \vdots &amp; \varphi_{m}\left(x_{1}\right) \ \varphi_{0}\left(x_{2}\right) &amp; \varphi_{1}\left(x_{2}\right) &amp; \cdots &amp; \varphi_{m}\left(x_{2}\right) \ \vdots &amp; \vdots &amp; \cdots &amp; \vdots \ \varphi_{0}\left(x_{N}\right) &amp; \varphi_{1}\left(x_{N}\right) &amp; \cdots &amp; \varphi_{m}\left(x_{N}\right)\end{array}\right]
+$$
+从而得到函数：
 $$
 \varphi _{}^*(x) = a_0^*{\varphi _0} + a_1^*{\varphi _1} +  \cdots  + a_m^*{\varphi _m}
 $$
 最小平方误差为：
 $$
-{\delta ^2} = \left| {y - {\phi ^*}} \right|_2^2 = (y - {\phi ^*},;y - {\phi ^*}) = \left| y \right|_2^2 - \sum\limits_{j = 0}^m {a_j^*({\phi _j},;y)}
+{\delta ^2} = \left| {y - {\varphi ^*}} \right|_2^2 = (y - {\varphi ^*},;y - {\varphi ^*}) = \left| y \right|_2^2 - \sum\limits_{j = 0}^m {a_j^*({\varphi _j},;y)}
 $$</p>
 <p>若取 ${\varphi <em>0} = 1,;{\varphi <em>1} = x, \cdots ,{\varphi <em>m} = {x^m}$ ，即取 ${ 1,;x, \cdots ,;{x^m}} $ 为基函数的代数多项式拟合时，相应的法方程组就是
 $$
 \left[\begin{array}{cccc}\sum</em>{i=1}^{N} \omega</em>{i} &amp; \sum</em>{i=1}^{N} \omega_{i} x_{i} &amp; \cdots &amp; \sum_{i=1}^{N} \omega_{i} x_{i}^{m} \ \sum_{i=1}^{N} \omega_{i} x_{i} &amp; \sum_{i=1}^{N} \omega_{i} x_{i}^{2} &amp; \cdots &amp; \sum_{i=1}^{N} \omega_{i} x_{i}^{m+1} \ \vdots &amp; \vdots &amp; \vdots &amp; \vdots \ \sum_{i=1}^{N} \omega_{i} x_{i}^{m} &amp; \sum_{i=1}^{N} \omega_{i} x_{i}^{m+1} &amp; \cdots &amp; \sum_{i=1}^{N} \omega_{i} x_{i}^{2 m}\end{array}\right]\left[\begin{array}{c}a_{0} \ a_{1} \ \vdots \ a_{m}\end{array}\right]=\left[\begin{array}{c}\sum_{i=1}^{N} \omega_{i} y_{i} \ \sum_{i=1}^{N} \omega_{i} x_{i} y_{i} \ \sum_{i=1}^{N} \omega_{i} x_{i}^{m} y_{i}\end{array}\right]
 $$
 求出法方程组的解即可得到拟合多项式。</p>
+<p>例题：用二次多项式以最小二乘拟合表中的数据并计算误差平方</p>
+<table>
+<thead>
+<tr>
+<th>$x_i$</th>
+<th>-2</th>
+<th>-1</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$y_i$</td>
+<td>-0.1</td>
+<td>0.1</td>
+<td>0.4</td>
+<td>0.9</td>
+<td>1.6</td>
+</tr>
+</tbody>
+</table>
+<p>解：设二次拟合函数为 $y(x) = {a_1} + {a_2}x + {a_3}{x^2}$ ，利用法方程 ${A^T}Aa = {A^T}Y$</p>
+<p>其中：${\varphi _0}(x) = 1,{\varphi _1}(x) = x,{\varphi _2}(x) = {x^2},$ $a = {({a_1},{a_2},{a_3})^T}$ ， $Y = {( - 0.1,0.1,0.4,0.9,1.6)^T}$</p>
+<p>$A = \left[ \begin{array}{l}
+1\quad , - 2\quad 4\<br>
+1,\quad  - 1\quad ,1\<br>
+1,\quad ;,0,\quad 0\<br>
+1\quad ;;,1,\quad 1\<br>
+1,\quad ;2,\quad 4
+\end{array} \right]$  ${A^T}A = \left[ \begin{array}{l}
+5\quad ;0\quad 10\<br>
+0\quad 10\quad 0\<br>
+10;;;0;;;34
+\end{array} \right]$  ${A^T}Y = \left[ \begin{array}{l}
+2.9\ 
+4.2\<br>
+;7
+\end{array} \right]$</p>
+<p>$\left[ \begin{array}{l}
+5\quad ;0\quad 10\<br>
+0\quad 10\quad 0\<br>
+10;;;0;;;34
+\end{array} \right];{\kern 1pt} \left[ \begin{array}{l}
+{a_1}\<br>
+{a_2}\<br>
+{a_3}
+\end{array} \right] = \left[ \begin{array}{l}
+2.9\<br>
+4.2\<br>
+;7
+\end{array} \right]$ 得出 $\begin{array}{l}
+{a_1} = 0.4086,\<br>
+{a_2} = 0.42,\<br>
+{a_3} = 0.0857
+\end{array}$</p>
+<p>故所求得二次多项式为：$y(x) = 0.4086 + 0.42x + 0.0857{x^2}$</p>
+<p>误差平方和：${\sigma _2} = {Y^T}(Y - Aa) = 0.00116$</p>
 
         </div>
 
