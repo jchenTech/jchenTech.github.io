@@ -1,0 +1,883 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+
+    <title>JavaWeb连载09 | EL表达式 | jchen&#39;s blog</title>
+    <meta property="og:title" content="JavaWeb连载09 | EL表达式 - jchen&#39;s blog">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2020-11-08T21:55:00&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2020-11-08T21:55:00&#43;08:00'>
+        
+    <meta name="Keywords" content="Java后端">
+    <meta name="description" content="JavaWeb连载09 | EL表达式">
+        
+    <meta name="author" content="jchen">
+    <meta property="og:url" content="http://jchenTech.github.io/post/JavaWeb/09EL%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+    
+    
+    
+        <link rel="stylesheet" href='/css/douban.css'>
+    
+        <link rel="stylesheet" href='/css/other.css'>
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://jchenTech.github.io/">
+                        jchen&#39;s blog
+                    </a>
+                
+                <p class="description">专注于Java后端、大数据，记录分享自己的学习过程</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="http://jchenTech.github.io/">首页</a>
+                    
+                    <a  href="http://jchenTech.github.io/route/" title="路线">路线</a>
+                    
+                    <a  href="http://jchenTech.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://jchenTech.github.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    <style type="text/css">
+    .post-toc {
+        position: fixed;
+        width: 200px;
+        margin-left: -210px;
+        padding: 5px 10px;
+        font-family: Athelas, STHeiti, Microsoft Yahei, serif;
+        font-size: 12px;
+        border: 1px solid rgba(0, 0, 0, .07);
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.98);
+        background-clip: padding-box;
+        -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        word-wrap: break-word;
+        white-space: nowrap;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        z-index: 999;
+        cursor: pointer;
+        max-height: 70%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+    @media print,
+    screen and (max-width:1057px) {
+        .post-toc {
+            display: none;
+        }
+    }
+</style>
+<div class="post-toc" style="position: absolute; top: 188px;">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-el表达式简介">1 EL表达式简介</a></li>
+    <li><a href="#2-el表达式搜索域数据的顺序">2 EL表达式搜索域数据的顺序</a></li>
+    <li><a href="#3-el表达式输出java类的属性">3 EL表达式输出Java类的属性</a></li>
+    <li><a href="#4-el表达式的运算">4 EL表达式的运算</a>
+      <ul>
+        <li><a href="#41-关系运算">4.1 关系运算</a></li>
+        <li><a href="#42-逻辑运算">4.2 逻辑运算</a></li>
+        <li><a href="#43-算数运算">4.3 算数运算</a></li>
+        <li><a href="#44-empty运算">4.4 empty运算</a></li>
+        <li><a href="#45-三元运算">4.5 三元运算</a></li>
+        <li><a href="#46-点运算和中括号运算">4.6 &ldquo;.&ldquo;点运算和&rdquo;[]&ldquo;中括号运算</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-el表达式的11个隐含对象">5 EL表达式的11个隐含对象</a>
+      <ul>
+        <li><a href="#51--pagescoperequestscopesessionscopeapplicationscope对象的使用">5.1  pageScope、requestScope、sessionScope、applicationScope对象的使用</a></li>
+        <li><a href="#52-pagecontext对象的使用">5.2 pageContext对象的使用</a></li>
+        <li><a href="#53-其他隐含对象的使用">5.3 其他隐含对象的使用</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var postToc = $(".post-toc");
+        if (postToc.length) {
+            var leftPos = $("#main").offset().left;
+            if(leftPos<220){
+                postToc.css({"width":leftPos-10,"margin-left":(0-leftPos)})
+            }
+
+            var t = postToc.offset().top - 20,
+                a = {
+                    start: {
+                        position: "absolute",
+                        top: t
+                    },
+                    process: {
+                        position: "fixed",
+                        top: 20
+                    },
+                };
+            $(window).scroll(function () {
+                var e = $(window).scrollTop();
+                e < t ? postToc.css(a.start) : postToc.css(a.process)
+            })
+        }
+    })
+</script>
+    <article class="post">
+        <header>
+            <h1 class="post-title">JavaWeb连载09 | EL表达式</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年11月8日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='/categories/JavaWeb'>JavaWeb</a></span>
+            
+        </div>
+        
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span>
+                    阅读</span></span>
+        </div>
+        
+        
+        <div class="post-content">
+            <h2 id="1-el表达式简介">1 EL表达式简介</h2>
+<ol>
+<li>EL表达式全称：Expression Language，即表达式语言</li>
+<li>EL表达式作用：代替JSP页面中表达式脚本进行数据的输出</li>
+<li>EL表达式比JSP的表达式脚本简洁很多</li>
+<li>EL表达式的格式是：<code>${表达式}</code> ，注：EL表达式写在jsp页面中，表达式一般是域对象的key</li>
+</ol>
+<p>代码演示：在web目录下创建a.jsp</p>
+<pre><code class="language-jsp" data-lang="jsp">&lt;body&gt;
+    &lt;%
+        request.setAttribute(&quot;key&quot;,&quot;值&quot;);
+    %&gt;
+    表达式脚本输出key的值是：&lt;%=request.getAttribute(&quot;key1&quot;)==null?&quot;&quot;:request.getAttribute(&quot;key1&quot;)%&gt;&lt;br/&gt;
+    EL表达式输出key的值是：${key1}
+&lt;/body&gt;
+</code></pre><p>EL表达式在输出null 值的时候，输出的是空串。jsp 表达式脚本输出null 值的时候，输出的是null 字符串。</p>
+<h2 id="2-el表达式搜索域数据的顺序">2 EL表达式搜索域数据的顺序</h2>
+<p>EL表达式主要是输出域对象中的数据，当四个域对象都有同一个key的值时，EL表达式会按照四个域对象的范围从小到大进行搜索，找到就输出，与四个域对象声明的先后顺序无关</p>
+<p>代码演示：在web目录下创建Test.jsp</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">body</span>&gt;
+    <span style="color:#960050;background-color:#1e0010">&lt;</span>%
+        //往四个域中都保存了相同的key的数据。
+        request.setAttribute(&#34;key&#34;, &#34;request&#34;);
+        session.setAttribute(&#34;key&#34;, &#34;session&#34;);
+        application.setAttribute(&#34;key&#34;, &#34;application&#34;);
+        pageContext.setAttribute(&#34;key&#34;, &#34;pageContext&#34;);
+    %&gt;
+    ${ key }
+&lt;/<span style="color:#f92672">body</span>&gt;
+</code></pre></div><p>运行结果：</p>
+<p>
+        <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201108204006.png">
+            <img class="mx-auto" alt="image-20201108204005933" src="https://gitee.com/jchenTech/images/raw/master/img/20201108204006.png" />
+        </a>
+    </p>
+<h2 id="3-el表达式输出java类的属性">3 EL表达式输出Java类的属性</h2>
+<p>代码演示：创建Person类</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span> <span style="color:#f92672">{</span>
+    <span style="color:#75715e">//输出Person类中普通属性，数组属性，list集合属性和map集合属性
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> String<span style="color:#f92672">[]</span> phones<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> cities<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> Map<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> Object<span style="color:#f92672">&gt;</span> map<span style="color:#f92672">;</span>
+    <span style="color:#75715e">//注意：没有声明age属性
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getAge</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> 18<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#75715e">//以及全参、空参构造器，各属性的getter/setter方法
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+123456789101112
+</code></pre></div><p>代码演示：在web目录下创建c.jsp</p>
+<pre><code class="language-jsp" data-lang="jsp">&lt;body&gt;
+&lt;%
+    Person person = new Person();
+    person.setName(&quot;我爱中国！&quot;);
+    person.setPhones(new String[]{&quot;18610541354&quot;,&quot;18688886666&quot;,&quot;18699998888&quot;});
+
+    List&lt;String&gt; cities = new ArrayList&lt;String&gt;();
+    cities.add(&quot;北京&quot;);
+    cities.add(&quot;上海&quot;);
+    cities.add(&quot;深圳&quot;);
+    person.setCities(cities);
+
+    Map&lt;String,Object&gt; map = new HashMap&lt;&gt;();
+    map.put(&quot;key1&quot;,&quot;value1&quot;);
+    map.put(&quot;key2&quot;,&quot;value2&quot;);
+    map.put(&quot;key3&quot;,&quot;value3&quot;);
+    person.setMap(map);
+
+    pageContext.setAttribute(&quot;p&quot;, person);
+%&gt;
+
+    输出Person：${ p }&lt;br/&gt;
+    输出Person的name属性：${p.name} &lt;br&gt;
+    输出Person的pnones数组属性值：${p.phones[2]} &lt;br&gt;
+    输出Person的cities集合中的元素值：${p.cities} &lt;br&gt;
+    输出Person的List集合中个别元素值：${p.cities[2]} &lt;br&gt;
+    输出Person的Map集合: ${p.map} &lt;br&gt;
+    输出Person的Map集合中某个key的值: ${p.map.key3} &lt;br&gt;
+    输出Person的age属性：${p.age} &lt;br&gt;
+
+
+&lt;/body&gt;
+</code></pre><p>注意，这里面输出Java类对象属性时是调用的对象属性对应的get方法，而不是调用属性，因此<code>${p.age}</code>调用的是age对应的<code>getAge()</code>方法</p>
+<p>运行结果：
+
+        <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201108204814.png">
+            <img class="mx-auto" alt="image-20201108204813927" src="https://gitee.com/jchenTech/images/raw/master/img/20201108204814.png" />
+        </a>
+    </p>
+<h2 id="4-el表达式的运算">4 EL表达式的运算</h2>
+<p>语法：${运算表达式}，EL表达式支持以下运算符：</p>
+<h3 id="41-关系运算">4.1 关系运算</h3>
+<p>
+        <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201108215416">
+            <img class="mx-auto" alt="在这里插入图片描述" src="https://gitee.com/jchenTech/images/raw/master/img/20201108215416" />
+        </a>
+    </p>
+<h3 id="42-逻辑运算">4.2 逻辑运算</h3>
+<p>
+        <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201108214648">
+            <img class="mx-auto" alt="在这里插入图片描述" src="https://gitee.com/jchenTech/images/raw/master/img/20201108214648" />
+        </a>
+    </p>
+<h3 id="43-算数运算">4.3 算数运算</h3>
+<p>
+        <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201108214647">
+            <img class="mx-auto" alt="在这里插入图片描述" src="https://gitee.com/jchenTech/images/raw/master/img/20201108214647" />
+        </a>
+    </p>
+<h3 id="44-empty运算">4.4 empty运算</h3>
+<p>empty运算可以判断一个数据是否为空，若为空，输出true，不为空，输出false
+以下几种情况为空(在原本的key之前加empty关键字)：</p>
+<ol>
+<li>值为null 值的时候，为空</li>
+<li>值为空串的时候，为空</li>
+<li>值是Object 类型数组，长度为零的时候</li>
+<li>list 集合，元素个数为零</li>
+<li>map 集合，元素个数为零</li>
+</ol>
+<h3 id="45-三元运算">4.5 三元运算</h3>
+<p>表达式 1？表达式 2：表达式 3
+如果表达式1为真返回表达式2的值，如果表达式1为假返回表达式3的值</p>
+<pre><code class="language-jsp" data-lang="jsp">&lt;body&gt;
+    &lt;%
+        //1、值为null值时
+        request.setAttribute(&quot;emptyNull&quot;, null);
+        //2、值为空串时
+        request.setAttribute(&quot;emptyStr&quot;, &quot;&quot;);
+        //3、值是Object类型数组，长度为零的时候
+        request.setAttribute(&quot;emptyArr&quot;, new Object[]{});
+        //4、list集合，元素个数为零
+        List&lt;String&gt; list = new ArrayList&lt;&gt;();
+        request.setAttribute(&quot;emptyList&quot;, list);
+        //5、map集合，元素个数为零
+        Map&lt;String,Object&gt; map = new HashMap&lt;String, Object&gt;();
+        request.setAttribute(&quot;emptyMap&quot;, map);
+        //6、其他类型数组长度为0
+        request.setAttribute(&quot;emptyIntArr&quot;, new int[]{});
+    %&gt;
+    ${ empty emptyNull } &lt;br/&gt;
+    ${ empty emptyStr } &lt;br/&gt;
+    ${ empty emptyArr } &lt;br/&gt;
+    ${ empty emptyList } &lt;br/&gt;
+    ${ empty emptyMap } &lt;br/&gt;
+    ${ empty emptyIntArr} &lt;br/&gt;
+    &lt;%-- 三元运算   --%&gt;
+    ${ 12 != 12 ? &quot;相等&quot;:&quot;不相等&quot; }
+&lt;/body&gt;
+</code></pre><p>运行结果：
+
+        <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201108214640">
+            <img class="mx-auto" alt="在这里插入图片描述" src="https://gitee.com/jchenTech/images/raw/master/img/20201108214640" />
+        </a>
+    </p>
+<h3 id="46-点运算和中括号运算">4.6 &ldquo;.&ldquo;点运算和&rdquo;[]&ldquo;中括号运算</h3>
+<p>点运算可以输出Bean对象的某个属性的值(getXxx或isXxx方法返回的值)
+中括号运算可以输出有序集合中某个元素的值</p>
+<p>注：中括号运算可以输出Map集合中key里含有特殊字符的key的值</p>
+<pre><code class="language-jsp" data-lang="jsp">&lt;body&gt;
+    &lt;%
+        Map&lt;String,Object&gt; map = new HashMap&lt;String, Object&gt;();
+        map.put(&quot;a.a.a&quot;, &quot;aaaValue&quot;);
+        map.put(&quot;b+b+b&quot;, &quot;bbbValue&quot;);
+        map.put(&quot;c-c-c&quot;, &quot;cccValue&quot;);
+        request.setAttribute(&quot;map&quot;, map);
+    %&gt;
+    &lt;%--特殊的key需要去掉最开始的&quot;.&quot;并使用中括号和单引号(双引号)包起来--%&gt;
+    ${ map['a.a.a'] } &lt;br&gt; &lt;%--如果不加中括号则相当于三个.运算--%&gt; //错误的是 ${map.a.a.a}
+    ${ map[&quot;b+b+b&quot;] } &lt;br&gt; &lt;%--如果不加中括号则相当于三个+运算--%&gt;
+    ${ map['c-c-c'] } &lt;br&gt; &lt;%--如果不加中括号则相当于三个-运算--%&gt;
+&lt;/body&gt;
+12345678910111213
+</code></pre><p>运行结果：
+
+        <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201108212049">
+            <img class="mx-auto" alt="在这里插入图片描述" src="https://gitee.com/jchenTech/images/raw/master/img/20201108212049" />
+        </a>
+    </p>
+<h2 id="5-el表达式的11个隐含对象">5 EL表达式的11个隐含对象</h2>
+<p>
+        <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201108212126">
+            <img class="mx-auto" alt="在这里插入图片描述" src="https://gitee.com/jchenTech/images/raw/master/img/20201108212126" />
+        </a>
+    </p>
+<p>EL表达式中的11个隐含对象是EL表达式自己定义的，可以直接使用</p>
+<h3 id="51--pagescoperequestscopesessionscopeapplicationscope对象的使用">5.1  pageScope、requestScope、sessionScope、applicationScope对象的使用</h3>
+<p>代码演示：在web目录下创建scope.jsp</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">body</span>&gt;
+    <span style="color:#960050;background-color:#1e0010">&lt;</span>%
+        pageContext.setAttribute(&#34;key1&#34;, &#34;pageContext1&#34;);
+        pageContext.setAttribute(&#34;key2&#34;, &#34;pageContext2&#34;);
+        request.setAttribute(&#34;key2&#34;, &#34;request&#34;);
+        session.setAttribute(&#34;key2&#34;, &#34;session&#34;);
+        application.setAttribute(&#34;key2&#34;, &#34;application&#34;);
+    %&gt;
+    <span style="color:#960050;background-color:#1e0010">&lt;</span>%--  获取特定域中的属性  --%&gt;
+    ${ pageScope.key1 } &lt;<span style="color:#f92672">br</span>&gt;
+    ${ applicationScope.key2 }
+    <span style="color:#960050;background-color:#1e0010">&lt;</span>%--  若直接获取key1或key2依然按照之前范围从小到大检索，无法获取指定域  --%&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
+</code></pre></div><p>运行结果：
+
+        <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201108213521.png">
+            <img class="mx-auto" alt="image-20201108213521870" src="https://gitee.com/jchenTech/images/raw/master/img/20201108213521.png" />
+        </a>
+    </p>
+<h3 id="52-pagecontext对象的使用">5.2 pageContext对象的使用</h3>
+<p>代码示例：在web目录下创建pageContext.jsp</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#960050;background-color:#1e0010">&lt;</span>%@ page contentType=&#34;text/html;charset=UTF-8&#34; language=&#34;java&#34; %&gt;
+&lt;<span style="color:#f92672">html</span>&gt;
+&lt;<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">title</span>&gt;Title&lt;/<span style="color:#f92672">title</span>&gt;
+&lt;/<span style="color:#f92672">head</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
+    <span style="color:#960050;background-color:#1e0010">&lt;</span>%-- 先通过pageContext对象获取request、session对象，再获取以下内容 --%&gt;
+    <span style="color:#960050;background-color:#1e0010">&lt;</span>%--
+        获取请求的协议：request.getScheme()
+        获取请求的服务器ip或域名：request.getServerName()
+        获取请求的服务器端口号：request.getServerPort()
+        获取当前工程路径：request.getContextPath()
+        获取请求的方式：request.getMethod()
+        获取客户端的ip地址：request.getRemoteHost()
+        获取会话的唯一标识：session.getId()
+    --%&gt;
+1.协议： ${ pageContext.request.scheme }&lt;<span style="color:#f92672">br</span>&gt;
+2.服务器ip：${ pageContext.request.serverName }&lt;<span style="color:#f92672">br</span>&gt;
+3.服务器端口：${ pageContext.request.serverPort }&lt;<span style="color:#f92672">br</span>&gt;
+4.获取工程路径：${ pageContext.request.contextPath }&lt;<span style="color:#f92672">br</span>&gt;
+5.获取请求方法：${ pageContext.request.method }&lt;<span style="color:#f92672">br</span>&gt;
+6.获取客户端ip地址：${ pageContext.request.remoteHost }&lt;<span style="color:#f92672">br</span>&gt;
+7.获取会话的id编号：${ pageContext.session.id}&lt;<span style="color:#f92672">br</span>&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><p>运行结果：</p>
+<p>
+        <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201108213605.png">
+            <img class="mx-auto" alt="image-20201108213605532" src="https://gitee.com/jchenTech/images/raw/master/img/20201108213605.png" />
+        </a>
+    </p>
+<h3 id="53-其他隐含对象的使用">5.3 其他隐含对象的使用</h3>
+<p>代码示例：在web目录下创建other_el_obj.jsp</p>
+<pre><code class="language-jsp" data-lang="jsp">&lt;body&gt;
+    输出请求参数username的值：${ param.username } &lt;br&gt;
+    输出请求参数password的值：${ param.password } &lt;br&gt;
+
+    输出请求参数username的值：${ paramValues.username[0] } &lt;br&gt;
+    输出请求参数hobby的值：${ paramValues.hobby[0] } &lt;br&gt;
+    输出请求参数hobby的值：${ paramValues.hobby[1] } &lt;br&gt;
+    &lt;hr&gt;
+    输出请求头【User-Agent】的值：${ header['User-Agent'] } &lt;br&gt;
+    输出请求头【Connection】的值：${ header.Connection } &lt;br&gt;
+    输出请求头【User-Agent】的值：${ headerValues['User-Agent'][0] } &lt;br&gt;
+    &lt;hr&gt;
+    获取Cookie的名称：${ cookie.JSESSIONID.name } &lt;br&gt;
+    获取Cookie的值：${ cookie.JSESSIONID.value } &lt;br&gt;
+    &lt;hr&gt;
+
+    输出&amp;lt;Context-param&amp;gt;username的值：${ initParam.username } &lt;br&gt;
+    输出&amp;lt;Context-param&amp;gt;url的值：${ initParam.url } &lt;br&gt;
+
+&lt;/body&gt;
+</code></pre><p>请求地址：
+http://localhost:8080/09_EL_JSTL/other_el_obj.jsp?username=cjj057&amp;password=666666&amp;hobby=java&amp;hobby=cpp</p>
+<p>运行结果：</p>
+<p>
+        <a data-fancybox="gallery" href="https://gitee.com/jchenTech/images/raw/master/img/20201108215152.png">
+            <img class="mx-auto" alt="image-20201108215152396" src="https://gitee.com/jchenTech/images/raw/master/img/20201108215152.png" />
+        </a>
+    </p>
+
+        </div>
+
+        
+<div class="post-archive">
+    <ul class="post-copyright">
+        <li><strong>原文作者：</strong><a rel="author" href="http://jchenTech.github.io/">jchen</a></li>
+        <li style="word-break:break-all"><strong>原文链接：</strong><a href="http://jchenTech.github.io/post/JavaWeb/09EL%E8%A1%A8%E8%BE%BE%E5%BC%8F/">http://jchenTech.github.io/post/JavaWeb/09EL%E8%A1%A8%E8%BE%BE%E5%BC%8F/</a></li>
+        <li><strong>版权声明：</strong>本作品采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可，非商业转载请注明出处（作者，原文链接），商业转载请联系作者获得授权。</li>
+    </ul>
+</div>
+<br/>
+
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/JavaWeb/08JSP/">JavaWeb连载08 | JSP</a></li>
+        
+        <li><a href="/post/Java/Java%E8%AF%AD%E8%A8%80%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6%E8%AF%A6%E8%A7%A3/">JavaSE连载 | Java语言位运算符详解</a></li>
+        
+        <li><a href="/route/">Java后端学习路线</a></li>
+        
+        <li><a href="/about/">关于我</a></li>
+        
+        <li><a href="/post/DataBase/JDBC%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF/">JDBC核心技术</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='/tags/EL%E8%A1%A8%E8%BE%BE%E5%BC%8F'>EL表达式</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "your github repo"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2021 <a href="http://jchenTech.github.io/">jchen&#39;s blog By jchen</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'GA ID', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+    <script src='/js/douban.js'></script>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='http://jchenTech.github.io/search/' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://jchenTech.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/JavaWeb/14JSON%E5%92%8CAJAX/" title="JavaWeb连载14 | JSON和AJAX">JavaWeb连载14 | JSON和AJAX</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/JavaWeb/13Filter%E8%BF%87%E6%BB%A4%E5%99%A8/" title="JavaWeb连载13 | Filter过滤器">JavaWeb连载13 | Filter过滤器</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/JavaWeb/12Cookie%E5%92%8CSession/" title="JavaWeb连载12 | Cookie和Session">JavaWeb连载12 | Cookie和Session</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/JavaWeb/11%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%92%8C%E4%B8%8B%E8%BD%BD/" title="JavaWeb连载11 | 文件上传和下载">JavaWeb连载11 | 文件上传和下载</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/JavaWeb/10JSTL%E6%A0%87%E7%AD%BE%E5%BA%93/" title="JavaWeb连载10 | JSTL标签库">JavaWeb连载10 | JSTL标签库</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/JavaWeb/09EL%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="JavaWeb连载09 | EL表达式">JavaWeb连载09 | EL表达式</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/JavaWeb/08JSP/" title="JavaWeb连载08 | JSP">JavaWeb连载08 | JSP</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/Java/Java%E8%AF%AD%E8%A8%80%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6%E8%AF%A6%E8%A7%A3/" title="JavaSE连载 | Java语言位运算符详解">JavaSE连载 | Java语言位运算符详解</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/DataBase/JDBC%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF/" title="JDBC核心技术">JDBC核心技术</a>
+    </li>
+    
+    <li>
+        <a href="http://jchenTech.github.io/post/Java/IO%E6%B5%81/" title="JavaSE连载 | IO流">JavaSE连载 | IO流</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="http://jchenTech.github.io/categories/C&#43;&#43;/">C&#43;&#43; (6)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/DataBase/">DataBase (2)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/Git/">Git (2)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/Java/">Java (7)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/JavaWeb/">JavaWeb (14)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/Leetcode/">Leetcode (2)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/Linux/">Linux (2)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/Python/">Python (1)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/%E5%8D%9A%E5%AE%A2/">博客 (8)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">图像处理与深度学习 (10)</a></li>
+    
+    <li><a href="http://jchenTech.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法 (13)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="http://jchenTech.github.io/tags/AJAX/">AJAX</a>
+    
+    <a href="http://jchenTech.github.io/tags/AOD-Net/">AOD-Net</a>
+    
+    <a href="http://jchenTech.github.io/tags/Array/">Array</a>
+    
+    <a href="http://jchenTech.github.io/tags/C&#43;&#43;/">C&#43;&#43;</a>
+    
+    <a href="http://jchenTech.github.io/tags/CS61B/">CS61B</a>
+    
+    <a href="http://jchenTech.github.io/tags/CSS/">CSS</a>
+    
+    <a href="http://jchenTech.github.io/tags/Cookie/">Cookie</a>
+    
+    <a href="http://jchenTech.github.io/tags/DehazeNet/">DehazeNet</a>
+    
+    <a href="http://jchenTech.github.io/tags/EL%E8%A1%A8%E8%BE%BE%E5%BC%8F/">EL表达式</a>
+    
+    <a href="http://jchenTech.github.io/tags/Fast-R-CNN/">Fast R-CNN</a>
+    
+    <a href="http://jchenTech.github.io/tags/Faster-R-CNN/">Faster R-CNN</a>
+    
+    <a href="http://jchenTech.github.io/tags/Filter/">Filter</a>
+    
+    <a href="http://jchenTech.github.io/tags/Git/">Git</a>
+    
+    <a href="http://jchenTech.github.io/tags/Github/">Github</a>
+    
+    <a href="http://jchenTech.github.io/tags/HTML/">HTML</a>
+    
+    <a href="http://jchenTech.github.io/tags/Hugo/">Hugo</a>
+    
+    <a href="http://jchenTech.github.io/tags/IO%E6%B5%81/">IO流</a>
+    
+    <a href="http://jchenTech.github.io/tags/JDBC/">JDBC</a>
+    
+    <a href="http://jchenTech.github.io/tags/JSON/">JSON</a>
+    
+    <a href="http://jchenTech.github.io/tags/JSTL/">JSTL</a>
+    
+    <a href="http://jchenTech.github.io/tags/Java/">Java</a>
+    
+    <a href="http://jchenTech.github.io/tags/JavaScript/">JavaScript</a>
+    
+    <a href="http://jchenTech.github.io/tags/JavaWeb/">JavaWeb</a>
+    
+    <a href="http://jchenTech.github.io/tags/Linux/">Linux</a>
+    
+    <a href="http://jchenTech.github.io/tags/MRP%E5%A4%9C%E9%97%B4%E5%8E%BB%E9%9B%BE/">MRP夜间去雾</a>
+    
+    <a href="http://jchenTech.github.io/tags/MSCNN%E5%8E%BB%E9%9B%BE/">MSCNN去雾</a>
+    
+    <a href="http://jchenTech.github.io/tags/Matplotlib/">Matplotlib</a>
+    
+    <a href="http://jchenTech.github.io/tags/MySQL/">MySQL</a>
+    
+    <a href="http://jchenTech.github.io/tags/Python/">Python</a>
+    
+    <a href="http://jchenTech.github.io/tags/R-CNN/">R-CNN</a>
+    
+    <a href="http://jchenTech.github.io/tags/RNN/">RNN</a>
+    
+    <a href="http://jchenTech.github.io/tags/SSD/">SSD</a>
+    
+    <a href="http://jchenTech.github.io/tags/SSPNet/">SSPNet</a>
+    
+    <a href="http://jchenTech.github.io/tags/Servlet/">Servlet</a>
+    
+    <a href="http://jchenTech.github.io/tags/Session/">Session</a>
+    
+    <a href="http://jchenTech.github.io/tags/Ubuntu/">Ubuntu</a>
+    
+    <a href="http://jchenTech.github.io/tags/XML/">XML</a>
+    
+    <a href="http://jchenTech.github.io/tags/YOLO/">YOLO</a>
+    
+    <a href="http://jchenTech.github.io/tags/github-page/">github page</a>
+    
+    <a href="http://jchenTech.github.io/tags/golang/">golang</a>
+    
+    <a href="http://jchenTech.github.io/tags/Hugo/">Hugo</a>
+    
+    <a href="http://jchenTech.github.io/tags/jQuery/">jQuery</a>
+    
+    <a href="http://jchenTech.github.io/tags/markdown/">markdown</a>
+    
+    <a href="http://jchenTech.github.io/tags/programming/">programming</a>
+    
+    <a href="http://jchenTech.github.io/tags/theme/">theme</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">二叉树</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/">位运算</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">卷积神经网络</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%8F%8D%E5%B0%84/">反射</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%9B%BE%E5%83%8F%E5%8E%BB%E9%9B%BE/">图像去雾</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5/">图片插入</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%A4%8D%E6%9D%82%E7%BD%91%E7%BB%9C/">复杂网络</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">常用方法</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%BD%92%E6%A1%A3%E9%A1%B5%E9%9D%A2/">归档页面</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">循环神经网络</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">排序算法</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">文件上传</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/">文件下载</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E6%9A%97%E9%80%9A%E9%81%93/">暗通道</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E7%A4%BE%E4%BA%A4%E7%BD%91%E7%BB%9C%E6%8C%96%E6%8E%98/">社交网络挖掘</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">网络编程</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E9%93%BE%E8%A1%A8/">链表</a>
+    
+    <a href="http://jchenTech.github.io/tags/%E9%9B%86%E5%90%88/">集合</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://www.flysnow.org/" title="飞雪无情的博客">飞雪无情的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://yuedu.baidu.com/ebook/14a722970740be1e640e9a3e" title="我的Github地址">Android Gradle权威指南</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="http://jchenTech.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

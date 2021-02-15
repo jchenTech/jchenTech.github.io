@@ -9,10 +9,10 @@
     <lastBuildDate>Mon, 26 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://jchenTech.github.io/tags/XML/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>JavaWeb连载05 | XML</title>
-      <link>http://jchenTech.github.io/post/JavaWeb/XML/</link>
+      <link>http://jchenTech.github.io/post/JavaWeb/05XML/</link>
       <pubDate>Mon, 26 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://jchenTech.github.io/post/JavaWeb/XML/</guid>
+      <guid>http://jchenTech.github.io/post/JavaWeb/05XML/</guid>
       <description>1 XML 简介 1.1 什么是xml？ xml 是可扩展的标记性语言。 1.2 xml 的主要作用 用来保存数据，而且这些数据具有自我描述性 它还可以做为项目或者模块的配置文件 还可以做为网络传输数据的格式（现在JSON 为主）。 2 xml 语法 文档声明 元素（标签） xml 属性 xml 注释 文本区域（CDATA 区） 2.1 文档声明 &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; xml 声明。 &amp;lt;!-- xml 声</description>
     </item>
     

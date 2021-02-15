@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JSTL on jchen&#39;s blog</title>
+    <link>http://jchenTech.github.io/tags/JSTL/</link>
+    <description>Recent content in JSTL on jchen&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 09 Nov 2020 12:55:00 +0800</lastBuildDate><atom:link href="http://jchenTech.github.io/tags/JSTL/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaWeb连载10 | JSTL标签库</title>
+      <link>http://jchenTech.github.io/post/JavaWeb/10JSTL%E6%A0%87%E7%AD%BE%E5%BA%93/</link>
+      <pubDate>Mon, 09 Nov 2020 12:55:00 +0800</pubDate>
+      
+      <guid>http://jchenTech.github.io/post/JavaWeb/10JSTL%E6%A0%87%E7%AD%BE%E5%BA%93/</guid>
+      <description>1 JSTL标签库介绍 JSTL标签库全称是JSP Standard Tag Library，是一个不断完善的开放源代码的JSP标签库 EL表达式主要是为了替换JSP中的表达式脚本，JSTL标签库是为了替换代码脚本 JSTL由五个不同功能的标签库组成： 2 JSTL标签库的使用步骤 先导入JSTL标签库的jar包 在j</description>
+    </item>
+    
+  </channel>
+</rss>
