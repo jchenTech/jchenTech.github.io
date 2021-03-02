@@ -6,7 +6,16 @@
     <description>Recent content on jchen&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 11 Nov 2020 14:00:00 +0800</lastBuildDate><atom:link href="http://jchenTech.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 02 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://jchenTech.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java并发编程(一)  线程介绍、常用方法、两阶段终止状态、线程的五种六种状态</title>
+      <link>http://jchenTech.github.io/post/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E4%B8%80-%E7%BA%BF%E7%A8%8B%E4%BB%8B%E7%BB%8D%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E4%B8%A4%E9%98%B6%E6%AE%B5%E7%BB%88%E6%AD%A2%E7%8A%B6%E6%80%81%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BA%94%E7%A7%8D%E5%85%AD%E7%A7%8D%E7%8A%B6%E6%80%81/</link>
+      <pubDate>Tue, 02 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://jchenTech.github.io/post/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E4%B8%80-%E7%BA%BF%E7%A8%8B%E4%BB%8B%E7%BB%8D%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E4%B8%A4%E9%98%B6%E6%AE%B5%E7%BB%88%E6%AD%A2%E7%8A%B6%E6%80%81%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BA%94%E7%A7%8D%E5%85%AD%E7%A7%8D%E7%8A%B6%E6%80%81/</guid>
+      <description>1. 线程与进程 1.1 进程与进程 进程: 资源分配的最小单位 进程是线程的容器, 一个进程中包含多个线程, 真正执行任务的是线程 线程: 资源调度的最小单位 进程 程序由指令和数据组成，但是这些 指令要运行，数据要读写，就必须将指令加载到cpu，数据加载至内存。在指令运行过程中还需要用到磁盘，网络等设备，进</description>
+    </item>
+    
     <item>
       <title>JavaWeb连载14 | JSON和AJAX</title>
       <link>http://jchenTech.github.io/post/JavaWeb/14JSON%E5%92%8CAJAX/</link>
